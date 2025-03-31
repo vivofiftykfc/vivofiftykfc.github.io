@@ -3,5 +3,18 @@
   
   
   
+  <entry>
+    <title></title>
+    <link href="/2025/03/31/XGBoost%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/"/>
+    <url>/2025/03/31/XGBoost%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/</url>
+    
+    <content type="html"><![CDATA[<h1 id="xgboost技术文档">XGBoost技术文档</h1><h2 id="参数设置">参数设置</h2><p>见代码</p><h2 id="涉及到的相关数学公式">涉及到的相关数学公式：</h2><ul><li><strong>模型目标函数</strong>：</li></ul><p><span class="math display">\[\text{Obj}(\theta)^{(t)} = \sum_{i=1}^n L(y_i, \hat{y}_i) + \sum_{k=1}^K\Omega(f_k)\]</span></p><ul><li><strong>正则项</strong></li></ul><p><span class="math display">\[\Omega(f) = \gamma T + \frac{1}{2} \lambda \sum_{j=1}^T w_j^2\]</span></p><ul><li><strong>目标函数近似</strong></li></ul><p><span class="math display">\[\text{Obj}(\theta)^{(t)} \approx \sum_{i=1}^n \left[ g_i f_t(x_i) +\frac{1}{2} h_i f_t^2(x_i) \right] + \Omega(f_t)\]</span></p><ul><li><strong>增益</strong></li></ul><p><span class="math display">\[\text{Gain} = \frac{1}{2} \left[ \frac{(\sum_{i \in I_L} g_i)^2}{\sum_{i\in I_L} h_i + \lambda} + \frac{(\sum_{i \in I_R} g_i)^2}{\sum_{i \inI_R} h_i + \lambda} - \frac{(\sum_{i \in I} g_i)^2}{\sum_{i \in I} h_i +\lambda} \right] - \gamma\]</span></p><ul><li><strong>对数损失</strong></li></ul><p><span class="math display">\[\text{LogLoss} = -\frac{1}{N} \sum_{i=1}^N \left[ y_i \log p_i + (1-y_i)\log(1-p_i) \right]\]</span></p><ul><li><strong>分类错误率</strong></li></ul><p><span class="math display">\[\text{Error} = \frac{1}{N} \sum_{i=1}^N \mathbb{I}(\hat{y}_i \neq y_i)\]</span></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
   
 </search>
