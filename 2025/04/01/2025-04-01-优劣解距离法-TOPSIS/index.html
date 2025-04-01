@@ -19,24 +19,24 @@
   <meta name="author" content="ZHW">
   <meta name="keywords" content="">
   
-    <meta name="description" content="写了点推导XGBoost数学模型所用得到的数学公式，当做本博客的第一篇帖子">
+    <meta name="description" content="一种基于模糊数学理论的多因素综合评价方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="XGBoost公式文档">
-<meta property="og:url" content="http://example.com/2025/03/31/XGBoost's_latex/">
+<meta property="og:title" content="优劣解距离法-TOPSIS">
+<meta property="og:url" content="http://example.com/2025/04/01/2025-04-01-%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95-TOPSIS/">
 <meta property="og:site_name" content="HWのBLOGS">
-<meta property="og:description" content="写了点推导XGBoost数学模型所用得到的数学公式，当做本博客的第一篇帖子">
+<meta property="og:description" content="一种基于模糊数学理论的多因素综合评价方法">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/xgboost.jpg">
-<meta property="article:published_time" content="2025-03-31T10:14:11.000Z">
-<meta property="article:modified_time" content="2025-03-31T17:27:52.481Z">
+<meta property="og:image" content="http://example.com/img/blogs/topsis.jpg">
+<meta property="article:published_time" content="2025-04-01T10:14:11.000Z">
+<meta property="article:modified_time" content="2025-04-01T10:35:14.862Z">
 <meta property="article:author" content="ZHW">
-<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="数学建模，算法">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/xgboost.jpg">
+<meta name="twitter:image" content="http://example.com/img/blogs/topsis.jpg">
   
   
   
-  <title>XGBoost公式文档 - HWのBLOGS</title>
+  <title>优劣解距离法-TOPSIS - HWのBLOGS</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,13 +197,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/xgboost.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/blogs/topsis.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="XGBoost公式文档"></span>
+            <span id="subtitle" data-typed-text="优劣解距离法-TOPSIS"></span>
           
         </div>
 
@@ -214,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-31 18:14" pubdate>
-          2025年3月31日 晚上
+        <time datetime="2025-04-01 18:14" pubdate>
+          2025年4月1日 晚上
         </time>
       </span>
     
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          173 字
+          1.2k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          3 分钟
+          16 分钟
         
       </span>
     
@@ -283,57 +283,163 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">XGBoost公式文档</h1>
+            <h1 id="seo-header">优劣解距离法-TOPSIS</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="xgboost技术文档">XGBoost技术文档</h1>
-<h2 id="参数设置">参数设置</h2>
-<p>见代码</p>
-<h2 id="涉及到的相关数学公式">涉及到的相关数学公式：</h2>
-<ul>
-<li><strong>模型目标函数</strong>：</li>
-</ul>
+                <h1 id="优劣解距离法-topsis">优劣解距离法-TOPSIS</h1>
+<h2 id="一建模">一、建模</h2>
+<p>TOPSIS进行建模，大致分为以下四个步骤：</p>
+<ol type="1">
+<li>将原始矩阵正向化</li>
+<li>将正向化矩阵标准化</li>
+<li>计算得分并归一化</li>
+</ol>
+<p>个人感觉跟熵权法是有很多的相通之处的，二者应该可以相互混着用。</p>
+<h3 id="第一步将原始矩阵正向化">第一步：将原始矩阵正向化</h3>
+<p>在生活中，常见的指标有四种：</p>
+<table>
+<thead>
+<tr>
+<th>指标名称</th>
+<th>指标特点</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>极大型（效益型）指标</td>
+<td>越大（多）越好</td>
+<td>成绩、GDP增速、企业利润</td>
+</tr>
+<tr>
+<td>极小型（成本型）指标</td>
+<td>越小（少）越好</td>
+<td>费用、坏品率、污染程度</td>
+</tr>
+<tr>
+<td>中间型指标</td>
+<td>越接近某个值越好</td>
+<td>水质量评估时的PH值</td>
+</tr>
+<tr>
+<td>区间型指标</td>
+<td>落在某个区间最好</td>
+<td>体温、水中植物性营养物量</td>
+</tr>
+</tbody>
+</table>
+<p>那么，在TOPSIS方法中，就是要将所有指标进行统一正向化，即统一转化为极大型指标。那么就需要极小型、中间型以及区间型的指标进行转化为极大型指标。</p>
+<p><strong>极小型转极大型</strong>： <span class="math display">\[
+x_{new}= \frac{\max - x_i}{\max - \min}
+\]</span> 如果所有的元素均为正数，那么也可以使用：</p>
 <p><span class="math display">\[
-\text{Obj}(\theta)^{(t)} = \sum_{i=1}^n L(y_i, \hat{y}_i) + \sum_{k=1}^K
-\Omega(f_k)
+x_{new}=\frac{1}{x_i}
 \]</span></p>
-<ul>
-<li><strong>正则项</strong></li>
-</ul>
+<p><strong>中间型转极大型：</strong>
+指标值既不要太大也不要太小，取某特定值最好（如水质量评估PH值）。设<span
+class="math inline">\(\{x_i\}\)</span>是一组中间型指标序列，且最佳的数据为
+<span class="math inline">\(x_{best}\)</span>，那么正向化的公式如下：
+<span class="math display">\[
+M = \max\{|x_i - x_{best}|\}
+\]</span> <span class="math display">\[
+\bar{x}_i = 1 - \frac{|x_i - x_{best}|}{M}
+\]</span> <strong>区间型指标：</strong>
+指标值落在某个区间内最好，例如人的体温在36°～37°这个区间比较好。设<span
+class="math inline">\(\{x_i\}\)</span>是一组区间型指标序列，且最佳的区间为<span
+class="math inline">\([a,b]\)</span>，那么正向化的公式如下： <span
+class="math display">\[
+M = \max\{a - \min\{x_i\}, \max\{x_i\} - b\},\ \tilde{x}_i =
+\begin{cases}
+1 - \frac{a - x_i}{M}, &amp; x_i &lt; a \\
+1, &amp; a \leq x_i \leq b \\
+1 - \frac{x_i - b}{M}, &amp; x_i &gt; b
+\end{cases}
+\]</span> 实际上这里跟熵权法里面讲过的那个正向化基本上一模一样，具体见<a
+href="熵权法(EWM).md">熵权法</a></p>
+<h3 id="第二步正向化矩阵标准化">第二步：正向化矩阵标准化</h3>
+<p>标准化的目的就是消除不同量纲的影响。</p>
+<p>假设有n个要评价的对象，m个评价指标（已经正向化了）构成的正向化矩阵如下：</p>
 <p><span class="math display">\[
-\Omega(f) = \gamma T + \frac{1}{2} \lambda \sum_{j=1}^T w_j^2
-\]</span></p>
-<ul>
-<li><strong>目标函数近似</strong></li>
-</ul>
+X =
+\begin{bmatrix}
+x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1m} \\
+x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2m} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{nm}
+\end{bmatrix}
+\]</span> 那么对其标准化后的矩阵记为Z，Z的每一个元素：</p>
 <p><span class="math display">\[
-\text{Obj}(\theta)^{(t)} \approx \sum_{i=1}^n \left[ g_i f_t(x_i) +
-\frac{1}{2} h_i f_t^2(x_i) \right] + \Omega(f_t)
-\]</span></p>
-<ul>
-<li><strong>增益</strong></li>
-</ul>
+z_{ij} = \frac{x_{ij}}{\sqrt{\sum_{i=1}^{n}x_{ij}^2}}
+\]</span> 标准化矩阵Z：</p>
 <p><span class="math display">\[
-\text{Gain} = \frac{1}{2} \left[ \frac{(\sum_{i \in I_L} g_i)^2}{\sum_{i
-\in I_L} h_i + \lambda} + \frac{(\sum_{i \in I_R} g_i)^2}{\sum_{i \in
-I_R} h_i + \lambda} - \frac{(\sum_{i \in I} g_i)^2}{\sum_{i \in I} h_i +
-\lambda} \right] - \gamma
-\]</span></p>
-<ul>
-<li><strong>对数损失</strong></li>
-</ul>
+Z =
+\begin{bmatrix}
+z_{11} &amp; z_{12} &amp; \cdots &amp; z_{1m} \\
+z_{21} &amp; z_{22} &amp; \cdots &amp; z_{2m} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+z_{n1} &amp; z_{n2} &amp; \cdots &amp; z_{nm}
+\end{bmatrix}
+\]</span>
+注意：标准化的方法不唯一，但目的都是为了去量纲。比如熵权法那一章就还介绍过存在负数时直接上</p>
 <p><span class="math display">\[
-\text{LogLoss} = -\frac{1}{N} \sum_{i=1}^N \left[ y_i \log p_i + (1-y_i)
-\log(1-p_i) \right]
+z_{ij} = \frac{x_{ij} - \min\{x_{1j}, x_{2j}, \ldots,
+x_{nj}\}}{\max\{x_{1j}, x_{2j}, \ldots, x_{nj}\} - \min\{x_{1j}, x_{2j},
+\ldots, x_{nj}\}}
 \]</span></p>
-<ul>
-<li><strong>分类错误率</strong></li>
-</ul>
+<h3 id="第三步计算得分并归一化">第三步：计算得分并归一化</h3>
+<p>最大值：</p>
 <p><span class="math display">\[
-\text{Error} = \frac{1}{N} \sum_{i=1}^N \mathbb{I}(\hat{y}_i \neq y_i)
-\]</span></p>
+Z^+ = (\max\{z_{11},z_{21},\cdots,z_{n1}\},
+\max\{z_{12},z_{22},\cdots,z_{n2}\}, \cdots,
+\max\{z_{1m},z_{2m},\cdots,z_{nm}\})
+\]</span> 最小值： <span class="math display">\[
+Z^- = (\min\{z_{11},z_{21},\cdots,z_{n1}\},
+\min\{z_{12},z_{22},\cdots,z_{n2}\}, \cdots,
+\min\{z_{1m},z_{2m},\cdots,z_{nm}\})
+\]</span> 定义第 <span class="math inline">\(i(i =
+1,2,…,n)\)</span>个评价对象与最大值的距离： <span
+class="math display">\[
+D_i^+ = \sqrt{\sum_{j=1}^{m}(Z_j^+ - z_{ij})^2}
+\]</span> 定义第 <span class="math inline">\(i(i = 1,2,…,n)\)</span>
+个评价对象与最小值的距离：</p>
+<p><span class="math display">\[
+D_i^- = \sqrt{\sum_{j=1}^{m}(Z_j^- - z_{ij})^2}
+\]</span> 那么，我们可以计算得出第 <span class="math inline">\(i(i =
+1,2,…,n)\)</span> 个评价对象未归一化的得分：</p>
+<p><span class="math display">\[
+S_i = \frac{D_i^-}{D_i^+ + D_i^-}
+\]</span> 很明显 <span class="math inline">\(0 \leq S_i \leq
+1\)</span>，且 <span class="math inline">\(S_i\)</span> 越大 <span
+class="math inline">\(D_i^+\)</span> 越小，即越接近最大值。</p>
+<h2 id="二扩展">二、扩展</h2>
+<h4 id="权重结合">权重结合</h4>
+<p>上述过程默认了各项指标的权重相同，但在实际的评价中指标都是有各自的权重，因此应该用权重对公式进行修正，修正后的公式如下，ω代表权重。
+<span class="math display">\[
+D_i^+ = \sqrt{\sum_{j=1}^{m}\omega_j(Z_j^+ - z_{ij})^2},\ D_i^- =
+\sqrt{\sum_{j=1}^{m}\omega_j(Z_j^- - z_{ij})^2}
+\]</span> 这里就可以直接上熵权法，当然，专家瞎打分也不是不行。</p>
+<h4 id="本质推导">本质推导</h4>
+<p>公式：</p>
+<p><span class="math display">\[
+S_i = \frac{D_i^-}{D_i^+ + D_i^-}
+\]</span> 实际上是：</p>
+<p><span class="math display">\[
+\frac{x - \min}{\max - \min} \rightarrow \frac{x - \min}{(\max - x) + (x
+- \min)} \rightarrow \frac{x与最小值的距离}{x与最大值的距离 +
+x与最小值的距离}
+\]</span> <span class="math inline">\(D_i^+\)</span>与<span
+class="math inline">\(D_i^-\)</span>实际上是<strong>欧氏距离</strong>，这个的本质思想和熵权法的实际上是有很多的相同之处的。</p>
+<h2 id="参考">参考</h2>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43819566/article/details/112342602">清风数学建模学习笔记——TOPSIS法（优劣解距离法）-CSDN博客</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/564302492">数学建模——常考评价类模型介绍
+- 知乎</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/266689519">TOPSIS(逼近理想解)算法原理详解与代码实现
+- 知乎</a></p>
 
                 
               </div>
@@ -357,24 +463,7 @@ I_R} h_i + \lambda} - \frac{(\sum_{i \in I} g_i)^2}{\sum_{i \in I} h_i +
   
     <span>></span>
     
-  <a href="/categories/%E6%95%B0%E5%AD%A6/%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" class="category-chain-item">公式推导</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%AE%97%E6%B3%95/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="category-chain-item">机器学习</a>
+  <a href="/categories/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="category-chain-item">数学建模</a>
   
   
 
@@ -391,7 +480,7 @@ I_R} h_i + \lambda} - \frac{(\sum_{i \in I} g_i)^2}{\sum_{i \in I} h_i +
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="print-no-link">#机器学习</a>
+        <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%EF%BC%8C%E7%AE%97%E6%B3%95/" class="print-no-link">#数学建模，算法</a>
       
     </div>
   
@@ -403,8 +492,8 @@ I_R} h_i + \lambda} - \frac{(\sum_{i \in I} g_i)^2}{\sum_{i \in I} h_i +
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>XGBoost公式文档</div>
-      <div>http://example.com/2025/03/31/XGBoost&#39;s_latex/</div>
+      <div>优劣解距离法-TOPSIS</div>
+      <div>http://example.com/2025/04/01/2025-04-01-优劣解距离法-TOPSIS/</div>
     </div>
     <div class="license-meta">
       
@@ -416,7 +505,7 @@ I_R} h_i + \lambda} - \frac{(\sum_{i \in I} g_i)^2}{\sum_{i \in I} h_i +
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年3月31日</div>
+          <div>2025年4月1日</div>
         </div>
       
       
@@ -460,15 +549,15 @@ I_R} h_i + \lambda} - \frac{(\sum_{i \in I} g_i)^2}{\sum_{i \in I} h_i +
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/03/31/%E7%86%B5%E6%9D%83%E6%B3%95(EWM)/" title="熵权法-EWM">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">熵权法-EWM</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2025/04/01/2025-04-01-%E6%A8%A1%E7%B3%8A%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7%E6%B3%95-FCE/" title="模糊综合评价法-FCE">
+                        <span class="hidden-mobile">模糊综合评价法-FCE</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
