@@ -19,24 +19,24 @@
   <meta name="author" content="ZHW">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一种基于模糊数学理论的多因素综合评价方法">
+    <meta name="description" content="一直以来的目标检测算法在检测摔倒等组间任务时存在难以辨别摔倒与坐下等动作的区别，即在类间分类任务上存在难度。本文期待以人体关键点识别的路径实现这一任务">
 <meta property="og:type" content="article">
-<meta property="og:title" content="优劣解距离法-TOPSIS">
-<meta property="og:url" content="http://example.com/2025/04/01/2025-04-01-%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95-TOPSIS/">
+<meta property="og:title" content="基于人体关键点识别的摔倒检测算法">
+<meta property="og:url" content="http://example.com/2025/04/05/2025-04-05-%E5%9F%BA%E4%BA%8E%E4%BA%BA%E4%BD%93%E5%85%B3%E9%94%AE%E7%82%B9%E8%AF%86%E5%88%AB%E7%9A%84%E6%91%94%E5%80%92%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/">
 <meta property="og:site_name" content="HWのBLOGS">
-<meta property="og:description" content="一种基于模糊数学理论的多因素综合评价方法">
+<meta property="og:description" content="一直以来的目标检测算法在检测摔倒等组间任务时存在难以辨别摔倒与坐下等动作的区别，即在类间分类任务上存在难度。本文期待以人体关键点识别的路径实现这一任务">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/blogs/topsis.jpg">
-<meta property="article:published_time" content="2025-04-01T10:14:11.000Z">
-<meta property="article:modified_time" content="2025-04-04T07:17:59.414Z">
+<meta property="og:image" content="http://example.com/img/blogs/fall.jpg">
+<meta property="article:published_time" content="2025-04-04T17:14:11.000Z">
+<meta property="article:modified_time" content="2025-04-04T17:26:34.093Z">
 <meta property="article:author" content="ZHW">
-<meta property="article:tag" content="数学建模，算法">
+<meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/blogs/topsis.jpg">
+<meta name="twitter:image" content="http://example.com/img/blogs/fall.jpg">
   
   
   
-  <title>优劣解距离法-TOPSIS - HWのBLOGS</title>
+  <title>基于人体关键点识别的摔倒检测算法 - HWのBLOGS</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,13 +197,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/blogs/topsis.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/blogs/fall.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="优劣解距离法-TOPSIS"></span>
+            <span id="subtitle" data-typed-text="基于人体关键点识别的摔倒检测算法"></span>
           
         </div>
 
@@ -214,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-04-01 18:14" pubdate>
-          2025年4月1日 晚上
+        <time datetime="2025-04-05 01:14" pubdate>
+          2025年4月5日 凌晨
         </time>
       </span>
     
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          1.1k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          15 分钟
+          14 分钟
         
       </span>
     
@@ -283,163 +283,107 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">优劣解距离法-TOPSIS</h1>
+            <h1 id="seo-header">基于人体关键点识别的摔倒检测算法</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="优劣解距离法-topsis">优劣解距离法-TOPSIS</h1>
-<h2 id="一建模">一、建模</h2>
-<p>TOPSIS进行建模，大致分为以下四个步骤：</p>
+                <h1
+id="基于人体关键点识别的摔倒检测算法">基于人体关键点识别的摔倒检测算法</h1>
+<p>最开始我们做跌倒检测的时候用的是传统的单纯用yolo等目标检测算法，但是在交流中我们也发现一个问题，就是传统的目标检测难以区分摔倒与跑跳坐下蹲下等动作之间的区别，即难以实现类间分类，然后就是一拍脑门想起来了可以基于人体关键点识别来做跌倒检测，和其他的动作区分开来，而且这个方案已经比较成熟了，详细可见下面的参考文献。在这里先做一下算法的调研。之后等这个项目结题后再进行具体模型的分享。</p>
+<h2 id="现存算法">现存算法</h2>
+<h3 id="传统时空分析">传统时空分析</h3>
+<p>通过实时跟踪人体骨骼关键点（如头、肩、膝盖、脚踝等），分析这些点的位置变化规律来判断是否跌倒。优点是直观和解释性强，适合实时的检测；缺点为数据缺失时可能出错，这个在鲁棒性上可以做一些工作。</p>
+<pre><code class=" mermaid">flowchart LR
+    A[视频/图像输入] --&gt; B[关键点提取]
+    B --&gt; C[动态特征计算]
+    C --&gt; D[分类决策]
+    D --&gt; E&#123;&#123;跌倒判定结果&#125;&#125;
+
+    %% 关键点提取模块
+    subgraph keypoint_extract [关键点提取]
+        direction TB
+        B1[OpenPose] --&gt;|输出关键点| B2[BlazePose]
+    end
+
+    %% 动态特征计算模块
+    subgraph feature_cal [动态特征计算]
+        direction TB
+        C1[质心高度&lt;br&gt;（头部/躯干骤降）]:::feature
+        C2[关节角度&lt;br&gt;（躯干-地面夹角）]:::feature
+        C3[运动速度&lt;br&gt;（垂直加速度突增）]:::feature
+    end
+
+    %% 分类决策模块
+    subgraph decision [分类决策]
+        direction TB
+        D1[阈值法]:::decision --&gt;|&quot;高度 &lt; 阈值?&quot;| D1a[报警]
+        D2[机器学习模型]:::decision --&gt; D2a[SVM] &amp; D2b[随机森林]
+    end
+
+    %% 应用样式
+    class A input;
+    class B,B1,B2 process;
+    class C,C1,C2,C3 feature;
+    class D,D1,D2 decision;
+    class E result;
+</code></pre>
+<ul>
+<li><p>关键点提取：</p>
+<p>人体关键点检测模型（如OpenPose、BlazePose）从视频中抓取人体关键点坐标。</p></li>
+<li><p>动态特征计算：</p></li>
+</ul>
+<p>​ 质心高度：头部或躯干关键点的高度突然下降可能是跌倒信号。</p>
+<p>​
+关节角度：如肩膀-膝盖连线与地面的夹角急剧变小（例如从站立时的90°到跌倒后的接近0°）。</p>
+<p>​
+运动速度：头部或躯干在垂直方向的加速度骤增（例如跌倒时的“失重”瞬间）。</p>
+<ul>
+<li>分类决策：</li>
+</ul>
+<p>​ 手动调阈值：设定特征阈值（如质心高度低于膝盖时判定跌倒）。</p>
+<p>​ 机器学习模型：用SVM或随机森林基于特征组合分类。
+直接上机器学习算了。</p>
+<hr />
+<h3 id="深度学习时序建模">深度学习时序建模</h3>
+<p>算力和数据要求比较高。</p>
+<ul>
+<li>LSTM：分析关键点序列的时序变化，捕捉“跌倒前-跌倒中-跌倒后”的动态过程。
+<ul>
+<li>例如，专利CN112163564A将人体分为头、躯干、腿三区域，用LSTM记忆动作轨迹，预判跌倒风险。<br />
+</li>
+</ul></li>
+<li>3D
+CNN：直接输入视频片段，同时提取空间（姿态）和时间（动作）特征（勉强算吧，做出来了也是勾八）。<br />
+</li>
+<li>图卷积网络（GCN）：将人体骨骼视为图结构，分析关节间的关联性，适合处理复杂动作。这个网络还不咋熟，到时候再学一下。</li>
+</ul>
+<hr />
+<h3
+id="基于clahe与形态学的目标骨架提取"><strong>基于CLAHE与形态学的目标骨架提取</strong></h3>
+<p>这个主要是骨架提取的，不需要深度学习模型，计算资源需求不高，但是可能在复杂背景下的鲁棒性不足。</p>
+<ul>
+<li><strong>图像增强</strong>：使用限制对比度自适应直方图均衡化（CLAHE）提升图像对比度，突出人体轮廓。</li>
+<li><strong>骨架提取</strong>：
 <ol type="1">
-<li>将原始矩阵正向化</li>
-<li>将正向化矩阵标准化</li>
-<li>计算得分并归一化</li>
-</ol>
-<p>个人感觉跟熵权法是有很多的相通之处的，二者应该可以相互混着用。</p>
-<h3 id="矩阵正向化">矩阵正向化</h3>
-<p>在生活中，常见的指标有四种：</p>
-<table>
-<thead>
-<tr>
-<th>指标名称</th>
-<th>指标特点</th>
-<th>例子</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>极大型（效益型）指标</td>
-<td>越大（多）越好</td>
-<td>成绩、GDP增速、企业利润</td>
-</tr>
-<tr>
-<td>极小型（成本型）指标</td>
-<td>越小（少）越好</td>
-<td>费用、坏品率、污染程度</td>
-</tr>
-<tr>
-<td>中间型指标</td>
-<td>越接近某个值越好</td>
-<td>水质量评估时的PH值</td>
-</tr>
-<tr>
-<td>区间型指标</td>
-<td>落在某个区间最好</td>
-<td>体温、水中植物性营养物量</td>
-</tr>
-</tbody>
-</table>
-<p>那么，在TOPSIS方法中，就是要将所有指标进行统一正向化，即统一转化为极大型指标。那么就需要极小型、中间型以及区间型的指标进行转化为极大型指标。</p>
-<p><strong>极小型转极大型</strong>： <span class="math display">\[
-x_{new}= \frac{\max - x_i}{\max - \min}
-\]</span> 如果所有的元素均为正数，那么也可以使用：</p>
-<p><span class="math display">\[
-x_{new}=\frac{1}{x_i}
-\]</span></p>
-<p><strong>中间型转极大型：</strong>
-指标值既不要太大也不要太小，取某特定值最好（如水质量评估PH值）。设<span
-class="math inline">\(\{x_i\}\)</span>是一组中间型指标序列，且最佳的数据为
-<span class="math inline">\(x_{best}\)</span>，那么正向化的公式如下：
-<span class="math display">\[
-M = \max\{|x_i - x_{best}|\}
-\]</span> <span class="math display">\[
-\bar{x}_i = 1 - \frac{|x_i - x_{best}|}{M}
-\]</span> <strong>区间型指标：</strong>
-指标值落在某个区间内最好，例如人的体温在36°～37°这个区间比较好。设<span
-class="math inline">\(\{x_i\}\)</span>是一组区间型指标序列，且最佳的区间为<span
-class="math inline">\([a,b]\)</span>，那么正向化的公式如下： <span
-class="math display">\[
-M = \max\{a - \min\{x_i\}, \max\{x_i\} - b\},\ \tilde{x}_i =
-\begin{cases}
-1 - \frac{a - x_i}{M}, &amp; x_i &lt; a \\
-1, &amp; a \leq x_i \leq b \\
-1 - \frac{x_i - b}{M}, &amp; x_i &gt; b
-\end{cases}
-\]</span> 实际上这里跟熵权法里面讲过的那个正向化基本上一模一样，具体见<a
-href="熵权法(EWM).md">熵权法</a></p>
-<h3 id="矩阵标准化">矩阵标准化</h3>
-<p>标准化的目的就是消除不同量纲的影响。</p>
-<p>假设有n个要评价的对象，m个评价指标（已经正向化了）构成的正向化矩阵如下：</p>
-<p><span class="math display">\[
-X =
-\begin{bmatrix}
-x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1m} \\
-x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2m} \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{nm}
-\end{bmatrix}
-\]</span> 那么对其标准化后的矩阵记为Z，Z的每一个元素：</p>
-<p><span class="math display">\[
-z_{ij} = \frac{x_{ij}}{\sqrt{\sum_{i=1}^{n}x_{ij}^2}}
-\]</span> 标准化矩阵Z：</p>
-<p><span class="math display">\[
-Z =
-\begin{bmatrix}
-z_{11} &amp; z_{12} &amp; \cdots &amp; z_{1m} \\
-z_{21} &amp; z_{22} &amp; \cdots &amp; z_{2m} \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-z_{n1} &amp; z_{n2} &amp; \cdots &amp; z_{nm}
-\end{bmatrix}
-\]</span>
-注意：标准化的方法不唯一，但目的都是为了去量纲。比如熵权法那一章就还介绍过存在负数时直接上</p>
-<p><span class="math display">\[
-z_{ij} = \frac{x_{ij} - \min\{x_{1j}, x_{2j}, \ldots,
-x_{nj}\}}{\max\{x_{1j}, x_{2j}, \ldots, x_{nj}\} - \min\{x_{1j}, x_{2j},
-\ldots, x_{nj}\}}
-\]</span></p>
-<h3 id="计分归一化">计分归一化</h3>
-<p>最大值：</p>
-<p><span class="math display">\[
-Z^+ = (\max\{z_{11},z_{21},\cdots,z_{n1}\},
-\max\{z_{12},z_{22},\cdots,z_{n2}\}, \cdots,
-\max\{z_{1m},z_{2m},\cdots,z_{nm}\})
-\]</span> 最小值： <span class="math display">\[
-Z^- = (\min\{z_{11},z_{21},\cdots,z_{n1}\},
-\min\{z_{12},z_{22},\cdots,z_{n2}\}, \cdots,
-\min\{z_{1m},z_{2m},\cdots,z_{nm}\})
-\]</span> 定义第 <span class="math inline">\(i(i =
-1,2,…,n)\)</span>个评价对象与最大值的距离： <span
-class="math display">\[
-D_i^+ = \sqrt{\sum_{j=1}^{m}(Z_j^+ - z_{ij})^2}
-\]</span> 定义第 <span class="math inline">\(i(i = 1,2,…,n)\)</span>
-个评价对象与最小值的距离：</p>
-<p><span class="math display">\[
-D_i^- = \sqrt{\sum_{j=1}^{m}(Z_j^- - z_{ij})^2}
-\]</span> 那么，我们可以计算得出第 <span class="math inline">\(i(i =
-1,2,…,n)\)</span> 个评价对象未归一化的得分：</p>
-<p><span class="math display">\[
-S_i = \frac{D_i^-}{D_i^+ + D_i^-}
-\]</span> 很明显 <span class="math inline">\(0 \leq S_i \leq
-1\)</span>，且 <span class="math inline">\(S_i\)</span> 越大 <span
-class="math inline">\(D_i^+\)</span> 越小，即越接近最大值。</p>
-<h2 id="二扩展">二、扩展</h2>
-<h4 id="权重结合">权重结合</h4>
-<p>上述过程默认了各项指标的权重相同，但在实际的评价中指标都是有各自的权重，因此应该用权重对公式进行修正，修正后的公式如下，ω代表权重。
-<span class="math display">\[
-D_i^+ = \sqrt{\sum_{j=1}^{m}\omega_j(Z_j^+ - z_{ij})^2},\ D_i^- =
-\sqrt{\sum_{j=1}^{m}\omega_j(Z_j^- - z_{ij})^2}
-\]</span> 这里就可以直接上熵权法，当然，专家瞎打分也不是不行。</p>
-<h4 id="本质推导">本质推导</h4>
-<p>公式：</p>
-<p><span class="math display">\[
-S_i = \frac{D_i^-}{D_i^+ + D_i^-}
-\]</span> 实际上是：</p>
-<p><span class="math display">\[
-\frac{x - \min}{\max - \min} \rightarrow \frac{x - \min}{(\max - x) + (x
-- \min)} \rightarrow \frac{x与最小值的距离}{x与最大值的距离 +
-x与最小值的距离}
-\]</span> <span class="math inline">\(D_i^+\)</span>与<span
-class="math inline">\(D_i^-\)</span>实际上是<strong>欧氏距离</strong>，这个的本质思想和熵权法的实际上是有很多的相同之处的。</p>
-<h2 id="参考">参考</h2>
-<p><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43819566/article/details/112342602">清风数学建模学习笔记——TOPSIS法（优劣解距离法）-CSDN博客</a></p>
-<p><a
-target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/564302492">数学建模——常考评价类模型介绍
-- 知乎</a></p>
-<p><a
-target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/266689519">TOPSIS(逼近理想解)算法原理详解与代码实现
-- 知乎</a></p>
+<li>背景差分法分离运动目标，形态学闭运算填充空洞。</li>
+<li>边缘检测（如Sobel算子）提取人体轮廓，中值滤波去噪。</li>
+<li>细化算法生成人体骨架，提取近似关键点（如头部、四肢末端）。</li>
+</ol></li>
+</ul>
+<hr />
+<h3 id="拓展">拓展</h3>
+<p><strong>遮挡问题</strong>：</p>
+<p>使用时空滤波（如滑动窗口滤波）填补遮挡导致的关键点缺失。</p>
+<p><strong>实时性优化</strong>：</p>
+<ul>
+<li><p>采用模型蒸馏技术，将大模型的知识迁移到小模型。</p></li>
+<li><p>通过OpenVINO™等工具将模型部署到边缘设备，减少云端依赖。</p></li>
+</ul>
+<p><strong>鲁棒性优化（这个robust的翻译见一次骂一次）</strong></p>
+<ul>
+<li>多传感器融合，比如加个手环上面整点加速计之类的，但是这个成本直接干上去了</li>
+</ul>
 
                 
               </div>
@@ -458,15 +402,8 @@ target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/266689519">TOP
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%8C%E5%AE%9E%E8%B7%B5/" class="category-chain-item">机器学习，实践</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="category-chain-item">数学建模</a>
-  
-  
-
   
 
       </span>
@@ -480,7 +417,7 @@ target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/266689519">TOP
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%EF%BC%8C%E7%AE%97%E6%B3%95/" class="print-no-link">#数学建模，算法</a>
+        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="print-no-link">#机器学习</a>
       
     </div>
   
@@ -492,8 +429,8 @@ target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/266689519">TOP
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>优劣解距离法-TOPSIS</div>
-      <div>http://example.com/2025/04/01/2025-04-01-优劣解距离法-TOPSIS/</div>
+      <div>基于人体关键点识别的摔倒检测算法</div>
+      <div>http://example.com/2025/04/05/2025-04-05-基于人体关键点识别的摔倒检测算法/</div>
     </div>
     <div class="license-meta">
       
@@ -505,7 +442,7 @@ target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/266689519">TOP
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年4月1日</div>
+          <div>2025年4月5日</div>
         </div>
       
       
@@ -549,9 +486,9 @@ target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/266689519">TOP
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/04/04/2025-04-04-%E6%A0%87%E5%87%86%E5%88%86%E6%95%B0-Z-Score/" title="标准分数-Z-Score">
+                      <a href="/2025/04/06/2025-04-05-%E6%98%BE%E7%A4%BA%E5%99%A8%E5%8F%82%E6%95%B0%E5%8F%8A%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E8%A7%A3%E8%AF%BB/" title="显示器参数及相关知识解读">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">标准分数-Z-Score</span>
+                        <span class="hidden-mobile">显示器参数及相关知识解读</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -559,8 +496,8 @@ target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/266689519">TOP
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/04/01/2025-04-01-%E6%A8%A1%E7%B3%8A%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7%E6%B3%95-FCE/" title="模糊综合评价法-FCE">
-                        <span class="hidden-mobile">模糊综合评价法-FCE</span>
+                      <a href="/2025/04/04/2025-04-04-%E6%A0%87%E5%87%86%E5%88%86%E6%95%B0-Z-Score/" title="标准分数-Z-Score">
+                        <span class="hidden-mobile">标准分数-Z-Score</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
