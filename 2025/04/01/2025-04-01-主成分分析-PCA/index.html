@@ -19,24 +19,24 @@
   <meta name="author" content="ZHW">
   <meta name="keywords" content="">
   
-    <meta name="description" content="写了点推导XGBoost数学模型所用得到的数学公式，当做本博客的第一篇帖子">
+    <meta name="description" content="一种判定指标是否具有代表性的方法，可降低判定维度，但在解释主成分的时候比较模糊">
 <meta property="og:type" content="article">
-<meta property="og:title" content="XGBoost公式文档">
-<meta property="og:url" content="http://example.com/2025/03/31/XGBoost's_latex/">
+<meta property="og:title" content="主成分分析-PCA">
+<meta property="og:url" content="http://example.com/2025/04/01/2025-04-01-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-PCA/">
 <meta property="og:site_name" content="HWのBLOGS">
-<meta property="og:description" content="写了点推导XGBoost数学模型所用得到的数学公式，当做本博客的第一篇帖子">
+<meta property="og:description" content="一种判定指标是否具有代表性的方法，可降低判定维度，但在解释主成分的时候比较模糊">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/xgboost.jpg">
-<meta property="article:published_time" content="2025-03-31T10:14:11.000Z">
-<meta property="article:modified_time" content="2025-03-31T17:27:52.481Z">
+<meta property="og:image" content="http://example.com/img/blogs/pca.jpg">
+<meta property="article:published_time" content="2025-03-31T16:28:11.000Z">
+<meta property="article:modified_time" content="2025-04-04T15:52:54.945Z">
 <meta property="article:author" content="ZHW">
-<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="数学建模，算法">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/xgboost.jpg">
+<meta name="twitter:image" content="http://example.com/img/blogs/pca.jpg">
   
   
   
-  <title>XGBoost公式文档 - HWのBLOGS</title>
+  <title>主成分分析-PCA - HWのBLOGS</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,13 +197,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/xgboost.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/blogs/pca.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="XGBoost公式文档"></span>
+            <span id="subtitle" data-typed-text="主成分分析-PCA"></span>
           
         </div>
 
@@ -214,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-31 18:14" pubdate>
-          2025年3月31日 晚上
+        <time datetime="2025-04-01 00:28" pubdate>
+          2025年4月1日 凌晨
         </time>
       </span>
     
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          173 字
+          991 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          3 分钟
+          13 分钟
         
       </span>
     
@@ -283,57 +283,136 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">XGBoost公式文档</h1>
+            <h1 id="seo-header">主成分分析-PCA</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="xgboost技术文档">XGBoost技术文档</h1>
-<h2 id="参数设置">参数设置</h2>
-<p>见代码</p>
-<h2 id="涉及到的相关数学公式">涉及到的相关数学公式：</h2>
+                <h1 id="主成分分析-pca">主成分分析-PCA</h1>
+<p>主成分分析（PCA）是一种降维算法，通过将原始变量进行线性组合，生成互不相关的主成分，从而保留数据的主要信息，以此来去噪，提升数据处理速度。PCA
+常用于数据简化、聚类分析及解决回归中多重共线性问题，但在解释主成分时往往较为模糊，故不常用于评价模型。</p>
+<hr />
+<h2 id="一简介">一、简介</h2>
 <ul>
-<li><strong>模型目标函数</strong>：</li>
+<li><strong>目标：</strong>
+用较少的新变量替代原来较多的变量，尽可能保留原有信息。<br />
+</li>
+<li><strong>应用：</strong> 数据降维、去除噪声、提升数据处理速度。<br />
+</li>
+<li><strong>适用场景</strong>：指标高度相关易于解释、可解释需求低。</li>
+<li><strong>局限性</strong>：非线性关系处理的不好，贡献度若是不足可能会丢失细节。</li>
 </ul>
+<hr />
+<h2 id="二思想">二、思想</h2>
+<p>假设有 <span class="math inline">\(n\)</span> 个样本和 <span
+class="math inline">\(p\)</span> 个指标，构成一个 $ n p$
+的样本矩阵：</p>
 <p><span class="math display">\[
-\text{Obj}(\theta)^{(t)} = \sum_{i=1}^n L(y_i, \hat{y}_i) + \sum_{k=1}^K
-\Omega(f_k)
-\]</span></p>
+X = \begin{bmatrix}
+x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1p} \\
+x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2p} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{np} \\
+\end{bmatrix}
+= (x_1, x_2, \cdots, x_p)
+\]</span> 目标是寻找新的变量 $ z_1, z_2, , z_m $（其中 $ m p
+$），使其满足：</p>
+<p><span class="math display">\[
+\begin{cases}
+z_1 = l_{11}x_1 + l_{12}x_2 + \cdots + l_{1p}x_p \\
+z_2 = l_{21}x_1 + l_{22}x_2 + \cdots + l_{2p}x_p \\
+\vdots \\
+z_m = l_{m1}x_1 + l_{m2}x_2 + \cdots + l_{mp}x_p \\
+\end{cases}
+\]</span> <strong>系数 $ l_{ij} $ 的确定原则：</strong></p>
+<ol type="1">
+<li>不同主成分之间彼此不相关。</li>
+<li>第一主成分是所有线性组合中方差最大的。</li>
+<li>第二主成分在与第一主成分不相关的条件下方差最大。</li>
+<li>依此类推，直到选出 $ m $ 个主成分。</li>
+</ol>
+<hr />
+<h2 id="三计算步骤">三、计算步骤</h2>
+<h3 id="数据标准化">1. 数据标准化</h3>
 <ul>
-<li><strong>正则项</strong></li>
+<li><p><strong>计算均值和标准差：</strong> <span class="math display">\[
+\bar{x}_j = \frac{1}{n} \sum_{i=1}^{n} x_{ij},\quad S_j =
+\sqrt{\frac{\sum_{i=1}^{n}(x_{ij}-\bar{x}_j)^2}{n-1}}
+\]</span></p></li>
+<li><p><strong>标准化数据：</strong> <span class="math display">\[
+X_{ij} = \frac{x_{ij}-\bar{x}_j}{S_j}
+\]</span></p></li>
+<li><p><strong>标准化后的矩阵：</strong> <span class="math display">\[
+X = \begin{bmatrix}
+X_{11} &amp; X_{12} &amp; \cdots &amp; X_{1p} \\
+X_{21} &amp; X_{22} &amp; \cdots &amp; X_{2p} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+X_{n1} &amp; X_{n2} &amp; \cdots &amp; X_{np} \\
+\end{bmatrix}
+\]</span></p></li>
 </ul>
-<p><span class="math display">\[
-\Omega(f) = \gamma T + \frac{1}{2} \lambda \sum_{j=1}^T w_j^2
-\]</span></p>
+<h3 id="计算协方差矩阵">2. 计算协方差矩阵</h3>
 <ul>
-<li><strong>目标函数近似</strong></li>
+<li><strong>定义：</strong> <span class="math display">\[
+R = \begin{bmatrix}
+r_{11} &amp; r_{12} &amp; \cdots &amp; r_{1p} \\
+r_{21} &amp; r_{22} &amp; \cdots &amp; r_{2p} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+r_{p1} &amp; r_{p2} &amp; \cdots &amp; r_{pp} \\
+\end{bmatrix},\quad r_{ij} = \frac{1}{n-1}\sum_{k=1}^{n} X_{ki} X_{kj}
+\]</span></li>
 </ul>
-<p><span class="math display">\[
-\text{Obj}(\theta)^{(t)} \approx \sum_{i=1}^n \left[ g_i f_t(x_i) +
-\frac{1}{2} h_i f_t^2(x_i) \right] + \Omega(f_t)
-\]</span></p>
+<h3 id="求解特征值和特征向量">3. 求解特征值和特征向量</h3>
 <ul>
-<li><strong>增益</strong></li>
+<li><p><strong>特征值：</strong> <span class="math display">\[
+\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_p \geq 0
+\]</span> （且 $ R $ 为半正定矩阵）</p></li>
+<li><p><strong>对应的特征向量：</strong> <span class="math display">\[
+a_1 = \begin{bmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{p1}
+\end{bmatrix},\quad
+a_2 = \begin{bmatrix} a_{12} \\ a_{22} \\ \vdots \\ a_{p2}
+\end{bmatrix},\quad \dots,\quad
+a_p = \begin{bmatrix} a_{1p} \\ a_{2p} \\ \vdots \\ a_{pp} \end{bmatrix}
+\]</span></p></li>
+<li></li>
 </ul>
-<p><span class="math display">\[
-\text{Gain} = \frac{1}{2} \left[ \frac{(\sum_{i \in I_L} g_i)^2}{\sum_{i
-\in I_L} h_i + \lambda} + \frac{(\sum_{i \in I_R} g_i)^2}{\sum_{i \in
-I_R} h_i + \lambda} - \frac{(\sum_{i \in I} g_i)^2}{\sum_{i \in I} h_i +
-\lambda} \right] - \gamma
-\]</span></p>
+<h3 id="计算贡献率和累计贡献率">4. 计算贡献率和累计贡献率</h3>
 <ul>
-<li><strong>对数损失</strong></li>
+<li><p><strong>贡献率：</strong> <span class="math display">\[
+\text{贡献率} = \frac{\lambda_i}{\sum_{k=1}^{p}\lambda_k}
+\]</span></p></li>
+<li><p><strong>累计贡献率：</strong> <span class="math display">\[
+\text{累计贡献率} =
+\frac{\sum_{k=1}^{i}\lambda_k}{\sum_{k=1}^{p}\lambda_k}\quad
+(i=1,2,\dots,p)
+\]</span></p></li>
+<li></li>
 </ul>
+<h3 id="写出主成分">5. 写出主成分</h3>
+<p>一般选择累计贡献率超过 80% 的前 ( m ) 个主成分：</p>
 <p><span class="math display">\[
-\text{LogLoss} = -\frac{1}{N} \sum_{i=1}^N \left[ y_i \log p_i + (1-y_i)
-\log(1-p_i) \right]
+F_i = a_{1i}X_1 + a_{2i}X_2 + \cdots + a_{pi}X_p,\quad (i=1,2,\dots,m)
 \]</span></p>
-<ul>
-<li><strong>分类错误率</strong></li>
-</ul>
-<p><span class="math display">\[
-\text{Error} = \frac{1}{N} \sum_{i=1}^N \mathbb{I}(\hat{y}_i \neq y_i)
-\]</span></p>
+<h3 id="主成分的解释">6. 主成分的解释</h3>
+<p>根据各指标在主成分中的载荷大小判断该主成分代表的含义，载荷越大的指标对该主成分的影响越大。</p>
+<hr />
+<h2 id="四扩展">四、扩展</h2>
+<ol type="1">
+<li><strong>聚类分析：</strong>
+可通过降维简化自变量，便于图形展示。</li>
+<li><strong>回归分析：</strong> 可用于缓解多重共线性问题。</li>
+<li><strong>因子分析：</strong> PCA
+实际上是因子分析的一种特例，但因子分析在解释方面更具优势，建议多用因子分析。</li>
+</ol>
+<hr />
+<h2 id="参考资料">参考资料</h2>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43819566/article/details/113800120">清风数学建模学习笔记——主成分分析(PCA)原理详解及案例分析_x10为生均教育经费对以上指标数据做主成分分析，并提取主成分-CSDN博客</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://developer.baidu.com/article/details/3015610">数学建模中的主成分分析(PCA)详解与应用-百度开发者中心</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/677797684">【数模百科】一文讲清楚主成分分析PCA（附python代码）
+- 知乎</a></p>
 
                 
               </div>
@@ -357,24 +436,7 @@ I_R} h_i + \lambda} - \frac{(\sum_{i \in I} g_i)^2}{\sum_{i \in I} h_i +
   
     <span>></span>
     
-  <a href="/categories/%E6%95%B0%E5%AD%A6/%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" class="category-chain-item">公式推导</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%AE%97%E6%B3%95/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="category-chain-item">机器学习</a>
+  <a href="/categories/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="category-chain-item">数学建模</a>
   
   
 
@@ -391,7 +453,7 @@ I_R} h_i + \lambda} - \frac{(\sum_{i \in I} g_i)^2}{\sum_{i \in I} h_i +
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="print-no-link">#机器学习</a>
+        <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%EF%BC%8C%E7%AE%97%E6%B3%95/" class="print-no-link">#数学建模，算法</a>
       
     </div>
   
@@ -403,8 +465,8 @@ I_R} h_i + \lambda} - \frac{(\sum_{i \in I} g_i)^2}{\sum_{i \in I} h_i +
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>XGBoost公式文档</div>
-      <div>http://example.com/2025/03/31/XGBoost&#39;s_latex/</div>
+      <div>主成分分析-PCA</div>
+      <div>http://example.com/2025/04/01/2025-04-01-主成分分析-PCA/</div>
     </div>
     <div class="license-meta">
       
@@ -416,7 +478,7 @@ I_R} h_i + \lambda} - \frac{(\sum_{i \in I} g_i)^2}{\sum_{i \in I} h_i +
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年3月31日</div>
+          <div>2025年4月1日</div>
         </div>
       
       
@@ -460,15 +522,21 @@ I_R} h_i + \lambda} - \frac{(\sum_{i \in I} g_i)^2}{\sum_{i \in I} h_i +
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/03/31/%E7%86%B5%E6%9D%83%E6%B3%95(EWM)/" title="熵权法-EWM">
+                      <a href="/2025/04/01/2025-04-01-%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95-TOPSIS/" title="优劣解距离法-TOPSIS">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">熵权法-EWM</span>
+                        <span class="hidden-mobile">优劣解距离法-TOPSIS</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2025/03/31/2025-03-31-%E7%9A%AE%E5%B0%94%E9%80%8A%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/" title="皮尔逊相关系数-PEARSON">
+                        <span class="hidden-mobile">皮尔逊相关系数-PEARSON</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

@@ -19,24 +19,24 @@
   <meta name="author" content="ZHW">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一种判定两种指标是否线性相关，即判断其独立性的方法">
+    <meta name="description" content="写了点推导XGBoost数学模型所用得到的数学公式，当做本博客的第一篇帖子">
 <meta property="og:type" content="article">
-<meta property="og:title" content="皮尔逊相关系数-PEARSON">
-<meta property="og:url" content="http://example.com/2025/03/31/%E7%9A%AE%E5%B0%94%E9%80%8A%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/">
+<meta property="og:title" content="XGBoost公式文档">
+<meta property="og:url" content="http://example.com/2025/03/31/2025-03-31-XGBoost's_latex/">
 <meta property="og:site_name" content="HWのBLOGS">
-<meta property="og:description" content="一种判定两种指标是否线性相关，即判断其独立性的方法">
+<meta property="og:description" content="写了点推导XGBoost数学模型所用得到的数学公式，当做本博客的第一篇帖子">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/blogs/pearson.jpg">
-<meta property="article:published_time" content="2025-03-31T15:58:11.000Z">
-<meta property="article:modified_time" content="2025-04-04T07:23:04.378Z">
+<meta property="og:image" content="http://example.com/img/xgboost.jpg">
+<meta property="article:published_time" content="2025-03-31T10:14:11.000Z">
+<meta property="article:modified_time" content="2025-03-31T17:27:52.481Z">
 <meta property="article:author" content="ZHW">
-<meta property="article:tag" content="数学建模，算法">
+<meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/blogs/pearson.jpg">
+<meta name="twitter:image" content="http://example.com/img/xgboost.jpg">
   
   
   
-  <title>皮尔逊相关系数-PEARSON - HWのBLOGS</title>
+  <title>XGBoost公式文档 - HWのBLOGS</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,13 +197,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/blogs/pearson.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/xgboost.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="皮尔逊相关系数-PEARSON"></span>
+            <span id="subtitle" data-typed-text="XGBoost公式文档"></span>
           
         </div>
 
@@ -214,7 +214,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-31 23:58" pubdate>
+        <time datetime="2025-03-31 18:14" pubdate>
           2025年3月31日 晚上
         </time>
       </span>
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          632 字
+          173 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          8 分钟
+          3 分钟
         
       </span>
     
@@ -283,111 +283,57 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">皮尔逊相关系数-PEARSON</h1>
+            <h1 id="seo-header">XGBoost公式文档</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="皮尔逊相关系数">皮尔逊相关系数</h1>
-<p>方差描述的是单个变量的离散程度，协方差给方差的一个 <span
-class="math inline">\((X - E[X])^2\)</span> 变成 <span
-class="math inline">\((X - E[X])(Y - E[Y])\)</span>
-，就能衡量的是两个变量偏离各自均值后乘积的平均值，反映了两变量共同变化的趋势。但由于协方差受变量的单位影响，难以直接比较，所以我们就要将其无量纲化，除上各自的标准差就好。</p>
-<h2 id="定义">定义</h2>
-<p>皮尔逊相关系数（通常称为<strong>线性相关系数</strong>）用于刻画变量 X
-与 Y 之间的线性关系。其定义为： <span class="math display">\[
-\rho_{X, Y} = \frac{\operatorname{cov}(X, Y)}{\sigma_X \sigma_Y} =
-\frac{E\left[(X - E[X])(Y - E[Y])\right]}{\sigma_X \sigma_Y} =
-\frac{E(XY) - E(X)E(Y)}{\sqrt{E\left(X^2\right) - [E(X)]^2}
-\sqrt{E\left(Y^2\right) - [E(Y)]^2}}
-\]</span></p>
-<blockquote>
-<p><strong>注：</strong> 当 X 与 Y
-存在其他非线性关系时，皮尔逊相关系数无法正确反映两者之间的关系。</p>
-</blockquote>
-<hr />
-<h2 id="相关系数的性质">相关系数的性质</h2>
-<ol type="1">
-<li><p><strong>独立性与不相关性：</strong></p>
-<p>如果 X 和 Y 独立，则 <span class="math inline">\(\rho_{X,Y} =
-0\)</span>；但反过来，<span class="math inline">\(\rho_{X,Y} =
-0\)</span> 不一定说明 X 与 Y 独立，除非二者服从二维正态分布。</p></li>
-<li><p><strong>取值范围：</strong></p></li>
-</ol>
-<p><span class="math display">\[
--1 \leq \rho_{X,Y} \leq 1
-\]</span></p>
-<hr />
-<h2 id="两组指标相关系数的计算">两组指标相关系数的计算</h2>
-<h3 id="均值">均值：</h3>
-<p><span class="math display">\[
-\bar{X} = \frac{1}{n}\sum_{i=1}^{n} X_i,\quad \bar{Y} =
-\frac{1}{n}\sum_{i=1}^{n} Y_i
-\]</span></p>
-<h3 id="方差无偏估计">方差（无偏估计）：</h3>
-<p><span class="math display">\[
-\sigma_X^2 = \frac{1}{n-1}\sum_{i=1}^{n}(X_i - \bar{X})^2,\quad
-\sigma_Y^2 = \frac{1}{n-1}\sum_{i=1}^{n}(Y_i - \bar{Y})^2
-\]</span></p>
-<h3 id="样本协方差">样本协方差：</h3>
-<p><span class="math display">\[
-\operatorname{cov}(X,Y) = \frac{1}{n-1}\sum_{i=1}^{n}(X_i - \bar{X})(Y_i
-- \bar{Y})
-\]</span></p>
-<h3 id="相关系数">相关系数：</h3>
-<p><span class="math display">\[
-r = \frac{\sum_{i=1}^{n}(X_i - \bar{X})(Y_i -
-\bar{Y})}{\sqrt{\sum_{i=1}^{n}(X_i - \bar{X})^2}
-\sqrt{\sum_{i=1}^{n}(Y_i - \bar{Y})^2}}
-\]</span></p>
-<blockquote>
-<p><strong>说明：</strong>
-分母中用的是各自的标准差，目的是将协方差无量纲化，从而消除不同变量之间单位和量级的影响，使得计算结果统一在
-([-1, 1]) 之间。</p>
-</blockquote>
-<hr />
-<h2 id="判断标准">判断标准</h2>
-<p>根据计算得出的相关系数 (r)
-的绝对值，可以判断两个变量之间的相关性强弱：</p>
-<table>
-<thead>
-<tr>
-<th>|r|</th>
-<th>相关强度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0.8-1.0</td>
-<td>极强相关</td>
-</tr>
-<tr>
-<td>0.6-0.8</td>
-<td>强相关</td>
-</tr>
-<tr>
-<td>0.4-0.6</td>
-<td>中等程度相关</td>
-</tr>
-<tr>
-<td>0.2-0.4</td>
-<td>弱相关</td>
-</tr>
-<tr>
-<td>0.0-0.2</td>
-<td>极弱相关或无相关</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="其它参考资源">其它参考资源</h2>
+                <h1 id="xgboost技术文档">XGBoost技术文档</h1>
+<h2 id="参数设置">参数设置</h2>
+<p>见代码</p>
+<h2 id="涉及到的相关数学公式">涉及到的相关数学公式：</h2>
 <ul>
-<li><a href="#">带你深入理解期望、方差、协方差的含义</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/19734616">知乎：如何理解
-Pearson 相关系数</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/MoreAction_/article/details/106195689">相关系数——皮尔逊相关系数的公式及其理解_皮尔逊相关系数公式-CSDN博客</a></li>
+<li><strong>模型目标函数</strong>：</li>
 </ul>
+<p><span class="math display">\[
+\text{Obj}(\theta)^{(t)} = \sum_{i=1}^n L(y_i, \hat{y}_i) + \sum_{k=1}^K
+\Omega(f_k)
+\]</span></p>
+<ul>
+<li><strong>正则项</strong></li>
+</ul>
+<p><span class="math display">\[
+\Omega(f) = \gamma T + \frac{1}{2} \lambda \sum_{j=1}^T w_j^2
+\]</span></p>
+<ul>
+<li><strong>目标函数近似</strong></li>
+</ul>
+<p><span class="math display">\[
+\text{Obj}(\theta)^{(t)} \approx \sum_{i=1}^n \left[ g_i f_t(x_i) +
+\frac{1}{2} h_i f_t^2(x_i) \right] + \Omega(f_t)
+\]</span></p>
+<ul>
+<li><strong>增益</strong></li>
+</ul>
+<p><span class="math display">\[
+\text{Gain} = \frac{1}{2} \left[ \frac{(\sum_{i \in I_L} g_i)^2}{\sum_{i
+\in I_L} h_i + \lambda} + \frac{(\sum_{i \in I_R} g_i)^2}{\sum_{i \in
+I_R} h_i + \lambda} - \frac{(\sum_{i \in I} g_i)^2}{\sum_{i \in I} h_i +
+\lambda} \right] - \gamma
+\]</span></p>
+<ul>
+<li><strong>对数损失</strong></li>
+</ul>
+<p><span class="math display">\[
+\text{LogLoss} = -\frac{1}{N} \sum_{i=1}^N \left[ y_i \log p_i + (1-y_i)
+\log(1-p_i) \right]
+\]</span></p>
+<ul>
+<li><strong>分类错误率</strong></li>
+</ul>
+<p><span class="math display">\[
+\text{Error} = \frac{1}{N} \sum_{i=1}^N \mathbb{I}(\hat{y}_i \neq y_i)
+\]</span></p>
 
                 
               </div>
@@ -406,12 +352,29 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/MoreAction_/article/d
     
       <span class="category-chain">
         
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%AE%97%E6%B3%95/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="category-chain-item">机器学习</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+    
+      <span class="category-chain">
+        
   <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="category-chain-item">数学建模</a>
+  <a href="/categories/%E6%95%B0%E5%AD%A6/%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" class="category-chain-item">公式推导</a>
   
   
 
@@ -428,7 +391,7 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/MoreAction_/article/d
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%EF%BC%8C%E7%AE%97%E6%B3%95/" class="print-no-link">#数学建模，算法</a>
+        <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="print-no-link">#机器学习</a>
       
     </div>
   
@@ -440,8 +403,8 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/MoreAction_/article/d
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>皮尔逊相关系数-PEARSON</div>
-      <div>http://example.com/2025/03/31/皮尔逊相关系数/</div>
+      <div>XGBoost公式文档</div>
+      <div>http://example.com/2025/03/31/2025-03-31-XGBoost&#39;s_latex/</div>
     </div>
     <div class="license-meta">
       
@@ -497,21 +460,15 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/MoreAction_/article/d
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/04/01/%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-PCA/" title="主成分分析-PCA">
+                      <a href="/2025/03/31/2025-03-31-%E7%86%B5%E6%9D%83%E6%B3%95(EWM)/" title="熵权法-EWM">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">主成分分析-PCA</span>
+                        <span class="hidden-mobile">熵权法-EWM</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2025/03/31/%E7%86%B5%E6%9D%83%E6%B3%95(EWM)/" title="熵权法-EWM">
-                        <span class="hidden-mobile">熵权法-EWM</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
