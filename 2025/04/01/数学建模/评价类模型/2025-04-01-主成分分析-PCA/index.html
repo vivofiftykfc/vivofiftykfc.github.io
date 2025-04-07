@@ -1,0 +1,905 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一种判定指标是否具有代表性的方法，可降低判定维度，但在解释主成分的时候比较模糊">
+<meta property="og:type" content="article">
+<meta property="og:title" content="主成分分析-PCA">
+<meta property="og:url" content="http://example.com/2025/04/01/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-04-01-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-PCA/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="一种判定指标是否具有代表性的方法，可降低判定维度，但在解释主成分的时候比较模糊">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/blogs/pca.jpg">
+<meta property="article:published_time" content="2025-03-31T16:28:11.000Z">
+<meta property="article:modified_time" content="2025-04-05T18:17:54.318Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="数学建模">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/blogs/pca.jpg">
+  
+  
+  
+  <title>主成分分析-PCA - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":"ture","follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":"ture"},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBIOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/pca.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="主成分分析-PCA"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-04-01 00:28" pubdate>
+          2025年4月1日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          991 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">主成分分析-PCA</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="主成分分析-pca">主成分分析-PCA</h1>
+<p>主成分分析（PCA）是一种降维算法，通过将原始变量进行线性组合，生成互不相关的主成分，从而保留数据的主要信息，以此来去噪，提升数据处理速度。PCA
+常用于数据简化、聚类分析及解决回归中多重共线性问题，但在解释主成分时往往较为模糊，故不常用于评价模型。</p>
+<hr />
+<h2 id="一简介">一、简介</h2>
+<ul>
+<li><strong>目标：</strong>
+用较少的新变量替代原来较多的变量，尽可能保留原有信息。<br />
+</li>
+<li><strong>应用：</strong> 数据降维、去除噪声、提升数据处理速度。<br />
+</li>
+<li><strong>适用场景</strong>：指标高度相关易于解释、可解释需求低。</li>
+<li><strong>局限性</strong>：非线性关系处理的不好，贡献度若是不足可能会丢失细节。</li>
+</ul>
+<hr />
+<h2 id="二思想">二、思想</h2>
+<p>假设有 <span class="math inline">\(n\)</span> 个样本和 <span
+class="math inline">\(p\)</span> 个指标，构成一个 $ n p$
+的样本矩阵：</p>
+<p><span class="math display">\[
+X = \begin{bmatrix}
+x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1p} \\
+x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2p} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{np} \\
+\end{bmatrix}
+= (x_1, x_2, \cdots, x_p)
+\]</span> 目标是寻找新的变量 $ z_1, z_2, , z_m $（其中 $ m p
+$），使其满足：</p>
+<p><span class="math display">\[
+\begin{cases}
+z_1 = l_{11}x_1 + l_{12}x_2 + \cdots + l_{1p}x_p \\
+z_2 = l_{21}x_1 + l_{22}x_2 + \cdots + l_{2p}x_p \\
+\vdots \\
+z_m = l_{m1}x_1 + l_{m2}x_2 + \cdots + l_{mp}x_p \\
+\end{cases}
+\]</span> <strong>系数 $ l_{ij} $ 的确定原则：</strong></p>
+<ol type="1">
+<li>不同主成分之间彼此不相关。</li>
+<li>第一主成分是所有线性组合中方差最大的。</li>
+<li>第二主成分在与第一主成分不相关的条件下方差最大。</li>
+<li>依此类推，直到选出 $ m $ 个主成分。</li>
+</ol>
+<hr />
+<h2 id="三计算步骤">三、计算步骤</h2>
+<h3 id="数据标准化">1. 数据标准化</h3>
+<ul>
+<li><p><strong>计算均值和标准差：</strong> <span class="math display">\[
+\bar{x}_j = \frac{1}{n} \sum_{i=1}^{n} x_{ij},\quad S_j =
+\sqrt{\frac{\sum_{i=1}^{n}(x_{ij}-\bar{x}_j)^2}{n-1}}
+\]</span></p></li>
+<li><p><strong>标准化数据：</strong> <span class="math display">\[
+X_{ij} = \frac{x_{ij}-\bar{x}_j}{S_j}
+\]</span></p></li>
+<li><p><strong>标准化后的矩阵：</strong> <span class="math display">\[
+X = \begin{bmatrix}
+X_{11} &amp; X_{12} &amp; \cdots &amp; X_{1p} \\
+X_{21} &amp; X_{22} &amp; \cdots &amp; X_{2p} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+X_{n1} &amp; X_{n2} &amp; \cdots &amp; X_{np} \\
+\end{bmatrix}
+\]</span></p></li>
+</ul>
+<h3 id="计算协方差矩阵">2. 计算协方差矩阵</h3>
+<ul>
+<li><strong>定义：</strong> <span class="math display">\[
+R = \begin{bmatrix}
+r_{11} &amp; r_{12} &amp; \cdots &amp; r_{1p} \\
+r_{21} &amp; r_{22} &amp; \cdots &amp; r_{2p} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+r_{p1} &amp; r_{p2} &amp; \cdots &amp; r_{pp} \\
+\end{bmatrix},\quad r_{ij} = \frac{1}{n-1}\sum_{k=1}^{n} X_{ki} X_{kj}
+\]</span></li>
+</ul>
+<h3 id="求解特征值和特征向量">3. 求解特征值和特征向量</h3>
+<ul>
+<li><p><strong>特征值：</strong> <span class="math display">\[
+\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_p \geq 0
+\]</span> （且 $ R $ 为半正定矩阵）</p></li>
+<li><p><strong>对应的特征向量：</strong> <span class="math display">\[
+a_1 = \begin{bmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{p1}
+\end{bmatrix},\quad
+a_2 = \begin{bmatrix} a_{12} \\ a_{22} \\ \vdots \\ a_{p2}
+\end{bmatrix},\quad \dots,\quad
+a_p = \begin{bmatrix} a_{1p} \\ a_{2p} \\ \vdots \\ a_{pp} \end{bmatrix}
+\]</span></p></li>
+<li></li>
+</ul>
+<h3 id="计算贡献率和累计贡献率">4. 计算贡献率和累计贡献率</h3>
+<ul>
+<li><p><strong>贡献率：</strong> <span class="math display">\[
+\text{贡献率} = \frac{\lambda_i}{\sum_{k=1}^{p}\lambda_k}
+\]</span></p></li>
+<li><p><strong>累计贡献率：</strong> <span class="math display">\[
+\text{累计贡献率} =
+\frac{\sum_{k=1}^{i}\lambda_k}{\sum_{k=1}^{p}\lambda_k}\quad
+(i=1,2,\dots,p)
+\]</span></p></li>
+<li></li>
+</ul>
+<h3 id="写出主成分">5. 写出主成分</h3>
+<p>一般选择累计贡献率超过 80% 的前 ( m ) 个主成分：</p>
+<p><span class="math display">\[
+F_i = a_{1i}X_1 + a_{2i}X_2 + \cdots + a_{pi}X_p,\quad (i=1,2,\dots,m)
+\]</span></p>
+<h3 id="主成分的解释">6. 主成分的解释</h3>
+<p>根据各指标在主成分中的载荷大小判断该主成分代表的含义，载荷越大的指标对该主成分的影响越大。</p>
+<hr />
+<h2 id="四扩展">四、扩展</h2>
+<ol type="1">
+<li><strong>聚类分析：</strong>
+可通过降维简化自变量，便于图形展示。</li>
+<li><strong>回归分析：</strong> 可用于缓解多重共线性问题。</li>
+<li><strong>因子分析：</strong> PCA
+实际上是因子分析的一种特例，但因子分析在解释方面更具优势，建议多用因子分析。</li>
+</ol>
+<hr />
+<h2 id="参考资料">参考资料</h2>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43819566/article/details/113800120">清风数学建模学习笔记——主成分分析(PCA)原理详解及案例分析_x10为生均教育经费对以上指标数据做主成分分析，并提取主成分-CSDN博客</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://developer.baidu.com/article/details/3015610">数学建模中的主成分分析(PCA)详解与应用-百度开发者中心</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/677797684">【数模百科】一文讲清楚主成分分析PCA（附python代码）
+- 知乎</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="category-chain-item">数学建模</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%95%B0%E5%AD%A6/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/" class="category-chain-item">评价类模型</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="print-no-link">#数学建模</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>主成分分析-PCA</div>
+      <div>http://example.com/2025/04/01/数学建模/评价类模型/2025-04-01-主成分分析-PCA/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年4月1日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/04/01/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-04-01-%E6%A8%A1%E7%B3%8A%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7%E6%B3%95-FCE/" title="模糊综合评价法-FCE">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">模糊综合评价法-FCE</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/03/31/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%B0%8F%E5%B7%A5%E5%85%B7/2025-03-31-%E7%9A%AE%E5%B0%94%E9%80%8A%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/" title="皮尔逊相关系数-PEARSON">
+                        <span class="hidden-mobile">皮尔逊相关系数-PEARSON</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
