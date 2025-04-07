@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/blogs/blogsstart.jpg">
 <meta property="article:published_time" content="2025-04-07T15:14:11.000Z">
-<meta property="article:modified_time" content="2025-04-07T11:55:18.929Z">
+<meta property="article:modified_time" content="2025-04-07T12:19:05.002Z">
 <meta property="article:author" content="ZHW">
 <meta property="article:tag" content="折腾的小杂项">
 <meta name="twitter:card" content="summary_large_image">
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          1.9k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          21 分钟
+          24 分钟
         
       </span>
     
@@ -319,8 +319,10 @@ JavaScript 代码的软件程序。更准确地说，Node.js 是一个 JavaScrip
 target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/#%E5%AE%89%E8%A3%85-Git">Git</a>：著名的开源分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Github的Git就是他，可以理解为你的管理文件版本的管家，支持各版本保存、回滚、上传。</li>
 </ul>
 <h4 id="hexo安装">Hexo安装</h4>
+<p>这里的步骤都要在git-bash命令行中做，路径为你要放博客的文件夹下。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 全局安装 Hexo 命令行工具（CLI）</span><br><span class="hljs-comment"># -g 表示全局安装，安装后可在任何目录使用 hexo 命令</span><br><span class="hljs-comment"># 需要提前安装 Node.js 和 npm（Node.js 包管理器）</span><br>npm install -g hexo-cli<br><br><span class="hljs-comment"># 验证 Hexo 是否安装成功，显示 Hexo 及其相关依赖的版本号</span><br><span class="hljs-comment"># 如果正常显示版本信息，说明环境配置正确</span><br>hexo -v<br><br><span class="hljs-comment"># 初始化一个新的 Hexo 项目到当前目录下的 my-blog 文件夹</span><br><span class="hljs-comment"># 该命令会创建项目目录结构并自动下载默认主题 landscape</span><br>hexo init my-blog<br><br><span class="hljs-comment"># 进入项目目录（后续操作都需要在此目录下执行）</span><br><span class="hljs-built_in">cd</span> my-blog<br><br><span class="hljs-comment"># 安装项目所需的本地依赖包</span><br><span class="hljs-comment"># 会读取 package.json 中的依赖项，安装到 node_modules 目录</span><br><span class="hljs-comment"># 这些依赖包括 hexo-server, hexo-deployer-git 等核心模块</span><br>npm install<br><br><span class="hljs-comment"># 生成静态网站文件（编译 Markdown 为 HTML）</span><br><span class="hljs-comment"># 生成的静态文件会保存在 public 目录中</span><br><span class="hljs-comment"># 每次内容更新后都需要重新生成</span><br>hexo g <span class="hljs-comment"># 完整命令是 hexo generate</span><br><br><span class="hljs-comment"># 启动本地开发服务器（默认端口 4000）</span><br><span class="hljs-comment"># 访问 http://localhost:4000 可以预览网站</span><br><span class="hljs-comment"># 支持热更新，修改内容后会自动刷新（但修改配置文件后需要重启服务）</span><br>hexo s <span class="hljs-comment"># 完整命令是 hexo server</span><br></code></pre></td></tr></table></figure>
-<p>之后就能在本机的 http://localhost:4000 预览网站了。 ### 更换主题</p>
+<p>之后就能在本机的 http://localhost:4000 预览网站了。</p>
+<h3 id="更换主题">更换主题</h3>
 <p>本站所用的是Fluid：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#具体配置可以参考官方文档(https://hexo.fluid-dev.com/docs/)，写的很详细。</span><br>npm install --save hexo-theme-fluid<br><br><span class="hljs-comment">#安装好后可以在本机4000端口查看效果</span><br>hexo clean <span class="hljs-comment"># 清除已生成的静态网页文件  </span><br>hexo g <span class="hljs-comment"># 重新生成  </span><br>hexo s <span class="hljs-comment"># 本地启动</span><br><br><span class="hljs-comment">#如果git已经配置好可以直接上传</span><br>hexo d <span class="hljs-comment">#上传到你配置好的github托管服务器上，然后可以通过网页来查看，具体公网域名就不用管了，这玩意就已经可以在公网上浏览了。</span><br></code></pre></td></tr></table></figure>
 <h2 id="写作">3.写作</h2>
@@ -337,10 +339,29 @@ target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/#%E5%AE%89%E8%A3
 Markdown 教程</a></li>
 </ul>
 <p>具体的可以语法与快捷键结合。</p>
-<h2 id="优化">4.优化</h2>
+<h2 id="发布">4.发布</h2>
+<p>先配置一下<code>hexo-deployer-git</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure>
+<p>改一下<code>_config.yml</code>文件</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">deploy:</span>  <br><span class="hljs-attr">type:</span> <span class="hljs-string">git</span>  <br><span class="hljs-attr">repo:</span> <span class="hljs-string">&lt;repository</span> <span class="hljs-string">url&gt;</span> <span class="hljs-comment"># https://github.com/&lt;GitHub用户名&gt;/&lt;GitHub用户名&gt;.github.io.git  </span><br><span class="hljs-attr">branch:</span> [<span class="hljs-string">branch</span>]  <br><span class="hljs-attr">token:</span> [<span class="hljs-string">token</span>]<br></code></pre></td></tr></table></figure>
+<h2 id="工作流暂时">5.工作流（暂时）</h2>
+<ul>
+<li>使用new指令新建一篇博客</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo new &lt;文章名&gt;<br></code></pre></td></tr></table></figure>
+<ul>
+<li>打开obsidian开始写作</li>
+<li>写作完了之后，终端本地预览</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo g  <br>hexo s<br></code></pre></td></tr></table></figure>
+<ul>
+<li>预览没问题之后，发布</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo d<br></code></pre></td></tr></table></figure>
+<h2 id="优化">6.优化</h2>
 <h3 id="分类树文件夹化自动分类">分类树文件夹化（自动分类）</h3>
 <p>不可否认的是是项目就没有完美的，像是上述介绍的这套流程个人用上去还是有些很不顺的点，比如分类页的话，本来这个按照逻辑的话在本地写博客就应该是按照文件夹的包容关系来分，但是他原生的分类要在每篇博客前面的文件属性里面这样写：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs markdown">---<br>title: Hexo简介<br>date: 2008-08-08<br>categories:<br><span class="hljs-bullet">  -</span> web开发<br><span class="hljs-bullet">  -</span> 前端<br><span class="hljs-section">  - 博客框架</span><br><span class="hljs-section">---</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">Hexo简介</span><br><span class="hljs-attr">date:</span> <span class="hljs-number">2008-08-08</span><br><span class="hljs-attr">categories:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">web开发</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">前端</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">博客框架</span><br><span class="hljs-meta">---</span><br></code></pre></td></tr></table></figure>
 <p>这玩意让我咋管理？你的意思是我要记住每个文件是在那个目录树下？一个字都不能错？这不是给自己找事吗？本来分类就是为了便于管理，这不是本末倒置了吗</p>
 <p>于是就去找，发现了个开源项目：</p>
 <ul>
@@ -349,8 +370,9 @@ target="_blank" rel="noopener" href="https://github.com/xu-song/hexo-auto-catego
 Generate categories automatically for each post in Hexo</a></li>
 </ul>
 <p>按照他<a
-target="_blank" rel="noopener" href="https://blog.eson.org/pub/e2f6e239/">官方文档</a>进行安装配置就行。</p>
-<h3 id="section"></h3>
+target="_blank" rel="noopener" href="https://blog.eson.org/pub/e2f6e239/">官方文档</a>进行安装配置就行。有一点要注意的是如果存在文件没有分类组的话会发生一些奇妙的事情（好像）。</p>
+<h3 id="git自动推送">Git自动推送</h3>
+<p>在写完前几篇博客后我每次都要手动到git的bash下<code>hexo clean``hexo g``hexo d</code>一遍，很麻烦，然后就是想到为什么不能直接上自动化插件：</p>
 
                 
               </div>
@@ -453,18 +475,12 @@ target="_blank" rel="noopener" href="https://blog.eson.org/pub/e2f6e239/">官方
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/04/07/%E6%97%A0%E4%BA%BA%E6%9C%BA/%E6%9C%AA%E5%91%BD%E5%90%8D/" title="无人机安装指南">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">无人机安装指南</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/04/06/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%96%B9%E5%90%91%E5%B1%95%E6%9C%9B/2025-04-06-%E8%AF%AD%E9%9F%B3%E8%BD%AC%E6%96%87%E5%AD%97%E5%AF%BC%E8%AE%BA-TTS/" title="语音转文字导论-TTS">
-                        <span class="hidden-mobile">语音转文字导论-TTS</span>
+                      <a href="/2025/04/06/%E7%94%B5%E8%84%91%E7%A1%AC%E4%BB%B6/%E6%A6%82%E5%BF%B5%E9%98%90%E8%BF%B0/2025-04-05-%E6%98%BE%E7%A4%BA%E5%99%A8%E5%8F%82%E6%95%B0%E5%8F%8A%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E8%A7%A3%E8%AF%BB/" title="显示器参数及相关知识解读">
+                        <span class="hidden-mobile">显示器参数及相关知识解读</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
