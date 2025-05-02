@@ -4,33 +4,6 @@
   
   
   <entry>
-    <title>拟合算法</title>
-    <link href="/2025/05/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-05-02-%E6%8B%9F%E5%90%88%E7%AE%97%E6%B3%95/"/>
-    <url>/2025/05/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-05-02-%E6%8B%9F%E5%90%88%E7%AE%97%E6%B3%95/</url>
-    
-    <content type="html"><![CDATA[<h1 id="拟合算法">拟合算法</h1><p>与插值算法不同，拟合算法不要求曲线严格经过所有数据点，而是寻求一个函数（曲线），使得该曲线在某种准则下与所有数据点的总体误差最小。拟合的核心目标是<strong>通过对已有数据特征拟合构建最佳数学模型</strong>，广泛应用于趋势预测、参数估计等领域。</p><hr /><h2 id="一与插值的区别">一、与插值的区别</h2><table><thead><tr><th>方法</th><th>特点</th><th>适用场景</th></tr></thead><tbody><tr><td>插值</td><td>曲线必须经过所有样本点，易受龙格现象影响</td><td>数据精确、样本量少</td></tr><tr><td>拟合</td><td>曲线无需经过所有点，通过最小化误差平方和寻找全局最优解</td><td>数据含噪声、趋势分析</td></tr></tbody></table><p>当样本点过多时，高阶插值多项式会出现震荡现象，而拟合算法通过低阶函数（如线性、指数函数）能更稳定地反映数据趋势。</p><hr /><h2 id="二原理">二、原理</h2><h3 id="数学模型">1. 数学模型</h3><p>设样本点为 <span class="math inline">\((x_i, y_i), i = 1, 2, \ldots,n\)</span>，拟合曲线为 <span class="math inline">\(y = kx +b\)</span>，目标是最小化<strong>误差平方和</strong>： <spanclass="math display">\[\min_{k,b} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 \quad \text{其中} \quad\hat{y}_i = kx_i + b\]</span></p><h3 id="参数求解">2. 参数求解</h3><p>通过求偏导并令导数为零，可得闭合解： <span class="math display">\[k = \frac{n \sum x_i y_i - \sum x_i \sum y_i}{n \sum x_i^2 - (\sumx_i)^2}, \quadb = \frac{\sum x_i^2 \sum y_i - \sum x_i \sum x_i y_i}{n \sum x_i^2 -(\sum x_i)^2}\]</span></p><h3 id="拓展">3. 拓展</h3><p>多项式线性，如二次函数等： <span class="math display">\[\quad \hat{y}_i = kx_i + kx_i^2 + b\]</span></p><hr /><h2 id="三拟合优度评价">三、拟合优度评价</h2><h3 id="判定系数-r2">1. 判定系数 <spanclass="math inline">\(R^2\)</span></h3><ul><li><strong>总体平方和（SST）</strong>：反映数据总波动<br /><span class="math display">\[ SST = \sum_{i=1}^n (y_i - \overline{y})^2\]</span></li><li><strong>误差平方和（SSE）</strong>：反映拟合误差<br /><span class="math display">\[ SSE = \sum_{i=1}^n (y_i - \hat{y}_i)^2\]</span></li><li><strong>回归平方和（SSR）</strong>：反映模型解释的波动<br /><span class="math display">\[ SSR = \sum_{i=1}^n (\hat{y}_i -\overline{y})^2 \]</span></li></ul><p><strong>拟合优度</strong>：<br /><span class="math display">\[ R^2 = \frac{SSR}{SST} = 1 -\frac{SSE}{SST} \]</span><br />- $ R^2 <span class="math inline">\(，越接近1说明拟合效果越好。- **注意**：\)</span> R^2 $ 仅适用于线性参数模型（如 $ y = a + bx^2 $视为线性，因其对参数 (a,b) 为线性）。</p><hr /><h2 id="四matlab实现">四、MATLAB实现</h2><h3 id="代码示例">1. 代码示例</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">% 导入数据</span><br>load data1<br><span class="hljs-built_in">plot</span>(x, y, <span class="hljs-string">&#x27;o&#x27;</span>)<br>xlabel(<span class="hljs-string">&#x27;x&#x27;</span>); ylabel(<span class="hljs-string">&#x27;y&#x27;</span>);<br><br><span class="hljs-comment">% 计算参数</span><br>n = <span class="hljs-built_in">length</span>(x);<br>k = (n*sum(x.*y) - sum(x)*sum(y)) / (n*sum(x.^<span class="hljs-number">2</span>) - sum(x)^<span class="hljs-number">2</span>);<br>b = (sum(x.^<span class="hljs-number">2</span>)*sum(y) - sum(x)*sum(x.*y)) / (n*sum(x.^<span class="hljs-number">2</span>) - sum(x)^<span class="hljs-number">2</span>);<br><br><span class="hljs-comment">% 绘制拟合曲线</span><br><span class="hljs-built_in">hold</span> on<br>fplot(@(x) k*x + b, [<span class="hljs-built_in">min</span>(x), <span class="hljs-built_in">max</span>(x)])<br><span class="hljs-built_in">legend</span>(<span class="hljs-string">&#x27;样本数据&#x27;</span>, <span class="hljs-string">&#x27;拟合曲线&#x27;</span>)<br></code></pre></td></tr></table></figure><h3 id="拟合工具箱cftool">2. 拟合工具箱（cftool）</h3><p>输入 <code>cftool</code>调用MATLAB拟合工具箱，支持多种函数类型（多项式、指数、自定义方程），自动计算参数及拟合优度。</p><hr /><h2 id="五应用">五、应用</h2><h3 id="案例1美国人口预测">案例1：美国人口预测</h3><p>使用Logistic模型拟合历史数据： <span class="math display">\[x(t) = \frac{x_m}{1 + \left( \frac{x_m}{3.9} - 1 \right) e^{-r(t-1790)}}\]</span> 通过非线性最小二乘法估计参数 <spanclass="math inline">\(x_m\)</span> 和 <spanclass="math inline">\(r\)</span>，预测未来30年人口趋势。</p><h3 id="案例2鱼类生长模型">案例2：鱼类生长模型</h3><p>对鲨鱼体长-体重数据采用指数和正弦函数拟合，通过SSE选择最优模型：<span class="math display">\[\text{体长增长方程：} \quad y = 69.32e^{-0.004x} \quad (R^2 = 0.9704)\]</span></p><hr /><h2 id="六总结">六、总结</h2><ol type="1"><li><strong>适用场景</strong>：数据含噪声、需提取整体趋势、变量间关系复杂时优先选用拟合。</li><li><strong>模型选择</strong>：优先线性参数模型以利用 <spanclass="math inline">\(R^2\)</span> 评价，非线性模型直接比较SSE。</li><li><strong>工具推荐</strong>：MATLABcftool可快速实现多函数拟合与可视化。</li></ol>]]></content>
-    
-    
-    <categories>
-      
-      <category>数学建模</category>
-      
-      <category>预测类模型</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>数学建模</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>多元线性回归分析</title>
     <link href="/2025/05/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-05-02-%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/"/>
     <url>/2025/05/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-05-02-%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/</url>
@@ -69,7 +42,34 @@
       
       <category>数学建模</category>
       
-      <category>预测模型</category>
+      <category>预测类模型</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数学建模</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>拟合算法</title>
+    <link href="/2025/05/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-05-02-%E6%8B%9F%E5%90%88%E7%AE%97%E6%B3%95/"/>
+    <url>/2025/05/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-05-02-%E6%8B%9F%E5%90%88%E7%AE%97%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h1 id="拟合算法">拟合算法</h1><p>与插值算法不同，拟合算法不要求曲线严格经过所有数据点，而是寻求一个函数（曲线），使得该曲线在某种准则下与所有数据点的总体误差最小。拟合的核心目标是<strong>通过对已有数据特征拟合构建最佳数学模型</strong>，广泛应用于趋势预测、参数估计等领域。</p><hr /><h2 id="一与插值的区别">一、与插值的区别</h2><table><thead><tr><th>方法</th><th>特点</th><th>适用场景</th></tr></thead><tbody><tr><td>插值</td><td>曲线必须经过所有样本点，易受龙格现象影响</td><td>数据精确、样本量少</td></tr><tr><td>拟合</td><td>曲线无需经过所有点，通过最小化误差平方和寻找全局最优解</td><td>数据含噪声、趋势分析</td></tr></tbody></table><p>当样本点过多时，高阶插值多项式会出现震荡现象，而拟合算法通过低阶函数（如线性、指数函数）能更稳定地反映数据趋势。</p><hr /><h2 id="二原理">二、原理</h2><h3 id="数学模型">1. 数学模型</h3><p>设样本点为 <span class="math inline">\((x_i, y_i), i = 1, 2, \ldots,n\)</span>，拟合曲线为 <span class="math inline">\(y = kx +b\)</span>，目标是最小化<strong>误差平方和</strong>： <spanclass="math display">\[\min_{k,b} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 \quad \text{其中} \quad\hat{y}_i = kx_i + b\]</span></p><h3 id="参数求解">2. 参数求解</h3><p>通过求偏导并令导数为零，可得闭合解： <span class="math display">\[k = \frac{n \sum x_i y_i - \sum x_i \sum y_i}{n \sum x_i^2 - (\sumx_i)^2}, \quadb = \frac{\sum x_i^2 \sum y_i - \sum x_i \sum x_i y_i}{n \sum x_i^2 -(\sum x_i)^2}\]</span></p><h3 id="拓展">3. 拓展</h3><p>多项式线性，如二次函数等： <span class="math display">\[\quad \hat{y}_i = kx_i + kx_i^2 + b\]</span></p><hr /><h2 id="三拟合优度评价">三、拟合优度评价</h2><h3 id="判定系数-r2">1. 判定系数 <spanclass="math inline">\(R^2\)</span></h3><ul><li><strong>总体平方和（SST）</strong>：反映数据总波动<br /><span class="math display">\[ SST = \sum_{i=1}^n (y_i - \overline{y})^2\]</span></li><li><strong>误差平方和（SSE）</strong>：反映拟合误差<br /><span class="math display">\[ SSE = \sum_{i=1}^n (y_i - \hat{y}_i)^2\]</span></li><li><strong>回归平方和（SSR）</strong>：反映模型解释的波动<br /><span class="math display">\[ SSR = \sum_{i=1}^n (\hat{y}_i -\overline{y})^2 \]</span></li></ul><p><strong>拟合优度</strong>：<br /><span class="math display">\[ R^2 = \frac{SSR}{SST} = 1 -\frac{SSE}{SST} \]</span><br />- $ R^2 <span class="math inline">\(，越接近1说明拟合效果越好。- **注意**：\)</span> R^2 $ 仅适用于线性参数模型（如 $ y = a + bx^2 $视为线性，因其对参数 (a,b) 为线性）。</p><hr /><h2 id="四matlab实现">四、MATLAB实现</h2><h3 id="代码示例">1. 代码示例</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">% 导入数据</span><br>load data1<br><span class="hljs-built_in">plot</span>(x, y, <span class="hljs-string">&#x27;o&#x27;</span>)<br>xlabel(<span class="hljs-string">&#x27;x&#x27;</span>); ylabel(<span class="hljs-string">&#x27;y&#x27;</span>);<br><br><span class="hljs-comment">% 计算参数</span><br>n = <span class="hljs-built_in">length</span>(x);<br>k = (n*sum(x.*y) - sum(x)*sum(y)) / (n*sum(x.^<span class="hljs-number">2</span>) - sum(x)^<span class="hljs-number">2</span>);<br>b = (sum(x.^<span class="hljs-number">2</span>)*sum(y) - sum(x)*sum(x.*y)) / (n*sum(x.^<span class="hljs-number">2</span>) - sum(x)^<span class="hljs-number">2</span>);<br><br><span class="hljs-comment">% 绘制拟合曲线</span><br><span class="hljs-built_in">hold</span> on<br>fplot(@(x) k*x + b, [<span class="hljs-built_in">min</span>(x), <span class="hljs-built_in">max</span>(x)])<br><span class="hljs-built_in">legend</span>(<span class="hljs-string">&#x27;样本数据&#x27;</span>, <span class="hljs-string">&#x27;拟合曲线&#x27;</span>)<br></code></pre></td></tr></table></figure><h3 id="拟合工具箱cftool">2. 拟合工具箱（cftool）</h3><p>输入 <code>cftool</code>调用MATLAB拟合工具箱，支持多种函数类型（多项式、指数、自定义方程），自动计算参数及拟合优度。</p><hr /><h2 id="五应用">五、应用</h2><h3 id="案例1美国人口预测">案例1：美国人口预测</h3><p>使用Logistic模型拟合历史数据： <span class="math display">\[x(t) = \frac{x_m}{1 + \left( \frac{x_m}{3.9} - 1 \right) e^{-r(t-1790)}}\]</span> 通过非线性最小二乘法估计参数 <spanclass="math inline">\(x_m\)</span> 和 <spanclass="math inline">\(r\)</span>，预测未来30年人口趋势。</p><h3 id="案例2鱼类生长模型">案例2：鱼类生长模型</h3><p>对鲨鱼体长-体重数据采用指数和正弦函数拟合，通过SSE选择最优模型：<span class="math display">\[\text{体长增长方程：} \quad y = 69.32e^{-0.004x} \quad (R^2 = 0.9704)\]</span></p><hr /><h2 id="六总结">六、总结</h2><ol type="1"><li><strong>适用场景</strong>：数据含噪声、需提取整体趋势、变量间关系复杂时优先选用拟合。</li><li><strong>模型选择</strong>：优先线性参数模型以利用 <spanclass="math inline">\(R^2\)</span> 评价，非线性模型直接比较SSE。</li><li><strong>工具推荐</strong>：MATLABcftool可快速实现多函数拟合与可视化。</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>数学建模</category>
+      
+      <category>预测类模型</category>
       
     </categories>
     
