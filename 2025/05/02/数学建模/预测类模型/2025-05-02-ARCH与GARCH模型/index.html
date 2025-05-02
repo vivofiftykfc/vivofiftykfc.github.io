@@ -19,24 +19,24 @@
   <meta name="author" content="ZHW">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一种通过建立线性模型探究变量间关系并实现预测的统计方法">
+    <meta name="description" content="从波动性聚集到金融预测，全面解析条件异方差建模技术">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多元线性回归分析">
-<meta property="og:url" content="http://example.com/2025/05/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-05-02-%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/">
+<meta property="og:title" content="ARCH与GARCH模型">
+<meta property="og:url" content="http://example.com/2025/05/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-05-02-ARCH%E4%B8%8EGARCH%E6%A8%A1%E5%9E%8B/">
 <meta property="og:site_name" content="HWのBLOGS">
-<meta property="og:description" content="一种通过建立线性模型探究变量间关系并实现预测的统计方法">
+<meta property="og:description" content="从波动性聚集到金融预测，全面解析条件异方差建模技术">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/blogs/regression.jpg">
-<meta property="article:published_time" content="2025-05-02T10:14:11.000Z">
-<meta property="article:modified_time" content="2025-05-02T14:38:37.500Z">
+<meta property="og:image" content="http://example.com/img/blogs/arch_garch.jpg">
+<meta property="article:published_time" content="2025-05-02T15:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-02T14:07:08.178Z">
 <meta property="article:author" content="ZHW">
 <meta property="article:tag" content="数学建模">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/blogs/regression.jpg">
+<meta name="twitter:image" content="http://example.com/img/blogs/arch_garch.jpg">
   
   
   
-  <title>多元线性回归分析 - HWのBLOGS</title>
+  <title>ARCH与GARCH模型 - HWのBLOGS</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,13 +197,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/blogs/regression.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/blogs/arch_garch.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="多元线性回归分析"></span>
+            <span id="subtitle" data-typed-text="ARCH与GARCH模型"></span>
           
         </div>
 
@@ -214,7 +214,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-05-02 18:14" pubdate>
+        <time datetime="2025-05-02 23:00" pubdate>
           2025年5月2日 晚上
         </time>
       </span>
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k 字
+          914 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          14 分钟
+          12 分钟
         
       </span>
     
@@ -283,128 +283,161 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">多元线性回归分析</h1>
+            <h1 id="seo-header">ARCH与GARCH模型</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="多元线性回归分析">多元线性回归分析</h1>
-<p>回归分析是数据分析的核心工具，旨在通过研究自变量 X 与因变量 Y
-的相关性，揭示 Y
-的形成机制，并实现预测。多元线性回归通过线性组合解释变量，量化各因素对结果的影响权重，广泛应用于经济、管理、工程等领域。</p>
+                <h1 id="arch与garch模型">ARCH与GARCH模型</h1>
+<h2 id="一为什么需要条件异方差模型">一、为什么需要条件异方差模型？</h2>
+<h3 id="金融数据的典型特征">1. 金融数据的典型特征</h3>
+<p>在股票收益率、汇率波动等金融时间序列中，常出现<strong>波动性聚集</strong>现象：
+- 剧烈波动后往往伴随剧烈波动（如股灾期间） -
+平稳期后常跟随平稳期（如市场盘整阶段）</p>
+<p><strong>经典案例</strong>：<br />
+2008年全球金融危机期间，标普500指数单日涨跌幅多次超过5%，而平静期单日波动常小于1%。</p>
+<h3 id="传统模型的局限">2. 传统模型的局限</h3>
+<p>ARMA模型假设残差方差恒定，无法捕捉波动性聚集特征，导致： -
+风险预测偏差 - 投资组合优化失效 - 衍生品定价不准确</p>
 <hr />
-<h2 id="一用途">一、用途</h2>
-<ol type="1">
-<li><strong>识别重要变量</strong>：筛选出与 Y 显著相关的
-X（如逐步回归法）；<br />
-</li>
-<li><strong>判断方向性</strong>：确定 X 对 Y 的正/负向影响；<br />
-</li>
-<li><strong>估计权重</strong>：通过回归系数反映变量的相对重要性。</li>
-</ol>
+<h2 id="二arch模型波动性的自回归">二、ARCH模型：波动性的自回归</h2>
+<h3 id="arch1模型定义">1. ARCH(1)模型定义</h3>
+<p>对于收益率序列 ( r_t )，定义条件方差为： <span
+class="math display">\[
+\sigma_t^2 = \alpha_0 + \alpha_1 \varepsilon_{t-1}^2
+\]</span> 其中 ( _t = _t v_t )，( v_t N(0,1) )</p>
+<p><strong>关键约束</strong>： - ( _0 &gt; 0 ) - ( 0 _1 &lt; 1 )</p>
+<h3 id="archq模型">2. ARCH(q)模型</h3>
+<p>扩展至q阶滞后： <span class="math display">\[
+\sigma_t^2 = \alpha_0 + \sum_{i=1}^q \alpha_i \varepsilon_{t-i}^2
+\]</span> 要求 ( _i &lt; 1 ) 保证平稳性</p>
 <hr />
-<h2 id="二构建">二、构建</h2>
+<h2 id="三garch模型引入记忆效应">三、GARCH模型：引入记忆效应</h2>
+<h3 id="garchpq模型">1. GARCH(p,q)模型</h3>
+<p>Bollerslev (1986) 在ARCH基础上加入方差滞后项： <span
+class="math display">\[
+\sigma_t^2 = \alpha_0 + \sum_{i=1}^q \alpha_i \varepsilon_{t-i}^2 +
+\sum_{j=1}^p \beta_j \sigma_{t-j}^2
+\]</span> <strong>约束条件</strong>： - ( _0 &gt; 0 ) - ( _i, _j ) - (
+(_i + _j) &lt; 1 )</p>
+<h3 id="为什么garch更优">2. 为什么GARCH更优？</h3>
+<ul>
+<li><strong>长期记忆</strong>：条件方差受前期方差影响，能更好刻画波动持续性</li>
+<li><strong>参数简约</strong>：GARCH(1,1)常能替代高阶ARCH模型</li>
+</ul>
+<hr />
+<h2 id="四建模全流程实战">四、建模全流程实战</h2>
+<h3 id="数据准备与检验">1. 数据准备与检验</h3>
+<h4 id="收益率计算">(1) 收益率计算</h4>
 <p><span class="math display">\[
-Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \cdots + \beta_k
-X_{ki} + \mu_i
-\]</span> 其中 <span class="math inline">\(\beta_0\)</span>
-为截距项，<span class="math inline">\(\beta_j\)</span>
-为偏回归系数，<span class="math inline">\(\mu_i\)</span> 为扰动项。</p>
+r_t = \frac{P_t - P_{t-1}}{P_{t-1}} \times 100\%
+\]</span> #### (2) 平稳性检验 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> statsmodels.tsa.stattools <span class="hljs-keyword">import</span> adfuller<br>result = adfuller(returns)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;ADF统计量:&#x27;</span>, result[<span class="hljs-number">0</span>])<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;P值:&#x27;</span>, result[<span class="hljs-number">1</span>])  <span class="hljs-comment"># P&lt;0.05拒绝单位根</span><br></code></pre></td></tr></table></figure></p>
+<h3 id="arma均值方程建模">2. ARMA均值方程建模</h3>
+<p>通过ACF/PACF图确定ARMA阶数： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> statsmodels.graphics.tsaplots <span class="hljs-keyword">import</span> plot_acf, plot_pacf<br>plot_acf(returns, lags=<span class="hljs-number">20</span>)<br>plot_pacf(returns, lags=<span class="hljs-number">20</span>)<br></code></pre></td></tr></table></figure></p>
+<h3 id="arch效应检验">3. ARCH效应检验</h3>
+<h4 id="残差平方自相关检验">(1) 残差平方自相关检验</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">resid = model.resid<br>plot_acf(resid**<span class="hljs-number">2</span>, lags=<span class="hljs-number">10</span>)  <span class="hljs-comment"># 若滞后显著则存在ARCH效应</span><br></code></pre></td></tr></table></figure>
+<h4 id="lm检验">(2) LM检验</h4>
+<p>原假设：无ARCH效应<br />
+Python实现需自定义统计量计算，或使用<code>arch</code>包自动检测</p>
+<h3 id="garch模型估计">4. GARCH模型估计</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> arch <span class="hljs-keyword">import</span> arch_model<br>garch = arch_model(returns, vol=<span class="hljs-string">&#x27;GARCH&#x27;</span>, p=<span class="hljs-number">1</span>, q=<span class="hljs-number">1</span>)<br>result = garch.fit(update_freq=<span class="hljs-number">5</span>)<br><span class="hljs-built_in">print</span>(result.summary())<br></code></pre></td></tr></table></figure>
+<h3 id="模型诊断">5. 模型诊断</h3>
 <ul>
-<li><span class="math inline">\(\beta_j\)</span>：控制其他变量时，<span
-class="math inline">\(X_j\)</span> 每增加1单位，<span
-class="math inline">\(Y\)</span> 平均变化 <span
-class="math inline">\(\beta_j\)</span> 单位；<br />
-</li>
-<li>可以先 <span class="math inline">\(Z-Score\)</span>
-标准化数据再看回归系数，绝对值越大贡献越显著。</li>
+<li><strong>标准化残差检验</strong>：应服从标准正态分布</li>
+<li><strong>参数显著性</strong>：ARCH/GARCH项系数需显著</li>
+<li><strong>信息准则</strong>：选择AIC/BIC最小的模型</li>
 </ul>
 <hr />
-<h2 id="三模型检验与优化">三、模型检验与优化</h2>
-<h3 id="拟合优度">1. 拟合优度</h3>
+<h2 id="五案例深成b指波动预测">五、案例：深成B指波动预测</h2>
+<h3 id="数据概况">1. 数据概况</h3>
 <ul>
-<li><strong>判定系数 <span
-class="math inline">\(R^2\)</span></strong>：反映模型解释的变异比例，<span
-class="math inline">\(R^2 \in [0,1]\)</span>，越高越好；<br />
-</li>
-<li><strong>调整 <span
-class="math inline">\(R^2\)</span></strong>：避免自变量过多导致的虚假高拟合。</li>
+<li>时间范围：2014/1/2 - 2018/5/15</li>
+<li>数据频率：日频</li>
+<li>关键指标：收盘价、收益率</li>
 </ul>
-<h3 id="异方差处理">2. 异方差处理</h3>
+<h3 id="关键步骤">2. 关键步骤</h3>
+<h4 id="收益率平稳性验证">(1) 收益率平稳性验证</h4>
+<p>ADF检验P值=0.0000，拒绝单位根</p>
+<h4 id="arma33均值方程">(2) ARMA(3,3)均值方程</h4>
+<p><span class="math display">\[
+r_t = 0.014 + 0.388r_{t-1} + 0.118r_{t-2} - 0.871r_{t-3} + \varepsilon_t
+\]</span></p>
+<h4 id="garch11方差方程">(3) GARCH(1,1)方差方程</h4>
+<p><span class="math display">\[
+\sigma_t^2 = 0.105 + 0.238\varepsilon_{t-1}^2 + 0.786\sigma_{t-1}^2
+\]</span></p>
+<h4 id="预测效果">(4) 预测效果</h4>
+<table>
+<thead>
+<tr>
+<th>日期</th>
+<th>实际收益率</th>
+<th>预测收益率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2018-05-14</td>
+<td>1.46%</td>
+<td>1.89%</td>
+</tr>
+<tr>
+<td>2018-05-15</td>
+<td>1.48%</td>
+<td>1.73%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="六避坑指南">六、避坑指南</h2>
+<h3 id="数据非平稳怎么办">1. 数据非平稳怎么办？</h3>
 <ul>
-<li><strong>症状</strong>：残差随预测值增大而扩散；<br />
-</li>
-<li><strong>诊断</strong>：BP检验、怀特检验；<br />
-</li>
-<li><strong>解决</strong>：使用 <code>OLS + 稳健标准误</code>
-或广义最小二乘法（GLS）。</li>
+<li>先差分处理，建立ARIMA-GARCH组合模型</li>
 </ul>
-<h3 id="多重共线性">3. 多重共线性</h3>
+<h3 id="模型不收敛">2. 模型不收敛？</h3>
 <ul>
-<li><strong>症状</strong>：系数符号反常、<span
-class="math inline">\(t\)</span> 检验不显著但 <span
-class="math inline">\(R^2\)</span> 较高；<br />
-</li>
-<li><strong>诊断</strong>：方差膨胀因子（VIF &gt; 10 为严重）；<br />
-</li>
-<li><strong>解决</strong>：剔除高相关变量、增大样本量、主成分降维。</li>
-<li>具体这个又可以开另外一个blogs来说明。</li>
+<li>检查约束条件是否满足</li>
+<li>尝试不同优化算法（如BFGS、NM）</li>
+</ul>
+<h3 id="如何选择pq阶数">3. 如何选择p,q阶数？</h3>
+<ul>
+<li>从GARCH(1,1)开始逐步增加</li>
+<li>比较不同模型的AIC/BIC值</li>
 </ul>
 <hr />
-<h2 id="四stata示例">四、Stata示例</h2>
-<h3 id="基础回归">1. 基础回归</h3>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">* 导入数据并描述统计</span><br>import excel <span class="hljs-string">&quot;data.xlsx&quot;</span>, firstrow <span class="hljs-keyword">clear</span><br><span class="hljs-keyword">summarize</span> Y X1 X2<br><br><span class="hljs-comment">* 多元回归（含虚拟变量）</span><br><span class="hljs-keyword">regress</span> Y X1 X2 i.region, robust<br></code></pre></td></tr></table></figure>
-<h3 id="逐步回归">2. 逐步回归</h3>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">* 向前逐步回归（显著性阈值5%）</span><br><span class="hljs-keyword">stepwise</span> <span class="hljs-keyword">regress</span> Y X1 X2 X3, pe(0.05) robust<br><br><span class="hljs-comment">* 向后逐步回归</span><br><span class="hljs-keyword">stepwise</span> <span class="hljs-keyword">regress</span> Y X1 X2 X3, <span class="hljs-keyword">pr</span>(0.05) robust<br></code></pre></td></tr></table></figure>
-<hr />
-<h2 id="五应用与创新">五、应用与创新</h2>
-<h3 id="局限性">1. 局限性</h3>
-<ul>
-<li><strong>内生性</strong>：遗漏变量或测量误差导致系数有偏，详细说明就是如果满足误差项
-<span class="math inline">\(μ\)</span>
-和所有的自变量均不相关，则称该回归模型具有外生性；如果相关，则存在内生性，内生性会导致回归系数估计的不准确：不满足无偏和一致性，需引入工具变量；<br />
-</li>
-<li><strong>模型过拟合</strong>：变量过多时，需通过交叉验证或正则化（LASSO/Ridge）优化；<br />
-</li>
-<li><strong>非线性关系误判</strong>：可通过变量变换（如取对数）或引入交互项。</li>
-</ul>
-<h3 id="创新拓展">2. 创新拓展</h3>
-<ul>
-<li><p><strong>结合主成分分析</strong>：对高维数据降维后回归，解决多重共线性；</p></li>
-<li><p><strong>混合效应模型</strong>：处理面板数据中的个体/时间效应；</p></li>
-<li><p><strong>机器学习融合</strong>：用随机森林筛选重要变量，再构建回归模型。</p></li>
-<li><p><strong>取对数</strong>：取对数意味着原被解释变量对解释变量的弹性，即百分比的变化而不是数值的变化，好处有：（1）减弱数据的异方差性（2）如果变量本身不符合正态分布，取
-了对数后可能渐近服从正态分布（3）模型形式的需要，让模型具有经济学意义。</p></li>
-<li><p><strong>事先标准化易于解释</strong>：可以先 <span
-class="math inline">\(Z-Score\)</span>
-标准化数据再看回归系数，绝对值越大贡献越显著。</p></li>
-<li><p><strong>虚拟变量引入</strong>：</p>
-<p>定性变量（如性别、地域）需转换为0-1虚拟变量。例如：<br />
-<span class="math display">\[
-\text{工资} = \beta_0 + \delta_0 \text{Female}_i + \beta_1
-\text{教育年限}_i + \mu_i
-\]</span> <span class="math inline">\(\delta_0\)</span>
-表示在同等教育水平下，女性与男性的工资差异。$ _i$ 的0-1标识男女</p></li>
-</ul>
-<hr />
-<h2 id="六案例分析">六、案例分析</h2>
-<p>这俩都是清风数学建模的东西：</p>
-<h3 id="案例1电商产品评价量影响因素">案例1：电商产品评价量影响因素</h3>
-<ul>
-<li><strong>目标</strong>：探究价格、品牌、产地等因素对销量的影响；<br />
-</li>
-<li><strong>方法</strong>：标准化回归系数 + 虚拟变量；<br />
-</li>
-<li><strong>结论</strong>：价格负向显著，进口品牌溢价明显。</li>
-</ul>
-<h3 id="案例2人口预测">案例2：人口预测</h3>
-<ul>
-<li><strong>数据</strong>：历史人口与经济指标；<br />
-</li>
-<li><strong>模型</strong>：引入Logistic曲线拟合增长趋势；<br />
-</li>
-<li><strong>创新</strong>：结合时间序列ARIMA预测经济变量。</li>
-</ul>
+<h2 id="七模型对比与扩展">七、模型对比与扩展</h2>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>优势</th>
+<th>局限性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ARCH</td>
+<td>简单直观</td>
+<td>需要高阶滞后项</td>
+</tr>
+<tr>
+<td>GARCH</td>
+<td>参数简约，捕捉长期记忆</td>
+<td>假设对称波动响应</td>
+</tr>
+<tr>
+<td>EGARCH</td>
+<td>处理杠杆效应</td>
+<td>计算复杂</td>
+</tr>
+<tr>
+<td>TGARCH</td>
+<td>区分正负冲击影响</td>
+<td>需要更多数据支撑</td>
+</tr>
+</tbody>
+</table>
 
                 
               </div>
@@ -425,13 +458,6 @@ class="math inline">\(Z-Score\)</span>
         
   <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="category-chain-item">数学建模</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/" class="category-chain-item">预测类模型</a>
-  
-  
-
   
 
       </span>
@@ -457,8 +483,8 @@ class="math inline">\(Z-Score\)</span>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>多元线性回归分析</div>
-      <div>http://example.com/2025/05/02/数学建模/预测类模型/2025-05-02-多元线性回归分析/</div>
+      <div>ARCH与GARCH模型</div>
+      <div>http://example.com/2025/05/02/数学建模/预测类模型/2025-05-02-ARCH与GARCH模型/</div>
     </div>
     <div class="license-meta">
       
@@ -514,18 +540,12 @@ class="math inline">\(Z-Score\)</span>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/05/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-05-02-%E5%B2%AD%E5%9B%9E%E5%BD%92%E4%B8%8ELasso%E5%9B%9E%E5%BD%92/" title="岭回归与Lasso回归-ridge&amp;lasso">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">岭回归与Lasso回归-ridge&amp;lasso</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/05/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-05-02-%E7%81%B0%E8%89%B2%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B-GM(n,m)/" title="灰色预测模型-GM(n,m)">
-                        <span class="hidden-mobile">灰色预测模型-GM(n,m)</span>
+                      <a href="/2025/05/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-05-02-%E5%B2%AD%E5%9B%9E%E5%BD%92%E4%B8%8ELasso%E5%9B%9E%E5%BD%92/" title="岭回归与Lasso回归-ridge&amp;lasso">
+                        <span class="hidden-mobile">岭回归与Lasso回归-ridge&amp;lasso</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

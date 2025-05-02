@@ -19,24 +19,24 @@
   <meta name="author" content="ZHW">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一种通过建立线性模型探究变量间关系并实现预测的统计方法">
+    <meta name="description" content="从多重共线性到变量选择，一文掌握正则化回归的核心技术">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多元线性回归分析">
-<meta property="og:url" content="http://example.com/2025/05/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-05-02-%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/">
+<meta property="og:title" content="岭回归与Lasso回归-ridge&amp;lasso">
+<meta property="og:url" content="http://example.com/2025/05/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-05-02-%E5%B2%AD%E5%9B%9E%E5%BD%92%E4%B8%8ELasso%E5%9B%9E%E5%BD%92/">
 <meta property="og:site_name" content="HWのBLOGS">
-<meta property="og:description" content="一种通过建立线性模型探究变量间关系并实现预测的统计方法">
+<meta property="og:description" content="从多重共线性到变量选择，一文掌握正则化回归的核心技术">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/blogs/regression.jpg">
-<meta property="article:published_time" content="2025-05-02T10:14:11.000Z">
-<meta property="article:modified_time" content="2025-05-02T14:38:37.500Z">
+<meta property="og:image" content="http://example.com/img/blogs/ridge_lasso.jpg">
+<meta property="article:published_time" content="2025-05-02T14:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-02T15:15:06.719Z">
 <meta property="article:author" content="ZHW">
 <meta property="article:tag" content="数学建模">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/blogs/regression.jpg">
+<meta name="twitter:image" content="http://example.com/img/blogs/ridge_lasso.jpg">
   
   
   
-  <title>多元线性回归分析 - HWのBLOGS</title>
+  <title>岭回归与Lasso回归-ridge&amp;lasso - HWのBLOGS</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,13 +197,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/blogs/regression.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/blogs/ridge_lasso.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="多元线性回归分析"></span>
+            <span id="subtitle" data-typed-text="岭回归与Lasso回归-ridge&amp;lasso"></span>
           
         </div>
 
@@ -214,7 +214,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-05-02 18:14" pubdate>
+        <time datetime="2025-05-02 22:00" pubdate>
           2025年5月2日 晚上
         </time>
       </span>
@@ -237,7 +237,7 @@
         
         
         
-          14 分钟
+          13 分钟
         
       </span>
     
@@ -283,127 +283,150 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">多元线性回归分析</h1>
+            <h1 id="seo-header">岭回归与Lasso回归-ridge&amp;lasso</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="多元线性回归分析">多元线性回归分析</h1>
-<p>回归分析是数据分析的核心工具，旨在通过研究自变量 X 与因变量 Y
-的相关性，揭示 Y
-的形成机制，并实现预测。多元线性回归通过线性组合解释变量，量化各因素对结果的影响权重，广泛应用于经济、管理、工程等领域。</p>
+                <h1 id="岭回归与lasso回归完全解析">岭回归与Lasso回归完全解析</h1>
+<h2 id="一为什么需要正则化回归">一、为什么需要正则化回归？</h2>
+<h3 id="ols的困境">1. OLS的困境</h3>
+<p>多元线性回归（OLS）是建模的基础方法，但当数据存在<strong>多重共线性</strong>或<strong>变量过多</strong>时，OLS会面临两大问题：
+- <strong>系数估计不稳定</strong>：微小数据变动导致系数剧烈波动 -
+<strong>过拟合风险</strong>：模型在训练集表现好，但泛化能力差</p>
+<h3 id="正则化的引入">2. 正则化的引入</h3>
+<p>通过在损失函数中加入<strong>惩罚项</strong>，限制模型复杂度： -
+<strong>岭回归（Ridge）</strong>：L2正则化 -
+<strong>Lasso回归</strong>：L1正则化</p>
 <hr />
-<h2 id="一用途">一、用途</h2>
-<ol type="1">
-<li><strong>识别重要变量</strong>：筛选出与 Y 显著相关的
-X（如逐步回归法）；<br />
-</li>
-<li><strong>判断方向性</strong>：确定 X 对 Y 的正/负向影响；<br />
-</li>
-<li><strong>估计权重</strong>：通过回归系数反映变量的相对重要性。</li>
-</ol>
-<hr />
-<h2 id="二构建">二、构建</h2>
-<p><span class="math display">\[
-Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \cdots + \beta_k
-X_{ki} + \mu_i
-\]</span> 其中 <span class="math inline">\(\beta_0\)</span>
-为截距项，<span class="math inline">\(\beta_j\)</span>
-为偏回归系数，<span class="math inline">\(\mu_i\)</span> 为扰动项。</p>
-<ul>
-<li><span class="math inline">\(\beta_j\)</span>：控制其他变量时，<span
-class="math inline">\(X_j\)</span> 每增加1单位，<span
-class="math inline">\(Y\)</span> 平均变化 <span
-class="math inline">\(\beta_j\)</span> 单位；<br />
-</li>
-<li>可以先 <span class="math inline">\(Z-Score\)</span>
-标准化数据再看回归系数，绝对值越大贡献越显著。</li>
-</ul>
-<hr />
-<h2 id="三模型检验与优化">三、模型检验与优化</h2>
-<h3 id="拟合优度">1. 拟合优度</h3>
-<ul>
-<li><strong>判定系数 <span
-class="math inline">\(R^2\)</span></strong>：反映模型解释的变异比例，<span
-class="math inline">\(R^2 \in [0,1]\)</span>，越高越好；<br />
-</li>
-<li><strong>调整 <span
-class="math inline">\(R^2\)</span></strong>：避免自变量过多导致的虚假高拟合。</li>
-</ul>
-<h3 id="异方差处理">2. 异方差处理</h3>
-<ul>
-<li><strong>症状</strong>：残差随预测值增大而扩散；<br />
-</li>
-<li><strong>诊断</strong>：BP检验、怀特检验；<br />
-</li>
-<li><strong>解决</strong>：使用 <code>OLS + 稳健标准误</code>
-或广义最小二乘法（GLS）。</li>
-</ul>
-<h3 id="多重共线性">3. 多重共线性</h3>
-<ul>
-<li><strong>症状</strong>：系数符号反常、<span
-class="math inline">\(t\)</span> 检验不显著但 <span
-class="math inline">\(R^2\)</span> 较高；<br />
-</li>
-<li><strong>诊断</strong>：方差膨胀因子（VIF &gt; 10 为严重）；<br />
-</li>
-<li><strong>解决</strong>：剔除高相关变量、增大样本量、主成分降维。</li>
-<li>具体这个又可以开另外一个blogs来说明。</li>
-</ul>
-<hr />
-<h2 id="四stata示例">四、Stata示例</h2>
-<h3 id="基础回归">1. 基础回归</h3>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">* 导入数据并描述统计</span><br>import excel <span class="hljs-string">&quot;data.xlsx&quot;</span>, firstrow <span class="hljs-keyword">clear</span><br><span class="hljs-keyword">summarize</span> Y X1 X2<br><br><span class="hljs-comment">* 多元回归（含虚拟变量）</span><br><span class="hljs-keyword">regress</span> Y X1 X2 i.region, robust<br></code></pre></td></tr></table></figure>
-<h3 id="逐步回归">2. 逐步回归</h3>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">* 向前逐步回归（显著性阈值5%）</span><br><span class="hljs-keyword">stepwise</span> <span class="hljs-keyword">regress</span> Y X1 X2 X3, pe(0.05) robust<br><br><span class="hljs-comment">* 向后逐步回归</span><br><span class="hljs-keyword">stepwise</span> <span class="hljs-keyword">regress</span> Y X1 X2 X3, <span class="hljs-keyword">pr</span>(0.05) robust<br></code></pre></td></tr></table></figure>
-<hr />
-<h2 id="五应用与创新">五、应用与创新</h2>
-<h3 id="局限性">1. 局限性</h3>
-<ul>
-<li><strong>内生性</strong>：遗漏变量或测量误差导致系数有偏，详细说明就是如果满足误差项
-<span class="math inline">\(μ\)</span>
-和所有的自变量均不相关，则称该回归模型具有外生性；如果相关，则存在内生性，内生性会导致回归系数估计的不准确：不满足无偏和一致性，需引入工具变量；<br />
-</li>
-<li><strong>模型过拟合</strong>：变量过多时，需通过交叉验证或正则化（LASSO/Ridge）优化；<br />
-</li>
-<li><strong>非线性关系误判</strong>：可通过变量变换（如取对数）或引入交互项。</li>
-</ul>
-<h3 id="创新拓展">2. 创新拓展</h3>
-<ul>
-<li><p><strong>结合主成分分析</strong>：对高维数据降维后回归，解决多重共线性；</p></li>
-<li><p><strong>混合效应模型</strong>：处理面板数据中的个体/时间效应；</p></li>
-<li><p><strong>机器学习融合</strong>：用随机森林筛选重要变量，再构建回归模型。</p></li>
-<li><p><strong>取对数</strong>：取对数意味着原被解释变量对解释变量的弹性，即百分比的变化而不是数值的变化，好处有：（1）减弱数据的异方差性（2）如果变量本身不符合正态分布，取
-了对数后可能渐近服从正态分布（3）模型形式的需要，让模型具有经济学意义。</p></li>
-<li><p><strong>事先标准化易于解释</strong>：可以先 <span
-class="math inline">\(Z-Score\)</span>
-标准化数据再看回归系数，绝对值越大贡献越显著。</p></li>
-<li><p><strong>虚拟变量引入</strong>：</p>
-<p>定性变量（如性别、地域）需转换为0-1虚拟变量。例如：<br />
+<h2 id="二数学原理从ols到正则化">二、数学原理：从OLS到正则化</h2>
+<h3 id="ols回归">1. OLS回归</h3>
+<p>损失函数：<br />
 <span class="math display">\[
-\text{工资} = \beta_0 + \delta_0 \text{Female}_i + \beta_1
-\text{教育年限}_i + \mu_i
-\]</span> <span class="math inline">\(\delta_0\)</span>
-表示在同等教育水平下，女性与男性的工资差异。$ _i$ 的0-1标识男女</p></li>
+\min_{\beta} \sum_{i=1}^n (y_i - \beta_0 - \sum_{j=1}^p \beta_j
+x_{ij})^2
+\]</span></p>
+<h3 id="岭回归ridge">2. 岭回归（Ridge）</h3>
+<p>加入L2范数（欧氏范数）惩罚项（λ控制惩罚力度）：<br />
+<span class="math display">\[
+\min_{\beta} \left[ \sum_{i=1}^n (y_i - \beta_0 - \sum_{j=1}^p \beta_j
+x_{ij})^2 + \lambda \sum_{j=1}^p \beta_j^2 \right]
+\]</span></p>
+<p><strong>特点</strong>： - 所有系数被等比例压缩，但不会归零 -
+解决多重共线性问题，提升模型稳定性 -
+是以放弃无偏性、降低精度为代价解决病态矩阵问题的回归方法</p>
+<h3 id="lasso回归">3. Lasso回归</h3>
+<p>加入L1（曼哈顿范数）惩罚项：<br />
+<span class="math display">\[
+\min_{\beta} \left[ \sum_{i=1}^n (y_i - \beta_0 - \sum_{j=1}^p \beta_j
+x_{ij})^2 + \lambda \sum_{j=1}^p |\beta_j| \right]
+\]</span></p>
+<p><strong>特点</strong>： -
+可将不重要变量的系数压缩至零，实现<strong>变量选择</strong> -
+适用于高维数据（变量数&gt;样本数）</p>
+<hr />
+<h2
+id="三核心操作正则化参数λ的选择">三、核心操作：正则化参数λ的选择</h2>
+<h3 id="交叉验证k-fold-cv">1. 交叉验证（K-Fold CV）</h3>
+<ul>
+<li><strong>步骤</strong>：将数据分为K份，轮流用K-1份训练，1份验证，计算平均误差</li>
+<li><strong>目标</strong>：选择使验证误差最小的λ值</li>
+</ul>
+<h3 id="正则化路径">2. 正则化路径</h3>
+<ul>
+<li><strong>岭回归</strong>：系数随λ增大逐渐趋近于零</li>
+<li><strong>Lasso</strong>：系数随λ增大会突然变为零</li>
+</ul>
+<p><strong>Python示例（可视化路径）</strong>： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LassoCV, RidgeCV<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br><span class="hljs-comment"># Lasso路径</span><br>alphas = np.logspace(-<span class="hljs-number">4</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>)<br>coefs = []<br><span class="hljs-keyword">for</span> alpha <span class="hljs-keyword">in</span> alphas:<br>    lasso = Lasso(alpha=alpha)<br>    lasso.fit(X, y)<br>    coefs.append(lasso.coef_)<br><br>plt.plot(alphas, coefs)<br>plt.xscale(<span class="hljs-string">&#x27;log&#x27;</span>)<br>plt.xlabel(<span class="hljs-string">&#x27;λ&#x27;</span>)<br>plt.ylabel(<span class="hljs-string">&#x27;Coefficients&#x27;</span>)<br>plt.title(<span class="hljs-string">&#x27;Lasso Regularization Path&#x27;</span>)<br></code></pre></td></tr></table></figure></p>
+<hr />
+<h2 id="四实战案例棉花产量预测">四、实战案例：棉花产量预测</h2>
+<h3 id="数据说明">1. 数据说明</h3>
+<ul>
+<li><strong>自变量</strong>：种子费、化肥费、农药费、机械费、灌溉费</li>
+<li><strong>因变量</strong>：棉花单产（1990-2007年数据）</li>
+</ul>
+<h3 id="操作流程python实现">2. 操作流程（Python实现）</h3>
+<h4 id="数据标准化">(1) 数据标准化</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> StandardScaler<br>scaler = StandardScaler()<br>X_scaled = scaler.fit_transform(X)<br></code></pre></td></tr></table></figure>
+<h4 id="lasso回归建模">(2) Lasso回归建模</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LassoCV<br><br><span class="hljs-comment"># 10折交叉验证选择λ</span><br>lasso = LassoCV(cv=<span class="hljs-number">10</span>, random_state=<span class="hljs-number">42</span>)<br>lasso.fit(X_scaled, y)<br><br><span class="hljs-comment"># 输出结果</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;最优λ：&quot;</span>, lasso.alpha_)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;非零系数：&quot;</span>, lasso.coef_)<br></code></pre></td></tr></table></figure>
+<h4 id="结果解读">(3) 结果解读</h4>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs css">最优λ：<span class="hljs-number">0.05</span><br>非零系数：种子费<span class="hljs-selector-attr">[0.32]</span>、农药费<span class="hljs-selector-attr">[-0.34]</span>、灌溉费<span class="hljs-selector-attr">[0.74]</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li><strong>结论</strong>：机械费、化肥费被剔除，模型保留3个关键变量</li>
 </ul>
 <hr />
-<h2 id="六案例分析">六、案例分析</h2>
-<p>这俩都是清风数学建模的东西：</p>
-<h3 id="案例1电商产品评价量影响因素">案例1：电商产品评价量影响因素</h3>
+<h2 id="五注意">五、注意</h2>
+<h3 id="必须标准化数据">1. 必须标准化数据</h3>
 <ul>
-<li><strong>目标</strong>：探究价格、品牌、产地等因素对销量的影响；<br />
-</li>
-<li><strong>方法</strong>：标准化回归系数 + 虚拟变量；<br />
-</li>
-<li><strong>结论</strong>：价格负向显著，进口品牌溢价明显。</li>
+<li><strong>原因</strong>：正则化对尺度敏感，大范围变量会主导惩罚项</li>
+<li><strong>方法</strong>：使用<code>StandardScaler</code>将变量标准化为均值为0，方差为1</li>
 </ul>
-<h3 id="案例2人口预测">案例2：人口预测</h3>
+<h3 id="如何解释系数">2. 如何解释系数？</h3>
 <ul>
-<li><strong>数据</strong>：历史人口与经济指标；<br />
-</li>
-<li><strong>模型</strong>：引入Logistic曲线拟合增长趋势；<br />
-</li>
-<li><strong>创新</strong>：结合时间序列ARIMA预测经济变量。</li>
+<li><strong>岭回归</strong>：系数代表变量对目标的影响方向，但大小受λ影响</li>
+<li><strong>Lasso</strong>：非零系数表示重要变量，但绝对值无直接可比性</li>
+</ul>
+<h3 id="λ的选择陷阱">3. λ的选择陷阱</h3>
+<ul>
+<li><strong>过小</strong>：接近OLS，失去正则化效果</li>
+<li><strong>过大</strong>：所有系数被过度压缩，模型欠拟合</li>
+</ul>
+<hr />
+<h2 id="六模型对比与选择">六、模型对比与选择</h2>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>岭回归</th>
+<th>Lasso回归</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>正则化类型</td>
+<td>L2</td>
+<td>L1</td>
+</tr>
+<tr>
+<td>系数特性</td>
+<td>连续压缩，不归零</td>
+<td>稀疏性（部分归零）</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>多重共线性严重</td>
+<td>高维数据/变量选择</td>
+</tr>
+<tr>
+<td>计算复杂度</td>
+<td>解析解（快速）</td>
+<td>需迭代优化（较慢）</td>
+</tr>
+<tr>
+<td>软件实现</td>
+<td><code>RidgeCV</code>（Python）</td>
+<td><code>LassoCV</code>（Python）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="七常见问题解答">七、常见问题解答</h2>
+<h3 id="q1何时用岭回归何时用lasso">Q1：何时用岭回归？何时用Lasso？</h3>
+<ul>
+<li><strong>岭回归</strong>：变量均重要，但存在共线性（如经济指标分析）</li>
+<li><strong>Lasso</strong>：变量数多，需筛选关键因素（如基因数据建模）</li>
+</ul>
+<h3 id="q2elastic-net是什么">Q2：Elastic Net是什么？</h3>
+<ul>
+<li><strong>混合正则化</strong>：L1+L2，平衡变量选择与稳定性</li>
+<li><strong>公式</strong>：<br />
+<span class="math display">\[\text{损失函数} + \lambda (\alpha \sum
+|\beta_j| + (1-\alpha) \sum \beta_j^2)\]</span></li>
+</ul>
+<h3 id="q3如何解释λ0的情况">Q3：如何解释λ=0的情况？</h3>
+<ul>
+<li>λ=0时，模型退化为普通OLS回归</li>
 </ul>
 
                 
@@ -457,8 +480,8 @@ class="math inline">\(Z-Score\)</span>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>多元线性回归分析</div>
-      <div>http://example.com/2025/05/02/数学建模/预测类模型/2025-05-02-多元线性回归分析/</div>
+      <div>岭回归与Lasso回归-ridge&amp;lasso</div>
+      <div>http://example.com/2025/05/02/数学建模/预测类模型/2025-05-02-岭回归与Lasso回归/</div>
     </div>
     <div class="license-meta">
       
@@ -514,9 +537,9 @@ class="math inline">\(Z-Score\)</span>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/05/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-05-02-%E5%B2%AD%E5%9B%9E%E5%BD%92%E4%B8%8ELasso%E5%9B%9E%E5%BD%92/" title="岭回归与Lasso回归-ridge&amp;lasso">
+                      <a href="/2025/05/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-05-02-ARCH%E4%B8%8EGARCH%E6%A8%A1%E5%9E%8B/" title="ARCH与GARCH模型">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">岭回归与Lasso回归-ridge&amp;lasso</span>
+                        <span class="hidden-mobile">ARCH与GARCH模型</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -524,8 +547,8 @@ class="math inline">\(Z-Score\)</span>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/05/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-05-02-%E7%81%B0%E8%89%B2%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B-GM(n,m)/" title="灰色预测模型-GM(n,m)">
-                        <span class="hidden-mobile">灰色预测模型-GM(n,m)</span>
+                      <a href="/2025/05/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-05-02-%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" title="多元线性回归分析">
+                        <span class="hidden-mobile">多元线性回归分析</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
