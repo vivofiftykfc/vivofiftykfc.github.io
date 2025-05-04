@@ -19,24 +19,24 @@
   <meta name="author" content="ZHW">
   <meta name="keywords" content="">
   
-    <meta name="description" content="从多重共线性到变量选择，一文掌握正则化回归的核心技术">
+    <meta name="description" content="一些自驱力的思考，最近老是干活没劲">
 <meta property="og:type" content="article">
-<meta property="og:title" content="岭回归与Lasso回归-ridge&amp;lasso">
-<meta property="og:url" content="http://example.com/2025/05/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-05-02-%E5%B2%AD%E5%9B%9E%E5%BD%92%E4%B8%8ELasso%E5%9B%9E%E5%BD%92/">
+<meta property="og:title" content="05-04-巴普洛夫的二八狗">
+<meta property="og:url" content="http://example.com/2025/05/04/%E5%8F%8D%E6%80%9D/2025-05-04-%E5%B7%B4%E6%99%AE%E6%B4%9B%E5%A4%AB%E7%9A%84%E4%BA%8C%E5%85%AB%E7%8B%97/">
 <meta property="og:site_name" content="HWのBLOGS">
-<meta property="og:description" content="从多重共线性到变量选择，一文掌握正则化回归的核心技术">
+<meta property="og:description" content="一些自驱力的思考，最近老是干活没劲">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/blogs/ridge_lasso.jpg">
-<meta property="article:published_time" content="2025-05-02T14:00:00.000Z">
-<meta property="article:modified_time" content="2025-05-02T16:19:41.799Z">
+<meta property="og:image" content="http://example.com/img/blogs/0504.jpg">
+<meta property="article:published_time" content="2025-05-04T15:14:11.000Z">
+<meta property="article:modified_time" content="2025-05-04T16:18:47.503Z">
 <meta property="article:author" content="ZHW">
-<meta property="article:tag" content="数学建模">
+<meta property="article:tag" content="一些思考">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/blogs/ridge_lasso.jpg">
+<meta name="twitter:image" content="http://example.com/img/blogs/0504.jpg">
   
   
   
-  <title>岭回归与Lasso回归-ridge&amp;lasso - HWのBLOGS</title>
+  <title>05-04-巴普洛夫的二八狗 - HWのBLOGS</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,13 +197,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/blogs/ridge_lasso.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/blogs/0504.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="岭回归与Lasso回归-ridge&amp;lasso"></span>
+            <span id="subtitle" data-typed-text="05-04-巴普洛夫的二八狗"></span>
           
         </div>
 
@@ -214,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-05-02 22:00" pubdate>
-          2025年5月2日 晚上
+        <time datetime="2025-05-04 23:14" pubdate>
+          2025年5月4日 晚上
         </time>
       </span>
     
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k 字
+          1.2k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          13 分钟
+          16 分钟
         
       </span>
     
@@ -283,151 +283,32 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">岭回归与Lasso回归-ridge&amp;lasso</h1>
+            <h1 id="seo-header">05-04-巴普洛夫的二八狗</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="岭回归与lasso回归完全解析">岭回归与Lasso回归完全解析</h1>
-<h2 id="一为什么需要正则化回归">一、为什么需要正则化回归？</h2>
-<h3 id="ols的困境">1. OLS的困境</h3>
-<p>多元线性回归（OLS）是建模的基础方法，但当数据存在<strong>多重共线性</strong>或<strong>变量过多</strong>时，OLS会面临两大问题：
-- <strong>系数估计不稳定</strong>：微小数据变动导致系数剧烈波动 -
-<strong>过拟合风险</strong>：模型在训练集表现好，但泛化能力差</p>
-<h3 id="正则化的引入">2. 正则化的引入</h3>
-<p>通过在损失函数中加入<strong>惩罚项</strong>，限制模型复杂度： -
-<strong>岭回归（Ridge）</strong>：L2正则化 -
-<strong>Lasso回归</strong>：L1正则化</p>
-<hr />
-<h2 id="二数学原理从ols到正则化">二、数学原理：从OLS到正则化</h2>
-<h3 id="ols回归">1. OLS回归</h3>
-<p>损失函数：<br />
-<span class="math display">\[
-\min_{\beta} \sum_{i=1}^n (y_i - \beta_0 - \sum_{j=1}^p \beta_j
-x_{ij})^2
-\]</span></p>
-<h3 id="岭回归ridge">2. 岭回归（Ridge）</h3>
-<p>加入L2范数（欧氏范数）惩罚项（λ控制惩罚力度）：<br />
-<span class="math display">\[
-\min_{\beta} \left[ \sum_{i=1}^n (y_i - \beta_0 - \sum_{j=1}^p \beta_j
-x_{ij})^2 + \lambda \sum_{j=1}^p \beta_j^2 \right]
-\]</span></p>
-<p><strong>特点</strong>： - 所有系数被等比例压缩，但不会归零 -
-解决多重共线性问题，提升模型稳定性 -
-是以放弃无偏性、降低精度为代价解决病态矩阵问题的回归方法</p>
-<h3 id="lasso回归">3. Lasso回归</h3>
-<p>加入L1（曼哈顿范数）惩罚项：<br />
-<span class="math display">\[
-\min_{\beta} \left[ \sum_{i=1}^n (y_i - \beta_0 - \sum_{j=1}^p \beta_j
-x_{ij})^2 + \lambda \sum_{j=1}^p |\beta_j| \right]
-\]</span></p>
-<p><strong>特点</strong>： -
-可将不重要变量的系数压缩至零，实现<strong>变量选择</strong> -
-适用于高维数据（变量数&gt;样本数）</p>
-<hr />
-<h2
-id="三核心操作正则化参数λ的选择">三、核心操作：正则化参数λ的选择</h2>
-<h3 id="交叉验证k-fold-cv">1. 交叉验证（K-Fold CV）</h3>
+                <p>原谅我在五四青年节用这样一个奇妙的名字来写这篇文章。主要是刚才在浴室里面思考我近来的状态，发现自己对正儿八经的学习和工作总是提不起兴趣，或者说干活所用到的时间比其他人正常情况下所用的时间要多不少，就比如之前做那个广播台的节目，再比如建模的时候我用三天舍友就用一天，问题很大反正是。</p>
+<p>要是解决我总是拖延不干活的问题（包括现在这篇文章也是我顶着几个火烧眉毛的ddl搁这写的），首先我觉得要先去把自己想象成巴普洛夫的狗。抛开原始的乱七八糟的生物学结论不谈，我这关注的是巴老先生的狗之所以能够学习到相关的行为，其背后的逻辑是啥样的：（大概就是学习的正反馈的构成）</p>
+<pre><code class=" mermaid">flowchart TD
+ A[初始的动力打开学习开关]--&gt;B[进行相关知识的学习]
+ B--&gt;C[学习得到好结果]
+ C--&gt;D[转化为进行下去的动力]
+ D--&gt;B
+</code></pre>
+<p>高中的时候之所以能够卷生卷死，实际上确实在我这是有一个这样的逻辑的，主要矛盾给放到上个好大学上面，然后十分频繁的考试又能够有效的将我的学习成果量化出来转变为动力，这个正循环确实是从初中开始一直支撑我走到大学。</p>
+<p>但是大学以来这个学习的正循环很显然被打破了，总是感觉学习没啥意思，学起来也没啥（同时也能发现我这快两年了大多数情况下还是这个德行）</p>
+<p>一个是要找到开始学习的动力，这个确实很虚而且我自己也很需要，对于我自己而言实际上我也没有想明白；一个是要找到能将学习进度转换为下一步的策略，这个我觉得我也比较缺少；再一个可能还有个技巧，连带着后文一起讲吧。</p>
+<p>然后是为什么干活时间总是比别人久，我觉得两方面原因，一个是感觉有的东西他真没必要追求最好，比如舍友他们的目标就是做完而已，毕竟做完就能有资格，所以他们做的快；跟我在一起的搭档也是配完音就不返音不怎么修改，因为实际上第一遍也能展示自己的百分之八十，为什么还要投入更多的时间在上面只为那百分之二十呢？霓虹那边我记得看泡沫年代的微观经济学分析的时候有这样一个例子，企业为了去节约成本，把目光放在了让员工节约最后的那一点边角料上，为了节约边角料去浪费巨量的人力成本。我这样做又和日本企业节约边角料有什么区别呢？这和以前上课插入浪费时间的例行公事部分的时候老师安慰“多学一点没有什么害处”又有多大的区别呢？歌颂完美是好，但是很多情况下我也没有必要去追求完美，因为有的东西的完美的性价比真的不如我再拿时间去干别的事。</p>
+<p>于是就又引到了二八定理上，百分之八十的收益是在百分之二十的时间里面，二要不要花费这百分之八十的时间去完成这个百分之二十还要掂量掂量，看他值不值得，能不能提供给我应有的成绩，足量的进行下一步学习的动力。</p>
+<p>当然话是这么讲，我写这篇文章耽误我其他事又与上述说法相违背了呢）</p>
+<p>话继续拐过来，第二个原因就是无法进行心流状态。中学的时候我接触手机之类的东西远没有现在多，现在干什么活干着干着总会倾向于开摆，比如我写代码写一半开始写这篇稿子就是其中之一。这一点我觉得，一个是要降低娱乐的吸引力，第二个又回到上述的那个巴普洛夫里面，要利用这种正反馈机制，来让这个学习研究更吸引自己。</p>
+<p>ok大概就这么多，吸取上述的经验，一共两个事：</p>
 <ul>
-<li><strong>步骤</strong>：将数据分为K份，轮流用K-1份训练，1份验证，计算平均误差</li>
-<li><strong>目标</strong>：选择使验证误差最小的λ值</li>
+<li>要明白自己学习的奖励机制是啥，把自己当成巴普洛夫的狗</li>
+<li>要进行取舍，用二八法来决定做到什么程度，杜绝完美主义</li>
 </ul>
-<h3 id="正则化路径">2. 正则化路径</h3>
-<ul>
-<li><strong>岭回归</strong>：系数随λ增大逐渐趋近于零</li>
-<li><strong>Lasso</strong>：系数随λ增大会突然变为零</li>
-</ul>
-<p><strong>Python示例（可视化路径）</strong>： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LassoCV, RidgeCV<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br><span class="hljs-comment"># Lasso路径</span><br>alphas = np.logspace(-<span class="hljs-number">4</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>)<br>coefs = []<br><span class="hljs-keyword">for</span> alpha <span class="hljs-keyword">in</span> alphas:<br>    lasso = Lasso(alpha=alpha)<br>    lasso.fit(X, y)<br>    coefs.append(lasso.coef_)<br><br>plt.plot(alphas, coefs)<br>plt.xscale(<span class="hljs-string">&#x27;log&#x27;</span>)<br>plt.xlabel(<span class="hljs-string">&#x27;λ&#x27;</span>)<br>plt.ylabel(<span class="hljs-string">&#x27;Coefficients&#x27;</span>)<br>plt.title(<span class="hljs-string">&#x27;Lasso Regularization Path&#x27;</span>)<br></code></pre></td></tr></table></figure></p>
-<hr />
-<h2 id="四实战案例棉花产量预测">四、实战案例：棉花产量预测</h2>
-<h3 id="数据说明">1. 数据说明</h3>
-<ul>
-<li><strong>自变量</strong>：种子费、化肥费、农药费、机械费、灌溉费</li>
-<li><strong>因变量</strong>：棉花单产（1990-2007年数据）</li>
-</ul>
-<h3 id="操作流程python实现">2. 操作流程（Python实现）</h3>
-<h4 id="数据标准化">(1) 数据标准化</h4>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> StandardScaler<br>scaler = StandardScaler()<br>X_scaled = scaler.fit_transform(X)<br></code></pre></td></tr></table></figure>
-<h4 id="lasso回归建模">(2) Lasso回归建模</h4>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LassoCV<br><br><span class="hljs-comment"># 10折交叉验证选择λ</span><br>lasso = LassoCV(cv=<span class="hljs-number">10</span>, random_state=<span class="hljs-number">42</span>)<br>lasso.fit(X_scaled, y)<br><br><span class="hljs-comment"># 输出结果</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;最优λ：&quot;</span>, lasso.alpha_)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;非零系数：&quot;</span>, lasso.coef_)<br></code></pre></td></tr></table></figure>
-<h4 id="结果解读">(3) 结果解读</h4>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs css">最优λ：<span class="hljs-number">0.05</span><br>非零系数：种子费<span class="hljs-selector-attr">[0.32]</span>、农药费<span class="hljs-selector-attr">[-0.34]</span>、灌溉费<span class="hljs-selector-attr">[0.74]</span><br></code></pre></td></tr></table></figure>
-<ul>
-<li><strong>结论</strong>：机械费、化肥费被剔除，模型保留3个关键变量</li>
-</ul>
-<hr />
-<h2 id="五注意">五、注意</h2>
-<h3 id="必须标准化数据">1. 必须标准化数据</h3>
-<ul>
-<li><strong>原因</strong>：正则化对尺度敏感，大范围变量会主导惩罚项</li>
-<li><strong>方法</strong>：使用<code>StandardScaler</code>将变量标准化为均值为0，方差为1</li>
-</ul>
-<h3 id="如何解释系数">2. 如何解释系数？</h3>
-<ul>
-<li><strong>岭回归</strong>：系数代表变量对目标的影响方向，但大小受λ影响</li>
-<li><strong>Lasso</strong>：非零系数表示重要变量，但绝对值无直接可比性</li>
-</ul>
-<h3 id="λ的选择陷阱">3. λ的选择陷阱</h3>
-<ul>
-<li><strong>过小</strong>：接近OLS，失去正则化效果</li>
-<li><strong>过大</strong>：所有系数被过度压缩，模型欠拟合</li>
-</ul>
-<hr />
-<h2 id="六模型对比与选择">六、模型对比与选择</h2>
-<table>
-<thead>
-<tr>
-<th>指标</th>
-<th>岭回归</th>
-<th>Lasso回归</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>正则化类型</td>
-<td>L2</td>
-<td>L1</td>
-</tr>
-<tr>
-<td>系数特性</td>
-<td>连续压缩，不归零</td>
-<td>稀疏性（部分归零）</td>
-</tr>
-<tr>
-<td>适用场景</td>
-<td>多重共线性严重</td>
-<td>高维数据/变量选择</td>
-</tr>
-<tr>
-<td>计算复杂度</td>
-<td>解析解（快速）</td>
-<td>需迭代优化（较慢）</td>
-</tr>
-<tr>
-<td>软件实现</td>
-<td><code>RidgeCV</code>（Python）</td>
-<td><code>LassoCV</code>（Python）</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="七常见问题解答">七、常见问题解答</h2>
-<h3 id="q1何时用岭回归何时用lasso">Q1：何时用岭回归？何时用Lasso？</h3>
-<ul>
-<li><strong>岭回归</strong>：变量均重要，但存在共线性（如经济指标分析）</li>
-<li><strong>Lasso</strong>：变量数多，需筛选关键因素（如基因数据建模）</li>
-</ul>
-<h3 id="q2elastic-net是什么">Q2：Elastic Net是什么？</h3>
-<ul>
-<li><strong>混合正则化</strong>：L1+L2，平衡变量选择与稳定性</li>
-<li><strong>公式</strong>：<br />
-<span class="math display">\[\text{损失函数} + \lambda (\alpha \sum
-|\beta_j| + (1-\alpha) \sum \beta_j^2)\]</span></li>
-</ul>
-<h3 id="q3如何解释λ0的情况">Q3：如何解释λ=0的情况？</h3>
-<ul>
-<li>λ=0时，模型退化为普通OLS回归</li>
-</ul>
+<p>差不多就写这么多，然后我要践行上面的东西了，再</p>
 
                 
               </div>
@@ -436,39 +317,11 @@ id="三核心操作正则化参数λ的选择">三、核心操作：正则化参
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="category-chain-item">数学建模</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/" class="category-chain-item">预测类模型</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="print-no-link">#数学建模</a>
+        <a href="/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/" class="print-no-link">#一些思考</a>
       
     </div>
   
@@ -480,8 +333,8 @@ id="三核心操作正则化参数λ的选择">三、核心操作：正则化参
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>岭回归与Lasso回归-ridge&amp;lasso</div>
-      <div>http://example.com/2025/05/02/数学建模/预测类模型/2025-05-02-岭回归与Lasso回归/</div>
+      <div>05-04-巴普洛夫的二八狗</div>
+      <div>http://example.com/2025/05/04/反思/2025-05-04-巴普洛夫的二八狗/</div>
     </div>
     <div class="license-meta">
       
@@ -493,7 +346,7 @@ id="三核心操作正则化参数λ的选择">三、核心操作：正则化参
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年5月2日</div>
+          <div>2025年5月4日</div>
         </div>
       
       
@@ -537,18 +390,12 @@ id="三核心操作正则化参数λ的选择">三、核心操作：正则化参
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/05/04/2025-05-04/" title="">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/05/02/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-05-02-%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" title="多元线性回归分析">
-                        <span class="hidden-mobile">多元线性回归分析</span>
+                      <a href="/2025/05/04/2025-05-04/" title="">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -647,6 +494,21 @@ id="三核心操作正则化参数λ的选择">三、核心操作：正则化参
 
 
 
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
 
 
 
