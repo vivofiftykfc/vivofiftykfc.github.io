@@ -19,24 +19,24 @@
   <meta name="author" content="ZHW">
   <meta name="keywords" content="">
   
-    <meta name="description" content="作为我数学建模这部分博客的开头">
+    <meta name="description" content="讲一下visio的一些东西，等于啥都没写">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数学建模综述">
-<meta property="og:url" content="http://example.com/2025/04/21/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%BB%BC%E8%BF%B0/">
+<meta property="og:title" content="visio绘图">
+<meta property="og:url" content="http://example.com/2025/07/30/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/2025-07-30-visio%E7%BB%98%E5%9B%BE/">
 <meta property="og:site_name" content="HWのBLOGS">
-<meta property="og:description" content="作为我数学建模这部分博客的开头">
+<meta property="og:description" content="讲一下visio的一些东西，等于啥都没写">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/blogs/mathplay.jpg">
-<meta property="article:published_time" content="2025-04-21T15:14:11.000Z">
-<meta property="article:modified_time" content="2025-07-30T07:48:26.513Z">
+<meta property="og:image" content="http://example.com/img/blogs/pearson.jpg">
+<meta property="article:published_time" content="2025-07-30T10:14:11.000Z">
+<meta property="article:modified_time" content="2025-07-30T12:31:40.853Z">
 <meta property="article:author" content="ZHW">
-<meta property="article:tag" content="数学建模">
+<meta property="article:tag" content="折腾的小杂项">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/blogs/mathplay.jpg">
+<meta name="twitter:image" content="http://example.com/img/blogs/pearson.jpg">
   
   
   
-  <title>数学建模综述 - HWのBLOGS</title>
+  <title>visio绘图 - HWのBLOGS</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,13 +197,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/blogs/mathplay.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/blogs/pearson.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="数学建模综述"></span>
+            <span id="subtitle" data-typed-text="visio绘图"></span>
           
         </div>
 
@@ -214,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-04-21 23:14" pubdate>
-          2025年4月21日 晚上
+        <time datetime="2025-07-30 18:14" pubdate>
+          2025年7月30日 晚上
         </time>
       </span>
     
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k 字
+          1.2k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          24 分钟
+          16 分钟
         
       </span>
     
@@ -283,173 +283,140 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">数学建模综述</h1>
+            <h1 id="seo-header">visio绘图</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="数学建模综述">数学建模综述</h1>
-<p>数学建模是我个人觉得挺值得去打的一个比赛类型，主要是可以从比赛中学到论文的基本撰写流程与思路技巧、传统建模分析的基础方法（尤其是在这个机器学习横行的当下显得更为重要）、利用科学思维分析现实问题的能力（可以让自己变得更理性），功利点的话还有加综测保研考验复试的用途。我们学校的相关制度也比较成熟，三段校赛给基础模型学一遍，然后美赛国赛换着打，挺建议我们学校的大一的学弟学妹参加，正好大一上学学编程工数淑芬，大一下来打这个，挺好的。</p>
-<p>本文就按照我的思路进行一些梳理吧。注意本人是工科生，可能会更偏重与用工科惯用套路来想，像是微分方程推导建模之类的就略过不谈了。</p>
-<p>同时还有一点，机器学习的方法我也不讲了，一个是这个玩意很多模型都是黑箱没法解释，一个是本来这类比赛的初衷就不是机器学习，有的比赛就直接给机器学习给ban了。</p>
-<p>本博客基于25年网协数学建模例会进行叙述（很多都是直接抄的），感谢分享人郭文涛。</p>
-<h2 id="建模编程">建模编程</h2>
-<p>按照这几个大类来思考模型选用。如果是入门者建议就从零开始边打边学，像毛主席讲的“从战争中学习战争”吗。</p>
-<p>个人建议的入门路径是：参与校赛，利用CSDN/知乎/B站+SPSS验证+GPT/DeepSeek/现在流行的ai进行解释，逐步学会相关方法。</p>
-<pre><code class=" mermaid">flowchart LR
-  B[AI及搜索了解可用模型]
-  B --&gt; C[SPSS验证方法可行性]
-  C --&gt; D[写代码]
-
-</code></pre>
-<p>当然，前提是你要知道有什么方法可以选，明白几个方向的模型有什么选项、他的输入和输出是什么、主要思想是什么、适用场景和特点有哪些。</p>
-<h3 id="优化">优化</h3>
-<p>优化得出最大最小值。具体而言是变量+约束条件+目标函数，如果你学过神经网络的一些基本概念就会知道这个和训练时放个目标函数然后往那里学习的思路是有点像的。具体而言是我告诉你现在有哪些变量，然后我最后想要得到一个什么东西（最短路径是什么等等），然后你来给我建模得到这样一个模型。</p>
-<p>注意事项有：</p>
+                <h2 id="下载">下载</h2>
+<p>具体怎么下载就补不细讲了，然后可以参考一下相关的帖子。我想能学到这一步的应该也不用出个保姆级的教程了。</p>
+<blockquote>
+<p><a
+target="_blank" rel="noopener" href="https://support.microsoft.com/zh-cn/office/%E5%AE%89%E8%A3%85-visio-%E6%88%96%E8%AE%BF%E9%97%AE-visio-%E7%BD%91%E9%A1%B5%E7%89%88-f98f21e3-aa02-4827-9167-ddab5b025710">安装
+Visio 或访问 Visio 网页版 - Microsoft 支持</a> <a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38348202/article/details/127723561">Visio从安装到使用完整版_visio
+csdn-CSDN博客</a> <a
+target="_blank" rel="noopener" href="https://blog.csdn.net/binbinaishijie88/article/details/149247723">【2025】Visio安装教程保姆级一键安装教程（附安装包）-CSDN博客</a>
+<a
+target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzk0MzE4NDU4NQ==&amp;mid=2247506730&amp;idx=2&amp;sn=4bcaa57e0835bc5e1fbdbf90cddde8fe&amp;chksm=c335548cf442dd9a86ff301a26a85a9c30dcc9ecb84dd0584fde2281b71cce789df1b546a968&amp;token=2032306290&amp;lang=zh_CN&amp;scene=21#wechat_redirect">Visio
+2021 安装教程【64位/32位】</a></p>
+</blockquote>
+<p>甚至这个东西还有网页版，而且顺便看了一下，office全家桶现在都有，倒真挺不错的，如果氪的起金的话，当然我是没用过：</p>
+<blockquote>
+<p>https://visio.office.com/</p>
+</blockquote>
+<p>有一个比较奇妙的问题就是，我在下载好office2021全家桶（word、ppt等）的情况下没办法直接安装visio，给office卸掉再安装就能安装上了，就比较奇妙。</p>
+<p><strong>最终我确定的安装方法是直接卸载office然后重新从学校的正版化软件平台找office全家桶安装的光盘映像，勾上安装visio，勾八的。</strong></p>
+<p>如果你是校友的话，不妨就直接上ca.bit.edu.cn看看。</p>
+<h2 id="发展脉络补充">发展脉络补充</h2>
+<p>总结一下就是最开始出的是office套件，即word、excel、ppt等，这些都只不过是在电脑本地跑，写作的话需要手动传文件，之后在一零年代微软推出个office
+365，加了点云服务，即onedrive、邮箱等，再往后二零年代就吧这个品牌名改为了Microsoft
+365，加了点ai功能和更多的协作功能。</p>
+<p>总体来说还是看协作要求程度以及个人经济实力来选择合适的办公用具。</p>
+<p>接下来具体的讲述的材料源为deepseek-R1：</p>
+<h3
+id="微软办公套件核心发展时间线"><strong>微软办公套件核心发展时间线</strong></h3>
+<h4 id="传统买断制时代-1989---2010"><strong>1. 传统买断制时代 (1989 -
+2010)</strong></h4>
 <ul>
-<li>线性寻路等存在最佳唯一解。</li>
-<li>退火、遗传、粒子群为模拟结果，可能有局部最优解，最好多跑几轮。</li>
-<li>微分差分方程一般是生物、种群的题，多轮模拟添加竞争等条件，美赛A题比较常见。</li>
-<li>图论当时那个分享人不会，然后我也不咋会，这个东西有点太理论了。</li>
+<li><strong>1989年</strong>：微软首次提出 <strong>“Microsoft
+Office”</strong> 品牌概念，将多个独立办公应用打包销售 。</li>
+<li><strong>1990年11月19日</strong>：发布划时代的
+<strong>Windows版Office套件</strong>，包含 <strong>Word 1.0、Excel
+2.0、PowerPoint
+2.0</strong>（即“办公三件套”），定义了此后数十年的文档处理标准 。</li>
+<li><strong>1995年</strong>：<strong>Office 95</strong> 随
+<strong>Windows 95</strong>
+操作系统爆发式普及，成为全球企业和个人事实上的办公标准，击败了WordPerfect、Lotus等竞争对手
+。</li>
+<li><strong>2000s年代</strong>：微软持续推出 <strong>Office
+2000/XP/2003/2007/2010</strong>
+等买断版本，功能迭代但本质仍是本地安装软件，协作依赖文件传输 。</li>
 </ul>
-<pre><code class=" mermaid">flowchart LR
-  A[优化模型] --&gt; B[数学规划]
-  B --&gt; B1[dp]
-  A --&gt; C[微分、差分方程]
-  C --&gt; C1[传染病模型SIR]
-  C --&gt; C2[Lotka-Volterra]
-  C --&gt; C3[Leslie种群模型]
-  A --&gt; D[图论与网络]
-  D --&gt; D1[最短路]
-  D --&gt; D2[网络最大流]
-  D --&gt; D3[旅行商问题TSP]
-  A --&gt; E[优化算法]
-  E --&gt; E1[退火算法]
-  E --&gt; E2[遗传算法]
-  E --&gt; E3[粒子群算法]
-
-</code></pre>
-<h3 id="分类">分类</h3>
-<p>给现有的物品分出等级，可能会伴随着大量的数据。一般不会单独出题，比如评价的时候会有这种东西的出现。</p>
-<p>K-means和SVM、XGBoost比较重要</p>
-<pre><code class=" mermaid">flowchart LR
-  A[分类模型] --&gt; B1[判别分析]
-  B1 --&gt; B11[距离判别法]
-  B1 --&gt; B12[Fisher判别法]
-  B1 --&gt; B13[Bayes判别法]
-
-  A --&gt; B2[聚类分析]
-  B2 --&gt; B21[K-means聚类]
-
-
-  A --&gt; B3[神经网络分类]
-  B3 --&gt; B22[CNN]
-  B3 --&gt; B23[yolo]
-  B3 --&gt; B31[随机森林]
-  B3 --&gt; B32[SVM]
-  B3 --&gt; B33[XGBoost]
-
-</code></pre>
-<h3 id="评价">评价</h3>
-<p>评价方案的好坏，给出相应的评判方法，25年校赛第一轮的B题就是这个，当时用的熵权法+TOPSIS做的就挺好，然后先用PCA筛几个变量下去，还能画点好看的热力图什么的。这类题实在不会用AHP这种纯主观的糊弄糊弄也不是不行，至少能给题做出来。</p>
-<p>但是要注意一点，这种比较套路化的思路同质化就会比较严重，具体怎么抉择还是自己仔细想一想吧。</p>
-<pre><code class=" mermaid">flowchart LR
-  A[评价模型] --&gt; B1[层次分析法（AHP）]
-  A --&gt; B2[灰色关联度分析]
-  A --&gt; B3[BP神经网络]
-  A --&gt; B4[数据包络法DEA]
-  A --&gt; B5[组合评价法]
-  A --&gt; B6[熵权法+TOPSIS]
-
-</code></pre>
-<h3 id="预测">预测</h3>
-<p>预测未来的变化</p>
+<h4 id="云订阅转型office-365时代-2011---2019"><strong>2.
+云订阅转型：Office 365时代 (2011 - 2019)</strong></h4>
 <ul>
-<li>输入：按照时间排布的变量</li>
-<li>输出：按照时间排布的变量未来值</li>
-<li>主要使用：线性回归、ARIMA</li>
-<li>多变量：可以尝试使用LSTM，也可以非时序，给定要素做判断</li>
-</ul>
-<pre><code class=" mermaid">flowchart LR
-  A[预测模型] --&gt; B1[回归分析]
-  B1 --&gt; B11[线性回归]
-  B1 --&gt; B12[岭回归]
-
-  A --&gt; B2[时间序列分析]
-  B2 --&gt; B21[ARIMA]
-
-  A --&gt; B3[灰色预测]
-  B3 --&gt; B31[&quot;GM(1,1)&quot;]
-
-  A --&gt; B4[&quot;支持向量机 SVM&quot;]
-
-  A --&gt; B5[机器学习]
-  B5 --&gt; B51[BP神经网络]
-  B5 --&gt; B52[LSTM]
-  B5 --&gt; B53[GRU]
-  B5 --&gt; B54[随机森林]
-  B5 --&gt; B55[梯度提升机 GBDT]
-  B5 --&gt; B56[XGBoost 回归]
-  B5 --&gt; B57[LightGBM]
-  B5 --&gt; B58[SVR 回归]
-
-  A --&gt; B6[组合预测]
-
-</code></pre>
-<h3 id="总体流程">总体流程</h3>
-<pre><code class=" mermaid">flowchart LR
-  B[AI及搜索了解可用模型]
-  B --&gt; C[SPSS验证方法可行性]
-  C --&gt; D[写代码]
-  D --&gt; E[优化图表]
-  E --&gt; F[结果验证，评估]
-
-</code></pre>
-<p>评估的话可做可不做，如果多个模型可以比较一下，或者指标好看，比如拟合的很好可以吹一下，差了就不说了。
-再说一遍，一定要注意要验证是否可行，避免无用功。</p>
-<h2 id="论文部分">论文部分</h2>
-<h3 id="文档结构">文档结构</h3>
-<ol type="1">
-<li><strong>摘要</strong></li>
-<li><strong>目录</strong></li>
-<li><strong>问题介绍</strong>
+<li><strong>2011年6月28日</strong>：微软正式推出 <strong>Office
+365</strong>，标志<strong>从买断制向订阅制云服务转型</strong>。初始版本面向<strong>企业/教育用户</strong>，整合Exchange
+Online、SharePoint Online、Lync Online（后改名Skype for
+Business）。</li>
+<li><strong>2013年</strong>：
 <ul>
-<li>背景</li>
-<li>重述</li>
-<li>分析</li>
+<li>推出面向<strong>小型企业</strong>的“高级版”订阅计划 。</li>
+<li>集成商业智能工具 <strong>Power BI</strong> 到Excel 。</li>
 </ul></li>
-<li><strong>符号表</strong></li>
-<li><strong>基本假设</strong></li>
-<li><strong>模型建立与求解</strong>
+<li><strong>2014年3月</strong>：推出面向<strong>个人消费者</strong>的订阅计划（个人版/家庭版），首次将云服务覆盖至C端用户
+。</li>
+<li><strong>2017年</strong>：
 <ul>
-<li>一、二、三</li>
+<li>Office 365收入占比首次<strong>超过50%</strong>，云转型完成关键里程碑
+。</li>
+<li><strong>7月</strong>：发布 <strong>Microsoft 365
+企业服务</strong>（含Office 365企业版 + Windows 10企业版 +
+企业移动安全套件），但<strong>此时“Office
+365”仍是消费者端主品牌</strong> 。</li>
 </ul></li>
-<li><strong>模型评估优缺点、灵敏性分析</strong></li>
-</ol>
-<h3 id="主体部分">主体部分</h3>
-<p>方法引入 + 公式 + 运用图片 + 结果</p>
-<ul>
-<li><strong>说清楚为啥用</strong>：哪类的模型 + 实现什么目的</li>
-<li><strong>说清楚如何用</strong>：计算公式 + 可能的过程图</li>
-<li><strong>说清楚用结果</strong>：使用结果图 + 误差分析</li>
 </ul>
-<h2 id="注意事项">注意事项</h2>
+<h4 id="品牌统一与生态扩展microsoft-365时代-2020---至今"><strong>3.
+品牌统一与生态扩展：Microsoft 365时代 (2020 - 至今)</strong></h4>
 <ul>
-<li>看题目位置是第几题，第一题可以稍微水一些，后面第三题就要猛猛干。</li>
-<li>一定要注意要验证是否可行，避免无用功。</li>
-<li>画出来的图一定要美化一些，因为实际上大家的模型都差不多，最重要的还是你的图片，要比较帅。</li>
-<li>摘要也很重要，这个建议要建模手在最后做完的时候再改一下。</li>
-<li>做完之后记得补充符号表</li>
-<li>无论建模、细节完成度多少，是否完成每个任务和作图，都要按照模板填够内容，不缺漏部分</li>
-<li>论文手第一天就要干活，写背景调研什么的</li>
-<li>图片需要细细打磨，下面贴一张分享会的ppt</li>
-</ul>
-<p><img
-src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202506222335264.png" srcset="/img/loading.gif" lazyload /></p>
+<li><strong>2020年3月30日</strong>：微软宣布 <strong>Office
+365消费者订阅服务（个人/家庭版）将于4月21日正式更名为Microsoft
+365</strong>，标志“Office”品牌淡出，云生态成为核心 。
 <ul>
-<li>建模手和论文手要好好沟通</li>
-<li>建模手要注意评估优缺点，要注意灵敏度的分析设计，这个听分享会的话要用shap？我没用过反正是</li>
+<li><strong>关键升级</strong>：新增AI功能如 <strong>写作助手（Microsoft
+Editor）</strong>、<strong>PPT演讲教练（Presenter
+Coach）</strong>、<strong>Excel个人记账工具（Money in Excel）</strong>
+。</li>
+<li>价格不变（中国区个人版398元/年，家庭版498元/年）。</li>
+</ul></li>
+<li><strong>2022年10月</strong>：微软在Ignite大会宣布，<strong>Office移动端/网页端/桌面端应用将全面更名为“Microsoft
+365 App”</strong>，界面与图标同步更新 。</li>
+<li><strong>2023年至今</strong>：
+<ul>
+<li>持续深化AI集成（如Copilot）、跨平台兼容（如macOS打印支持）、安全更新
+。</li>
+<li><strong>Microsoft
+365成为涵盖办公、协作、云存储、AI、安全的一站式平台</strong>，彻底超越传统Office工具定位
+。</li>
+</ul></li>
 </ul>
+<h3 id="时间线速查表">时间线速查表</h3>
+<table>
+
+<thead>
+<tr>
+<th><strong>时间段</strong></th>
+<th><strong>核心产品/品牌</strong></th>
+<th><strong>重要事件</strong></th>
+<th><strong>模式/特点</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1990-2010</strong></td>
+<td>Microsoft Office</td>
+<td>1990年发布三件套；1995年随Win95普及；买断制更新</td>
+<td>本地安装，功能封闭</td>
+</tr>
+<tr>
+<td><strong>2011-2019</strong></td>
+<td>Office 365</td>
+<td>2011年面向企业推出；2014年扩展至个人用户；2017年收入超50%</td>
+<td><strong>订阅制云服务</strong>，整合在线协作工具</td>
+</tr>
+<tr>
+<td><strong>2020-至今</strong></td>
+<td>Microsoft 365</td>
+<td>2020年4月消费者版更名；2022年应用全面更名；AI深度集成（写作/演讲/图表生成）</td>
+<td><strong>云+AI+生态平台</strong>，跨设备无缝协作</td>
+</tr>
+</tbody>
+</table>
+<p>反正总结一下对于现阶段的我，一个啥都不会的大学生来说，直接继续选office套件找学习版绿色版就对了。</p>
+<h2 id="操作">操作</h2>
+<p>略，他的操作思路刚上手才发现确实跟office其他套件一个逻辑，没有必要再在这里废话。</p>
+<p>总结就是这篇稿子等于啥都没写。</p>
 
                 
               </div>
@@ -458,32 +425,11 @@ src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202506222
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="category-chain-item">数学建模</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="print-no-link">#数学建模</a>
+        <a href="/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/" class="print-no-link">#折腾的小杂项</a>
       
     </div>
   
@@ -495,8 +441,8 @@ src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202506222
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>数学建模综述</div>
-      <div>http://example.com/2025/04/21/数学建模/数学建模综述/</div>
+      <div>visio绘图</div>
+      <div>http://example.com/2025/07/30/折腾杂项/2025-07-30-visio绘图/</div>
     </div>
     <div class="license-meta">
       
@@ -508,7 +454,7 @@ src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202506222
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年4月21日</div>
+          <div>2025年7月30日</div>
         </div>
       
       
@@ -552,18 +498,12 @@ src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202506222
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/05/01/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/2025-05-01-%E5%BC%82%E5%B8%B8%E5%80%BC%E5%A4%84%E7%90%86/" title="异常值检验">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">异常值检验</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/04/13/%E6%91%84%E5%BD%B1/2025-04-13-%E7%9B%B8%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E8%A7%A3%E8%AF%BB/" title="相机基础知识解读">
-                        <span class="hidden-mobile">相机基础知识解读</span>
+                      <a href="/2025/07/26/%E5%8F%8D%E6%80%9D/2025-07-26-%E9%9D%92%E5%B2%9B/" title="2025-07-26-青岛">
+                        <span class="hidden-mobile">2025-07-26-青岛</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
