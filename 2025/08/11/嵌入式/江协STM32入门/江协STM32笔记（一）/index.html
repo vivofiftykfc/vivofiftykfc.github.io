@@ -19,24 +19,24 @@
   <meta name="author" content="ZHW">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这个星期在老师的指导下手搓了一份专利，总结一下具体的写作流程作为存档">
+    <meta name="description" content="学江协stm32课程时做的自用笔记，序言与GPIO部分">
 <meta property="og:type" content="article">
-<meta property="og:title" content="专利写作·初">
-<meta property="og:url" content="http://example.com/2025/08/03/%E5%86%99%E4%BD%9C/%E4%B8%93%E5%88%A9%E5%86%99%E4%BD%9C%C2%B7%E5%88%9D/">
+<meta property="og:title" content="江协STM32笔记（一）">
+<meta property="og:url" content="http://example.com/2025/08/11/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E6%B1%9F%E5%8D%8FSTM32%E5%85%A5%E9%97%A8/%E6%B1%9F%E5%8D%8FSTM32%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/">
 <meta property="og:site_name" content="HWのBLOGS">
-<meta property="og:description" content="这个星期在老师的指导下手搓了一份专利，总结一下具体的写作流程作为存档">
+<meta property="og:description" content="学江协stm32课程时做的自用笔记，序言与GPIO部分">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/blogs/topsis.jpg">
-<meta property="article:published_time" content="2025-08-03T08:46:10.000Z">
-<meta property="article:modified_time" content="2025-08-03T08:47:24.288Z">
+<meta property="og:image" content="http://example.com/img/blogs/wrj1.jpg">
+<meta property="article:published_time" content="2025-08-11T15:14:11.000Z">
+<meta property="article:modified_time" content="2025-08-11T16:33:48.889Z">
 <meta property="article:author" content="ZHW">
-<meta property="article:tag" content="写作">
+<meta property="article:tag" content="江协STM32入门">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/blogs/topsis.jpg">
+<meta name="twitter:image" content="http://example.com/img/blogs/wrj1.jpg">
   
   
   
-  <title>专利写作·初 - HWのBLOGS</title>
+  <title>江协STM32笔记（一） - HWのBLOGS</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,13 +197,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/blogs/topsis.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/blogs/wrj1.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="专利写作·初"></span>
+            <span id="subtitle" data-typed-text="江协STM32笔记（一）"></span>
           
         </div>
 
@@ -214,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-08-03 16:46" pubdate>
-          2025年8月3日 下午
+        <time datetime="2025-08-11 23:14" pubdate>
+          2025年8月11日 晚上
         </time>
       </span>
     
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.4k 字
+          1.3k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          30 分钟
+          17 分钟
         
       </span>
     
@@ -283,78 +283,157 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">专利写作·初</h1>
+            <h1 id="seo-header">江协STM32笔记（一）</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="概述">概述</h2>
-<p>具体就是我们之前写了最初的一版的报告，但是老师之后又找到我们，大概意思就是委婉的指出这个玩意儿写的就是一坨翔，跟中期检查报告一样，不符合写作要求，然后就是又手把手让我学着写了一部分（虽然到现在的话也忘的差不多了），又发了往届的几份写好的专利给我们，让我们比着写，之后就是我用一星期一边玩一边搓，用word和visio写了大概万把字几张图给整出来了个初版二号，现在就先写一下这个过程中的一些经验教训吧。</p>
-<p><strong>再次之前，先说明一点，我这篇文章只是说明我这份初稿按照什么思路写的，我对这个的写作的理解是怎么样的。</strong></p>
-<p><strong>在写作之前不能只看我这篇笔记，还是要按照已经授权的这些专利的稿子进行比对着写，看看他们的行文思路咋样，我这里只提供一个我认为的思路。</strong></p>
-<p>首先上图，这个是偷b站一个up主的：</p>
+                <p>这边建议看我这篇笔记的话不如去看江协的课程：</p>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1th411z7sn/?spm_id_from=333.1387.0.0&amp;vd_source=35efa20a3dc2d6382913a782f2bf8ad8">STM32入门教程-2023版
+细致讲解 中文字幕_哔哩哔哩_bilibili</a></li>
+</ul>
+<h2 id="简介">简介</h2>
+<ul>
+<li>STM32是ST公司基于ARM
+Cortex-M内核开发的32位微控制器，用处有很多不细讲。</li>
+<li>ARM既指ARM公司，也指ARM处理器内核</li>
+<li>ARM公司设计ARM内核，半导体厂商完善内核周边电路并生产芯片</li>
+</ul>
+<p>本篇写的都是跟江协讲的对应，用的是STM32F103C8T6</p>
+<p><img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508111745925.png" srcset="/img/loading.gif" lazyload
+alt="05ba1409-18a2-4715-ab13-edd1496230a3.png" /> <img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508111942561.png" srcset="/img/loading.gif" lazyload
+alt="image.png" /></p>
+<ul>
+<li>内核：ARM Cortex-M3</li>
+<li>主频：72MHz</li>
+<li>RAM(Random Access Memory)：20K（SRAM）</li>
+<li>ROM(Read-Only Memory)：64K（Flash）</li>
+<li>供电：2.0~3.6V（标准3.3V）</li>
+<li>封装：LQFP48</li>
+</ul>
+<h3 id="片上资源">片上资源</h3>
 <figure>
 <img
-src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508031550798.png" srcset="/img/loading.gif" lazyload
-alt="发明专利结构与撰写（方法类）.png" />
-<figcaption
-aria-hidden="true">发明专利结构与撰写（方法类）.png</figcaption>
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508111746199.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
 </figure>
-<p>关于专利的介绍，分什么发明、实用新型、外观就不细讲，像我们信息类工科就发发明专利就行，实用新型都比较鸡肋，外观就更不是我们的事儿了；</p>
-<p>另外是从别人那复制来的三性：</p>
-<ol type="1">
-<li><p><strong>实用性 (Utility/Industrial Applicability)：</strong></p>
-<p>实用性是指发明创造必须能够在产业上被制造或使用，并且能够产生积极效果或解决特定的技术问题。它要求发明不能是纯理论、抽象的概念或违背自然规律的空想，而必须具有实际的应用价值。具体而言，该发明应当能够被所属技术领域的技术人员根据说明书公开的内容实现其技术方案（可实施性），并能在实际应用中达到预期的有益效果（有益性）。例如，永动机因违背能量守恒定律而无法实现，即不具备实用性。</p></li>
-<li><p><strong>新颖性 (Novelty)：</strong></p>
-<p>新颖性要求该发明创造在专利申请日（或优先权日）之前，不属于现有技术。所谓“现有技术”，是指在申请日以前在国内外为公众所知的技术，其公开形式包括出版物公开（如专利文献、科技论文、书籍、产品手册等）、使用公开（如公开销售、展示、使用）以及其他方式公开（如口头报告、公开演示、网络公开等）。判断新颖性的核心在于：申请专利的技术方案是否与任何一份现有技术记载的技术方案_完全相同_，或者是否是该技术方案的一种_直接、等同的替换_。如果存在任何形式的相同公开，则丧失新颖性。</p></li>
-<li><p><strong>创造性 (Inventive Step/Non-obviousness)：</strong></p>
-<p>创造性（或称“非显而易见性”）是指与申请日以前的现有技术相比，该发明创造具有突出的实质性特点和显著的进步（对于发明），或者具有实质性特点和进步（对于实用新型）。它要求发明创造不仅仅是现有技术的简单叠加、组合或微小改动，而是需要体现出超越本领域普通技术人员在现有技术基础上通过常规推理或实验就能轻易想到的程度。判断创造性的关键在于：对于所属技术领域具有普通知识和技术水平的人员（即“本领域技术人员”）而言，该发明创造相对于现有技术的整体（通常需要结合多份文件）是否是_非显而易见_的，并且通常能带来有益的技术效果。</p></li>
-</ol>
-<h2 id="说明书">说明书</h2>
-<p>先讲说明书的事儿，毕竟我的想法就是先写具体的说明书，具体而言就是要包括标题、技术领域、背景技术、发明内容、附图说明、具体实施方式这些东西。其中发明内容、附图说明和具体实施方式应该占篇幅的大头。</p>
-<h3 id="标题">标题</h3>
-<p>首先就是标题，这个很简单，一般来说是先有想法再写专利，
-这个想法具体叫什么，给他改个说法叫什么“基于xxx的xxx方法”就可以作为标题吗。</p>
-<h3 id="技术领域">技术领域</h3>
-<p>然后就是技术领域，这一部分也是不用很操心，讲出我们这个专利是属于什么方向的就好，具体模板就是“本发明涉及XX领域，具体涉及XX方法”。</p>
-<h3 id="背景技术">背景技术</h3>
-<p>然后就是背景技术
-，具体跟论文的国内外研究现状比较像，目的是交代进行发明创造的根本原因，要详细阐述本领域中现有技术的缺陷，具体模板就是讲一个大背景，什么随着社会的什么问题的日渐严重，什么什么的需求日益增加，然后进一步的有什么的需求，但是现有的产品不能满足什么的问题，于是我们需要提出一种什么样的方法装置系统。</p>
-<h3 id="发明内容">发明内容</h3>
-<p>发明内容部分就是大头了</p>
-<p>主要可以分为三部分（不是要继续细分小标题！）</p>
-<p><strong>发明目的</strong>：两句话解释一下这个发明要解决背景技术里面的什么缺陷与问题；</p>
-<p><strong>技术方案</strong>：这个具体而言就是介绍一下这个发明的具体工作流程了，对于我们这个专利而言就是介绍一下各模块之间的关系和基本的处理流程。其中很多话术我是学的一个学姐的，就是先模糊再把具体的流程写在“可选的，其中：”下面。</p>
-<p>我看还要基本跟权利要求书的内容一致，这个注意一下。</p>
-<p><strong>有益效果</strong>：什么成效，这个就随便扯了，不细讲。</p>
-<h3 id="附图说明">附图说明</h3>
-<p>这个部分做起来还是一个比较重要的流程，在我的这篇专利里面老师讲的是我们缺TOC（Table
-of Content）总图。主要讲述各个功能单元的处理流程或基本结构。</p>
-<p>同时需要注意，讲到流程需要画流程图作为附图解释；讲到硬件需要画原理/示意图作为附图解释。这个都是最基础的对自己专利的一个解释。</p>
-<p>然后还有进一步的要求就是用向量图，每个流程要注意标注出类似S1这样的流程编号来方便在文字部分的叙述。我们采用的就是老师说的方案，用visio来画然后转为.svg再交上去。</p>
-<p>将图像部分放在最后附上，在文字部分要按照诸如“图X为本发明实施例的XX图”的方式来描述这个图是什么。</p>
-<h3 id="具体实施方式">具体实施方式</h3>
-<p>我的理解就是根据技术方案来提出一个示例，能够使该方案实施的所有技术要点、特征都写进来。具体而言我的做法就是用这个发明内容里面的流程进一步细化，根据附图说明的部分来进行说明与展示。</p>
-<h2 id="说明书摘要">说明书摘要</h2>
-<p>然后是说明书摘要部分，这一部分老师不放心，还是老师写好给我们发过来的，要包括：</p>
+<h3 id="引脚定义">引脚定义</h3>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508111748229.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h3 id="系统结构">系统结构</h3>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508111749052.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h3 id="启动配置">启动配置</h3>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508111749557.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h3 id="最小系统电路">最小系统电路</h3>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508111752749.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h3 id="c语言补充">C语言补充</h3>
+<h4 id="数据类型">数据类型</h4>
+<p>在这里面的数据类型就变成这个样子了，仔细看看就好</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508120027434.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h4 id="宏定义">宏定义</h4>
+<p>这个就是用 <code>#define ABC 123</code>
+来为数字进行可读性的解释。</p>
+<p>想法比较类似的还有 <code>typedef unsigned char uint8_t</code>
+，给比较长的变量类型名换个名字便于使用。</p>
+<h4 id="枚举">枚举</h4>
 <ul>
-<li>本发明公开了XX方法，涉及什么领域；</li>
-<li>包括XXX；</li>
-<li>优点，解决了什么问题；</li>
+<li><p>关键字：enum</p></li>
+<li><p>用途：定义一个取值受限制的整型变量，用于限制变量取值范围；宏定义的集合</p></li>
+<li><p>定义枚举变量：</p>
+<p>enum{FALSE = 0, TRUE = 1} EnumName;</p>
+<p>因为枚举变量类型较长，所以通常用typedef更改变量类型名</p></li>
+<li><p>引用枚举成员：</p>
+<p>EnumName = FALSE;</p>
+<p>EnumName = TRUE;</p></li>
 </ul>
-<p>同时要从说明书附图中选择一个代表性图片作为摘要附图。</p>
-<h2 id="权利要求书">权利要求书</h2>
-<p>这个就是规定保护范围用的，如果是那种企业保护自身财产的就很重要。</p>
-<p>具体分独权（独立权力要求）和从权（从属权利要求）。</p>
-<p>如果你是要拿这个专利赚钱，就尽可能扩大保护范围，防止他人侵权的角度出发，具体就是像俄罗斯套娃一样，独权包含的范围要尽可能的大，这样才能有效的保护你的知识产权，然后从权一步步的将其限定下去，比如独权就写个叉子，从权1就写木质叉子，从权2就写檀木叉子，从权3就写中国产的檀木叉子，如果第一次产权局不给你过就把从权1归到独权里面，再不过就给从权2归到独权里面，以此类推，保护范围越大越好；</p>
-<p>如果你是为了评职称或者丰富简历，尽可能申请上，那就可以独权就直接详细描述，牺牲保护范围，申请上的可能就更大。</p>
-<p>进一步的，专利就是要保证他的新颖性、创造性和实用性，这三点要不断的在你的权要书里面体现。</p>
-<p>差不多就这些。</p>
-<p>参考教程： &gt;<a
-target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1vs4y1974j/?spm_id_from=333.1391.0.0&amp;vd_source=35efa20a3dc2d6382913a782f2bf8ad8">大学老师手把手教你写（水）专利_哔哩哔哩_bilibili</a>
-&gt; &gt;<a
-target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ph4y1s7gq/?spm_id_from=333.1391.0.0&amp;vd_source=35efa20a3dc2d6382913a782f2bf8ad8">发明专利撰写入门介绍（适合小白）_哔哩哔哩_bilibili</a></p>
-<p>其他参考暂略。</p>
+<h2 id="新建工程步骤">新建工程步骤</h2>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508111937570.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h2 id="工程架构">工程架构</h2>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508111938103.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h2 id="gpio部分">GPIO部分</h2>
+<h3 id="基础知识">基础知识</h3>
+<p>可根据需求配置为8种输入输出模式：</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508112324208.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<p>详情见参考手册第110页</p>
+<p>引脚电平：0V~3.3V，部分引脚可容忍5V</p>
+<p>输出模式下可控制端口输出高低电平，用以驱动LED、控制蜂鸣器、模拟通信协议输出时序等</p>
+<p>输入模式下可读取端口的高低电平或电压，用于读取按键输入、外接模块电平信号输入、ADC电压采集、模拟通信协议接收数据等</p>
+<p>stm32片上资源如下：</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508112322193.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h3 id="库函数讲解">库函数讲解</h3>
+<p>‘ 具体的话去翻参考文档里面的pdf文件以及原始库文件的注释</p>
+<p>说实在的听江协的课实际上学的是他写这种工程文件的一种思维，了解我应该从什么入手，如何抽丝剥茧一般了解这些东西，完整的经历这样一个项目的周期。</p>
+<p>所以这里只讲明所用到的库里面的各个函数是干什么的，不讲解如何去用，这个是开发的时候都事情。</p>
+<p>stm32f10x_gpio.h：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GPIO_DeInit</span><span class="hljs-params">(GPIO_TypeDef* GPIOx)</span></span>; <br><span class="hljs-comment">//重置GPIO为缺省值</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GPIO_AFIODeInit</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>;<br><span class="hljs-comment">//将复用的GPIO重置为缺省值</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GPIO_Init</span><span class="hljs-params">(GPIO_TypeDef* GPIOx, GPIO_InitTypeDef* GPIO_InitStruct)</span></span>;<br><span class="hljs-comment">//初始化函数，其中这个GPIO_InitTypeDef是需要配置的GPIO的具体参数，这个具体看注释</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GPIO_StructInit</span><span class="hljs-params">(GPIO_InitTypeDef* GPIO_InitStruct)</span></span>;<br><span class="hljs-comment">//将参数按照缺省值填入结构体</span><br><br><span class="hljs-function"><span class="hljs-type">uint8_t</span> <span class="hljs-title">GPIO_ReadInputDataBit</span><span class="hljs-params">(GPIO_TypeDef* GPIOx, <span class="hljs-type">uint16_t</span> GPIO_Pin)</span></span>;<br><span class="hljs-comment">//读取指定端口管脚的输入</span><br><br><span class="hljs-function"><span class="hljs-type">uint16_t</span> <span class="hljs-title">GPIO_ReadInputData</span><span class="hljs-params">(GPIO_TypeDef* GPIOx)</span></span>;<br><span class="hljs-comment">//带bit的就是微操，然后这个不带bit的就是直接批量读取，读回来一个包括有全部端口信息的十六位无符号整数，然后我可以对其进行位操作</span><br><br><span class="hljs-function"><span class="hljs-type">uint8_t</span> <span class="hljs-title">GPIO_ReadOutputDataBit</span><span class="hljs-params">(GPIO_TypeDef* GPIOx, <span class="hljs-type">uint16_t</span> GPIO_Pin)</span></span>;<br><span class="hljs-function"><span class="hljs-type">uint16_t</span> <span class="hljs-title">GPIO_ReadOutputData</span><span class="hljs-params">(GPIO_TypeDef* GPIOx)</span></span>;<br><span class="hljs-comment">//这俩拿来看输出了啥东西的</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GPIO_SetBits</span><span class="hljs-params">(GPIO_TypeDef* GPIOx, <span class="hljs-type">uint16_t</span> GPIO_Pin)</span></span>;<br><span class="hljs-comment">//设定指定输出位</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GPIO_ResetBits</span><span class="hljs-params">(GPIO_TypeDef* GPIOx, <span class="hljs-type">uint16_t</span> GPIO_Pin)</span></span>;<br><span class="hljs-comment">//给输出清除为默认值</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GPIO_WriteBit</span><span class="hljs-params">(GPIO_TypeDef* GPIOx, <span class="hljs-type">uint16_t</span> GPIO_Pin, BitAction BitVal)</span></span>;<br><span class="hljs-comment">//给某管脚的输出设定为什么</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GPIO_Write</span><span class="hljs-params">(GPIO_TypeDef* GPIOx, <span class="hljs-type">uint16_t</span> PortVal)</span></span>;<br><span class="hljs-comment">//将寄存器设定为什么</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GPIO_PinLockConfig</span><span class="hljs-params">(GPIO_TypeDef* GPIOx, <span class="hljs-type">uint16_t</span> GPIO_Pin)</span></span>;<br><span class="hljs-comment">//锁定管脚设置的寄存器 锁定后需复位MCU才能解除锁定</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GPIO_EventOutputConfig</span><span class="hljs-params">(<span class="hljs-type">uint8_t</span> GPIO_PortSource, <span class="hljs-type">uint8_t</span> GPIO_PinSource)</span></span>;<br><span class="hljs-comment">//将其用作为事件输出，这个没怎么用明白</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GPIO_EventOutputCmd</span><span class="hljs-params">(FunctionalState NewState)</span></span>;<br><span class="hljs-comment">//使能或者失能事件输出</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GPIO_PinRemapConfig</span><span class="hljs-params">(<span class="hljs-type">uint32_t</span> GPIO_Remap, FunctionalState NewState)</span></span>;<br><span class="hljs-comment">//引脚重映射用这个</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GPIO_EXTILineConfig</span><span class="hljs-params">(<span class="hljs-type">uint8_t</span> GPIO_PortSource, <span class="hljs-type">uint8_t</span> GPIO_PinSource)</span></span>;<br><span class="hljs-comment">//连接GPIO引脚到外部中断线</span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">GPIO_ETH_MediaInterfaceConfig</span><span class="hljs-params">(<span class="hljs-type">uint32_t</span> GPIO_ETH_MediaInterface)</span></span>;<br><span class="hljs-comment">//这个是拿来配置以太网物理层接口类型的，拿来选MII或者RMII以太网接口，但是这个普通的支持吗？不是很清楚</span><br></code></pre></td></tr></table></figure>
+<p>stm32f10x_rcc.：</p>
+<p>这个文件是复位与时钟控制，用到了下面一句这个，他这个库里面基本上都是这个套路，RCC开头然后参数基本上就这，就是拿来配置时钟的，啥时候用啥时候翻。高级用法暂时不用。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-built_in">RCC_APB2PeriphClockCmd</span>(RCC_APB2Periph_GPIOA, ENABLE);<br></code></pre></td></tr></table></figure>
+<h3 id="实验部分">实验部分</h3>
+<h4 id="元器件">元器件</h4>
+<ul>
+<li>有源蜂鸣器：内部自带振荡源，将正负极接上直流电压即可持续发声，频率固定</li>
+<li>无源蜂鸣器：内部不带振荡源，需要控制器提供振荡脉冲才可发声，调整提供振荡脉冲的频率，可发出不同频率的声音</li>
+<li>LED灯：略</li>
+<li>按键：这个按键内部
+用的是机械式弹簧片进行通断，会有抖动，要做个削震。</li>
+<li>传感器模块：传感器元件（光敏电阻/热敏电阻/红外接收管等）的电阻会随外界模拟量的变化而变化，通过与定值电阻分压即可得到模拟电压输出，再通过电压比较器进行二值化即可得到数字电压输出</li>
+</ul>
+<h4 id="编码流程">编码流程</h4>
+<ul>
+<li>用RCC配置时钟</li>
+<li>GPIO初始化</li>
+<li>主循环实现代码逻辑</li>
+</ul>
 
                 
               </div>
@@ -363,32 +442,11 @@ target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ph4y1s7gq
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%86%99%E4%BD%9C/" class="category-chain-item">写作</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%86%99%E4%BD%9C/" class="print-no-link">#写作</a>
+        <a href="/tags/%E6%B1%9F%E5%8D%8FSTM32%E5%85%A5%E9%97%A8/" class="print-no-link">#江协STM32入门</a>
       
     </div>
   
@@ -400,8 +458,8 @@ target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ph4y1s7gq
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>专利写作·初</div>
-      <div>http://example.com/2025/08/03/写作/专利写作·初/</div>
+      <div>江协STM32笔记（一）</div>
+      <div>http://example.com/2025/08/11/嵌入式/江协STM32入门/江协STM32笔记（一）/</div>
     </div>
     <div class="license-meta">
       
@@ -413,7 +471,7 @@ target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ph4y1s7gq
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年8月3日</div>
+          <div>2025年8月11日</div>
         </div>
       
       
@@ -457,18 +515,12 @@ target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ph4y1s7gq
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/08/11/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E6%B1%9F%E5%8D%8FSTM32%E5%85%A5%E9%97%A8/%E6%B1%9F%E5%8D%8FSTM32%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="江协STM32笔记（一）">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">江协STM32笔记（一）</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/07/30/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/2025-07-30-visio%E7%BB%98%E5%9B%BE/" title="visio绘图">
-                        <span class="hidden-mobile">visio绘图</span>
+                      <a href="/2025/08/03/%E5%86%99%E4%BD%9C/%E4%B8%93%E5%88%A9%E5%86%99%E4%BD%9C%C2%B7%E5%88%9D/" title="专利写作·初">
+                        <span class="hidden-mobile">专利写作·初</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
