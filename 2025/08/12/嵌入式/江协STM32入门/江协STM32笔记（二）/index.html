@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/blogs/0504.jpg">
 <meta property="article:published_time" content="2025-08-12T15:14:11.000Z">
-<meta property="article:modified_time" content="2025-08-11T16:35:31.000Z">
+<meta property="article:modified_time" content="2025-08-14T12:37:22.982Z">
 <meta property="article:author" content="ZHW">
 <meta property="article:tag" content="江协STM32入门">
 <meta name="twitter:card" content="summary_large_image">
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          40 字
+          1.5k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          1 分钟
+          20 分钟
         
       </span>
     
@@ -294,6 +294,104 @@
 target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1th411z7sn/?spm_id_from=333.1387.0.0&amp;vd_source=35efa20a3dc2d6382913a782f2bf8ad8">STM32入门教程-2023版
 细致讲解 中文字幕_哔哩哔哩_bilibili</a></li>
 </ul>
+<h2 id="oled">OLED</h2>
+<p>OLED（Organic Light Emitting Diode）：有机发光二极管</p>
+<p>供电：3~5.5V，通信协议：I2C/SPI，分辨率：128*64</p>
+<p>然后这边是江协给的库函数文件，我也没改也没看，直接拿过来用：</p>
+<p><img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508121203347.png" srcset="/img/loading.gif" lazyload
+alt="image.png" /> <img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508121204619.png" srcset="/img/loading.gif" lazyload
+alt="image.png" /></p>
+<h2 id="中断">中断</h2>
+<h3 id="概念">概念</h3>
+<p>中断：在主程序运行过程中，出现了特定的中断触发条件（中断源），使得CPU暂停当前正在运行的程序，转而去处理中断程序，处理完成后又返回原来被暂停的位置继续运行</p>
+<p>中断优先级：当有多个中断源同时申请中断时，CPU会根据中断源的轻重缓急进行裁决，优先响应更加紧急的中断源</p>
+<p>在stm32里面中断优先级会有很多的分类，然后根据这个分类来配置具体的中断优先级。</p>
+<p>中断嵌套：当一个中断程序正在运行时，又有新的更高优先级的中断源申请中断，CPU再次暂停当前中断程序，转而去处理新的中断程序，处理完成后依次进行返回
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508121300473.png" srcset="/img/loading.gif" lazyload
+alt="image.png" /></p>
+<h3 id="stm32中断">stm32中断</h3>
+<p>包含68个可屏蔽中断通道（即中断源，这个68个是F1系列的上限，具体的还要看型号是多少个），包含EXTI（外部中断，即外设控制的中断）、TIM、ADC、USART、SPI、I2C、RTC等多个外设</p>
+<p><img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508132216720.png" srcset="/img/loading.gif" lazyload
+alt="image.png" /> <img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508132216642.png" srcset="/img/loading.gif" lazyload
+alt="image.png" /> <img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508132216679.png" srcset="/img/loading.gif" lazyload
+alt="image.png" /></p>
+<p>使用NVIC（嵌套中断向量控制器）统一管理中断，每个中断通道都拥有16个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级</p>
+<p>其中抢占优先级高的可以中断嵌套，响应优先级高的可以优先排队，抢占优先级和响应优先级均相同的按中断号排队</p>
+<p>NVIC的中断优先级由优先级寄存器的4位（0~15）决定，这4位可以进行切分，分为高n位的抢占优先级和低4-n位的响应优先级</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508132218279.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508132220308.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h3 id="extiafio">EXTI、AFIO</h3>
+<p>EXTI可以监测指定GPIO口的电平信号，当其指定的GPIO口产生电平变化时，EXTI将立即向NVIC发出中断申请，经过NVIC裁决后即可中断CPU主程序，使CPU执行EXTI对应的中断程序</p>
+<p>如果CPU是医生，NVIC就是叫号机，然后EXTI就是护士站里面负责观察情况叫号排号的。</p>
+<p>支持的触发方式：上升沿/下降沿/双边沿/软件触发</p>
+<p>支持的GPIO口：所有GPIO口，但相同的Pin不能同时触发中断，具体的原因实际上是因为AFIO是个数据选择器，在相同的Pin下只能从GPIOA</p>
+<p>而具体的AFIO主要完成两个任务：复用功能引脚重映射、中断引脚选择</p>
+<p>通道数：16个GPIO_Pin，外加PVD输出、RTC闹钟、USB唤醒、以太网唤醒</p>
+<p>触发响应方式：中断响应/事件响应</p>
+<p>中断响应就是正常的触发CPU进行处理，而事件响应就是触发别的外设对来的这个事件进行响应。</p>
+<p>后面四个是因为EXTI有能够从低功耗模式下唤醒的功能，然后顺便加上的功能</p>
+<p>下面这个图是做外部中断时候的重中之重，记住他就记住了总体怎么配置怎么写：</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508121301547.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h3 id="硬件模块">硬件模块</h3>
+<h4 id="旋转编码器">旋转编码器</h4>
+<p>旋转编码器：用来测量位置、速度或旋转方向的装置，当其旋转轴旋转时，其输出端可以输出与旋转速度和方向对应的方波信号，读取方波信号的频率和相位信息即可得知旋转轴的速度和方向</p>
+<p>类型：机械触点式/霍尔传感器式/光栅式</p>
+<p>然后我们使用的旋转编码器的具体阴间电路如下</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202508132235702.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h3 id="库函数介绍">库函数介绍</h3>
+<h4 id="stm32f10x_exti"><code>stm32f10x_exti</code></h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">EXTI_DeInit</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span>;<br><span class="hljs-comment">//重置exti为上电之后的默认状态，即缺省值</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">EXTI_Init</span><span class="hljs-params">(EXTI_InitTypeDef* EXTI_InitStruct)</span></span>;<br><span class="hljs-comment">//初始化exti</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">EXTI_StructInit</span><span class="hljs-params">(EXTI_InitTypeDef* EXTI_InitStruct)</span></span>;<br><span class="hljs-comment">//给该结构体默认值，即按照缺省值填入参数</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">EXTI_GenerateSWInterrupt</span><span class="hljs-params">(<span class="hljs-type">uint32_t</span> EXTI_Line)</span></span>;<br><span class="hljs-comment">//产生一个软件中断，参数的意味是使能或者失能这个线路中断</span><br><span class="hljs-function">FlagStatus <span class="hljs-title">EXTI_GetFlagStatus</span><span class="hljs-params">(<span class="hljs-type">uint32_t</span> EXTI_Line)</span></span>;<br><span class="hljs-comment">//检查标志位设置与否</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">EXTI_ClearFlag</span><span class="hljs-params">(<span class="hljs-type">uint32_t</span> EXTI_Line)</span></span>;<br><span class="hljs-comment">//挂起标志位</span><br><span class="hljs-function">ITStatus <span class="hljs-title">EXTI_GetITStatus</span><span class="hljs-params">(<span class="hljs-type">uint32_t</span> EXTI_Line)</span></span>;<br><span class="hljs-comment">//检查这个线路是否发生了中断触发</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">EXTI_ClearITPendingBit</span><span class="hljs-params">(<span class="hljs-type">uint32_t</span> EXTI_Line)</span></span>;<br><span class="hljs-comment">//清除挂起位</span><br></code></pre></td></tr></table></figure>
+<h4 id="misc.h"><code>misc.h</code></h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">NVIC_PriorityGroupConfig</span><span class="hljs-params">(<span class="hljs-type">uint32_t</span> NVIC_PriorityGroup)</span></span>;<br><span class="hljs-comment">//设置NVIC优先级分组，标定程序是按照什么方式设置优先方式的</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">NVIC_Init</span><span class="hljs-params">(NVIC_InitTypeDef* NVIC_InitStruct)</span></span>;<br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">NVIC_SetVectorTable</span><span class="hljs-params">(<span class="hljs-type">uint32_t</span> NVIC_VectTab, <span class="hljs-type">uint32_t</span> Offset)</span></span>;<br><span class="hljs-comment">//设置中断向量表</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">NVIC_SystemLPConfig</span><span class="hljs-params">(<span class="hljs-type">uint8_t</span> LowPowerMode, FunctionalState NewState)</span></span>;<br><span class="hljs-comment">//系统低功耗配置</span><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SysTick_CLKSourceConfig</span><span class="hljs-params">(<span class="hljs-type">uint32_t</span> SysTick_CLKSource)</span></span>;<br></code></pre></td></tr></table></figure>
+<h3 id="程序编写">程序编写</h3>
+<h4 id="初始化">初始化</h4>
+<p>具体就是从这个GPIO到NVIC一条线路配置调通就好。</p>
+<p>首先是RCC配置外部时钟，这个配置AFIO和GPIO的就够了，其中NVIC和EXTI的时钟不用我们配置，具体原因EXTI不知道，NVIC是因为他是内核的外设，RCC管不到。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-built_in">RCC_APB2PeriphClockCmd</span>(RCC_APB2Periph_GPIOB, ENABLE);<br><span class="hljs-built_in">RCC_APB2PeriphClockCmd</span>(RCC_APB2Periph_AFIO, ENABLE);<br><br>GPIO_InitTypeDef GPIO_InitStruct;<br>GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IPU;<br>GPIO_InitStruct.GPIO_Pin = GPIO_Pin_14;<br>GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;<br><span class="hljs-built_in">GPIO_Init</span>(GPIOB, &amp;GPIO_InitStruct);<br></code></pre></td></tr></table></figure>
+<p>然后是配置AFIO的端口，具体为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C">GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource14);<br></code></pre></td></tr></table></figure>
+<p>然后初始化EXTI给连接上，这个函数来自于
+<code>stm32f10x_exti.c</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++">EXTI_InitTypeDef EXTI_InitStruct;<br>EXTI_InitStruct.EXTI_Line = EXTI_Line14;<br>EXTI_InitStruct.EXTI_LineCmd = ENABLE;<br>EXTI_InitStruct.EXTI_Mode = EXTI_Mode_Interrupt;<br>EXTI_InitStruct.EXTI_Trigger = EXTI_Trigger_Rising;<br><span class="hljs-built_in">EXTI_Init</span>(&amp;EXTI_InitStruct);<br></code></pre></td></tr></table></figure>
+<p>配置优先级分组</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-built_in">NVIC_PriorityGroupConfig</span>(NVIC_PriorityGroup_2);<br></code></pre></td></tr></table></figure>
+<p>初始化NVIC</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++">NVIC_InitTypeDef NVIC_InitStruct;<br>NVIC_InitStruct.NVIC_IRQChannel = EXTI15_10_IRQn;<br>NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;<br>NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = <span class="hljs-number">1</span>;<br>NVIC_InitStruct.NVIC_IRQChannelSubPriority = <span class="hljs-number">1</span>;<br><span class="hljs-built_in">NVIC_Init</span>(&amp;NVIC_InitStruct);<br></code></pre></td></tr></table></figure>
+<h4 id="中断函数">中断函数</h4>
+<p>具体而言就是从
+<code>startup_stm32f10x_md.c</code>找这个中断向量表，这个中断函数都名称都是定好的</p>
+<p>其中中断向量表是位于内存固定位置的一个数组。其每个表项（称为中断向量）存储着特定中断号对应的中断服务程序（ISR）的入口地址。当
+CPU
+接收到中断请求并获取中断号后，硬件自动以该中断号为索引访问此表，获取对应的
+ISR 入口地址并跳转执行，从而实现快速、准确的中断处理。</p>
+<p>这里的用的是下面的这个，注意还要判别一下这个标志位：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">EXTI15_10_IRQHandler</span><span class="hljs-params">(<span class="hljs-type">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">if</span>(<span class="hljs-built_in">EXTI_GetITStatus</span>(EXTI_Line14) == SET)<br>	&#123;<br>		CountSonser_Count++;<br>		<span class="hljs-built_in">EXTI_ClearITPendingBit</span>(EXTI_Line14);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -301,6 +399,34 @@ target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1th411z7sn
             <hr/>
             <div>
               <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/" class="category-chain-item">嵌入式</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E6%B1%9F%E5%8D%8FSTM32%E5%85%A5%E9%97%A8/" class="category-chain-item">江协STM32入门</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
   
   
     <div class="post-meta">
@@ -370,6 +496,23 @@ target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1th411z7sn
 
 
 
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/08/11/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E6%B1%9F%E5%8D%8FSTM32%E5%85%A5%E9%97%A8/%E6%B1%9F%E5%8D%8FSTM32%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="江协STM32笔记（一）">
+                        <span class="hidden-mobile">江协STM32笔记（一）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
               
             </div>
 
