@@ -19,24 +19,24 @@
   <meta name="author" content="ZHW">
   <meta name="keywords" content="">
   
-    <meta name="description" content="推荐一些我听着很不错的受益匪浅的网课">
+    <meta name="description" content="作为我数学建模这部分博客的开头，基于一次网协的经验分享会">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网课推荐">
-<meta property="og:url" content="http://example.com/2025/04/14/%E7%BD%91%E8%AF%BE%E6%8E%A8%E8%8D%90/%E7%BD%91%E8%AF%BE%E6%8E%A8%E8%8D%90/">
+<meta property="og:title" content="数学建模综述v1">
+<meta property="og:url" content="http://example.com/2025/04/21/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%BB%BC%E8%BF%B0v1/">
 <meta property="og:site_name" content="HWのBLOGS">
-<meta property="og:description" content="推荐一些我听着很不错的受益匪浅的网课">
+<meta property="og:description" content="作为我数学建模这部分博客的开头，基于一次网协的经验分享会">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/blogs/wangke.jpg">
-<meta property="article:published_time" content="2025-04-13T18:14:11.000Z">
-<meta property="article:modified_time" content="2025-04-21T17:52:00.064Z">
+<meta property="og:image" content="http://example.com/img/blogs/mathplay.jpg">
+<meta property="article:published_time" content="2025-04-21T15:14:11.000Z">
+<meta property="article:modified_time" content="2025-08-20T14:00:42.057Z">
 <meta property="article:author" content="ZHW">
-<meta property="article:tag" content="内卷资料">
+<meta property="article:tag" content="数学建模">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/blogs/wangke.jpg">
+<meta name="twitter:image" content="http://example.com/img/blogs/mathplay.jpg">
   
   
   
-  <title>网课推荐 - HWのBLOGS</title>
+  <title>数学建模综述v1 - HWのBLOGS</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,13 +197,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/blogs/wangke.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/blogs/mathplay.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="网课推荐"></span>
+            <span id="subtitle" data-typed-text="数学建模综述v1"></span>
           
         </div>
 
@@ -214,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-04-14 02:14" pubdate>
-          2025年4月14日 凌晨
+        <time datetime="2025-04-21 23:14" pubdate>
+          2025年4月21日 晚上
         </time>
       </span>
     
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          21 字
+          1.9k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          1 分钟
+          24 分钟
         
       </span>
     
@@ -283,17 +283,179 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">网课推荐</h1>
+            <h1 id="seo-header">数学建模综述v1</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="大二上">大二上</h2>
-<p><a
-target="_blank" rel="noopener" href="https://space.bilibili.com/525210770/lists/1663815?type=season">模电--电气工程杨</a></p>
-<h2 id="大二下">大二下</h2>
-<p><a
-target="_blank" rel="noopener" href="https://space.bilibili.com/456163933/lists/63986?type=season">数电--王文俊讲电气</a></p>
+                <h1 id="数学建模综述">数学建模综述</h1>
+<p>数学建模是我个人觉得挺值得去打的一个比赛类型，主要是可以从比赛中学到论文的基本撰写流程与思路技巧、传统建模分析的基础方法（尤其是在这个机器学习横行的当下显得更为重要）、利用科学思维分析现实问题的能力（可以让自己变得更理性），功利点的话还有加综测保研考验复试的用途。我们学校的相关制度也比较成熟，三段校赛给基础模型学一遍，然后美赛国赛换着打，挺建议我们学校的大一的学弟学妹参加，正好大一上学学编程工数淑芬，大一下来打这个，挺好的。</p>
+<p>本文就按照我的思路进行一些梳理吧。注意本人是工科生，可能会更偏重与用工科惯用套路来想，像是微分方程推导建模之类的就略过不谈了。</p>
+<p>同时还有一点，机器学习的方法我也不讲了，一个是这个玩意很多模型都是黑箱没法解释，一个是本来这类比赛的初衷就不是机器学习，有的比赛就直接给机器学习给ban了。</p>
+<p>本博客基于25年网协数学建模例会进行叙述（很多都是直接抄的），感谢分享人郭文涛。</p>
+<h2 id="建模编程">建模编程</h2>
+<p>按照这几个大类来思考模型选用。如果是入门者建议就从零开始边打边学，像毛主席讲的“从战争中学习战争”吗。</p>
+<p>个人建议的入门路径是：参与校赛，利用CSDN/知乎/B站+SPSS验证+GPT/DeepSeek/现在流行的ai进行解释，逐步学会相关方法。</p>
+<pre><code class=" mermaid">
+flowchart LR
+  B[AI及搜索了解可用模型]
+  B --&gt; C[SPSS验证方法可行性]
+  C --&gt; D[写代码]
+
+</code></pre>
+<p>当然，前提是你要知道有什么方法可以选，明白几个方向的模型有什么选项、他的输入和输出是什么、主要思想是什么、适用场景和特点有哪些。</p>
+<h3 id="优化">优化</h3>
+<p>优化得出最大最小值。具体而言是变量+约束条件+目标函数，如果你学过神经网络的一些基本概念就会知道这个和训练时放个目标函数然后往那里学习的思路是有点像的。具体而言是我告诉你现在有哪些变量，然后我最后想要得到一个什么东西（最短路径是什么等等），然后你来给我建模得到这样一个模型。</p>
+<p>注意事项有：</p>
+<ul>
+<li>线性寻路等存在最佳唯一解。</li>
+<li>退火、遗传、粒子群为模拟结果，可能有局部最优解，最好多跑几轮。</li>
+<li>微分差分方程一般是生物、种群的题，多轮模拟添加竞争等条件，美赛A题比较常见。</li>
+<li>图论当时那个分享人不会，然后我也不咋会，这个东西有点太理论了。</li>
+</ul>
+<pre><code class=" mermaid">
+flowchart LR
+  A[优化模型] --&gt; B[数学规划]
+  B --&gt; B1[dp]
+  A --&gt; C[微分、差分方程]
+  C --&gt; C1[传染病模型SIR]
+  C --&gt; C2[Lotka-Volterra]
+  C --&gt; C3[Leslie种群模型]
+  A --&gt; D[图论与网络]
+  D --&gt; D1[最短路]
+  D --&gt; D2[网络最大流]
+  D --&gt; D3[旅行商问题TSP]
+  A --&gt; E[优化算法]
+  E --&gt; E1[退火算法]
+  E --&gt; E2[遗传算法]
+  E --&gt; E3[粒子群算法]
+
+</code></pre>
+<h3 id="分类">分类</h3>
+<p>给现有的物品分出等级，可能会伴随着大量的数据。一般不会单独出题，比如评价的时候会有这种东西的出现。</p>
+<p>K-means和SVM、XGBoost比较重要</p>
+<pre><code class=" mermaid">
+flowchart LR
+  A[分类模型] --&gt; B1[判别分析]
+  B1 --&gt; B11[距离判别法]
+  B1 --&gt; B12[Fisher判别法]
+  B1 --&gt; B13[Bayes判别法]
+
+  A --&gt; B2[聚类分析]
+  B2 --&gt; B21[K-means聚类]
+
+
+  A --&gt; B3[神经网络分类]
+  B3 --&gt; B22[CNN]
+  B3 --&gt; B23[yolo]
+  B3 --&gt; B31[随机森林]
+  B3 --&gt; B32[SVM]
+  B3 --&gt; B33[XGBoost]
+
+</code></pre>
+<h3 id="评价">评价</h3>
+<p>评价方案的好坏，给出相应的评判方法，25年校赛第一轮的B题就是这个，当时用的熵权法+TOPSIS做的就挺好，然后先用PCA筛几个变量下去，还能画点好看的热力图什么的。这类题实在不会用AHP这种纯主观的糊弄糊弄也不是不行，至少能给题做出来。</p>
+<p>但是要注意一点，这种比较套路化的思路同质化就会比较严重，具体怎么抉择还是自己仔细想一想吧。</p>
+<pre><code class=" mermaid">
+flowchart LR
+  A[评价模型] --&gt; B1[层次分析法（AHP）]
+  A --&gt; B2[灰色关联度分析]
+  A --&gt; B3[BP神经网络]
+  A --&gt; B4[数据包络法DEA]
+  A --&gt; B5[组合评价法]
+  A --&gt; B6[熵权法+TOPSIS]
+
+</code></pre>
+<h3 id="预测">预测</h3>
+<p>预测未来的变化</p>
+<ul>
+<li>输入：按照时间排布的变量</li>
+<li>输出：按照时间排布的变量未来值</li>
+<li>主要使用：线性回归、ARIMA</li>
+<li>多变量：可以尝试使用LSTM，也可以非时序，给定要素做判断</li>
+</ul>
+<pre><code class=" mermaid">
+flowchart LR
+  A[预测模型] --&gt; B1[回归分析]
+  B1 --&gt; B11[线性回归]
+  B1 --&gt; B12[岭回归]
+
+  A --&gt; B2[时间序列分析]
+  B2 --&gt; B21[ARIMA]
+
+  A --&gt; B3[灰色预测]
+  B3 --&gt; B31[&quot;GM(1,1)&quot;]
+
+  A --&gt; B4[&quot;支持向量机 SVM&quot;]
+
+  A --&gt; B5[机器学习]
+  B5 --&gt; B51[BP神经网络]
+  B5 --&gt; B52[LSTM]
+  B5 --&gt; B53[GRU]
+  B5 --&gt; B54[随机森林]
+  B5 --&gt; B55[梯度提升机 GBDT]
+  B5 --&gt; B56[XGBoost 回归]
+  B5 --&gt; B57[LightGBM]
+  B5 --&gt; B58[SVR 回归]
+
+  A --&gt; B6[组合预测]
+
+</code></pre>
+<h3 id="总体流程">总体流程</h3>
+<pre><code class=" mermaid">
+flowchart LR
+  B[AI及搜索了解可用模型]
+  B --&gt; C[SPSS验证方法可行性]
+  C --&gt; D[写代码]
+  D --&gt; E[优化图表]
+  E --&gt; F[结果验证，评估]
+
+</code></pre>
+<p>评估的话可做可不做，如果多个模型可以比较一下，或者指标好看，比如拟合的很好可以吹一下，差了就不说了。
+再说一遍，一定要注意要验证是否可行，避免无用功。</p>
+<h2 id="论文部分">论文部分</h2>
+<h3 id="文档结构">文档结构</h3>
+<ol type="1">
+<li><strong>摘要</strong></li>
+<li><strong>目录</strong></li>
+<li><strong>问题介绍</strong>
+<ul>
+<li>背景</li>
+<li>重述</li>
+<li>分析</li>
+</ul></li>
+<li><strong>符号表</strong></li>
+<li><strong>基本假设</strong></li>
+<li><strong>模型建立与求解</strong>
+<ul>
+<li>一、二、三</li>
+</ul></li>
+<li><strong>模型评估优缺点、灵敏性分析</strong></li>
+</ol>
+<h3 id="主体部分">主体部分</h3>
+<p>方法引入 + 公式 + 运用图片 + 结果</p>
+<ul>
+<li><strong>说清楚为啥用</strong>：哪类的模型 + 实现什么目的</li>
+<li><strong>说清楚如何用</strong>：计算公式 + 可能的过程图</li>
+<li><strong>说清楚用结果</strong>：使用结果图 + 误差分析</li>
+</ul>
+<h2 id="注意事项">注意事项</h2>
+<ul>
+<li>看题目位置是第几题，第一题可以稍微水一些，后面第三题就要猛猛干。</li>
+<li>一定要注意要验证是否可行，避免无用功。</li>
+<li>画出来的图一定要美化一些，因为实际上大家的模型都差不多，最重要的还是你的图片，要比较帅。</li>
+<li>摘要也很重要，这个建议要建模手在最后做完的时候再改一下。</li>
+<li>做完之后记得补充符号表</li>
+<li>无论建模、细节完成度多少，是否完成每个任务和作图，都要按照模板填够内容，不缺漏部分</li>
+<li>论文手第一天就要干活，写背景调研什么的</li>
+<li>图片需要细细打磨，下面贴一张分享会的ppt</li>
+</ul>
+<p><img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202506222335264.png" srcset="/img/loading.gif" lazyload /></p>
+<ul>
+<li>建模手和论文手要好好沟通</li>
+<li>建模手要注意评估优缺点，要注意灵敏度的分析设计，这个听分享会的话要用shap？我没用过反正是</li>
+</ul>
 
                 
               </div>
@@ -312,7 +474,7 @@ target="_blank" rel="noopener" href="https://space.bilibili.com/456163933/lists/
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%BD%91%E8%AF%BE%E6%8E%A8%E8%8D%90/" class="category-chain-item">网课推荐</a>
+  <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="category-chain-item">数学建模</a>
   
   
 
@@ -327,7 +489,7 @@ target="_blank" rel="noopener" href="https://space.bilibili.com/456163933/lists/
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%86%85%E5%8D%B7%E8%B5%84%E6%96%99/" class="print-no-link">#内卷资料</a>
+        <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="print-no-link">#数学建模</a>
       
     </div>
   
@@ -339,8 +501,8 @@ target="_blank" rel="noopener" href="https://space.bilibili.com/456163933/lists/
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>网课推荐</div>
-      <div>http://example.com/2025/04/14/网课推荐/网课推荐/</div>
+      <div>数学建模综述v1</div>
+      <div>http://example.com/2025/04/21/数学建模/数学建模综述v1/</div>
     </div>
     <div class="license-meta">
       
@@ -352,7 +514,7 @@ target="_blank" rel="noopener" href="https://space.bilibili.com/456163933/lists/
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年4月14日</div>
+          <div>2025年4月21日</div>
         </div>
       
       
@@ -391,6 +553,29 @@ target="_blank" rel="noopener" href="https://space.bilibili.com/456163933/lists/
 
 
 
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/05/01/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/2025-05-01-%E5%BC%82%E5%B8%B8%E5%80%BC%E5%A4%84%E7%90%86/" title="异常值检验">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">异常值检验</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/04/13/%E6%91%84%E5%BD%B1/2025-04-13-%E7%9B%B8%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E8%A7%A3%E8%AF%BB/" title="相机基础知识解读">
+                        <span class="hidden-mobile">相机基础知识解读</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
               
             </div>
 
@@ -483,6 +668,21 @@ target="_blank" rel="noopener" href="https://space.bilibili.com/456163933/lists/
 
 
 
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
 
 
 
