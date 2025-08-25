@@ -19,16 +19,16 @@
   <meta name="author" content="ZHW">
   <meta name="keywords" content="">
   
-    <meta name="description" content="为微分方程方法做一个综述">
+    <meta name="description" content="为微分方程、差分方程方法做一个综述，虽然大概率不会用上。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="微分方程方法综述">
-<meta property="og:url" content="http://example.com/2025/08/22/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0/">
+<meta property="og:title" content="微分方程与差分方程方法综述">
+<meta property="og:url" content="http://example.com/2025/08/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%BB%BC%E8%BF%B0%E6%A6%82%E8%A6%81/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E4%B8%8E%E5%B7%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0/">
 <meta property="og:site_name" content="HWのBLOGS">
-<meta property="og:description" content="为微分方程方法做一个综述">
+<meta property="og:description" content="为微分方程、差分方程方法做一个综述，虽然大概率不会用上。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/blogs/regression.jpg">
-<meta property="article:published_time" content="2025-08-22T09:14:11.000Z">
-<meta property="article:modified_time" content="2025-08-25T08:04:59.298Z">
+<meta property="article:published_time" content="2025-08-25T11:14:11.000Z">
+<meta property="article:modified_time" content="2025-08-25T11:16:09.801Z">
 <meta property="article:author" content="ZHW">
 <meta property="article:tag" content="数学建模">
 <meta name="twitter:card" content="summary_large_image">
@@ -36,7 +36,7 @@
   
   
   
-  <title>微分方程方法综述 - HWのBLOGS</title>
+  <title>微分方程与差分方程方法综述 - HWのBLOGS</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -203,7 +203,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="微分方程方法综述"></span>
+            <span id="subtitle" data-typed-text="微分方程与差分方程方法综述"></span>
           
         </div>
 
@@ -214,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-08-22 17:14" pubdate>
-          2025年8月22日 下午
+        <time datetime="2025-08-25 19:14" pubdate>
+          2025年8月25日 晚上
         </time>
       </span>
     
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          135 字
+          2.9k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          2 分钟
+          37 分钟
         
       </span>
     
@@ -283,16 +283,148 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">微分方程方法综述</h1>
+            <h1 id="seo-header">微分方程与差分方程方法综述</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="适用范围">适用范围</h2>
-<p>统计与金融类：因为他是一个类似于黑箱的东西，只能用统计建模解法123</p>
-<p>物理规律类：因为是有精确的物理规律的，所以就可以用微分方程解法124</p>
-<p>工具箱要包括：数据拟合插值、最优化、线性规划、近似解法、机器学习</p>
-<p>金融数学学科大致有三个分支，投资组合、衍生产品定价理论、风险管理理论，其中最著名的是BSM偏微分方程</p>
+                <h2 id="摘要">摘要</h2>
+<p>本文旨在系统梳理微分方程与差分方程这两种重要的动态过程建模方法。首先，从宏观角度介绍动态过程建模的背景与方法选择，随后分别深入探讨差分方程和微分方程的基本概念、建模依据、在种群变化、污染物扩散、产品销量等领域的具体应用案例。差分方程适用于刻画具有离散时间特性的阶段性变化过程，而微分方程则精于描绘连续、平滑的动态演变。重点阐述两类方程的求解思路（解析解、数值解）与定性分析方法，特别是平衡点与稳定性的判断，并强调其在实际问题预测与干预中的指导意义。最后，通过传染病模型等案例展示了如何考虑脉冲效应、时滞因素以及不同维度（时间和空间）的复杂模型构建与持续改进方向。</p>
+<h2 id="动态过程建模概述"><strong>1. 动态过程建模概述</strong></h2>
+<h3 id="概念"><strong>1.1 概念</strong></h3>
+<p>我们之前讨论的很多模型（如线性回归）是在静态分析事物的内在组成，能清晰地展示事物在某一瞬间的内部结构和关系。但世界是运动的，很多时候我们更关心的是一部事物是如何随时间或空间演变的。当我们的研究对象其特征在不断变化时，动态过程建模就该登场了。</p>
+<h3 id="建模方法选择"><strong>1.2 建模方法选择</strong></h3>
+<h4
+id="路线一掌握充足数据但机理不清黑箱方法"><strong>路线一：掌握充足数据，但机理不清（“黑箱”方法）</strong></h4>
+<p><strong>方法</strong>：数据拟合、统计回归。</p>
+<p>我们不知道一个机器内部是怎么工作的，但我们有很多组“输入-输出”数据。我们的任务就是找一个数学函数，让它能最大程度地模仿这个机器的行为。我们不关心函数本身有没有物理意义，只要它能“以假乱真”就行。</p>
+<p><strong>常用方法</strong>：</p>
+<p><strong>多项式拟合</strong>：最简单直接的工具，但有可能因为追求拟合效果导致过拟合。</p>
+<p><strong>其他拟合类型</strong>：要根据数据的“长相”来选工具：</p>
+<ul>
+<li><p>看到数据增速越来越慢，像快吃饱了的人，试试<strong>对数拟合</strong>。</p></li>
+<li><p>看到数据像滚雪球一样越滚越快，试试<strong>指数拟合</strong>。</p></li>
+<li><p>看到数据呈现“中间高、两边低”的钟形，试试<strong>高斯拟合</strong>。</p></li>
+<li><p>看到数据有周期性波动，<strong>傅里叶级数拟合</strong>是你的不二之选。</p></li>
+</ul>
+<p><strong>时间序列分析</strong>：当数据看起来杂乱无章，但又隐约感觉有某种惯性（今天的数据和昨天有关），就需要用到更高级的时间序列模型（如ARIMA）。</p>
+<p><strong>统计回归</strong>：本质也是拟合，但它更“诚实”地承认了误差项<code>e</code>的存在，并有一整套理论来检验模型和系数的显著性。</p>
+<p><strong>路线二：了解详细机理，但数据不足（“白箱”方法）</strong></p>
+<p><strong>方法</strong>：微分/差分方程、随机过程。</p>
+<p>我们虽然没有太多数据，但我们知道它内部的运行规律。我们的任务就是根据这些物理、化学或生物学定律，写出描述其动态行为的方程。</p>
+<p>这种方法建立的模型通常更稳健，尤其适合做<strong>长期预测</strong>，因为它抓住了事物发展的本质规律，而不是表面的数据模式。</p>
+<hr />
+<h2 id="差分方程方法建模"><strong>2. 差分方程方法建模</strong></h2>
+<h3 id="差分方程基本概念"><strong>2.1 差分方程基本概念</strong></h3>
+<p><strong>适用场景</strong>：当事物的变化是<strong>一步一步、跳跃式</strong>的，有明显的阶段性时，就用差分方程。</p>
+<p>我们不关心每一帧之间发生了什么，只关心第n帧和第n+1帧（或前几帧）之间的关系。比如，我们按“年”来统计人口，按“天”来更新股票收盘价，按“繁殖周期”来计算种群数量。</p>
+<h3 id="差分方程建模依据"><strong>2.2 差分方程建模依据</strong></h3>
+<p>核心就是“<strong>承前启后</strong>”，用过去的状态来描述现在的状态。</p>
+<ul>
+<li><p><strong>xn+1​=f(xn​)</strong>：最简单的模型，认为“明天”只和“今天”有关。</p></li>
+<li><p><strong>xn+2​=f(xn​,xn+1​)</strong>：更复杂一点，认为“后天”不仅和“明天”有关，还和“今天”有关（考虑了“惯性”）。</p></li>
+</ul>
+<h3 id="差分方程应用案例"><strong>2.3 差分方程应用案例</strong></h3>
+<h5 id="种群模型一个逐步完善的思考过程"><strong>2.3.1
+种群模型（一个逐步完善的思考过程）</strong></h5>
+<ol type="1">
+<li><p><strong>模型V1.0：理想国模型 (Malthus模型)</strong></p>
+<ul>
+<li><p><strong>思想</strong>：假设在一个资源无限的“理想国”里，种群的增长只取决于固定的生育率和死亡率。</p></li>
+<li><p><strong>问题</strong>：这个模型太天真了。它预测的结果要么是指数爆炸，要么是指数灭亡，这在现实中几乎不可能持续发生。</p></li>
+</ul></li>
+<li><p><strong>模型V2.0：现实世界模型 (Logistic模型)</strong></p>
+<ul>
+<li><p><strong>思想</strong>：引入“<strong>资源约束</strong>”和“<strong>竞争</strong>”的概念。当种群数量太多时，食物不够吃，生存空间变小，导致生育率下降，死亡率上升。</p></li>
+<li><p><strong>结论</strong>：这个模型高级多了。它预测种群数量会趋向于一个环境能承载的<strong>稳定上限</strong>，这非常符合自然规律。但它也揭示了更复杂的现象：根据参数不同，种群可能稳定在上限，也可能围绕上限做周期性波动，甚至进入不可预测的<strong>混沌
+(Chaos)</strong> 状态。</p></li>
+</ul></li>
+<li><p><strong>模型V3.0：考虑代际差异</strong></p>
+<ul>
+<li><strong>思想</strong>：引入“<strong>时滞 (Time
+Lag)</strong>”的概念。很多生物不是一出生就能繁殖的，需要一个成长期。今天的出生率，其实是由k个周期前的成年个体数量决定的。</li>
+</ul></li>
+<li><p><strong>模型V4.0, V5.0：考虑更多现实因素</strong></p>
+<ul>
+<li><p><strong>性别因素</strong>：能生孩子的只有雌性，引入雌性比例<code>s</code>可以让模型更精确。</p></li>
+<li><p><strong>年龄结构
+(Leslie模型)</strong>：这是个巨大的进步。它不再把种群看成一个单一的数字，而是看成一个向量，向量的每个元素代表一个年龄段的人口。通过一个“<strong>状态转移矩阵M</strong>”，我们可以精确地描述整个种群年龄结构的代际演变。</p></li>
+</ul></li>
+<li><p><strong>模型V6.0：考虑突发冲击 (脉冲效应)</strong></p>
+<ul>
+<li><p><strong>思想</strong>：现实世界充满了“意外”。这些意外可以是定期的（如每年固定季节捕鱼），也可以是因状态而触发的（如蝗虫数量一旦超过某个阈值，就立刻开始大规模喷洒农药）。</p></li>
+<li><p><strong>建模</strong>：通过引入一个开关函数（T(n)或S(x)），我们可以在方程中模拟这些“脉冲式”的干预。这对于模拟传染病防治、经济调控等问题至关重要。</p></li>
+</ul></li>
+</ol>
+<h4 id="差分方程的稳定性"><strong>2.4 差分方程的稳定性</strong></h4>
+<ul>
+<li><p><strong>核心问题</strong>：当时间趋于无穷时，这个系统最终会走向何方？是稳定在一个点上，还是无限增长，还是来回振荡？</p></li>
+<li><p><strong>平衡点</strong>：系统静止不动的那个状态点，即
+<code>x* = f(x*)</code>。它是系统可能趋向的“归宿”。</p></li>
+<li><p><strong>稳定性判断</strong>：</p>
+<ul>
+<li><p><strong>用人话讲</strong>：在平衡点附近，我们轻轻地推它一下，它是会自己滚回平衡点（<strong>稳定</strong>），还是会越滚越远（<strong>不稳定</strong>）？</p></li>
+<li><p><strong>数学工具</strong>：这个“推一下”的效应，就由导数
+<code>|f'(x*)|</code> 来刻画。</p>
+<ul>
+<li><code>|f'(x*)| &lt; 1</code>：说明扰动会被逐渐“吸收”，系统会收敛回平衡点，是稳定的。</li>
+<li><code>|f'(x*)| &gt; 1</code>：说明扰动会被“放大”，系统会远离平衡点，是不稳定的。</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="微分方程方法建模"><strong>3. 微分方程方法建模</strong></h2>
+<h4 id="微分方程概述"><strong>3.1 微分方程概述</strong></h4>
+<p><strong>适用场景</strong>：当事物的变化是<strong>光滑、连续</strong>的时候，就用微分方程。</p>
+<h4 id="微分方程主要内容"><strong>3.2 微分方程主要内容</strong></h4>
+<ol type="1">
+<li><p><strong>求解析解</strong>：就像得到一个“万能公式”，可以算出任何时刻的状态。但这是可遇不可求的，只有极少数简单的方程能做到。</p></li>
+<li><p><strong>定性分析</strong>：退而求其次。我们虽然没有万能公式，但可以通过分析方程本身，画出解的“<strong>草图</strong>”（相图），了解系统的长期行为、平衡点、是否存在周期性等。这在很多时候比一个具体的数值解更有洞察力。</p></li>
+<li><p><strong>求数值解</strong>：最实用、最强大的方法。给定初始条件和参数，用计算机一步步地“迭代”出任意时刻的近似解。这就像我们虽然不知道火箭的精确轨迹方程，但可以算出它在第1秒、第1.01秒、第1.02秒...的位置，连起来就是它的轨迹。</p></li>
+</ol>
+<h4 id="建立微分方程模型的依据"><strong>3.4
+建立微分方程模型的依据</strong></h4>
+<ul>
+<li><p>核心是找到“<strong>变化率</strong>”和“<strong>状态</strong>”之间的关系。</p></li>
+<li><p><strong>经典例子</strong>：<code>dx/dt = kx</code>。这句话的翻译是：“某个东西x的变化速度，正比于它本身的大小”。这可以描述无约束下的种群增长、放射性元素衰变、复利计算等众多现象。</p></li>
+</ul>
+<h4 id="微分方程案例"><strong>3.5 微分方程案例</strong></h4>
+<ol type="1">
+<li><p><strong>新产品销量变化模型 (Logistic模型)</strong>：</p>
+<ul>
+<li><strong>机理</strong>：销量增长的动力来自两方面：一是已购买者的“口碑宣传”（与已售数量<code>x</code>成正比），二是潜在购买者的“市场需求”（与未售数量<code>K-x</code>成正比）。两者一乘，就得到了经典的Logistic模型。</li>
+</ul></li>
+<li><p><strong>人口模型（按年龄段划分）</strong>：</p>
+<ul>
+<li>这是Leslie模型的连续版本。我们不再按“年”来更新，而是考察每一瞬间，有多少人从“青年”变成“中年”，又有多少人从“中年”变成“老年”。</li>
+</ul></li>
+<li><p><strong>异常因素影响</strong>：和差分方程类似，微分方程也可以加入脉冲、时滞等复杂因素，使其更贴近现实。</p></li>
+<li><p><strong>数理方程 (偏微分方程, PDE)</strong>：</p>
+<ul>
+<li><p>当我们的研究对象不仅随<strong>时间</strong>变化，还随<strong>空间位置</strong>变化时，就需要用偏微分方程。</p></li>
+<li><p><strong>用人话讲</strong>：我们不仅关心一个池塘里污染物的<strong>总量</strong>随时间的变化，还关心在池塘的<strong>不同位置</strong>（x,
+y,
+z），污染物<strong>浓度</strong>随时间的变化。这就需要用到偏导数。</p></li>
+</ul></li>
+</ol>
+<h4 id="微分方程的定性分析"><strong>3.6 微分方程的定性分析</strong></h4>
+<ul>
+<li><p><strong>核心思想</strong>：与差分方程类似，也是找<strong>平衡点</strong>，并判断其<strong>稳定性</strong>。</p></li>
+<li><p><strong>判断方法</strong>：对于二维系统，我们通过分析线性近似的<strong>雅可比矩阵</strong>在平衡点处的<strong>特征值</strong>来判断。特征值的实部决定了系统在那个方向上是“收敛”还是“发散”。当所有特征值的实部都为负时，平衡点是稳定的。</p></li>
+</ul>
+<h4 id="持续改进深入讨论以传染病模型为例"><strong>3.7
+持续改进、深入讨论（以传染病模型为例）</strong></h4>
+<p>这是一个极佳的范例，展示了建模是一个“<strong>不断迭代、逼近现实</strong>”的过程。</p>
+<ol type="1">
+<li><p><strong>从SIR经典模型出发</strong>：这是一个最简化的“骨架”。</p></li>
+<li><p><strong>增加人口流动</strong>：变成SIRS，考虑康复者会再次丧失免疫力。</p></li>
+<li><p><strong>增加现实约束</strong>：考虑出生和死亡，让总人口不再是固定的。</p></li>
+<li><p><strong>增加时间特征</strong>：考虑潜伏期（SEIR模型）、考虑节假日的脉冲效应。</p></li>
+<li><p><strong>增加社会干预</strong>：考虑疫苗接种、隔离措施。</p></li>
+<li><p><strong>增加生物特性</strong>：考虑病毒变异、考虑垂直感染。</p></li>
+<li><p><strong>增加随机性</strong>：用随机微分方程来描述传染率等参数受环境噪声的随机扰动。</p></li>
+</ol>
+<p>通过这样一步步地“打补丁”，我们的模型就能从一个粗糙的玩具，变成一个能为公共卫生决策提供参考的强大工具。</p>
 
                 
               </div>
@@ -338,8 +470,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>微分方程方法综述</div>
-      <div>http://example.com/2025/08/22/数学建模/微分方程方法综述/</div>
+      <div>微分方程与差分方程方法综述</div>
+      <div>http://example.com/2025/08/25/数学建模/综述概要/微分方程与差分方程方法综述/</div>
     </div>
     <div class="license-meta">
       
@@ -351,7 +483,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年8月22日</div>
+          <div>2025年8月25日</div>
         </div>
       
       
@@ -390,6 +522,29 @@
 
 
 
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/08/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%BB%BC%E8%BF%B0%E6%A6%82%E8%A6%81/%E6%95%B0%E6%8D%AE%E6%8B%9F%E5%90%88%E4%B8%8E%E6%8F%92%E5%80%BC%E7%BB%BC%E8%BF%B0/" title="数据拟合与插值综述">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">数据拟合与插值综述</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/08/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%BB%BC%E8%BF%B0%E6%A6%82%E8%A6%81/%E7%BB%9F%E8%AE%A1%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%BB%BC%E8%BF%B0/" title="统计与数据挖掘综述">
+                        <span class="hidden-mobile">统计与数据挖掘综述</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
               
             </div>
 
