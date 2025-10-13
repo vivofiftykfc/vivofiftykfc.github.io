@@ -19,24 +19,24 @@
   <meta name="author" content="ZHW">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一种基于模糊数学理论的多因素综合评价方法">
+    <meta name="description" content="讲了一下信息量的衡量方式、信源的量化模型和典型模型">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模糊综合评价法-FCE">
-<meta property="og:url" content="http://example.com/2025/04/01/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-04-01-%E6%A8%A1%E7%B3%8A%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7%E6%B3%95-FCE/">
+<meta property="og:title" content="离散信源及其信息测度">
+<meta property="og:url" content="http://example.com/2025/10/11/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/%E7%A6%BB%E6%95%A3%E4%BF%A1%E6%BA%90%E5%8F%8A%E5%85%B6%E4%BF%A1%E6%81%AF%E6%B5%8B%E5%BA%A6/">
 <meta property="og:site_name" content="HWのBLOGS">
-<meta property="og:description" content="一种基于模糊数学理论的多因素综合评价方法">
+<meta property="og:description" content="讲了一下信息量的衡量方式、信源的量化模型和典型模型">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/blogs/fce.jpg">
-<meta property="article:published_time" content="2025-04-01T10:14:11.000Z">
-<meta property="article:modified_time" content="2025-04-07T10:24:57.174Z">
+<meta property="og:image" content="http://example.com/img/blogs/regression.jpg">
+<meta property="article:published_time" content="2025-10-11T08:00:00.000Z">
+<meta property="article:modified_time" content="2025-10-13T17:02:58.405Z">
 <meta property="article:author" content="ZHW">
-<meta property="article:tag" content="数学建模">
+<meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/blogs/fce.jpg">
+<meta name="twitter:image" content="http://example.com/img/blogs/regression.jpg">
   
   
   
-  <title>模糊综合评价法-FCE - HWのBLOGS</title>
+  <title>离散信源及其信息测度 - HWのBLOGS</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,13 +197,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/blogs/fce.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/blogs/regression.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="模糊综合评价法-FCE"></span>
+            <span id="subtitle" data-typed-text="离散信源及其信息测度"></span>
           
         </div>
 
@@ -214,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-04-01 18:14" pubdate>
-          2025年4月1日 晚上
+        <time datetime="2025-10-11 16:00" pubdate>
+          2025年10月11日 下午
         </time>
       </span>
     
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          2.8k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          14 分钟
+          35 分钟
         
       </span>
     
@@ -283,97 +283,323 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">模糊综合评价法-FCE</h1>
+            <h1 id="seo-header">离散信源及其信息测度</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="模糊综合评价法">模糊综合评价法</h1>
-<p>量分为 <strong>确定性</strong> 和 <strong>不确定性</strong>：</p>
-<ul>
-<li><strong>确定性</strong>：经典数学（几何、代数）</li>
-<li><strong>不确定性</strong>：
-<ol type="1">
-<li>随机性（概率论、随机过程）如掷筛子，观看那一面向上，这种现象的规律性靠概率统计去刻画。</li>
-<li>灰性（灰色系统）</li>
-<li>模糊性（模糊数学）如“今天天气很热”、“小伙子很帅”等，靠模糊数学去刻画。</li>
-</ol></li>
-</ul>
-<p>而模糊综合评价法是一种基于 <strong>模糊数学</strong> 的综合
-<strong>评价方法</strong>。该综合评价法根据模糊数学的
-<strong>隶属度理论</strong>
-把定性评价转化为定量评价，即用模糊数学对受到多种因素制约的事物或对象做出一个总体的评价。它具有结果清晰，系统性强的特点，能较好地解决模糊的、难以量化的问题，适合各种
-<strong>非确定性问题的解决</strong>。</p>
-<h2 id="经典集合和模糊集合的基本概念">经典集合和模糊集合的基本概念</h2>
-<h3 id="经典集合classical-set和特征函数">经典集合（classical
-set）和特征函数</h3>
-<ul>
-<li><strong>经典集合</strong>：具有相同属性的事物的集体，例如：颜色、性别、手机品牌等、自然数集。</li>
-<li>集合的基本属性：互斥、确定，就是从高中以来我们一直所认为的集合。</li>
-</ul>
-<h3 id="模糊集合fuzzy-set和隶属函数">模糊集合（fuzzy
-set）和隶属函数</h3>
-<ul>
-<li><p><strong>模糊集合</strong>：用来描述模糊性概念的集合。（帅、高、白、年轻…）</p></li>
-<li><p>与经典集合相比，模糊集合承认亦此亦彼，即不具有确定性和互斥性，而我们很多情况下都是这样的集合，比如25年第一次校赛B题。</p></li>
-<li><p>数学中对于模糊集合的刻画：<strong>隶属函数</strong></p>
+                <h2 id="信息的衡量">1.信息的衡量</h2>
+<h3 id="自信息量">自信息量</h3>
+<p>自信息量的概念就是得到这个信息之后消除了多少的不确定性。</p>
+<p>这里和之前写的这个通信原理中信息熵的定义是一样的，毕竟都是通信人搞的东西吗。这里直接借用相关推理和解释：</p>
+<p>信息这个东西既然作为研究对象被我们研究，那就需要给他量化。具体我们用的啥来量化？就是倒数取对，得<strong>信息量</strong>。注意这里讲的是自信息量。</p>
 <p><span class="math display">\[
-\mathbf{u_A: U \rightarrow [0,1]}
-\]</span> 其中注意与 <span class="math inline">\(\{0, 1\}\)</span>
-的区别，<span class="math inline">\(\{0, 1\}\)</span>
-只有两种可能，<span class="math inline">\([0, 1]\)</span>
-有无数种可能。</p></li>
+I=-log_aP(x) \tag{式1}
+\]</span></p>
+<p>因为这样能很好的符合：</p>
+<ul>
+<li><p>概率越小的事情信息量越大，是个单调递减函数，一定发生时信息量为0，一定不发生信息量为无穷。</p></li>
+<li><p>若干独立事件构成的消息等于个独立事件信息量之和。</p></li>
 </ul>
-<h2 id="隶属函数的确定方法">隶属函数的确定方法</h2>
-<h3 id="模糊统计法">模糊统计法</h3>
-<p>自己捏数或者放问卷。</p>
-<h3 id="借助已有的客观尺度">借助已有的客观尺度</h3>
-<p>比如用恩格尔系数描述家庭贫富状况。</p>
-<h3 id="指派法">指派法</h3>
-<p><strong>根据问题的性质直接套用某些分布作为隶属函数，主观性较强。</strong></p>
+<p>OK照搬的部分解决了，然后下面讲一讲这门课里面细化讲的东西。</p>
+<p>值得注意的是： <span class="math inline">\(x_ i\)</span>
+是一个随机量， 而 <span class="math inline">\(I(x_i)\)</span>
+是关于这个随机量的函数，所以自信息量也
+是一个随机变量，它没有确定的值。</p>
+<p>其中式1中的底数a取2为比特，e为奈特，10为哈特。</p>
+<h3 id="联合自信息量">联合自信息量</h3>
+<p><span class="math display">\[\begin{bmatrix} XY \\ P(XY)
+\end{bmatrix} = \begin{cases} x_1y_1, \dots, x_1y_m, &amp; x_2y_1,
+\dots, &amp; x_2y_m, \dots, &amp; x_ny_1, \dots, &amp; x_ny_m \\
+p(x_1y_1), \dots, p(x_1y_m), &amp; p(x_2y_1), \dots, &amp; p(x_2y_m),
+\dots, &amp; p(x_ny_1), \dots, &amp; p(x_ny_m) \end{cases}\]</span></p>
+<p>这东西看一眼就知道，其自信息量无非就是给 <span
+class="math inline">\(X\)</span> 换成 <span
+class="math inline">\(XY\)</span> ：</p>
+<p><span class="math display">\[I(x_i,y_j) =
+\log_{2}\frac{1}{p(x_i,y_j)}\]</span></p>
+<p>就是两个变量只给了联合的概率分布时，对这两个东西所求的自信息量就是联合自信息量。</p>
+<h3 id="条件自信息量">条件自信息量</h3>
+<p>设 <span class="math inline">\(y_j\)</span> 条件下，发生 <span
+class="math inline">\(x_i\)</span> 的条件自信息量：</p>
+<p><span class="math display">\[I(x_i / y_j)=\log_{2}\frac{1}{p(x_i /
+y_j)}\]</span></p>
+<p><span class="math inline">\(x_i\)</span> 已知时发生 <span
+class="math inline">\(y_j\)</span> 的条件自信息量：</p>
+<p><span class="math display">\[I(y_j / x_i)=\log_{2}\frac{1}{p(y_j /
+x_i)}  \]</span></p>
+<p>自信息量、条件自信息量和联合自信息量之间的关系：</p>
+<p><span class="math display">\[\begin{align*} I(x_i
+y_j)&amp;=\log_{2}\frac{1}{p(x_i)p(y_j / x_i)} = I(x_i)+I(y_j / x_i)\\
+&amp;=\log_{2}\frac{1}{p(y_j)p(x_i / y_j)} = I(y_j)+I(x_i / y_j)
+\end{align*} \]</span></p>
+<h3 id="互信息量">互信息量</h3>
+<p>我们知道，信息从信源到信宿，进过信道时会混合噪声，这个时候我们从信宿消除的不确定性的角度来看，互信息量就是信宿获得传来的信息后消除的不确定性。</p>
+<p>于是我们从信宿的角度来推，首先是假设一下信源发 <span
+class="math inline">\(x_i\)</span> 的概率，即先验概率；</p>
+<p>然后信宿收到 <span class="math inline">\(y_i\)</span>
+时推测他发来的是 <span class="math inline">\(x_i\)</span>
+的概率，这个是个条件概率，为后验概率。</p>
+<p>我们用先验的不确定性减去后验的不确定性，得到的就是互信息量。注意这里讲的都是<strong>不确定性</strong>，也就是信息量。</p>
+<p>公式就是</p>
+<p><span class="math display">\[
+\begin{align*}
+I(x_i ; y_j) &amp;= \log_{2}\frac{p(x_i / y_j)}{p(x_i)} \quad (i =
+1,2,\dots,n; j = 1,2,\dots,m) \\
+&amp;= \log_{2}\frac{1}{p(x_i)} - \log_{2}\frac{1}{p(x_i / y_j)} \\
+&amp;= I(x_i) - I(x_i / y_j)
+\end{align*}
+\]</span></p>
+<p>简言之，互信息量的定义是为了<strong>量化观测到一个事件后，对另一个事件不确定性的改变量</strong>。在上面的例子里面，就是观测到信宿收到事件之后，对信源发来的信息的不确定性的改变量，便于确定信源究竟发来了什么信息。</p>
+<p>这个理解是有点难度的我个人感觉，我写这段话的时候也想了一会儿。</p>
+<p>这里再给个例题，方便理解：</p>
+<p>假设信源要发送一枚硬币的正反面，两种可能：</p>
+<ul>
+<li><span class="math inline">\(x_1 = 正\)</span>，<span
+class="math inline">\(p(x_1)=0.5\)</span></li>
+<li><span class="math inline">\(x_2 = 反\)</span>，<span
+class="math inline">\(p(x_2)=0.5\)</span></li>
+</ul>
+<p>但是传输过程中有噪声，导致接收端信宿收到的结果可能被“翻转”：</p>
+<table>
+<thead>
+<tr>
+<th>信源发出<span class="math inline">\(x_i\)</span></th>
+<th>信宿收到<span class="math inline">\(y_j\)</span></th>
+<th>条件概率<span class="math inline">\(p(y_j | x_i)\)</span></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>正</td>
+<td>正</td>
+<td>0.8</td>
+<td></td>
+</tr>
+<tr>
+<td>正</td>
+<td>反</td>
+<td>0.2</td>
+<td></td>
+</tr>
+<tr>
+<td>反</td>
+<td>正</td>
+<td>0.2</td>
+<td></td>
+</tr>
+<tr>
+<td>反</td>
+<td>反</td>
+<td>0.8</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>现在计算信宿收到 <span class="math inline">\(y_1 = 正\)</span>
+时，互信息量 <span class="math inline">\(I(x; y_1)\)</span>。</p>
+<p><strong>第一步：求后验概率 <span
+class="math inline">\(p(x_i|y_1)\)</span></strong></p>
+<p>信宿收到“正”的总概率：</p>
+<p><span class="math display">\[p(y_1)=p(x_1)p(y_1|x_1) +
+p(x_2)p(y_1|x_2)=0.5×0.8+0.5×0.2=0.5\]</span></p>
+<p>后验概率：</p>
+<p><span class="math display">\[p(x_1|y_1)=\frac{0.5×0.8}{0.5}=0.8,\quad
+p(x_2|y_1)=0.2\]</span></p>
+<p><strong>第二步：计算互信息量</strong></p>
+<p>以 <span class="math inline">\(x_1=正\)</span> 为例：</p>
+<p><span
+class="math display">\[I(x_1;y_1)=\log_2\frac{p(x_1|y_1)}{p(x_1)}=\log_2\frac{0.8}{0.5}=\log_2(1.6)≈0.678\text{
+bit}\]</span></p>
+<p>这表示：<strong>原本我们对“正”是否被发送不确定（1
+bit），但现在看到“接收到正”后，不确定性减少了约 0.678
+bit。最终的结果就是我偏向于信任这个是正面，但是不排除有反面的可能。（最后这句好像有问题）</strong></p>
+<p>类似的，可以算一下为反面的互信息，发现他是负的。</p>
+<h3 id="互信息的性质">互信息的性质</h3>
+<p>两句话：</p>
+<ul>
+<li>有对称性，知道a求对b互信息量和知道b求a互信息量相同</li>
+<li>相互独立两事件互信息量为0</li>
+</ul>
+<h3 id="条件互信息量">条件互信息量</h3>
+<p><strong>定义</strong>：消息( x_i )与消息对( y_j z_k
+)之间的互信息量为</p>
+<p><span class="math display">\[I(x_i ; y_j z_k) = \log_{2}\frac{p(x_i /
+y_j z_k)}{p(x_i)} = \log_{2}\frac{1}{p(x_i)} - \log_{2}\frac{1}{p(x_i /
+y_j z_k)} \]</span></p>
+<p><strong>条件互信息量定义</strong>：</p>
+<p>在给定 <span class="math inline">\(z_k\)</span> 条件下，<span
+class="math inline">\(x_i\)</span> 与 <span
+class="math inline">\(y_j\)</span> 之间的互信息量。</p>
+<p><span class="math display">\[I(x_i ; y_j / z_k) = \log_{2}\frac{p(x_i
+/ y_j z_k)}{p(x_i / z_k)} = \log_{2}\frac{1}{p(x_i / z_k)} -
+\log_{2}\frac{1}{p(x_i / y_j z_k)} \]</span></p>
+<p>** <span class="math inline">\(x_i\)</span> 与 <span
+class="math inline">\(y_j z_k\)</span> 的互信息量**</p>
+<p><span class="math display">\[I(x_i ; y_j z_k) = I(x_i ; z_k) + I(x_i
+; y_j / z_k)\]</span></p>
+<p>上式表明：一个联合事件 <span class="math inline">\(y_j z_k\)</span>
+发生后所提供的有关 <span class="math inline">\(x_i\)</span> 的信息量
+<span class="math inline">\(I(x_i ; y_j z_k)\)</span> ，等于 <span
+class="math inline">\(z_k\)</span> 发生后提供的有关 <span
+class="math inline">\(x_i\)</span> 的信息量 <span
+class="math inline">\(I(x_i ; z_k)\)</span> 与给定 <span
+class="math inline">\(z_k\)</span> 条件下再出现 <span
+class="math inline">\(y_j\)</span> 后所提供的有关 <span
+class="math inline">\(x_i\)</span> 的信息量 <span
+class="math inline">\(I(x_i ; y_j / z_k)\)</span> 之和。</p>
+<h3 id="信息熵">信息熵</h3>
+<p>同理，搬运通信原理第一章的内容：</p>
+<p>定义<strong>信息熵</strong> <span class="math inline">\(H\)</span>
+（离散）：</p>
+<p><span class="math display">\[
+H(x) =  \sum P(x_i)I(x_i)
+\]</span></p>
+<p>等于就是加权求和嘛，描述的是<strong>平均的信息量</strong>。</p>
+<p>不过要注意的一点就是，这个权重是针对整体概率的，而非样本的，详情可见下面这个例题：</p>
 <figure>
 <img
-src="D:\blogs\source\img\inblogs\533fb99c13fa8f6ca63aeb208c4bf273.png" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510092040161.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
 </figure>
-<p>其中，梯形分布用得较多。</p>
-<h2 id="应用模糊综合评价">应用：模糊综合评价</h2>
-<h3 id="评价问题概述">评价问题概述</h3>
-<p>模糊评价问题是要解决的问题是：</p>
-<blockquote>
-<p>① 把论域中的对象对应评语集中的一个指定的评语。 ②
-将方案作为评语集并选择一个最优的方案。</p>
-</blockquote>
-<p>在模糊综合评价中，引入三个集合：（下面的符号和概念中的符号表示的
-<strong>含义不同</strong>）</p>
+<p>然后课上还提到了一些人文的东西，但是我感觉扣这个字眼没啥意思，就直接放上去拉倒了。</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510102023026.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h3 id="信息熵的基本性质">信息熵的基本性质</h3>
 <ul>
-<li><strong>因素集（评价指标集）</strong> <span class="math inline">\(U
-= \{u_1,u_2,...,u_n\}\)</span></li>
-<li><strong>评语集（评价的结果集）</strong> <span
-class="math inline">\(V = \{v_1,v_2,..,v_m\}\)</span></li>
-<li><strong>权重集（指标的权重）</strong> <span class="math inline">\(A
-= \{a_1,a_2,...,a_n\}\)</span></li>
+<li><strong>非负性</strong></li>
 </ul>
-<h3 id="一级模糊综合评价">一级模糊综合评价</h3>
-<ol type="1">
-<li><p><strong>确定因素集</strong></p>
-<p>一级模糊评价中，n 往往较小（一般 ≤ 5）且 指标间相关性不强。</p></li>
-<li><p><strong>确定评语集</strong></p></li>
-<li><p><strong>第三步：确定各因素的权重</strong></p>
-<p>确定权重的方法有很多，如：Delphi法（专家调查法，即瞎几把捏数法）、加权平均法、众人评估法。但是建议：
-当没有数据的时候可采取层次分析法，有数据的时候可采取熵权法。</p></li>
-<li><p><strong>第四步：确定模糊综合评判矩阵，对每个元素做出评价</strong></p></li>
-<li><p><strong>第五步：模糊综合评判</strong></p></li>
-</ol>
-<h3 id="多级模糊综合评价">多级模糊综合评价</h3>
-<p>一级模糊综合评价是多级模糊综合评价的基础。它是将一级模糊评价因素集指标的相关性指标进行统一综合，因为上文讲过一级模糊评价的指标之间是相关性不强的，那么这样相关性指标在只考虑这一种因素的情况下是不相关的，即相对不相关。然后对每个相关性指标进行综合，求得只看这一组指标对于评语集的隶属度，此方法进行类推，最后再综合。</p>
-<h2 id="总结">总结</h2>
-<ol type="1">
-<li>隶属函数有三种确定方法，要根据实际情况来选择使用。</li>
-<li>极大型（极小型）指标，和模糊集合的三类（偏小型、中间型、偏大型）是两种概念，注意区分。</li>
-<li>模糊综合评价的因素指标是相关性不强的，如果有相关项较强的需要进行多级模糊综合评价，级数一般不超过3层。</li>
-</ol>
+<p>对于离散信源是这样的，但是对于连续信源这一性质并不存在。</p>
+<ul>
+<li><strong>对称性、确定性</strong></li>
+</ul>
+<p>没啥用不讲。</p>
+<ul>
+<li><strong>拓展性</strong></li>
+</ul>
+<p>就是加入一个极小概率的事件，它本身信息量巨大，但是在信源熵里面的改变很小，微乎其微几乎不变。</p>
+<ul>
+<li><strong>最大离散熵定理</strong></li>
+</ul>
+<p>类似于基本不等式，离散信源为等概率信源时离散熵最大。证明直接略。</p>
+<ul>
+<li><strong>可加性</strong></li>
+</ul>
+<p>联合分布的熵等于a的熵加上在a发生的情况下b的条件熵。</p>
+<p>ab统计独立时，ab联合熵就是直接加</p>
+<p><span class="math display">\[\begin{align*}
+H(XY) &amp;= H(X) + H(Y/X) \\
+H(XY) &amp;= H(Y) + H(X/Y) \\
+H(XY) &amp;= H(X) + H(Y) \quad \text{X与Y统计独立时}
+\end{align*}
+\]</span></p>
+<ul>
+<li><strong>上凸性</strong></li>
+</ul>
+<p>设 <span class="math inline">\(f\)</span> 的定义域中任意两个矢量
+<span class="math inline">\(X\)</span> 、<span
+class="math inline">\(Y\)</span> ，若</p>
+<p><span class="math display">\[f[aX + (1 - a)Y] &gt; af(X) + (1 -
+a)f(Y)\]</span></p>
+<h2 id="信源的数学模型">2.信源的数学模型</h2>
+<p>在信息论里面，我们将信源定义为能够根据概率随机发送不同信息的装置，数学表达为：</p>
+$$
+<span class="math display">\[\begin{bmatrix}
+X\\
+P(x)
+\end{bmatrix}\]</span>
+<p>=</p>
+<span class="math display">\[\begin{bmatrix}
+a_1 &amp; a_2 &amp; a_3 &amp; … &amp; a_q\\
+P(a_1) &amp; P(a_2) &amp; P(a_3) &amp; … &amp; P(a_q)
+\end{bmatrix}\]</span>
+<p>$$</p>
+<p>当然，这个是离散信源，连续信源的话能一眼看出，不写了。</p>
+<p>上面这个是最简单的一个，单一符号的信源，如果涉及到多符号离散信源，那么可用随机矢量来描述。</p>
+<p>顺便插一嘴，连续信源的描述用的是随机过程，这个是另外一门课，随机信号分析所涉及到的，这里就不细讲了。</p>
+<p>类似的，顺便提一嘴信宿，信宿如果用Y来表示的话，他的数学模型可以是：</p>
+$$
+<span class="math display">\[\begin{bmatrix}
+Y\\
+P(y)
+\end{bmatrix}\]</span>
+<p>=</p>
+<span class="math display">\[\begin{bmatrix}
+b_1 &amp; b_2 &amp; b_3 &amp; … &amp; b_q\\
+P(b_1) &amp; P(b_2) &amp; P(b_3) &amp; … &amp; P(b_q)
+\end{bmatrix}\]</span>
+<p>$$</p>
+<h2 id="典型离散信源的举例">3.典型离散信源的举例</h2>
+<h3 id="离散无记忆的扩展信源">离散无记忆的扩展信源</h3>
+<p>离散无记忆信源很简单，就是前后统计独立，这里直接略过。</p>
+<p>在此基础上，我们如果把N个二元数字看成一组，则新的
+信源称为二元无记忆信源的N次扩展信源。</p>
+<p>他的信息熵就会多一条性质：</p>
+<p><span class="math display">\[H(X^N)=NH(X)\]</span></p>
+<p>想起来很简单，没拓展之前是 <span class="math inline">\(H(X)\)</span>
+算，拓展的时候拓几个N就是多加几次的 <span
+class="math inline">\(H(X)\)</span> 吗。</p>
+<h3 id="离散平稳信源">离散平稳信源</h3>
+<p>首先注意一个点，在讲完上面这个无记忆信源之后，后面这几个默认讨论的是有记忆的信源，即下一时刻的发出的消息是和上一时刻发出的消息是有关的。</p>
+<p>实际上再仔细想想也是，这个如果是没有关系的话就直接按照无记忆信源来讲了，也没有必要引入一个平稳信源的概念。</p>
+<p>这个平稳已经在三门课里面提到过了，随机信号分析讲过宽平稳严平稳，通信原理讲过，这里也是。</p>
+<p>他的这个定义就类似于宽平稳，即<strong>序列的各种统计性质与时间的推移无关</strong>。</p>
+<h3 id="二维平稳信源">二维平稳信源</h3>
+<p>最简单的平稳信源，即二维平稳信源，他只有前后两个符号之间有依赖关系。我们可对其二维拓展信源进行分析。</p>
+<p>这个时候就和无记忆信源有所不同了，除了联合概率分布以外，还出现了一个条件概率，这个条件概率是指
+<span class="math inline">\(a_i\)</span> 出现后， <span
+class="math inline">\(a_{i+1}\)</span> 出现的概率。</p>
+<p>由二维离散信源的发出符号序列的特点可以把其分成每两个符号一组，每组代表新信源
+<span class="math inline">\(X = X_1X_2\)</span>
+中的一个符号。并假设组与组之间是统计独立的，互不相关的。</p>
+<p>得到一个新的离散无记忆信源 <span
+class="math inline">\(X_1X_2\)</span> ，其联合概率空间为：</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+X_1X_2 \\
+P(x_1x_2)
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_1a_1, a_1a_2, \dots, a_{q-1}a_q, a_q a_q \\
+P(a_i a_j) = P(a_i)P(a_j \mid a_i)
+\end{bmatrix}
+\]</span></p>
+<p>在此基础上，我们研究这个信源的信息熵。</p>
+<ul>
+<li><strong>联合熵</strong></li>
+</ul>
+<p><span class="math display">\[
+H(X_1X_2) = -\sum_{i=1}^{q} \sum_{j=1}^{q} P(a_i a_j) \log P(a_i a_j)
+\]</span> 这里因为它是平稳的吗，可以直接拿这个 <span
+class="math inline">\(H(X_1H_2)\)</span>
+的一半来表示原未扩展版本的（表述有问题）</p>
+<ul>
+<li><strong>条件熵</strong></li>
+</ul>
+<p><span class="math display">\[H(X_2 \mid X_1 = a_i) = -\sum_{j=1}^{q}
+P(a_j \mid a_i) \log P(a_j \mid a_i)\]</span></p>
+<p><span class="math display">\[\begin{align*}
+H(X_2 \mid X_1) &amp;= \sum_{i=1}^{q} P(a_i) H(X_2 \mid X_1 = a_i) \\
+&amp;= -\sum_{i=1}^{q} \sum_{j=1}^{q} P(a_i) P(a_j \mid a_i) \log P(a_j
+\mid a_i) \\
+&amp;= -\sum_{i=1}^{q} \sum_{j=1}^{q} P(a_i a_j) \log P(a_j \mid a_i)
+\end{align*}
+\]</span></p>
+<h3 id="马尔可夫信源">马尔可夫信源</h3>
+<h3 id="信源剩余度与自然语言的熵">信源剩余度与自然语言的熵</h3>
 
                 
               </div>
@@ -382,39 +608,11 @@ class="math inline">\(V = \{v_1,v_2,..,v_m\}\)</span></li>
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="category-chain-item">数学建模</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/" class="category-chain-item">评价类模型</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="print-no-link">#数学建模</a>
+        <a href="/tags/%E7%AC%94%E8%AE%B0/" class="print-no-link">#笔记</a>
       
     </div>
   
@@ -426,8 +624,8 @@ class="math inline">\(V = \{v_1,v_2,..,v_m\}\)</span></li>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>模糊综合评价法-FCE</div>
-      <div>http://example.com/2025/04/01/数学建模/评价类模型/2025-04-01-模糊综合评价法-FCE/</div>
+      <div>离散信源及其信息测度</div>
+      <div>http://example.com/2025/10/11/学习资源/信息论/离散信源及其信息测度/</div>
     </div>
     <div class="license-meta">
       
@@ -439,7 +637,7 @@ class="math inline">\(V = \{v_1,v_2,..,v_m\}\)</span></li>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年4月1日</div>
+          <div>2025年10月11日</div>
         </div>
       
       
@@ -478,29 +676,6 @@ class="math inline">\(V = \{v_1,v_2,..,v_m\}\)</span></li>
 
 
 
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2025/04/01/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-04-01-%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95-TOPSIS/" title="优劣解距离法-TOPSIS">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">优劣解距离法-TOPSIS</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2025/04/01/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-04-01-%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-PCA/" title="主成分分析-PCA">
-                        <span class="hidden-mobile">主成分分析-PCA</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
               
             </div>
 
@@ -593,6 +768,21 @@ class="math inline">\(V = \{v_1,v_2,..,v_m\}\)</span></li>
 
 
 
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
 
 
 
