@@ -4,25 +4,6 @@
   
   
   <entry>
-    <title>第四章 信道</title>
-    <link href="/2025/10/19/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E4%BF%A1%E9%81%93/"/>
-    <url>/2025/10/19/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E4%BF%A1%E9%81%93/</url>
-    
-    <content type="html"><![CDATA[<p>随机信号分析实际上是我们另外的一门课，这里就简单讲一下相当于是，也就给了个大纲，老师也没指望我们听懂。</p>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>笔记</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>第三章 随机信号分析</title>
     <link href="/2025/10/19/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E9%9A%8F%E6%9C%BA%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90/"/>
     <url>/2025/10/19/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E9%9A%8F%E6%9C%BA%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90/</url>
@@ -30,24 +11,13 @@
     <content type="html"><![CDATA[<p>随机信号分析实际上是我们另外的一门课，这里就简单讲一下相当于是，也就给了个大纲，老师也没指望我们听懂。</p><h1 id="随机过程概念">随机过程概念</h1><h2 id="什么是随机过程">什么是随机过程</h2><p>通信过程中的随机信号一点是不可预知的，具有随机性，是随机信号，但是有统计规律。因此我们需要把他用随机过程这一数学概念进行描述。她不是确定的。</p><p>随机过程就是不同随机试验结果的时间过程的集合。用另外一种方式理解就是他是一个时间函数，但是每片时间的取值都是都是不确定的，是随机变量。</p><p>样本函数就是随机过程的具体实现，样本空间则为所有实现构成的全体。所有样本函数及其统计特性构成了随机过程。</p><p>随机过程就是随机变量概念的延伸，加了个时间变量而已。</p><h2 id="随机过程的一般表述">随机过程的一般表述</h2><p>和其他的大多数处理方法一样，这个也是从一个片段到多个，从一处的特征出发到多处之间的联系。</p><h3 id="分布函数与概率密度">分布函数与概率密度</h3><h4 id="一维">一维</h4><p>随机过程可以用分布函数和概率密度来表征，具体的思想是：</p><p>随机过程在任意时刻上是一个随机变量，拿这个时刻的切片来看，把这个切片里的各种概率当成一个独立的分布，就能求出该时刻的一维分布函数与一维概率密度。</p><p>公式如下：</p><p><span class="math display">\[F_1(x_1, t_1) = P\left\{ \xi(t_1) \leqx_1 \right\}\]</span></p><p><span class="math display">\[f_1(x_1, t_1) = \frac{\partial F_1(x_1,t_1)}{\partial x_1}\]</span></p><p>注意这个里面的 <span class="math inline">\(t_1\)</span>是定值即可，在这个一维分布函数和概率密度里面。</p><h4 id="n维">n维</h4><p>一维分布函数或概率密度函数仅描述了随机过程在任一瞬间的统计特性，进而可以对任意固定的n个时刻进行概率分布与概率密度的描述。n越大，对随机过程统计特性的描述就越充分，也会更复杂。</p><p><span class="math display">\[F_1(x_1, x_2; t_1,t_2) = P\left\{\xi(t_1) \leq x_1,\xi(t_2) \leq x_2 \right\}\]</span></p><p>记得随机信号分析里面好像到二阶就可以了，一般来说我们这些做通信的就不需要这么精确，随机过程的数字特征就够用了。</p><h2 id="随机过程的数字特征">随机过程的数字特征</h2><h3 id="均值或者数学期望">均值或者数学期望</h3><p>随机过程中就是对每个时间片段中求一下这个均值，均值是时间的函数，注意这个是个确定函数。具体求法就不讲了。</p><h3 id="方差">方差</h3><p>略。</p><p>注意均值方差都只与一维概率密度函数有关系，他们反映了随机过程中各时刻的特征。</p><figure><imgsrc="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510191745064.png"alt="image.png" /><figcaption aria-hidden="true">image.png</figcaption></figure><h3 id="相关函数">相关函数</h3><p>相关函数是随机过程中的内在联系，即随机过程中任意时刻上的两个随机变量之间的内在联系。</p><h4 id="自相关函数">自相关函数</h4><p><span class="math display">\[R(t_1, t_2) = E\left[ \xi(t_1)\xi(t_2)\right] = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} x_1 x_2f_2(x_1, x_2; t_1, t_2) dx_1 dx_2\]</span></p><p>反映不同时刻随机过程取值的相关性（很模棱两可的一句话），常用于时序信号的周期性或平稳性分析，下面是这个公式如何推导出来的一个思路：</p><p>我们来想，两个数据的集合相乘之后再相加，最终的结果可能是什么样的？</p><p>是不是如果两个集合都是符号随机的话，平均乘积就可以接近0；二者在符号上只要有关系，那么相乘相加的结果就会变成向0两边偏离。</p><p>于是我们就给这个相乘后相加的操作和我们的这个随机过程的分析对应出来，这个是不是就是均值相乘？这个就能反映出来不同时刻随机过程取值的相关性了。</p><h4 id="自协方差函数">自协方差函数</h4><p><span class="math display">\[B(t_1, t_2) = E\left\{ \left[ \xi(t_1) -a(t_1) \right] \left[ \xi(t_2) - a(t_2) \right] \right\} = R(t_1, t_2) -a(t_1)a(t_2)\]</span></p><p>同理的，这个自协方差函数的定义就是在这个自相关函数的基础上进行改进，防止偏移影响，给变成了中心化的形式。</p><h4 id="相关系数">相关系数</h4><p><span class="math display">\[  \rho(t_1, t_2) = \frac{B(t_1,t_2)}{\sigma(t_1)\sigma(t_2)}\]</span></p><p>若 <span class="math inline">\(\rho(t_1, t_2) = 0\)</span> ，称 <spanclass="math inline">\(\xi(t_1)\)</span> 和 <spanclass="math inline">\(\xi(t_2)\)</span> 不相关。</p><h3 id="联合分布函数与概率密度">联合分布函数与概率密度</h3><p>这个没咋看懂，放随机信号分析里面学吧，这里也不是重点，书上甚至都没。</p><h1 id="随机过程举例">随机过程举例</h1><h2 id="平稳随机过程">平稳随机过程</h2><h3 id="定义">定义</h3><p>若一个随机过程的统计特性与时间起点无关，随时都是符合一定的统计特性，就是严平稳。</p><p>换算一下就是任意有限维概率密度与时间起点无关。一维概率密度函数与时间t无关，二维分布函数只与时间间隔<span class="math inline">\(\tau\)</span> 有关，判定法：</p><figure><imgsrc="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510191826558.png"alt="image.png" /><figcaption aria-hidden="true">image.png</figcaption></figure><p>严平稳的均值是常数，自相关函数仅与时间间隔有关。</p><p>当然，这个还是比较的严格，我们一般来说用不到这个，用的是宽平稳。</p><p>宽平稳只需要满足这个<strong>均值是常数，自相关函数仅与时间间隔有关</strong>即可。</p><h3 id="性质">性质</h3><h4 id="遍历性">遍历性</h4><p>随机过程随便揪住一个实现，他就能在时间上经历随机过程的所有可能。</p><p>换个形象法的描述就是，在某一不变环境下打开开关一直不关，产生的随机信号中蕴含全部的信息。</p><p>这个就很好，可以用时间的特性来代替统计特性，不需要再知道这个随机过程的分布函数了，求什么平均就可以用时间平均代替统计平均。</p><p>注意这个<strong>遍历过程一定是平稳的，但是平稳不一定就是遍历</strong>，这两个并非互为充要关系。</p><h3 id="后记">后记</h3><p>实平稳随机过程的自相关函数有一些性质，这里也不细讲了，做题的时候再说。</p><figure><imgsrc="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510191853908.png"alt="image.png" /><figcaption aria-hidden="true">image.png</figcaption></figure><figure><imgsrc="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510191857325.png"alt="image.png" /><figcaption aria-hidden="true">image.png</figcaption></figure><p>以及其有一些功率谱密度的计算：</p><figure><imgsrc="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510191857387.png"alt="image.png" /><figcaption aria-hidden="true">image.png</figcaption></figure><figure><imgsrc="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510191857046.png"alt="image.png" /><figcaption aria-hidden="true">image.png</figcaption></figure><figure><imgsrc="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510191854100.png"alt="image.png" /><figcaption aria-hidden="true">image.png</figcaption></figure><h2 id="高斯随机过程">高斯随机过程</h2><h3 id="定义-1">定义</h3><p>若随机过程的任意n维分布都是正态分布，则将其称为高斯随机过程或正态过程，</p><h3 id="重要性质">重要性质</h3><ul><li><p>高斯过程的n维分布完全由n个随机变量 <spanclass="math inline">\(x_1, x_2, \cdots, x_n\)</span>的数学期望、方差以及两两变量之间的归一化协方差函数决定；</p></li><li><p>广义平稳的高斯过程也狭义平稳；</p></li><li><p>高斯过程在不同时刻取值不相关，则它们也统计独立：</p></li></ul><p><span class="math display">\[f_n(x_1, x_2, \cdots, x_n; t_1, t_2,\cdots, t_n) = f(x_1, t_1) f(x_2, t_2) \cdots f(x_n, t_n) \]</span></p><ul><li><p>对于高斯变量来说，不相关和独立是等价的；</p></li><li><p>高斯过程经过线性变换（或线性系统）后仍为高斯过程，但数字特征发生改变；</p></li><li><p>若干个高斯过程的代数和仍为高斯过程，但数字特征发生改变：</p></li></ul><p>若</p><p><span class="math display">\[X_1 \sim N(\mu_1, \sigma_1^2) ， X_2\sim N(\mu_2, \sigma_2^2) \]</span></p><p>，则</p><p><span class="math display">\[aX_1 + bX_2 \sim N(a\mu_1 + b\mu_2,a^2\sigma_1^2 + b^2\sigma_2^2) \]</span></p><p>还有两页PPT的内容，在这里直接略。</p><h2 id="窄带随机过程">窄带随机过程</h2><p>随机过程通过以 <span class="math inline">\(f_c\)</span>为中心频率的窄带系统的输出，即是窄带过程。</p><p>所谓窄带系统，是指其通带宽度 <span class="math inline">\(\Deltaf&lt;&lt;f_c\)</span> ，且 <span class="math inline">\(f_c\)</span>远离零频率的系统。</p><p>实际中，大多数通信系统都是窄带型的，通过窄带系统的信号或噪声必是窄带的，如果这时的信号或噪声又是随机的，则称它们为窄带随机过程。</p><p>如用示波器观察一个实现的波形，则如图2—4所示，它是一个频率近似为 <spanclass="math inline">\(f_c\)</span>，包络和相位随机缓变的正弦波。（注意是缓慢变化，这样基带信号带宽才窄）</p><figure><imgsrc="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510191936601.png"alt="image.png" /><figcaption aria-hidden="true">image.png</figcaption></figure><h2 id="正弦波加窄带高斯过程">正弦波加窄带高斯过程</h2><p>这个属于上面几部分的一个应用：</p><p>有个常用调制方法，就是拿正弦波（最简单的波）作为载波，接收机就是接受正弦已调信号和窄带高斯噪声的混合波形。</p><h2 id="高斯白噪音和带限白噪音">高斯白噪音和带限白噪音</h2><h3 id="定义-2">定义</h3><p>功率谱密度在所有频率上均为常数的噪声，即</p><p>双边功率谱密度： <span class="math inline">\(P_n(f) = \frac{n_0}{2}(-\infty &lt; f &lt; +\infty )\)</span></p><p>单边功率谱密度： <span class="math inline">\(P_n(f) = n_0  (0 &lt; f&lt; +\infty)\)</span></p><p>式中 <span class="math inline">\(n_0\)</span> — 正常数</p><p><strong>白噪声的自相关函数</strong>：对双边功率谱密度取傅里叶反变换，得到相关函数：</p><p><span class="math display">\[  R(\tau) = \frac{n_0}{2}\delta(\tau)\]</span></p>]]></content>
     
     
-    
-    <tags>
+    <categories>
       
-      <tag>笔记</tag>
+      <category>学习资源</category>
       
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>第五章 模拟调制系统</title>
-    <link href="/2025/10/17/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E6%A8%A1%E6%8B%9F%E8%B0%83%E5%88%B6%E7%B3%BB%E7%BB%9F/"/>
-    <url>/2025/10/17/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E6%A8%A1%E6%8B%9F%E8%B0%83%E5%88%B6%E7%B3%BB%E7%BB%9F/</url>
-    
-    <content type="html"><![CDATA[<p>随机信号分析实际上是我们另外的一门课，这里就简单讲一下相当于是，也就给了个大纲，老师也没指望我们听懂。</p>]]></content>
-    
+      <category>通信原理</category>
+      
+    </categories>
     
     
     <tags>
