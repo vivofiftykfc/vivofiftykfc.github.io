@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/blogs/git1.jpg">
 <meta property="article:published_time" content="2025-10-19T15:04:12.000Z">
-<meta property="article:modified_time" content="2025-10-19T13:55:26.387Z">
+<meta property="article:modified_time" content="2025-10-19T17:12:20.667Z">
 <meta property="article:author" content="ZHW">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary_large_image">
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          3.2k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          1 分钟
+          41 分钟
         
       </span>
     
@@ -288,7 +288,460 @@
             
               <div class="markdown-body">
                 
-                
+                <h2 id="调制modulation的定义与目的">调制(Modulation)的定义与目的</h2>
+<p>把消息信号 <span class="math inline">\(m(t)\)</span>
+寄托在载波（<span class="math inline">\(\cos(\omega_c
+t)\)</span>）的某个参数上，形成已调信号。</p>
+<h3 id="目的">目的</h3>
+<ol type="1">
+<li><p>提高天线辐射效率：就是实现频谱的搬移。低频信号波长长，需要巨大天线；高频信号波长短，天线尺寸合理。</p></li>
+<li><p>实现频谱资源共享：不同信号占据不同频段（频分复用FDM），实现多路通信。</p></li>
+<li><p>提高系统抗干扰能力：非线性调制（如FM）可改善信噪比。</p></li>
+</ol>
+<h2 id="载波信号">载波信号</h2>
+<p>本书中主要讲正弦波调制，脉冲调制暂时先不讲，后面可能有。</p>
+<p>载波信号通常表示为：</p>
+<p><span class="math display">\[
+c(t) = A_c \cos(\omega_c t + \phi_c)
+\]</span></p>
+<p>其中 <span class="math inline">\(A_c\)</span> 为载波振幅，<span
+class="math inline">\(\omega_c\)</span> 为载波角频率，<span
+class="math inline">\(\phi_c\)</span> 为载波初始相位。调制即让 <span
+class="math inline">\(A_c\)</span>、<span
+class="math inline">\(\omega_c\)</span> 或 <span
+class="math inline">\(\phi_c\)</span> 随基带信号 <span
+class="math inline">\(m(t)\)</span> 变化。</p>
+<h2 id="模拟调制分类">模拟调制分类</h2>
+<ol type="1">
+<li><p><strong>幅度调制 (Amplitude Modulation, AM)</strong>：载波振幅随
+变化。即线性调制。</p>
+<ul>
+<li>DSB（双边带）</li>
+<li>AM（普通调幅）</li>
+<li>SSB（单边带）</li>
+<li>VSB（残留边带）</li>
+</ul></li>
+<li><p><strong>角度调制 (Angle Modulation,
+PM/FM)</strong>：载波相位或频率随 <span
+class="math inline">\(m(t)\)</span> 变化。</p>
+<ul>
+<li>FM（频率调制）</li>
+<li>PM（相位调制）</li>
+</ul></li>
+</ol>
+<h1 id="线性调制系统幅度调制">线性调制系统（幅度调制）</h1>
+<p>线性调制是将基带信号 <span class="math inline">\(m(t)\)</span>
+线性地作用于载波振幅。调制信号的时域表示为：</p>
+<p><span class="math display">\[
+s_{AM}(t) = A(t) \cos(\omega_c t)
+\]</span></p>
+<p>幅度调制器的一般模型为：</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510200008962.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<p>其分类就是根据这个 <span class="math inline">\(m(t)\)</span> <span
+class="math inline">\(h(t)\)</span> 不同来分的。</p>
+<p><img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510200010466.png" srcset="/img/loading.gif" lazyload
+alt="image.png" /> ## 普通调幅 (AM)</p>
+<h3 id="时域表达式">时域表达式</h3>
+<p>AM 信号在 DSB 基础上增加了<strong>载波分量</strong>：</p>
+<p><span class="math display">\[
+s_{AM}(t) = [A_0 + m(t)] \cos(\omega_c t)
+\]</span></p>
+<p>其中 <span class="math inline">\(A_0\)</span> 为直流偏置，必须满足
+<span class="math inline">\(A_0 &gt; |m(t)|_{max}\)</span>，以保证 <span
+class="math inline">\([A_0 + m(t)] &gt; 0\)</span>（不发生过调幅）。</p>
+<h3 id="调制指数-mu">调制指数 (<span
+class="math inline">\(\mu\)</span>)</h3>
+<p><span class="math display">\[
+\mu = \frac{|m(t)|_{max}}{A_0} \le 1
+\]</span></p>
+<p>大于一为过调制，会导致失真、信息丢失。</p>
+<h3 id="功率和效率">功率和效率</h3>
+<p>AM 信号的总功率 <span class="math inline">\(P_{AM} = P_c +
+P_{SB}\)</span>。边带功率 <span class="math inline">\(P_{SB}\)</span>
+承载信息，而载波功率 <span class="math inline">\(P_c\)</span>
+不承载信息。</p>
+<ul>
+<li><strong>效率</strong>：<span class="math inline">\(\eta =
+\frac{P_{SB}}{P_c + P_{SB}}\)</span>，AM
+的效率通常很低，毕竟要满足调制系数不能大于1，他的载波功率是要比边带功率大的。</li>
+</ul>
+<h3 id="解调方法">解调方法</h3>
+<p>可直接非相干解调 (Non-coherent Demodulation)，使用<strong>包络检波器
+(Envelope
+Detector)</strong>，就一个二极管一个电容的事儿，电路简单，无需同步载波。</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510200022754.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<p>相干解调也可以，相对复杂，但是载波给了，还比较容易相干解调，记得解调完还需要去掉直流</p>
+<h2 id="双边带抑制载波-dsb-sc">双边带抑制载波 (DSB-SC)</h2>
+<h3 id="时域表达式-1">时域表达式</h3>
+<p>无载波分量</p>
+<p><span class="math display">\[
+s_{DSB}(t) = m(t) \cos(\omega_c t)
+\]</span></p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510200028435.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<p>注意，这个载波和输入信号同时改变极性的时候会出现反向点。</p>
+<h3 id="频域特性">频域特性</h3>
+<p>DSB 信号的频谱是基带信号 <span
+class="math inline">\(M(\omega)\)</span> 频谱的左右平移：</p>
+<p><span class="math display">\[
+S_{DSB}(\omega) = \frac{1}{2} [M(\omega - \omega_c) + M(\omega +
+\omega_c)]
+\]</span></p>
+<ul>
+<li><strong>带宽</strong>：<span class="math inline">\(B_{DSB} =
+2f_H\)</span> (其中 <span class="math inline">\(f_H\)</span>
+为基带信号的最高频率)。</li>
+<li>无载波分量。</li>
+<li>幅值变为一半。</li>
+</ul>
+<h3 id="解调方法-1">解调方法</h3>
+<p>关于相关解调和非相关解调之间的区别：</p>
+<p>(1)相干解调信噪比可低于0dB；</p>
+<p>(2)非相干解调信噪比需大于10dB ；</p>
+<p>(3)相干解调的信噪比性能优于非相干解调，而非相干解调对移动、大动态信噪比环境下的适应性更好。</p>
+<p>首先介绍相干解调：</p>
+<p>接收端需要一个与载波同频同相的本地载波 <span
+class="math inline">\(\cos(\omega_c t)\)</span>：</p>
+<p>他传来的信号里面没有载波分量，就需要我们揪出来一个。什么时候才能出<strong>频域分量</strong>？非线性变化。于是引入相乘：</p>
+<ol type="1">
+<li><strong>相乘</strong>：</li>
+</ol>
+<p><span class="math display">\[r(t) = s_{DSB}(t) \cdot 2\cos(\omega_c
+t) = m(t) \cos^2(\omega_c t) = m(t) [1 + \cos(2\omega_c t)]\]</span></p>
+<p><span class="math display">\[
+r(t) = m(t) + m(t) \cos(2\omega_c t)
+\]</span></p>
+<ol start="2" type="1">
+<li><strong>低通滤波 (LPF)</strong>：滤除高频项 <span
+class="math inline">\(m(t) \cos(2\omega_c t)\)</span>，得到 <span
+class="math inline">\(m(t)\)</span>。实际上就是再给相干的分量乘进去，再滤除掉这个高频部分。</li>
+</ol>
+<p>非相干上面讲过了，不再说。</p>
+<h2 id="单边带调制-ssb">单边带调制 (SSB)</h2>
+<h3 id="频谱特性">频谱特性</h3>
+<p>SSB 只保留上边带 (USB) 或下边带 (LSB)
+中的一个，极大地节省了带宽，并提高了功率效率。</p>
+<p>但是由于理想滤波器不存在，频域法（LPF）做SSB很复杂，效果也就那样，当然也可以用相位法来进行抵消，也很复杂。</p>
+<p>普通调幅接收机不能接受SSB信号，因为普通的只能做包络检波，不能做相干。</p>
+<ul>
+<li><strong>带宽</strong>：<span class="math inline">\(B_{SSB} =
+f_H\)</span>。</li>
+</ul>
+<h3 id="时域表达式-2">时域表达式</h3>
+<p><span class="math display">\[
+s_{SSB}(t) = m(t) \cos(\omega_c t) \mp \hat{m}(t) \sin(\omega_c t)
+\]</span></p>
+<p>其中 <span class="math inline">\(\hat{m}(t)\)</span> 是 <span
+class="math inline">\(m(t)\)</span>
+的<strong>希尔伯特变换</strong>。希尔伯特变换就是正余弦相移一个二分之pi。－可以看作上边带信号，+为下边带信号。</p>
+<h3 id="解调方法相干解调">解调方法：相干解调</h3>
+<p>SSB 只能使用相干解调。（这个是为什么？）</p>
+<h2 id="残留边带调制-vsb">残留边带调制 (VSB)</h2>
+<h3 id="频谱特性-1">频谱特性</h3>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510200048283.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<p>满足这个滤波器的截止特性在在载频处具有互补对称的条件就可以。</p>
+<p>VSB
+保留了一个完整的边带，以及另一边带的<strong>部分</strong>（残留边带）。是介于
+DSB 和 SSB 之间的一种折中方案。</p>
+<ul>
+<li><strong>带宽</strong>：<span class="math inline">\(f_H &lt; B_{VSB}
+&lt; 2f_H\)</span>。 ### 优势</li>
+</ul>
+<p>VSB 解决了 SSB
+难以实现的滤波器问题，并保留了低频分量，适用于传输带有丰富低频分量（如直流分量）的信号，例如电视信号。</p>
+<h3 id="解调方法相干解调-1">解调方法：相干解调</h3>
+<h1 id="角度调制系统非线性调制">角度调制系统（非线性调制）</h1>
+<p>这个我们不考，所以就只讲一点。基本上知道FM
+PM是啥，知道他们是非线性调制，出现了很多频域分量，带宽变大，出来的信号质量更好就行了。</p>
+<p>角度调制是非线性调制，载波的<strong>瞬时相位</strong>或<strong>瞬时频率</strong>随基带信号
+<span class="math inline">\(m(t)\)</span> 变化。</p>
+<h2 id="调频-frequency-modulation-fm">调频 (Frequency Modulation,
+FM)</h2>
+<h3 id="瞬时频率">瞬时频率</h3>
+<p>载波的瞬时频率 <span class="math inline">\(\omega_i(t)\)</span> 随
+<span class="math inline">\(m(t)\)</span> 线性变化： <span
+class="math display">\[
+\omega_i(t) = \omega_c + k_f m(t)
+\]</span> 其中 <span class="math inline">\(k_f\)</span>
+为<strong>调频系数</strong>，单位为 <span
+class="math inline">\(\text{rad/s/V}\)</span>。 ### 时域表达式 <span
+class="math display">\[
+s_{FM}(t) = A_c \cos[\omega_c t + \phi(t)]
+\]</span> 瞬时相位 <span class="math inline">\(\phi(t)\)</span>
+是瞬时频率对时间的积分： <span class="math display">\[
+\phi(t) = \int^t \omega_i(\tau) d\tau = \omega_c t + k_f \int^t m(\tau)
+d\tau
+\]</span> <strong>FM 信号</strong>： <span class="math display">\[
+s_{FM}(t) = A_c \cos[\omega_c t + k_f \int^t m(\tau) d\tau]
+\]</span></p>
+<h3 id="调制指数-beta">调制指数 (<span
+class="math inline">\(\beta\)</span>)</h3>
+<p>对于单音调制 <span class="math inline">\(m(t) = A_m \cos(\omega_m
+t)\)</span>，FM 信号的<strong>调制指数</strong>为： <span
+class="math display">\[
+\beta = \frac{\Delta \omega}{\omega_m} = \frac{k_f A_m}{\omega_m}
+\]</span> 其中 <span class="math inline">\(\Delta \omega = k_f
+A_m\)</span> 为<strong>最大角频偏</strong>。</p>
+<h3 id="带宽卡森公式">带宽（卡森公式）</h3>
+<p>FM 信号的频谱是无限宽的，但能量主要集中在有限带宽内。<strong>卡森
+(Carson) 公式</strong>用于估算有效带宽： <span class="math display">\[
+B_{FM} \approx 2(\Delta f + f_m) = 2(\beta + 1) f_m
+\]</span> 其中 <span class="math inline">\(\Delta f\)</span>
+为最大频偏（赫兹）。</p>
+<h3 id="解调方法-2">解调方法</h3>
+<p>FM 信号通常采用<strong>鉴频器 (Frequency Discriminator)</strong>
+来解调，它将频率变化转换为幅度变化，再进行包络检波或低通滤波。</p>
+<h2 id="调相-phase-modulation-pm">调相 (Phase Modulation, PM)</h2>
+<h3 id="瞬时相位">瞬时相位</h3>
+<p>载波的瞬时相位 <span class="math inline">\(\theta_i(t)\)</span> 随
+<span class="math inline">\(m(t)\)</span> 线性变化： <span
+class="math display">\[
+\theta_i(t) = \omega_c t + k_p m(t)
+\]</span> 其中 <span class="math inline">\(k_p\)</span>
+为<strong>调相系数</strong>。 ### 时域表达式 <span
+class="math display">\[
+s_{PM}(t) = A_c \cos[\omega_c t + k_p m(t)]
+\]</span></p>
+<h3 id="fm-与-pm-的关系">FM 与 PM 的关系</h3>
+<ul>
+<li>对 <span class="math inline">\(m(t)\)</span>
+进行<strong>积分</strong>后对载波进行 <strong>FM 调制</strong>，得到 PM
+信号。</li>
+<li>对 <span class="math inline">\(m(t)\)</span>
+进行<strong>微分</strong>后对载波进行 <strong>PM 调制</strong>，得到 FM
+信号。</li>
+</ul>
+<h2 id="模拟调制系统的抗噪声性能">模拟调制系统的抗噪声性能</h2>
+<p>通信系统的抗噪声性能通常由<strong>解调器</strong>的抗噪声性能来衡量。在信道加性高斯白噪声的背景下，研究各种调制系统的性能。</p>
+<h3 id="性能分析模型与指标">性能分析模型与指标</h3>
+<h3 id="接收机模型">接收机模型</h3>
+<p>已调信号 <span class="math inline">\(s_m(t)\)</span>
+与信道加性高斯白噪声 <span class="math inline">\(n(t)\)</span>
+混合后，先经过带通滤波器 (BPF)
+滤除信号频带外的噪声，输入到解调器的信号为 <span
+class="math inline">\(s_m(t)\)</span>，噪声为 <span
+class="math inline">\(n_i(t)\)</span>。解调器输出的有用信号为 <span
+class="math inline">\(m_o(t)\)</span>，噪声为 <span
+class="math inline">\(n_o(t)\)</span>。</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510200108778.png" srcset="/img/loading.gif" lazyload
+alt="信号加上高斯白噪声之后，过带通滤波器后对解调器上输入信号分析" />
+<figcaption
+aria-hidden="true">信号加上高斯白噪声之后，过带通滤波器后对解调器上输入信号分析</figcaption>
+</figure>
+<h3 id="输入端噪声特性">输入端噪声特性</h3>
+<p>输入解调器的噪声 <span class="math inline">\(n_i(t)\)</span>
+是由平稳高斯白噪声 <span class="math inline">\(n(t)\)</span>
+经过带通滤波器得到的，可视为<strong>平稳窄带高斯噪声</strong>。</p>
+<p>窄带高斯噪声可以表示为：</p>
+<p><span class="math display">\[
+n_{i}(t)=n_{c}(t)\cos\omega_{c}t-n_{s}(t)\sin\omega_{c}t
+\]</span></p>
+<p>其中 <span class="math inline">\(n_c(t)\)</span> 和 <span
+class="math inline">\(n_s(t)\)</span> 分别是同相分量和正交分量，均值都为
+<span class="math inline">\(0\)</span>，且具有相同的方差。</p>
+<ul>
+<li><p><strong>输入噪声功率</strong>：若白噪声单边功率谱密度为 <span
+class="math inline">\(N_0\)</span>，BPF 带宽为 <span
+class="math inline">\(B\)</span> (等于已调信号带宽 <span
+class="math inline">\(W\)</span>)：</p>
+<p><span class="math display">\[
+  N_{i}=\overline{n_{i}^{2}(t)}=N_{0}B
+  \]</span></p></li>
+</ul>
+<h3 id="质量指标">质量指标</h3>
+<ol type="1">
+<li><p><strong>输出信噪比 (Output
+SNR)</strong>：衡量解调器输出的质量。</p>
+<p><span class="math display">\[
+\frac{S_{o}}{N_{o}}=\frac{\overline{m_{o}^{2}(t)}}{\overline{n_{o}^{2}(t)}}
+\]</span></p></li>
+<li><p><strong>输入信噪比 (Input SNR)</strong>：</p>
+<p><span class="math display">\[
+\frac{S_{i}}{N_{i}}=\frac{\overline{s_{m}^{2}(t)}}{\overline{n_{i}^{2}(t)}}
+\]</span></p></li>
+<li><p><strong>调制制度增益
+(Gain)</strong>：用于比较同类调制系统的性能。</p>
+<p><span class="math display">\[
+G=\frac{S_{o}/N_{o}}{S_{i}/N_{i}}
+\]</span></p></li>
+</ol>
+<h2 id="线性调制系统性能推导">线性调制系统性能推导</h2>
+<h3 id="dsb-sc-调制系统-相干解调">1. DSB-SC 调制系统 (相干解调)</h3>
+<ul>
+<li><p><strong>输入信号功率</strong>：<span class="math inline">\(S_{i}
+= \overline{s_{DSB}^{2}(t)} =
+\frac{1}{2}\overline{m^{2}(t)}\)</span>。</p></li>
+<li><p><strong>输出信号</strong>：<span
+class="math inline">\(m_{o}(t)=\frac{1}{2}m(t)\)</span>。</p></li>
+<li><p><strong>输出信号功率</strong>：<span class="math inline">\(S_{o}
+= \overline{m_{o}^{2}(t)} =
+\frac{1}{4}\overline{m^{2}(t)}\)</span>。</p></li>
+<li><p><strong>输出噪声功率</strong>：<span class="math inline">\(N_{o}
+= \frac{1}{4}\overline{n_{i}^{2}(t)} =
+\frac{1}{4}N_{0}B\)</span>。</p></li>
+<li><p><strong>调制制度增益</strong>：<span
+class="math inline">\(G_{DSB} = 2\)</span>。</p></li>
+</ul>
+<h3 id="ssb-sc-调制系统-相干解调">2. SSB-SC 调制系统 (相干解调)</h3>
+<ul>
+<li><p><strong>带宽</strong>：<span class="math inline">\(B=W\)</span>
+(基带信号带宽)。</p></li>
+<li><p><strong>输出信号功率</strong>：<span
+class="math inline">\(S_{o}=\overline{m_{o}^{2}(t)}=\frac{1}{16}\overline{m^{2}(t)}\)</span>。</p></li>
+<li><p><strong>输出噪声功率</strong>：<span class="math inline">\(N_{o}
+= \frac{1}{4}N_{0}W\)</span>。</p></li>
+<li><p><strong>调制制度增益</strong>：<span
+class="math inline">\(G_{SSB} = 1\)</span>。</p></li>
+</ul>
+<h3 id="dsb-与-ssb-性能比较">3. DSB 与 SSB 性能比较</h3>
+<p>虽然 <span class="math inline">\(G_{DSB}=2\)</span> 且 <span
+class="math inline">\(G_{SSB}=1\)</span>，但这并不直接说明 DSB
+性能更好。因为两者输入信号功率和带宽不同。</p>
+<p><strong>结论</strong>：在相同的输入信号功率 <span
+class="math inline">\(S_i\)</span>、相同的噪声功率谱密度 <span
+class="math inline">\(N_0\)</span>、相同的基带信号带宽 <span
+class="math inline">\(W\)</span> 条件下，DSB 和 SSB
+的<strong>输出信噪比相等</strong>，表明两者的<strong>抗噪声性能是相同的</strong>。</p>
+<h3 id="am-包络检波的性能">4. AM 包络检波的性能</h3>
+<ul>
+<li><p><strong>大信噪比情况</strong>：包络检波的性能与相干解调相同。</p></li>
+<li><p><strong>小信噪比情况</strong>：出现<strong>门限效应</strong>。在小信噪比下，包络检波器会把有用信号扰乱成噪声，输出信噪比急剧恶化。</p></li>
+</ul>
+<h1 id="各种模拟调制系统的性能比较">各种模拟调制系统的性能比较</h1>
+<table>
+
+<thead>
+<tr>
+<th style="text-align: center;">调制方式</th>
+<th style="text-align: center;">传输带宽</th>
+<th style="text-align: center;">直流响应</th>
+<th style="text-align: center;">设备复杂性</th>
+<th style="text-align: center;">主要应用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>DSB</strong></td>
+<td style="text-align: center;"><span
+class="math inline">\(2f_H\)</span> (无)</td>
+<td style="text-align: center;"><strong>无</strong></td>
+<td style="text-align: center;">中等：要求相干解调</td>
+<td style="text-align: center;">模拟数据传输</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>AM</strong></td>
+<td style="text-align: center;"><span
+class="math inline">\(2f_H\)</span> (有)</td>
+<td style="text-align: center;"><strong>有</strong></td>
+<td style="text-align: center;">较小：调制与解调简单</td>
+<td style="text-align: center;">无线电广播</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>SSB</strong></td>
+<td style="text-align: center;"><span class="math inline">\(f_H\)</span>
+(无)</td>
+<td style="text-align: center;"><strong>无</strong></td>
+<td style="text-align: center;">较大：要求相干解调，调制器也较复杂</td>
+<td style="text-align: center;">话音通信，话音频分多路通信</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>VSB</strong></td>
+<td style="text-align: center;"><span class="math inline">\(f_H &lt; B
+&lt; 2f_H\)</span> (有)</td>
+<td style="text-align: center;"><strong>有</strong></td>
+<td
+style="text-align: center;">较大：要求相干解调，调制器需要对称滤波</td>
+<td style="text-align: center;">数据传输，宽带(电视)系统</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>FM</strong></td>
+<td style="text-align: center;"><span class="math inline">\(2(\Delta f +
+f_m)\)</span> (有)</td>
+<td style="text-align: center;"><strong>有</strong></td>
+<td style="text-align: center;">中等：调制器有点复杂，解调器较简单</td>
+<td style="text-align: center;">数据传输，无线电广播，微波中继</td>
+</tr>
+</tbody>
+</table>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510200112067.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h3 id="主要结论">主要结论</h3>
+<ol type="1">
+<li><p><strong>抗噪声性能</strong>：<strong>WBFM</strong> (宽带调频)
+<strong>最好</strong>；DSB、SSB、VSB 次之；<strong>AM
+最差</strong>。当输入信噪比较高时，FM 的调频指数 <span
+class="math inline">\(\beta\)</span> 越大，抗噪声性能越好。</p></li>
+<li><p><strong>频带利用率</strong>：<strong>SSB
+的带宽最窄</strong>，<span
+class="math inline">\(B_{SSB}=f_H\)</span>，频带利用率最高。<strong>FM
+占用带宽最大</strong>，随调频指数 <span
+class="math inline">\(\beta\)</span>
+增大而增大，频带利用率最低。</p></li>
+<li><p><strong>权衡</strong>：FM
+是以<strong>牺牲有效性</strong>（带宽）来换取<strong>可靠性</strong>（抗噪声性能）的典型代表。</p></li>
+</ol>
+<h1 id="频分复用-fdm">频分复用 (FDM)</h1>
+<h2 id="概念与目的">概念与目的</h2>
+<p><strong>复用
+(Multiplexing)</strong>：解决如何利用一条物理信道同时传输多路信号的技术。目的是为了充分利用信道的频带、时间、空间资源，提高信道的利用率。</p>
+<p><strong>频分复用
+(FDM)</strong>：是一种<strong>按频率来划分信道</strong>的复用方式。</p>
+<h2 id="fdm-原理与实现">FDM 原理与实现</h2>
+<ol type="1">
+<li><p><strong>划分频段</strong>：将信道的总带宽划分为多个<strong>相互不重叠</strong>的频段（子通道），每路信号占据其中一个子通道。</p></li>
+<li><p><strong>保护频带</strong>：各路信号之间留有未被使用的频带（<strong>保护频带</strong>）进行分隔，以防止信号重叠和路间干扰。</p></li>
+<li><p><strong>发送端</strong>：每路基带信号 <span
+class="math inline">\(m_i(t)\)</span> 先经过低通滤波
+(LPF)，然后与不同的载波 <span
+class="math inline">\(\omega_{c_i}\)</span>
+相乘（调制），再经过边带滤波器 (<span
+class="math inline">\(\text{SBF}_i\)</span>)
+选出所需的边带，最后通过相加器将多路已调信号合路并送入信道。</p></li>
+<li><p><strong>接收端</strong>：接收到的合路信号经过带通滤波器 (<span
+class="math inline">\(\text{BPF}_i\)</span>)
+分离出对应的子通道信号，再与同频载波 <span
+class="math inline">\(\omega_{c_i}\)</span> 相乘（解调），最后经过 LPF
+即可恢复出原始基带信号 <span
+class="math inline">\(m_i(t)\)</span>。</p></li>
+</ol>
+<h2 id="fdm-优缺点">FDM 优缺点</h2>
+<p><strong>优点</strong>：</p>
+<ol type="1">
+<li><p>信道复用率高。</p></li>
+<li><p>允许复用的路数多。</p></li>
+<li><p>分路（分频）方便。</p></li>
+</ol>
+<p><strong>缺点</strong>：</p>
+<ol type="1">
+<li><p>设备生产较为复杂。</p></li>
+<li><p>滤波器特性不理想和信道内存在非线性会产生<strong>路间干扰</strong>。</p></li>
+</ol>
 
                 
               </div>
@@ -393,6 +846,23 @@
 
 
 
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/10/19/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E4%BF%A1%E9%81%93/" title="第四章 信道">
+                        <span class="hidden-mobile">第四章 信道</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
               
             </div>
 
