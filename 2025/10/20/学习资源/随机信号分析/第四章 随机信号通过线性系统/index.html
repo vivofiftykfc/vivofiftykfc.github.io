@@ -19,24 +19,24 @@
   <meta name="author" content="ZHW">
   <meta name="keywords" content="">
   
-    <meta name="description" content="这一部分有点偏文字，等于就是给个最基本的信道的定义，给点背景知识。首先就是介绍信道是啥，如何用数学描述，还有就是各种指标；接着介绍几个恒参信道几个随参信道就没了。">
+    <meta name="description" content="随机信号分析是建立在概率论+信号与系统上的，因此本章主要回顾概率论的一维、多维随机变量基础，为后续随机过程分析铺垫。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第四章 信道">
-<meta property="og:url" content="http://example.com/2025/10/19/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E4%BF%A1%E9%81%93/">
+<meta property="og:title" content="第一章 概率论基础">
+<meta property="og:url" content="http://example.com/2025/10/20/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%9A%8F%E6%9C%BA%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E9%9A%8F%E6%9C%BA%E4%BF%A1%E5%8F%B7%E9%80%9A%E8%BF%87%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F/">
 <meta property="og:site_name" content="HWのBLOGS">
-<meta property="og:description" content="这一部分有点偏文字，等于就是给个最基本的信道的定义，给点背景知识。首先就是介绍信道是啥，如何用数学描述，还有就是各种指标；接着介绍几个恒参信道几个随参信道就没了。">
+<meta property="og:description" content="随机信号分析是建立在概率论+信号与系统上的，因此本章主要回顾概率论的一维、多维随机变量基础，为后续随机过程分析铺垫。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/blogs/fce.jpg">
-<meta property="article:published_time" content="2025-10-19T13:54:12.000Z">
-<meta property="article:modified_time" content="2025-10-19T13:55:38.304Z">
+<meta property="og:image" content="http://example.com/img/blogs/fall.jpg">
+<meta property="article:published_time" content="2025-10-20T12:14:11.000Z">
+<meta property="article:modified_time" content="2025-10-21T06:35:18.208Z">
 <meta property="article:author" content="ZHW">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/blogs/fce.jpg">
+<meta name="twitter:image" content="http://example.com/img/blogs/fall.jpg">
   
   
   
-  <title>第四章 信道 - HWのBLOGS</title>
+  <title>第一章 概率论基础 - HWのBLOGS</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,13 +197,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/blogs/fce.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/blogs/fall.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="第四章 信道"></span>
+            <span id="subtitle" data-typed-text="第一章 概率论基础"></span>
           
         </div>
 
@@ -214,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-10-19 21:54" pubdate>
-          2025年10月19日 晚上
+        <time datetime="2025-10-20 20:14" pubdate>
+          2025年10月20日 晚上
         </time>
       </span>
     
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.3k 字
+          0 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          30 分钟
+          1 分钟
         
       </span>
     
@@ -283,203 +283,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">第四章 信道</h1>
+            <h1 id="seo-header">第一章 概率论基础</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="信道定义">信道定义</h1>
-<p>信道即信号的通道，在通信系统里面必不可少。</p>
-<h2 id="狭义信道">狭义信道</h2>
-<p>即指信号的传输媒质，在发送器和接收器之间的物理通路</p>
-<ul>
-<li>导向：光纤、双绞线、同轴电缆</li>
-<li>非导向：无线电、红外线</li>
-</ul>
-<p><img
-src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510192027955.png" srcset="/img/loading.gif" lazyload
-alt="image.png" /> ## 广义信道</p>
-<p>就是一些给通信系统其他的一些设备等效进去的信道：</p>
-<ul>
-<li>调制信道：从调制器输出端到解调器输入端，他涉及到的是已调信号</li>
-<li>编码信号：从编码器输出端到译码器输入端，他涉及到的是数字序列</li>
-</ul>
-<figure>
-<img
-src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510192029053.png" srcset="/img/loading.gif" lazyload
-alt="image.png" />
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<h3 id="调制信道模型">调制信道模型</h3>
-<p>传输已调信号，关心的是信号的失真情况及噪声对信号的影响。已调信号的瞬时值是连续变化的，故也称为连续信道，甚至称为信道</p>
-<p>他的一些特性，我是感觉不是很重要，这个应该是放在常识认知里面，就不在这里讲述。</p>
-<p>注意书上写绝大多数调制信道都是线性的，是目前阶段由于我们水平不够欧所做的近似罢了。</p>
-<p>他的数学模型如下：</p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510192043723.png" srcset="/img/loading.gif" lazyload
-alt="image.png" />
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<h3 id="编码信道模型">编码信道模型</h3>
-<p>也叫数字信道，他包含调制信道，依赖调制信道的性能，其干扰也体现在误码上，主要关系的是误码率。</p>
-<p>根据前后码元的转移概率是否有依赖可以进一步氛围有记忆编码信道和无记忆编码信道。</p>
-<h1 id="性能参数">性能参数</h1>
-<p>影响通信系统可靠性主要有俩因素：噪声和信道传输特性的不理想。</p>
-<h1 id="恒参信道特性">恒参信道特性</h1>
-<h2 id="举例">举例</h2>
-<h4 id="双绞线">双绞线</h4>
-<p>既可用于模拟传输，也可用于数据传输，带宽依赖于线的粗细和传输距离</p>
-<p>分无屏蔽双绞线(UTP)与屏蔽双绞线(STP): 以箔屏蔽来减少干扰</p>
-<h4 id="同轴电缆">同轴电缆</h4>
-<p>基带同轴电缆：50 <span class="math inline">\(\Omega\)</span>
-，为数据通信传输基带数字信号，局域网中广泛使用 10Mb/s, 1km</p>
-<p>宽带同轴电缆：75 <span class="math inline">\(\Omega\)</span>
-，多用于CATV系统，传送频分复用的模拟信号 6MHz/300~400MHz，100km</p>
-<h4 id="光纤">光纤</h4>
-<p>双层通信圆柱体，依靠光波承载信息，传输速率高，带宽大，损耗小，抗干扰保密性好，轻便，但是需要前后有光调制器和光探测器，相对来说复杂一些，对接也比较麻烦，比较脆弱，踩一脚就没了。</p>
-<p>常用的三个波长窗口：</p>
-<p>0.85um：衰减（attenuation)大，传输速率和距离受限制，但价格便宜；</p>
-<p>1.30um：衰减小，无色散（dispersion）补偿、功率放大情况下，最大传40km（最坏情况）；</p>
-<p>1.55um：衰减小，无色散补偿、功率放大情况下，最大传80km（最坏情况）</p>
-<h4 id="无线电视距中继">无线电视距中继</h4>
-<p>两个地面站之间传送(点到点)</p>
-<p>距离：50-100 km；频率：2G-40GHz</p>
-<p>依赖于天气和频率</p>
-<p>应用：长距离传输话音和电视信号；大厦之间LAN互连</p>
-<h4 id="通信卫星中继信道">通信卫星中继信道</h4>
-<p>真几把越来越离谱了，你跟我说这几把是恒参？骗鬼呢？</p>
-<p>使用微波</p>
-<p>使用转发器接收和转发</p>
-<p>优点：传输距离远，覆盖地域广，传输稳定可靠，传输容量大</p>
-<p>应用：传输电视信号、远距离话音传输、组建专用网</p>
-<p>可支持点到多点传送</p>
-<p>C波段 4/6 GHz</p>
-<pre><code class="hljs">上行5.925 - 6.425 GHz
-下行3.7 - 4.2 GHz </code></pre>
-<p>KU波段 12/14 GHz</p>
-<pre><code class="hljs">上行14 - 14.5 GHz 
-下行11.7 - 12.2 GHz</code></pre>
-<h2 id="特性">特性</h2>
-<p>恒参信道就是信道特征不随时间变化，具体而言：</p>
-<p><span class="math display">\[ h(t) \Leftrightarrow H(\omega) =
-|H(\omega)| e^{j\varphi(\omega)} \]</span></p>
-<p>幅频特性 <span class="math inline">\(|H(\omega)|\)</span></p>
-<p>相频特性 <span class="math inline">\(\varphi(\omega)\)</span></p>
-<p>群时延特性 <span class="math inline">\(\tau(\omega) =
--\frac{d\varphi(\omega)}{d\omega}\)</span></p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510192108615.png" srcset="/img/loading.gif" lazyload
-alt="image.png" />
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<h1 id="随参信道特性">随参信道特性</h1>
-<h2 id="举例-1">举例</h2>
-<h3 id="短波电离层反射信道">短波电离层反射信道</h3>
-<p>哦吼这个确实比前面几个随参多了。</p>
-<p>电离层：离地面高60~600km的大气层，从地面算起，从下而上可分为五层：对流层、平流层、中间层、电离层和散逸层。
-媒质的折射率随高度增加而减小，电波传播时轨道逐步弯曲，在某一高度产生全反射</p>
-<p>短波：3<sub>30MHz(100</sub>10m)</p>
-<p>传输无盲区，设备简单，灵活，例如南极科考，采用的通信手段就是他。不过，电离层反射的只是普通的无线电广播采用的波段，对于波长较短的无线电波则起不到反射作用。电视机采用的恰恰是波长较短的无线电波，这就是电视机为什么收看不到远处电视台节目的原因。</p>
-<p>传输可靠性差，需经常更换工作频率</p>
-<p>短波广播，应急通信，抗灾通信，军事通信</p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510192118898.png" srcset="/img/loading.gif" lazyload
-alt="image.png" />
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<p>短波通信之所以能吸引用户，最基本的原因是由于进行远距离通信时，仅需要不大的发射功率和适中的设备费用，它还具有不易"摧毁"的"中继系统"-电离层。实践证明，采用现代技术改造过的短波通信能为用户提供高质量、高可通率和价格适中的通信线路。当然，短波通信也存在一些不足，主要表现在以下两方面：</p>
-<p>1．不能和高频媒体本身存在的弱点相匹配；</p>
-<p>2．无法抵御窃听和各种有意的干扰。</p>
-<p>他还可以进行多径传播：</p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510192121670.png" srcset="/img/loading.gif" lazyload
-alt="image.png" />
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<h3 id="对流层散射信道">对流层散射信道</h3>
-<p>对流层：离地面10~12km以下的大气层</p>
-<p>超短波和微波波段</p>
-<p>抗毁性好，保密性强，机动性好，适应复杂地形能力强</p>
-<p>点到点通信：军用，海岛与陆地之间，应急救灾通信等</p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510192123190.png" srcset="/img/loading.gif" lazyload
-alt="image.png" />
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<h3 id="其他">其他</h3>
-<p>短波电离层反射，超短波流星余迹散射，超短波及微波对流层散射，短波电离层散射、超短波超视距绕射</p>
-<h2 id="特性-1">特性</h2>
-<p>从对信号传输的影响来看，传输媒质的影响是主要的，而转换器的影响是次要的，甚至可忽略不计，因此，主要研究传输媒质的共性及其对信号传输的影响。</p>
-<h4 id="随参信道特性-1">随参信道特性</h4>
-<p>多径传输且每条路径的衰减及时延都是随机变化的，对信号的衰减随时间而变化，对传输的时延随时间而变化</p>
-<p>用数学语言来描述：</p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510192141047.png" srcset="/img/loading.gif" lazyload
-alt="image.png" />
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<p>我们可以发现，这个R(X)可视为窄带随机过程：多径使确定的单频载波信号变成包络和相位都受调制的窄带信号（衰落信号）。</p>
-<p>从时域来看，多径时延扩散； 从频域来看，频率弥散/展宽。</p>
-<h4 id="统计特性">统计特性</h4>
-<p>当 <span class="math inline">\(n\)</span> 足够大时， <span
-class="math inline">\(X_c(t)\)</span>、<span
-class="math inline">\(X_s(t)\)</span> 是平稳高斯过程，故 <span
-class="math inline">\(R(t)\)</span> 是窄带高斯过程。</p>
-<p><span class="math inline">\(V(t)\)</span>
-的一维分布服从<strong>瑞利分布</strong>（瑞利型衰落）：</p>
-<p><span class="math display">\[f(V) =
-\frac{V}{\sigma^2}\exp\left(-\frac{V^2}{2\sigma^2}\right), \quad V \geq
-0, \sigma &gt; 0\]</span></p>
-<p><span class="math inline">\(\varphi(t)\)</span>
-的一维分布服从<strong>均匀分布</strong>：</p>
-<p><span class="math display">\[f(\varphi) = \frac{1}{2\pi}, \quad -\pi
-\leq \varphi \leq \pi \]</span></p>
-<h4 id="频率选择性衰落"><strong>频率选择性衰落</strong></h4>
-<p>这是一种信号频谱中某些分量的衰落现象，信号不同频率分量经多径到达后的相位不同。相位相同的分量矢量相加后增强；相位相反的分量相互抵消，导致接收信号不同频率分量幅度变化，类似通过衰减选择性网络，故称频率选择性衰落。</p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510192149354.png" srcset="/img/loading.gif" lazyload
-alt="image.png" />
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<h4 id="相关带宽与衰落类型">相关带宽与衰落类型</h4>
-<p>多径传播的频率选择性衰落依赖<strong>相对时延差</strong>，用最大多径时延差
-<span class="math inline">\(\tau_m\)</span> 表征</p>
-<p>定义相关带宽：</p>
-<p><span class="math display">\[\Delta f =
-\frac{1}{\tau_m}  \]</span></p>
-<p>当信号带宽 <span class="math inline">\(B &gt; \Delta f\)</span> 时，
-<span class="math inline">\(R(t)\)</span>
-波形有畸变，产生<strong>频率选择性衰落</strong>；</p>
-<p>当信号带宽 <span class="math inline">\(B &lt;&lt; \Delta f\)</span>
-时， <span class="math inline">\(R(t)\)</span> 时强时弱（与 <span
-class="math inline">\(\tau\)</span>
-有关），属于<strong>平坦性衰落</strong>（一般性衰落）；</p>
-<p>为避免明显频率选择性衰落， <span class="math inline">\(B\)</span>
-应小于 <span class="math inline">\(\Delta f\)</span>
-，且可采用分集接收等技术稳定信号。</p>
-<p>（我说实在，这里还是有点看不太懂）</p>
-<h2 id="改善">改善</h2>
-<h3 id="分集">分集</h3>
-<h4 id="概念">概念</h4>
-<p>分集接收就是为了克服各种衰落，提高系统性能而发展起来的移动通信中的一项重要技术。</p>
-<p>分集接收基本思路：将接收到的多径信号分离成不相关的(独立的)多路信号，然后将这些信号的能量按一定规则合并起来，使接收的有用信号能量最大</p>
-<p>对数字系统而言，使接收端的误码率最小
-对模拟系统而言，提高接收端的信噪比</p>
-<h4 id="分集方式">分集方式</h4>
-<p>时间分集：采用时间交织与信道编码，在时间域内提供信号的副本</p>
-<p>频率分集：在不同的载波频率上发送符号，在频率域内提供信号的副本</p>
-<p>空间分集：利用多副天线实现</p>
-<h3 id="合并">合并</h3>
-<p>最佳选择式合并：选择信噪比最好的一路信号，当然，后期会趋近于一个值</p>
-<p>等增益合并：各支路信号以相同的增益直接相加</p>
-<p>最大比合并：各支路增益与本支路信噪比成正比</p>
+                
 
                 
               </div>
@@ -487,34 +296,6 @@ class="math inline">\(\tau\)</span>
             <hr/>
             <div>
               <div class="post-metas my-3">
-  
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/" class="category-chain-item">学习资源</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" class="category-chain-item">通信原理</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
   
   
     <div class="post-meta">
@@ -532,8 +313,8 @@ class="math inline">\(\tau\)</span>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>第四章 信道</div>
-      <div>http://example.com/2025/10/19/学习资源/通信原理/第四章 信道/</div>
+      <div>第一章 概率论基础</div>
+      <div>http://example.com/2025/10/20/学习资源/随机信号分析/第四章 随机信号通过线性系统/</div>
     </div>
     <div class="license-meta">
       
@@ -545,7 +326,7 @@ class="math inline">\(\tau\)</span>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年10月19日</div>
+          <div>2025年10月20日</div>
         </div>
       
       
@@ -589,9 +370,9 @@ class="math inline">\(\tau\)</span>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/10/20/2025-10-20/" title="">
+                      <a href="/2025/10/20/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E6%A8%A1%E6%8B%9F%E8%B0%83%E5%88%B6%E7%B3%BB%E7%BB%9F/" title="第五章 模拟调制系统">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">第五章 模拟调制系统</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -599,8 +380,8 @@ class="math inline">\(\tau\)</span>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/10/19/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E9%9A%8F%E6%9C%BA%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90/" title="第三章 随机信号分析">
-                        <span class="hidden-mobile">第三章 随机信号分析</span>
+                      <a href="/2025/10/20/2025-10-20/" title="">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
