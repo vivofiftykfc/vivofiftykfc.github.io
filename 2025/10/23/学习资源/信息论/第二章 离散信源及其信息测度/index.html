@@ -1,0 +1,1225 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="讲了一下信息量的衡量方式、信源的量化模型和典型模型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第二章 离散信源及其信息测度">
+<meta property="og:url" content="http://example.com/2025/10/23/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E7%A6%BB%E6%95%A3%E4%BF%A1%E6%BA%90%E5%8F%8A%E5%85%B6%E4%BF%A1%E6%81%AF%E6%B5%8B%E5%BA%A6/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="讲了一下信息量的衡量方式、信源的量化模型和典型模型">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/blogs/regression.jpg">
+<meta property="article:published_time" content="2025-10-23T08:00:00.000Z">
+<meta property="article:modified_time" content="2025-10-23T07:56:11.646Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/blogs/regression.jpg">
+  
+  
+  
+  <title>第二章 离散信源及其信息测度 - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":"ture","follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":"ture"},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/regression.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="第二章 离散信源及其信息测度"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-23 16:00" pubdate>
+          2025年10月23日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          50 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">第二章 离散信源及其信息测度</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="信息的衡量">1.信息的衡量</h2>
+<h3 id="自信息量">自信息量</h3>
+<p>自信息量的概念就是得到这个信息之后消除了多少的不确定性。</p>
+<p>这里和之前写的这个通信原理中信息熵的定义是一样的，毕竟都是通信人搞的东西吗。这里直接借用相关推理和解释：</p>
+<p>信息这个东西既然作为研究对象被我们研究，那就需要给他量化。具体我们用的啥来量化？就是倒数取对，得<strong>信息量</strong>。注意这里讲的是自信息量。</p>
+<p><span class="math display">\[
+I=-log_aP(x) \tag{式1}
+\]</span></p>
+<p>因为这样能很好的符合：</p>
+<ul>
+<li><p>概率越小的事情信息量越大，是个单调递减函数，一定发生时信息量为0，一定不发生信息量为无穷。</p></li>
+<li><p>若干独立事件构成的消息等于个独立事件信息量之和。</p></li>
+</ul>
+<p>OK照搬的部分解决了，然后下面讲一讲这门课里面细化讲的东西。</p>
+<p>值得注意的是： <span class="math inline">\(x_ i\)</span>
+是一个随机量， 而 <span class="math inline">\(I(x_i)\)</span>
+是关于这个随机量的函数，所以自信息量也
+是一个随机变量，它没有确定的值。</p>
+<p>其中式1中的底数a取2为比特，e为奈特，10为哈特。</p>
+<h3 id="联合自信息量">联合自信息量</h3>
+<p><span class="math display">\[\begin{bmatrix} XY \\ P(XY)
+\end{bmatrix} = \begin{cases} x_1y_1, \dots, x_1y_m, &amp; x_2y_1,
+\dots, &amp; x_2y_m, \dots, &amp; x_ny_1, \dots, &amp; x_ny_m \\
+p(x_1y_1), \dots, p(x_1y_m), &amp; p(x_2y_1), \dots, &amp; p(x_2y_m),
+\dots, &amp; p(x_ny_1), \dots, &amp; p(x_ny_m) \end{cases}\]</span></p>
+<p>这东西看一眼就知道，其自信息量无非就是给 <span
+class="math inline">\(X\)</span> 换成 <span
+class="math inline">\(XY\)</span> ：</p>
+<p><span class="math display">\[I(x_i,y_j) =
+\log_{2}\frac{1}{p(x_i,y_j)}\]</span></p>
+<p>就是两个变量只给了联合的概率分布时，对这两个东西所求的自信息量就是联合自信息量。</p>
+<h3 id="条件自信息量">条件自信息量</h3>
+<p>设 <span class="math inline">\(y_j\)</span> 条件下，发生 <span
+class="math inline">\(x_i\)</span> 的条件自信息量：</p>
+<p><span class="math display">\[I(x_i / y_j)=\log_{2}\frac{1}{p(x_i /
+y_j)}\]</span></p>
+<p><span class="math inline">\(x_i\)</span> 已知时发生 <span
+class="math inline">\(y_j\)</span> 的条件自信息量：</p>
+<p><span class="math display">\[I(y_j / x_i)=\log_{2}\frac{1}{p(y_j /
+x_i)}  \]</span></p>
+<p>自信息量、条件自信息量和联合自信息量之间的关系：</p>
+<p><span class="math display">\[\begin{align*} I(x_i
+y_j)&amp;=\log_{2}\frac{1}{p(x_i)p(y_j / x_i)} = I(x_i)+I(y_j / x_i)\\
+&amp;=\log_{2}\frac{1}{p(y_j)p(x_i / y_j)} = I(y_j)+I(x_i / y_j)
+\end{align*} \]</span></p>
+<h3 id="互信息量">互信息量</h3>
+<p>我们知道，信息从信源到信宿，进过信道时会混合噪声，这个时候我们从信宿消除的不确定性的角度来看，互信息量就是信宿获得传来的信息后消除的不确定性。</p>
+<p>于是我们从信宿的角度来推，首先是假设一下信源发 <span
+class="math inline">\(x_i\)</span> 的概率，即先验概率；</p>
+<p>然后信宿收到 <span class="math inline">\(y_i\)</span>
+时推测他发来的是 <span class="math inline">\(x_i\)</span>
+的概率，这个是个条件概率，为后验概率。</p>
+<p>我们用先验的不确定性减去后验的不确定性，得到的就是互信息量。注意这里讲的都是<strong>不确定性</strong>，也就是信息量。</p>
+<p>公式就是</p>
+<p><span class="math display">\[
+\begin{align*}
+I(x_i ; y_j) &amp;= \log_{2}\frac{p(x_i / y_j)}{p(x_i)} \quad (i =
+1,2,\dots,n; j = 1,2,\dots,m) \\
+&amp;= \log_{2}\frac{1}{p(x_i)} - \log_{2}\frac{1}{p(x_i / y_j)} \\
+&amp;= I(x_i) - I(x_i / y_j)
+\end{align*}
+\]</span></p>
+<p>简言之，互信息量的定义是为了<strong>量化观测到一个事件后，对另一个事件不确定性的改变量</strong>。在上面的例子里面，就是观测到信宿收到事件之后，对信源发来的信息的不确定性的改变量，便于确定信源究竟发来了什么信息。</p>
+<p>这个理解是有点难度的我个人感觉，我写这段话的时候也想了一会儿。</p>
+<p>这里再给个例题，方便理解：</p>
+<p>假设信源要发送一枚硬币的正反面，两种可能：</p>
+<ul>
+<li><span class="math inline">\(x_1 = 正\)</span>，<span
+class="math inline">\(p(x_1)=0.5\)</span></li>
+<li><span class="math inline">\(x_2 = 反\)</span>，<span
+class="math inline">\(p(x_2)=0.5\)</span></li>
+</ul>
+<p>但是传输过程中有噪声，导致接收端信宿收到的结果可能被“翻转”：</p>
+<table>
+<thead>
+<tr>
+<th>信源发出<span class="math inline">\(x_i\)</span></th>
+<th>信宿收到<span class="math inline">\(y_j\)</span></th>
+<th>条件概率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>正</td>
+<td>正</td>
+<td>0.8</td>
+</tr>
+<tr>
+<td>正</td>
+<td>反</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>反</td>
+<td>正</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>反</td>
+<td>反</td>
+<td>0.8</td>
+</tr>
+</tbody>
+</table>
+<p>现在计算信宿收到 <span class="math inline">\(y_1 = 正\)</span>
+时，互信息量 <span class="math inline">\(I(x; y_1)\)</span>。</p>
+<p><strong>第一步：求后验概率 <span
+class="math inline">\(p(x_i|y_1)\)</span></strong></p>
+<p>信宿收到“正”的总概率：</p>
+<p><span class="math display">\[p(y_1)=p(x_1)p(y_1|x_1) +
+p(x_2)p(y_1|x_2)=0.5×0.8+0.5×0.2=0.5\]</span></p>
+<p>后验概率：</p>
+<p><span class="math display">\[p(x_1|y_1)=\frac{0.5×0.8}{0.5}=0.8,\quad
+p(x_2|y_1)=0.2\]</span></p>
+<p><strong>第二步：计算互信息量</strong></p>
+<p>以 <span class="math inline">\(x_1=正\)</span> 为例：</p>
+<p><span
+class="math display">\[I(x_1;y_1)=\log_2\frac{p(x_1|y_1)}{p(x_1)}=\log_2\frac{0.8}{0.5}=\log_2(1.6)≈0.678\text{
+bit}\]</span></p>
+<p>这表示：<strong>原本我们对“正”是否被发送不确定（1
+bit），但现在看到“接收到正”后，不确定性减少了约 0.678
+bit。最终的结果就是我偏向于信任这个是正面，但是不排除有反面的可能。（最后这句好像有问题）</strong></p>
+<p>类似的，可以算一下为反面的互信息，发现他是负的。</p>
+<h3 id="互信息的性质">互信息的性质</h3>
+<p>两句话：</p>
+<ul>
+<li>有对称性，知道a求对b互信息量和知道b求a互信息量相同</li>
+<li>相互独立两事件互信息量为0</li>
+</ul>
+<h3 id="条件互信息量">条件互信息量</h3>
+<p><strong>定义</strong>：消息 <span class="math inline">\(x_i\)</span>
+与消息对 <span class="math inline">\(y_j z_k\)</span>
+之间的互信息量为</p>
+<p><span class="math display">\[I(x_i ; y_j z_k) = \log_{2}\frac{p(x_i /
+y_j z_k)}{p(x_i)} = \log_{2}\frac{1}{p(x_i)} - \log_{2}\frac{1}{p(x_i /
+y_j z_k)} \]</span></p>
+<p><strong>条件互信息量定义</strong>：</p>
+<p>在给定 <span class="math inline">\(z_k\)</span> 条件下，<span
+class="math inline">\(x_i\)</span> 与 <span
+class="math inline">\(y_j\)</span> 之间的互信息量。</p>
+<p><span class="math display">\[I(x_i ; y_j / z_k) = \log_{2}\frac{p(x_i
+/ y_j z_k)}{p(x_i / z_k)} = \log_{2}\frac{1}{p(x_i / z_k)} -
+\log_{2}\frac{1}{p(x_i / y_j z_k)} \]</span></p>
+<p><span class="math inline">\(x_i\)</span> 与 <span
+class="math inline">\(y_j z_k\)</span> 的互信息量</p>
+<p><span class="math display">\[I(x_i ; y_j z_k) = I(x_i ; z_k) + I(x_i
+; y_j / z_k)\]</span></p>
+<p>上式表明：一个联合事件 <span class="math inline">\(y_j z_k\)</span>
+发生后所提供的有关 <span class="math inline">\(x_i\)</span> 的信息量
+<span class="math inline">\(I(x_i ; y_j z_k)\)</span> ，等于 <span
+class="math inline">\(z_k\)</span> 发生后提供的有关 <span
+class="math inline">\(x_i\)</span> 的信息量 <span
+class="math inline">\(I(x_i ; z_k)\)</span> 与给定 <span
+class="math inline">\(z_k\)</span> 条件下再出现 <span
+class="math inline">\(y_j\)</span> 后所提供的有关 <span
+class="math inline">\(x_i\)</span> 的信息量 <span
+class="math inline">\(I(x_i ; y_j / z_k)\)</span> 之和。</p>
+<h3 id="信息熵">信息熵</h3>
+<p>同理，搬运通信原理第一章的内容：</p>
+<p>定义<strong>信息熵</strong> <span class="math inline">\(H\)</span>
+（离散）：</p>
+<p><span class="math display">\[
+H(x) =  \sum P(x_i)I(x_i)
+\]</span></p>
+<p>等于就是加权求和嘛，描述的是<strong>平均的信息量</strong>。</p>
+<p>不过要注意的一点就是，这个权重是针对整体概率的，而非样本的，详情可见下面这个例题：</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510092040161.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<p>然后课上还提到了一些人文的东西，但是我感觉扣这个字眼没啥意思，就直接放上去拉倒了。</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510102023026.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h3 id="信息熵的基本性质">信息熵的基本性质</h3>
+<ul>
+<li><strong>非负性</strong></li>
+</ul>
+<p>对于离散信源是这样的，但是对于连续信源这一性质并不存在。</p>
+<ul>
+<li><strong>对称性、确定性</strong></li>
+</ul>
+<p>没啥用不讲。</p>
+<ul>
+<li><strong>拓展性</strong></li>
+</ul>
+<p>就是加入一个极小概率的事件，它本身信息量巨大，但是在信源熵里面的改变很小，微乎其微几乎不变。</p>
+<ul>
+<li><strong>最大离散熵定理</strong></li>
+</ul>
+<p>类似于基本不等式，离散信源为等概率信源时离散熵最大。证明直接略。</p>
+<ul>
+<li><strong>可加性</strong></li>
+</ul>
+<p>联合分布的熵等于a的熵加上在a发生的情况下b的条件熵。</p>
+<p>ab统计独立时，ab联合熵就是直接加</p>
+<p><span class="math display">\[\begin{align*}
+H(XY) &amp;= H(X) + H(Y/X) \\
+H(XY) &amp;= H(Y) + H(X/Y) \\
+H(XY) &amp;= H(X) + H(Y) \quad \text{X与Y统计独立时}
+\end{align*}
+\]</span></p>
+<ul>
+<li><strong>上凸性</strong></li>
+</ul>
+<p>设 <span class="math inline">\(f\)</span> 的定义域中任意两个矢量
+<span class="math inline">\(X\)</span> 、<span
+class="math inline">\(Y\)</span> ，若</p>
+<p><span class="math display">\[f[aX + (1 - a)Y] &gt; af(X) + (1 -
+a)f(Y)\]</span></p>
+<h2 id="信源的数学模型">2.信源的数学模型</h2>
+<p>在通信系统中，<strong>信源</strong>可以看作是产生消息的随机过程。<br />
+消息的输出具有随机性，因此可以用：</p>
+<ul>
+<li>随机变量（单符号信源）</li>
+<li>随机矢量（多符号信源）</li>
+<li>随机过程（连续时间信源）</li>
+</ul>
+<p>来刻画信源的输出。</p>
+<p>在信息论里面，我们将信源定义为能够根据概率随机发送不同信息的装置，数学表达为：</p>
+$$
+<span class="math display">\[\begin{bmatrix}
+X\\
+P(x)
+\end{bmatrix}\]</span>
+<p>=</p>
+<span class="math display">\[\begin{bmatrix}
+a_1 &amp; a_2 &amp; a_3 &amp; … &amp; a_q\\
+P(a_1) &amp; P(a_2) &amp; P(a_3) &amp; … &amp; P(a_q)
+\end{bmatrix}\]</span>
+<p>$$</p>
+<p>当然，这个是离散信源，连续信源的话能一眼看出，不写了。</p>
+<p>上面这个是最简单的一个，单一符号的信源，如果涉及到多符号离散信源，那么可用随机矢量来描述。</p>
+<p>顺便插一嘴，连续信源的描述用的是随机过程，这个是另外一门课，随机信号分析所涉及到的，这里就不细讲了。</p>
+<p>类似的，顺便提一嘴信宿，信宿如果用Y来表示的话，他的数学模型可以是：</p>
+$$
+<span class="math display">\[\begin{bmatrix}
+Y\\
+P(y)
+\end{bmatrix}\]</span>
+<p>=</p>
+<span class="math display">\[\begin{bmatrix}
+b_1 &amp; b_2 &amp; b_3 &amp; … &amp; b_q\\
+P(b_1) &amp; P(b_2) &amp; P(b_3) &amp; … &amp; P(b_q)
+\end{bmatrix}\]</span>
+<p>$$</p>
+<h2 id="典型离散信源的举例">3.典型离散信源的举例</h2>
+<h3 id="离散无记忆的扩展信源">离散无记忆的扩展信源</h3>
+<p>离散无记忆信源很简单，就是前后统计独立，这里直接略过。</p>
+<p>在此基础上，我们如果把N个二元数字看成一组，则新的
+信源称为二元无记忆信源的N次扩展信源。</p>
+<p>他的信息熵就会多一条性质：</p>
+<p><span class="math display">\[H(X^N)=NH(X)\]</span></p>
+<p>想起来很简单，没拓展之前是 <span class="math inline">\(H(X)\)</span>
+算，拓展的时候拓几个N就是多加几次的 <span
+class="math inline">\(H(X)\)</span> 吗。</p>
+<h3 id="离散平稳信源">离散平稳信源</h3>
+<p>首先注意一个点，在讲完上面这个无记忆信源之后，后面这几个默认讨论的是有记忆的信源，即下一时刻的发出的消息是和上一时刻发出的消息是有关的。</p>
+<p>实际上再仔细想想也是，这个如果是没有关系的话就直接按照无记忆信源来讲了，也没有必要引入一个平稳信源的概念。</p>
+<p>这个平稳已经在三门课里面提到过了，随机信号分析讲过宽平稳严平稳，通信原理讲过，这里也是。</p>
+<p>随机信号分析里面宽平稳就是一维概率分布函数与时间无关，二维的只与时间间隔有关。宽平稳就是自相关函数和均值与时间无关即可。</p>
+<p>他的这个定义就类似于宽平稳，即<strong>序列的各种统计性质与时间的推移无关</strong>。</p>
+<p><strong>这里有一点很关键，就是各维条件概率只与关联长度N有关，而与时间起点无关；各维条件熵只与关联长度有关，而与时间起点无关。</strong>
+这个才是这个本章的关键。</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510231438115.png" srcset="/img/loading.gif" lazyload
+alt="屏幕截图 2025-10-23 143434.png" />
+<figcaption aria-hidden="true">屏幕截图 2025-10-23
+143434.png</figcaption>
+</figure>
+<p>离散平稳信源也有自己的一点性质：</p>
+<ul>
+<li><p>对任意时刻 <span class="math inline">\(t\)</span>
+，统计特性不随时间变化；</p></li>
+<li><p><span class="math inline">\(N\)</span> 阶条件熵 <span
+class="math inline">\(H(X_N|X_1...X_{N-1})\)</span> 随 <span
+class="math inline">\(N\)</span>
+增大<strong>单调不增</strong>，想起来很简单，推恩令吗；</p></li>
+<li><p>存在极限熵：</p></li>
+</ul>
+<p><span class="math display">\[H_\infty = \lim_{N \to \infty}
+H(X_N|X_1...X_{N-1})\]</span></p>
+<p>这里对<strong>极限熵</strong>进行一个补充：</p>
+<h3 id="极限熵">极限熵</h3>
+<p>为什么要引入极限熵？</p>
+<p>若是信源无记忆，那么每个符号之间完全独立，那么他每次输出一个符号带来的平均信息量就是固定的：</p>
+<p><span class="math display">\[H(X_1, X_2, \ldots, X_N) = N \cdot
+H(X)\]</span></p>
+<p>但是显然，我们需要引入这个有记忆的信源，而有记忆的信源势必会受到上一个，甚至很多之前的符号的影响。于是我们就引入了条件熵这个概念来描述这一现象。</p>
+<figure>
+<img
+src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510231438638.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h3 id="二维平稳信源">二维平稳信源</h3>
+<p>最简单的平稳信源，即二维平稳信源，他只有前后两个符号之间有依赖关系。我们可对其二维拓展信源进行分析。</p>
+<p>这个时候就和无记忆信源有所不同了，除了联合概率分布以外，还出现了一个条件概率，这个条件概率是指
+<span class="math inline">\(a_i\)</span> 出现后， <span
+class="math inline">\(a_{i+1}\)</span> 出现的概率。</p>
+<p>由二维离散信源的发出符号序列的特点可以把其分成每两个符号一组，每组代表新信源
+<span class="math inline">\(X = X_1X_2\)</span>
+中的一个符号。并假设组与组之间是统计独立的，互不相关的。</p>
+<p>得到一个新的离散无记忆信源 <span
+class="math inline">\(X_1X_2\)</span> ，其联合概率空间为：</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+X_1X_2 \\
+P(x_1x_2)
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_1a_1, a_1a_2, \dots, a_{q-1}a_q, a_q a_q \\
+P(a_i a_j) = P(a_i)P(a_j \mid a_i)
+\end{bmatrix}
+\]</span></p>
+<p>在此基础上，我们研究这个信源的信息熵。</p>
+<ul>
+<li><strong>联合熵</strong></li>
+</ul>
+<p><span class="math display">\[
+H(X_1X_2) = -\sum_{i=1}^{q} \sum_{j=1}^{q} P(a_i a_j) \log P(a_i a_j)
+\]</span> 这里因为它是平稳的吗，可以直接拿这个 <span
+class="math inline">\(H(X_1H_2)\)</span>
+的一半来表示原未扩展版本的（表述有问题）</p>
+<ul>
+<li><strong>条件熵</strong></li>
+</ul>
+<p><span class="math display">\[H(X_2 \mid X_1 = a_i) = -\sum_{j=1}^{q}
+P(a_j \mid a_i) \log P(a_j \mid a_i)\]</span></p>
+<p><span class="math display">\[\begin{align*}
+H(X_2 \mid X_1) &amp;= \sum_{i=1}^{q} P(a_i) H(X_2 \mid X_1 = a_i) \\
+&amp;= -\sum_{i=1}^{q} \sum_{j=1}^{q} P(a_i) P(a_j \mid a_i) \log P(a_j
+\mid a_i) \\
+&amp;= -\sum_{i=1}^{q} \sum_{j=1}^{q} P(a_i a_j) \log P(a_j \mid a_i)
+\end{align*}
+\]</span></p>
+<h3 id="马尔可夫信源">马尔可夫信源</h3>
+<ul>
+<li>定义</li>
+</ul>
+<p>马尔可夫信源是<strong>符号之间存在有限依赖关系</strong>的信源。什么马尔科夫链、马尔科夫过程都是跟他有着一样的中心思想。</p>
+<p>即任一时刻的输出仅与前 <span class="math inline">\(m\)</span>
+个符号有关：</p>
+<p><span class="math display">\[P(x_n|x_{n-1}, x_{n-2}, ..., x_1) =
+P(x_n|x_{n-1}, ..., x_{n-m})
+\]</span></p>
+<p>当 <span class="math inline">\(m=0\)</span> ：离散无记忆信源；</p>
+<p>当 <span class="math inline">\(m=1\)</span> ：一阶马尔可夫信源。</p>
+<p>为了描述各个时间前后这个马尔科夫信源的状态，我们引入状态空间的概念，以及状态转移概率（可拓展为状态转移矩阵）</p>
+<p>状态空间（状态取值范围，也就是各个结果的概率） <span
+class="math inline">\(E=\{E_1,E_2,...,E_J\}\)</span>
+，符号集（实际上就是他的下标） <span
+class="math inline">\(X=\{a_1,a_2,...,a_q\}\)</span> 。</p>
+<p>定义：</p>
+<ul>
+<li><p><strong>发射概率</strong>： <span
+class="math inline">\(p(a_k|E_i)\)</span></p></li>
+<li><p><strong>状态转移概率</strong>： <span
+class="math inline">\(p(E_j|E_i)\)</span></p></li>
+</ul>
+<p>若这些概率与时间无关，称为<strong>齐次马尔可夫链</strong>。</p>
+<p>马尔可夫链的状态转移图：每个圆圈代表一种状态，状态之间的有向线代表某一状态向另一状态的转移。有向线一侧的符号和数字分别代表发出
+的符号和条件概率。</p>
+<p>对 m 阶信源，有：</p>
+<p><span class="math display">\[H_{m+1} = -\sum_{x_{1}^{m+1}}
+P(x_{1}^{m+1}) \log P(x_{m+1}|x_1...x_m)\]</span></p>
+<p>并且 <span class="math inline">\(H_0 \ge H_1 \ge H_2 \ge ... \ge
+H_\infty\)</span> 。</p>
+<p>遍历性与极限熵：</p>
+<p>若马尔可夫链<strong>遍历性</strong>成立，则存在唯一的<strong>稳定分布</strong>：</p>
+<p><span class="math display">\[Q(E_i) = \sum_j
+Q(E_j)p(E_i|E_j)\]</span></p>
+<p>极限熵为：</p>
+<p><span class="math display">\[H_\infty = -\sum_{i,j}
+Q(E_i)p(a_j|E_i)\log p(a_j|E_i)\]</span></p>
+<p>同时也注意，m阶马尔科夫信源的极限熵等于m阶条件熵，即 <span
+class="math inline">\(H_m = H_{无穷}\)</span></p>
+<h3 id="信源剩余度与自然语言的熵">信源剩余度与自然语言的熵</h3>
+<h4 id="实际信源的近似">实际信源的近似</h4>
+<p>实际信源往往<strong>非平稳</strong>，极限熵 <span
+class="math inline">\(H_\infty\)</span> 不一定存在。</p>
+<p>可通过测得足够长序列的条件概率 <span
+class="math inline">\(P(X_N|X_1X_2...X_{N-1})\)</span> ，近似求：</p>
+<p><span class="math display">\[H_N(X) \approx H_\infty\]</span></p>
+<h4 id="用马尔可夫信源近似">(2) 用马尔可夫信源近似</h4>
+<p>平稳信源的熵计算困难，可用 m 阶马尔可夫信源的熵 <span
+class="math inline">\(H_{m+1}\)</span> 近似：</p>
+<p><span class="math display">\[H_{m+1} \approx H_\infty\]</span></p>
+<p>近似精度取决于记忆长度 <span class="math inline">\(m\)</span> 。</p>
+<h4 id="信源符号相关性与平均信息量">(3) 信源符号相关性与平均信息量</h4>
+<p><span class="math display">\[\log_2 q = H_0 \ge H_1 \ge H_2 \ge ...
+\ge H_m \ge H_\infty\]</span></p>
+<p>依赖越强，熵越小；符号越独立，熵越大。</p>
+<h2 id="九信源冗余度与通信效率">九、信源冗余度与通信效率</h2>
+<h3 id="定义">(1) 定义</h3>
+<ul>
+<li><strong>相对熵率</strong>：</li>
+</ul>
+<p><span class="math display">\[  \eta =
+\frac{H_\infty}{H_0}\]</span></p>
+<ul>
+<li><strong>信源冗余度</strong>：</li>
+</ul>
+<p><span class="math display">\[  \gamma = 1 - \eta = 1 -
+\frac{H_\infty}{H_0}\]</span></p>
+<h3 id="含义">(2) 含义</h3>
+<ul>
+<li>( ) 反映符号间依赖性；</li>
+<li>( ) 越大，信源越可压缩。</li>
+</ul>
+<p>例如英语的冗余度： [ = 1 - ] →
+<strong>英语的71%信息可预测</strong>，仅29%自由度。</p>
+<h3 id="结论">(3) 结论</h3>
+<ul>
+<li>高冗余 → 易压缩、抗噪强；</li>
+<li>低冗余 → 效率高但易受干扰；</li>
+<li>编码设计需在“<strong>效率</strong>”与“<strong>可靠性</strong>”之间权衡。</li>
+</ul>
+<hr />
+<h2 id="十通信效率与可靠性">十、通信效率与可靠性</h2>
+<ul>
+<li><strong>信源编码</strong>：减少冗余，提高效率；</li>
+<li><strong>信道编码</strong>：增加冗余，提高可靠性；
+两者构成信息传输系统的根本矛盾与平衡点。</li>
+</ul>
+<hr />
+<p>📘 <strong>总结</strong> &gt;
+本章核心在于理解“熵”作为信息量度的本质意义。<br />
+&gt; 马尔可夫信源刻画了现实信源的有限记忆性，<br />
+&gt; 而“冗余度”与“极限熵”揭示了语言信息的压缩潜力与抗干扰特性。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/" class="category-chain-item">学习资源</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/" class="category-chain-item">信息论</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/" class="print-no-link">#笔记</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>第二章 离散信源及其信息测度</div>
+      <div>http://example.com/2025/10/23/学习资源/信息论/第二章 离散信源及其信息测度/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年10月23日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/10/29/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E7%A6%BB%E6%95%A3%E4%BF%A1%E9%81%93%E5%8F%8A%E5%85%B6%E4%BF%A1%E9%81%93%E5%AE%B9%E9%87%8F/" title="第三章 离散信道及其信道容量">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">第三章 离散信道及其信道容量</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/10/22/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%9A%8F%E6%9C%BA%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B-%E8%B0%B1%E5%88%86%E6%9E%90/" title="第三章 随机过程-谱分析">
+                        <span class="hidden-mobile">第三章 随机过程-谱分析</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
