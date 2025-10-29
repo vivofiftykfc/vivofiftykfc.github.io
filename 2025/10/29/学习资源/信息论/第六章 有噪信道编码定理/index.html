@@ -19,24 +19,24 @@
   <meta name="author" content="ZHW">
   <meta name="keywords" content="">
   
-    <meta name="description" content="如何在有干扰的条件下，最大效率、最可靠的传输信息？这里来讲一下离散信道的数学模型、平均互信息量、信道容量">
+    <meta name="description" content="本章的核心是香农第二定理（有噪信道编码定理），它阐述了在存在噪声和干扰的信道中，实现无差错传输所能达到的最大信息传输率（即信道容量）。同时讨论了错误概率、译码规则以及编码方法对通信可靠性的影响。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第三章 离散信道及其信道容量">
-<meta property="og:url" content="http://example.com/2025/10/29/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E7%A6%BB%E6%95%A3%E4%BF%A1%E9%81%93%E5%8F%8A%E5%85%B6%E4%BF%A1%E9%81%93%E5%AE%B9%E9%87%8F/">
+<meta property="og:title" content="第六章 有噪信道编码定理">
+<meta property="og:url" content="http://example.com/2025/10/29/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E6%9C%89%E5%99%AA%E4%BF%A1%E9%81%93%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86/">
 <meta property="og:site_name" content="HWのBLOGS">
-<meta property="og:description" content="如何在有干扰的条件下，最大效率、最可靠的传输信息？这里来讲一下离散信道的数学模型、平均互信息量、信道容量">
+<meta property="og:description" content="本章的核心是香农第二定理（有噪信道编码定理），它阐述了在存在噪声和干扰的信道中，实现无差错传输所能达到的最大信息传输率（即信道容量）。同时讨论了错误概率、译码规则以及编码方法对通信可靠性的影响。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/blogs/0504.jpg">
-<meta property="article:published_time" content="2025-10-29T07:27:08.000Z">
-<meta property="article:modified_time" content="2025-10-29T07:35:55.414Z">
+<meta property="og:image" content="http://example.com/img/blogs/250712.jpg">
+<meta property="article:published_time" content="2025-10-29T11:09:11.000Z">
+<meta property="article:modified_time" content="2025-10-29T13:23:55.217Z">
 <meta property="article:author" content="ZHW">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/blogs/0504.jpg">
+<meta name="twitter:image" content="http://example.com/img/blogs/250712.jpg">
   
   
   
-  <title>第三章 离散信道及其信道容量 - HWのBLOGS</title>
+  <title>第六章 有噪信道编码定理 - HWのBLOGS</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,13 +197,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/blogs/0504.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/blogs/250712.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="第三章 离散信道及其信道容量"></span>
+            <span id="subtitle" data-typed-text="第六章 有噪信道编码定理"></span>
           
         </div>
 
@@ -214,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-10-29 15:27" pubdate>
-          2025年10月29日 下午
+        <time datetime="2025-10-29 19:09" pubdate>
+          2025年10月29日 晚上
         </time>
       </span>
     
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k 字
+          1.2k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          28 分钟
+          16 分钟
         
       </span>
     
@@ -283,280 +283,175 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">第三章 离散信道及其信道容量</h1>
+            <h1 id="seo-header">第六章 有噪信道编码定理</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="信道的数学模型及分类">1. 信道的数学模型及分类</h1>
-<h2 id="信道的功能与容量研究">1.1 信道的功能与容量研究</h2>
+                <h2 id="错误概率与译码规则">1. 错误概率与译码规则</h2>
+<h3 id="错误概率的影响因素">1.1 错误概率的影响因素</h3>
 <ul>
-<li><p><strong>信道功能</strong>: 以信号形式传输和存储信息。</p></li>
-<li><p><strong>信道容量研究内容</strong>:
-在什么条件下，通过信道的信息量最大。</p></li>
+<li>错误概率 (<span class="math inline">\(P_E\)</span>)
+既与信道的<strong>统计特性</strong>有关，也与<strong>译码规则</strong>的选择有关。</li>
 </ul>
-<h2 id="信道的分类">1.2 信道的分类</h2>
-<p>信道分类的标准主要有：</p>
-<p>（我说白了这个直接不用细看）</p>
-<ol type="1">
-<li><p><strong>根据输入输出信号特点</strong>:
-离散信道、连续信道、半离散/半连续信道、波形信道。</p></li>
-<li><p><strong>根据输入输出随机变量个数</strong>:
-单符号信道、多符号信道。</p></li>
-<li><p><strong>根据输入输出个数</strong>:
-单用户信道、多用户信道。</p></li>
-<li><p><strong>根据有无干扰</strong>:
-有干扰信道（实际信道）、无干扰信道（理想/简单信道）。</p></li>
-<li><p><strong>根据有无记忆特性</strong>:
-无记忆信道（输出仅与当前输入有关）、有记忆信道。</p></li>
-</ol>
-<h2 id="离散信道的数学模型">1.3 离散信道的数学模型</h2>
-<p>离散信道的输入、输出随机变量都取离散值。</p>
-<h3 id="单符号离散信道模型">单符号离散信道模型</h3>
+<h3 id="译码规则的定义">1.2 译码规则的定义</h3>
 <ul>
-<li><p><strong>输入集</strong>: <span class="math inline">\(X = \{a_1,
-a_2, \ldots, a_r\}\)</span></p></li>
-<li><p><strong>输出集</strong>: <span class="math inline">\(Y = \{b_1,
-b_2, \ldots, b_s\}\)</span></p></li>
-<li><p><strong>信道特性</strong>:
-用<strong>传递概率</strong>（或<strong>转移概率</strong>）描述：<span
-class="math inline">\(P(y_j|x_i)\)</span>。</p></li>
-<li><p><strong>模型描述</strong>: 可用概率空间 <span
-class="math inline">\([X, p(y|x), Y]\)</span> 来描述。</p></li>
+<li><p>对于离散单符号信道，输入符号集 <span
+class="math inline">\(A=\{a_i\}\)</span>，输出符号集 <span
+class="math inline">\(B=\{b_j\}\)</span>。</p></li>
+<li><p><strong>译码规则</strong>：设计一个函数 <span
+class="math inline">\(F(b_j) = a_i\)</span>，对于每一个接收到的输出符号
+<span class="math inline">\(b_j\)</span>，确定一个唯一的输入符号 <span
+class="math inline">\(a_i\)</span> 与之对应。</p></li>
 </ul>
-<h3 id="信道矩阵">信道矩阵</h3>
-<p>进一步的，为了方便描述信道的数学模型，我们可以将其写为信道的矩阵形式。</p>
-<p>由传递概率 <span class="math inline">\(p_{ij} = P(b_j|a_i)\)</span>
-构成的 <span class="math inline">\(r \times s\)</span> 矩阵：</p>
+<h3 id="平均错误概率">1.3 平均错误概率</h3>
+<ul>
+<li><p>在确定译码规则 <span class="math inline">\(F(b_j)=a_i\)</span>
+后，平均错误概率 <span class="math inline">\(P_E\)</span> 是条件错误概率
+<span class="math inline">\(P(e|b_j)\)</span> 对输出空间 <span
+class="math inline">\(Y\)</span> 的平均：</p>
 <p><span class="math display">\[
-\mathbf{P} =
-\begin{bmatrix}
-P(b_1|a_1) &amp; P(b_2|a_1) &amp; \cdots &amp; P(b_s|a_1) \\
-P(b_1|a_2) &amp; P(b_2|a_2) &amp; \cdots &amp; P(b_s|a_2) \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-P(b_1|a_r) &amp; P(b_2|a_r) &amp; \cdots &amp; P(b_s|a_r)
-\end{bmatrix}
+P_{E} = \sum_{j=1}^{s} P(b_j) P(e|b_j) = \sum_{j=1}^{s} P(b_j) (1 -
+P(a_i|b_j))
 \]</span></p>
-<p>其中，矩阵的每一行元素之和为 1。</p>
-<h3 id="概率关系">概率关系</h3>
-<ol type="1">
-<li><strong>联合概率</strong>: <span class="math inline">\(P(x_i y_j) =
-P(y_i)P(x_i|y_i) = P(x_i)P(y_j|x_i)\)</span>。</li>
-</ol>
-<p>其中这个 <span class="math inline">\(P(y_i|x_i)\)</span>
-可以叫前向概率，也叫先验概率，然后 <span
-class="math inline">\(P(x_i|y_i)\)</span>
-的概率可以叫后向概率，也可以叫后验概率。</p>
-<ol start="2" type="1">
-<li><p><strong>输出概率</strong>: <span class="math inline">\(P(y_j) =
-\sum_{i=1}^{r} P(x_i)P(y_j|x_i)\)</span>。</p></li>
-<li><p><strong>后验概率</strong>: <span class="math inline">\(P(x_i|y_j)
-= \frac{P(x_i, y_j)}{P(y_j)}\)</span>。</p></li>
-</ol>
-<p>所有后验概率相加为1，表明输出端收到任意信号，必定是输入端某一符号输入所致。</p>
-<hr />
-<h1 id="平均互信息-average-mutual-information">2. 平均互信息 (Average
-Mutual Information)</h1>
-<h2 id="定义">2.1 定义</h2>
-<p>平均互信息 <span class="math inline">\(I(X;Y)\)</span> 表示接收到输出
-<span class="math inline">\(Y\)</span> 后，平均每个符号获得的关于输入
-<span class="math inline">\(X\)</span> 的信息量。</p>
-<p><span class="math display">\[
-I(X;Y) = H(X)-H(X/Y) = \sum_{i=1}^{r} \sum_{j=1}^{s} P(x_i, y_j) \log_2
-\frac{P(x_i, y_j)}{P(x_i)P(y_j)} \quad \text{(bit/符号)}
-\]</span></p>
-<p>唉不是，这后半段的公式对吗，不过先不管，这一阶段知道他的含义即可。</p>
-<p>实际上这个东西的定义就是看传了多少有用的信息，是信息传输的测量标准，就是用原来对信源的不确定度减掉之后剩下的不确定度，得到减小了多少的不确定性。</p>
-<h2 id="物理含义-用熵表示">2.2 物理含义 (用熵表示)</h2>
-<p>首先引入信道疑义度的概念：</p>
-<p>首先引入概念： <span class="math inline">\(H(X)\)</span> 是变量 <span
-class="math inline">\(X\)</span>
-的先验不确定性的度量，也称为<strong>先验熵</strong>。</p>
-<p>进而我们可以拓展：收到 <span class="math inline">\(b_j\)</span>
-后关于 <span class="math inline">\(X\)</span> 的后验熵（收到 <span
-class="math inline">\(b_j\)</span> 后关于输入符号的信息测度）：</p>
-<p><span class="math display">\[ H(X / b_j) = \sum_{i=1}^{r} P(a_i /
-b_j) \log \frac{1}{p(a_i / b_j)}\]</span></p>
-<p>于是在此基础上我们可以得到信道疑义度（条件熵）：</p>
-<p><span class="math display">\[  H(X / Y) = E\left[ H(X / b_j) \right]
-= \sum_{X,Y} P(xy) \log \frac{1}{P(x / y)}  \]</span></p>
-<p>它表示输出端在收到一个符号后，对输入符号尚存的不确定性，由信道干扰造成。若没有干扰，
-<span class="math inline">\(H(X/Y)=0\)</span> ；一般情况下 <span
-class="math inline">\(H(X/Y) &lt; H(X)\)</span>
-，说明经信道传输能消除一些信源不确定性，从而获得信息。</p>
-<ol type="1">
-<li><p><strong>从输入端看 (信息量的获取)</strong>:</p>
-<p><span class="math display">\[
-I(X;Y) = H(X) - H(X|Y)
-\]</span></p>
-<ul>
-<li><p><span class="math inline">\(H(X)\)</span>:
-<strong>先验不确定度</strong>，也叫做先验熵。</p></li>
-<li><p><span class="math inline">\(H(X|Y)\)</span>:
-<strong>信道疑义度</strong>（或损失熵），表示收到 <span
-class="math inline">\(Y\)</span> 后对 <span
-class="math inline">\(X\)</span> 仍存在的不确定性。</p></li>
-<li><p><strong>含义</strong>: <span
-class="math inline">\(I(X;Y)\)</span> 为收到 <span
-class="math inline">\(Y\)</span> 后，关于 <span
-class="math inline">\(X\)</span> 的不确定度减少的量。</p></li>
-</ul></li>
-<li><p><strong>从输出端看 (信息量的损失)</strong>: <span
-class="math display">\[
-I(Y;X) = H(Y) - H(Y|X)
-\]</span></p>
-<ul>
-<li><p><span class="math inline">\(H(Y)\)</span>:
-输出不确定度。</p></li>
-<li><p><span class="math inline">\(H(Y|X)\)</span>:
-<strong>噪声熵</strong>，表示发出 <span class="math inline">\(X\)</span>
-后对 <span class="math inline">\(Y\)</span>
-仍存在的不确定性（信道噪声引起）。叫噪声熵还是损失熵是观察角度不一样决定的。</p></li>
-<li><p><strong>结论</strong>: 平均互信息具有对称性，即 <span
-class="math inline">\(I(X;Y) = I(Y;X)\)</span>。</p></li>
-</ul></li>
-</ol>
-<p>总的来说这一部分写的是有些乱的，但是不重要。</p>
-<hr />
-<h1 id="平均互信息的特性">3. 平均互信息的特性</h1>
-<ol type="1">
-<li><strong>对称性</strong>: <span class="math inline">\(I(X;Y) =
-I(Y;X)\)</span>。</li>
-</ol>
-<p>不同观察角度，所得到的结果是一样的，只是立足点不同罢了</p>
-<ol start="2" type="1">
-<li><p><strong>非负性</strong>: <span class="math inline">\(I(X;Y) \ge
-0\)</span>。</p></li>
-<li><p><strong>极值性</strong>: <span class="math inline">\(I(X;Y) \le
-H(X)\)</span> 且 <span class="math inline">\(I(X;Y) \le
-H(Y)\)</span>。</p>
-<ul>
-<li><p><strong>理想信道 (无噪一一对应)</strong>: <span
-class="math inline">\(H(X|Y)=0, H(Y|X)=0\)</span>，此时 <span
-class="math inline">\(I(X;Y) = H(X) = H(Y)\)</span>。</p></li>
-<li><p><strong>最差信道 (输入输出独立)</strong>: <span
-class="math inline">\(H(X|Y)=H(X), H(Y|X)=H(Y)\)</span>，此时 <span
-class="math inline">\(I(X;Y) = 0\)</span>。</p></li>
-</ul></li>
-<li><p><strong>凸函数性</strong>:</p>
-<ul>
-<li><p><span class="math inline">\(I(X;Y)\)</span> 是信源概率分布 <span
-class="math inline">\(p(x_i)\)</span>
-的<strong>上凸函数</strong>。</p></li>
-<li><p><span class="math inline">\(I(X;Y)\)</span> 是信道传递概率 <span
-class="math inline">\(p(y_j|x_i)\)</span>
-的<strong>下凸函数</strong>。</p></li>
-</ul></li>
-</ol>
-<p>这个凸函数性目前还是有点懵，先放这儿。</p>
-<hr />
-<h1 id="信道容量及其一般计算方法">4. 信道容量及其一般计算方法</h1>
-<h2 id="信道容量的定义">4.1 信道容量的定义</h2>
-<p>这个部分就要开始看这个信道的承载能力了。</p>
-<ul>
-<li><p>信道的信息传输率 <span class="math inline">\(R\)</span> : <span
-class="math inline">\(R = I(X;Y)\)</span> (bit/符号)。</p></li>
-<li><p><strong>信道容量 <span class="math inline">\(C\)</span></strong>:
-信道中最大的信息传输速率，是平均互信息在所有可能的输入概率分布 <span
-class="math inline">\(\mathbf{p}(x)\)</span> 上的最大值。</p></li>
+<p>其中， <span class="math inline">\(P(e|b_j) = 1 - P(a_i|b_j)\)</span>
+为条件错误概率。</p></li>
 </ul>
+<h3 id="最小错误概率译码准则-map">1.4 最小错误概率译码准则 (MAP)</h3>
+<ul>
+<li><p><strong>准则</strong>：选择译码函数 <span
+class="math inline">\(F(b_j) = a_i^*\)</span>，使平均错误概率 <span
+class="math inline">\(P_E\)</span> 最小。</p></li>
+<li><p><strong>实现方式</strong>：对于接收到的每一个符号 <span
+class="math inline">\(b_j\)</span>，都译成使后验概率 <span
+class="math inline">\(P(a_i|b_j)\)</span> 达到最大的那个输入符号 <span
+class="math inline">\(a_i^*\)</span>。</p>
 <p><span class="math display">\[
-C = \max_{p(x_i)} I(X;Y) \quad \text{(bit/信道符号)}
-\]</span></p>
-<ul>
-<li><p><strong>单位时间的信道容量 <span
-class="math inline">\(C_t\)</span></strong>: <span
-class="math inline">\(C_t = \frac{1}{t} C\)</span> (bit/秒)。</p></li>
-<li><p><strong>结论</strong>: 信道容量 <span
-class="math inline">\(C\)</span> 是描述信道固有特性的参量。</p></li>
-</ul>
-<h2 id="离散无噪信道的信道容量">4.2 离散无噪信道的信道容量</h2>
-<p>离散无噪信道是理想信道，传递概率 <span
-class="math inline">\(\mathbf{P}\)</span>
-矩阵中，每行<strong>有且仅有</strong>一个非零元素（且为 1）。</p>
-<ol type="1">
-<li><p><strong>无噪无损信道 (一一对应)</strong>: <span
-class="math inline">\(r=s\)</span>，且 <span
-class="math inline">\(a_i\)</span> 与 <span
-class="math inline">\(b_j\)</span> 一一对应。</p>
-<ul>
-<li><p><span class="math inline">\(H(X|Y)=0\)</span> 且 <span
-class="math inline">\(H(Y|X)=0\)</span>。</p></li>
-<li><p><strong>容量</strong>: <span class="math inline">\(C = \max H(X)
-= \log_2 r\)</span> (当 <span class="math inline">\(P(x_i)\)</span>
-等概率分布时)。</p></li>
-</ul></li>
-<li><p><strong>有噪无损信道 (列单非零)</strong>: <span
-class="math inline">\(r &lt; s\)</span>，但每列只有一个非零元素。</p>
-<ul>
-<li><p><span class="math inline">\(H(X|Y)=0\)</span> (收到 <span
-class="math inline">\(Y\)</span> 可确定 <span
-class="math inline">\(X\)</span>)。</p></li>
-<li><p><strong>容量</strong>: <span class="math inline">\(C = \max H(X)
-= \log_2 r\)</span>。</p></li>
-</ul></li>
-<li><p><strong>无噪有损信道 (行单非零)</strong>: <span
-class="math inline">\(r &gt; s\)</span>，但每行只有一个非零元素。</p>
-<ul>
-<li><p><span class="math inline">\(H(Y|X)=0\)</span> (发出 <span
-class="math inline">\(X\)</span> 可确定 <span
-class="math inline">\(Y\)</span>)。</p></li>
-<li><p><strong>容量</strong>: <span class="math inline">\(C = \max H(Y)
-= \log_2 s\)</span> (当 <span class="math inline">\(P(y_j)\)</span>
-等概率分布时)。</p></li>
-</ul></li>
-</ol>
-<p>结论就是信道容量C只决定于信道的输入符号数r，或者输出符号数s，与信源特性无关。</p>
-<hr />
-<h1 id="扩展并联与串联信道容量">5. 扩展、并联与串联信道容量</h1>
-<h2 id="离散无记忆扩展信道容量">5.1 离散无记忆扩展信道容量</h2>
-<ul>
-<li><p><span class="math inline">\(N\)</span>
-次独立使用单符号离散无记忆信道 <span class="math inline">\(W\)</span>
-构成扩展信道 <span class="math inline">\(W^N\)</span>。</p></li>
-<li><p><strong>信道容量</strong>: <span class="math inline">\(C^{(N)} =
-N C\)</span>。</p></li>
-</ul>
-<h2 id="独立并联信道容量">5.2 独立并联信道容量</h2>
-<ul>
-<li><p>由 <span class="math inline">\(k\)</span>
-个独立的子信道并联而成。</p></li>
-<li><p><strong>信道容量</strong>: <span
-class="math inline">\(C_{\text{并联}} = \sum_{i=1}^{k}
-C_i\)</span>。</p></li>
-</ul>
-<p>等于是废话。并联的不大于全部的相加和。</p>
-<h2 id="串联信道的互信息和数据处理定理">5.3
-串联信道的互信息和数据处理定理</h2>
-<ul>
-<li><p>两个信道串联到一块，信息从 <span class="math inline">\(X
-\rightarrow Y \rightarrow Z\)</span>
-，构成马尔科夫链。换句话说，对于马尔可夫链 <span class="math inline">\(X
-\rightarrow Y \rightarrow Z\)</span>，即信道 <span
-class="math inline">\(\text{I}\)</span> 的输出 <span
-class="math inline">\(Y\)</span> 只与输入 <span
-class="math inline">\(X\)</span> 有关，信道 <span
-class="math inline">\(\text{II}\)</span> 的输出 <span
-class="math inline">\(Z\)</span> 只与输入 <span
-class="math inline">\(Y\)</span> 有关，满足 <span
-class="math inline">\(P(z|y,x)=P(z|y)\)</span>。</p></li>
-<li><p><strong>数据处理定理 (Data Processing Theorem)</strong>:</p>
-<p><span class="math display">\[
-I(X;Z) \le I(X;Y) \quad \text{且} \quad I(X;Z) \le I(Y;Z)
+F(b_j) = a_i^* \quad \text{要求} \quad P(a_i^*|b_j) \ge P(a_k|b_j) \quad
+\text{对所有 } a_k \ne a_i^*
 \]</span></p></li>
-<li><p><strong>结论</strong>:
-消息经过多级处理后，输入消息与输出消息之间的平均互信息量趋于变小。数据处理不能增加信息。</p></li>
 </ul>
-<p>基本上等于一句废话。</p>
-<hr />
-<h1 id="信源与信道的匹配">6. 信源与信道的匹配</h1>
-<p>本节主要讨论如何通过适当的信源编码，使信源输出的平均信息率 <span
-class="math inline">\(R_s\)</span> 与信道容量 <span
-class="math inline">\(C\)</span> 相匹配，以实现高效可靠的通信。</p>
+<h3 id="最大似然译码准则-ml">1.5 最大似然译码准则 (ML)</h3>
+<ul>
+<li><p>当输入符号的先验概率 <span class="math inline">\(P(a_i)\)</span>
+<strong>均相等</strong>时，最小错误概率准则等价于最大似然译码准则：</p></li>
+<li><p><strong>准则</strong>：对于接收到的每一个符号 <span
+class="math inline">\(b_j\)</span>，都译成使<strong>传递概率</strong>
+<span class="math inline">\(P(b_j|a_i)\)</span> 达到最大的那个输入符号
+<span class="math inline">\(a_i^*\)</span>。</p>
 <p><span class="math display">\[
-R_s \le C
+F(b_j) = a_i^* \quad \text{要求} \quad P(b_j|a_i^*) \ge P(b_j|a_k) \quad
+\text{对所有 } a_k \ne a_i^*
+\]</span></p></li>
+<li><p><strong>注意</strong>：ML准则本身不依赖于先验概率，但在输入等概率时才能保证
+<span class="math inline">\(P_E\)</span> 最小。</p></li>
+</ul>
+<h2 id="错误概率与编码方法">2. 错误概率与编码方法</h2>
+<h3 id="编码目的">2.1 编码目的</h3>
+<ul>
+<li>选择译码准则不能消除错误，通过引入<strong>信道编码</strong>来降低错误概率，提高可靠性。</li>
+</ul>
+<h3 id="编码与信息传输率的矛盾">2.2 编码与信息传输率的矛盾</h3>
+<ul>
+<li><p><strong>信道编码的常用方法</strong>：重复编码（如 <span
+class="math inline">\(n\)</span> 次扩展信道）。</p></li>
+<li><p><strong>信息传输率 <span
+class="math inline">\(R\)</span></strong>:</p>
+<p><span class="math display">\[
+R = \frac{\log_2 M}{n} \quad \text{(bit/码符号)}
 \]</span></p>
-<p>这一部分定义了信道剩余度这个概念，因为信道的容量和信源不一定匹配吗，总是会有剩的信道容量没用到，这个就直接是信道容量-信源的平均互信息量得到信道的剩余度，我们想做到将信源输出的消息变换为适合信道传输的新信源的消息，就叫做无失真信源编码。这样我们可以做到信源传输的信息量最大，信道剩余度接近0。这个匹配会在后面第五章进一步讲，这里不再细说。</p>
+<p>其中 <span class="math inline">\(M\)</span> 是消息数， <span
+class="math inline">\(n\)</span> 是码长。</p></li>
+<li><p><strong>矛盾</strong>: 增加码长 <span
+class="math inline">\(n\)</span> 可以降低错误概率 <span
+class="math inline">\(P_E\)</span>，但会同时降低信息传输率 <span
+class="math inline">\(R\)</span>。</p></li>
+</ul>
+<h3 id="汉明距离与最小距离译码">2.3 汉明距离与最小距离译码</h3>
+<ul>
+<li><p><strong>汉明距离 <span class="math inline">\(D(\alpha_i,
+\beta_j)\)</span></strong>: 两个等长序列 <span
+class="math inline">\(\alpha_i\)</span> 和 <span
+class="math inline">\(\beta_j\)</span>
+中对应位置码元不同的个数。</p></li>
+<li><p><strong>最小距离 <span
+class="math inline">\(d_{\min}\)</span></strong>:
+码集中任意两个不同码字之间的最小汉明距离。</p>
+<p><span class="math display">\[
+d_{\min} = \min_{i \ne j} \{D(\alpha_i, \alpha_j)\}
+\]</span></p></li>
+<li><p><strong>结论</strong>: 最小距离 <span
+class="math inline">\(d_{\min}\)</span>
+越大，码的<strong>纠错能力</strong>越强，平均错误概率 <span
+class="math inline">\(P_E\)</span> 越小。</p></li>
+<li><p><strong>最小距离译码准则</strong>: 在<strong>二进制对称信道
+(BSC)</strong> 中，最大似然译码准则等价于最小距离译码准则。即：</p>
+<blockquote>
+<p>收到序列 <span class="math inline">\(\beta_j\)</span>
+后，译成与之汉明距离最近的那个码字 <span
+class="math inline">\(\alpha^*\)</span>。</p>
+</blockquote></li>
+<li><p><strong>编码方法的选择</strong>: 在 <span
+class="math inline">\(M\)</span> 和 <span
+class="math inline">\(n\)</span> 不变的情况下（即保持一定 <span
+class="math inline">\(R\)</span>），应选择使 <span
+class="math inline">\(d_{\min}\)</span> 尽可能大的编码方法，以最小化
+<span class="math inline">\(P_E\)</span>。</p></li>
+</ul>
+<h2 id="有噪信道编码定理-香农第二定理">3. 有噪信道编码定理
+(香农第二定理)</h2>
+<h3 id="定理内容">3.1 定理内容</h3>
+<p>一个离散无记忆信道，信道容量为 <span
+class="math inline">\(C\)</span>。</p>
+<ol type="1">
+<li><p><strong>可达性 (编码定理)</strong>：</p>
+<blockquote>
+<p>当信息传输率 <span class="math inline">\(R \le C\)</span>
+时，只要码长 <span class="math inline">\(n\)</span>
+足够长，总可以在信道输入符号集中找到一组码字 ( <span
+class="math inline">\(M=2^{nR}\)</span> )
+和相应的译码准则，使译码的平均错误概率 <span
+class="math inline">\(P_E\)</span> 达到<strong>任意小</strong> (<span
+class="math inline">\(P_E \approx 0\)</span>)。</p>
+</blockquote></li>
+<li><p><strong>不可达性 (逆定理)</strong>：</p>
+<blockquote>
+<p>当信息传输率 <span class="math inline">\(R &gt; C\)</span>
+时，则无论码长 <span class="math inline">\(n\)</span>
+多长，总也找不到一种编码能使信道输出端的译码错误概率 <span
+class="math inline">\(P_E\)</span> 任意小。</p>
+</blockquote></li>
+</ol>
+<h3 id="结论与意义">3.2 结论与意义</h3>
+<ul>
+<li><p><strong>信道容量 <span class="math inline">\(C\)</span></strong>
+是在有噪信道中进行无差错传输所能达到的<strong>最大信息传输率</strong>。</p></li>
+<li><p>该定理是<strong>信道编码的理论依据</strong>，表明只要传输速率不大于信道容量，理论上总能找到一种编码方法，使可靠性达到要求。</p></li>
+</ul>
+<h2 id="联合信源信道编码定理">4. 联合信源信道编码定理</h2>
+<h3 id="联合定理-信源-信道编码定理">4.1 联合定理
+(信源-信道编码定理)</h3>
+<ul>
+<li><p>通信系统的有效和可靠传输，可以通过<strong>信源编码</strong>和<strong>信道编码</strong>两部分独立实现。</p></li>
+<li><p><strong>信源编码</strong>：通过压缩冗余度，使平均信息率 <span
+class="math inline">\(R_s\)</span> 尽量接近信源熵 <span
+class="math inline">\(H(S)\)</span>，提高<strong>有效性</strong>。</p></li>
+<li><p><strong>信道编码</strong>：通过增加冗余度，使编码后的信息传输率
+<span class="math inline">\(R\)</span> 不超过信道容量 <span
+class="math inline">\(C\)</span>，提高<strong>可靠性</strong>。</p></li>
+</ul>
+<h3 id="香农分离定理-theorem-6.7">4.2 香农分离定理 (Theorem 6.7)</h3>
+<ul>
+<li><p>若信源 <span class="math inline">\(S\)</span> 的极限熵 <span
+class="math inline">\(H_\infty &lt; C\)</span>
+(信道容量)，则存在信源和信道编码，使其平均错误概率 <span
+class="math inline">\(P_E\)</span> 趋近于 0。</p></li>
+<li><p><strong>结论</strong>：只要<strong>信源熵 <span
+class="math inline">\(H(S)\)</span> 小于信道容量 <span
+class="math inline">\(C\)</span></strong>，即 <span
+class="math inline">\(H(S) &lt;
+C\)</span>，通过分离的两步编码（先信源编码，后信道编码），就可以实现可靠的通信。</p></li>
+</ul>
 
                 
               </div>
@@ -609,8 +504,8 @@ R_s \le C
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>第三章 离散信道及其信道容量</div>
-      <div>http://example.com/2025/10/29/学习资源/信息论/第三章 离散信道及其信道容量/</div>
+      <div>第六章 有噪信道编码定理</div>
+      <div>http://example.com/2025/10/29/学习资源/信息论/第六章 有噪信道编码定理/</div>
     </div>
     <div class="license-meta">
       
@@ -666,18 +561,12 @@ R_s \le C
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/10/29/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E6%B3%A2%E5%BD%A2%E4%BF%A1%E6%BA%90%E4%B8%8E%E6%B3%A2%E5%BD%A2%E4%BF%A1%E9%81%93/" title="第四章 波形信源与波形信道">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">第四章 波形信源与波形信道</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/10/23/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E7%A6%BB%E6%95%A3%E4%BF%A1%E6%BA%90%E5%8F%8A%E5%85%B6%E4%BF%A1%E6%81%AF%E6%B5%8B%E5%BA%A6/" title="第二章 离散信源及其信息测度">
-                        <span class="hidden-mobile">第二章 离散信源及其信息测度</span>
+                      <a href="/2025/10/29/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E6%97%A0%E5%A4%B1%E7%9C%9F%E4%BF%A1%E6%BA%90%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86/" title="第五章 无失真信源编码定理">
+                        <span class="hidden-mobile">第五章 无失真信源编码定理</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
