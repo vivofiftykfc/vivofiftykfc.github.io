@@ -19,24 +19,24 @@
   <meta name="author" content="ZHW">
   <meta name="keywords" content="">
   
-    <meta name="description" content="本章的核心是香农第二定理（有噪信道编码定理），它阐述了在存在噪声和干扰的信道中，实现无差错传输所能达到的最大信息传输率（即信道容量）。同时讨论了错误概率、译码规则以及编码方法对通信可靠性的影响。">
+    <meta name="description" content="没什么好说的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第六章 有噪信道编码定理">
-<meta property="og:url" content="http://example.com/2025/10/29/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E6%9C%89%E5%99%AA%E4%BF%A1%E9%81%93%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86/">
+<meta property="og:title" content="2025-11-03-略">
+<meta property="og:url" content="http://example.com/2025/11/03/%E5%8F%8D%E6%80%9D/2025-11-03-%E7%95%A5/">
 <meta property="og:site_name" content="HWのBLOGS">
-<meta property="og:description" content="本章的核心是香农第二定理（有噪信道编码定理），它阐述了在存在噪声和干扰的信道中，实现无差错传输所能达到的最大信息传输率（即信道容量）。同时讨论了错误概率、译码规则以及编码方法对通信可靠性的影响。">
+<meta property="og:description" content="没什么好说的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/blogs/250712.jpg">
-<meta property="article:published_time" content="2025-10-29T11:09:11.000Z">
-<meta property="article:modified_time" content="2025-10-29T13:23:55.217Z">
+<meta property="og:image" content="http://example.com/img/blogs/fitting.jpg">
+<meta property="article:published_time" content="2025-11-03T14:24:25.000Z">
+<meta property="article:modified_time" content="2025-11-03T15:15:14.288Z">
 <meta property="article:author" content="ZHW">
-<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="一些思考">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/blogs/250712.jpg">
+<meta name="twitter:image" content="http://example.com/img/blogs/fitting.jpg">
   
   
   
-  <title>第六章 有噪信道编码定理 - HWのBLOGS</title>
+  <title>2025-11-03-略 - HWのBLOGS</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,13 +197,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/blogs/250712.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/blogs/fitting.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="第六章 有噪信道编码定理"></span>
+            <span id="subtitle" data-typed-text="2025-11-03-略"></span>
           
         </div>
 
@@ -214,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-10-29 19:09" pubdate>
-          2025年10月29日 晚上
+        <time datetime="2025-11-03 22:24" pubdate>
+          2025年11月3日 晚上
         </time>
       </span>
     
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          4.2k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          16 分钟
+          53 分钟
         
       </span>
     
@@ -283,175 +283,66 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">第六章 有噪信道编码定理</h1>
+            <h1 id="seo-header">2025-11-03-略</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="错误概率与译码规则">1. 错误概率与译码规则</h2>
-<h3 id="错误概率的影响因素">1.1 错误概率的影响因素</h3>
-<ul>
-<li>错误概率 (<span class="math inline">\(P_E\)</span>)
-既与信道的<strong>统计特性</strong>有关，也与<strong>译码规则</strong>的选择有关。</li>
-</ul>
-<h3 id="译码规则的定义">1.2 译码规则的定义</h3>
-<ul>
-<li><p>对于离散单符号信道，输入符号集 <span
-class="math inline">\(A=\{a_i\}\)</span>，输出符号集 <span
-class="math inline">\(B=\{b_j\}\)</span>。</p></li>
-<li><p><strong>译码规则</strong>：设计一个函数 <span
-class="math inline">\(F(b_j) = a_i\)</span>，对于每一个接收到的输出符号
-<span class="math inline">\(b_j\)</span>，确定一个唯一的输入符号 <span
-class="math inline">\(a_i\)</span> 与之对应。</p></li>
-</ul>
-<h3 id="平均错误概率">1.3 平均错误概率</h3>
-<ul>
-<li><p>在确定译码规则 <span class="math inline">\(F(b_j)=a_i\)</span>
-后，平均错误概率 <span class="math inline">\(P_E\)</span> 是条件错误概率
-<span class="math inline">\(P(e|b_j)\)</span> 对输出空间 <span
-class="math inline">\(Y\)</span> 的平均：</p>
-<p><span class="math display">\[
-P_{E} = \sum_{j=1}^{s} P(b_j) P(e|b_j) = \sum_{j=1}^{s} P(b_j) (1 -
-P(a_i|b_j))
-\]</span></p>
-<p>其中， <span class="math inline">\(P(e|b_j) = 1 - P(a_i|b_j)\)</span>
-为条件错误概率。</p></li>
-</ul>
-<h3 id="最小错误概率译码准则-map">1.4 最小错误概率译码准则 (MAP)</h3>
-<ul>
-<li><p><strong>准则</strong>：选择译码函数 <span
-class="math inline">\(F(b_j) = a_i^*\)</span>，使平均错误概率 <span
-class="math inline">\(P_E\)</span> 最小。</p></li>
-<li><p><strong>实现方式</strong>：对于接收到的每一个符号 <span
-class="math inline">\(b_j\)</span>，都译成使后验概率 <span
-class="math inline">\(P(a_i|b_j)\)</span> 达到最大的那个输入符号 <span
-class="math inline">\(a_i^*\)</span>。</p>
-<p><span class="math display">\[
-F(b_j) = a_i^* \quad \text{要求} \quad P(a_i^*|b_j) \ge P(a_k|b_j) \quad
-\text{对所有 } a_k \ne a_i^*
-\]</span></p></li>
-</ul>
-<h3 id="最大似然译码准则-ml">1.5 最大似然译码准则 (ML)</h3>
-<ul>
-<li><p>当输入符号的先验概率 <span class="math inline">\(P(a_i)\)</span>
-<strong>均相等</strong>时，最小错误概率准则等价于最大似然译码准则：</p></li>
-<li><p><strong>准则</strong>：对于接收到的每一个符号 <span
-class="math inline">\(b_j\)</span>，都译成使<strong>传递概率</strong>
-<span class="math inline">\(P(b_j|a_i)\)</span> 达到最大的那个输入符号
-<span class="math inline">\(a_i^*\)</span>。</p>
-<p><span class="math display">\[
-F(b_j) = a_i^* \quad \text{要求} \quad P(b_j|a_i^*) \ge P(b_j|a_k) \quad
-\text{对所有 } a_k \ne a_i^*
-\]</span></p></li>
-<li><p><strong>注意</strong>：ML准则本身不依赖于先验概率，但在输入等概率时才能保证
-<span class="math inline">\(P_E\)</span> 最小。</p></li>
-</ul>
-<h2 id="错误概率与编码方法">2. 错误概率与编码方法</h2>
-<h3 id="编码目的">2.1 编码目的</h3>
-<ul>
-<li>选择译码准则不能消除错误，通过引入<strong>信道编码</strong>来降低错误概率，提高可靠性。</li>
-</ul>
-<h3 id="编码与信息传输率的矛盾">2.2 编码与信息传输率的矛盾</h3>
-<ul>
-<li><p><strong>信道编码的常用方法</strong>：重复编码（如 <span
-class="math inline">\(n\)</span> 次扩展信道）。</p></li>
-<li><p><strong>信息传输率 <span
-class="math inline">\(R\)</span></strong>:</p>
-<p><span class="math display">\[
-R = \frac{\log_2 M}{n} \quad \text{(bit/码符号)}
-\]</span></p>
-<p>其中 <span class="math inline">\(M\)</span> 是消息数， <span
-class="math inline">\(n\)</span> 是码长。</p></li>
-<li><p><strong>矛盾</strong>: 增加码长 <span
-class="math inline">\(n\)</span> 可以降低错误概率 <span
-class="math inline">\(P_E\)</span>，但会同时降低信息传输率 <span
-class="math inline">\(R\)</span>。</p></li>
-</ul>
-<h3 id="汉明距离与最小距离译码">2.3 汉明距离与最小距离译码</h3>
-<ul>
-<li><p><strong>汉明距离 <span class="math inline">\(D(\alpha_i,
-\beta_j)\)</span></strong>: 两个等长序列 <span
-class="math inline">\(\alpha_i\)</span> 和 <span
-class="math inline">\(\beta_j\)</span>
-中对应位置码元不同的个数。</p></li>
-<li><p><strong>最小距离 <span
-class="math inline">\(d_{\min}\)</span></strong>:
-码集中任意两个不同码字之间的最小汉明距离。</p>
-<p><span class="math display">\[
-d_{\min} = \min_{i \ne j} \{D(\alpha_i, \alpha_j)\}
-\]</span></p></li>
-<li><p><strong>结论</strong>: 最小距离 <span
-class="math inline">\(d_{\min}\)</span>
-越大，码的<strong>纠错能力</strong>越强，平均错误概率 <span
-class="math inline">\(P_E\)</span> 越小。</p></li>
-<li><p><strong>最小距离译码准则</strong>: 在<strong>二进制对称信道
-(BSC)</strong> 中，最大似然译码准则等价于最小距离译码准则。即：</p>
-<blockquote>
-<p>收到序列 <span class="math inline">\(\beta_j\)</span>
-后，译成与之汉明距离最近的那个码字 <span
-class="math inline">\(\alpha^*\)</span>。</p>
-</blockquote></li>
-<li><p><strong>编码方法的选择</strong>: 在 <span
-class="math inline">\(M\)</span> 和 <span
-class="math inline">\(n\)</span> 不变的情况下（即保持一定 <span
-class="math inline">\(R\)</span>），应选择使 <span
-class="math inline">\(d_{\min}\)</span> 尽可能大的编码方法，以最小化
-<span class="math inline">\(P_E\)</span>。</p></li>
-</ul>
-<h2 id="有噪信道编码定理-香农第二定理">3. 有噪信道编码定理
-(香农第二定理)</h2>
-<h3 id="定理内容">3.1 定理内容</h3>
-<p>一个离散无记忆信道，信道容量为 <span
-class="math inline">\(C\)</span>。</p>
-<ol type="1">
-<li><p><strong>可达性 (编码定理)</strong>：</p>
-<blockquote>
-<p>当信息传输率 <span class="math inline">\(R \le C\)</span>
-时，只要码长 <span class="math inline">\(n\)</span>
-足够长，总可以在信道输入符号集中找到一组码字 ( <span
-class="math inline">\(M=2^{nR}\)</span> )
-和相应的译码准则，使译码的平均错误概率 <span
-class="math inline">\(P_E\)</span> 达到<strong>任意小</strong> (<span
-class="math inline">\(P_E \approx 0\)</span>)。</p>
-</blockquote></li>
-<li><p><strong>不可达性 (逆定理)</strong>：</p>
-<blockquote>
-<p>当信息传输率 <span class="math inline">\(R &gt; C\)</span>
-时，则无论码长 <span class="math inline">\(n\)</span>
-多长，总也找不到一种编码能使信道输出端的译码错误概率 <span
-class="math inline">\(P_E\)</span> 任意小。</p>
-</blockquote></li>
-</ol>
-<h3 id="结论与意义">3.2 结论与意义</h3>
-<ul>
-<li><p><strong>信道容量 <span class="math inline">\(C\)</span></strong>
-是在有噪信道中进行无差错传输所能达到的<strong>最大信息传输率</strong>。</p></li>
-<li><p>该定理是<strong>信道编码的理论依据</strong>，表明只要传输速率不大于信道容量，理论上总能找到一种编码方法，使可靠性达到要求。</p></li>
-</ul>
-<h2 id="联合信源信道编码定理">4. 联合信源信道编码定理</h2>
-<h3 id="联合定理-信源-信道编码定理">4.1 联合定理
-(信源-信道编码定理)</h3>
-<ul>
-<li><p>通信系统的有效和可靠传输，可以通过<strong>信源编码</strong>和<strong>信道编码</strong>两部分独立实现。</p></li>
-<li><p><strong>信源编码</strong>：通过压缩冗余度，使平均信息率 <span
-class="math inline">\(R_s\)</span> 尽量接近信源熵 <span
-class="math inline">\(H(S)\)</span>，提高<strong>有效性</strong>。</p></li>
-<li><p><strong>信道编码</strong>：通过增加冗余度，使编码后的信息传输率
-<span class="math inline">\(R\)</span> 不超过信道容量 <span
-class="math inline">\(C\)</span>，提高<strong>可靠性</strong>。</p></li>
-</ul>
-<h3 id="香农分离定理-theorem-6.7">4.2 香农分离定理 (Theorem 6.7)</h3>
-<ul>
-<li><p>若信源 <span class="math inline">\(S\)</span> 的极限熵 <span
-class="math inline">\(H_\infty &lt; C\)</span>
-(信道容量)，则存在信源和信道编码，使其平均错误概率 <span
-class="math inline">\(P_E\)</span> 趋近于 0。</p></li>
-<li><p><strong>结论</strong>：只要<strong>信源熵 <span
-class="math inline">\(H(S)\)</span> 小于信道容量 <span
-class="math inline">\(C\)</span></strong>，即 <span
-class="math inline">\(H(S) &lt;
-C\)</span>，通过分离的两步编码（先信源编码，后信道编码），就可以实现可靠的通信。</p></li>
-</ul>
+                <p>这几天几乎都在宿舍里躺着。无所事事，像被时间遗弃的一块随浪飘荡的塑料垃圾。可即便如此，我还是想写点什么——大概是出于那种，对虚度时光产生的愧疚，想以文字赎罪的本能吧。</p>
+<p>最初建这个
+blog，其实也没什么高尚的动机。说白了，它不过是我焦虑与无能的副产品，一个为我什么都做不成而找补的精神玩具。那些简介里冠冕堂皇的漂亮辞藻，只是为了让这具行尸走肉有个像样的外壳，好向想象中的读者证明：我似乎还是个有思想、有温度、有形状的人。</p>
+<p>然而在这虚假的外壳之下，我却意外地重新找回了一些失落的思考。那些技术笔记、反省文字、伪装成专业写作的胡思乱想，竟让我在一种近乎荒谬的方式中，与自己短暂地和解过。</p>
+<p>只是，这种和解终究短暂。后来，一切又变了味。笔记开始流于形式，我花整整一天写一篇通信原理的笔记——自认为用心，但也清楚那不过是拖延的高级形态。确实学到了点东西，但进度之慢，还是在提醒着我，与其磨洋工，不如自杀。后来干脆稀里糊涂地贴几张截图，还不如抄作业过脑子。</p>
+<p>不禁想起与表弟的一次谈话。我跟他讲，一本书的第一遍，要构建一个完整的知识架构。看清每个章节在干什么，掌握全貌，再以习题填补空白。最终在反复修正中形成自己的知识体系，再去借鉴参考别人的知识体系以裨补缺漏。如今想来，却悲哀地发现，这些我三年前就懂得的道理，竟早随着故纸堆被我用几十块钱卖给了回收站。</p>
+<p>那我这三年，到底在做什么？我还能继续苟活下去吗？还是说现在最好的方法就是自杀？</p>
+<p>于是我开始怀疑——我那些“做笔记”“写博客”的行为，大抵只是另一种浪费生命。笔记本该是好的，但若让书写拖慢了成长，它就成了装饰。也许我该回到高中那种方式，不记笔记，而是在脑中建立知识的骨架，让体系内化为思维的一部分。</p>
+<p>权将这一篇，作为拨乱反正的宣言吧。</p>
+<hr />
+<p>最近的状态，说得好听点是“松弛”，说得直白点就是“烂”。作息彻底紊乱，靠外卖续命，不运动，不思考。脑子像塞了雾，懒得清醒。若让三年前的自己来看，大概会回去复读。</p>
+<p>可问题是，我明明知道该怎么做。为什么就是动不了？也许答案很简单：因为我活得太安逸了。</p>
+<p>这里先像应试教育阶段的文章一样，先洋洋洒洒的放上一堆名言警句：</p>
+<p>正如孟子所言，故天将降大任于是人也，必先苦其心志，劳其筋骨，饿其体肤，空乏其身，行拂乱其所为，所以动心忍性，增益其所不能。我这里不是想扯什么苦难造就人才，不是什么失败乃成功之母，只不过是想说明一点，就是在活不下去的时候，人能积极的调动自己的主观能动性，完成一些壮举。又如宋濂所言，太学生们县官日有廪稍之供，父母岁有裘葛之遗，无冻馁之患矣；坐大厦之下而诵诗书，无奔走之劳矣；有司业、博士为之师，未有问而不告，求而不得者也；凡所宜有之书，皆集于此，不必若余之手录，假诸人而后见也，我说白了，真正的顺风顺水，家内没有明争暗斗，没有生存压力的富二代官二代绝对是没有宋濂能卷，因为他没有生存压力。</p>
+<p>没有真正的危机，改变就没有必要。人总是要到饿得发慌、怕得发抖的时候，才会重新学会奔跑。理想？志向？那都是奢侈品。对一个低能量的、孤独的、无欲的渣泽而言，理想早已失效。唯一能驱动我的，是赤裸的生存压力。</p>
+<p>我想，也许我该人为地制造一些饥饿感。比如把消费和作息绑定，让自己付出代价；或者干脆离开熟悉的环境，让舒适彻底坍塌。</p>
+<p>这或许是唯一的出路。至少，是一场可能的清醒。</p>
+<hr />
+<p>人际关系方面，与认识的一些朋友从最初的新鲜到熟识的乏味，无疑是失败的。其实也不奇怪，我确实是个无趣的人。没有共鸣，没有激情，只剩下社交时的尴尬。</p>
+<p>人和人之间的联系，大概无非几种：同好、同事、同乡、交易、与少数的“自己人”。而我——似乎谁都不是。</p>
+<p>有人说孤独是思想者的必经之路，可我并非思想者，我只是一个连社交都不合格的普通人，这或许才是真正值得反省的地方。</p>
+<hr />
+<p>前几天去看了《EVA》剧场版。灯光熄灭的那一刻，我心中莫名有种震颤。那种久违的“作品的崇高感”，像冷水浇醒麻木的大脑。</p>
+<p>又找到了那种看完优秀作品后的回味无穷之感，优秀的作品像稀薄的空气，既让人窒息，又让人清醒。它迫使人面对自己早已麻木的部分，让人短暂地相信，生命仍可被艺术点亮；它提醒人美好的终将逝去，让人在看完时明白世上又少了一部直击灵魂的作品。或许这就是所谓的“物哀”——对美好消逝的温柔哀悼，对存在之短暂的默默臣服。</p>
+<p>看完回来，心底重新燃起了某种模糊的信念——我还可以靠着这些艺术的光，活下去。哪怕只是苟延残喘，也算是一种活法。</p>
+<p>于是我又写了这一篇。</p>
+<p>或许写作并不能让我变得更好，但至少，它让我在废墟之上，仍能听见自己心跳的声音。</p>
+<hr />
+<p>有时我在想，也许“自我反省”本身就是一种甜美的自欺。</p>
+<p>人陷入虚无，却仍需要用语言维持“我还在思考”的幻觉。</p>
+<p>而我正是在这种幻觉里苟活着。</p>
+<p>夜深时，宿舍的风轻轻摇动窗帘，楼下的外卖车驶过，灯光划出一条弧。</p>
+<p>我看着它离开，忽然想起一句话——</p>
+<p>“在这个世界上，最难的不是活下去，而是活得像个人。”</p>
+<p>我不知道自己还能否做到，但至少此刻，我也许是吧。</p>
+<h1 id="原版">原版</h1>
+<p>这几天在宿舍躺尸，倒是没干什么事，虽然如此还是想写些东西，或许就是出于一种补偿自己什么都没干的愧疚感的心理吧。</p>
+<p>首先是对这个blogs的一个反省。我说白了，这个东西最开始整出来就是为了缓解一事无成的水发货，本来就是一个纾解怨气的产品，就是一个为了掩盖自己内心空虚，没有人味的代偿品。说的更为难听一些，可以说就是我为了装逼弄出来的东西，至于简介里面说的那些冠冕堂皇的话，无非是给自己套上一层初具人形的皮子，来掩饰书写在这里的真实的想法罢了，为假想中的、不存在的读者捏造一个幼稚的经不起推敲的geek的人设罢了。</p>
+<p>然而这个副效果是，让我发现确实可以在里面进行一些我曾经有过的，现在不再有的思考，比如一些反思，比如为了填补内容而写的看似有点技术的技术博客，再比如初期的一些笔记。</p>
+<p>但是逐渐的就变味了，最为显著的就是这个笔记，原先我是很煞费苦心的写通信原理的这个笔记的，但是一篇笔记就要耗费我一天的时间，毕竟我现在处于一个十分颓废的状态，一天中能有效利用起来的时间也就那些。效果确实是有的，他的知识体系确实在我这里构建起来了，但是代价就是极为的拖慢进度，同时也还有个问题，到后面很多都是一笔带过，连截图带ai就这么稀里糊涂的过去了，这样的还有意义吗？</p>
+<p>不禁又联想起来当时跟还在念高中的老表来聊当时的学习状态，先速通一遍整个要学的书，一本书就是一个完整的知识架构吗，弄懂他是在讲啥，看清楚各个部分他是在干什么，具体的解题步骤他是在干啥，然后再想一想，按照目录归类一下，如果你真看懂了，你是可以按照目录给讲出来各个部分是讲了什么，有什么题型，该如何解释的。这个是第一步，形成自己的一个先验知识的架构网络雏形。然后再去做题再去细挖，带着自己的知识架构去做题，用庞大的数据集去填补完善修正自己的知识架构。最后当有这个架构体系的时候，就是你刷题觉得很完善了，炉火纯青了，就可以进一步拓展空间，高中的时候可以回忆课本，目前阶段就可以拿另外同领域不同大佬出的书的知识架构再评测刷新自己的知识体系。</p>
+<p>然后我突然意识到，这个东西是我三年前未进入大学时就已经熟稔于心的，不禁感慨，我这三年究竟是在干什么呢？我还能生存下去吗？</p>
+<p>反观现在这个写笔记的做法，我承认笔记是个很好的东西，但是未免在一边学一边写太耽误进度，用ai写又本末倒置，那我又有什么理由保留这个习惯呢？直接学高中时期不做笔记，直接在脑中写入相关的知识架构，大概才是正道吧。</p>
+<p>那么，就用这一段，一千余字的文章，作为拨乱反正的总纲吧。</p>
+<p>其次是目前状态的反省，目前我这个状态，日夜颠倒作息不调，外卖续命不肯运动，脑雾严重没有动力，我说实在的，如果用三年前的眼光来看我现在就是个废物。也就除了能在这个时候能做出一些反思一些思考，然后继续堕落下去罢了。</p>
+<p>实际上要怎么做我难道不清楚吗？但是为什么就无法这样做呢？我也不想再这里再去谈论什么意义不意义，这里就暂时套用实用主义的分析，无非就是外界的生存压力太小了，不改变在一时半会是不足以导致我无法生存的。而改变又需要那点微小的成本，于是就没有这个改变的意愿，自甘堕落下去了。</p>
+<p>现在就把人当做一种生物分析，不去扯那些形而上的什么罗曼蒂克，什么德先生赛先生，既然是生物，就只有两个需求，生存与繁衍。</p>
+<p>繁衍这一部分先搁置不表，这二十年的性压抑早就磨平了这一部分的动力。这就聊一聊生存方面的动力与恐惧。</p>
+<p>这里先像应试教育阶段一样，先洋洋洒洒的放上一堆名言警句：正如孟子所言，故天将降大任于是人也，必先苦其心志，劳其筋骨，饿其体肤，空乏其身，行拂乱其所为，所以动心忍性，增益其所不能。我这里不是想扯什么苦难造就人才，不是什么失败乃成功之母，只不过是想说明一点，就是在活不下去的时候，人能积极的调动自己的主观能动性，完成一些壮举。又如宋濂所言，太学生们县官日有廪稍之供，父母岁有裘葛之遗，无冻馁之患矣；坐大厦之下而诵诗书，无奔走之劳矣；有司业、博士为之师，未有问而不告，求而不得者也；凡所宜有之书，皆集于此，不必若余之手录，假诸人而后见也，我说白了，真正的顺风顺水，家内没有明争暗斗，没有生存压力的富二代官二代在这个环境里面绝对是没有宋濂能学的，因为他没有生存压力。人人都说要有意志力，强调什么理想的作用，我说白了，在我这种颓废的、一人吃饱全家不饿的、天天空虚的要死没人陪没人爱的低能量人的身上，理想的是没有任何的作用的，最简单直接的动力来源就是生存压力。</p>
+<p>如何将生存压力转换为行为的动力，我在想是否能采取下面的几种做法：第一个就是将消费与生活作息规律程度相绑定，将任务量相绑定，当然，这个是自己给自己上压力上强度，之前试过，有开摆风险；第二个就是脱离现有的环境，算是清除原有桎梏，物理上摆脱舒适范围。</p>
+<p>目前确实已经有了相应行动，看之后的实行情况吧，这部分暂且就放在这儿，之后再表。</p>
+<p>至于这段时间的人际关系，倒是感觉算是经历了一次考核。考核过程是从刚认识的新鲜感到大致知道了各自的具体情况之后的熟识期，考核结果无疑是失败的，能够感觉得到我并不感兴趣，这倒也不是什么以外的事情。目前的观测结果来看，人际关系的纽带无非就这么几种，以兴趣为导向的同好，以事业学业为导向的同事同学，以交换为导向的交易双方，以地理关系为导向的同乡，以及以内心独白、黑历史和秘密导向的好友，也就是自己人。</p>
+<p>很遗憾，比较看个人能力的同事同好方面我说实在的我自己都感觉我是个很无聊的人，新鲜感过去之后变成普通朋友，我感觉很正常。再者，由荷尔蒙主导的暧昧关系，确实是不用想的，也没有必要在这上面劳神伤身，反而会加重自己的内耗，不如自我劝说，先提升硬件等级。至于想在出去玩的时候得吃？那同样也是属于优质外表的男性女性才有的特权，普通人的重心应是放在如何让自己变成这样的人上，而不是幻想着用所谓的内涵，所谓的会说话来弥补目前硬件条件上的不足。因而也没有必要为此而消耗本就不多的精力。</p>
+<p>但是同时也可以看到，我并不能在交谈时让人感到如沐春风，并不熟识什么社交技巧，这个是一个性能上的短板。我觉得这是很值得深思的。</p>
+<p>最后说说艺术作品方面的事。前两天EVA院校上映，去补了张票，感慨挺多。首先是看完一部优秀作品之后的惯例，当时看完fate也是这样，久久不能平息。因为我知道，优秀的作品往往是可遇而不可求的，往往是看一部少一部的，这就有点扯到霓虹的物哀美学了，这里不再细表。其次倒是再度唤醒了我对电影、动漫、音乐的相关记忆，对啊，我确实是可以依靠着这些现代艺术而很好的活下去的。</p>
 
                 
               </div>
@@ -470,15 +361,8 @@ C\)</span>，通过分离的两步编码（先信源编码，后信道编码）�
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/" class="category-chain-item">学习资源</a>
+  <a href="/categories/%E5%8F%8D%E6%80%9D/" class="category-chain-item">反思</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/" class="category-chain-item">信息论</a>
-  
-  
-
   
 
       </span>
@@ -492,7 +376,7 @@ C\)</span>，通过分离的两步编码（先信源编码，后信道编码）�
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%AC%94%E8%AE%B0/" class="print-no-link">#笔记</a>
+        <a href="/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/" class="print-no-link">#一些思考</a>
       
     </div>
   
@@ -504,8 +388,8 @@ C\)</span>，通过分离的两步编码（先信源编码，后信道编码）�
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>第六章 有噪信道编码定理</div>
-      <div>http://example.com/2025/10/29/学习资源/信息论/第六章 有噪信道编码定理/</div>
+      <div>2025-11-03-略</div>
+      <div>http://example.com/2025/11/03/反思/2025-11-03-略/</div>
     </div>
     <div class="license-meta">
       
@@ -517,7 +401,7 @@ C\)</span>，通过分离的两步编码（先信源编码，后信道编码）�
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年10月29日</div>
+          <div>2025年11月3日</div>
         </div>
       
       
@@ -561,18 +445,12 @@ C\)</span>，通过分离的两步编码（先信源编码，后信道编码）�
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/11/03/%E5%8F%8D%E6%80%9D/2025-11-03-%E7%95%A5/" title="2025-11-03-略">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">2025-11-03-略</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/10/29/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E6%97%A0%E5%A4%B1%E7%9C%9F%E4%BF%A1%E6%BA%90%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86/" title="第五章 无失真信源编码定理">
-                        <span class="hidden-mobile">第五章 无失真信源编码定理</span>
+                      <a href="/2025/10/29/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E6%9C%89%E5%99%AA%E4%BF%A1%E9%81%93%E7%BC%96%E7%A0%81%E5%AE%9A%E7%90%86/" title="第六章 有噪信道编码定理">
+                        <span class="hidden-mobile">第六章 有噪信道编码定理</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
