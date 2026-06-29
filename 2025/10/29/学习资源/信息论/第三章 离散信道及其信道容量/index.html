@@ -237,7 +237,7 @@
         
         
         
-          28 分钟
+          29 分钟
         
       </span>
     
@@ -288,274 +288,184 @@
             
               <div class="markdown-body">
                 
-                <h1 id="信道的数学模型及分类">1. 信道的数学模型及分类</h1>
-<h2 id="信道的功能与容量研究">1.1 信道的功能与容量研究</h2>
-<ul>
-<li><p><strong>信道功能</strong>: 以信号形式传输和存储信息。</p></li>
-<li><p><strong>信道容量研究内容</strong>:
-在什么条件下，通过信道的信息量最大。</p></li>
+                <h1 id="1-信道的数学模型及分类"><a href="#1-信道的数学模型及分类" class="headerlink" title="1. 信道的数学模型及分类"></a>1. 信道的数学模型及分类</h1><h2 id="1-1-信道的功能与容量研究"><a href="#1-1-信道的功能与容量研究" class="headerlink" title="1.1 信道的功能与容量研究"></a>1.1 信道的功能与容量研究</h2><ul>
+<li><p><strong>信道功能</strong>: 以信号形式传输和存储信息。</p>
+</li>
+<li><p><strong>信道容量研究内容</strong>: 在什么条件下，通过信道的信息量最大。</p>
+</li>
 </ul>
-<h2 id="信道的分类">1.2 信道的分类</h2>
-<p>信道分类的标准主要有：</p>
+<h2 id="1-2-信道的分类"><a href="#1-2-信道的分类" class="headerlink" title="1.2 信道的分类"></a>1.2 信道的分类</h2><p>信道分类的标准主要有：</p>
 <p>（我说白了这个直接不用细看）</p>
-<ol type="1">
-<li><p><strong>根据输入输出信号特点</strong>:
-离散信道、连续信道、半离散/半连续信道、波形信道。</p></li>
-<li><p><strong>根据输入输出随机变量个数</strong>:
-单符号信道、多符号信道。</p></li>
-<li><p><strong>根据输入输出个数</strong>:
-单用户信道、多用户信道。</p></li>
-<li><p><strong>根据有无干扰</strong>:
-有干扰信道（实际信道）、无干扰信道（理想/简单信道）。</p></li>
-<li><p><strong>根据有无记忆特性</strong>:
-无记忆信道（输出仅与当前输入有关）、有记忆信道。</p></li>
+<ol>
+<li><p><strong>根据输入输出信号特点</strong>: 离散信道、连续信道、半离散&#x2F;半连续信道、波形信道。</p>
+</li>
+<li><p><strong>根据输入输出随机变量个数</strong>: 单符号信道、多符号信道。</p>
+</li>
+<li><p><strong>根据输入输出个数</strong>: 单用户信道、多用户信道。</p>
+</li>
+<li><p><strong>根据有无干扰</strong>: 有干扰信道（实际信道）、无干扰信道（理想&#x2F;简单信道）。</p>
+</li>
+<li><p><strong>根据有无记忆特性</strong>: 无记忆信道（输出仅与当前输入有关）、有记忆信道。</p>
+</li>
 </ol>
-<h2 id="离散信道的数学模型">1.3 离散信道的数学模型</h2>
-<p>离散信道的输入、输出随机变量都取离散值。</p>
-<h3 id="单符号离散信道模型">单符号离散信道模型</h3>
-<ul>
-<li><p><strong>输入集</strong>: <span class="math inline">\(X = \{a_1,
-a_2, \ldots, a_r\}\)</span></p></li>
-<li><p><strong>输出集</strong>: <span class="math inline">\(Y = \{b_1,
-b_2, \ldots, b_s\}\)</span></p></li>
-<li><p><strong>信道特性</strong>:
-用<strong>传递概率</strong>（或<strong>转移概率</strong>）描述：<span
-class="math inline">\(P(y_j|x_i)\)</span>。</p></li>
-<li><p><strong>模型描述</strong>: 可用概率空间 <span
-class="math inline">\([X, p(y|x), Y]\)</span> 来描述。</p></li>
+<h2 id="1-3-离散信道的数学模型"><a href="#1-3-离散信道的数学模型" class="headerlink" title="1.3 离散信道的数学模型"></a>1.3 离散信道的数学模型</h2><p>离散信道的输入、输出随机变量都取离散值。</p>
+<h3 id="单符号离散信道模型"><a href="#单符号离散信道模型" class="headerlink" title="单符号离散信道模型"></a>单符号离散信道模型</h3><ul>
+<li><p><strong>输入集</strong>: $X &#x3D; {a_1, a_2, \ldots, a_r}$</p>
+</li>
+<li><p><strong>输出集</strong>: $Y &#x3D; {b_1, b_2, \ldots, b_s}$</p>
+</li>
+<li><p><strong>信道特性</strong>: 用<strong>传递概率</strong>（或<strong>转移概率</strong>）描述：$P(y_j|x_i)$。</p>
+</li>
+<li><p><strong>模型描述</strong>: 可用概率空间 $[X, p(y|x), Y]$ 来描述。</p>
+</li>
 </ul>
-<h3 id="信道矩阵">信道矩阵</h3>
-<p>进一步的，为了方便描述信道的数学模型，我们可以将其写为信道的矩阵形式。</p>
-<p>由传递概率 <span class="math inline">\(p_{ij} = P(b_j|a_i)\)</span>
-构成的 <span class="math inline">\(r \times s\)</span> 矩阵：</p>
-<p><span class="math display">\[
-\mathbf{P} =
-\begin{bmatrix}
-P(b_1|a_1) &amp; P(b_2|a_1) &amp; \cdots &amp; P(b_s|a_1) \\
-P(b_1|a_2) &amp; P(b_2|a_2) &amp; \cdots &amp; P(b_s|a_2) \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-P(b_1|a_r) &amp; P(b_2|a_r) &amp; \cdots &amp; P(b_s|a_r)
-\end{bmatrix}
-\]</span></p>
+<h3 id="信道矩阵"><a href="#信道矩阵" class="headerlink" title="信道矩阵"></a>信道矩阵</h3><p>进一步的，为了方便描述信道的数学模型，我们可以将其写为信道的矩阵形式。</p>
+<p>由传递概率 $p_{ij} &#x3D; P(b_j|a_i)$ 构成的 $r \times s$ 矩阵：</p>
+<p>$$<br>\mathbf{P} &#x3D;<br>\begin{bmatrix}<br>P(b_1|a_1) &amp; P(b_2|a_1) &amp; \cdots &amp; P(b_s|a_1) \<br>P(b_1|a_2) &amp; P(b_2|a_2) &amp; \cdots &amp; P(b_s|a_2) \<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>P(b_1|a_r) &amp; P(b_2|a_r) &amp; \cdots &amp; P(b_s|a_r)<br>\end{bmatrix}<br>$$</p>
 <p>其中，矩阵的每一行元素之和为 1。</p>
-<h3 id="概率关系">概率关系</h3>
-<ol type="1">
-<li><strong>联合概率</strong>: <span class="math inline">\(P(x_i y_j) =
-P(y_i)P(x_i|y_i) = P(x_i)P(y_j|x_i)\)</span>。</li>
+<h3 id="概率关系"><a href="#概率关系" class="headerlink" title="概率关系"></a>概率关系</h3><ol>
+<li><strong>联合概率</strong>: $P(x_i y_j) &#x3D; P(y_i)P(x_i|y_i) &#x3D; P(x_i)P(y_j|x_i)$。</li>
 </ol>
-<p>其中这个 <span class="math inline">\(P(y_i|x_i)\)</span>
-可以叫前向概率，也叫先验概率，然后 <span
-class="math inline">\(P(x_i|y_i)\)</span>
-的概率可以叫后向概率，也可以叫后验概率。</p>
-<ol start="2" type="1">
-<li><p><strong>输出概率</strong>: <span class="math inline">\(P(y_j) =
-\sum_{i=1}^{r} P(x_i)P(y_j|x_i)\)</span>。</p></li>
-<li><p><strong>后验概率</strong>: <span class="math inline">\(P(x_i|y_j)
-= \frac{P(x_i, y_j)}{P(y_j)}\)</span>。</p></li>
+<p>其中这个 $P(y_i|x_i)$ 可以叫前向概率，也叫先验概率，然后 $P(x_i|y_i)$ 的概率可以叫后向概率，也可以叫后验概率。</p>
+<ol start="2">
+<li><p><strong>输出概率</strong>: $P(y_j) &#x3D; \sum_{i&#x3D;1}^{r} P(x_i)P(y_j|x_i)$。</p>
+</li>
+<li><p><strong>后验概率</strong>: $P(x_i|y_j) &#x3D; \frac{P(x_i, y_j)}{P(y_j)}$。</p>
+</li>
 </ol>
 <p>所有后验概率相加为1，表明输出端收到任意信号，必定是输入端某一符号输入所致。</p>
-<hr />
-<h1 id="平均互信息-average-mutual-information">2. 平均互信息 (Average
-Mutual Information)</h1>
-<h2 id="定义">2.1 定义</h2>
-<p>平均互信息 <span class="math inline">\(I(X;Y)\)</span> 表示接收到输出
-<span class="math inline">\(Y\)</span> 后，平均每个符号获得的关于输入
-<span class="math inline">\(X\)</span> 的信息量。</p>
-<p><span class="math display">\[
-I(X;Y) = H(X)-H(X/Y) = \sum_{i=1}^{r} \sum_{j=1}^{s} P(x_i, y_j) \log_2
-\frac{P(x_i, y_j)}{P(x_i)P(y_j)} \quad \text{(bit/符号)}
-\]</span></p>
+<hr>
+<h1 id="2-平均互信息-Average-Mutual-Information"><a href="#2-平均互信息-Average-Mutual-Information" class="headerlink" title="2. 平均互信息 (Average Mutual Information)"></a>2. 平均互信息 (Average Mutual Information)</h1><h2 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义"></a>2.1 定义</h2><p>平均互信息 $I(X;Y)$ 表示接收到输出 $Y$ 后，平均每个符号获得的关于输入 $X$ 的信息量。</p>
+<p>$$<br>I(X;Y) &#x3D; H(X)-H(X&#x2F;Y) &#x3D; \sum_{i&#x3D;1}^{r} \sum_{j&#x3D;1}^{s} P(x_i, y_j) \log_2 \frac{P(x_i, y_j)}{P(x_i)P(y_j)} \quad \text{(bit&#x2F;符号)}<br>$$</p>
 <p>唉不是，这后半段的公式对吗，不过先不管，这一阶段知道他的含义即可。</p>
 <p>实际上这个东西的定义就是看传了多少有用的信息，是信息传输的测量标准，就是用原来对信源的不确定度减掉之后剩下的不确定度，得到减小了多少的不确定性。</p>
-<h2 id="物理含义-用熵表示">2.2 物理含义 (用熵表示)</h2>
-<p>首先引入信道疑义度的概念：</p>
-<p>首先引入概念： <span class="math inline">\(H(X)\)</span> 是变量 <span
-class="math inline">\(X\)</span>
-的先验不确定性的度量，也称为<strong>先验熵</strong>。</p>
-<p>进而我们可以拓展：收到 <span class="math inline">\(b_j\)</span>
-后关于 <span class="math inline">\(X\)</span> 的后验熵（收到 <span
-class="math inline">\(b_j\)</span> 后关于输入符号的信息测度）：</p>
-<p><span class="math display">\[ H(X / b_j) = \sum_{i=1}^{r} P(a_i /
-b_j) \log \frac{1}{p(a_i / b_j)}\]</span></p>
-<p>于是在此基础上我们可以得到信道疑义度（条件熵）：</p>
-<p><span class="math display">\[  H(X / Y) = E\left[ H(X / b_j) \right]
-= \sum_{X,Y} P(xy) \log \frac{1}{P(x / y)}  \]</span></p>
-<p>它表示输出端在收到一个符号后，对输入符号尚存的不确定性，由信道干扰造成。若没有干扰，
-<span class="math inline">\(H(X/Y)=0\)</span> ；一般情况下 <span
-class="math inline">\(H(X/Y) &lt; H(X)\)</span>
-，说明经信道传输能消除一些信源不确定性，从而获得信息。</p>
-<ol type="1">
+<h2 id="2-2-物理含义-用熵表示"><a href="#2-2-物理含义-用熵表示" class="headerlink" title="2.2 物理含义 (用熵表示)"></a>2.2 物理含义 (用熵表示)</h2><p>首先引入信道疑义度的概念：</p>
+<p> 首先引入概念： $H(X)$ 是变量 $X$ 的先验不确定性的度量，也称为<strong>先验熵</strong>。</p>
+<p> 进而我们可以拓展：收到 $b_j$ 后关于 $X$ 的后验熵（收到 $b_j$ 后关于输入符号的信息测度）： </p>
+<p>$$ H(X &#x2F; b_j) &#x3D; \sum_{i&#x3D;1}^{r} P(a_i &#x2F; b_j) \log \frac{1}{p(a_i &#x2F; b_j)}$$</p>
+<p> 于是在此基础上我们可以得到信道疑义度（条件熵）： </p>
+<p>$$  H(X &#x2F; Y) &#x3D; E\left[ H(X &#x2F; b_j) \right] &#x3D; \sum_{X,Y} P(xy) \log \frac{1}{P(x &#x2F; y)}  $$</p>
+<p>  它表示输出端在收到一个符号后，对输入符号尚存的不确定性，由信道干扰造成。若没有干扰， $H(X&#x2F;Y)&#x3D;0$ ；一般情况下 $H(X&#x2F;Y) &lt; H(X)$ ，说明经信道传输能消除一些信源不确定性，从而获得信息。</p>
+<ol>
 <li><p><strong>从输入端看 (信息量的获取)</strong>:</p>
-<p><span class="math display">\[
-I(X;Y) = H(X) - H(X|Y)
-\]</span></p>
+<p>$$<br>I(X;Y) &#x3D; H(X) - H(X|Y)<br>$$</p>
 <ul>
-<li><p><span class="math inline">\(H(X)\)</span>:
-<strong>先验不确定度</strong>，也叫做先验熵。</p></li>
-<li><p><span class="math inline">\(H(X|Y)\)</span>:
-<strong>信道疑义度</strong>（或损失熵），表示收到 <span
-class="math inline">\(Y\)</span> 后对 <span
-class="math inline">\(X\)</span> 仍存在的不确定性。</p></li>
-<li><p><strong>含义</strong>: <span
-class="math inline">\(I(X;Y)\)</span> 为收到 <span
-class="math inline">\(Y\)</span> 后，关于 <span
-class="math inline">\(X\)</span> 的不确定度减少的量。</p></li>
-</ul></li>
-<li><p><strong>从输出端看 (信息量的损失)</strong>: <span
-class="math display">\[
-I(Y;X) = H(Y) - H(Y|X)
-\]</span></p>
+<li><p>$H(X)$: <strong>先验不确定度</strong>，也叫做先验熵。</p>
+</li>
+<li><p>$H(X|Y)$: <strong>信道疑义度</strong>（或损失熵），表示收到 $Y$ 后对 $X$ 仍存在的不确定性。</p>
+</li>
+<li><p><strong>含义</strong>: $I(X;Y)$ 为收到 $Y$ 后，关于 $X$ 的不确定度减少的量。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>从输出端看 (信息量的损失)</strong>:<br>$$<br>I(Y;X) &#x3D; H(Y) - H(Y|X)<br>$$</p>
 <ul>
-<li><p><span class="math inline">\(H(Y)\)</span>:
-输出不确定度。</p></li>
-<li><p><span class="math inline">\(H(Y|X)\)</span>:
-<strong>噪声熵</strong>，表示发出 <span class="math inline">\(X\)</span>
-后对 <span class="math inline">\(Y\)</span>
-仍存在的不确定性（信道噪声引起）。叫噪声熵还是损失熵是观察角度不一样决定的。</p></li>
-<li><p><strong>结论</strong>: 平均互信息具有对称性，即 <span
-class="math inline">\(I(X;Y) = I(Y;X)\)</span>。</p></li>
-</ul></li>
+<li><p>$H(Y)$: 输出不确定度。</p>
+</li>
+<li><p>$H(Y|X)$: <strong>噪声熵</strong>，表示发出 $X$ 后对 $Y$ 仍存在的不确定性（信道噪声引起）。叫噪声熵还是损失熵是观察角度不一样决定的。</p>
+</li>
+<li><p><strong>结论</strong>: 平均互信息具有对称性，即 $I(X;Y) &#x3D; I(Y;X)$。</p>
+</li>
+</ul>
+</li>
 </ol>
 <p>总的来说这一部分写的是有些乱的，但是不重要。</p>
-<hr />
-<h1 id="平均互信息的特性">3. 平均互信息的特性</h1>
-<ol type="1">
-<li><strong>对称性</strong>: <span class="math inline">\(I(X;Y) =
-I(Y;X)\)</span>。</li>
+<hr>
+<h1 id="3-平均互信息的特性"><a href="#3-平均互信息的特性" class="headerlink" title="3. 平均互信息的特性"></a>3. 平均互信息的特性</h1><ol>
+<li><strong>对称性</strong>: $I(X;Y) &#x3D; I(Y;X)$。</li>
 </ol>
 <p>不同观察角度，所得到的结果是一样的，只是立足点不同罢了</p>
-<ol start="2" type="1">
-<li><p><strong>非负性</strong>: <span class="math inline">\(I(X;Y) \ge
-0\)</span>。</p></li>
-<li><p><strong>极值性</strong>: <span class="math inline">\(I(X;Y) \le
-H(X)\)</span> 且 <span class="math inline">\(I(X;Y) \le
-H(Y)\)</span>。</p>
+<ol start="2">
+<li><p><strong>非负性</strong>: $I(X;Y) \ge 0$。</p>
+</li>
+<li><p><strong>极值性</strong>: $I(X;Y) \le H(X)$ 且 $I(X;Y) \le H(Y)$。</p>
 <ul>
-<li><p><strong>理想信道 (无噪一一对应)</strong>: <span
-class="math inline">\(H(X|Y)=0, H(Y|X)=0\)</span>，此时 <span
-class="math inline">\(I(X;Y) = H(X) = H(Y)\)</span>。</p></li>
-<li><p><strong>最差信道 (输入输出独立)</strong>: <span
-class="math inline">\(H(X|Y)=H(X), H(Y|X)=H(Y)\)</span>，此时 <span
-class="math inline">\(I(X;Y) = 0\)</span>。</p></li>
-</ul></li>
+<li><p><strong>理想信道 (无噪一一对应)</strong>: $H(X|Y)&#x3D;0, H(Y|X)&#x3D;0$，此时 $I(X;Y) &#x3D; H(X) &#x3D; H(Y)$。</p>
+</li>
+<li><p><strong>最差信道 (输入输出独立)</strong>: $H(X|Y)&#x3D;H(X), H(Y|X)&#x3D;H(Y)$，此时 $I(X;Y) &#x3D; 0$。</p>
+</li>
+</ul>
+</li>
 <li><p><strong>凸函数性</strong>:</p>
 <ul>
-<li><p><span class="math inline">\(I(X;Y)\)</span> 是信源概率分布 <span
-class="math inline">\(p(x_i)\)</span>
-的<strong>上凸函数</strong>。</p></li>
-<li><p><span class="math inline">\(I(X;Y)\)</span> 是信道传递概率 <span
-class="math inline">\(p(y_j|x_i)\)</span>
-的<strong>下凸函数</strong>。</p></li>
-</ul></li>
+<li><p>$I(X;Y)$ 是信源概率分布 $p(x_i)$ 的<strong>上凸函数</strong>。</p>
+</li>
+<li><p>$I(X;Y)$ 是信道传递概率 $p(y_j|x_i)$ 的<strong>下凸函数</strong>。</p>
+</li>
+</ul>
+</li>
 </ol>
 <p>这个凸函数性目前还是有点懵，先放这儿。</p>
-<hr />
-<h1 id="信道容量及其一般计算方法">4. 信道容量及其一般计算方法</h1>
-<h2 id="信道容量的定义">4.1 信道容量的定义</h2>
-<p>这个部分就要开始看这个信道的承载能力了。</p>
+<hr>
+<h1 id="4-信道容量及其一般计算方法"><a href="#4-信道容量及其一般计算方法" class="headerlink" title="4. 信道容量及其一般计算方法"></a>4. 信道容量及其一般计算方法</h1><h2 id="4-1-信道容量的定义"><a href="#4-1-信道容量的定义" class="headerlink" title="4.1 信道容量的定义"></a>4.1 信道容量的定义</h2><p>这个部分就要开始看这个信道的承载能力了。</p>
 <ul>
-<li><p>信道的信息传输率 <span class="math inline">\(R\)</span> : <span
-class="math inline">\(R = I(X;Y)\)</span> (bit/符号)。</p></li>
-<li><p><strong>信道容量 <span class="math inline">\(C\)</span></strong>:
-信道中最大的信息传输速率，是平均互信息在所有可能的输入概率分布 <span
-class="math inline">\(\mathbf{p}(x)\)</span> 上的最大值。</p></li>
+<li><p>信道的信息传输率 $R$ : $R &#x3D; I(X;Y)$ (bit&#x2F;符号)。</p>
+</li>
+<li><p><strong>信道容量 $C$</strong>: 信道中最大的信息传输速率，是平均互信息在所有可能的输入概率分布 $\mathbf{p}(x)$ 上的最大值。</p>
+</li>
 </ul>
-<p><span class="math display">\[
-C = \max_{p(x_i)} I(X;Y) \quad \text{(bit/信道符号)}
-\]</span></p>
+<p>$$<br>C &#x3D; \max_{p(x_i)} I(X;Y) \quad \text{(bit&#x2F;信道符号)}<br>$$</p>
 <ul>
-<li><p><strong>单位时间的信道容量 <span
-class="math inline">\(C_t\)</span></strong>: <span
-class="math inline">\(C_t = \frac{1}{t} C\)</span> (bit/秒)。</p></li>
-<li><p><strong>结论</strong>: 信道容量 <span
-class="math inline">\(C\)</span> 是描述信道固有特性的参量。</p></li>
+<li><p><strong>单位时间的信道容量 $C_t$</strong>: $C_t &#x3D; \frac{1}{t} C$ (bit&#x2F;秒)。</p>
+</li>
+<li><p><strong>结论</strong>: 信道容量 $C$ 是描述信道固有特性的参量。</p>
+</li>
 </ul>
-<h2 id="离散无噪信道的信道容量">4.2 离散无噪信道的信道容量</h2>
-<p>离散无噪信道是理想信道，传递概率 <span
-class="math inline">\(\mathbf{P}\)</span>
-矩阵中，每行<strong>有且仅有</strong>一个非零元素（且为 1）。</p>
-<ol type="1">
-<li><p><strong>无噪无损信道 (一一对应)</strong>: <span
-class="math inline">\(r=s\)</span>，且 <span
-class="math inline">\(a_i\)</span> 与 <span
-class="math inline">\(b_j\)</span> 一一对应。</p>
+<h2 id="4-2-离散无噪信道的信道容量"><a href="#4-2-离散无噪信道的信道容量" class="headerlink" title="4.2 离散无噪信道的信道容量"></a>4.2 离散无噪信道的信道容量</h2><p>离散无噪信道是理想信道，传递概率 $\mathbf{P}$ 矩阵中，每行<strong>有且仅有</strong>一个非零元素（且为 1）。</p>
+<ol>
+<li><p><strong>无噪无损信道 (一一对应)</strong>: $r&#x3D;s$，且 $a_i$ 与 $b_j$ 一一对应。</p>
 <ul>
-<li><p><span class="math inline">\(H(X|Y)=0\)</span> 且 <span
-class="math inline">\(H(Y|X)=0\)</span>。</p></li>
-<li><p><strong>容量</strong>: <span class="math inline">\(C = \max H(X)
-= \log_2 r\)</span> (当 <span class="math inline">\(P(x_i)\)</span>
-等概率分布时)。</p></li>
-</ul></li>
-<li><p><strong>有噪无损信道 (列单非零)</strong>: <span
-class="math inline">\(r &lt; s\)</span>，但每列只有一个非零元素。</p>
+<li><p>$H(X|Y)&#x3D;0$ 且 $H(Y|X)&#x3D;0$。</p>
+</li>
+<li><p><strong>容量</strong>: $C &#x3D; \max H(X) &#x3D; \log_2 r$ (当 $P(x_i)$ 等概率分布时)。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>有噪无损信道 (列单非零)</strong>: $r &lt; s$，但每列只有一个非零元素。</p>
 <ul>
-<li><p><span class="math inline">\(H(X|Y)=0\)</span> (收到 <span
-class="math inline">\(Y\)</span> 可确定 <span
-class="math inline">\(X\)</span>)。</p></li>
-<li><p><strong>容量</strong>: <span class="math inline">\(C = \max H(X)
-= \log_2 r\)</span>。</p></li>
-</ul></li>
-<li><p><strong>无噪有损信道 (行单非零)</strong>: <span
-class="math inline">\(r &gt; s\)</span>，但每行只有一个非零元素。</p>
+<li><p>$H(X|Y)&#x3D;0$ (收到 $Y$ 可确定 $X$)。</p>
+</li>
+<li><p><strong>容量</strong>: $C &#x3D; \max H(X) &#x3D; \log_2 r$。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>无噪有损信道 (行单非零)</strong>: $r &gt; s$，但每行只有一个非零元素。</p>
 <ul>
-<li><p><span class="math inline">\(H(Y|X)=0\)</span> (发出 <span
-class="math inline">\(X\)</span> 可确定 <span
-class="math inline">\(Y\)</span>)。</p></li>
-<li><p><strong>容量</strong>: <span class="math inline">\(C = \max H(Y)
-= \log_2 s\)</span> (当 <span class="math inline">\(P(y_j)\)</span>
-等概率分布时)。</p></li>
-</ul></li>
+<li><p>$H(Y|X)&#x3D;0$ (发出 $X$ 可确定 $Y$)。</p>
+</li>
+<li><p><strong>容量</strong>: $C &#x3D; \max H(Y) &#x3D; \log_2 s$ (当 $P(y_j)$ 等概率分布时)。</p>
+</li>
+</ul>
+</li>
 </ol>
 <p>结论就是信道容量C只决定于信道的输入符号数r，或者输出符号数s，与信源特性无关。</p>
-<hr />
-<h1 id="扩展并联与串联信道容量">5. 扩展、并联与串联信道容量</h1>
-<h2 id="离散无记忆扩展信道容量">5.1 离散无记忆扩展信道容量</h2>
-<ul>
-<li><p><span class="math inline">\(N\)</span>
-次独立使用单符号离散无记忆信道 <span class="math inline">\(W\)</span>
-构成扩展信道 <span class="math inline">\(W^N\)</span>。</p></li>
-<li><p><strong>信道容量</strong>: <span class="math inline">\(C^{(N)} =
-N C\)</span>。</p></li>
+<hr>
+<h1 id="5-扩展、并联与串联信道容量"><a href="#5-扩展、并联与串联信道容量" class="headerlink" title="5. 扩展、并联与串联信道容量"></a>5. 扩展、并联与串联信道容量</h1><h2 id="5-1-离散无记忆扩展信道容量"><a href="#5-1-离散无记忆扩展信道容量" class="headerlink" title="5.1 离散无记忆扩展信道容量"></a>5.1 离散无记忆扩展信道容量</h2><ul>
+<li><p>$N$ 次独立使用单符号离散无记忆信道 $W$ 构成扩展信道 $W^N$。</p>
+</li>
+<li><p><strong>信道容量</strong>: $C^{(N)} &#x3D; N C$。</p>
+</li>
 </ul>
-<h2 id="独立并联信道容量">5.2 独立并联信道容量</h2>
-<ul>
-<li><p>由 <span class="math inline">\(k\)</span>
-个独立的子信道并联而成。</p></li>
-<li><p><strong>信道容量</strong>: <span
-class="math inline">\(C_{\text{并联}} = \sum_{i=1}^{k}
-C_i\)</span>。</p></li>
+<h2 id="5-2-独立并联信道容量"><a href="#5-2-独立并联信道容量" class="headerlink" title="5.2 独立并联信道容量"></a>5.2 独立并联信道容量</h2><ul>
+<li><p>由 $k$ 个独立的子信道并联而成。</p>
+</li>
+<li><p><strong>信道容量</strong>: $C_{\text{并联}} &#x3D; \sum_{i&#x3D;1}^{k} C_i$。</p>
+</li>
 </ul>
 <p>等于是废话。并联的不大于全部的相加和。</p>
-<h2 id="串联信道的互信息和数据处理定理">5.3
-串联信道的互信息和数据处理定理</h2>
-<ul>
-<li><p>两个信道串联到一块，信息从 <span class="math inline">\(X
-\rightarrow Y \rightarrow Z\)</span>
-，构成马尔科夫链。换句话说，对于马尔可夫链 <span class="math inline">\(X
-\rightarrow Y \rightarrow Z\)</span>，即信道 <span
-class="math inline">\(\text{I}\)</span> 的输出 <span
-class="math inline">\(Y\)</span> 只与输入 <span
-class="math inline">\(X\)</span> 有关，信道 <span
-class="math inline">\(\text{II}\)</span> 的输出 <span
-class="math inline">\(Z\)</span> 只与输入 <span
-class="math inline">\(Y\)</span> 有关，满足 <span
-class="math inline">\(P(z|y,x)=P(z|y)\)</span>。</p></li>
+<h2 id="5-3-串联信道的互信息和数据处理定理"><a href="#5-3-串联信道的互信息和数据处理定理" class="headerlink" title="5.3 串联信道的互信息和数据处理定理"></a>5.3 串联信道的互信息和数据处理定理</h2><ul>
+<li><p>两个信道串联到一块，信息从 $X \rightarrow Y \rightarrow Z$ ，构成马尔科夫链。换句话说，对于马尔可夫链 $X \rightarrow Y \rightarrow Z$，即信道 $\text{I}$ 的输出 $Y$ 只与输入 $X$ 有关，信道 $\text{II}$ 的输出 $Z$ 只与输入 $Y$ 有关，满足 $P(z|y,x)&#x3D;P(z|y)$。</p>
+</li>
 <li><p><strong>数据处理定理 (Data Processing Theorem)</strong>:</p>
-<p><span class="math display">\[
-I(X;Z) \le I(X;Y) \quad \text{且} \quad I(X;Z) \le I(Y;Z)
-\]</span></p></li>
-<li><p><strong>结论</strong>:
-消息经过多级处理后，输入消息与输出消息之间的平均互信息量趋于变小。数据处理不能增加信息。</p></li>
+<p>$$<br>I(X;Z) \le I(X;Y) \quad \text{且} \quad I(X;Z) \le I(Y;Z)<br>$$</p>
+</li>
+<li><p><strong>结论</strong>: 消息经过多级处理后，输入消息与输出消息之间的平均互信息量趋于变小。数据处理不能增加信息。</p>
+</li>
 </ul>
 <p>基本上等于一句废话。</p>
-<hr />
-<h1 id="信源与信道的匹配">6. 信源与信道的匹配</h1>
-<p>本节主要讨论如何通过适当的信源编码，使信源输出的平均信息率 <span
-class="math inline">\(R_s\)</span> 与信道容量 <span
-class="math inline">\(C\)</span> 相匹配，以实现高效可靠的通信。</p>
-<p><span class="math display">\[
-R_s \le C
-\]</span></p>
+<hr>
+<h1 id="6-信源与信道的匹配"><a href="#6-信源与信道的匹配" class="headerlink" title="6. 信源与信道的匹配"></a>6. 信源与信道的匹配</h1><p>本节主要讨论如何通过适当的信源编码，使信源输出的平均信息率 $R_s$ 与信道容量 $C$ 相匹配，以实现高效可靠的通信。</p>
+<p>$$<br>R_s \le C<br>$$</p>
 <p>这一部分定义了信道剩余度这个概念，因为信道的容量和信源不一定匹配吗，总是会有剩的信道容量没用到，这个就直接是信道容量-信源的平均互信息量得到信道的剩余度，我们想做到将信源输出的消息变换为适合信道传输的新信源的消息，就叫做无失真信源编码。这样我们可以做到信源传输的信息量最大，信道剩余度接近0。这个匹配会在后面第五章进一步讲，这里不再细说。</p>
 
                 

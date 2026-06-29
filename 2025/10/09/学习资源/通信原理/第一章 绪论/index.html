@@ -290,87 +290,51 @@
                 
                 <p>实际上这本书是入门中的入门，给大家提供一个通信的背景，知道通信是什么，如何评判他的好坏，如何有效可靠的传递信息。</p>
 <p>本章即为提供最初始的一个背景。</p>
-<h2 id="通信的基本概念">1.通信的基本概念</h2>
-<p>研究对象：信号、消息、信息。区别略。</p>
+<h2 id="1-通信的基本概念"><a href="#1-通信的基本概念" class="headerlink" title="1.通信的基本概念"></a>1.通信的基本概念</h2><p>研究对象：信号、消息、信息。区别略。</p>
 <p>组成模型：</p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510091958610.png" srcset="/img/loading.gif" lazyload
-alt="image.png" />
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510091958610.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
 <p>模拟里面用的是调制器和解调器，因为一般的拿自由空间来传输的电信号和信源频率不一样，需要调制器来调制变换。调制之后的信号叫<strong>已调信号</strong>，或者叫<strong>带通信号</strong>，因为他的频谱通常是是带通的。</p>
 <p>数字通信里面用的是信源编码信道编码和相应的解调译码，他就不用像模拟信号一样调制了，他要的叫数字调制和解调，等于是搬频谱，同时更需要有效率的ad转换、抗干扰处理。</p>
 <p>PS：</p>
 <p>数字通信有一个不太好的点，就是需要的带宽比较大，因为他这个时域波形很方，有高频成分，频域就算近似的话也不能太窄，不然导致失真严重。</p>
-<p>另外，在数字通信中常见的 调制方式（ASK、PSK、QAM 等）
-也是通过在频带上携带数字信息的。</p>
-<p>调制阶数越高（例如16QAM、64QAM），在相同带宽内能传更多bit，这是我们常说的频谱效率提升。</p>
+<p>另外，在数字通信中常见的 调制方式（ASK、PSK、QAM 等） 也是通过在频带上携带数字信息的。  </p>
+<p>调制阶数越高（例如16QAM、64QAM），在相同带宽内能传更多bit，这是我们常说的频谱效率提升。  </p>
 <p>其他的这些，什么分类啊，半双工全双工，不是现在死记硬背的，略过不讲，知道研究什么（研究对象的单元及其组成的模型）即可。</p>
-<h2 id="信息的度量">2.信息的度量</h2>
-<p>这个部分实际上信息论已经给我们讲过了一遍，用的啥？还是倒数取对，得<strong>信息量</strong>。</p>
-<p><span class="math display">\[
-I=-log_aP(x)
-\]</span></p>
+<h2 id="2-信息的度量"><a href="#2-信息的度量" class="headerlink" title="2.信息的度量"></a>2.信息的度量</h2><p>这个部分实际上信息论已经给我们讲过了一遍，用的啥？还是倒数取对，得<strong>信息量</strong>。</p>
+<p>$$<br>I&#x3D;-log_aP(x)<br>$$</p>
 <p>因为这样能很好的符合：</p>
 <ul>
-<li><p>概率越小的事情信息量越大</p></li>
-<li><p>若干独立事件构成的消息等于个独立事件信息量之和</p></li>
+<li><p>概率越小的事情信息量越大</p>
+</li>
+<li><p>若干独立事件构成的消息等于个独立事件信息量之和</p>
+</li>
 </ul>
-<p>同时定义<strong>信息熵</strong> <span
-class="math inline">\(H\)</span> （离散）：</p>
-<p><span class="math display">\[
-H(x) =  \sum P(x_i)I(x_i)
-\]</span></p>
+<p>同时定义<strong>信息熵</strong> $H$ （离散）：</p>
+<p>$$<br>H(x) &#x3D;  \sum P(x_i)I(x_i)<br>$$</p>
 <p>等于就是加权求和嘛，描述的是<strong>平均的信息量</strong>。</p>
 <p>不过要注意的一点就是，这个权重是针对整体概率的，而非样本的，详情可见下面这个例题：</p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510092040161.png" srcset="/img/loading.gif" lazyload
-alt="image.png" />
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<h2 id="通信系统主要性能指标">3.通信系统主要性能指标</h2>
-<p>首先介绍有效性，有效性用来描述这个系统是否能传输信号。具体而言就是拿传输速率指标来判断是否有效。</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510092040161.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h2 id="3-通信系统主要性能指标"><a href="#3-通信系统主要性能指标" class="headerlink" title="3.通信系统主要性能指标"></a>3.通信系统主要性能指标</h2><p>首先介绍有效性，有效性用来描述这个系统是否能传输信号。具体而言就是拿传输速率指标来判断是否有效。</p>
 <p>数字通信系统中频带利用率定义为单位带宽内传输速率，即</p>
-<p><span class="math display">\[
-\eta = \frac{R_B}{B}(Baud/Hz)
-\]</span></p>
-<p>或</p>
-<p><span class="math display">\[
-\eta_t = \frac{R_b}{B} \quad (\text{b/(s·Hz)})
-\]</span></p>
-<p><span class="math inline">\(R_B\)</span>
-为<strong>码元传输速率</strong>，简称<strong>传码率</strong>。它被定义为单位时间（每秒）传输码元的数目，单位为波特（Baud），因此又称为<strong>波特率</strong>。</p>
-<p>设每个码元的长度为 <span
-class="math inline">\(T_B(s)\)</span>，则有</p>
-<p><span class="math display">\[R_B = \frac{1}{T_B} \quad (\text{Baud})
-\]</span></p>
-<p><span class="math inline">\(R_b\)</span>
-为<strong>信息传输速率</strong>，简称<strong>传信率</strong>，又称<strong>比特率</strong>。它定义为单位时间内传输的平均信息量，单位为比特/秒
-(b/s)。</p>
-<p>因为一个 <span class="math inline">\(M\)</span> 进制码元携带 <span
-class="math inline">\(\log_2 M\)</span>
-比特的信息量，所以<strong>码元速率</strong>和<strong>信息速率</strong>有以下确定的关系，即</p>
-<p><span class="math display">\[R_b = R_B \log_2 M \quad
-(\text{b/s})\]</span></p>
-<p>或</p>
-<p><span class="math display">\[R_B = \frac{R_b}{\log_2 M} \quad
-(\text{Baud})\]</span></p>
-<p>例如，设码元速率为 1200 Baud，若采用八进制，则信息速率为 3600
-b/s。<br />
-若设每个二进制码元的持续时间为 T_b，则 T_B 与 T_b 有如下关系：</p>
-<p><span class="math display">\[T_B = T_b \log_2 M\]</span></p>
+<p>$$<br>\eta &#x3D; \frac{R_B}{B}(Baud&#x2F;Hz)<br>$$</p>
+<p>或  </p>
+<p>$$<br>\eta_t &#x3D; \frac{R_b}{B} \quad (\text{b&#x2F;(s·Hz)})<br>$$</p>
+<p>$R_B$ 为<strong>码元传输速率</strong>，简称<strong>传码率</strong>。它被定义为单位时间（每秒）传输码元的数目，单位为波特（Baud），因此又称为<strong>波特率</strong>。  </p>
+<p>设每个码元的长度为 $T_B(s)$，则有  </p>
+<p>$$R_B &#x3D; \frac{1}{T_B} \quad (\text{Baud}) $$</p>
+<p>$R_b$ 为<strong>信息传输速率</strong>，简称<strong>传信率</strong>，又称<strong>比特率</strong>。它定义为单位时间内传输的平均信息量，单位为比特&#x2F;秒 (b&#x2F;s)。  </p>
+<p>因为一个 $M$ 进制码元携带 $\log_2 M$ 比特的信息量，所以<strong>码元速率</strong>和<strong>信息速率</strong>有以下确定的关系，即  </p>
+<p>$$R_b &#x3D; R_B \log_2 M \quad (\text{b&#x2F;s})$$</p>
+<p>或  </p>
+<p>$$R_B &#x3D; \frac{R_b}{\log_2 M} \quad (\text{Baud})$$</p>
+<p>例如，设码元速率为 1200 Baud，若采用八进制，则信息速率为 3600 b&#x2F;s。<br>若设每个二进制码元的持续时间为 T_b，则 T_B 与 T_b 有如下关系：  </p>
+<p>$$T_B &#x3D; T_b \log_2 M$$</p>
 <p>一个好的通信系统除了要能传输信息，同时也要保证传输是正确的，传输是可靠的。</p>
-<p>在模拟通信系统中，可靠性通常用接收端输出信号与噪声功率比 (S/N)
-来度量，即<strong>信噪比</strong>，S/N
-与调制方式有关，这个之后再说。</p>
-<p>在数字通信系统中，可靠性可用<strong>误码率</strong>表示。误码率反映传输过程中发生错误的概率，通常定义为传错码元数占传输总码元数的比例，更确切地说，误码率表示码元出错的概率的概念，即</p>
-<p><span class="math display">\[P_e =
-\frac{\text{错误码元数}}{\text{传输总码元数}}\]</span></p>
-<p>或</p>
-<p><span class="math display">\[P_b =
-\frac{\text{错误比特数}}{\text{传输总比特数}}\]</span></p>
+<p>在模拟通信系统中，可靠性通常用接收端输出信号与噪声功率比 (S&#x2F;N) 来度量，即<strong>信噪比</strong>，S&#x2F;N 与调制方式有关，这个之后再说。  </p>
+<p>在数字通信系统中，可靠性可用<strong>误码率</strong>表示。误码率反映传输过程中发生错误的概率，通常定义为传错码元数占传输总码元数的比例，更确切地说，误码率表示码元出错的概率的概念，即  </p>
+<p>$$P_e &#x3D; \frac{\text{错误码元数}}{\text{传输总码元数}}$$</p>
+<p>或  </p>
+<p>$$P_b &#x3D; \frac{\text{错误比特数}}{\text{传输总比特数}}$$</p>
 
                 
               </div>

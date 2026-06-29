@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          407 字
+          410 字
         
       </span>
     
@@ -288,74 +288,54 @@
             
               <div class="markdown-body">
                 
-                <h1 id="cmake">CMake</h1>
-<p>本篇来源于上信号与系统时候摸的鱼。</p>
-<h2 id="基本概念">基本概念</h2>
-<p>用 CMakeList.txt 自动生成各平台的构建文件，是生成构建系统的工具。</p>
-<p>稍高于基准的手动配置(定义项目结构，依赖项，编译选项，
-不用手动配置工具。</p>
-<h2 id="配置">配置</h2>
-<ul>
+                <h1 id="CMake"><a href="#CMake" class="headerlink" title="CMake"></a>CMake</h1><p>本篇来源于上信号与系统时候摸的鱼。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>用 CMakeList.txt 自动生成各平台的构建文件，是生成构建系统的工具。</p>
+<p>稍高于基准的手动配置(定义项目结构，依赖项，编译选项，<br>不用手动配置工具。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
 <li>CMakeLists.txt</li>
 <li>构建目录（mkdir build），是保证源代码的整洁。</li>
 </ul>
 <p>（感觉下一篇可以写一写 PATH。注册表什么的？）</p>
-<h2 id="cmakelist.txt-语法">CMakeList.txt 语法</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.runoob.com/cmake/cmake-tutorial.html">CMake
-教程 | 菜鸟教程</a></li>
+<h2 id="CMakeList-txt-语法"><a href="#CMakeList-txt-语法" class="headerlink" title="CMakeList.txt 语法"></a>CMakeList.txt 语法</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/cmake/cmake-tutorial.html">CMake 教程 | 菜鸟教程</a></li>
 </ul>
 <p>（静态库与动态库又是什么？）</p>
-<h2 id="使用流程">使用流程</h2>
-<ul>
-<li>创 build 目录 → 生成构建文件（.../build # Cmake...）。</li>
-<li>编译与构建（make ...）。</li>
-<li>清理构建文件（make clean / 删除 Cmakecache.txt）。</li>
+<h2 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h2><ul>
+<li>创 build 目录 → 生成构建文件（…&#x2F;build # Cmake…）。</li>
+<li>编译与构建（make …）。</li>
+<li>清理构建文件（make clean &#x2F; 删除 Cmakecache.txt）。</li>
 </ul>
-<p>作为编译流程的一部分，下级有make、ninja、vs
-之类的构建工具，可以进一步了解。</p>
-<h1 id="静态库与动态库">静态库与动态库</h1>
-<p>基础是菜鸟教程的一篇blog。</p>
+<p>作为编译流程的一部分，下级有make、ninja、vs 之类的构建工具，可以进一步了解。</p>
+<h1 id="静态库与动态库"><a href="#静态库与动态库" class="headerlink" title="静态库与动态库"></a>静态库与动态库</h1><p>基础是菜鸟教程的一篇blog。</p>
 <ul>
-<li><a
-target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/cpp-static-library-and-dynamic-library.html">C++静态库与动态库
-| 菜鸟教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/cpp-static-library-and-dynamic-library.html">C++静态库与动态库 | 菜鸟教程</a></li>
 </ul>
 <p>同理不讲这俩的底层格式之内存布局。</p>
-<h2 id="什么是库">什么是库</h2>
-<p>底层轮子工具包，让后人不必重复造轮子。
-本底是可视行代码的三进制形式，可载入内存使用。</p>
+<h2 id="什么是库"><a href="#什么是库" class="headerlink" title="什么是库"></a>什么是库</h2><p>底层轮子工具包，让后人不必重复造轮子。<br>本底是可视行代码的三进制形式，可载入内存使用。</p>
 <ul>
 <li>静态库（.a、.lib）</li>
 <li>动态库（.so、.dll）。</li>
 </ul>
 <p>源文件 → 编译 → 链接 → 执行</p>
-<p>动/静态库于链接时接入，区别来自如何处理链接。</p>
-<h3 id="静态库">静态库</h3>
-<p>编译到程序中的库</p>
-<h4 id="优点">优点</h4>
-<ul>
+<p>动&#x2F;静态库于链接时接入，区别来自如何处理链接。</p>
+<h3 id="静态库"><a href="#静态库" class="headerlink" title="静态库"></a>静态库</h3><p>编译到程序中的库</p>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
 <li>移植到别的计算机的时候方便，不用配环境</li>
 <li>方便更新</li>
 </ul>
-<h4 id="缺点">缺点</h4>
-<ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
 <li>占用大</li>
 <li>更新不方便</li>
 </ul>
-<h4 id="构建">构建</h4>
-<ul>
+<h4 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h4><ul>
 <li>Linux下用ar工具构建</li>
 <li>Windows用lib.exe构建</li>
 </ul>
-<h3 id="动态库">动态库</h3>
-<h4 id="优点-1">优点</h4>
-<ul>
+<h3 id="动态库"><a href="#动态库" class="headerlink" title="动态库"></a>动态库</h3><h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><ul>
 <li>运行程序时调用</li>
 <li>方便更新</li>
 </ul>
-<h4 id="缺点-1">缺点</h4>
-<ul>
+<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><ul>
 <li>DLL HELL，就需要总是配环境</li>
 </ul>
 

@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          632 字
+          651 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          8 分钟
+          9 分钟
         
       </span>
     
@@ -288,67 +288,30 @@
             
               <div class="markdown-body">
                 
-                <h1 id="皮尔逊相关系数">皮尔逊相关系数</h1>
-<p>方差描述的是单个变量的离散程度，协方差给方差的一个 <span
-class="math inline">\((X - E[X])^2\)</span> 变成 <span
-class="math inline">\((X - E[X])(Y - E[Y])\)</span>
-，就能衡量的是两个变量偏离各自均值后乘积的平均值，反映了两变量共同变化的趋势。但由于协方差受变量的单位影响，难以直接比较，所以我们就要将其无量纲化，除上各自的标准差就好。</p>
-<h2 id="定义">定义</h2>
-<p>皮尔逊相关系数（通常称为<strong>线性相关系数</strong>）用于刻画变量 X
-与 Y 之间的线性关系。其定义为： <span class="math display">\[
-\rho_{X, Y} = \frac{\operatorname{cov}(X, Y)}{\sigma_X \sigma_Y} =
-\frac{E\left[(X - E[X])(Y - E[Y])\right]}{\sigma_X \sigma_Y} =
-\frac{E(XY) - E(X)E(Y)}{\sqrt{E\left(X^2\right) - [E(X)]^2}
-\sqrt{E\left(Y^2\right) - [E(Y)]^2}}
-\]</span></p>
+                <h1 id="皮尔逊相关系数"><a href="#皮尔逊相关系数" class="headerlink" title="皮尔逊相关系数"></a>皮尔逊相关系数</h1><p>方差描述的是单个变量的离散程度，协方差给方差的一个 $(X - E[X])^2$ 变成 $(X - E[X])(Y - E[Y])$ ，就能衡量的是两个变量偏离各自均值后乘积的平均值，反映了两变量共同变化的趋势。但由于协方差受变量的单位影响，难以直接比较，所以我们就要将其无量纲化，除上各自的标准差就好。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>皮尔逊相关系数（通常称为<strong>线性相关系数</strong>）用于刻画变量 X 与 Y 之间的线性关系。其定义为：<br>$$<br>\rho_{X, Y} &#x3D; \frac{\operatorname{cov}(X, Y)}{\sigma_X \sigma_Y} &#x3D; \frac{E\left[(X - E[X])(Y - E[Y])\right]}{\sigma_X \sigma_Y} &#x3D; \frac{E(XY) - E(X)E(Y)}{\sqrt{E\left(X^2\right) - [E(X)]^2} \sqrt{E\left(Y^2\right) - [E(Y)]^2}}<br>$$</p>
 <blockquote>
-<p><strong>注：</strong> 当 X 与 Y
-存在其他非线性关系时，皮尔逊相关系数无法正确反映两者之间的关系。</p>
+<p><strong>注：</strong> 当 X 与 Y 存在其他非线性关系时，皮尔逊相关系数无法正确反映两者之间的关系。</p>
 </blockquote>
-<hr />
-<h2 id="相关系数的性质">相关系数的性质</h2>
-<ol type="1">
-<li><p><strong>独立性与不相关性：</strong></p>
-<p>如果 X 和 Y 独立，则 <span class="math inline">\(\rho_{X,Y} =
-0\)</span>；但反过来，<span class="math inline">\(\rho_{X,Y} =
-0\)</span> 不一定说明 X 与 Y 独立，除非二者服从二维正态分布。</p></li>
-<li><p><strong>取值范围：</strong></p></li>
+<hr>
+<h2 id="相关系数的性质"><a href="#相关系数的性质" class="headerlink" title="相关系数的性质"></a>相关系数的性质</h2><ol>
+<li><p><strong>独立性与不相关性：</strong>  </p>
+<p>如果 X 和 Y 独立，则 $\rho_{X,Y} &#x3D; 0$；但反过来，$\rho_{X,Y} &#x3D; 0$ 不一定说明 X 与 Y 独立，除非二者服从二维正态分布。  </p>
+</li>
+<li><p><strong>取值范围：</strong></p>
+</li>
 </ol>
-<p><span class="math display">\[
--1 \leq \rho_{X,Y} \leq 1
-\]</span></p>
-<hr />
-<h2 id="两组指标相关系数的计算">两组指标相关系数的计算</h2>
-<h3 id="均值">均值：</h3>
-<p><span class="math display">\[
-\bar{X} = \frac{1}{n}\sum_{i=1}^{n} X_i,\quad \bar{Y} =
-\frac{1}{n}\sum_{i=1}^{n} Y_i
-\]</span></p>
-<h3 id="方差无偏估计">方差（无偏估计）：</h3>
-<p><span class="math display">\[
-\sigma_X^2 = \frac{1}{n-1}\sum_{i=1}^{n}(X_i - \bar{X})^2,\quad
-\sigma_Y^2 = \frac{1}{n-1}\sum_{i=1}^{n}(Y_i - \bar{Y})^2
-\]</span></p>
-<h3 id="样本协方差">样本协方差：</h3>
-<p><span class="math display">\[
-\operatorname{cov}(X,Y) = \frac{1}{n-1}\sum_{i=1}^{n}(X_i - \bar{X})(Y_i
-- \bar{Y})
-\]</span></p>
-<h3 id="相关系数">相关系数：</h3>
-<p><span class="math display">\[
-r = \frac{\sum_{i=1}^{n}(X_i - \bar{X})(Y_i -
-\bar{Y})}{\sqrt{\sum_{i=1}^{n}(X_i - \bar{X})^2}
-\sqrt{\sum_{i=1}^{n}(Y_i - \bar{Y})^2}}
-\]</span></p>
+<p>$$<br>-1 \leq \rho_{X,Y} \leq 1<br>$$</p>
+<hr>
+<h2 id="两组指标相关系数的计算"><a href="#两组指标相关系数的计算" class="headerlink" title="两组指标相关系数的计算"></a>两组指标相关系数的计算</h2><h3 id="均值："><a href="#均值：" class="headerlink" title="均值："></a>均值：</h3><p>$$<br>\bar{X} &#x3D; \frac{1}{n}\sum_{i&#x3D;1}^{n} X_i,\quad \bar{Y} &#x3D; \frac{1}{n}\sum_{i&#x3D;1}^{n} Y_i<br>$$</p>
+<h3 id="方差（无偏估计）："><a href="#方差（无偏估计）：" class="headerlink" title="方差（无偏估计）："></a>方差（无偏估计）：</h3><p>$$<br>\sigma_X^2 &#x3D; \frac{1}{n-1}\sum_{i&#x3D;1}^{n}(X_i - \bar{X})^2,\quad \sigma_Y^2 &#x3D; \frac{1}{n-1}\sum_{i&#x3D;1}^{n}(Y_i - \bar{Y})^2<br>$$</p>
+<h3 id="样本协方差："><a href="#样本协方差：" class="headerlink" title="样本协方差："></a>样本协方差：</h3><p>$$<br>\operatorname{cov}(X,Y) &#x3D; \frac{1}{n-1}\sum_{i&#x3D;1}^{n}(X_i - \bar{X})(Y_i - \bar{Y})<br>$$</p>
+<h3 id="相关系数："><a href="#相关系数：" class="headerlink" title="相关系数："></a>相关系数：</h3><p>$$<br>r &#x3D; \frac{\sum_{i&#x3D;1}^{n}(X_i - \bar{X})(Y_i - \bar{Y})}{\sqrt{\sum_{i&#x3D;1}^{n}(X_i - \bar{X})^2} \sqrt{\sum_{i&#x3D;1}^{n}(Y_i - \bar{Y})^2}}<br>$$</p>
 <blockquote>
-<p><strong>说明：</strong>
-分母中用的是各自的标准差，目的是将协方差无量纲化，从而消除不同变量之间单位和量级的影响，使得计算结果统一在
-([-1, 1]) 之间。</p>
+<p><strong>说明：</strong> 分母中用的是各自的标准差，目的是将协方差无量纲化，从而消除不同变量之间单位和量级的影响，使得计算结果统一在 ([-1, 1]) 之间。</p>
 </blockquote>
-<hr />
-<h2 id="判断标准">判断标准</h2>
-<p>根据计算得出的相关系数 (r)
-的绝对值，可以判断两个变量之间的相关性强弱：</p>
+<hr>
+<h2 id="判断标准"><a href="#判断标准" class="headerlink" title="判断标准"></a>判断标准</h2><p>根据计算得出的相关系数 (r) 的绝对值，可以判断两个变量之间的相关性强弱：</p>
 <table>
 <thead>
 <tr>
@@ -356,8 +319,7 @@ r = \frac{\sum_{i=1}^{n}(X_i - \bar{X})(Y_i -
 <th>相关强度</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>0.8-1.0</td>
 <td>极强相关</td>
 </tr>
@@ -377,16 +339,12 @@ r = \frac{\sum_{i=1}^{n}(X_i - \bar{X})(Y_i -
 <td>0.0-0.2</td>
 <td>极弱相关或无相关</td>
 </tr>
-</tbody>
-</table>
-<hr />
-<h2 id="其它参考资源">其它参考资源</h2>
-<ul>
+</tbody></table>
+<hr>
+<h2 id="其它参考资源"><a href="#其它参考资源" class="headerlink" title="其它参考资源"></a>其它参考资源</h2><ul>
 <li><a href="#">带你深入理解期望、方差、协方差的含义</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/19734616">知乎：如何理解
-Pearson 相关系数</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/MoreAction_/article/details/106195689">相关系数——皮尔逊相关系数的公式及其理解_皮尔逊相关系数公式-CSDN博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/19734616">知乎：如何理解 Pearson 相关系数</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/MoreAction_/article/details/106195689">相关系数——皮尔逊相关系数的公式及其理解_皮尔逊相关系数公式-CSDN博客</a></li>
 </ul>
 
                 

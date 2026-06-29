@@ -288,45 +288,24 @@
             
               <div class="markdown-body">
                 
-                <h1 id="z-score">Z-Score</h1>
-<h2 id="一简介">一、简介</h2>
-<p>一种衡量数据点相对于总体均值的位置的分数，可将不同量纲或不同分布的数据转化到同一标准下（标准正态分布），方便比较。正值表示数据大小在均值之上，负值则在均值之下。</p>
-<hr />
-<h2 id="二公式">二、公式</h2>
-<p><span class="math display">\[
-\frac{X-\bar{X} }{s}
-\]</span></p>
+                <h1 id="Z-Score"><a href="#Z-Score" class="headerlink" title="Z-Score"></a>Z-Score</h1><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>一种衡量数据点相对于总体均值的位置的分数，可将不同量纲或不同分布的数据转化到同一标准下（标准正态分布），方便比较。正值表示数据大小在均值之上，负值则在均值之下。</p>
+<hr>
+<h2 id="二、公式"><a href="#二、公式" class="headerlink" title="二、公式"></a>二、公式</h2><p>$$<br>\frac{X-\bar{X} }{s}<br>$$</p>
 <p>及均值差除以标准差。matlab中可以直接使用<code>zscore()</code>函数。</p>
-<hr />
-<h2 id="三应用">三、应用</h2>
-<ul>
-<li><strong>异常值检测</strong> zscore 可用于判断异常值（Outlier）：
-通常设置阈值（如 2 或 3），如果一个数据的 |z|
-值大于该阈值，则该数据可能为异常值。 例如：若 |z| &gt;
-3，则通常认为该数据偏离均值过远，可以进一步检查是否为异常情况。这个可以从正态分布中类比出来，约
-68% 的数据落在 [-1, 1] 范围内，约 95% 的数据落在 [-2, 2] 范围内，约
-99.7% 的数据落在 [-3, 3] 范围内</li>
-<li><strong>数据标准化</strong> 在机器学习或数据挖掘中，通过对数据进行
-zscore 标准化，可以消除量纲影响，利于建模。</li>
-<li><strong>比较不同数据集</strong> 由于 zscore
-消除了原始数据的均值和标准差的影响，所以可以将来自不同数据集的数值进行直接比较。</li>
+<hr>
+<h2 id="三、应用"><a href="#三、应用" class="headerlink" title="三、应用"></a>三、应用</h2><ul>
+<li><strong>异常值检测</strong><br>zscore 可用于判断异常值（Outlier）：  通常设置阈值（如 2 或 3），如果一个数据的 |z| 值大于该阈值，则该数据可能为异常值。  例如：若 |z| &gt; 3，则通常认为该数据偏离均值过远，可以进一步检查是否为异常情况。这个可以从正态分布中类比出来，约 68% 的数据落在 [-1, 1] 范围内，约 95% 的数据落在 [-2, 2] 范围内，约 99.7% 的数据落在 [-3, 3] 范围内</li>
+<li><strong>数据标准化</strong><br>在机器学习或数据挖掘中，通过对数据进行 zscore 标准化，可以消除量纲影响，利于建模。</li>
+<li><strong>比较不同数据集</strong><br>由于 zscore 消除了原始数据的均值和标准差的影响，所以可以将来自不同数据集的数值进行直接比较。</li>
 </ul>
-<hr />
-<h2 id="四局限性">四、局限性</h2>
-<p>zscore对于数据的分布有一定的要求，越靠近正态分布的情况下越好。</p>
+<hr>
+<h2 id="四、局限性"><a href="#四、局限性" class="headerlink" title="四、局限性"></a>四、局限性</h2><p>zscore对于数据的分布有一定的要求，越靠近正态分布的情况下越好。</p>
 <p>zscore消除了数据原有的实际意义，缺乏可解释性，结果只能用于比较。如果需要解释数据的真实意义，还需要还原原值。</p>
-<hr />
-<h2 id="参考资料">参考资料</h2>
-<p><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/qy20115549/article/details/53117742">数据标准化方法z-score讲解(matlab)_matlab
-zscore函数-CSDN博客</a></p>
-<p><a
-target="_blank" rel="noopener" href="https://baike.baidu.com/item/Z分数/8268473">Z分数_百度百科</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/69074703">数据标准化（一） -
-Z-Score标准化 - 知乎</a></p>
-<p><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39482438/article/details/110873346">Z-Score：定义，公式
-和 数据标准化-CSDN博客</a></p>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qy20115549/article/details/53117742">数据标准化方法z-score讲解(matlab)_matlab zscore函数-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Z%E5%88%86%E6%95%B0/8268473">Z分数_百度百科</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/69074703">数据标准化（一） - Z-Score标准化 - 知乎</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39482438/article/details/110873346">Z-Score：定义，公式 和 数据标准化-CSDN博客</a></p>
 
                 
               </div>
@@ -446,8 +425,8 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39482438/article/d
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/04/01/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-04-01-%E6%A8%A1%E7%B3%8A%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7%E6%B3%95-FCE/" title="模糊综合评价法-FCE">
-                        <span class="hidden-mobile">模糊综合评价法-FCE</span>
+                      <a href="/2025/04/01/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-04-01-%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95-TOPSIS/" title="优劣解距离法-TOPSIS">
+                        <span class="hidden-mobile">优劣解距离法-TOPSIS</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

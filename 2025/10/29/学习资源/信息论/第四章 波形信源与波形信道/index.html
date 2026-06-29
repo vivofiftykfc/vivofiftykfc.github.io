@@ -237,7 +237,7 @@
         
         
         
-          22 分钟
+          23 分钟
         
       </span>
     
@@ -288,186 +288,120 @@
             
               <div class="markdown-body">
                 
-                <h2 id="第一节-波形信源的统计特性与离散化">第一节
-波形信源的统计特性与离散化</h2>
-<p>随机波形信源：输出是时间与取值都连续的随机过程 <span
-class="math inline">\({x(t)}\)</span>。每个样本函数 <span
-class="math inline">\(x_i(t)\)</span>
-是随机过程的一个实现。可分为：平稳过程与非平稳过程，这个在不同的课里面讲的第三遍了。</p>
-<h3 id="遍历性">遍历性</h3>
-<p>具体是啥我这里也不细讲了，直接就用这个遍历性吧。这个也好几遍了。</p>
-<p>遍历随机过程满足时间平均 = 统计平均（以概率1成立）：</p>
-<p><span class="math display">\[
-\lim_{T\to\infty} \frac{1}{2T}\int_{-T}^T x(t)\,dt = E[X(t)].
-\]</span></p>
-<h3 id="取样与量化">取样与量化</h3>
-<p>对限频随机过程取样，每个样本值是一个随机变量；</p>
-<p>在限时 <span class="math inline">\(T\)</span> 内、带宽 <span
-class="math inline">\(F\)</span> 的情况下，可得 <span
-class="math inline">\(2FT\)</span> 个取样值；</p>
+                <h2 id="第一节-波形信源的统计特性与离散化"><a href="#第一节-波形信源的统计特性与离散化" class="headerlink" title="第一节 波形信源的统计特性与离散化"></a>第一节 波形信源的统计特性与离散化</h2><p>随机波形信源：输出是时间与取值都连续的随机过程 ${x(t)}$。每个样本函数 $x_i(t)$ 是随机过程的一个实现。可分为：平稳过程与非平稳过程，这个在不同的课里面讲的第三遍了。</p>
+<h3 id="遍历性"><a href="#遍历性" class="headerlink" title="遍历性"></a>遍历性</h3><p>具体是啥我这里也不细讲了，直接就用这个遍历性吧。这个也好几遍了。</p>
+<p>遍历随机过程满足时间平均 &#x3D; 统计平均（以概率1成立）：</p>
+<p>$$<br>\lim_{T\to\infty} \frac{1}{2T}\int_{-T}^T x(t),dt &#x3D; E[X(t)].<br>$$</p>
+<h3 id="取样与量化"><a href="#取样与量化" class="headerlink" title="取样与量化"></a>取样与量化</h3><p>对限频随机过程取样，每个样本值是一个随机变量；</p>
+<p>在限时 $T$ 内、带宽 $F$ 的情况下，可得 $2FT$ 个取样值；</p>
 <p>再经过<strong>量化</strong>（离散化），即可得到离散随机序列。</p>
 <blockquote>
 <p>随机波形信源经取样 + 量化 → 连续信源 → 离散信源。</p>
 </blockquote>
 <p>一般来说，直接就给通信系统中的信号给认为是平稳随机过程。</p>
-<hr />
-<h2 id="第二节-连续信源与波形信源的信息测度">第二节
-连续信源与波形信源的信息测度</h2>
-<h3 id="连续信源的定义">(1) 连续信源的定义</h3>
-<p>信源输出为连续随机变量，可用概率密度函数 <span
-class="math inline">\(p(x)\)</span> 描述：</p>
-<p><span class="math display">\[
-\int_R p(x)\,dx = 1.
-\]</span></p>
-<p>其对应的一维、联合及条件概率密度函数分别为 <span
-class="math inline">\(p(x)\)</span>、<span
-class="math inline">\(p(x,y)\)</span>、<span
-class="math inline">\(p(y|x)\)</span>。</p>
-<hr />
-<h3 id="连续信源的熵差熵">(2) 连续信源的熵（差熵）</h3>
-<p>从离散熵推广而来：</p>
-<p><span class="math display">\[
-h(X) = -\int_R p(x)\log_2 p(x)\,dx
-\]</span></p>
+<hr>
+<h2 id="第二节-连续信源与波形信源的信息测度"><a href="#第二节-连续信源与波形信源的信息测度" class="headerlink" title="第二节 连续信源与波形信源的信息测度"></a>第二节 连续信源与波形信源的信息测度</h2><h3 id="1-连续信源的定义"><a href="#1-连续信源的定义" class="headerlink" title="(1) 连续信源的定义"></a>(1) 连续信源的定义</h3><p>信源输出为连续随机变量，可用概率密度函数 $p(x)$ 描述：</p>
+<p>$$<br>\int_R p(x),dx &#x3D; 1.<br>$$</p>
+<p>其对应的一维、联合及条件概率密度函数分别为 $p(x)$、$p(x,y)$、$p(y|x)$。</p>
+<hr>
+<h3 id="2-连续信源的熵（差熵）"><a href="#2-连续信源的熵（差熵）" class="headerlink" title="(2) 连续信源的熵（差熵）"></a>(2) 连续信源的熵（差熵）</h3><p>从离散熵推广而来：</p>
+<p>$$<br>h(X) &#x3D; -\int_R p(x)\log_2 p(x),dx<br>$$</p>
 <p>注意：</p>
 <p>与离散熵形式相似，但<strong>概念不同</strong>；</p>
-<p><span class="math inline">\(h(X)\)</span> 可为负值（如均匀分布区间
-&lt;1 时），不具有离散熵的非负性；</p>
+<p> $h(X)$ 可为负值（如均匀分布区间 &lt;1 时），不具有离散熵的非负性；</p>
 <p>表示“相对不确定度”，又称<strong>相对熵</strong>。</p>
 <p>还是给他叫做差熵比较好，因为他<strong>不具有离散信源熵的绝对性</strong>，不能代表信源的平均不确定度，不能代表连续信源输出的信息量，只能是一个相对的值，不具有非负性。</p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510291601256.png" srcset="/img/loading.gif" lazyload
-alt="image.png" />
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<hr />
-<h3 id="常见连续信源的差熵">(3) 常见连续信源的差熵</h3>
-<ul>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510291601256.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<hr>
+<h3 id="3-常见连续信源的差熵"><a href="#3-常见连续信源的差熵" class="headerlink" title="(3) 常见连续信源的差熵"></a>(3) 常见连续信源的差熵</h3><ul>
 <li><p><strong>均匀分布</strong>：</p>
-<p><span class="math display">\[
-p(x)=\frac{1}{b-a},\quad h(X)=\log_2(b-a)
-\]</span></p></li>
-<li><p><strong>高斯分布</strong>：</p></li>
+<p>$$<br>p(x)&#x3D;\frac{1}{b-a},\quad h(X)&#x3D;\log_2(b-a)<br>$$</p>
+</li>
+<li><p><strong>高斯分布</strong>：</p>
+</li>
 </ul>
-<p><span class="math display">\[
-  p(x)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp\!\left(-\frac{(x-m)^2}{2\sigma^2}\right)
-  \]</span></p>
-<p><span class="math display">\[
-  h(X)=\frac{1}{2}\log_2(2\pi e\sigma^2)
-  \]</span></p>
+<p>$$<br>  p(x)&#x3D;\frac{1}{\sqrt{2\pi\sigma^2}}\exp!\left(-\frac{(x-m)^2}{2\sigma^2}\right)<br>  $$</p>
+<p>  $$<br>  h(X)&#x3D;\frac{1}{2}\log_2(2\pi e\sigma^2)<br>  $$</p>
 <blockquote>
-<p>高斯信源熵只与方差 <span class="math inline">\(\sigma^2\)</span>
-有关，与均值 <span class="math inline">\(m\)</span>
-无关。这个和连续信号的差熵的具体含义：相对的熵向一致。</p>
+<p>高斯信源熵只与方差 $\sigma^2$ 有关，与均值 $m$ 无关。这个和连续信号的差熵的具体含义：相对的熵向一致。</p>
 </blockquote>
-<hr />
-<h3 id="波形信源的差熵与熵率">(4) 波形信源的差熵与熵率</h3>
-<ul>
-<li>对限频 F、限时 T 的随机过程 {x(t)}，其取样形成 <span
-class="math inline">\(N=2FT\)</span> 维随机向量：</li>
+<hr>
+<h3 id="4-波形信源的差熵与熵率"><a href="#4-波形信源的差熵与熵率" class="headerlink" title="(4) 波形信源的差熵与熵率"></a>(4) 波形信源的差熵与熵率</h3><ul>
+<li>对限频 F、限时 T 的随机过程 {x(t)}，其取样形成 $N&#x3D;2FT$ 维随机向量：</li>
 </ul>
-<p><span class="math display">\[
-  h(X_1, X_2, …, X_N)
-  \]</span></p>
+<p>$$<br>  h(X_1, X_2, …, X_N)<br>  $$</p>
 <ul>
 <li><p>熵率（单位时间信息量）：</p>
-<p><span class="math display">\[
-h_t(X) = 2F \log_2(b-a)\ \text{比特/秒}
-\]</span></p></li>
+<p>$$<br>h_t(X) &#x3D; 2F \log_2(b-a)\ \text{比特&#x2F;秒}<br>$$</p>
+</li>
 </ul>
 <p>等一下，这个公式是不是只限定均匀分布？</p>
-<hr />
-<h2 id="第三节-连续信源熵的性质与最大差熵定理">第三节
-连续信源熵的性质与最大差熵定理</h2>
-<h3 id="性质">1. 性质</h3>
-<ol type="1">
-<li><p><strong>可加性</strong>：</p>
-<p><span
-class="math inline">\(h(X,Y)=h(X)+h(Y|X)=h(Y)+h(X|Y)\)</span></p></li>
-<li><p><strong>凸性与极值性</strong>：</p>
-<p>熵是 <span class="math inline">\(p(x)\)</span> 的上凸函数。</p></li>
-<li><p><strong>可为负值</strong>：</p>
-<p>因为是“相对熵”，不具备离散熵的非负性。</p></li>
-<li><p><strong>变换性</strong>：</p>
-<p>若 <span class="math inline">\(Y=f(X)\)</span> 是一一对应变换：</p>
-<p><span class="math display">\[
-h(Y)=h(X)+E[\log_2 |J(\frac{X}{Y})|]
-\]</span></p>
-<p>其中 <span class="math inline">\(J\)</span> 为雅可比行列式。</p></li>
+<hr>
+<h2 id="第三节-连续信源熵的性质与最大差熵定理"><a href="#第三节-连续信源熵的性质与最大差熵定理" class="headerlink" title="第三节 连续信源熵的性质与最大差熵定理"></a>第三节 连续信源熵的性质与最大差熵定理</h2><h3 id="1-性质"><a href="#1-性质" class="headerlink" title="1. 性质"></a>1. 性质</h3><ol>
+<li><p><strong>可加性</strong>：  </p>
+<p>$h(X,Y)&#x3D;h(X)+h(Y|X)&#x3D;h(Y)+h(X|Y)$</p>
+</li>
+<li><p><strong>凸性与极值性</strong>：  </p>
+<p>熵是 $p(x)$ 的上凸函数。</p>
+</li>
+<li><p><strong>可为负值</strong>：  </p>
+<p>因为是“相对熵”，不具备离散熵的非负性。</p>
+</li>
+<li><p><strong>变换性</strong>：  </p>
+<p>若 $Y&#x3D;f(X)$ 是一一对应变换：</p>
+<p>$$<br>h(Y)&#x3D;h(X)+E[\log_2 |J(\frac{X}{Y})|]<br>$$</p>
+<p>其中 $J$ 为雅可比行列式。</p>
+</li>
 </ol>
-<hr />
-<h3 id="最大差熵定理">2. 最大差熵定理</h3>
-<h4 id="限峰值功率条件下">（1）限峰值功率条件下：</h4>
-<p>若信源输出 <span class="math inline">\(X\in[a,b]\)</span>，则</p>
+<hr>
+<h3 id="2-最大差熵定理"><a href="#2-最大差熵定理" class="headerlink" title="2. 最大差熵定理"></a>2. 最大差熵定理</h3><h4 id="（1）限峰值功率条件下："><a href="#（1）限峰值功率条件下：" class="headerlink" title="（1）限峰值功率条件下："></a>（1）限峰值功率条件下：</h4><p>若信源输出 $X\in[a,b]$，则</p>
 <ul>
-<li><p>当 <span class="math inline">\(p(x)\)</span>
-为<strong>均匀分布</strong>时，熵最大；</p></li>
-<li><p>最大熵值：</p>
-<p><span class="math display">\[
-h_{\max} = \log_2(b-a)
-\]</span></p></li>
+<li><p>当 $p(x)$ 为<strong>均匀分布</strong>时，熵最大；</p>
+</li>
+<li><p>最大熵值：  </p>
+<p>$$<br>h_{\max} &#x3D; \log_2(b-a)<br>$$</p>
+</li>
 </ul>
-<h4 id="限平均功率条件下">（2）限平均功率条件下：</h4>
-<p>若 <span class="math inline">\(E[X^2]=P\)</span>
-，即输出信号的平均功率限定为P时，则</p>
+<h4 id="（2）限平均功率条件下："><a href="#（2）限平均功率条件下：" class="headerlink" title="（2）限平均功率条件下："></a>（2）限平均功率条件下：</h4><p>若 $E[X^2]&#x3D;P$ ，即输出信号的平均功率限定为P时，则</p>
 <ul>
-<li><p>当 <span class="math inline">\(X\)</span>
-为<strong>高斯分布</strong>时，熵最大；</p></li>
-<li><p>最大熵值：<br />
-<span class="math display">\[
-h_{\max} = \frac{1}{2}\log_2(2\pi e P)
-\]</span></p></li>
+<li><p>当 $X$ 为<strong>高斯分布</strong>时，熵最大；</p>
+</li>
+<li><p>最大熵值：<br>$$<br>h_{\max} &#x3D; \frac{1}{2}\log_2(2\pi e P)<br>$$</p>
+</li>
 </ul>
 <blockquote>
-<p>说明：</p>
-<p>均匀分布 ↔︎ 峰值受限</p>
-<p>高斯分布 ↔︎ 平均功率受限</p>
+<p>说明：  </p>
+<p>均匀分布 ↔ 峰值受限  </p>
+<p>高斯分布 ↔ 平均功率受限  </p>
 <p>两者分别对应于两种常见的噪声：均匀噪声和高斯噪声。</p>
 <p>这个和噪声是一个最不确定的随机过程，而最大的信息量只能从最不确定的事件中获得相一致的。</p>
 </blockquote>
-<hr />
-<h2 id="第四节-连续信源熵的变换">第四节 连续信源熵的变换</h2>
-<p>信源 <span class="math inline">\(X\)</span> 经过线性变换 <span
-class="math inline">\(Y=kX+a\)</span> 后：</p>
+<hr>
+<h2 id="第四节-连续信源熵的变换"><a href="#第四节-连续信源熵的变换" class="headerlink" title="第四节 连续信源熵的变换"></a>第四节 连续信源熵的变换</h2><p>信源 $X$ 经过线性变换 $Y&#x3D;kX+a$ 后：</p>
 <p>对于概率密度函数：</p>
-<p><span class="math display">\[p_Y(y_1 y_2 \cdots y_N) = p_X(x_1 x_2
-\cdots x_N) \left| J\left( \frac{X}{Y} \right) \right|\]</span></p>
+<p>$$p_Y(y_1 y_2 \cdots y_N) &#x3D; p_X(x_1 x_2 \cdots x_N) \left| J\left( \frac{X}{Y} \right) \right|$$</p>
 <p>对于差熵：</p>
-<p><span class="math display">\[
-h(Y)=h(X)+\log_2|k|
-\]</span></p>
-<figure>
-<img
-src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510291631692.png" srcset="/img/loading.gif" lazyload
-alt="image.png" />
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<hr />
-<h2 id="第五节-连续信道与波形信道分类">第五节
-连续信道与波形信道分类</h2>
-<h3 id="定义">1. 定义</h3>
-<ul>
-<li><p><strong>波形信道</strong>：输入、输出均为随机过程 <span
-class="math inline">\(\{x(t)\}\)</span>、<span
-class="math inline">\(\{y(t)\}\)</span>；</p></li>
-<li><p><strong>连续信道</strong>：输入、输出为连续随机变量 <span
-class="math inline">\(X,Y\)</span>。</p></li>
+<p>$$<br>h(Y)&#x3D;h(X)+\log_2|k|<br>$$</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510291631692.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<hr>
+<h2 id="第五节-连续信道与波形信道分类"><a href="#第五节-连续信道与波形信道分类" class="headerlink" title="第五节 连续信道与波形信道分类"></a>第五节 连续信道与波形信道分类</h2><h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h3><ul>
+<li><p><strong>波形信道</strong>：输入、输出均为随机过程 ${x(t)}$、${y(t)}$；</p>
+</li>
+<li><p><strong>连续信道</strong>：输入、输出为连续随机变量 $X,Y$。</p>
+</li>
 </ul>
 <p>经限时限频取样后：</p>
-<p><span class="math display">\[
-\{x(t)\} \to (X_1, X_2, …, X_N), \quad \{y(t)\} \to (Y_1, Y_2, …, Y_N)
-\]</span></p>
+<p>$$<br>{x(t)} \to (X_1, X_2, …, X_N), \quad {y(t)} \to (Y_1, Y_2, …, Y_N)<br>$$</p>
 <p>从而波形信道可等效为<strong>多维连续信道</strong>。</p>
-<hr />
-<h3 id="按统计特性分类">2. 按统计特性分类</h3>
-<ul>
-<li><p><strong>无记忆信道</strong>：输出仅与对应输入有关；</p></li>
-<li><p><strong>有记忆信道</strong>：输出与多时刻输入有关。</p></li>
+<hr>
+<h3 id="2-按统计特性分类"><a href="#2-按统计特性分类" class="headerlink" title="2. 按统计特性分类"></a>2. 按统计特性分类</h3><ul>
+<li><p><strong>无记忆信道</strong>：输出仅与对应输入有关；</p>
+</li>
+<li><p><strong>有记忆信道</strong>：输出与多时刻输入有关。</p>
+</li>
 </ul>
-<hr />
-<h3 id="按噪声类型分类">3. 按噪声类型分类</h3>
-<table>
+<hr>
+<h3 id="3-按噪声类型分类"><a href="#3-按噪声类型分类" class="headerlink" title="3. 按噪声类型分类"></a>3. 按噪声类型分类</h3><table>
 <thead>
 <tr>
 <th>类型</th>
@@ -475,8 +409,7 @@ class="math inline">\(X,Y\)</span>。</p></li>
 <th>特点</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>高斯信道</td>
 <td>噪声服从高斯分布</td>
 <td>常用模型</td>
@@ -484,7 +417,7 @@ class="math inline">\(X,Y\)</span>。</p></li>
 <tr>
 <td>白噪声信道</td>
 <td>噪声功率谱密度恒定</td>
-<td><span class="math inline">\(N_0/2\)</span></td>
+<td>$N_0&#x2F;2$</td>
 </tr>
 <tr>
 <td>有色噪声信道</td>
@@ -493,114 +426,87 @@ class="math inline">\(X,Y\)</span>。</p></li>
 </tr>
 <tr>
 <td>加性信道</td>
-<td><span class="math inline">\(y=x+n\)</span></td>
+<td>$y&#x3D;x+n$</td>
 <td>噪声与信号独立</td>
 </tr>
 <tr>
 <td>乘性信道</td>
-<td><span class="math inline">\(y=x·n\)</span></td>
+<td>$y&#x3D;x·n$</td>
 <td>无线通信中常见</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>在加性信道中，条件熵：</p>
-<p><span class="math display">\[
-h(Y|X)=h(n)
-\]</span></p>
+<p>$$<br>h(Y|X)&#x3D;h(n)<br>$$</p>
 <p>称为<strong>噪声熵</strong>。</p>
-<hr />
-<h2 id="第六节-连续信道与波形信道的信息传输率">第六节
-连续信道与波形信道的信息传输率</h2>
-<h3 id="单符号连续信道">单符号连续信道</h3>
-<p>平均互信息：</p>
-<p><span class="math display">\[
-I(X;Y)=h(Y)-h(Y|X)=h(Y)-h(n)
-\]</span></p>
-<h3 id="多维连续信道">多维连续信道</h3>
-<p><span class="math display">\[
-I(X;Y)=\int\int p(x,y)\log_2\frac{p(x,y)}{p(x)p(y)}\,dxdy
-\]</span></p>
+<hr>
+<h2 id="第六节-连续信道与波形信道的信息传输率"><a href="#第六节-连续信道与波形信道的信息传输率" class="headerlink" title="第六节 连续信道与波形信道的信息传输率"></a>第六节 连续信道与波形信道的信息传输率</h2><h3 id="单符号连续信道"><a href="#单符号连续信道" class="headerlink" title="单符号连续信道"></a>单符号连续信道</h3><p>平均互信息：</p>
+<p>$$<br>I(X;Y)&#x3D;h(Y)-h(Y|X)&#x3D;h(Y)-h(n)<br>$$</p>
+<h3 id="多维连续信道"><a href="#多维连续信道" class="headerlink" title="多维连续信道"></a>多维连续信道</h3><p>$$<br>I(X;Y)&#x3D;\int\int p(x,y)\log_2\frac{p(x,y)}{p(x)p(y)},dxdy<br>$$</p>
 <p>平均每个自由度的信息传输率：</p>
-<p><span class="math display">\[
-R = \frac{1}{N}I(X;Y)
-\]</span></p>
-<h3 id="波形信道">波形信道</h3>
-<p>单位时间信息传输率：</p>
-<p><span class="math display">\[
-R_t = \lim_{T\to\infty} \frac{1}{T} I(\{x(t)\}, \{y(t)\})
-\]</span></p>
-<hr />
-<h3 id="平均互信息的性质">平均互信息的性质</h3>
-<ol type="1">
-<li><p>非负性：<span class="math inline">\(I(X;Y)\ge 0\)</span></p></li>
-<li><p>对称性：<span
-class="math inline">\(I(X;Y)=I(Y;X)\)</span></p></li>
-<li><p>上凸性：对输入分布上凸</p></li>
-<li><p>信息不增性：数据处理定理</p>
-<p>若 <span class="math inline">\(X \to Y \to Z\)</span>，则 <span
-class="math inline">\(I(X;Z)\le I(X;Y)\)</span></p></li>
-<li><p>对应变换不变性：一一变换不改变 <span
-class="math inline">\(I(X;Y)\)</span></p></li>
+<p>$$<br>R &#x3D; \frac{1}{N}I(X;Y)<br>$$</p>
+<h3 id="波形信道"><a href="#波形信道" class="headerlink" title="波形信道"></a>波形信道</h3><p>单位时间信息传输率：</p>
+<p>$$<br>R_t &#x3D; \lim_{T\to\infty} \frac{1}{T} I({x(t)}, {y(t)})<br>$$</p>
+<hr>
+<h3 id="平均互信息的性质"><a href="#平均互信息的性质" class="headerlink" title="平均互信息的性质"></a>平均互信息的性质</h3><ol>
+<li><p>非负性：$I(X;Y)\ge 0$</p>
+</li>
+<li><p>对称性：$I(X;Y)&#x3D;I(Y;X)$</p>
+</li>
+<li><p>上凸性：对输入分布上凸</p>
+</li>
+<li><p>信息不增性：数据处理定理  </p>
+<p>若 $X \to Y \to Z$，则 $I(X;Z)\le I(X;Y)$</p>
+</li>
+<li><p>对应变换不变性：一一变换不改变 $I(X;Y)$</p>
+</li>
 </ol>
-<hr />
-<h2 id="第七节-连续信道与波形信道的信道容量">第七节
-连续信道与波形信道的信道容量</h2>
-<p>信道容量定义为可实现的最大平均互信息：</p>
-<p><span class="math display">\[
-C = \max_{p(x)} I(X;Y)
-\]</span></p>
-<h3 id="一般连续信道">一般连续信道：</h3>
-<p><span class="math display">\[
-C = \max_{p(x)} [h(Y)-h(Y|X)]
-\]</span></p>
-<h3 id="加性连续信道">加性连续信道：</h3>
-<p>噪声与输入独立，<span
-class="math inline">\(h(Y|X)=h(n)\)</span>，</p>
-<p><span class="math display">\[
-C = \max_{p(x)} [h(Y)-h(n)]
-\]</span></p>
-<hr />
-<h3 id="高斯加性信道awgn信道">高斯加性信道（AWGN信道）</h3>
-<p>噪声 <span class="math inline">\(n\sim N(0,\sigma^2)\)</span></p>
-<p>输入功率受限 <span class="math inline">\(E[X^2]=P\)</span></p>
-<p>则输出 <span class="math inline">\(Y=X+n\)</span>。</p>
+<hr>
+<h2 id="第七节-连续信道与波形信道的信道容量"><a href="#第七节-连续信道与波形信道的信道容量" class="headerlink" title="第七节 连续信道与波形信道的信道容量"></a>第七节 连续信道与波形信道的信道容量</h2><p>信道容量定义为可实现的最大平均互信息：</p>
+<p>$$<br>C &#x3D; \max_{p(x)} I(X;Y)<br>$$</p>
+<h3 id="一般连续信道："><a href="#一般连续信道：" class="headerlink" title="一般连续信道："></a>一般连续信道：</h3><p>$$<br>C &#x3D; \max_{p(x)} [h(Y)-h(Y|X)]<br>$$</p>
+<h3 id="加性连续信道："><a href="#加性连续信道：" class="headerlink" title="加性连续信道："></a>加性连续信道：</h3><p>噪声与输入独立，$h(Y|X)&#x3D;h(n)$，</p>
+<p>$$<br>C &#x3D; \max_{p(x)} [h(Y)-h(n)]<br>$$</p>
+<hr>
+<h3 id="高斯加性信道（AWGN信道）"><a href="#高斯加性信道（AWGN信道）" class="headerlink" title="高斯加性信道（AWGN信道）"></a>高斯加性信道（AWGN信道）</h3><p>噪声 $n\sim N(0,\sigma^2)$  </p>
+<p>输入功率受限 $E[X^2]&#x3D;P$  </p>
+<p>则输出 $Y&#x3D;X+n$。</p>
 <p>由最大熵定理，最优输入分布也是高斯。</p>
 <ul>
 <li><p>输出熵：</p>
-<p><span class="math display">\[
-h(Y)=\frac{1}{2}\log_2(2\pi e (P+N))
-\]</span></p></li>
-<li><p>噪声熵：</p></li>
+<p>$$<br>h(Y)&#x3D;\frac{1}{2}\log_2(2\pi e (P+N))<br>$$</p>
+</li>
+<li><p>噪声熵：</p>
+</li>
 </ul>
-<p><span class="math display">\[
-  h(n)=\frac{1}{2}\log_2(2\pi e N)
-  \]</span></p>
+<p>$$<br>  h(n)&#x3D;\frac{1}{2}\log_2(2\pi e N)<br>  $$</p>
 <ul>
 <li><p>容量：</p>
-<p><span class="math display">\[
-C = \frac{1}{2}\log_2\left(1+\frac{P}{N}\right)\quad
-\text{(比特/自由度)}
-\]</span></p></li>
+<p>$$<br>C &#x3D; \frac{1}{2}\log_2\left(1+\frac{P}{N}\right)\quad \text{(比特&#x2F;自由度)}<br>$$</p>
+</li>
 <li><p>单位时间容量：</p>
-<p><span class="math display">\[
-C_t = F\log_2\left(1+\frac{P}{N}\right)\ \text{(比特/秒)}
-\]</span></p></li>
+<p>$$<br>C_t &#x3D; F\log_2\left(1+\frac{P}{N}\right)\ \text{(比特&#x2F;秒)}<br>$$</p>
+</li>
 </ul>
 <blockquote>
-<p>这就是著名的<strong>香农信道容量公式</strong>，它指出：</p>
+<p>这就是著名的<strong>香农信道容量公式</strong>，它指出：  </p>
 <p>在平均功率受限、加性高斯白噪声条件下，信息传输率存在上限。</p>
 </blockquote>
-<hr />
-<h2 id="第八节-香农公式的重要意义">第八节 香农公式的重要意义</h2>
-<ul>
-<li><p>揭示了<strong>带宽与信噪比</strong>对信息传输速率的基本限制；</p></li>
-<li><p>为通信系统设计提供了<strong>理论极限</strong>；</p></li>
+<hr>
+<h2 id="第八节-香农公式的重要意义"><a href="#第八节-香农公式的重要意义" class="headerlink" title="第八节 香农公式的重要意义"></a>第八节 香农公式的重要意义</h2><ul>
+<li><p>揭示了<strong>带宽与信噪比</strong>对信息传输速率的基本限制；</p>
+</li>
+<li><p>为通信系统设计提供了<strong>理论极限</strong>；</p>
+</li>
 <li><p>说明提高通信速率的两条路径：</p>
 <ul>
-<li><p>增大带宽；</p></li>
-<li><p>提高信噪比；</p></li>
-</ul></li>
-<li><p>是现代数字通信与编码理论的基础。</p></li>
+<li><p>增大带宽；</p>
+</li>
+<li><p>提高信噪比；</p>
+</li>
+</ul>
+</li>
+<li><p>是现代数字通信与编码理论的基础。</p>
+</li>
 </ul>
 
                 

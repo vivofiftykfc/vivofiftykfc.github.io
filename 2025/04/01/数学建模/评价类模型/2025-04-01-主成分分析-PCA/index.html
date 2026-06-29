@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          991 字
+          1k 字
         
       </span>
     
@@ -288,131 +288,63 @@
             
               <div class="markdown-body">
                 
-                <h1 id="主成分分析-pca">主成分分析-PCA</h1>
-<p>主成分分析（PCA）是一种降维算法，通过将原始变量进行线性组合，生成互不相关的主成分，从而保留数据的主要信息，以此来去噪，提升数据处理速度。PCA
-常用于数据简化、聚类分析及解决回归中多重共线性问题，但在解释主成分时往往较为模糊，故不常用于评价模型。</p>
-<hr />
-<h2 id="一简介">一、简介</h2>
-<ul>
-<li><strong>目标：</strong>
-用较少的新变量替代原来较多的变量，尽可能保留原有信息。<br />
-</li>
-<li><strong>应用：</strong> 数据降维、去除噪声、提升数据处理速度。<br />
-</li>
+                <h1 id="主成分分析-PCA"><a href="#主成分分析-PCA" class="headerlink" title="主成分分析-PCA"></a>主成分分析-PCA</h1><p>主成分分析（PCA）是一种降维算法，通过将原始变量进行线性组合，生成互不相关的主成分，从而保留数据的主要信息，以此来去噪，提升数据处理速度。PCA 常用于数据简化、聚类分析及解决回归中多重共线性问题，但在解释主成分时往往较为模糊，故不常用于评价模型。</p>
+<hr>
+<h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><ul>
+<li><strong>目标：</strong> 用较少的新变量替代原来较多的变量，尽可能保留原有信息。  </li>
+<li><strong>应用：</strong> 数据降维、去除噪声、提升数据处理速度。  </li>
 <li><strong>适用场景</strong>：指标高度相关易于解释、可解释需求低。</li>
 <li><strong>局限性</strong>：非线性关系处理的不好，贡献度若是不足可能会丢失细节。</li>
 </ul>
-<hr />
-<h2 id="二思想">二、思想</h2>
-<p>假设有 <span class="math inline">\(n\)</span> 个样本和 <span
-class="math inline">\(p\)</span> 个指标，构成一个 $ n p$
-的样本矩阵：</p>
-<p><span class="math display">\[
-X = \begin{bmatrix}
-x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1p} \\
-x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2p} \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{np} \\
-\end{bmatrix}
-= (x_1, x_2, \cdots, x_p)
-\]</span> 目标是寻找新的变量 $ z_1, z_2, , z_m $（其中 $ m p
-$），使其满足：</p>
-<p><span class="math display">\[
-\begin{cases}
-z_1 = l_{11}x_1 + l_{12}x_2 + \cdots + l_{1p}x_p \\
-z_2 = l_{21}x_1 + l_{22}x_2 + \cdots + l_{2p}x_p \\
-\vdots \\
-z_m = l_{m1}x_1 + l_{m2}x_2 + \cdots + l_{mp}x_p \\
-\end{cases}
-\]</span> <strong>系数 $ l_{ij} $ 的确定原则：</strong></p>
-<ol type="1">
+<hr>
+<h2 id="二、思想"><a href="#二、思想" class="headerlink" title="二、思想"></a>二、思想</h2><p>假设有 $n$ 个样本和 $p$ 个指标，构成一个 $ n \times p$ 的样本矩阵：</p>
+<p>$$<br>X &#x3D; \begin{bmatrix}<br>x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1p} \<br>x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2p} \<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{np} \<br>\end{bmatrix}<br>&#x3D; (x_1, x_2, \cdots, x_p)<br>$$<br>目标是寻找新的变量 $ z_1, z_2, \dots, z_m $（其中 $ m \leq p $），使其满足：</p>
+<p>$$<br>\begin{cases}<br>z_1 &#x3D; l_{11}x_1 + l_{12}x_2 + \cdots + l_{1p}x_p \<br>z_2 &#x3D; l_{21}x_1 + l_{22}x_2 + \cdots + l_{2p}x_p \<br>\vdots \<br>z_m &#x3D; l_{m1}x_1 + l_{m2}x_2 + \cdots + l_{mp}x_p \<br>\end{cases}<br>$$<br><strong>系数 $ l_{ij} $ 的确定原则：</strong></p>
+<ol>
 <li>不同主成分之间彼此不相关。</li>
 <li>第一主成分是所有线性组合中方差最大的。</li>
 <li>第二主成分在与第一主成分不相关的条件下方差最大。</li>
 <li>依此类推，直到选出 $ m $ 个主成分。</li>
 </ol>
-<hr />
-<h2 id="三计算步骤">三、计算步骤</h2>
-<h3 id="数据标准化">1. 数据标准化</h3>
-<ul>
-<li><p><strong>计算均值和标准差：</strong> <span class="math display">\[
-\bar{x}_j = \frac{1}{n} \sum_{i=1}^{n} x_{ij},\quad S_j =
-\sqrt{\frac{\sum_{i=1}^{n}(x_{ij}-\bar{x}_j)^2}{n-1}}
-\]</span></p></li>
-<li><p><strong>标准化数据：</strong> <span class="math display">\[
-X_{ij} = \frac{x_{ij}-\bar{x}_j}{S_j}
-\]</span></p></li>
-<li><p><strong>标准化后的矩阵：</strong> <span class="math display">\[
-X = \begin{bmatrix}
-X_{11} &amp; X_{12} &amp; \cdots &amp; X_{1p} \\
-X_{21} &amp; X_{22} &amp; \cdots &amp; X_{2p} \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-X_{n1} &amp; X_{n2} &amp; \cdots &amp; X_{np} \\
-\end{bmatrix}
-\]</span></p></li>
+<hr>
+<h2 id="三、计算步骤"><a href="#三、计算步骤" class="headerlink" title="三、计算步骤"></a>三、计算步骤</h2><h3 id="1-数据标准化"><a href="#1-数据标准化" class="headerlink" title="1. 数据标准化"></a>1. 数据标准化</h3><ul>
+<li><p><strong>计算均值和标准差：</strong><br>$$<br>\bar{x}<em>j &#x3D; \frac{1}{n} \sum</em>{i&#x3D;1}^{n} x_{ij},\quad S_j &#x3D; \sqrt{\frac{\sum_{i&#x3D;1}^{n}(x_{ij}-\bar{x}_j)^2}{n-1}}<br>$$</p>
+</li>
+<li><p><strong>标准化数据：</strong><br>$$<br>X_{ij} &#x3D; \frac{x_{ij}-\bar{x}_j}{S_j}<br>$$</p>
+</li>
+<li><p><strong>标准化后的矩阵：</strong><br>$$<br>X &#x3D; \begin{bmatrix}<br>X_{11} &amp; X_{12} &amp; \cdots &amp; X_{1p} \<br>X_{21} &amp; X_{22} &amp; \cdots &amp; X_{2p} \<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>X_{n1} &amp; X_{n2} &amp; \cdots &amp; X_{np} \<br>\end{bmatrix}<br>$$</p>
+</li>
 </ul>
-<h3 id="计算协方差矩阵">2. 计算协方差矩阵</h3>
-<ul>
-<li><strong>定义：</strong> <span class="math display">\[
-R = \begin{bmatrix}
-r_{11} &amp; r_{12} &amp; \cdots &amp; r_{1p} \\
-r_{21} &amp; r_{22} &amp; \cdots &amp; r_{2p} \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-r_{p1} &amp; r_{p2} &amp; \cdots &amp; r_{pp} \\
-\end{bmatrix},\quad r_{ij} = \frac{1}{n-1}\sum_{k=1}^{n} X_{ki} X_{kj}
-\]</span></li>
+<h3 id="2-计算协方差矩阵"><a href="#2-计算协方差矩阵" class="headerlink" title="2. 计算协方差矩阵"></a>2. 计算协方差矩阵</h3><ul>
+<li><strong>定义：</strong><br>$$<br>R &#x3D; \begin{bmatrix}<br>r_{11} &amp; r_{12} &amp; \cdots &amp; r_{1p} \<br>r_{21} &amp; r_{22} &amp; \cdots &amp; r_{2p} \<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>r_{p1} &amp; r_{p2} &amp; \cdots &amp; r_{pp} \<br>\end{bmatrix},\quad r_{ij} &#x3D; \frac{1}{n-1}\sum_{k&#x3D;1}^{n} X_{ki} X_{kj}<br>$$</li>
 </ul>
-<h3 id="求解特征值和特征向量">3. 求解特征值和特征向量</h3>
-<ul>
-<li><p><strong>特征值：</strong> <span class="math display">\[
-\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_p \geq 0
-\]</span> （且 $ R $ 为半正定矩阵）</p></li>
-<li><p><strong>对应的特征向量：</strong> <span class="math display">\[
-a_1 = \begin{bmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{p1}
-\end{bmatrix},\quad
-a_2 = \begin{bmatrix} a_{12} \\ a_{22} \\ \vdots \\ a_{p2}
-\end{bmatrix},\quad \dots,\quad
-a_p = \begin{bmatrix} a_{1p} \\ a_{2p} \\ \vdots \\ a_{pp} \end{bmatrix}
-\]</span></p></li>
+<h3 id="3-求解特征值和特征向量"><a href="#3-求解特征值和特征向量" class="headerlink" title="3. 求解特征值和特征向量"></a>3. 求解特征值和特征向量</h3><ul>
+<li><p><strong>特征值：</strong><br>$$<br>\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_p \geq 0<br>$$<br>（且 $ R $ 为半正定矩阵）</p>
+</li>
+<li><p><strong>对应的特征向量：</strong><br>$$<br>a_1 &#x3D; \begin{bmatrix} a_{11} \ a_{21} \ \vdots \ a_{p1} \end{bmatrix},\quad<br>a_2 &#x3D; \begin{bmatrix} a_{12} \ a_{22} \ \vdots \ a_{p2} \end{bmatrix},\quad \dots,\quad<br>a_p &#x3D; \begin{bmatrix} a_{1p} \ a_{2p} \ \vdots \ a_{pp} \end{bmatrix}<br>$$</p>
+</li>
 <li></li>
 </ul>
-<h3 id="计算贡献率和累计贡献率">4. 计算贡献率和累计贡献率</h3>
-<ul>
-<li><p><strong>贡献率：</strong> <span class="math display">\[
-\text{贡献率} = \frac{\lambda_i}{\sum_{k=1}^{p}\lambda_k}
-\]</span></p></li>
-<li><p><strong>累计贡献率：</strong> <span class="math display">\[
-\text{累计贡献率} =
-\frac{\sum_{k=1}^{i}\lambda_k}{\sum_{k=1}^{p}\lambda_k}\quad
-(i=1,2,\dots,p)
-\]</span></p></li>
+<h3 id="4-计算贡献率和累计贡献率"><a href="#4-计算贡献率和累计贡献率" class="headerlink" title="4. 计算贡献率和累计贡献率"></a>4. 计算贡献率和累计贡献率</h3><ul>
+<li><p><strong>贡献率：</strong><br>$$<br>\text{贡献率} &#x3D; \frac{\lambda_i}{\sum_{k&#x3D;1}^{p}\lambda_k}<br>$$</p>
+</li>
+<li><p><strong>累计贡献率：</strong><br>$$<br>\text{累计贡献率} &#x3D; \frac{\sum_{k&#x3D;1}^{i}\lambda_k}{\sum_{k&#x3D;1}^{p}\lambda_k}\quad (i&#x3D;1,2,\dots,p)<br>$$</p>
+</li>
 <li></li>
 </ul>
-<h3 id="写出主成分">5. 写出主成分</h3>
-<p>一般选择累计贡献率超过 80% 的前 ( m ) 个主成分：</p>
-<p><span class="math display">\[
-F_i = a_{1i}X_1 + a_{2i}X_2 + \cdots + a_{pi}X_p,\quad (i=1,2,\dots,m)
-\]</span></p>
-<h3 id="主成分的解释">6. 主成分的解释</h3>
-<p>根据各指标在主成分中的载荷大小判断该主成分代表的含义，载荷越大的指标对该主成分的影响越大。</p>
-<hr />
-<h2 id="四扩展">四、扩展</h2>
-<ol type="1">
-<li><strong>聚类分析：</strong>
-可通过降维简化自变量，便于图形展示。</li>
+<h3 id="5-写出主成分"><a href="#5-写出主成分" class="headerlink" title="5. 写出主成分"></a>5. 写出主成分</h3><p>一般选择累计贡献率超过 80% 的前 ( m ) 个主成分：</p>
+<p>$$<br>F_i &#x3D; a_{1i}X_1 + a_{2i}X_2 + \cdots + a_{pi}X_p,\quad (i&#x3D;1,2,\dots,m)<br>$$</p>
+<h3 id="6-主成分的解释"><a href="#6-主成分的解释" class="headerlink" title="6. 主成分的解释"></a>6. 主成分的解释</h3><p>根据各指标在主成分中的载荷大小判断该主成分代表的含义，载荷越大的指标对该主成分的影响越大。</p>
+<hr>
+<h2 id="四、扩展"><a href="#四、扩展" class="headerlink" title="四、扩展"></a>四、扩展</h2><ol>
+<li><strong>聚类分析：</strong> 可通过降维简化自变量，便于图形展示。</li>
 <li><strong>回归分析：</strong> 可用于缓解多重共线性问题。</li>
-<li><strong>因子分析：</strong> PCA
-实际上是因子分析的一种特例，但因子分析在解释方面更具优势，建议多用因子分析。</li>
+<li><strong>因子分析：</strong> PCA 实际上是因子分析的一种特例，但因子分析在解释方面更具优势，建议多用因子分析。</li>
 </ol>
-<hr />
-<h2 id="参考资料">参考资料</h2>
-<p><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43819566/article/details/113800120">清风数学建模学习笔记——主成分分析(PCA)原理详解及案例分析_x10为生均教育经费对以上指标数据做主成分分析，并提取主成分-CSDN博客</a></p>
-<p><a
-target="_blank" rel="noopener" href="https://developer.baidu.com/article/details/3015610">数学建模中的主成分分析(PCA)详解与应用-百度开发者中心</a></p>
-<p><a
-target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/677797684">【数模百科】一文讲清楚主成分分析PCA（附python代码）
-- 知乎</a></p>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43819566/article/details/113800120">清风数学建模学习笔记——主成分分析(PCA)原理详解及案例分析_x10为生均教育经费对以上指标数据做主成分分析，并提取主成分-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.baidu.com/article/details/3015610">数学建模中的主成分分析(PCA)详解与应用-百度开发者中心</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/677797684">【数模百科】一文讲清楚主成分分析PCA（附python代码） - 知乎</a></p>
 
                 
               </div>
@@ -522,9 +454,9 @@ target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/677797684">【
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/04/01/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-04-01-%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95-TOPSIS/" title="优劣解距离法-TOPSIS">
+                      <a href="/2025/04/01/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/2025-04-01-%E6%A8%A1%E7%B3%8A%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7%E6%B3%95-FCE/" title="模糊综合评价法-FCE">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">优劣解距离法-TOPSIS</span>
+                        <span class="hidden-mobile">模糊综合评价法-FCE</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     

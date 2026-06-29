@@ -288,93 +288,71 @@
             
               <div class="markdown-body">
                 
-                <h1 id="岭回归与lasso回归完全解析">岭回归与Lasso回归完全解析</h1>
-<h2 id="一为什么需要正则化回归">一、为什么需要正则化回归？</h2>
-<h3 id="ols的困境">1. OLS的困境</h3>
-<p>多元线性回归（OLS）是建模的基础方法，但当数据存在<strong>多重共线性</strong>或<strong>变量过多</strong>时，OLS会面临两大问题：
-- <strong>系数估计不稳定</strong>：微小数据变动导致系数剧烈波动 -
-<strong>过拟合风险</strong>：模型在训练集表现好，但泛化能力差</p>
-<h3 id="正则化的引入">2. 正则化的引入</h3>
-<p>通过在损失函数中加入<strong>惩罚项</strong>，限制模型复杂度： -
-<strong>岭回归（Ridge）</strong>：L2正则化 -
-<strong>Lasso回归</strong>：L1正则化</p>
-<hr />
-<h2 id="二数学原理从ols到正则化">二、数学原理：从OLS到正则化</h2>
-<h3 id="ols回归">1. OLS回归</h3>
-<p>损失函数：<br />
-<span class="math display">\[
-\min_{\beta} \sum_{i=1}^n (y_i - \beta_0 - \sum_{j=1}^p \beta_j
-x_{ij})^2
-\]</span></p>
-<h3 id="岭回归ridge">2. 岭回归（Ridge）</h3>
-<p>加入L2范数（欧氏范数）惩罚项（λ控制惩罚力度）：<br />
-<span class="math display">\[
-\min_{\beta} \left[ \sum_{i=1}^n (y_i - \beta_0 - \sum_{j=1}^p \beta_j
-x_{ij})^2 + \lambda \sum_{j=1}^p \beta_j^2 \right]
-\]</span></p>
-<p><strong>特点</strong>： - 所有系数被等比例压缩，但不会归零 -
-解决多重共线性问题，提升模型稳定性 -
-是以放弃无偏性、降低精度为代价解决病态矩阵问题的回归方法</p>
-<h3 id="lasso回归">3. Lasso回归</h3>
-<p>加入L1（曼哈顿范数）惩罚项：<br />
-<span class="math display">\[
-\min_{\beta} \left[ \sum_{i=1}^n (y_i - \beta_0 - \sum_{j=1}^p \beta_j
-x_{ij})^2 + \lambda \sum_{j=1}^p |\beta_j| \right]
-\]</span></p>
-<p><strong>特点</strong>： -
-可将不重要变量的系数压缩至零，实现<strong>变量选择</strong> -
-适用于高维数据（变量数&gt;样本数）</p>
-<hr />
-<h2
-id="三核心操作正则化参数λ的选择">三、核心操作：正则化参数λ的选择</h2>
-<h3 id="交叉验证k-fold-cv">1. 交叉验证（K-Fold CV）</h3>
+                <h1 id="岭回归与Lasso回归完全解析"><a href="#岭回归与Lasso回归完全解析" class="headerlink" title="岭回归与Lasso回归完全解析"></a>岭回归与Lasso回归完全解析</h1><h2 id="一、为什么需要正则化回归？"><a href="#一、为什么需要正则化回归？" class="headerlink" title="一、为什么需要正则化回归？"></a>一、为什么需要正则化回归？</h2><h3 id="1-OLS的困境"><a href="#1-OLS的困境" class="headerlink" title="1. OLS的困境"></a>1. OLS的困境</h3><p>多元线性回归（OLS）是建模的基础方法，但当数据存在<strong>多重共线性</strong>或<strong>变量过多</strong>时，OLS会面临两大问题：</p>
 <ul>
+<li><strong>系数估计不稳定</strong>：微小数据变动导致系数剧烈波动</li>
+<li><strong>过拟合风险</strong>：模型在训练集表现好，但泛化能力差</li>
+</ul>
+<h3 id="2-正则化的引入"><a href="#2-正则化的引入" class="headerlink" title="2. 正则化的引入"></a>2. 正则化的引入</h3><p>通过在损失函数中加入<strong>惩罚项</strong>，限制模型复杂度：</p>
+<ul>
+<li><strong>岭回归（Ridge）</strong>：L2正则化</li>
+<li><strong>Lasso回归</strong>：L1正则化</li>
+</ul>
+<hr>
+<h2 id="二、数学原理：从OLS到正则化"><a href="#二、数学原理：从OLS到正则化" class="headerlink" title="二、数学原理：从OLS到正则化"></a>二、数学原理：从OLS到正则化</h2><h3 id="1-OLS回归"><a href="#1-OLS回归" class="headerlink" title="1. OLS回归"></a>1. OLS回归</h3><p>损失函数：<br>$$<br>\min_{\beta} \sum_{i&#x3D;1}^n (y_i - \beta_0 - \sum_{j&#x3D;1}^p \beta_j x_{ij})^2<br>$$</p>
+<h3 id="2-岭回归（Ridge）"><a href="#2-岭回归（Ridge）" class="headerlink" title="2. 岭回归（Ridge）"></a>2. 岭回归（Ridge）</h3><p>加入L2范数（欧氏范数）惩罚项（λ控制惩罚力度）：<br>$$<br>\min_{\beta} \left[ \sum_{i&#x3D;1}^n (y_i - \beta_0 - \sum_{j&#x3D;1}^p \beta_j x_{ij})^2 + \lambda \sum_{j&#x3D;1}^p \beta_j^2 \right]<br>$$</p>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>所有系数被等比例压缩，但不会归零</li>
+<li>解决多重共线性问题，提升模型稳定性</li>
+<li>是以放弃无偏性、降低精度为代价解决病态矩阵问题的回归方法</li>
+</ul>
+<h3 id="3-Lasso回归"><a href="#3-Lasso回归" class="headerlink" title="3. Lasso回归"></a>3. Lasso回归</h3><p>加入L1（曼哈顿范数）惩罚项：<br>$$<br>\min_{\beta} \left[ \sum_{i&#x3D;1}^n (y_i - \beta_0 - \sum_{j&#x3D;1}^p \beta_j x_{ij})^2 + \lambda \sum_{j&#x3D;1}^p |\beta_j| \right]<br>$$</p>
+<p><strong>特点</strong>：</p>
+<ul>
+<li>可将不重要变量的系数压缩至零，实现<strong>变量选择</strong></li>
+<li>适用于高维数据（变量数&gt;样本数）</li>
+</ul>
+<hr>
+<h2 id="三、核心操作：正则化参数λ的选择"><a href="#三、核心操作：正则化参数λ的选择" class="headerlink" title="三、核心操作：正则化参数λ的选择"></a>三、核心操作：正则化参数λ的选择</h2><h3 id="1-交叉验证（K-Fold-CV）"><a href="#1-交叉验证（K-Fold-CV）" class="headerlink" title="1. 交叉验证（K-Fold CV）"></a>1. 交叉验证（K-Fold CV）</h3><ul>
 <li><strong>步骤</strong>：将数据分为K份，轮流用K-1份训练，1份验证，计算平均误差</li>
 <li><strong>目标</strong>：选择使验证误差最小的λ值</li>
 </ul>
-<h3 id="正则化路径">2. 正则化路径</h3>
-<ul>
+<h3 id="2-正则化路径"><a href="#2-正则化路径" class="headerlink" title="2. 正则化路径"></a>2. 正则化路径</h3><ul>
 <li><strong>岭回归</strong>：系数随λ增大逐渐趋近于零</li>
 <li><strong>Lasso</strong>：系数随λ增大会突然变为零</li>
 </ul>
-<p><strong>Python示例（可视化路径）</strong>： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LassoCV, RidgeCV<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br><span class="hljs-comment"># Lasso路径</span><br>alphas = np.logspace(-<span class="hljs-number">4</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>)<br>coefs = []<br><span class="hljs-keyword">for</span> alpha <span class="hljs-keyword">in</span> alphas:<br>    lasso = Lasso(alpha=alpha)<br>    lasso.fit(X, y)<br>    coefs.append(lasso.coef_)<br><br>plt.plot(alphas, coefs)<br>plt.xscale(<span class="hljs-string">&#x27;log&#x27;</span>)<br>plt.xlabel(<span class="hljs-string">&#x27;λ&#x27;</span>)<br>plt.ylabel(<span class="hljs-string">&#x27;Coefficients&#x27;</span>)<br>plt.title(<span class="hljs-string">&#x27;Lasso Regularization Path&#x27;</span>)<br></code></pre></td></tr></table></figure></p>
-<hr />
-<h2 id="四实战案例棉花产量预测">四、实战案例：棉花产量预测</h2>
-<h3 id="数据说明">1. 数据说明</h3>
-<ul>
+<p><strong>Python示例（可视化路径）</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LassoCV, RidgeCV<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br><span class="hljs-comment"># Lasso路径</span><br>alphas = np.logspace(-<span class="hljs-number">4</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>)<br>coefs = []<br><span class="hljs-keyword">for</span> alpha <span class="hljs-keyword">in</span> alphas:<br>    lasso = Lasso(alpha=alpha)<br>    lasso.fit(X, y)<br>    coefs.append(lasso.coef_)<br><br>plt.plot(alphas, coefs)<br>plt.xscale(<span class="hljs-string">&#x27;log&#x27;</span>)<br>plt.xlabel(<span class="hljs-string">&#x27;λ&#x27;</span>)<br>plt.ylabel(<span class="hljs-string">&#x27;Coefficients&#x27;</span>)<br>plt.title(<span class="hljs-string">&#x27;Lasso Regularization Path&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、实战案例：棉花产量预测"><a href="#四、实战案例：棉花产量预测" class="headerlink" title="四、实战案例：棉花产量预测"></a>四、实战案例：棉花产量预测</h2><h3 id="1-数据说明"><a href="#1-数据说明" class="headerlink" title="1. 数据说明"></a>1. 数据说明</h3><ul>
 <li><strong>自变量</strong>：种子费、化肥费、农药费、机械费、灌溉费</li>
 <li><strong>因变量</strong>：棉花单产（1990-2007年数据）</li>
 </ul>
-<h3 id="操作流程python实现">2. 操作流程（Python实现）</h3>
-<h4 id="数据标准化">(1) 数据标准化</h4>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> StandardScaler<br>scaler = StandardScaler()<br>X_scaled = scaler.fit_transform(X)<br></code></pre></td></tr></table></figure>
-<h4 id="lasso回归建模">(2) Lasso回归建模</h4>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LassoCV<br><br><span class="hljs-comment"># 10折交叉验证选择λ</span><br>lasso = LassoCV(cv=<span class="hljs-number">10</span>, random_state=<span class="hljs-number">42</span>)<br>lasso.fit(X_scaled, y)<br><br><span class="hljs-comment"># 输出结果</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;最优λ：&quot;</span>, lasso.alpha_)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;非零系数：&quot;</span>, lasso.coef_)<br></code></pre></td></tr></table></figure>
-<h4 id="结果解读">(3) 结果解读</h4>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs css">最优λ：<span class="hljs-number">0.05</span><br>非零系数：种子费<span class="hljs-selector-attr">[0.32]</span>、农药费<span class="hljs-selector-attr">[-0.34]</span>、灌溉费<span class="hljs-selector-attr">[0.74]</span><br></code></pre></td></tr></table></figure>
+<h3 id="2-操作流程（Python实现）"><a href="#2-操作流程（Python实现）" class="headerlink" title="2. 操作流程（Python实现）"></a>2. 操作流程（Python实现）</h3><h4 id="1-数据标准化"><a href="#1-数据标准化" class="headerlink" title="(1) 数据标准化"></a>(1) 数据标准化</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> StandardScaler<br>scaler = StandardScaler()<br>X_scaled = scaler.fit_transform(X)<br></code></pre></td></tr></table></figure>
+
+<h4 id="2-Lasso回归建模"><a href="#2-Lasso回归建模" class="headerlink" title="(2) Lasso回归建模"></a>(2) Lasso回归建模</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LassoCV<br><br><span class="hljs-comment"># 10折交叉验证选择λ</span><br>lasso = LassoCV(cv=<span class="hljs-number">10</span>, random_state=<span class="hljs-number">42</span>)<br>lasso.fit(X_scaled, y)<br><br><span class="hljs-comment"># 输出结果</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;最优λ：&quot;</span>, lasso.alpha_)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;非零系数：&quot;</span>, lasso.coef_)<br></code></pre></td></tr></table></figure>
+
+<h4 id="3-结果解读"><a href="#3-结果解读" class="headerlink" title="(3) 结果解读"></a>(3) 结果解读</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs css">最优λ：<span class="hljs-number">0.05</span><br>非零系数：种子费<span class="hljs-selector-attr">[0.32]</span>、农药费<span class="hljs-selector-attr">[-0.34]</span>、灌溉费<span class="hljs-selector-attr">[0.74]</span><br></code></pre></td></tr></table></figure>
 <ul>
 <li><strong>结论</strong>：机械费、化肥费被剔除，模型保留3个关键变量</li>
 </ul>
-<hr />
-<h2 id="五注意">五、注意</h2>
-<h3 id="必须标准化数据">1. 必须标准化数据</h3>
-<ul>
+<hr>
+<h2 id="五、注意"><a href="#五、注意" class="headerlink" title="五、注意"></a>五、注意</h2><h3 id="1-必须标准化数据"><a href="#1-必须标准化数据" class="headerlink" title="1. 必须标准化数据"></a>1. 必须标准化数据</h3><ul>
 <li><strong>原因</strong>：正则化对尺度敏感，大范围变量会主导惩罚项</li>
 <li><strong>方法</strong>：使用<code>StandardScaler</code>将变量标准化为均值为0，方差为1</li>
 </ul>
-<h3 id="如何解释系数">2. 如何解释系数？</h3>
-<ul>
+<h3 id="2-如何解释系数？"><a href="#2-如何解释系数？" class="headerlink" title="2. 如何解释系数？"></a>2. 如何解释系数？</h3><ul>
 <li><strong>岭回归</strong>：系数代表变量对目标的影响方向，但大小受λ影响</li>
 <li><strong>Lasso</strong>：非零系数表示重要变量，但绝对值无直接可比性</li>
 </ul>
-<h3 id="λ的选择陷阱">3. λ的选择陷阱</h3>
-<ul>
+<h3 id="3-λ的选择陷阱"><a href="#3-λ的选择陷阱" class="headerlink" title="3. λ的选择陷阱"></a>3. λ的选择陷阱</h3><ul>
 <li><strong>过小</strong>：接近OLS，失去正则化效果</li>
 <li><strong>过大</strong>：所有系数被过度压缩，模型欠拟合</li>
 </ul>
-<hr />
-<h2 id="六模型对比与选择">六、模型对比与选择</h2>
-<table>
+<hr>
+<h2 id="六、模型对比与选择"><a href="#六、模型对比与选择" class="headerlink" title="六、模型对比与选择"></a>六、模型对比与选择</h2><table>
 <thead>
 <tr>
 <th>指标</th>
@@ -382,8 +360,7 @@ id="三核心操作正则化参数λ的选择">三、核心操作：正则化参
 <th>Lasso回归</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>正则化类型</td>
 <td>L2</td>
 <td>L1</td>
@@ -396,7 +373,7 @@ id="三核心操作正则化参数λ的选择">三、核心操作：正则化参
 <tr>
 <td>适用场景</td>
 <td>多重共线性严重</td>
-<td>高维数据/变量选择</td>
+<td>高维数据&#x2F;变量选择</td>
 </tr>
 <tr>
 <td>计算复杂度</td>
@@ -408,25 +385,18 @@ id="三核心操作正则化参数λ的选择">三、核心操作：正则化参
 <td><code>RidgeCV</code>（Python）</td>
 <td><code>LassoCV</code>（Python）</td>
 </tr>
-</tbody>
-</table>
-<hr />
-<h2 id="七常见问题解答">七、常见问题解答</h2>
-<h3 id="q1何时用岭回归何时用lasso">Q1：何时用岭回归？何时用Lasso？</h3>
-<ul>
+</tbody></table>
+<hr>
+<h2 id="七、常见问题解答"><a href="#七、常见问题解答" class="headerlink" title="七、常见问题解答"></a>七、常见问题解答</h2><h3 id="Q1：何时用岭回归？何时用Lasso？"><a href="#Q1：何时用岭回归？何时用Lasso？" class="headerlink" title="Q1：何时用岭回归？何时用Lasso？"></a>Q1：何时用岭回归？何时用Lasso？</h3><ul>
 <li><strong>岭回归</strong>：变量均重要，但存在共线性（如经济指标分析）</li>
 <li><strong>Lasso</strong>：变量数多，需筛选关键因素（如基因数据建模）</li>
 </ul>
-<h3 id="q2elastic-net是什么">Q2：Elastic Net是什么？</h3>
-<ul>
+<h3 id="Q2：Elastic-Net是什么？"><a href="#Q2：Elastic-Net是什么？" class="headerlink" title="Q2：Elastic Net是什么？"></a>Q2：Elastic Net是什么？</h3><ul>
 <li><strong>混合正则化</strong>：L1+L2，平衡变量选择与稳定性</li>
-<li><strong>公式</strong>：<br />
-<span class="math display">\[\text{损失函数} + \lambda (\alpha \sum
-|\beta_j| + (1-\alpha) \sum \beta_j^2)\]</span></li>
+<li><strong>公式</strong>：<br>$$\text{损失函数} + \lambda (\alpha \sum |\beta_j| + (1-\alpha) \sum \beta_j^2)$$</li>
 </ul>
-<h3 id="q3如何解释λ0的情况">Q3：如何解释λ=0的情况？</h3>
-<ul>
-<li>λ=0时，模型退化为普通OLS回归</li>
+<h3 id="Q3：如何解释λ-0的情况？"><a href="#Q3：如何解释λ-0的情况？" class="headerlink" title="Q3：如何解释λ&#x3D;0的情况？"></a>Q3：如何解释λ&#x3D;0的情况？</h3><ul>
+<li>λ&#x3D;0时，模型退化为普通OLS回归</li>
 </ul>
 
                 

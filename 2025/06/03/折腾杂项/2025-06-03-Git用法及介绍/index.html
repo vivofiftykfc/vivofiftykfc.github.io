@@ -288,188 +288,118 @@
             
               <div class="markdown-body">
                 
-                <p>这篇blogs算是读git官方的这个 <a
-target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2">Pro Git Book</a>
-整的一个笔记。很多都是直接cv的。这篇blogs就看了他的前两章，后面的像是在服务器上搭建Git之类的之后再说吧。
-# Git历史</p>
-<h3 id="版本控制发展">版本控制发展</h3>
-<p>本地版本控制-&gt;集中版本控制-&gt;分布式版本控制</p>
+                <p>这篇blogs算是读git官方的这个 <a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2">Pro Git Book</a> 整的一个笔记。很多都是直接cv的。这篇blogs就看了他的前两章，后面的像是在服务器上搭建Git之类的之后再说吧。</p>
+<h1 id="Git历史"><a href="#Git历史" class="headerlink" title="Git历史"></a>Git历史</h1><h3 id="版本控制发展"><a href="#版本控制发展" class="headerlink" title="版本控制发展"></a>版本控制发展</h3><p>本地版本控制-&gt;集中版本控制-&gt;分布式版本控制</p>
 <p>Git是在linux的开发过程中，在分布式版本控制系统bitkeeper收回免费linux开发组对该系统的使用权力后，由linus牵头写的一个版本开发系统，有简单而快速、支持并行开发、完全分布式、支持超大规模项目管理的特点。</p>
-<h3 id="思路与优势">思路与优势</h3>
-<p>Git的思路是每次存下一个文件快照的索引，每当提交更新，他就会做一个快照，并保存这个快照的索引。为了效率，如果有文件没有更改，他就不会重新储存，直接保留一个连接指向之前存过的文件的。在
-Git
-中的绝大多数操作都只需要访问本地文件和资源，一般不需要来自网络上其它计算机的信息。</p>
-<p>这和之前的例如CVS、Subversion、Perforce按照类似于记录下各个版本之间的差异，按照类似于补丁的形式给记录下来，（通常称作基于差异（delta-based）的版本控制）。Perforce
-的话，没有连接服务器时几乎不能做什么事；而用 Subversion 和 CVS 的话，
-你能修改文件，但不能向数据库提交修改（因为你的本地数据库离线了）。</p>
-<p>Git
-有三种状态，你的文件可能处于其中之一： <strong>已提交（committed）</strong>、<strong>已修改（modified）</strong> 和 <strong>已暂存（staged）</strong>。</p>
+<h3 id="思路与优势"><a href="#思路与优势" class="headerlink" title="思路与优势"></a>思路与优势</h3><p>Git的思路是每次存下一个文件快照的索引，每当提交更新，他就会做一个快照，并保存这个快照的索引。为了效率，如果有文件没有更改，他就不会重新储存，直接保留一个连接指向之前存过的文件的。在 Git 中的绝大多数操作都只需要访问本地文件和资源，一般不需要来自网络上其它计算机的信息。</p>
+<p>这和之前的例如CVS、Subversion、Perforce按照类似于记录下各个版本之间的差异，按照类似于补丁的形式给记录下来，（通常称作基于差异（delta-based）的版本控制）。Perforce 的话，没有连接服务器时几乎不能做什么事；而用 Subversion 和 CVS 的话， 你能修改文件，但不能向数据库提交修改（因为你的本地数据库离线了）。</p>
+<p>Git 有三种状态，你的文件可能处于其中之一： <strong>已提交（committed）</strong>、<strong>已修改（modified）</strong> 和 <strong>已暂存（staged）</strong>。</p>
 <ul>
 <li>已修改表示修改了文件，但还没保存到数据库中。</li>
 <li>已暂存表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。</li>
 <li>已提交表示数据已经安全地保存在本地数据库中。</li>
 </ul>
-<p>这会让我们的 Git
-项目拥有三个阶段：工作区（某个版本独立出来让你改的）、暂存区（一个Git仓库目录的文件，写了下次提交要上报什么东西）以及
-Git 目录（.git）。</p>
-<h1 id="git安装">Git安装</h1>
-<ul>
+<p>这会让我们的 Git 项目拥有三个阶段：工作区（某个版本独立出来让你改的）、暂存区（一个Git仓库目录的文件，写了下次提交要上报什么东西）以及 Git 目录（.git）。</p>
+<h1 id="Git安装"><a href="#Git安装" class="headerlink" title="Git安装"></a>Git安装</h1><ul>
 <li>linux（Debian系为例）：<code>sudo apt install git-all</code></li>
-<li>MacOS：<code>git --version</code>之后跟着系统提示走就行，直接用二进制安装程序详见Git官网：<a
-target="_blank" rel="noopener" href="https://git-scm.com/downloads/mac">Git - Downloading</a></li>
-<li>Windows：直接用二进制安装程序详见<a
-target="_blank" rel="noopener" href="https://git-scm.com/downloads/win">Git - Downloading
-Package</a></li>
-<li>源码编译：详见<a
-target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git">Git
-- 安装 Git</a>，这个我觉得没必要还耗费时间，有兴趣可以自己做一下。</li>
+<li>MacOS：<code>git --version</code>之后跟着系统提示走就行，直接用二进制安装程序详见Git官网：<a target="_blank" rel="noopener" href="https://git-scm.com/downloads/mac">Git - Downloading</a></li>
+<li>Windows：直接用二进制安装程序详见<a target="_blank" rel="noopener" href="https://git-scm.com/downloads/win">Git - Downloading Package</a></li>
+<li>源码编译：详见<a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git">Git - 安装 Git</a>，这个我觉得没必要还耗费时间，有兴趣可以自己做一下。</li>
 </ul>
-<h1 id="git配置">Git配置</h1>
-<p>用Git自带的工具<code>git config</code>。具体变量会存在三个位置：</p>
-<ol type="1">
-<li><p>系统内全部用户：<code>/etc/gitconfig</code> ，如果在执行 <code>git config</code> 时带上 <code>--system</code> 选项，那么它就会读写该文件中的配置变量。注意这个是系统配置文件，要sudo。</p></li>
-<li><p>当前用户：<code>~/.gitconfig</code> 或 <code>~/.config/git/config</code>
-，你可以传递 <code>--global</code> 选项让 Git
-读写此文件，这会对你系统上所有的仓库生效。</p></li>
-<li><p>当前使用仓库：
-<code>.git/config</code>，你可以在该仓库下传递 <code>--local</code> 选项让
-Git 强制读写此文件，虽然默认情况下用的就是它。</p></li>
+<h1 id="Git配置"><a href="#Git配置" class="headerlink" title="Git配置"></a>Git配置</h1><p>用Git自带的工具<code>git config</code>。具体变量会存在三个位置：</p>
+<ol>
+<li><p>系统内全部用户：<code>/etc/gitconfig</code> ，如果在执行 <code>git config</code> 时带上 <code>--system</code> 选项，那么它就会读写该文件中的配置变量。注意这个是系统配置文件，要sudo。</p>
+</li>
+<li><p>当前用户：<code>~/.gitconfig</code> 或 <code>~/.config/git/config</code> ，你可以传递 <code>--global</code> 选项让 Git 读写此文件，这会对你系统上所有的仓库生效。</p>
+</li>
+<li><p>当前使用仓库： <code>.git/config</code>，你可以在该仓库下传递 <code>--local</code> 选项让 Git 强制读写此文件，虽然默认情况下用的就是它。</p>
+</li>
 </ol>
 <p>每一个更细的级别会覆盖上一个大级别级别的配置。</p>
-<p>在 Windows 系统中，Git
-会查找 <code>$HOME</code> 目录下（一般情况下是 <code>C:\Users\$USER</code> ）的 <code>.gitconfig</code> 文件。
-Git 同样也会寻找 <code>/etc/gitconfig</code> 文件，但只限于 MSys
-的根目录下，即安装 Git 时所选的目标位置。 如果你在 Windows 上使用 Git
-2.x 以后的版本，那么还有一个系统级的配置文件，Windows XP
-上在 <code>C:\Documents and Settings\All Users\Application Data\Git\config</code> ，Windows
-Vista
-及其以后的版本在 <code>C:\ProgramData\Git\config</code> 。此文件只能以管理员权限通过 <code>git config -f &lt;file&gt;</code> 来修改。</p>
+<p>在 Windows 系统中，Git 会查找 <code>$HOME</code> 目录下（一般情况下是 <code>C:\Users\$USER</code> ）的 <code>.gitconfig</code> 文件。 Git 同样也会寻找 <code>/etc/gitconfig</code> 文件，但只限于 MSys 的根目录下，即安装 Git 时所选的目标位置。 如果你在 Windows 上使用 Git 2.x 以后的版本，那么还有一个系统级的配置文件，Windows XP 上在 <code>C:\Documents and Settings\All Users\Application Data\Git\config</code> ，Windows Vista 及其以后的版本在 <code>C:\ProgramData\Git\config</code> 。此文件只能以管理员权限通过 <code>git config -f &lt;file&gt;</code> 来修改。</p>
 <figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs console"><span class="hljs-meta prompt_">$ </span><span class="language-bash">git config --list --show-origin <span class="hljs-comment">#查看所有的配置以及它们所在的文件</span></span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">git config --list               <span class="hljs-comment">#查看所有的配置</span></span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">git config --list &lt;key&gt;         <span class="hljs-comment">#查看某项配置 eg:git config user.name</span></span><br></code></pre></td></tr></table></figure>
-<h3 id="用户信息">用户信息</h3>
-<p>安装完 Git 之后，要做的第一件事就是设置你的用户名和邮件地址。
-这一点很重要，因为每一个 Git
-提交都会使用这些信息，它们会写入到你的每一次提交中，不可更改：</p>
+
+<h3 id="用户信息"><a href="#用户信息" class="headerlink" title="用户信息"></a>用户信息</h3><p>安装完 Git 之后，要做的第一件事就是设置你的用户名和邮件地址。 这一点很重要，因为每一个 Git 提交都会使用这些信息，它们会写入到你的每一次提交中，不可更改：</p>
 <figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs console"><span class="hljs-meta prompt_">$ </span><span class="language-bash">git config --global user.name <span class="hljs-string">&quot;John Doe&quot;</span></span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">git config --global user.email johndoe@example.com</span><br></code></pre></td></tr></table></figure>
-<p>这个 <code>--global</code>
-从上文可知是当前用户下的配置，如果要在特定项目下配其他的话在此项目中用去掉
-<code>--global</code> 的命令就行。</p>
-<h3 id="ide配置">IDE配置</h3>
-<p>一般来说在linux下会直接用系统默认的文本编辑器，更换编辑器命令（以emacs为例）：</p>
+
+<p>这个 <code>--global</code> 从上文可知是当前用户下的配置，如果要在特定项目下配其他的话在此项目中用去掉 <code>--global</code> 的命令就行。</p>
+<h3 id="IDE配置"><a href="#IDE配置" class="headerlink" title="IDE配置"></a>IDE配置</h3><p>一般来说在linux下会直接用系统默认的文本编辑器，更换编辑器命令（以emacs为例）：</p>
 <figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs console"><span class="hljs-meta prompt_">$ </span><span class="language-bash">git config --global core.editor emacs</span><br></code></pre></td></tr></table></figure>
-<p>Windows 系统上，指定可执行文件的完整路径即可。</p>
-<h1 id="git帮助">Git帮助</h1>
-<figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs console"><span class="hljs-meta prompt_">$ </span><span class="language-bash">git <span class="hljs-built_in">help</span> &lt;verb&gt;      <span class="hljs-comment">#eg:git help config（找git config）</span></span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">git &lt;verb&gt; --<span class="hljs-built_in">help</span>    <span class="hljs-comment">#eg:git add -h</span></span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">man git-&lt;verb&gt;</span><br></code></pre></td></tr></table></figure>
-<h1 id="git拉包">Git拉包</h1>
-<h2 id="在已存在的目录中初始化仓库">在已存在的目录中初始化仓库</h2>
-<p>在当前目录下：</p>
+
+<p> Windows 系统上，指定可执行文件的完整路径即可。 </p>
+<h1 id="Git帮助"><a href="#Git帮助" class="headerlink" title="Git帮助"></a>Git帮助</h1><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs console"><span class="hljs-meta prompt_">$ </span><span class="language-bash">git <span class="hljs-built_in">help</span> &lt;verb&gt;      <span class="hljs-comment">#eg:git help config（找git config）</span></span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">git &lt;verb&gt; --<span class="hljs-built_in">help</span>    <span class="hljs-comment">#eg:git add -h</span></span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">man git-&lt;verb&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="Git拉包"><a href="#Git拉包" class="headerlink" title="Git拉包"></a>Git拉包</h1><h2 id="在已存在的目录中初始化仓库"><a href="#在已存在的目录中初始化仓库" class="headerlink" title="在已存在的目录中初始化仓库"></a>在已存在的目录中初始化仓库</h2><p>在当前目录下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">git init <span class="hljs-comment">#初始化，创建.git子目录，是git仓库中所有的必须文件</span><br>git add *.c<br>git add LICENSE<br>git commit -m <span class="hljs-string">&#x27;initial project version&#x27;</span><br></code></pre></td></tr></table></figure>
-<h2 id="克隆现有的仓库">克隆现有的仓库</h2>
-<p>Git克隆的是该仓库服务器上几乎所有数据，默认是没一个版本都会拉下来</p>
+
+<h2 id="克隆现有的仓库"><a href="#克隆现有的仓库" class="headerlink" title="克隆现有的仓库"></a>克隆现有的仓库</h2><p>Git克隆的是该仓库服务器上几乎所有数据，默认是没一个版本都会拉下来</p>
 <p>在目标克隆目录下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/libgit2/libgit2 <br>git <span class="hljs-built_in">clone</span> https://github.com/libgit2/libgit2 mylibgit  <span class="hljs-comment">#自定目录名</span><br></code></pre></td></tr></table></figure>
-<p>这会在当前目录下创建一个名为 “libgit2”
-的目录，并在这个目录下初始化一个 <code>.git</code> 文件夹，
-从远程仓库拉取下所有数据放入 <code>.git</code> 文件夹，然后从中读取最新版本的文件的拷贝。
-如果你进入到这个新建的 <code>libgit2</code> 文件夹，你会发现所有的项目文件已经在里面了，准备就绪等待后续的开发和使用。</p>
+
+<p>这会在当前目录下创建一个名为 “libgit2” 的目录，并在这个目录下初始化一个 <code>.git</code> 文件夹， 从远程仓库拉取下所有数据放入 <code>.git</code> 文件夹，然后从中读取最新版本的文件的拷贝。 如果你进入到这个新建的 <code>libgit2</code> 文件夹，你会发现所有的项目文件已经在里面了，准备就绪等待后续的开发和使用。</p>
 <p>传输协议之后再写。</p>
-<h1 id="git上传zzzz">Git上传(zzzz)</h1>
-<p>文件的状态变化周期：</p>
+<h1 id="Git上传-zzzz"><a href="#Git上传-zzzz" class="headerlink" title="Git上传(zzzz)"></a>Git上传(zzzz)</h1><p>文件的状态变化周期：</p>
 <p>![[file-20250604000404216.png]]</p>
 <p>接下来根据这个文件状态变化周期来进行叙述：</p>
-<h2 id="跟踪新文件与暂存更改">跟踪新文件与暂存更改</h2>
-<p>只有把文件添加到更新下面之后才能进行版本控制！新建文件后仍为未跟踪状态，需要执行
-<code>git add &lt;文件&gt;</code>
-将其转为已暂存，后续所有提交都只包含暂存区的内容；<code>git add</code>
-也可接受目录路径，递归跟踪目录下所有文件。</p>
+<h2 id="跟踪新文件与暂存更改"><a href="#跟踪新文件与暂存更改" class="headerlink" title="跟踪新文件与暂存更改"></a>跟踪新文件与暂存更改</h2><p>只有把文件添加到更新下面之后才能进行版本控制！新建文件后仍为未跟踪状态，需要执行 <code>git add &lt;文件&gt;</code> 将其转为已暂存，后续所有提交都只包含暂存区的内容；<code>git add</code> 也可接受目录路径，递归跟踪目录下所有文件。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git add .  <span class="hljs-comment">#添加全部的文件</span><br></code></pre></td></tr></table></figure>
+
 <p>注意有的时候你中途add进去一个新文件，在add之后在上传时，上传的是你add时的版本，再次修改的文件还在非暂存区中，需要重新add。</p>
-<h2 id="忽略不需要版本控制的文件">忽略不需要版本控制的文件</h2>
-<p>在项目根目录（或子目录）创建
-<code>.gitignore</code>，列出要忽略的模式（支持 glob 语法）；</p>
+<h2 id="忽略不需要版本控制的文件"><a href="#忽略不需要版本控制的文件" class="headerlink" title="忽略不需要版本控制的文件"></a>忽略不需要版本控制的文件</h2><p>在项目根目录（或子目录）创建 <code>.gitignore</code>，列出要忽略的模式（支持 glob 语法）；</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">*.o        <span class="hljs-comment"># 忽略所有 .o 文件 </span><br>*.a        <span class="hljs-comment"># 忽略所有 .a 文件 </span><br>!lib.a     <span class="hljs-comment"># 但跟踪lib.a</span><br>*~         <span class="hljs-comment"># 忽略 Emacs 自动保存的临时文件  </span><br>/TODO      <span class="hljs-comment"># 只忽略仓库根目录下的 TODO 文件，匹配模式防止递归  </span><br>build/     <span class="hljs-comment"># 忽略任何目录下名为 build 的文件夹，指定文件夹递归入库  </span><br></code></pre></td></tr></table></figure>
-<h2 id="查看文件状态">查看文件状态</h2>
-<ul>
+
+<h2 id="查看文件状态"><a href="#查看文件状态" class="headerlink" title="查看文件状态"></a>查看文件状态</h2><ul>
 <li><code>git status</code>：显示当前分支、与远程分支的关系，以及“已暂存”和“未暂存”更改、和“未跟踪”文件；</li>
-<li><code>git status -s</code>（或
-<code>--short</code>）：以紧凑格式显示状态</li>
+<li><code>git status -s</code>（或 <code>--short</code>）：以紧凑格式显示状态</li>
 </ul>
-<h2 id="查看修改细节">查看修改细节</h2>
-<p>在提交前，应先用 <code>git status</code>
-确认所有需要包含的修改都已暂存，然后再检查差异。</p>
-<p>有一点需要注意的是，若只想看“未暂存”的修改，直接运行
-<code>git diff</code>；若想查看“已暂存且待提交”部分，可用
-<code>git diff --cached</code>（或 <code>--staged</code>）。</p>
-<h2 id="移除文件">移除文件</h2>
-<h3 id="彻底移除工作目录-git-仓库">1. <strong>彻底移除（工作目录 &amp;
-Git 仓库）</strong>：</h3>
-<p> <code>git rm &lt;file&gt;</code>：</p>
+<h2 id="查看修改细节"><a href="#查看修改细节" class="headerlink" title="查看修改细节"></a>查看修改细节</h2><p>在提交前，应先用 <code>git status</code> 确认所有需要包含的修改都已暂存，然后再检查差异。</p>
+<p>有一点需要注意的是，若只想看“未暂存”的修改，直接运行 <code>git diff</code>；若想查看“已暂存且待提交”部分，可用 <code>git diff --cached</code>（或 <code>--staged</code>）。  </p>
+<h2 id="移除文件"><a href="#移除文件" class="headerlink" title="移除文件"></a>移除文件</h2><h3 id="1-彻底移除（工作目录-Git-仓库）："><a href="#1-彻底移除（工作目录-Git-仓库）：" class="headerlink" title="1. 彻底移除（工作目录 &amp; Git 仓库）："></a>1. <strong>彻底移除（工作目录 &amp; Git 仓库）</strong>：</h3><p> <code>git rm &lt;file&gt;</code>：</p>
 <ul>
 <li>从工作目录中删除文件。</li>
 <li>将删除操作<strong>暂存</strong>（记录到暂存区）。</li>
 <li>提交后，文件将不再被 Git 跟踪，且从磁盘消失。</li>
 </ul>
-<h3 id="仅移除-git-跟踪保留文件在工作目录">2. <strong>仅移除 Git
-跟踪（保留文件在工作目录）</strong>：</h3>
-<p><code>git rm --cached &lt;file&gt;</code>：</p>
+<h3 id="2-仅移除-Git-跟踪（保留文件在工作目录）："><a href="#2-仅移除-Git-跟踪（保留文件在工作目录）：" class="headerlink" title="2. 仅移除 Git 跟踪（保留文件在工作目录）："></a>2. <strong>仅移除 Git 跟踪（保留文件在工作目录）</strong>：</h3><p><code>git rm --cached &lt;file&gt;</code>：</p>
 <ul>
 <li>将文件从 Git 的跟踪列表和暂存区移除。</li>
 <li><strong>保留</strong>文件在工作目录中，使其成为未跟踪文件。</li>
 <li>适用于误添加到暂存区但需保留本地的文件（如日志、编译产物）。</li>
 </ul>
-<h3 id="强制移除-f">3.
-<strong>强制移除（<code>-f</code>）</strong>：</h3>
-<ul>
+<h3 id="3-强制移除（-f）："><a href="#3-强制移除（-f）：" class="headerlink" title="3. 强制移除（-f）："></a>3. <strong>强制移除（<code>-f</code>）</strong>：</h3><ul>
 <li>当文件已被修改且添加到暂存区时，需使用 <code>git rm -f &lt;file&gt;</code> 强制删除。</li>
 <li>防止误删尚未提交快照的修改（这些修改无法由 Git 恢复）。</li>
 </ul>
-<h3 id="删除模式匹配的文件">4.
-<strong>删除模式匹配的文件</strong>：</h3>
-<ul>
-<li>使用 <code>git rm</code> 配合 glob
-模式（如 <code>git rm log/\*.log</code> 删除 <code>log/</code> 下所有 <code>.log</code> 文件）。</li>
+<h3 id="4-删除模式匹配的文件："><a href="#4-删除模式匹配的文件：" class="headerlink" title="4. 删除模式匹配的文件："></a>4. <strong>删除模式匹配的文件</strong>：</h3><ul>
+<li>使用 <code>git rm</code> 配合 glob 模式（如 <code>git rm log/\*.log</code> 删除 <code>log/</code> 下所有 <code>.log</code> 文件）。</li>
 <li><strong>注意</strong>：通常需转义 <code>*</code> 等特殊字符（如 <code>\*</code>）。</li>
 </ul>
-<h2 id="移动重命名文件"><strong>移动/重命名文件</strong></h2>
-<p>Git
-通过内容变化智能推断文件是否被移动或重命名。可以用<code>git mv &lt;old_name&gt; &lt;new_name&gt;</code>进行重命名或者移动，该命令等效于执行以下三条命令：</p>
+<h2 id="移动-重命名文件"><a href="#移动-重命名文件" class="headerlink" title="移动&#x2F;重命名文件"></a><strong>移动&#x2F;重命名文件</strong></h2><p>Git 通过内容变化智能推断文件是否被移动或重命名。可以用<code>git mv &lt;old_name&gt; &lt;new_name&gt;</code>进行重命名或者移动，该命令等效于执行以下三条命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mv</span> &lt;old_name&gt; &lt;new_name&gt;   <span class="hljs-comment"># 1. 工作目录中重命名/移动</span><br>git <span class="hljs-built_in">rm</span> &lt;old_name&gt;          <span class="hljs-comment"># 2. 删除旧文件（暂存）</span><br>git add &lt;new_name&gt;         <span class="hljs-comment"># 3. 添加新文件（暂存）</span><br></code></pre></td></tr></table></figure>
-<p>提交后，Git
-会将其识别为重命名操作（<code>git status</code> 会显示 <code>renamed</code>）。</p>
-<p>如果你使用其他方式（如系统命令或文件管理器）移动/重命名了文件，需要手动执行：</p>
+
+<p>提交后，Git 会将其识别为重命名操作（<code>git status</code> 会显示 <code>renamed</code>）。</p>
+<p>如果你使用其他方式（如系统命令或文件管理器）移动&#x2F;重命名了文件，需要手动执行：</p>
 <figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs gherkin">git rm <span class="hljs-variable">&lt;old_name&gt;</span>  <span class="hljs-comment"># 告诉 Git 删除旧路径的文件</span><br>git add <span class="hljs-variable">&lt;new_name&gt;</span> <span class="hljs-comment"># 告诉 Git 跟踪新路径的文件</span><br></code></pre></td></tr></table></figure>
+
 <p>提交前完成这两步，Git 同样能识别为重命名。</p>
-<h2 id="提交更改">提交更改</h2>
-<p>执行 <code>git commit</code>
-会打开默认文本编辑器，其中包含对本次提交的注释模板（类似
-<code>git status</code>
-输出的注释行），在文件首行输入提交说明即可；也可使用
-<code>git commit -m "提交信息"</code>
-将提交说明写在命令行中。注意每次<code>git commit</code>
-实现一个功能或者改好一个bug就好，注释一定要写清楚，一定，一定。</p>
-<p>提交完成后，会输出当前所在分支、生成的提交 SHA-1
-以及此次修改涉及的文件数、行数等统计信息；</p>
-<p>每次提交只记录暂存区的快照，未暂存的更改不会被包含，仍保留在工作目录中，需在下次提交前再次执行
-<code>git add</code>。</p>
-<h2 id="进阶跳过使用add">进阶：跳过使用add</h2>
-<p>为了方便，可以直接：</p>
+<h2 id="提交更改"><a href="#提交更改" class="headerlink" title="提交更改"></a>提交更改</h2><p>执行 <code>git commit</code> 会打开默认文本编辑器，其中包含对本次提交的注释模板（类似 <code>git status</code> 输出的注释行），在文件首行输入提交说明即可；也可使用 <code>git commit -m &quot;提交信息&quot;</code> 将提交说明写在命令行中。注意每次<code>git commit</code> 实现一个功能或者改好一个bug就好，注释一定要写清楚，一定，一定。</p>
+<p>提交完成后，会输出当前所在分支、生成的提交 SHA-1 以及此次修改涉及的文件数、行数等统计信息；</p>
+<p>每次提交只记录暂存区的快照，未暂存的更改不会被包含，仍保留在工作目录中，需在下次提交前再次执行 <code>git add</code>。  </p>
+<h2 id="进阶：跳过使用add"><a href="#进阶：跳过使用add" class="headerlink" title="进阶：跳过使用add"></a>进阶：跳过使用add</h2><p>为了方便，可以直接：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git commit -a<br></code></pre></td></tr></table></figure>
+
 <p>以此来跳过使用add和暂存区域，但是会给所有跟踪过的文件暂存一块提交，就不这么精细</p>
-<h1 id="git回顾">Git回顾</h1>
-<h2 id="查看提交历史">查看提交历史</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">log</span><br></code></pre></td></tr></table></figure>
+<h1 id="Git回顾"><a href="#Git回顾" class="headerlink" title="Git回顾"></a>Git回顾</h1><h2 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">log</span><br></code></pre></td></tr></table></figure>
+
 <p>这个是用来看提交历史流程，最新的在上，旧的在下面。会给作者名、提交者、概要之类的信息。</p>
 <p>这个可以有很多参数进行细致的查看，这里由于笔者本人大型项目开发经验欠缺，暂时先略过，等我用到再说。</p>
-<h1 id="git撤销">Git撤销</h1>
-<p>这个可能会导致工作丢失，如果操作不好的话。</p>
+<h1 id="Git撤销"><a href="#Git撤销" class="headerlink" title="Git撤销"></a>Git撤销</h1><p>这个可能会导致工作丢失，如果操作不好的话。</p>
 <p>暂时先写到这里，等期末考完再说下一步。</p>
-<p>Git GUI汉化包：<a
-target="_blank" rel="noopener" href="https://github.com/stayor/git-gui-zh">stayor/git-gui-zh</a></p>
+<p>Git GUI汉化包：<a target="_blank" rel="noopener" href="https://github.com/stayor/git-gui-zh">stayor&#x2F;git-gui-zh</a></p>
 <p>参考资料：</p>
 <ul>
-<li><a
-target="_blank" rel="noopener" href="https://github.com/stayor/git-gui-zh">stayor/git-gui-zh</a></li>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/259270374">Git的汉化 -
-知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/stayor/git-gui-zh">stayor&#x2F;git-gui-zh</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/259270374">Git的汉化 - 知乎</a></li>
 <li><a target="_blank" rel="noopener" href="https://git-scm.com/book/en/v2">Git</a></li>
 </ul>
 

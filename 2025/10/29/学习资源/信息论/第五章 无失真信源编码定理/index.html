@@ -237,7 +237,7 @@
         
         
         
-          17 分钟
+          18 分钟
         
       </span>
     
@@ -288,191 +288,115 @@
             
               <div class="markdown-body">
                 
-                <h2 id="引言">1. 引言</h2>
-<h3 id="编码目的与分类">1.1 编码目的与分类</h3>
-<ul>
-<li><p><strong>信源编码 (Source
-Coding)</strong>：以提高通信<strong>有效性</strong>为目的的编码。通过<strong>压缩信源的冗余度</strong>，减少平均码率。</p></li>
-<li><p><strong>信道编码 (Channel
-Coding)</strong>：以提高信息传输<strong>可靠性</strong>为目的的编码。通过<strong>增加信源的冗余度</strong>，抵抗信道干扰。</p></li>
-<li><p><strong>密码
-(Cryptography)</strong>：以提高通信<strong>安全性</strong>为目的的编码。</p></li>
+                <h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1. 引言"></a>1. 引言</h2><h3 id="1-1-编码目的与分类"><a href="#1-1-编码目的与分类" class="headerlink" title="1.1 编码目的与分类"></a>1.1 编码目的与分类</h3><ul>
+<li><p><strong>信源编码 (Source Coding)</strong>：以提高通信<strong>有效性</strong>为目的的编码。通过<strong>压缩信源的冗余度</strong>，减少平均码率。</p>
+</li>
+<li><p><strong>信道编码 (Channel Coding)</strong>：以提高信息传输<strong>可靠性</strong>为目的的编码。通过<strong>增加信源的冗余度</strong>，抵抗信道干扰。</p>
+</li>
+<li><p><strong>密码 (Cryptography)</strong>：以提高通信<strong>安全性</strong>为目的的编码。</p>
+</li>
 </ul>
-<h3 id="信源编码理论基础">1.2 信源编码理论基础</h3>
-<p>信源编码理论主要基于两个定理：</p>
-<ol type="1">
-<li><p><strong>无失真信源编码定理
-(香农第一定理)</strong>：离散信源/数字信号编码的基础。</p></li>
-<li><p><strong>限失真信源编码定理</strong>：连续信源/模拟信号编码的基础。</p></li>
+<h3 id="1-2-信源编码理论基础"><a href="#1-2-信源编码理论基础" class="headerlink" title="1.2 信源编码理论基础"></a>1.2 信源编码理论基础</h3><p>信源编码理论主要基于两个定理：</p>
+<ol>
+<li><p><strong>无失真信源编码定理 (香农第一定理)</strong>：离散信源&#x2F;数字信号编码的基础。</p>
+</li>
+<li><p><strong>限失真信源编码定理</strong>：连续信源&#x2F;模拟信号编码的基础。</p>
+</li>
 </ol>
-<h3 id="编码器模型与码长">1.3 编码器模型与码长</h3>
-<ul>
-<li><p><strong>编码器输入</strong>：原始信源符号集 <span
-class="math inline">\(S=\{S_1, S_2, \ldots, S_q\}\)</span>。</p></li>
-<li><p><strong>信道符号集 (码元)</strong>：<span
-class="math inline">\(X=\{x_1, x_2, \ldots, x_r\}\)</span>。</p></li>
-<li><p><strong>编码器输出 (码字)</strong>：<span
-class="math inline">\(C:\{W_1, W_2, \ldots, W_q\}\)</span>。</p></li>
-<li><p><strong>码长 <span
-class="math inline">\(l_i\)</span></strong>：码字 <span
-class="math inline">\(W_i\)</span> 所包含的码元个数。</p></li>
+<h3 id="1-3-编码器模型与码长"><a href="#1-3-编码器模型与码长" class="headerlink" title="1.3 编码器模型与码长"></a>1.3 编码器模型与码长</h3><ul>
+<li><p><strong>编码器输入</strong>：原始信源符号集 $S&#x3D;{S_1, S_2, \ldots, S_q}$。</p>
+</li>
+<li><p><strong>信道符号集 (码元)</strong>：$X&#x3D;{x_1, x_2, \ldots, x_r}$。</p>
+</li>
+<li><p><strong>编码器输出 (码字)</strong>：$C:{W_1, W_2, \ldots, W_q}$。</p>
+</li>
+<li><p><strong>码长 $l_i$</strong>：码字 $W_i$ 所包含的码元个数。</p>
+</li>
 </ul>
-<h2 id="等长码">2. 等长码</h2>
-<h3 id="等长码定义">2.1 等长码定义</h3>
-<ul>
-<li><p>若一组码中所有码字长度都相同，称为<strong>等长码</strong>。</p></li>
-<li><p>码长是固定的。</p></li>
+<h2 id="2-等长码"><a href="#2-等长码" class="headerlink" title="2. 等长码"></a>2. 等长码</h2><h3 id="2-1-等长码定义"><a href="#2-1-等长码定义" class="headerlink" title="2.1 等长码定义"></a>2.1 等长码定义</h3><ul>
+<li><p>若一组码中所有码字长度都相同，称为<strong>等长码</strong>。</p>
+</li>
+<li><p>码长是固定的。</p>
+</li>
 </ul>
-<h3 id="编码所需码长条件">2.2 编码所需码长条件</h3>
+<h3 id="2-2-编码所需码长条件"><a href="#2-2-编码所需码长条件" class="headerlink" title="2.2 编码所需码长条件"></a>2.2 编码所需码长条件</h3><ul>
+<li><p>若用 $r$ 元码对 $q$ 个信源符号进行等长编码，码长为 $l$，必须满足:</p>
+<p>$$<br>q \le r^l<br>$$</p>
+</li>
+<li><p>若对信源的 $N$ 次扩展信源进行等长编码，必须满足:</p>
+<p>$$<br>q^N \le r^l<br>$$</p>
 <ul>
-<li><p>若用 <span class="math inline">\(r\)</span> 元码对 <span
-class="math inline">\(q\)</span> 个信源符号进行等长编码，码长为 <span
-class="math inline">\(l\)</span>，必须满足:</p>
-<p><span class="math display">\[
-q \le r^l
-\]</span></p></li>
-<li><p>若对信源的 <span class="math inline">\(N\)</span>
-次扩展信源进行等长编码，必须满足:</p>
-<p><span class="math display">\[
-q^N \le r^l
-\]</span></p>
-<ul>
-<li>平均每个信源符号所需的码符号个数 <span
-class="math inline">\(\frac{l}{N}\)</span> 必须满足: <span
-class="math display">\[
-\frac{l}{N} \ge \frac{\log_r q}{\log_r r}
-\]</span></li>
-</ul></li>
+<li>平均每个信源符号所需的码符号个数 $\frac{l}{N}$ 必须满足:<br>$$<br>\frac{l}{N} \ge \frac{\log_r q}{\log_r r}<br>$$</li>
+</ul>
+</li>
 </ul>
 <p>很容易理解，在这里不再赘述。</p>
-<h2 id="等长信源编码定理">3. 等长信源编码定理</h2>
-<h3 id="核心思想">3.1 核心思想</h3>
-<ul>
-<li><p>通过对信源 <span class="math inline">\(N\)</span>
-次扩展，将信源序列划分为<strong>高概率集 <span
-class="math inline">\(G\)</span></strong> (经常出现) 和<strong>低概率集
-<span class="math inline">\(\bar{G}\)</span></strong>
-(不经常出现)。</p></li>
-<li><p>只对高概率集 <span class="math inline">\(G\)</span>
-中的序列编码，舍弃低概率集 <span
-class="math inline">\(\bar{G}\)</span>，从而减少所需的码长，同时译码错误概率趋近于零。</p></li>
+<h2 id="3-等长信源编码定理"><a href="#3-等长信源编码定理" class="headerlink" title="3. 等长信源编码定理"></a>3. 等长信源编码定理</h2><h3 id="3-1-核心思想"><a href="#3-1-核心思想" class="headerlink" title="3.1 核心思想"></a>3.1 核心思想</h3><ul>
+<li><p>通过对信源 $N$ 次扩展，将信源序列划分为<strong>高概率集 $G$</strong> (经常出现) 和<strong>低概率集 $\bar{G}$</strong> (不经常出现)。</p>
+</li>
+<li><p>只对高概率集 $G$ 中的序列编码，舍弃低概率集 $\bar{G}$，从而减少所需的码长，同时译码错误概率趋近于零。</p>
+</li>
 </ul>
-<h3 id="定理-5.3-等长信源编码定理">3.2 定理 5.3 (等长信源编码定理)</h3>
-<p>一个熵为 <span class="math inline">\(H(S)\)</span> 的离散无记忆信源
-<span class="math inline">\(S\)</span>，若对其 <span
-class="math inline">\(N\)</span> 次扩展信源进行等长 <span
-class="math inline">\(r\)</span> 元编码，码长为 <span
-class="math inline">\(l\)</span>。对于任意 <span
-class="math inline">\(\epsilon &gt; 0\)</span>：</p>
-<ol type="1">
+<h3 id="3-2-定理-5-3-等长信源编码定理"><a href="#3-2-定理-5-3-等长信源编码定理" class="headerlink" title="3.2 定理 5.3 (等长信源编码定理)"></a>3.2 定理 5.3 (等长信源编码定理)</h3><p>一个熵为 $H(S)$ 的离散无记忆信源 $S$，若对其 $N$ 次扩展信源进行等长 $r$ 元编码，码长为 $l$。对于任意 $\epsilon &gt; 0$：</p>
+<ol>
 <li><p><strong>可实现几乎无失真编码</strong>：只要满足:</p>
-<p><span class="math display">\[
-\frac{l}{N} \ge \frac{H(S)+ \epsilon}{\log_2 r}
-\]</span></p>
-<p>当 <span class="math inline">\(N \to \infty\)</span>
-时，译码错误概率趋近于 0。</p></li>
+<p>$$<br>\frac{l}{N} \ge \frac{H(S)+ \epsilon}{\log_2 r}<br>$$</p>
+<p>当 $N \to \infty$ 时，译码错误概率趋近于 0。</p>
+</li>
 <li><p><strong>不可能实现无失真编码</strong>：若满足:</p>
-<p><span class="math display">\[
-\frac{l}{N} &lt; \frac{H(S)-2 \epsilon}{\log_2 r}
-\]</span></p>
-<p>当 <span class="math inline">\(N \to \infty\)</span>
-时，译码错误概率接近于 1。</p></li>
+<p>$$<br>\frac{l}{N} &lt; \frac{H(S)-2 \epsilon}{\log_2 r}<br>$$</p>
+<p>当 $N \to \infty$ 时，译码错误概率接近于 1。</p>
+</li>
 </ol>
-<p><strong>结论</strong>: <span class="math inline">\(\frac{H(S)}{\log_2
-r}\)</span>
-给出了实现无失真等长编码所需的平均码长（每个信源符号所需的码元数）的极限值。</p>
-<hr />
-<h2 id="变长码">4. 变长码</h2>
-<h3 id="变长码的分类">4.1 变长码的分类</h3>
-<ul>
-<li><p><strong>变长码</strong>：所有码字的长度 <span
-class="math inline">\(l_i\)</span> 各不相同。</p></li>
-<li><p><strong>非奇异码</strong>：所有码字互不相同。</p></li>
-<li><p><strong>唯一可译码
-(UCD)</strong>：码的任意一串序列只能被唯一的译成对应的信源符号序列。</p></li>
-<li><p><strong>即时码 (Prefix
-Code)</strong>：唯一可译码中的一类，任一码字都不是其他码字的<strong>前缀</strong>，译码时无需参考后续码字即可判断。</p></li>
+<p><strong>结论</strong>: $\frac{H(S)}{\log_2 r}$ 给出了实现无失真等长编码所需的平均码长（每个信源符号所需的码元数）的极限值。</p>
+<hr>
+<h2 id="4-变长码"><a href="#4-变长码" class="headerlink" title="4. 变长码"></a>4. 变长码</h2><h3 id="4-1-变长码的分类"><a href="#4-1-变长码的分类" class="headerlink" title="4.1 变长码的分类"></a>4.1 变长码的分类</h3><ul>
+<li><p><strong>变长码</strong>：所有码字的长度 $l_i$ 各不相同。</p>
+</li>
+<li><p><strong>非奇异码</strong>：所有码字互不相同。</p>
+</li>
+<li><p><strong>唯一可译码 (UCD)</strong>：码的任意一串序列只能被唯一的译成对应的信源符号序列。</p>
+</li>
+<li><p><strong>即时码 (Prefix Code)</strong>：唯一可译码中的一类，任一码字都不是其他码字的<strong>前缀</strong>，译码时无需参考后续码字即可判断。</p>
+</li>
 </ul>
-<h3 id="克拉夫特-kraft-不等式-定理-5.45.5">4.2 克拉夫特 (Kraft) 不等式
-(定理 5.4/5.5)</h3>
-<ul>
-<li><p>对于码符号集为 <span class="math inline">\(X=\{x_1, \ldots,
-x_r\}\)</span> 的任意 <span class="math inline">\(r\)</span>
-元<strong>即时码</strong>或<strong>唯一可译码</strong>，所对应的码长为
-<span class="math inline">\(l_i\)</span>，则必定满足:</p>
-<p><span class="math display">\[
-\sum_{i=1}^{q} r^{-l_i} \le 1
-\]</span></p></li>
-<li><p><strong>定理 5.6</strong>：若存在一个码长为 <span
-class="math inline">\(l_i\)</span>
-的唯一可译码，则一定存在一个同样长度的即时码。这说明在码长方面，唯一可译码不优于即时码，因此只需讨论即时码即可。</p></li>
+<h3 id="4-2-克拉夫特-Kraft-不等式-定理-5-4-5-5"><a href="#4-2-克拉夫特-Kraft-不等式-定理-5-4-5-5" class="headerlink" title="4.2 克拉夫特 (Kraft) 不等式 (定理 5.4&#x2F;5.5)"></a>4.2 克拉夫特 (Kraft) 不等式 (定理 5.4&#x2F;5.5)</h3><ul>
+<li><p>对于码符号集为 $X&#x3D;{x_1, \ldots, x_r}$ 的任意 $r$ 元<strong>即时码</strong>或<strong>唯一可译码</strong>，所对应的码长为 $l_i$，则必定满足:</p>
+<p>$$<br>\sum_{i&#x3D;1}^{q} r^{-l_i} \le 1<br>$$</p>
+</li>
+<li><p><strong>定理 5.6</strong>：若存在一个码长为 $l_i$ 的唯一可译码，则一定存在一个同样长度的即时码。这说明在码长方面，唯一可译码不优于即时码，因此只需讨论即时码即可。</p>
+</li>
 </ul>
-<h3 id="唯一可译变长码的判断法-萨得纳斯-彼特森测试">4.3
-唯一可译变长码的判断法 (萨得纳斯-彼特森测试)</h3>
-<ol type="1">
-<li><p>将码 <span class="math inline">\(C\)</span>
-中所有可能的<strong>尾随后缀</strong>组成一个集合 <span
-class="math inline">\(F\)</span>。</p></li>
-<li><p>当且仅当集合 <span class="math inline">\(F\)</span>
-中<strong>没有</strong>包含任一码字，则码 <span
-class="math inline">\(C\)</span> 为唯一可译码。</p></li>
+<h3 id="4-3-唯一可译变长码的判断法-萨得纳斯-彼特森测试"><a href="#4-3-唯一可译变长码的判断法-萨得纳斯-彼特森测试" class="headerlink" title="4.3 唯一可译变长码的判断法 (萨得纳斯-彼特森测试)"></a>4.3 唯一可译变长码的判断法 (萨得纳斯-彼特森测试)</h3><ol>
+<li><p>将码 $C$ 中所有可能的<strong>尾随后缀</strong>组成一个集合 $F$。</p>
+</li>
+<li><p>当且仅当集合 $F$ 中<strong>没有</strong>包含任一码字，则码 $C$ 为唯一可译码。</p>
+</li>
 </ol>
-<hr />
-<h2 id="变长信源编码定理">5. 变长信源编码定理</h2>
-<h3 id="紧致码和平均码长">5.1 紧致码和平均码长</h3>
-<ul>
-<li><p><strong>平均码长 <span
-class="math inline">\(\bar{L}\)</span></strong>:</p>
-<p><span class="math display">\[
-\bar{L} = \sum_{i=1}^{q} P(S_i) l_i
-\]</span></p></li>
-<li><p><strong>紧致码 (最佳码)</strong>：平均码长 <span
-class="math inline">\(\bar{L}\)</span>
-最小的唯一可译码。无失真信源编码的基本问题就是寻找紧致码。</p></li>
+<hr>
+<h2 id="5-变长信源编码定理"><a href="#5-变长信源编码定理" class="headerlink" title="5. 变长信源编码定理"></a>5. 变长信源编码定理</h2><h3 id="5-1-紧致码和平均码长"><a href="#5-1-紧致码和平均码长" class="headerlink" title="5.1 紧致码和平均码长"></a>5.1 紧致码和平均码长</h3><ul>
+<li><p><strong>平均码长 $\bar{L}$</strong>: </p>
+<p>$$<br>\bar{L} &#x3D; \sum_{i&#x3D;1}^{q} P(S_i) l_i<br>$$</p>
+</li>
+<li><p><strong>紧致码 (最佳码)</strong>：平均码长 $\bar{L}$ 最小的唯一可译码。无失真信源编码的基本问题就是寻找紧致码。</p>
+</li>
 </ul>
-<h3 id="定理-5.8-无失真变长信源编码定理香农第一定理">5.2 定理 5.8
-(无失真变长信源编码定理/香农第一定理)</h3>
-<p>补充：紧致码满足：<span
-class="math inline">\(R=\frac{H(S)}{\bar{L}}\)</span></p>
-<p>离散无记忆信源 <span class="math inline">\(S\)</span> 的 <span
-class="math inline">\(N\)</span> 次扩展信源 <span
-class="math inline">\(S^N\)</span>，编码器的码元符号集为 <span
-class="math inline">\(X=\{x_1, \ldots,
-x_r\}\)</span>。总可以找到唯一可译码，使信源 <span
-class="math inline">\(S\)</span>
-中每个符号所需的<strong>平均码长</strong> <span
-class="math inline">\(\bar{L} = \sum_{i=1}^q p_il_i\)</span> 满足:</p>
-<p><span class="math display">\[
-\frac{H(S)}{\log_2 r} \le \frac{\bar{L}}{N} &lt; \frac{H(S)}{\log_2 r} +
-\frac{1}{N}
-\]</span></p>
-<p>当 <span class="math inline">\(N \to \infty\)</span>
-时，平均码长可以趋近该极限值 <span
-class="math inline">\(\frac{H(S)}{\log_2 r}\)</span>。</p>
+<h3 id="5-2-定理-5-8-无失真变长信源编码定理-香农第一定理"><a href="#5-2-定理-5-8-无失真变长信源编码定理-香农第一定理" class="headerlink" title="5.2 定理 5.8 (无失真变长信源编码定理&#x2F;香农第一定理)"></a>5.2 定理 5.8 (无失真变长信源编码定理&#x2F;香农第一定理)</h3><p>补充：紧致码满足：$R&#x3D;\frac{H(S)}{\bar{L}}$</p>
+<p>离散无记忆信源 $S$ 的 $N$ 次扩展信源 $S^N$，编码器的码元符号集为 $X&#x3D;{x_1, \ldots, x_r}$。总可以找到唯一可译码，使信源 $S$ 中每个符号所需的<strong>平均码长</strong> $\bar{L} &#x3D; \sum_{i&#x3D;1}^q p_il_i$ 满足:</p>
+<p>$$<br>\frac{H(S)}{\log_2 r} \le \frac{\bar{L}}{N} &lt; \frac{H(S)}{\log_2 r} + \frac{1}{N}<br>$$</p>
+<p>当 $N \to \infty$ 时，平均码长可以趋近该极限值 $\frac{H(S)}{\log_2 r}$。</p>
 <ul>
-<li><strong>核心结论</strong>: <strong>信源的熵 <span
-class="math inline">\(H(S)\)</span></strong>
-是无失真信源编码的极限值。要做到无失真编码，信源每个符号所需的平均码元数就是信源的
-<span class="math inline">\(r\)</span> 元熵 <span
-class="math inline">\(H_r(S) = \frac{H(S)}{\log_2 r}\)</span>。</li>
+<li><strong>核心结论</strong>: <strong>信源的熵 $H(S)$</strong> 是无失真信源编码的极限值。要做到无失真编码，信源每个符号所需的平均码元数就是信源的 $r$ 元熵 $H_r(S) &#x3D; \frac{H(S)}{\log_2 r}$。</li>
 </ul>
-<h3 id="物理意义与编码效率">5.3 物理意义与编码效率</h3>
-<ul>
-<li><p><strong>实质</strong>:
-无失真信源编码的实质就是对信源进行变换，使变换后新的码符号信源（即信道输入信源）尽可能为<strong>等概率分布</strong>，从而使信道的信息传输率
-<span class="math inline">\(R\)</span> 达到<strong>信道容量 <span
-class="math inline">\(C\)</span></strong>，实现信源与信道理想的统计匹配。</p></li>
-<li><p><strong>编码效率 <span
-class="math inline">\(\eta\)</span></strong>: 衡量编码效果。</p>
-<p><span class="math display">\[
-\eta = \frac{H(S)}{\bar{L} \log_2 r}
-\]</span></p>
-<p>当 <span class="math inline">\(\bar{L}\)</span> 达到极限值 <span
-class="math inline">\(\frac{H(S)}{\log_2 r}\)</span>
-时，<strong>最佳编码效率 <span class="math inline">\(\eta_{\max} =
-1\)</span></strong>。</p></li>
+<h3 id="5-3-物理意义与编码效率"><a href="#5-3-物理意义与编码效率" class="headerlink" title="5.3 物理意义与编码效率"></a>5.3 物理意义与编码效率</h3><ul>
+<li><p><strong>实质</strong>: 无失真信源编码的实质就是对信源进行变换，使变换后新的码符号信源（即信道输入信源）尽可能为<strong>等概率分布</strong>，从而使信道的信息传输率 $R$ 达到<strong>信道容量 $C$</strong>，实现信源与信道理想的统计匹配。</p>
+</li>
+<li><p><strong>编码效率 $\eta$</strong>: 衡量编码效果。</p>
+<p>$$<br>\eta &#x3D; \frac{H(S)}{\bar{L} \log_2 r}<br>$$</p>
+<p>当 $\bar{L}$ 达到极限值 $\frac{H(S)}{\log_2 r}$ 时，<strong>最佳编码效率 $\eta_{\max} &#x3D; 1$</strong>。</p>
+</li>
 </ul>
-<hr />
+<hr>
 
                 
               </div>
