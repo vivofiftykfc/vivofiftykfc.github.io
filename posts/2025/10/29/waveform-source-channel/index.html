@@ -1,0 +1,1008 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本章是信息论中从离散到连续的过渡，核心在于“连续信源与信道的信息度量”。主要介绍波形信源的统计特性、连续信源的熵定义与性质、最大差熵定理，以及连续与波形信道的信息传输率和信道容量。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第四章 波形信源与波形信道">
+<meta property="og:url" content="http://example.com/posts/2025/10/29/waveform-source-channel/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="本章是信息论中从离散到连续的过渡，核心在于“连续信源与信道的信息度量”。主要介绍波形信源的统计特性、连续信源的熵定义与性质、最大差熵定理，以及连续与波形信道的信息传输率和信道容量。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/blogs/20.jpg">
+<meta property="article:published_time" content="2025-10-29T09:09:11.000Z">
+<meta property="article:modified_time" content="2026-07-06T10:15:41.540Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/blogs/20.jpg">
+  
+  
+  
+  <title>第四章 波形信源与波形信道 - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":"ture","follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":"ture"},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/20.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="第四章 波形信源与波形信道"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-29 17:09" pubdate>
+          2025年10月29日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          23 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">第四章 波形信源与波形信道</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="第一节-波形信源的统计特性与离散化"><a href="#第一节-波形信源的统计特性与离散化" class="headerlink" title="第一节 波形信源的统计特性与离散化"></a>第一节 波形信源的统计特性与离散化</h2><p>随机波形信源：输出是时间与取值都连续的随机过程 ${x(t)}$。每个样本函数 $x_i(t)$ 是随机过程的一个实现。可分为：平稳过程与非平稳过程，这个在不同的课里面讲的第三遍了。</p>
+<h3 id="遍历性"><a href="#遍历性" class="headerlink" title="遍历性"></a>遍历性</h3><p>具体是啥我这里也不细讲了，直接就用这个遍历性吧。这个也好几遍了。</p>
+<p>遍历随机过程满足时间平均 &#x3D; 统计平均（以概率1成立）：</p>
+<p>$$<br>\lim_{T\to\infty} \frac{1}{2T}\int_{-T}^T x(t),dt &#x3D; E[X(t)].<br>$$</p>
+<h3 id="取样与量化"><a href="#取样与量化" class="headerlink" title="取样与量化"></a>取样与量化</h3><p>对限频随机过程取样，每个样本值是一个随机变量；</p>
+<p>在限时 $T$ 内、带宽 $F$ 的情况下，可得 $2FT$ 个取样值；</p>
+<p>再经过<strong>量化</strong>（离散化），即可得到离散随机序列。</p>
+<blockquote>
+<p>随机波形信源经取样 + 量化 → 连续信源 → 离散信源。</p>
+</blockquote>
+<p>一般来说，直接就给通信系统中的信号给认为是平稳随机过程。</p>
+<hr>
+<h2 id="第二节-连续信源与波形信源的信息测度"><a href="#第二节-连续信源与波形信源的信息测度" class="headerlink" title="第二节 连续信源与波形信源的信息测度"></a>第二节 连续信源与波形信源的信息测度</h2><h3 id="1-连续信源的定义"><a href="#1-连续信源的定义" class="headerlink" title="(1) 连续信源的定义"></a>(1) 连续信源的定义</h3><p>信源输出为连续随机变量，可用概率密度函数 $p(x)$ 描述：</p>
+<p>$$<br>\int_R p(x),dx &#x3D; 1.<br>$$</p>
+<p>其对应的一维、联合及条件概率密度函数分别为 $p(x)$、$p(x,y)$、$p(y|x)$。</p>
+<hr>
+<h3 id="2-连续信源的熵（差熵）"><a href="#2-连续信源的熵（差熵）" class="headerlink" title="(2) 连续信源的熵（差熵）"></a>(2) 连续信源的熵（差熵）</h3><p>从离散熵推广而来：</p>
+<p>$$<br>h(X) &#x3D; -\int_R p(x)\log_2 p(x),dx<br>$$</p>
+<p>注意：</p>
+<p>与离散熵形式相似，但<strong>概念不同</strong>；</p>
+<p> $h(X)$ 可为负值（如均匀分布区间 &lt;1 时），不具有离散熵的非负性；</p>
+<p>表示“相对不确定度”，又称<strong>相对熵</strong>。</p>
+<p>还是给他叫做差熵比较好，因为他<strong>不具有离散信源熵的绝对性</strong>，不能代表信源的平均不确定度，不能代表连续信源输出的信息量，只能是一个相对的值，不具有非负性。</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510291601256.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<hr>
+<h3 id="3-常见连续信源的差熵"><a href="#3-常见连续信源的差熵" class="headerlink" title="(3) 常见连续信源的差熵"></a>(3) 常见连续信源的差熵</h3><ul>
+<li><p><strong>均匀分布</strong>：</p>
+<p>$$<br>p(x)&#x3D;\frac{1}{b-a},\quad h(X)&#x3D;\log_2(b-a)<br>$$</p>
+</li>
+<li><p><strong>高斯分布</strong>：</p>
+</li>
+</ul>
+<p>$$<br>  p(x)&#x3D;\frac{1}{\sqrt{2\pi\sigma^2}}\exp!\left(-\frac{(x-m)^2}{2\sigma^2}\right)<br>  $$</p>
+<p>  $$<br>  h(X)&#x3D;\frac{1}{2}\log_2(2\pi e\sigma^2)<br>  $$</p>
+<blockquote>
+<p>高斯信源熵只与方差 $\sigma^2$ 有关，与均值 $m$ 无关。这个和连续信号的差熵的具体含义：相对的熵向一致。</p>
+</blockquote>
+<hr>
+<h3 id="4-波形信源的差熵与熵率"><a href="#4-波形信源的差熵与熵率" class="headerlink" title="(4) 波形信源的差熵与熵率"></a>(4) 波形信源的差熵与熵率</h3><ul>
+<li>对限频 F、限时 T 的随机过程 {x(t)}，其取样形成 $N&#x3D;2FT$ 维随机向量：</li>
+</ul>
+<p>$$<br>  h(X_1, X_2, …, X_N)<br>  $$</p>
+<ul>
+<li><p>熵率（单位时间信息量）：</p>
+<p>$$<br>h_t(X) &#x3D; 2F \log_2(b-a)\ \text{比特&#x2F;秒}<br>$$</p>
+</li>
+</ul>
+<p>等一下，这个公式是不是只限定均匀分布？</p>
+<hr>
+<h2 id="第三节-连续信源熵的性质与最大差熵定理"><a href="#第三节-连续信源熵的性质与最大差熵定理" class="headerlink" title="第三节 连续信源熵的性质与最大差熵定理"></a>第三节 连续信源熵的性质与最大差熵定理</h2><h3 id="1-性质"><a href="#1-性质" class="headerlink" title="1. 性质"></a>1. 性质</h3><ol>
+<li><p><strong>可加性</strong>：  </p>
+<p>$h(X,Y)&#x3D;h(X)+h(Y|X)&#x3D;h(Y)+h(X|Y)$</p>
+</li>
+<li><p><strong>凸性与极值性</strong>：  </p>
+<p>熵是 $p(x)$ 的上凸函数。</p>
+</li>
+<li><p><strong>可为负值</strong>：  </p>
+<p>因为是“相对熵”，不具备离散熵的非负性。</p>
+</li>
+<li><p><strong>变换性</strong>：  </p>
+<p>若 $Y&#x3D;f(X)$ 是一一对应变换：</p>
+<p>$$<br>h(Y)&#x3D;h(X)+E[\log_2 |J(\frac{X}{Y})|]<br>$$</p>
+<p>其中 $J$ 为雅可比行列式。</p>
+</li>
+</ol>
+<hr>
+<h3 id="2-最大差熵定理"><a href="#2-最大差熵定理" class="headerlink" title="2. 最大差熵定理"></a>2. 最大差熵定理</h3><h4 id="（1）限峰值功率条件下："><a href="#（1）限峰值功率条件下：" class="headerlink" title="（1）限峰值功率条件下："></a>（1）限峰值功率条件下：</h4><p>若信源输出 $X\in[a,b]$，则</p>
+<ul>
+<li><p>当 $p(x)$ 为<strong>均匀分布</strong>时，熵最大；</p>
+</li>
+<li><p>最大熵值：  </p>
+<p>$$<br>h_{\max} &#x3D; \log_2(b-a)<br>$$</p>
+</li>
+</ul>
+<h4 id="（2）限平均功率条件下："><a href="#（2）限平均功率条件下：" class="headerlink" title="（2）限平均功率条件下："></a>（2）限平均功率条件下：</h4><p>若 $E[X^2]&#x3D;P$ ，即输出信号的平均功率限定为P时，则</p>
+<ul>
+<li><p>当 $X$ 为<strong>高斯分布</strong>时，熵最大；</p>
+</li>
+<li><p>最大熵值：<br>$$<br>h_{\max} &#x3D; \frac{1}{2}\log_2(2\pi e P)<br>$$</p>
+</li>
+</ul>
+<blockquote>
+<p>说明：  </p>
+<p>均匀分布 ↔ 峰值受限  </p>
+<p>高斯分布 ↔ 平均功率受限  </p>
+<p>两者分别对应于两种常见的噪声：均匀噪声和高斯噪声。</p>
+<p>这个和噪声是一个最不确定的随机过程，而最大的信息量只能从最不确定的事件中获得相一致的。</p>
+</blockquote>
+<hr>
+<h2 id="第四节-连续信源熵的变换"><a href="#第四节-连续信源熵的变换" class="headerlink" title="第四节 连续信源熵的变换"></a>第四节 连续信源熵的变换</h2><p>信源 $X$ 经过线性变换 $Y&#x3D;kX+a$ 后：</p>
+<p>对于概率密度函数：</p>
+<p>$$p_Y(y_1 y_2 \cdots y_N) &#x3D; p_X(x_1 x_2 \cdots x_N) \left| J\left( \frac{X}{Y} \right) \right|$$</p>
+<p>对于差熵：</p>
+<p>$$<br>h(Y)&#x3D;h(X)+\log_2|k|<br>$$</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510291631692.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<hr>
+<h2 id="第五节-连续信道与波形信道分类"><a href="#第五节-连续信道与波形信道分类" class="headerlink" title="第五节 连续信道与波形信道分类"></a>第五节 连续信道与波形信道分类</h2><h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h3><ul>
+<li><p><strong>波形信道</strong>：输入、输出均为随机过程 ${x(t)}$、${y(t)}$；</p>
+</li>
+<li><p><strong>连续信道</strong>：输入、输出为连续随机变量 $X,Y$。</p>
+</li>
+</ul>
+<p>经限时限频取样后：</p>
+<p>$$<br>{x(t)} \to (X_1, X_2, …, X_N), \quad {y(t)} \to (Y_1, Y_2, …, Y_N)<br>$$</p>
+<p>从而波形信道可等效为<strong>多维连续信道</strong>。</p>
+<hr>
+<h3 id="2-按统计特性分类"><a href="#2-按统计特性分类" class="headerlink" title="2. 按统计特性分类"></a>2. 按统计特性分类</h3><ul>
+<li><p><strong>无记忆信道</strong>：输出仅与对应输入有关；</p>
+</li>
+<li><p><strong>有记忆信道</strong>：输出与多时刻输入有关。</p>
+</li>
+</ul>
+<hr>
+<h3 id="3-按噪声类型分类"><a href="#3-按噪声类型分类" class="headerlink" title="3. 按噪声类型分类"></a>3. 按噪声类型分类</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>高斯信道</td>
+<td>噪声服从高斯分布</td>
+<td>常用模型</td>
+</tr>
+<tr>
+<td>白噪声信道</td>
+<td>噪声功率谱密度恒定</td>
+<td>$N_0&#x2F;2$</td>
+</tr>
+<tr>
+<td>有色噪声信道</td>
+<td>功率谱密度随频率变化</td>
+<td>有记忆</td>
+</tr>
+<tr>
+<td>加性信道</td>
+<td>$y&#x3D;x+n$</td>
+<td>噪声与信号独立</td>
+</tr>
+<tr>
+<td>乘性信道</td>
+<td>$y&#x3D;x·n$</td>
+<td>无线通信中常见</td>
+</tr>
+</tbody></table>
+<p>在加性信道中，条件熵：</p>
+<p>$$<br>h(Y|X)&#x3D;h(n)<br>$$</p>
+<p>称为<strong>噪声熵</strong>。</p>
+<hr>
+<h2 id="第六节-连续信道与波形信道的信息传输率"><a href="#第六节-连续信道与波形信道的信息传输率" class="headerlink" title="第六节 连续信道与波形信道的信息传输率"></a>第六节 连续信道与波形信道的信息传输率</h2><h3 id="单符号连续信道"><a href="#单符号连续信道" class="headerlink" title="单符号连续信道"></a>单符号连续信道</h3><p>平均互信息：</p>
+<p>$$<br>I(X;Y)&#x3D;h(Y)-h(Y|X)&#x3D;h(Y)-h(n)<br>$$</p>
+<h3 id="多维连续信道"><a href="#多维连续信道" class="headerlink" title="多维连续信道"></a>多维连续信道</h3><p>$$<br>I(X;Y)&#x3D;\int\int p(x,y)\log_2\frac{p(x,y)}{p(x)p(y)},dxdy<br>$$</p>
+<p>平均每个自由度的信息传输率：</p>
+<p>$$<br>R &#x3D; \frac{1}{N}I(X;Y)<br>$$</p>
+<h3 id="波形信道"><a href="#波形信道" class="headerlink" title="波形信道"></a>波形信道</h3><p>单位时间信息传输率：</p>
+<p>$$<br>R_t &#x3D; \lim_{T\to\infty} \frac{1}{T} I({x(t)}, {y(t)})<br>$$</p>
+<hr>
+<h3 id="平均互信息的性质"><a href="#平均互信息的性质" class="headerlink" title="平均互信息的性质"></a>平均互信息的性质</h3><ol>
+<li><p>非负性：$I(X;Y)\ge 0$</p>
+</li>
+<li><p>对称性：$I(X;Y)&#x3D;I(Y;X)$</p>
+</li>
+<li><p>上凸性：对输入分布上凸</p>
+</li>
+<li><p>信息不增性：数据处理定理  </p>
+<p>若 $X \to Y \to Z$，则 $I(X;Z)\le I(X;Y)$</p>
+</li>
+<li><p>对应变换不变性：一一变换不改变 $I(X;Y)$</p>
+</li>
+</ol>
+<hr>
+<h2 id="第七节-连续信道与波形信道的信道容量"><a href="#第七节-连续信道与波形信道的信道容量" class="headerlink" title="第七节 连续信道与波形信道的信道容量"></a>第七节 连续信道与波形信道的信道容量</h2><p>信道容量定义为可实现的最大平均互信息：</p>
+<p>$$<br>C &#x3D; \max_{p(x)} I(X;Y)<br>$$</p>
+<h3 id="一般连续信道："><a href="#一般连续信道：" class="headerlink" title="一般连续信道："></a>一般连续信道：</h3><p>$$<br>C &#x3D; \max_{p(x)} [h(Y)-h(Y|X)]<br>$$</p>
+<h3 id="加性连续信道："><a href="#加性连续信道：" class="headerlink" title="加性连续信道："></a>加性连续信道：</h3><p>噪声与输入独立，$h(Y|X)&#x3D;h(n)$，</p>
+<p>$$<br>C &#x3D; \max_{p(x)} [h(Y)-h(n)]<br>$$</p>
+<hr>
+<h3 id="高斯加性信道（AWGN信道）"><a href="#高斯加性信道（AWGN信道）" class="headerlink" title="高斯加性信道（AWGN信道）"></a>高斯加性信道（AWGN信道）</h3><p>噪声 $n\sim N(0,\sigma^2)$  </p>
+<p>输入功率受限 $E[X^2]&#x3D;P$  </p>
+<p>则输出 $Y&#x3D;X+n$。</p>
+<p>由最大熵定理，最优输入分布也是高斯。</p>
+<ul>
+<li><p>输出熵：</p>
+<p>$$<br>h(Y)&#x3D;\frac{1}{2}\log_2(2\pi e (P+N))<br>$$</p>
+</li>
+<li><p>噪声熵：</p>
+</li>
+</ul>
+<p>$$<br>  h(n)&#x3D;\frac{1}{2}\log_2(2\pi e N)<br>  $$</p>
+<ul>
+<li><p>容量：</p>
+<p>$$<br>C &#x3D; \frac{1}{2}\log_2\left(1+\frac{P}{N}\right)\quad \text{(比特&#x2F;自由度)}<br>$$</p>
+</li>
+<li><p>单位时间容量：</p>
+<p>$$<br>C_t &#x3D; F\log_2\left(1+\frac{P}{N}\right)\ \text{(比特&#x2F;秒)}<br>$$</p>
+</li>
+</ul>
+<blockquote>
+<p>这就是著名的<strong>香农信道容量公式</strong>，它指出：  </p>
+<p>在平均功率受限、加性高斯白噪声条件下，信息传输率存在上限。</p>
+</blockquote>
+<hr>
+<h2 id="第八节-香农公式的重要意义"><a href="#第八节-香农公式的重要意义" class="headerlink" title="第八节 香农公式的重要意义"></a>第八节 香农公式的重要意义</h2><ul>
+<li><p>揭示了<strong>带宽与信噪比</strong>对信息传输速率的基本限制；</p>
+</li>
+<li><p>为通信系统设计提供了<strong>理论极限</strong>；</p>
+</li>
+<li><p>说明提高通信速率的两条路径：</p>
+<ul>
+<li><p>增大带宽；</p>
+</li>
+<li><p>提高信噪比；</p>
+</li>
+</ul>
+</li>
+<li><p>是现代数字通信与编码理论的基础。</p>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/" class="category-chain-item">学习资源</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/" class="category-chain-item">信息论</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/" class="print-no-link">#笔记</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>第四章 波形信源与波形信道</div>
+      <div>http://example.com/posts/2025/10/29/waveform-source-channel/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年10月29日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/2025/10/29/lossless-source-coding/" title="第五章 无失真信源编码定理">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">第五章 无失真信源编码定理</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/2025/10/29/discrete-channel-capacity/" title="第三章 离散信道及其信道容量">
+                        <span class="hidden-mobile">第三章 离散信道及其信道容量</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
