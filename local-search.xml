@@ -20,8 +20,6 @@
     
     <tags>
       
-      <tag>PDF</tag>
-      
       <tag>眼镜</tag>
       
       <tag>配镜</tag>
@@ -29,6 +27,8 @@
       <tag>生活美学</tag>
       
       <tag>调研报告</tag>
+      
+      <tag>PDF</tag>
       
     </tags>
     
@@ -53,9 +53,9 @@
     
     <tags>
       
-      <tag>速成教程</tag>
-      
       <tag>PDF</tag>
+      
+      <tag>速成教程</tag>
       
       <tag>信息安全</tag>
       
@@ -86,13 +86,13 @@
     
     <tags>
       
-      <tag>信号与系统</tag>
-      
-      <tag>速成教程</tag>
-      
       <tag>PDF</tag>
       
+      <tag>信号与系统</tag>
+      
       <tag>第一性原理</tag>
+      
+      <tag>速成教程</tag>
       
     </tags>
     
@@ -117,13 +117,13 @@
     
     <tags>
       
-      <tag>信号与系统</tag>
+      <tag>PDF</tag>
       
-      <tag>学习笔记</tag>
+      <tag>信号与系统</tag>
       
       <tag>速成教程</tag>
       
-      <tag>PDF</tag>
+      <tag>学习笔记</tag>
       
     </tags>
     
@@ -148,11 +148,11 @@
     
     <tags>
       
-      <tag>学习笔记</tag>
+      <tag>PDF</tag>
       
       <tag>速成教程</tag>
       
-      <tag>PDF</tag>
+      <tag>学习笔记</tag>
       
       <tag>雷达信号处理</tag>
       
