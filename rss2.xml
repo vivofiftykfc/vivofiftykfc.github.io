@@ -4,9 +4,9 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>HWのBLOGS</title>
-    <link>https://vivofiftykfc.github.io/</link>
+    <link>https://hwnote.space/</link>
     
-    <atom:link href="https://vivofiftykfc.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://hwnote.space/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一个工科生的个人博客，记录技术学习、工程实践与对生活和认知的思考。</description>
     <pubDate>Sun, 09 Aug 2026 10:26:37 GMT</pubDate>
@@ -14,8 +14,8 @@
     
     <item>
       <title>不将不迎，应而不藏</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/08/09/respond-without-storing/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/08/09/respond-without-storing/</guid>
+      <link>https://hwnote.space/posts/2026/08/09/respond-without-storing/</link>
+      <guid>https://hwnote.space/posts/2026/08/09/respond-without-storing/</guid>
       <pubDate>Sun, 09 Aug 2026 04:00:00 GMT</pubDate>
       
       <description>老子说复归，给万物留下自生自化的余地；庄子说游，不再把保全一个固定的我当成所有变化的尺度。</description>
@@ -23,26 +23,26 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%AE%9E%E8%B7%B5/">实践</category>
+      <category domain="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/">实践</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E8%80%81%E5%BA%84/">老庄</category>
+      <category domain="https://hwnote.space/tags/%E8%80%81%E5%BA%84/">老庄</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E8%AE%A4%E7%9F%A5/">认知</category>
+      <category domain="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5/">认知</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/08/09/respond-without-storing/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/08/09/respond-without-storing/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>所有人，感受</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/08/07/only-kept-the-binary/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/08/07/only-kept-the-binary/</guid>
+      <link>https://hwnote.space/posts/2026/08/07/only-kept-the-binary/</link>
+      <guid>https://hwnote.space/posts/2026/08/07/only-kept-the-binary/</guid>
       <pubDate>Fri, 07 Aug 2026 06:15:00 GMT</pubDate>
       
       <description>人对世界的认知是一个有损信道，对过去的自己也是。我把很多经历压缩成了指标，然后又拿这些失真的指标去评价自己。</description>
@@ -50,24 +50,24 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E8%AE%B0%E5%BF%86/">记忆</category>
+      <category domain="https://hwnote.space/tags/%E8%AE%B0%E5%BF%86/">记忆</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E7%8E%B0%E8%B1%A1%E5%AD%A6/">现象学</category>
+      <category domain="https://hwnote.space/tags/%E7%8E%B0%E8%B1%A1%E5%AD%A6/">现象学</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/08/07/only-kept-the-binary/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/08/07/only-kept-the-binary/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>间桐家与女性主义</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/08/06/who-defines-whom/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/08/06/who-defines-whom/</guid>
+      <link>https://hwnote.space/posts/2026/08/06/who-defines-whom/</link>
+      <guid>https://hwnote.space/posts/2026/08/06/who-defines-whom/</guid>
       <pubDate>Thu, 06 Aug 2026 13:00:00 GMT</pubDate>
       
       <description>从 Fate 的对话出发，聊聊第二性、凝视，以及主体性。</description>
@@ -75,26 +75,26 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%85%B3%E7%B3%BB/">关系</category>
+      <category domain="https://hwnote.space/tags/%E5%85%B3%E7%B3%BB/">关系</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%B8%BB%E4%BD%93%E6%80%A7/">主体性</category>
+      <category domain="https://hwnote.space/tags/%E4%B8%BB%E4%BD%93%E6%80%A7/">主体性</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%A5%B3%E6%80%A7%E4%B8%BB%E4%B9%89/">女性主义</category>
+      <category domain="https://hwnote.space/tags/%E5%A5%B3%E6%80%A7%E4%B8%BB%E4%B9%89/">女性主义</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/08/06/who-defines-whom/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/08/06/who-defines-whom/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>佛</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/08/06/buddhism-is-not-just-letting-go/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/08/06/buddhism-is-not-just-letting-go/</guid>
+      <link>https://hwnote.space/posts/2026/08/06/buddhism-is-not-just-letting-go/</link>
+      <guid>https://hwnote.space/posts/2026/08/06/buddhism-is-not-just-letting-go/</guid>
       <pubDate>Thu, 06 Aug 2026 12:30:00 GMT</pubDate>
       
       <description>最近了解了一下佛学。它主要解释痛苦的生成，描述变与不变，以及提出戒-定-慧的修行训练</description>
@@ -102,26 +102,26 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%AE%9E%E8%B7%B5/">实践</category>
+      <category domain="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/">实践</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%BD%9B%E5%AD%A6/">佛学</category>
+      <category domain="https://hwnote.space/tags/%E4%BD%9B%E5%AD%A6/">佛学</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%AE%97%E6%95%99/">宗教</category>
+      <category domain="https://hwnote.space/tags/%E5%AE%97%E6%95%99/">宗教</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/08/06/buddhism-is-not-just-letting-go/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/08/06/buddhism-is-not-just-letting-go/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>图外-ZHW思考体系v3</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/08/03/outside-the-map/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/08/03/outside-the-map/</guid>
+      <link>https://hwnote.space/posts/2026/08/03/outside-the-map/</link>
+      <guid>https://hwnote.space/posts/2026/08/03/outside-the-map/</guid>
       <pubDate>Mon, 03 Aug 2026 13:53:36 GMT</pubDate>
       
       <description>又把脑子里乱七八糟的东西整理了一遍。模型、身体、他人、AI、时代，还有为什么最后还是得从图里走出去。</description>
@@ -129,28 +129,28 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%93%B2%E5%AD%A6/">哲学</category>
+      <category domain="https://hwnote.space/tags/%E5%93%B2%E5%AD%A6/">哲学</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E8%AE%A4%E7%9F%A5%E8%AE%BA/">认知论</category>
+      <category domain="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5%E8%AE%BA/">认知论</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%AE%9E%E8%B7%B5/">实践</category>
+      <category domain="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/">实践</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E6%97%B6%E4%BB%A3/">时代</category>
+      <category domain="https://hwnote.space/tags/%E6%97%B6%E4%BB%A3/">时代</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/08/03/outside-the-map/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/08/03/outside-the-map/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>2026-07-28-镜子与石头</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/28/mirror-and-stone/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/28/mirror-and-stone/</guid>
+      <link>https://hwnote.space/posts/2026/07/28/mirror-and-stone/</link>
+      <guid>https://hwnote.space/posts/2026/07/28/mirror-and-stone/</guid>
       <pubDate>Tue, 28 Jul 2026 11:54:11 GMT</pubDate>
       
       <description>是时候停笔了。</description>
@@ -158,20 +158,20 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%8F%8D%E6%80%9D/">反思</category>
+      <category domain="https://hwnote.space/tags/%E5%8F%8D%E6%80%9D/">反思</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/28/mirror-and-stone/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/07/28/mirror-and-stone/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>投资认知训练手册</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/27/investment-cognitive-training-manual/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/27/investment-cognitive-training-manual/</guid>
+      <link>https://hwnote.space/posts/2026/07/27/investment-cognitive-training-manual/</link>
+      <guid>https://hwnote.space/posts/2026/07/27/investment-cognitive-training-manual/</guid>
       <pubDate>Mon, 27 Jul 2026 15:09:00 GMT</pubDate>
       
       <description>从&quot;为什么必须投资&quot;到&quot;12个月行动路线图&quot;——一份面向个人投资者的认知训练手册。覆盖金融学骨架、金融简史、市场运行逻辑、投资第一性原理、自我认知、股票/债券/基金、资产配置、行为金融、中国市场避坑与终身学习路径。</description>
@@ -179,28 +179,28 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/PDF/">PDF</category>
+      <category domain="https://hwnote.space/tags/PDF/">PDF</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E6%8A%95%E8%B5%84/">投资</category>
+      <category domain="https://hwnote.space/tags/%E6%8A%95%E8%B5%84/">投资</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E7%90%86%E8%B4%A2/">理财</category>
+      <category domain="https://hwnote.space/tags/%E7%90%86%E8%B4%A2/">理财</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E8%AE%A4%E7%9F%A5%E8%AE%AD%E7%BB%83/">认知训练</category>
+      <category domain="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5%E8%AE%AD%E7%BB%83/">认知训练</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/27/investment-cognitive-training-manual/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/07/27/investment-cognitive-training-manual/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>烹饪调研报告</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/22/cooking-research-report/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/22/cooking-research-report/</guid>
+      <link>https://hwnote.space/posts/2026/07/22/cooking-research-report/</link>
+      <guid>https://hwnote.space/posts/2026/07/22/cooking-research-report/</guid>
       <pubDate>Wed, 22 Jul 2026 14:12:00 GMT</pubDate>
       
       <description>从火的起源到分子料理的全面探索——一份关于烹饪的调研报告。覆盖烹饪发展简史、健康饮食标准、以传热介质为核心的烹饪分类体系、食材分类、调味料的作用、烹饪方式选择逻辑、通用流程、全球菜系巡礼与深层话题。</description>
@@ -208,28 +208,28 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/PDF/">PDF</category>
+      <category domain="https://hwnote.space/tags/PDF/">PDF</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/">调研报告</category>
+      <category domain="https://hwnote.space/tags/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/">调研报告</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E7%83%B9%E9%A5%AA/">烹饪</category>
+      <category domain="https://hwnote.space/tags/%E7%83%B9%E9%A5%AA/">烹饪</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E7%BE%8E%E9%A3%9F/">美食</category>
+      <category domain="https://hwnote.space/tags/%E7%BE%8E%E9%A3%9F/">美食</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/22/cooking-research-report/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/07/22/cooking-research-report/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>高等数学：从函数到场的认识论总图</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/14/calculus-epistemology-map/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/14/calculus-epistemology-map/</guid>
+      <link>https://hwnote.space/posts/2026/07/14/calculus-epistemology-map/</link>
+      <guid>https://hwnote.space/posts/2026/07/14/calculus-epistemology-map/</guid>
       <pubDate>Tue, 14 Jul 2026 14:00:00 GMT</pubDate>
       
       <description>把数学一高数部分重新压缩成一张可以展开的地图：函数建模关系，极限处理趋近，导数观察局部变化，积分完成累积与反演，多元微积分把一条曲线扩展为空间中的场，级数与微分方程则分别处理无限叠加和变化规律本身。</description>
@@ -237,30 +237,30 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/">学习方法</category>
+      <category domain="https://hwnote.space/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/">学习方法</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/">高等数学</category>
+      <category domain="https://hwnote.space/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/">高等数学</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E8%80%83%E7%A0%94%E6%95%B0%E5%AD%A6/">考研数学</category>
+      <category domain="https://hwnote.space/tags/%E8%80%83%E7%A0%94%E6%95%B0%E5%AD%A6/">考研数学</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E8%AE%A4%E8%AF%86%E8%AE%BA/">认识论</category>
+      <category domain="https://hwnote.space/tags/%E8%AE%A4%E8%AF%86%E8%AE%BA/">认识论</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E6%95%B0%E5%AD%A6%E4%B8%80/">数学一</category>
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E4%B8%80/">数学一</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/">微积分</category>
+      <category domain="https://hwnote.space/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/">微积分</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/14/calculus-epistemology-map/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/07/14/calculus-epistemology-map/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>2026-07-14-孤岛与大陆</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/14/islands-and-continent/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/14/islands-and-continent/</guid>
+      <link>https://hwnote.space/posts/2026/07/14/islands-and-continent/</link>
+      <guid>https://hwnote.space/posts/2026/07/14/islands-and-continent/</guid>
       <pubDate>Tue, 14 Jul 2026 07:30:00 GMT</pubDate>
       
       <description>我们不可能完全理解另一个人，却仍然可以在有限的理解里，逐渐参与彼此的人生。</description>
@@ -268,26 +268,26 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%8F%8B%E6%83%85/">友情</category>
+      <category domain="https://hwnote.space/tags/%E5%8F%8B%E6%83%85/">友情</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%85%B3%E7%B3%BB/">关系</category>
+      <category domain="https://hwnote.space/tags/%E5%85%B3%E7%B3%BB/">关系</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%B8%BB%E4%BD%93%E6%80%A7/">主体性</category>
+      <category domain="https://hwnote.space/tags/%E4%B8%BB%E4%BD%93%E6%80%A7/">主体性</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/14/islands-and-continent/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/07/14/islands-and-continent/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>2026-07-14-脑中的违章建筑</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/14/illegal-construction-of-us/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/14/illegal-construction-of-us/</guid>
+      <link>https://hwnote.space/posts/2026/07/14/illegal-construction-of-us/</link>
+      <guid>https://hwnote.space/posts/2026/07/14/illegal-construction-of-us/</guid>
       <pubDate>Tue, 14 Jul 2026 04:55:00 GMT</pubDate>
       
       <description>爱情大概就是一个人逐渐进入另一个人的意识，最后两个人之间又长出一个“我们”。</description>
@@ -295,26 +295,26 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E7%88%B1%E6%83%85/">爱情</category>
+      <category domain="https://hwnote.space/tags/%E7%88%B1%E6%83%85/">爱情</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%85%B3%E7%B3%BB/">关系</category>
+      <category domain="https://hwnote.space/tags/%E5%85%B3%E7%B3%BB/">关系</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%B8%BB%E4%BD%93%E6%80%A7/">主体性</category>
+      <category domain="https://hwnote.space/tags/%E4%B8%BB%E4%BD%93%E6%80%A7/">主体性</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/14/illegal-construction-of-us/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/07/14/illegal-construction-of-us/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>2026-07-14-齿轮、落日与文明</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/14/gears-sunset-and-civilization/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/14/gears-sunset-and-civilization/</guid>
+      <link>https://hwnote.space/posts/2026/07/14/gears-sunset-and-civilization/</link>
+      <guid>https://hwnote.space/posts/2026/07/14/gears-sunset-and-civilization/</guid>
       <pubDate>Mon, 13 Jul 2026 17:20:00 GMT</pubDate>
       
       <description>和一个材料专业的同学聊热处理，话题从一枚齿轮一路拐到工业科技树、考研、第一性原理、认知盈余与涌现。聊到最后，我只是想知道，一副为了活下去而进化出来的大脑，为什么会觉得落日和公式很漂亮。</description>
@@ -322,26 +322,26 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E6%96%87%E6%98%8E/">文明</category>
+      <category domain="https://hwnote.space/tags/%E6%96%87%E6%98%8E/">文明</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E6%B6%8C%E7%8E%B0/">涌现</category>
+      <category domain="https://hwnote.space/tags/%E6%B6%8C%E7%8E%B0/">涌现</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86/">第一性原理</category>
+      <category domain="https://hwnote.space/tags/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86/">第一性原理</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/14/gears-sunset-and-civilization/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/07/14/gears-sunset-and-civilization/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>千帆之后</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/10/after-a-thousand-sails/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/10/after-a-thousand-sails/</guid>
+      <link>https://hwnote.space/posts/2026/07/10/after-a-thousand-sails/</link>
+      <guid>https://hwnote.space/posts/2026/07/10/after-a-thousand-sails/</guid>
       <pubDate>Fri, 10 Jul 2026 15:30:00 GMT</pubDate>
       
       <description>写题写不出来的时候，脑子总爱把陈年旧事翻出来。大概是过时的警报又响了。而我想成为的，是一个知道生活怎么回事之后，仍然愿意相信一点什么的人。</description>
@@ -349,26 +349,26 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E8%80%83%E7%A0%94/">考研</category>
+      <category domain="https://hwnote.space/tags/%E8%80%83%E7%A0%94/">考研</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E7%88%B1%E6%83%85/">爱情</category>
+      <category domain="https://hwnote.space/tags/%E7%88%B1%E6%83%85/">爱情</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E7%90%86%E6%83%B3%E4%B8%BB%E4%B9%89/">理想主义</category>
+      <category domain="https://hwnote.space/tags/%E7%90%86%E6%83%B3%E4%B8%BB%E4%B9%89/">理想主义</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/10/after-a-thousand-sails/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/07/10/after-a-thousand-sails/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>畜生学习法</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/09/beast-learning-method/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/09/beast-learning-method/</guid>
+      <link>https://hwnote.space/posts/2026/07/09/beast-learning-method/</link>
+      <guid>https://hwnote.space/posts/2026/07/09/beast-learning-method/</guid>
       <pubDate>Thu, 09 Jul 2026 15:30:00 GMT</pubDate>
       
       <description>最近发现，把自己当成一个需要训练的笨东西，反而比把自己当成一个需要审判的人要轻松一点。不会就是不会，笨就多练，吐了就换脑区，哲学先闭嘴。</description>
@@ -376,30 +376,30 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E8%80%83%E7%A0%94%E6%97%A5%E8%AE%B0/">考研日记</category>
+      <category domain="https://hwnote.space/tags/%E8%80%83%E7%A0%94%E6%97%A5%E8%AE%B0/">考研日记</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/">学习方法</category>
+      <category domain="https://hwnote.space/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/">学习方法</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E8%80%83%E7%A0%94/">考研</category>
+      <category domain="https://hwnote.space/tags/%E8%80%83%E7%A0%94/">考研</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E6%95%B0%E5%AD%A6/">数学</category>
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6/">数学</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%8F%8D%E6%80%9D/">反思</category>
+      <category domain="https://hwnote.space/tags/%E5%8F%8D%E6%80%9D/">反思</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/09/beast-learning-method/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/07/09/beast-learning-method/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>第一章：函数、极限与连续——从认识论看高等数学的第一块基石</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/09/function-compressing-the-world/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/09/function-compressing-the-world/</guid>
+      <link>https://hwnote.space/posts/2026/07/09/function-compressing-the-world/</link>
+      <guid>https://hwnote.space/posts/2026/07/09/function-compressing-the-world/</guid>
       <pubDate>Thu, 09 Jul 2026 14:00:00 GMT</pubDate>
       
       <description>从王阳明的“看花”谈起，把高等数学第一章理解为一种认识世界的模型建构：函数是关系的模型，极限是趋势的模型，超实数是无穷小的直观模型，洛必达是变化率比较的模型，泰勒是局部逼近的模型，连续则是稳定性的模型。</description>
@@ -407,34 +407,34 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/">学习方法</category>
+      <category domain="https://hwnote.space/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/">学习方法</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/">高等数学</category>
+      <category domain="https://hwnote.space/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/">高等数学</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E8%80%83%E7%A0%94%E6%95%B0%E5%AD%A6/">考研数学</category>
+      <category domain="https://hwnote.space/tags/%E8%80%83%E7%A0%94%E6%95%B0%E5%AD%A6/">考研数学</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%87%BD%E6%95%B0/">函数</category>
+      <category domain="https://hwnote.space/tags/%E5%87%BD%E6%95%B0/">函数</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E6%9E%81%E9%99%90/">极限</category>
+      <category domain="https://hwnote.space/tags/%E6%9E%81%E9%99%90/">极限</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E8%BF%9E%E7%BB%AD/">连续</category>
+      <category domain="https://hwnote.space/tags/%E8%BF%9E%E7%BB%AD/">连续</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E8%AE%A4%E8%AF%86%E8%AE%BA/">认识论</category>
+      <category domain="https://hwnote.space/tags/%E8%AE%A4%E8%AF%86%E8%AE%BA/">认识论</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/09/function-compressing-the-world/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/07/09/function-compressing-the-world/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>健身调研报告</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/07/fitness-research-report/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/07/fitness-research-report/</guid>
+      <link>https://hwnote.space/posts/2026/07/07/fitness-research-report/</link>
+      <guid>https://hwnote.space/posts/2026/07/07/fitness-research-report/</guid>
       <pubDate>Tue, 07 Jul 2026 15:30:00 GMT</pubDate>
       
       <description>从生理到审美·从评估到训练·从营养到生活——一份关于自然健身的全方位调研报告。覆盖运动生理学、薄肌审美的底层逻辑、体质评估、分部位审美标准、训练体系、营养策略与生活整合。</description>
@@ -442,28 +442,28 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/">形象管理</category>
+      <category domain="https://hwnote.space/tags/%E5%81%A5%E8%BA%AB/">健身</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%AE%A1%E7%BE%8E/">审美</category>
+      <category domain="https://hwnote.space/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/">形象管理</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      <category domain="https://hwnote.space/tags/%E5%AE%A1%E7%BE%8E/">审美</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/PDF/">PDF</category>
+      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%81%A5%E8%BA%AB/">健身</category>
+      <category domain="https://hwnote.space/tags/PDF/">PDF</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/07/fitness-research-report/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/07/07/fitness-research-report/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>面部美学速成</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/07/facial-aesthetics-crash-course/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/07/facial-aesthetics-crash-course/</guid>
+      <link>https://hwnote.space/posts/2026/07/07/facial-aesthetics-crash-course/</link>
+      <guid>https://hwnote.space/posts/2026/07/07/facial-aesthetics-crash-course/</guid>
       <pubDate>Tue, 07 Jul 2026 15:00:00 GMT</pubDate>
       
       <description>从审美原理到后天改造的科学指南。拆解大脑的&quot;面部检测算法&quot;：对称与平均、性二态特征、比例与线条、注意力分配与峰移，以及从体脂率到发型、穿搭、社交气场的完整实操路径。</description>
@@ -471,28 +471,28 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/">形象管理</category>
+      <category domain="https://hwnote.space/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/">形象管理</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%AE%A1%E7%BE%8E/">审美</category>
+      <category domain="https://hwnote.space/tags/%E5%AE%A1%E7%BE%8E/">审美</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/PDF/">PDF</category>
+      <category domain="https://hwnote.space/tags/PDF/">PDF</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E9%9D%A2%E9%83%A8%E7%BE%8E%E5%AD%A6/">面部美学</category>
+      <category domain="https://hwnote.space/tags/%E9%9D%A2%E9%83%A8%E7%BE%8E%E5%AD%A6/">面部美学</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/07/facial-aesthetics-crash-course/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/07/07/facial-aesthetics-crash-course/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>男性护肤调研报告</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/07/mens-skincare-research-report/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/07/mens-skincare-research-report/</guid>
+      <link>https://hwnote.space/posts/2026/07/07/mens-skincare-research-report/</link>
+      <guid>https://hwnote.space/posts/2026/07/07/mens-skincare-research-report/</guid>
       <pubDate>Tue, 07 Jul 2026 14:00:00 GMT</pubDate>
       
       <description>从科学到审美·从肤质到流程·从挑选到坚持——一份关于男性护肤的全方位调研报告。覆盖皮肤生理学差异、肤质判断、护肤流程体系、产品挑选方法论、生活方式影响、问题处理SOP。</description>
@@ -500,28 +500,28 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/">形象管理</category>
+      <category domain="https://hwnote.space/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/">形象管理</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/PDF/">PDF</category>
+      <category domain="https://hwnote.space/tags/PDF/">PDF</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E6%8A%A4%E8%82%A4/">护肤</category>
+      <category domain="https://hwnote.space/tags/%E6%8A%A4%E8%82%A4/">护肤</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E7%94%B7%E6%80%A7%E6%8A%A4%E8%82%A4/">男性护肤</category>
+      <category domain="https://hwnote.space/tags/%E7%94%B7%E6%80%A7%E6%8A%A4%E8%82%A4/">男性护肤</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/07/mens-skincare-research-report/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/07/07/mens-skincare-research-report/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>发型调研报告</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/07/hairstyle-research-report/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/07/hairstyle-research-report/</guid>
+      <link>https://hwnote.space/posts/2026/07/07/hairstyle-research-report/</link>
+      <guid>https://hwnote.space/posts/2026/07/07/hairstyle-research-report/</guid>
       <pubDate>Tue, 07 Jul 2026 13:00:00 GMT</pubDate>
       
       <description>从历史起源到科学基础、从审美原理到实践操作的全景梳理。覆盖发型发展史、头发生理学与发质判断、七大脸型分析、审美原理深度解构、眼镜搭配、理发流程、居家打理与护发产品科学选择。</description>
@@ -529,28 +529,28 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%8F%91%E5%9E%8B/">发型</category>
+      <category domain="https://hwnote.space/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/">形象管理</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/">形象管理</category>
+      <category domain="https://hwnote.space/tags/%E5%AE%A1%E7%BE%8E/">审美</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%AE%A1%E7%BE%8E/">审美</category>
+      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      <category domain="https://hwnote.space/tags/PDF/">PDF</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/PDF/">PDF</category>
+      <category domain="https://hwnote.space/tags/%E5%8F%91%E5%9E%8B/">发型</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/07/hairstyle-research-report/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/07/07/hairstyle-research-report/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>眼镜调研报告</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/07/eyewear-research-report/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/07/eyewear-research-report/</guid>
+      <link>https://hwnote.space/posts/2026/07/07/eyewear-research-report/</link>
+      <guid>https://hwnote.space/posts/2026/07/07/eyewear-research-report/</guid>
       <pubDate>Tue, 07 Jul 2026 10:00:00 GMT</pubDate>
       
       <description>从历史到审美·从镜片到镜架·从验光到保养——一份关于眼镜的全方位调研报告。覆盖镜片参数与品牌矩阵、镜架材质与脸型搭配、审美底层逻辑、社会心理学效应、实地挑选全流程与保养方法。</description>
@@ -558,28 +558,28 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/PDF/">PDF</category>
+      <category domain="https://hwnote.space/tags/PDF/">PDF</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E7%9C%BC%E9%95%9C/">眼镜</category>
+      <category domain="https://hwnote.space/tags/%E7%9C%BC%E9%95%9C/">眼镜</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E9%85%8D%E9%95%9C/">配镜</category>
+      <category domain="https://hwnote.space/tags/%E9%85%8D%E9%95%9C/">配镜</category>
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/">调研报告</category>
+      <category domain="https://hwnote.space/tags/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/">调研报告</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/07/eyewear-research-report/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/07/07/eyewear-research-report/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>智能信息安全与对抗：学习知识库</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/06/info-security-knowledge-base/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/06/info-security-knowledge-base/</guid>
+      <link>https://hwnote.space/posts/2026/07/06/info-security-knowledge-base/</link>
+      <guid>https://hwnote.space/posts/2026/07/06/info-security-knowledge-base/</guid>
       <pubDate>Mon, 06 Jul 2026 12:40:00 GMT</pubDate>
       
       <description>智能信息安全与对抗实验配套学习知识库，覆盖密码学、DES、RSA、混合加密、网络传输、C/S 架构、GUI、扩散模型、Stable Diffusion、FastAPI 与 React 前端。</description>
@@ -587,30 +587,30 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
-      
-      
-      <category domain="https://vivofiftykfc.github.io/tags/PDF/">PDF</category>
-      
-      <category domain="https://vivofiftykfc.github.io/tags/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
-      
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">信息安全</category>
-      
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</category>
-      
-      <category domain="https://vivofiftykfc.github.io/tags/AIGC/">AIGC</category>
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/06/info-security-knowledge-base/#disqus_thread</comments>
+      <category domain="https://hwnote.space/tags/PDF/">PDF</category>
+      
+      <category domain="https://hwnote.space/tags/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
+      
+      <category domain="https://hwnote.space/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">信息安全</category>
+      
+      <category domain="https://hwnote.space/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</category>
+      
+      <category domain="https://hwnote.space/tags/AIGC/">AIGC</category>
+      
+      
+      <comments>https://hwnote.space/posts/2026/07/06/info-security-knowledge-base/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>信号与系统：第一性原理小册子</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/06/signals-systems-first-principles/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/06/signals-systems-first-principles/</guid>
+      <link>https://hwnote.space/posts/2026/07/06/signals-systems-first-principles/</link>
+      <guid>https://hwnote.space/posts/2026/07/06/signals-systems-first-principles/</guid>
       <pubDate>Mon, 06 Jul 2026 12:30:00 GMT</pubDate>
       
       <description>用第一性原理重新理解信号与系统的小册子，重点不是刷公式，而是从信号、分解、变换、离散世界与统一视角建立直觉。</description>
@@ -618,28 +618,28 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
-      
-      
-      <category domain="https://vivofiftykfc.github.io/tags/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86/">第一性原理</category>
-      
-      <category domain="https://vivofiftykfc.github.io/tags/PDF/">PDF</category>
-      
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">信号与系统</category>
-      
-      <category domain="https://vivofiftykfc.github.io/tags/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/06/signals-systems-first-principles/#disqus_thread</comments>
+      <category domain="https://hwnote.space/tags/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86/">第一性原理</category>
+      
+      <category domain="https://hwnote.space/tags/PDF/">PDF</category>
+      
+      <category domain="https://hwnote.space/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">信号与系统</category>
+      
+      <category domain="https://hwnote.space/tags/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
+      
+      
+      <comments>https://hwnote.space/posts/2026/07/06/signals-systems-first-principles/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>信号与系统：学习笔记</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/06/signals-systems-notes/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/06/signals-systems-notes/</guid>
+      <link>https://hwnote.space/posts/2026/07/06/signals-systems-notes/</link>
+      <guid>https://hwnote.space/posts/2026/07/06/signals-systems-notes/</guid>
       <pubDate>Mon, 06 Jul 2026 12:20:00 GMT</pubDate>
       
       <description>信号与系统课程的完整学习笔记，覆盖信号与系统基础、连续时间系统、傅里叶变换、拉普拉斯变换、离散时间系统、Z 变换与状态变量等内容。</description>
@@ -647,28 +647,28 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
-      
-      
-      <category domain="https://vivofiftykfc.github.io/tags/PDF/">PDF</category>
-      
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">信号与系统</category>
-      
-      <category domain="https://vivofiftykfc.github.io/tags/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
-      
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</category>
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/06/signals-systems-notes/#disqus_thread</comments>
+      <category domain="https://hwnote.space/tags/PDF/">PDF</category>
+      
+      <category domain="https://hwnote.space/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">信号与系统</category>
+      
+      <category domain="https://hwnote.space/tags/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
+      
+      <category domain="https://hwnote.space/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</category>
+      
+      
+      <comments>https://hwnote.space/posts/2026/07/06/signals-systems-notes/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>雷达信号处理：从零开始学习指南</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/06/radar-signal-processing-guide/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/06/radar-signal-processing-guide/</guid>
+      <link>https://hwnote.space/posts/2026/07/06/radar-signal-processing-guide/</link>
+      <guid>https://hwnote.space/posts/2026/07/06/radar-signal-processing-guide/</guid>
       <pubDate>Mon, 06 Jul 2026 12:10:00 GMT</pubDate>
       
       <description>面向零基础读者的雷达信号处理快速入门教程，从雷达系统导论、信号理论、数据采集到脉冲压缩、多普勒处理、检测跟踪与系统设计。</description>
@@ -676,28 +676,28 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
-      
-      
-      <category domain="https://vivofiftykfc.github.io/tags/PDF/">PDF</category>
-      
-      <category domain="https://vivofiftykfc.github.io/tags/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
-      
-      <category domain="https://vivofiftykfc.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</category>
-      
-      <category domain="https://vivofiftykfc.github.io/tags/%E9%9B%B7%E8%BE%BE%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/">雷达信号处理</category>
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/06/radar-signal-processing-guide/#disqus_thread</comments>
+      <category domain="https://hwnote.space/tags/PDF/">PDF</category>
+      
+      <category domain="https://hwnote.space/tags/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
+      
+      <category domain="https://hwnote.space/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</category>
+      
+      <category domain="https://hwnote.space/tags/%E9%9B%B7%E8%BE%BE%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/">雷达信号处理</category>
+      
+      
+      <comments>https://hwnote.space/posts/2026/07/06/radar-signal-processing-guide/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>2026-07-05-悼词、情书与马克思</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/05/elegy-love-letter-marx/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/05/elegy-love-letter-marx/</guid>
+      <link>https://hwnote.space/posts/2026/07/05/elegy-love-letter-marx/</link>
+      <guid>https://hwnote.space/posts/2026/07/05/elegy-love-letter-marx/</guid>
       <pubDate>Sat, 04 Jul 2026 18:59:00 GMT</pubDate>
       
       <description>哲学家只是用不同方式解释世界，而问题在于改变世界</description>
@@ -705,20 +705,20 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/05/elegy-love-letter-marx/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/07/05/elegy-love-letter-marx/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>2026-07-04-村</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/04/village/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/04/village/</guid>
+      <link>https://hwnote.space/posts/2026/07/04/village/</link>
+      <guid>https://hwnote.space/posts/2026/07/04/village/</guid>
       <pubDate>Sat, 04 Jul 2026 02:03:00 GMT</pubDate>
       
       <description>终于离开良乡了</description>
@@ -726,20 +726,20 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/04/village/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/07/04/village/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>2026-07-03-我即宇宙</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/07/03/i-am-universe/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/07/03/i-am-universe/</guid>
+      <link>https://hwnote.space/posts/2026/07/03/i-am-universe/</link>
+      <guid>https://hwnote.space/posts/2026/07/03/i-am-universe/</guid>
       <pubDate>Thu, 02 Jul 2026 20:31:00 GMT</pubDate>
       
       <description>凌晨1:47:32到4:31:25的一段对话记录</description>
@@ -747,20 +747,20 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/07/03/i-am-universe/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/07/03/i-am-universe/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>2026-06-30-UFO大战西西弗</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/06/30/ufo-sisyphus/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/06/30/ufo-sisyphus/</guid>
+      <link>https://hwnote.space/posts/2026/06/30/ufo-sisyphus/</link>
+      <guid>https://hwnote.space/posts/2026/06/30/ufo-sisyphus/</guid>
       <pubDate>Tue, 30 Jun 2026 15:14:11 GMT</pubDate>
       
       <description>从&quot;我缺什么&quot;翻到&quot;什么在召唤我&quot;——一次价值观地基的重构</description>
@@ -768,20 +768,20 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/06/30/ufo-sisyphus/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/06/30/ufo-sisyphus/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>2026-06-30-ZHW思考体系v1</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/06/30/zhw-thinking-system-v1/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/06/30/zhw-thinking-system-v1/</guid>
+      <link>https://hwnote.space/posts/2026/06/30/zhw-thinking-system-v1/</link>
+      <guid>https://hwnote.space/posts/2026/06/30/zhw-thinking-system-v1/</guid>
       <pubDate>Mon, 29 Jun 2026 18:00:00 GMT</pubDate>
       
       <description>对近一年来的思考进行一次体系化的梳理</description>
@@ -789,20 +789,20 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/06/30/zhw-thinking-system-v1/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/06/30/zhw-thinking-system-v1/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>2026-06-28-知到行的最后三公里</title>
-      <link>https://vivofiftykfc.github.io/posts/2026/06/28/knowledge-to-action/</link>
-      <guid>https://vivofiftykfc.github.io/posts/2026/06/28/knowledge-to-action/</guid>
+      <link>https://hwnote.space/posts/2026/06/28/knowledge-to-action/</link>
+      <guid>https://hwnote.space/posts/2026/06/28/knowledge-to-action/</guid>
       <pubDate>Sun, 28 Jun 2026 11:00:00 GMT</pubDate>
       
       <description>关于为什么我能写出完美的SOP然后完美地不执行它</description>
@@ -810,13 +810,13 @@
       
       
       
-      <category domain="https://vivofiftykfc.github.io/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
-      <category domain="https://vivofiftykfc.github.io/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
       
-      <comments>https://vivofiftykfc.github.io/posts/2026/06/28/knowledge-to-action/#disqus_thread</comments>
+      <comments>https://hwnote.space/posts/2026/06/28/knowledge-to-action/#disqus_thread</comments>
       
     </item>
     
