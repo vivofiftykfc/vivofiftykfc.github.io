@@ -6,7 +6,7 @@
   <link href="https://hwnote.space/atom.xml" rel="self"/>
   
   <link href="https://hwnote.space/"/>
-  <updated>2026-08-09T10:26:37.992Z</updated>
+  <updated>2026-08-14T16:17:50.169Z</updated>
   <id>https://hwnote.space/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>思维拓扑学</title>
+    <link href="https://hwnote.space/posts/2026/08/14/topology-of-thought/"/>
+    <id>https://hwnote.space/posts/2026/08/14/topology-of-thought/</id>
+    <published>2026-08-14T15:50:57.000Z</published>
+    <updated>2026-08-14T16:17:50.169Z</updated>
+    
+    
+    <summary type="html">通过持续对话中的词汇、造句逻辑与话题推进，尝试反演一个人相对稳定的思维结构，并据此理解语言、思维与对话对齐之间的关系。</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="认知" scheme="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5/"/>
+    
+    <category term="语言" scheme="https://hwnote.space/tags/%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="对话" scheme="https://hwnote.space/tags/%E5%AF%B9%E8%AF%9D/"/>
+    
+  </entry>
   
   <entry>
     <title>不将不迎，应而不藏</title>
@@ -735,25 +760,6 @@
     
     
     <summary type="html">对近一年来的思考进行一次体系化的梳理</summary>
-    
-    
-    
-    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
-    
-    
-    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2026-06-28-知到行的最后三公里</title>
-    <link href="https://hwnote.space/posts/2026/06/28/knowledge-to-action/"/>
-    <id>https://hwnote.space/posts/2026/06/28/knowledge-to-action/</id>
-    <published>2026-06-28T11:00:00.000Z</published>
-    <updated>2026-08-09T10:26:37.992Z</updated>
-    
-    
-    <summary type="html">关于为什么我能写出完美的SOP然后完美地不执行它</summary>
     
     
     

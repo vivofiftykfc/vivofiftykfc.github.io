@@ -9,8 +9,35 @@
     <atom:link href="https://hwnote.space/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一个工科生的个人博客，记录技术学习、工程实践与对生活和认知的思考。</description>
-    <pubDate>Sun, 09 Aug 2026 10:26:37 GMT</pubDate>
+    <pubDate>Fri, 14 Aug 2026 16:17:50 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>思维拓扑学</title>
+      <link>https://hwnote.space/posts/2026/08/14/topology-of-thought/</link>
+      <guid>https://hwnote.space/posts/2026/08/14/topology-of-thought/</guid>
+      <pubDate>Fri, 14 Aug 2026 15:50:57 GMT</pubDate>
+      
+      <description>通过持续对话中的词汇、造句逻辑与话题推进，尝试反演一个人相对稳定的思维结构，并据此理解语言、思维与对话对齐之间的关系。</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      <category domain="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5/">认知</category>
+      
+      <category domain="https://hwnote.space/tags/%E8%AF%AD%E8%A8%80/">语言</category>
+      
+      <category domain="https://hwnote.space/tags/%E5%AF%B9%E8%AF%9D/">对话</category>
+      
+      
+      <comments>https://hwnote.space/posts/2026/08/14/topology-of-thought/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>不将不迎，应而不藏</title>
@@ -796,27 +823,6 @@
       
       
       <comments>https://hwnote.space/posts/2026/06/30/zhw-thinking-system-v1/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>2026-06-28-知到行的最后三公里</title>
-      <link>https://hwnote.space/posts/2026/06/28/knowledge-to-action/</link>
-      <guid>https://hwnote.space/posts/2026/06/28/knowledge-to-action/</guid>
-      <pubDate>Sun, 28 Jun 2026 11:00:00 GMT</pubDate>
-      
-      <description>关于为什么我能写出完美的SOP然后完美地不执行它</description>
-      
-      
-      
-      
-      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
-      
-      
-      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
-      
-      
-      <comments>https://hwnote.space/posts/2026/06/28/knowledge-to-action/#disqus_thread</comments>
       
     </item>
     
