@@ -134,11 +134,11 @@
       
       <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
-      <category domain="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/">实践</category>
-      
       <category domain="https://hwnote.space/tags/%E4%BD%9B%E5%AD%A6/">佛学</category>
       
       <category domain="https://hwnote.space/tags/%E5%AE%97%E6%95%99/">宗教</category>
+      
+      <category domain="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/">实践</category>
       
       
       <comments>https://hwnote.space/posts/2026/08/06/buddhism-is-not-just-letting-go/#disqus_thread</comments>
@@ -161,11 +161,11 @@
       
       <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
+      <category domain="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/">实践</category>
+      
       <category domain="https://hwnote.space/tags/%E5%93%B2%E5%AD%A6/">哲学</category>
       
       <category domain="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5%E8%AE%BA/">认知论</category>
-      
-      <category domain="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/">实践</category>
       
       <category domain="https://hwnote.space/tags/%E6%97%B6%E4%BB%A3/">时代</category>
       
@@ -242,11 +242,11 @@
       
       <category domain="https://hwnote.space/tags/PDF/">PDF</category>
       
-      <category domain="https://hwnote.space/tags/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/">调研报告</category>
-      
       <category domain="https://hwnote.space/tags/%E7%83%B9%E9%A5%AA/">烹饪</category>
       
       <category domain="https://hwnote.space/tags/%E7%BE%8E%E9%A3%9F/">美食</category>
+      
+      <category domain="https://hwnote.space/tags/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/">调研报告</category>
       
       
       <comments>https://hwnote.space/posts/2026/07/22/cooking-research-report/#disqus_thread</comments>
@@ -408,11 +408,11 @@
       
       <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
+      <category domain="https://hwnote.space/tags/%E8%80%83%E7%A0%94/">考研</category>
+      
       <category domain="https://hwnote.space/tags/%E8%80%83%E7%A0%94%E6%97%A5%E8%AE%B0/">考研日记</category>
       
       <category domain="https://hwnote.space/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/">学习方法</category>
-      
-      <category domain="https://hwnote.space/tags/%E8%80%83%E7%A0%94/">考研</category>
       
       <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6/">数学</category>
       
@@ -592,11 +592,11 @@
       
       <category domain="https://hwnote.space/tags/PDF/">PDF</category>
       
+      <category domain="https://hwnote.space/tags/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/">调研报告</category>
+      
       <category domain="https://hwnote.space/tags/%E7%9C%BC%E9%95%9C/">眼镜</category>
       
       <category domain="https://hwnote.space/tags/%E9%85%8D%E9%95%9C/">配镜</category>
-      
-      <category domain="https://hwnote.space/tags/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/">调研报告</category>
       
       
       <comments>https://hwnote.space/posts/2026/07/07/eyewear-research-report/#disqus_thread</comments>
@@ -823,6 +823,1434 @@
       
       
       <comments>https://hwnote.space/posts/2026/06/30/zhw-thinking-system-v1/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>2026-06-28-知到行的最后三公里</title>
+      <link>https://hwnote.space/posts/2026/06/28/knowledge-to-action/</link>
+      <guid>https://hwnote.space/posts/2026/06/28/knowledge-to-action/</guid>
+      <pubDate>Sun, 28 Jun 2026 11:00:00 GMT</pubDate>
+      
+      <description>关于为什么我能写出完美的SOP然后完美地不执行它</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      
+      <comments>https://hwnote.space/posts/2026/06/28/knowledge-to-action/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>2026-06-27-人际交往系统审计报告</title>
+      <link>https://hwnote.space/posts/2026/06/27/interpersonal-system-audit/</link>
+      <guid>https://hwnote.space/posts/2026/06/27/interpersonal-system-audit/</guid>
+      <pubDate>Fri, 26 Jun 2026 19:00:00 GMT</pubDate>
+      
+      <description>一份关于审计报告，从未装操作系统的baremetal Alpha 时代到 v1.0 交易系统</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      
+      <comments>https://hwnote.space/posts/2026/06/27/interpersonal-system-audit/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>2026-06-26-十年</title>
+      <link>https://hwnote.space/posts/2026/06/26/ten-years/</link>
+      <guid>https://hwnote.space/posts/2026/06/26/ten-years/</guid>
+      <pubDate>Fri, 26 Jun 2026 09:00:00 GMT</pubDate>
+      
+      <description>写给你的一封信</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      
+      <comments>https://hwnote.space/posts/2026/06/26/ten-years/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>2026-06-25-今天你上班了没有喵</title>
+      <link>https://hwnote.space/posts/2026/06/25/cat-at-work/</link>
+      <guid>https://hwnote.space/posts/2026/06/25/cat-at-work/</guid>
+      <pubDate>Wed, 24 Jun 2026 19:59:12 GMT</pubDate>
+      
+      <description>一些关于异化的发散思考</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      
+      <comments>https://hwnote.space/posts/2026/06/25/cat-at-work/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>2026-06-24-雷达方程与爱情</title>
+      <link>https://hwnote.space/posts/2026/06/24/radar-equation-love/</link>
+      <guid>https://hwnote.space/posts/2026/06/24/radar-equation-love/</guid>
+      <pubDate>Tue, 23 Jun 2026 16:59:11 GMT</pubDate>
+      
+      <description>学雷达方程引发的一次认知梳理</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      
+      <comments>https://hwnote.space/posts/2026/06/24/radar-equation-love/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>2026-06-15-台助</title>
+      <link>https://hwnote.space/posts/2026/06/15/tai-zhu/</link>
+      <guid>https://hwnote.space/posts/2026/06/15/tai-zhu/</guid>
+      <pubDate>Mon, 15 Jun 2026 06:14:11 GMT</pubDate>
+      
+      <description>好想她</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      
+      <comments>https://hwnote.space/posts/2026/06/15/tai-zhu/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>一些vibe coding</title>
+      <link>https://hwnote.space/posts/2026/06/02/vibe-coding/</link>
+      <guid>https://hwnote.space/posts/2026/06/02/vibe-coding/</guid>
+      <pubDate>Tue, 02 Jun 2026 12:14:11 GMT</pubDate>
+      
+      <description>一些vibe coding</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/">折腾杂项</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E5%BF%83%E7%90%86%E5%AD%A6%E3%80%81%E5%93%B2%E5%AD%A6/">心理学、哲学</category>
+      
+      
+      <comments>https://hwnote.space/posts/2026/06/02/vibe-coding/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>1-心理学史简介</title>
+      <link>https://hwnote.space/posts/2026/05/21/psychology-history-intro/</link>
+      <guid>https://hwnote.space/posts/2026/05/21/psychology-history-intro/</guid>
+      <pubDate>Thu, 21 May 2026 15:14:11 GMT</pubDate>
+      
+      <description>心理学史简介</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/">折腾杂项</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      
+      <comments>https://hwnote.space/posts/2026/05/21/psychology-history-intro/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>2026-05-21-半年</title>
+      <link>https://hwnote.space/posts/2026/05/21/half-year/</link>
+      <guid>https://hwnote.space/posts/2026/05/21/half-year/</guid>
+      <pubDate>Thu, 21 May 2026 11:14:11 GMT</pubDate>
+      
+      <description>这半年经历了很多很多很多</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      
+      <comments>https://hwnote.space/posts/2026/05/21/half-year/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>2025-11-03-略</title>
+      <link>https://hwnote.space/posts/2025/11/03/brief/</link>
+      <guid>https://hwnote.space/posts/2025/11/03/brief/</guid>
+      <pubDate>Mon, 03 Nov 2025 14:24:25 GMT</pubDate>
+      
+      <description>没什么好说的</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/11/03/brief/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>第六章 有噪信道编码定理</title>
+      <link>https://hwnote.space/posts/2025/10/29/noisy-channel-coding/</link>
+      <guid>https://hwnote.space/posts/2025/10/29/noisy-channel-coding/</guid>
+      <pubDate>Wed, 29 Oct 2025 11:09:11 GMT</pubDate>
+      
+      <description>本章的核心是香农第二定理（有噪信道编码定理），它阐述了在存在噪声和干扰的信道中，实现无差错传输所能达到的最大信息传输率（即信道容量）。同时讨论了错误概率、译码规则以及编码方法对通信可靠性的影响。</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/">信息论</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/10/29/noisy-channel-coding/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>第五章 无失真信源编码定理</title>
+      <link>https://hwnote.space/posts/2025/10/29/lossless-source-coding/</link>
+      <guid>https://hwnote.space/posts/2025/10/29/lossless-source-coding/</guid>
+      <pubDate>Wed, 29 Oct 2025 10:09:11 GMT</pubDate>
+      
+      <description>本章主要研究离散信源的编码方法，包括等长码和变长码，并阐述香农第一定理（无失真信源编码定理），给出实现无失真编码的极限条件。</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/">信息论</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/10/29/lossless-source-coding/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>第四章 波形信源与波形信道</title>
+      <link>https://hwnote.space/posts/2025/10/29/waveform-source-channel/</link>
+      <guid>https://hwnote.space/posts/2025/10/29/waveform-source-channel/</guid>
+      <pubDate>Wed, 29 Oct 2025 09:09:11 GMT</pubDate>
+      
+      <description>本章是信息论中从离散到连续的过渡，核心在于“连续信源与信道的信息度量”。主要介绍波形信源的统计特性、连续信源的熵定义与性质、最大差熵定理，以及连续与波形信道的信息传输率和信道容量。</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/">信息论</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/10/29/waveform-source-channel/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>第三章 离散信道及其信道容量</title>
+      <link>https://hwnote.space/posts/2025/10/29/discrete-channel-capacity/</link>
+      <guid>https://hwnote.space/posts/2025/10/29/discrete-channel-capacity/</guid>
+      <pubDate>Wed, 29 Oct 2025 07:27:08 GMT</pubDate>
+      
+      <description>如何在有干扰的条件下，最大效率、最可靠的传输信息？这里来讲一下离散信道的数学模型、平均互信息量、信道容量</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/">信息论</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/10/29/discrete-channel-capacity/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>第二章 离散信源及其信息测度</title>
+      <link>https://hwnote.space/posts/2025/10/23/discrete-source-entropy/</link>
+      <guid>https://hwnote.space/posts/2025/10/23/discrete-source-entropy/</guid>
+      <pubDate>Thu, 23 Oct 2025 08:00:00 GMT</pubDate>
+      
+      <description>讲了一下信息量的衡量方式、信源的量化模型和典型模型</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/">信息论</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/10/23/discrete-source-entropy/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>第三章 随机过程-谱分析</title>
+      <link>https://hwnote.space/posts/2025/10/22/spectral-analysis/</link>
+      <guid>https://hwnote.space/posts/2025/10/22/spectral-analysis/</guid>
+      <pubDate>Wed, 22 Oct 2025 08:33:58 GMT</pubDate>
+      
+      <description>本章研究随机信号在频域中的统计特性，重点讨论功率谱密度的定义、性质、与自相关函数的关系、互谱密度以及白噪声特性。</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%9A%8F%E6%9C%BA%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90/">随机信号分析</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/10/22/spectral-analysis/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>第二章 随机过程-时域分析</title>
+      <link>https://hwnote.space/posts/2025/10/21/time-domain-analysis/</link>
+      <guid>https://hwnote.space/posts/2025/10/21/time-domain-analysis/</guid>
+      <pubDate>Tue, 21 Oct 2025 15:55:11 GMT</pubDate>
+      
+      <description>将随时间变化的随机现象（如噪声、干扰）用随机过程（一个时间函数族）来描述，并通过统计平均（如均值、相关函数、概率分布）而非确定函数来刻画其特性。</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%9A%8F%E6%9C%BA%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90/">随机信号分析</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/10/21/time-domain-analysis/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>第一章 概率论基础</title>
+      <link>https://hwnote.space/posts/2025/10/21/probability-theory/</link>
+      <guid>https://hwnote.space/posts/2025/10/21/probability-theory/</guid>
+      <pubDate>Tue, 21 Oct 2025 06:14:11 GMT</pubDate>
+      
+      <description>随机信号分析是建立在概率论+信号与系统上的，因此本章主要回顾概率论的一维、多维随机变量基础，为后续随机过程分析铺垫。</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%9A%8F%E6%9C%BA%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90/">随机信号分析</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/10/21/probability-theory/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>第五章 模拟调制系统</title>
+      <link>https://hwnote.space/posts/2025/10/20/analog-modulation/</link>
+      <guid>https://hwnote.space/posts/2025/10/20/analog-modulation/</guid>
+      <pubDate>Mon, 20 Oct 2025 15:04:12 GMT</pubDate>
+      
+      <description>讲了一下调制，主要是线性调制，角度调制非线性的就是提了一嘴，感觉我们这课讲的不是很深</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/">通信原理</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/10/20/analog-modulation/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>第四章 信道</title>
+      <link>https://hwnote.space/posts/2025/10/19/communication-channel/</link>
+      <guid>https://hwnote.space/posts/2025/10/19/communication-channel/</guid>
+      <pubDate>Sun, 19 Oct 2025 13:54:12 GMT</pubDate>
+      
+      <description>这一部分有点偏文字，等于就是给个最基本的信道的定义，给点背景知识。首先就是介绍信道是啥，如何用数学描述，还有就是各种指标；接着介绍几个恒参信道几个随参信道就没了。</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/">通信原理</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/10/19/communication-channel/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>第三章 随机信号分析</title>
+      <link>https://hwnote.space/posts/2025/10/19/random-signal-analysis/</link>
+      <guid>https://hwnote.space/posts/2025/10/19/random-signal-analysis/</guid>
+      <pubDate>Sun, 19 Oct 2025 12:04:12 GMT</pubDate>
+      
+      <description>介绍了随机过程的分布及其数字特征等基本概念，然后给了几个随机过程的例子，以及随机过程过线性系统之后的情况。</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/">通信原理</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/10/19/random-signal-analysis/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>2025-10-12-1+1</title>
+      <link>https://hwnote.space/posts/2025/10/14/one-plus-one/</link>
+      <guid>https://hwnote.space/posts/2025/10/14/one-plus-one/</guid>
+      <pubDate>Mon, 13 Oct 2025 17:14:11 GMT</pubDate>
+      
+      <description>一篇长文和一篇短文</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/10/14/one-plus-one/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>第一章 绪论</title>
+      <link>https://hwnote.space/posts/2025/10/09/communication-intro/</link>
+      <guid>https://hwnote.space/posts/2025/10/09/communication-intro/</guid>
+      <pubDate>Thu, 09 Oct 2025 15:00:00 GMT</pubDate>
+      
+      <description>通信原理第一章，没啥东西，就是明确研究对象和评判标准</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/">通信原理</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/">笔记</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/10/09/communication-intro/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>未知</title>
+      <link>https://hwnote.space/posts/2025/09/24/unknown/</link>
+      <guid>https://hwnote.space/posts/2025/09/24/unknown/</guid>
+      <pubDate>Wed, 24 Sep 2025 14:48:11 GMT</pubDate>
+      
+      <description>25年秋开学月余一次莫名的记载</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/09/24/unknown/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>数学建模综述</title>
+      <link>https://hwnote.space/posts/2025/08/25/mathematical-modeling-review/</link>
+      <guid>https://hwnote.space/posts/2025/08/25/mathematical-modeling-review/</guid>
+      <pubDate>Mon, 25 Aug 2025 15:14:11 GMT</pubDate>
+      
+      <description>作为我数学建模这部分博客的开头，基于25年国赛前的一些学习的内容</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%BB%BC%E8%BF%B0%E6%A6%82%E8%A6%81/">综述概要</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/08/25/mathematical-modeling-review/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>数据拟合与插值综述</title>
+      <link>https://hwnote.space/posts/2025/08/25/data-fitting-interpolation-review/</link>
+      <guid>https://hwnote.space/posts/2025/08/25/data-fitting-interpolation-review/</guid>
+      <pubDate>Mon, 25 Aug 2025 12:14:11 GMT</pubDate>
+      
+      <description>做一下数据拟合与插值方法部分的综述</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%BB%BC%E8%BF%B0%E6%A6%82%E8%A6%81/">综述概要</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/08/25/data-fitting-interpolation-review/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>微分方程与差分方程方法综述</title>
+      <link>https://hwnote.space/posts/2025/08/25/differential-equations-review/</link>
+      <guid>https://hwnote.space/posts/2025/08/25/differential-equations-review/</guid>
+      <pubDate>Mon, 25 Aug 2025 11:14:11 GMT</pubDate>
+      
+      <description>为微分方程、差分方程方法做一个综述，虽然大概率不会用上。</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%BB%BC%E8%BF%B0%E6%A6%82%E8%A6%81/">综述概要</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/08/25/differential-equations-review/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>统计与数据挖掘综述</title>
+      <link>https://hwnote.space/posts/2025/08/25/statistics-data-mining-review/</link>
+      <guid>https://hwnote.space/posts/2025/08/25/statistics-data-mining-review/</guid>
+      <pubDate>Mon, 25 Aug 2025 09:14:11 GMT</pubDate>
+      
+      <description>梳理了统计学与数据挖掘的基本概念、方法论及其在数据分析中的应用</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%BB%BC%E8%BF%B0%E6%A6%82%E8%A6%81/">综述概要</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/08/25/statistics-data-mining-review/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>最优化方法综述</title>
+      <link>https://hwnote.space/posts/2025/08/21/optimization-review/</link>
+      <guid>https://hwnote.space/posts/2025/08/21/optimization-review/</guid>
+      <pubDate>Thu, 21 Aug 2025 15:55:11 GMT</pubDate>
+      
+      <description>也称数学规划，是运筹学的分支，数学建模考的比较的多</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%BB%BC%E8%BF%B0%E6%A6%82%E8%A6%81/">综述概要</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/08/21/optimization-review/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>江协STM32笔记（二）</title>
+      <link>https://hwnote.space/posts/2025/08/12/stm32-notes-2/</link>
+      <guid>https://hwnote.space/posts/2025/08/12/stm32-notes-2/</guid>
+      <pubDate>Tue, 12 Aug 2025 15:14:11 GMT</pubDate>
+      
+      <description>学江协stm32课程时做的自用笔记，OLED与中断部分</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E6%B1%9F%E5%8D%8FSTM32%E5%85%A5%E9%97%A8/">江协STM32入门</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%B1%9F%E5%8D%8FSTM32%E5%85%A5%E9%97%A8/">江协STM32入门</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/08/12/stm32-notes-2/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>江协STM32笔记（一）</title>
+      <link>https://hwnote.space/posts/2025/08/11/stm32-notes-1/</link>
+      <guid>https://hwnote.space/posts/2025/08/11/stm32-notes-1/</guid>
+      <pubDate>Mon, 11 Aug 2025 15:14:11 GMT</pubDate>
+      
+      <description>学江协stm32课程时做的自用笔记，序言与GPIO部分</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E5%B5%8C%E5%85%A5%E5%BC%8F/">嵌入式</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E6%B1%9F%E5%8D%8FSTM32%E5%85%A5%E9%97%A8/">江协STM32入门</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%B1%9F%E5%8D%8FSTM32%E5%85%A5%E9%97%A8/">江协STM32入门</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/08/11/stm32-notes-1/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>专利写作·初</title>
+      <link>https://hwnote.space/posts/2025/08/03/patent-writing-basics/</link>
+      <guid>https://hwnote.space/posts/2025/08/03/patent-writing-basics/</guid>
+      <pubDate>Sun, 03 Aug 2025 08:46:10 GMT</pubDate>
+      
+      <description>这个星期在老师的指导下手搓了一份专利，总结一下具体的写作流程作为存档</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/">折腾杂项</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/">写作</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/08/03/patent-writing-basics/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>visio绘图</title>
+      <link>https://hwnote.space/posts/2025/07/30/visio-drawing/</link>
+      <guid>https://hwnote.space/posts/2025/07/30/visio-drawing/</guid>
+      <pubDate>Wed, 30 Jul 2025 10:14:11 GMT</pubDate>
+      
+      <description>讲一下visio的一些东西，等于啥都没写</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/">折腾杂项</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/">折腾的小杂项</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/07/30/visio-drawing/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>2025-07-26-青岛</title>
+      <link>https://hwnote.space/posts/2025/07/26/qingdao/</link>
+      <guid>https://hwnote.space/posts/2025/07/26/qingdao/</guid>
+      <pubDate>Sat, 26 Jul 2025 15:23:11 GMT</pubDate>
+      
+      <description>对最近的几天做一个总结</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/07/26/qingdao/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>2025-07-12-月记</title>
+      <link>https://hwnote.space/posts/2025/07/12/monthly-review/</link>
+      <guid>https://hwnote.space/posts/2025/07/12/monthly-review/</guid>
+      <pubDate>Sat, 12 Jul 2025 15:14:11 GMT</pubDate>
+      
+      <description>对最近的几十天做一个总结</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/07/12/monthly-review/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>06-09-思考与构建</title>
+      <link>https://hwnote.space/posts/2025/06/09/thinking-and-building/</link>
+      <guid>https://hwnote.space/posts/2025/06/09/thinking-and-building/</guid>
+      <pubDate>Sun, 08 Jun 2025 18:14:11 GMT</pubDate>
+      
+      <description>有多久没有正儿八经的思考交流过了呢</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/06/09/thinking-and-building/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Git介绍及用法</title>
+      <link>https://hwnote.space/posts/2025/06/03/git-intro/</link>
+      <guid>https://hwnote.space/posts/2025/06/03/git-intro/</guid>
+      <pubDate>Tue, 03 Jun 2025 15:14:11 GMT</pubDate>
+      
+      <description>Git的历史、安装、配置与帮助</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/">折腾杂项</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/">折腾的小杂项</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/06/03/git-intro/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>CMake与动态静态库</title>
+      <link>https://hwnote.space/posts/2025/05/29/cmake-libraries/</link>
+      <guid>https://hwnote.space/posts/2025/05/29/cmake-libraries/</guid>
+      <pubDate>Wed, 28 May 2025 18:14:11 GMT</pubDate>
+      
+      <description>补一下C语言编程必不可少的工具链部分,这部分老师不讲,倒是用的挺多</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/">折腾杂项</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/">折腾的小杂项</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/05/29/cmake-libraries/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>星际穿越</title>
+      <link>https://hwnote.space/posts/2025/05/29/interstellar/</link>
+      <guid>https://hwnote.space/posts/2025/05/29/interstellar/</guid>
+      <pubDate>Wed, 28 May 2025 18:14:11 GMT</pubDate>
+      
+      <description>在北理之声做的第二期节目，同时也感谢我的搭档的支持</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/%E7%95%AA%E5%89%A7%E9%89%B4%E8%B5%8F/">番剧鉴赏</category>
+      
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/%E7%95%AA%E5%89%A7%E9%89%B4%E8%B5%8F/%E7%94%B5%E5%BD%B1/">电影</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E7%95%AA%E5%89%A7%E9%89%B4%E8%B5%8F/">番剧鉴赏</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/05/29/interstellar/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>05-28-廿</title>
+      <link>https://hwnote.space/posts/2025/05/28/nian/</link>
+      <guid>https://hwnote.space/posts/2025/05/28/nian/</guid>
+      <pubDate>Wed, 28 May 2025 15:14:11 GMT</pubDate>
+      
+      <description>随便写写</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/05/28/nian/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>当幸福来敲门</title>
+      <link>https://hwnote.space/posts/2025/05/22/pursuit-of-happyness/</link>
+      <guid>https://hwnote.space/posts/2025/05/22/pursuit-of-happyness/</guid>
+      <pubDate>Wed, 21 May 2025 19:14:11 GMT</pubDate>
+      
+      <description>在北理之声做的最后一期节目，这个是最开始的一版稿件，不太像是影评了，直接放在这里算了</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/%E7%95%AA%E5%89%A7%E9%89%B4%E8%B5%8F/">番剧鉴赏</category>
+      
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/%E7%95%AA%E5%89%A7%E9%89%B4%E8%B5%8F/%E7%94%B5%E5%BD%B1/">电影</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E7%95%AA%E5%89%A7%E9%89%B4%E8%B5%8F/">番剧鉴赏</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/05/22/pursuit-of-happyness/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>05-07-深夜随便写写</title>
+      <link>https://hwnote.space/posts/2025/05/07/late-night-thoughts/</link>
+      <guid>https://hwnote.space/posts/2025/05/07/late-night-thoughts/</guid>
+      <pubDate>Tue, 06 May 2025 17:14:11 GMT</pubDate>
+      
+      <description>我也不知道为什么会打开这个东西，我也不知道为什么想写些什么东西</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/05/07/late-night-thoughts/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>05-04-巴普洛夫的二八狗</title>
+      <link>https://hwnote.space/posts/2025/05/04/pavlovs-dog/</link>
+      <guid>https://hwnote.space/posts/2025/05/04/pavlovs-dog/</guid>
+      <pubDate>Sun, 04 May 2025 15:14:11 GMT</pubDate>
+      
+      <description>一些自驱力的思考，最近老是干活没劲</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/05/04/pavlovs-dog/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>岭回归与Lasso回归-ridge&amp;lasso</title>
+      <link>https://hwnote.space/posts/2025/05/02/ridge-lasso-regression/</link>
+      <guid>https://hwnote.space/posts/2025/05/02/ridge-lasso-regression/</guid>
+      <pubDate>Fri, 02 May 2025 14:00:00 GMT</pubDate>
+      
+      <description>从多重共线性到变量选择，一文掌握正则化回归的核心技术</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/">预测类模型</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/05/02/ridge-lasso-regression/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>多元线性回归分析</title>
+      <link>https://hwnote.space/posts/2025/05/02/multiple-linear-regression/</link>
+      <guid>https://hwnote.space/posts/2025/05/02/multiple-linear-regression/</guid>
+      <pubDate>Fri, 02 May 2025 10:14:11 GMT</pubDate>
+      
+      <description>一种通过建立线性模型探究变量间关系并实现预测的统计方法</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/">预测类模型</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/05/02/multiple-linear-regression/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>灰色预测模型-GM(n,m)</title>
+      <link>https://hwnote.space/posts/2025/05/02/grey-prediction-model/</link>
+      <guid>https://hwnote.space/posts/2025/05/02/grey-prediction-model/</guid>
+      <pubDate>Fri, 02 May 2025 09:00:00 GMT</pubDate>
+      
+      <description>一种小样本或缺失数据的预测方案</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/">预测类模型</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/05/02/grey-prediction-model/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>拟合算法</title>
+      <link>https://hwnote.space/posts/2025/05/02/fitting-algorithms/</link>
+      <guid>https://hwnote.space/posts/2025/05/02/fitting-algorithms/</guid>
+      <pubDate>Fri, 02 May 2025 03:14:11 GMT</pubDate>
+      
+      <description>一种通过最小化误差平方和寻找最佳函数匹配的数据建模方法</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/">预测类模型</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/05/02/fitting-algorithms/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>异常值检验</title>
+      <link>https://hwnote.space/posts/2025/05/01/outlier-detection/</link>
+      <guid>https://hwnote.space/posts/2025/05/01/outlier-detection/</guid>
+      <pubDate>Thu, 01 May 2025 15:14:11 GMT</pubDate>
+      
+      <description>3σ法则，IQR方法，基于分位数，马氏距离，K临近等异常值处理的方法</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">数据处理</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/05/01/outlier-detection/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>网协建模分享会</title>
+      <link>https://hwnote.space/posts/2025/04/21/network-modeling-sharing/</link>
+      <guid>https://hwnote.space/posts/2025/04/21/network-modeling-sharing/</guid>
+      <pubDate>Mon, 21 Apr 2025 15:14:11 GMT</pubDate>
+      
+      <description>作为我数学建模这部分博客的开头，基于一次网协的经验分享会</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%BB%BC%E8%BF%B0%E6%A6%82%E8%A6%81/">综述概要</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/04/21/network-modeling-sharing/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>相机基础知识解读</title>
+      <link>https://hwnote.space/posts/2025/04/13/camera-basics/</link>
+      <guid>https://hwnote.space/posts/2025/04/13/camera-basics/</guid>
+      <pubDate>Sun, 13 Apr 2025 12:14:11 GMT</pubDate>
+      
+      <description>手里的nikon-d7100吃灰好久了今天拿出来耍了耍，顺手写一篇博客介绍一下我所知道的基础知识。文章内容力图做到全面、细致，从相机构造、曝光原理、镜头知识，到手动调控及拍摄技巧，多角度解析摄影入门必备的基础概念。</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/%E6%91%84%E5%BD%B1/">摄影</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%91%84%E5%BD%B1%E5%9F%BA%E7%A1%80/">摄影基础</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/04/13/camera-basics/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>四月是你的谎言</title>
+      <link>https://hwnote.space/posts/2025/04/11/your-lie-in-april/</link>
+      <guid>https://hwnote.space/posts/2025/04/11/your-lie-in-april/</guid>
+      <pubDate>Fri, 11 Apr 2025 15:14:11 GMT</pubDate>
+      
+      <description>在北理之声做的第一期节目，同时也感谢我的搭档的支持</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/%E7%95%AA%E5%89%A7%E9%89%B4%E8%B5%8F/">番剧鉴赏</category>
+      
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/%E7%95%AA%E5%89%A7%E9%89%B4%E8%B5%8F/%E7%95%AA%E5%89%A7/">番剧</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E7%95%AA%E5%89%A7%E9%89%B4%E8%B5%8F/">番剧鉴赏</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/04/11/your-lie-in-april/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Hexo+Fluid+Obsidian博客搭建及优化</title>
+      <link>https://hwnote.space/posts/2025/04/07/building-this-blog/</link>
+      <guid>https://hwnote.space/posts/2025/04/07/building-this-blog/</guid>
+      <pubDate>Mon, 07 Apr 2025 15:14:11 GMT</pubDate>
+      
+      <description>记录本博客搭建过程和相关博文的写作工作流</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/">折腾杂项</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/">折腾的小杂项</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/04/07/building-this-blog/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>批处理文件（.bat）入门</title>
+      <link>https://hwnote.space/posts/2025/04/07/batch-file/</link>
+      <guid>https://hwnote.space/posts/2025/04/07/batch-file/</guid>
+      <pubDate>Mon, 07 Apr 2025 15:14:11 GMT</pubDate>
+      
+      <description>最近才知道.bat文件是什么，以前win的命令行真没咋玩过，就先写个入门的简介吧</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/">折腾杂项</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/">折腾的小杂项</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/04/07/batch-file/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>显示器参数及相关知识解读</title>
+      <link>https://hwnote.space/posts/2025/04/06/monitor-parameters-guide/</link>
+      <guid>https://hwnote.space/posts/2025/04/06/monitor-parameters-guide/</guid>
+      <pubDate>Sat, 05 Apr 2025 17:14:11 GMT</pubDate>
+      
+      <description>最近在挑显示器当副屏，写个文档来解释一下相关的参数</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/">折腾杂项</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E7%A1%AC%E4%BB%B6/">硬件</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/04/06/monitor-parameters-guide/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>基于人体关键点识别的摔倒检测算法</title>
+      <link>https://hwnote.space/posts/2025/04/05/fall-detection-keypoint/</link>
+      <guid>https://hwnote.space/posts/2025/04/05/fall-detection-keypoint/</guid>
+      <pubDate>Fri, 04 Apr 2025 17:14:11 GMT</pubDate>
+      
+      <description>一直以来的目标检测算法在检测摔倒等组间任务时存在难以辨别摔倒与坐下等动作的区别，即在类间分类任务上存在难度。本文期待以人体关键点识别的路径实现这一任务</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B5/">项目实践</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/04/05/fall-detection-keypoint/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>标准分数-Z-Score</title>
+      <link>https://hwnote.space/posts/2025/04/04/z-score/</link>
+      <guid>https://hwnote.space/posts/2025/04/04/z-score/</guid>
+      <pubDate>Fri, 04 Apr 2025 07:28:11 GMT</pubDate>
+      
+      <description>一种衡量数据点相对于总体均值的位置的分数</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%B0%8F%E5%B7%A5%E5%85%B7/">小工具</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/04/04/z-score/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>模糊综合评价法-FCE</title>
+      <link>https://hwnote.space/posts/2025/04/01/fuzzy-comprehensive-evaluation/</link>
+      <guid>https://hwnote.space/posts/2025/04/01/fuzzy-comprehensive-evaluation/</guid>
+      <pubDate>Tue, 01 Apr 2025 10:14:11 GMT</pubDate>
+      
+      <description>一种基于模糊数学理论的多因素综合评价方法</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/">评价类模型</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/04/01/fuzzy-comprehensive-evaluation/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>优劣解距离法-TOPSIS</title>
+      <link>https://hwnote.space/posts/2025/04/01/topsis/</link>
+      <guid>https://hwnote.space/posts/2025/04/01/topsis/</guid>
+      <pubDate>Tue, 01 Apr 2025 10:14:11 GMT</pubDate>
+      
+      <description>一种基于模糊数学理论的多因素综合评价方法</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/">评价类模型</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/04/01/topsis/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>主成分分析-PCA</title>
+      <link>https://hwnote.space/posts/2025/04/01/principal-component-analysis/</link>
+      <guid>https://hwnote.space/posts/2025/04/01/principal-component-analysis/</guid>
+      <pubDate>Mon, 31 Mar 2025 16:28:11 GMT</pubDate>
+      
+      <description>一种判定指标是否具有代表性的方法，可降低判定维度，但在解释主成分的时候比较模糊</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/">评价类模型</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/04/01/principal-component-analysis/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>皮尔逊相关系数-PEARSON</title>
+      <link>https://hwnote.space/posts/2025/03/31/pearson-correlation/</link>
+      <guid>https://hwnote.space/posts/2025/03/31/pearson-correlation/</guid>
+      <pubDate>Mon, 31 Mar 2025 15:58:11 GMT</pubDate>
+      
+      <description>一种判定两种指标是否线性相关，即判断其独立性的方法</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%B0%8F%E5%B7%A5%E5%85%B7/">小工具</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/03/31/pearson-correlation/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>熵权法-EWM</title>
+      <link>https://hwnote.space/posts/2025/03/31/entropy-weight-method/</link>
+      <guid>https://hwnote.space/posts/2025/03/31/entropy-weight-method/</guid>
+      <pubDate>Mon, 31 Mar 2025 15:14:11 GMT</pubDate>
+      
+      <description>一种客观分配权重的方法</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/">评价类模型</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/03/31/entropy-weight-method/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>XGBoost公式文档</title>
+      <link>https://hwnote.space/posts/2025/03/31/xgboost-docs/</link>
+      <guid>https://hwnote.space/posts/2025/03/31/xgboost-docs/</guid>
+      <pubDate>Mon, 31 Mar 2025 10:14:11 GMT</pubDate>
+      
+      <description>写了点推导XGBoost数学模型所用得到的数学公式，当做本博客的第一篇帖子</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/">学习资源</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</category>
+      
+      <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/">公式推导</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/03/31/xgboost-docs/#disqus_thread</comments>
       
     </item>
     
