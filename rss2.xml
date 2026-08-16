@@ -9,8 +9,60 @@
     <atom:link href="https://hwnote.space/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一个工科生的个人博客，记录技术学习、工程实践与对生活和认知的思考。</description>
-    <pubDate>Fri, 14 Aug 2026 16:17:50 GMT</pubDate>
+    <pubDate>Sun, 16 Aug 2026 15:24:17 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>从零制作华为平板自定义主题：HWT 动态锁屏与桌面壁纸实战</title>
+      <link>https://hwnote.space/posts/2026/08/14/hwt/</link>
+      <guid>https://hwnote.space/posts/2026/08/14/hwt/</guid>
+      <pubDate>Sat, 15 Aug 2026 14:50:57 GMT</pubDate>
+      
+      <description>自己找图整了一套华为主题，记录一下。本文由codex全程赞助</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/">折腾杂项</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/">折腾的小杂项</category>
+      
+      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      
+      <category domain="https://hwnote.space/tags/PDF/">PDF</category>
+      
+      
+      <comments>https://hwnote.space/posts/2026/08/14/hwt/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>逍遥游笔记</title>
+      <link>https://hwnote.space/posts/2026/08/14/carefree-wandering/</link>
+      <guid>https://hwnote.space/posts/2026/08/14/carefree-wandering/</guid>
+      <pubDate>Sat, 15 Aug 2026 14:50:57 GMT</pubDate>
+      
+      <description>简要梳理了一下逍遥游在干什么，庄子的核心观点是什么</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      
+      <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      <category domain="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5/">认知</category>
+      
+      <category domain="https://hwnote.space/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</category>
+      
+      
+      <comments>https://hwnote.space/posts/2026/08/14/carefree-wandering/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>思维拓扑学</title>

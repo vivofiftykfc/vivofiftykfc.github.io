@@ -1,0 +1,1535 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="自己找图整了一套华为主题，记录一下。本文由codex全程赞助">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零制作华为平板自定义主题：HWT 动态锁屏与桌面壁纸实战">
+<meta property="og:url" content="https://hwnote.space/posts/2026/08/14/hwt/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="自己找图整了一套华为主题，记录一下。本文由codex全程赞助">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hwnote.space/img/blogs/1ran.jpg">
+<meta property="article:published_time" content="2026-08-15T14:50:57.000Z">
+<meta property="article:modified_time" content="2026-08-16T15:24:17.741Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="折腾的小杂项">
+<meta property="article:tag" content="生活美学">
+<meta property="article:tag" content="PDF">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/1ran.jpg">
+  
+  
+  
+  <title>从零制作华为平板自定义主题：HWT 动态锁屏与桌面壁纸实战 - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/1ran.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="从零制作华为平板自定义主题：HWT 动态锁屏与桌面壁纸实战"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-08-15 22:50" pubdate>
+          2026年8月15日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          69 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">从零制作华为平板自定义主题：HWT 动态锁屏与桌面壁纸实战</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>MatePad Air · HarmonyOS 4.2 · 2800 × 1840<br>从一张自己喜欢的图开始，最后做出一个可以被华为主题 App 正常识别、安装和使用的 <code>.hwt</code> 原生主题。</p>
+</blockquote>
+<h2 id="PDF版教程"><a href="#PDF版教程" class="headerlink" title="PDF版教程"></a>PDF版教程</h2><ul>
+<li><p><a href="/downloads/tutorials/Huawei_HWT_Custom_Theme_Guide_MatePad_Air.pdf">点击下载 PDF</a></p>
+</li>
+<li><p><a href="/downloads/results/QuietPair_MatePadAir_HarmonyOS4_v4_Hybrid.hwt">点击下载本教程所涉及到的主题</a></p>
+</li>
+</ul>
+<h2 id="0-为什么我要自己折腾华为主题"><a href="#0-为什么我要自己折腾华为主题" class="headerlink" title="0. 为什么我要自己折腾华为主题"></a>0. 为什么我要自己折腾华为主题</h2><p>事情的起因其实非常简单：</p>
+<p><strong>华为主题商店里的主题实在太贵了，而且我还没找到几个真正合眼缘的。</strong></p>
+<p>很多主题本质上就是壁纸、图标、字体和锁屏布局的重新组合，但价格并不便宜。更麻烦的是，即使花了钱，也经常要接受一些我根本不想要的东西：巨大的字体、花里胡哨的图标、奇怪的锁屏排版，或者根本不适合平板横屏的壁纸构图。</p>
+<p>那既然如此——</p>
+<p><strong>为什么不干脆自己做一个？</strong></p>
+<p>我的需求其实非常明确：</p>
+<ul>
+<li><p>桌面使用自己喜欢的双人插画；</p>
+</li>
+<li><p>人物分居左右，中间给图标和小组件留出空间；</p>
+</li>
+<li><p>锁屏单独重新构图，而不是强行和桌面共用一张图；</p>
+</li>
+<li><p>时间放在画面中央留白处；</p>
+</li>
+<li><p>保留华为原生锁屏、通知、密码、指纹和解锁逻辑；</p>
+</li>
+<li><p>最后做成真正的 <code>.hwt</code> 主题，而不是装一个第三方“假锁屏”App。</p>
+</li>
+</ul>
+<p>于是就有了这次折腾。</p>
+<p>最终做出来的是：</p>
+<p><strong>「静默双生·清晰时钟」v5</strong></p>
+<p>桌面使用我认为效果最好的 v3 构图，锁屏则使用人物相对位置更加自然的 v2，同时针对我的 MatePad Air 做了 <strong>2800 × 1840 横屏</strong>和 <strong>1840 × 2800 竖屏</strong>原生尺寸适配。</p>
+<p>而整个过程中最有意思的地方，并不是简单地“换张壁纸”，而是慢慢摸清了华为 HarmonyOS 4.x 的 HWT 主题究竟是怎么工作的。</p>
+<hr>
+<h1 id="1-最终效果"><a href="#1-最终效果" class="headerlink" title="1. 最终效果"></a>1. 最终效果</h1><p>最终方案：</p>
+<ul>
+<li><p><strong>设备</strong>：HUAWEI MatePad Air（DBY2-W00）</p>
+</li>
+<li><p><strong>系统</strong>：HarmonyOS 4.2</p>
+</li>
+<li><p><strong>横屏分辨率</strong>：2800 × 1840</p>
+</li>
+<li><p><strong>竖屏分辨率</strong>：1840 × 2800</p>
+</li>
+<li><p><strong>桌面壁纸</strong>：v3</p>
+</li>
+<li><p><strong>锁屏壁纸</strong>：v2</p>
+</li>
+<li><p><strong>锁屏时钟</strong>：系统 <code>DateTime</code> 组件实时渲染</p>
+</li>
+<li><p><strong>主题格式</strong>：<code>.hwt</code></p>
+</li>
+<li><p><strong>最终版本</strong>：v5 VectorClock</p>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202608162323409.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>桌面这一版，我把两个人物分别向左右移动，中央刻意空出一大片区域。这样无论是放文件夹、应用图标还是桌面小组件，都不会直接盖住人物。</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202608162324865.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>锁屏则没有继续使用桌面的 v3，而是退回了 v2 的人物构图。</p>
+<p>原因也很简单：</p>
+<p><strong>桌面和锁屏实际上承担的是两种完全不同的视觉任务。</strong></p>
+<p>桌面需要“可用性”，中央必须能放东西；锁屏则更接近一张完整插画，只需要避开时钟、日期和通知。</p>
+<p>所以最后我干脆不再强求“一张图通吃”，而是：</p>
+<blockquote>
+<p><strong>桌面用最适合桌面的图，锁屏用最适合锁屏的图。</strong></p>
+</blockquote>
+<p>效果反而一下子顺眼了。</p>
+<hr>
+<h1 id="2-为什么不用第三方锁屏-App"><a href="#2-为什么不用第三方锁屏-App" class="headerlink" title="2. 为什么不用第三方锁屏 App"></a>2. 为什么不用第三方锁屏 App</h1><p>最开始其实也考虑过直接找一个第三方锁屏软件。</p>
+<p>但问题是，这类软件通常只能在系统锁屏上面再盖一层界面。</p>
+<p>最后可能会变成：</p>
+<blockquote>
+<p>第三方漂亮锁屏<br>↓<br>滑一下<br>↓<br>华为系统锁屏<br>↓<br>再解锁一次</p>
+</blockquote>
+<p>也就是经典的“双层锁屏”。</p>
+<p>而且第三方应用本身并不能真正替代 HarmonyOS 的密码、指纹和系统安全认证。</p>
+<p>所以最后还是决定走：</p>
+<p><strong>华为原生 HWT 主题路线。</strong></p>
+<p>HWT 负责的只是“这个锁屏长什么样”。</p>
+<p>真正的安全认证、通知、系统解锁流程，依旧全部交给 HarmonyOS。</p>
+<p>这也是我认为这条路线最舒服的地方。</p>
+<hr>
+<h1 id="3-我查了哪些资料"><a href="#3-我查了哪些资料" class="headerlink" title="3. 我查了哪些资料"></a>3. 我查了哪些资料</h1><p>这次主要查的是华为自己的官方文档，然后拿一个已经能够在我平板上正常识别的 HWT 主题包做对照。</p>
+<p>主要参考了：</p>
+<ol>
+<li><p>Huawei Theme Studio</p>
+</li>
+<li><p>HarmonyOS 4.x 及以下平板主题规范</p>
+</li>
+<li><p>Huawei Themes Engine &#x2F; 锁屏应用文档</p>
+</li>
+<li><p><code>Time</code> 组件说明</p>
+</li>
+<li><p><code>DateTime</code> 组件说明</p>
+</li>
+<li><p>华为动态主题 Codelab</p>
+</li>
+<li><p>一份已经能够在我的 MatePad Air 上正常加载的 HWT 主题</p>
+</li>
+</ol>
+<p>官方文档主要用来解决：</p>
+<blockquote>
+<p><strong>主题引擎理论上支持什么？</strong></p>
+</blockquote>
+<p>而现成 HWT + 真机测试则用来解决：</p>
+<blockquote>
+<p><strong>为什么我这个包理论上没问题，但平板就是不认？</strong></p>
+</blockquote>
+<p>这是整个过程中非常重要的一个区别。</p>
+<p>有些行为是官方明确规定的，有些则只是我在 <strong>HarmonyOS 4.2 + MatePad Air</strong> 上测试出来的兼容经验。</p>
+<p>所以本文会尽量把两者分开。</p>
+<hr>
+<h1 id="4-HWT-到底是什么东西"><a href="#4-HWT-到底是什么东西" class="headerlink" title="4. HWT 到底是什么东西"></a>4. HWT 到底是什么东西</h1><p>理解了这一点之后，整个制作过程其实一下子就简单很多。</p>
+<p><code>.hwt</code> 并不是什么特别神秘的二进制文件。</p>
+<p>本质上可以把它理解成：</p>
+<blockquote>
+<p><strong>一套按照华为规定目录组织起来的主题资源 + XML 配置文件，然后整体 ZIP 压缩并改成 <code>.hwt</code> 后缀。</strong></p>
+</blockquote>
+<p>整个流程就是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs text">插画素材<br>    ↓<br>制作桌面 / 锁屏壁纸<br>    ↓<br>制作横屏 / 竖屏资源<br>    ↓<br>编写动态锁屏 XML<br>    ↓<br>补齐主题 metadata / preview / wallpaper<br>    ↓<br>ZIP 压缩<br>    ↓<br>改名为 .hwt<br>    ↓<br>复制到 Huawei/Themes<br>    ↓<br>主题 App 加载<br></code></pre></td></tr></table></figure>
+
+<p>我最后使用的目录大致长这样：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs text">MyTheme/<br>├─ description.xml<br>├─ icons<br>├─ com.huawei.android.launcher<br>├─ preview/<br>│  ├─ cover.jpg<br>│  ├─ icon_small.jpg<br>│  ├─ preview_land_unlock_0.jpg<br>│  └─ preview_unlock_0.jpg<br>├─ wallpaper/<br>│  ├─ home_wallpaper_0.jpg<br>│  └─ unlock_wallpaper_1.jpg<br>└─ unlock/<br>   ├─ theme.xml<br>   └─ lockscreen/<br>      ├─ manifest.xml<br>      ├─ 2560_1600_manifest.xml<br>      ├─ 1600_2560_manifest.xml<br>      ├─ 2800_1840_manifest.xml<br>      ├─ 1840_2800_manifest.xml<br>      ├─ bg_landscape_2800x1840.jpg<br>      └─ bg_portrait_1840x2800.jpg<br></code></pre></td></tr></table></figure>
+
+<p>这里最重要的大概是四部分：</p>
+<h3 id="description-xml"><a href="#description-xml" class="headerlink" title="description.xml"></a><code>description.xml</code></h3><p>主题本身的 metadata。</p>
+<p>比如主题叫什么、作者是谁、版本是多少等等。</p>
+<h3 id="unlock"><a href="#unlock" class="headerlink" title="unlock/"></a><code>unlock/</code></h3><p>真正控制动态锁屏的部分。</p>
+<p>这里面的 XML 会告诉系统：</p>
+<ul>
+<li><p>背景用什么图；</p>
+</li>
+<li><p>时钟在哪里；</p>
+</li>
+<li><p>日期在哪里；</p>
+</li>
+<li><p>解锁区域在哪里；</p>
+</li>
+<li><p>横竖屏分别怎么显示。</p>
+</li>
+</ul>
+<h3 id="wallpaper"><a href="#wallpaper" class="headerlink" title="wallpaper/"></a><code>wallpaper/</code></h3><p>桌面和静态锁屏壁纸。</p>
+<h3 id="preview"><a href="#preview" class="headerlink" title="preview/"></a><code>preview/</code></h3><p>主题 App 里面显示的封面和预览图。</p>
+<p>而我后面发现：</p>
+<p><strong>“锁屏 XML 能运行”和“华为主题 App 愿意识别这个 HWT”其实是两个问题。</strong></p>
+<p>后者还会受到 metadata、preview、目录结构甚至缓存影响。</p>
+<p>这个坑后面再说。</p>
+<hr>
+<h1 id="5-完整制作步骤"><a href="#5-完整制作步骤" class="headerlink" title="5. 完整制作步骤"></a>5. 完整制作步骤</h1><p>下面就是整个过程中真正可以拿去复用的部分。</p>
+<p>以后如果我再换壁纸，基本只需要重新走这一套流程。</p>
+<hr>
+<h2 id="Step-1：先确认自己的设备参数"><a href="#Step-1：先确认自己的设备参数" class="headerlink" title="Step 1：先确认自己的设备参数"></a>Step 1：先确认自己的设备参数</h2><p>打开：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">设置<br>→ 关于平板电脑<br></code></pre></td></tr></table></figure>
+
+<p>记录：</p>
+<ul>
+<li><p>具体型号</p>
+</li>
+<li><p>HarmonyOS 版本</p>
+</li>
+<li><p>屏幕分辨率</p>
+</li>
+<li><p>主要使用方向</p>
+</li>
+</ul>
+<p>我的设备是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">MatePad Air<br>DBY2-W00<br>HarmonyOS 4.2<br>2800 × 1840<br></code></pre></td></tr></table></figure>
+
+<p>我平时主要横屏使用，所以：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">横屏：2800 × 1840<br>竖屏：1840 × 2800<br></code></pre></td></tr></table></figure>
+
+<p>两套都准备。</p>
+<p>如果你的设备上已经存在一个可以正常识别的第三方 <code>.hwt</code>，<strong>强烈建议先备份一个。</strong></p>
+<p>后面它会成为非常有价值的“标准答案”。</p>
+<hr>
+<h2 id="Step-2：先设计构图，再做壁纸"><a href="#Step-2：先设计构图，再做壁纸" class="headerlink" title="Step 2：先设计构图，再做壁纸"></a>Step 2：先设计构图，再做壁纸</h2><p>这一点非常重要。</p>
+<p>千万不要：</p>
+<blockquote>
+<p>找到一张图 → 直接缩放到 2800 × 1840 → 完事</p>
+</blockquote>
+<p>桌面和锁屏最好分别设计。</p>
+<p>我的桌面原则是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">人物        留白区域        人物<br> ←             ↑             →<br>          图标 / 小组件<br></code></pre></td></tr></table></figure>
+
+<p>于是 v3 中：</p>
+<ul>
+<li><p>明日香向左移动；</p>
+</li>
+<li><p>绫波丽向右移动；</p>
+</li>
+<li><p>中间腾出一大片空间。</p>
+</li>
+</ul>
+<p>锁屏则采用 v2：</p>
+<ul>
+<li><p>人物距离更加自然；</p>
+</li>
+<li><p>中间保留时间区域；</p>
+</li>
+<li><p>时间整体比最初版本向下移动大约 90～100 px。</p>
+</li>
+</ul>
+<p>竖屏也不要单纯把横屏图片硬塞进去。</p>
+<p>最好重新：</p>
+<ul>
+<li><p>center crop；</p>
+</li>
+<li><p>检查人物脸部；</p>
+</li>
+<li><p>检查时间区域；</p>
+</li>
+<li><p>检查状态栏和通知区域。</p>
+</li>
+</ul>
+<hr>
+<h2 id="Step-3：准备壁纸"><a href="#Step-3：准备壁纸" class="headerlink" title="Step 3：准备壁纸"></a>Step 3：准备壁纸</h2><p>我的最终资源尺寸：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">横屏：2800 × 1840<br>竖屏：1840 × 2800<br></code></pre></td></tr></table></figure>
+
+<p>建议：</p>
+<ul>
+<li><p>JPG</p>
+</li>
+<li><p>sRGB</p>
+</li>
+<li><p>JPEG quality 约 90～94</p>
+</li>
+<li><p>不要反复重新压缩</p>
+</li>
+<li><p>不要在 HWT 里面塞一堆几乎重复的大图</p>
+</li>
+</ul>
+<p>一方面可以保证画质，另一方面也能控制主题包体积。</p>
+<hr>
+<h1 id="6-编写-description-xml"><a href="#6-编写-description-xml" class="headerlink" title="6. 编写 description.xml"></a>6. 编写 description.xml</h1><p>例如：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">HwTheme</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My MatePad Theme<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title-cn</span>&gt;</span>我的平板主题<span class="hljs-tag">&lt;/<span class="hljs-name">title-cn</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">author</span>&gt;</span>Your Name<span class="hljs-tag">&lt;/<span class="hljs-name">author</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">designer</span>&gt;</span>Your Name<span class="hljs-tag">&lt;/<span class="hljs-name">designer</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">screen</span>&gt;</span>WUXGA<span class="hljs-tag">&lt;/<span class="hljs-name">screen</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>11.1.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">font</span>&gt;</span>Default<span class="hljs-tag">&lt;/<span class="hljs-name">font</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">font-cn</span>&gt;</span>默认<span class="hljs-tag">&lt;/<span class="hljs-name">font-cn</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">briefinfo</span>&gt;</span>Custom MatePad theme.<span class="hljs-tag">&lt;/<span class="hljs-name">briefinfo</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">HwTheme</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>这里我最后保留了参考 HWT 中已经经过真机验证的：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">WUXGA<br>11.1.0<br></code></pre></td></tr></table></figure>
+
+<p>并没有继续乱加字段。</p>
+<p>这也是后来总结出的经验：</p>
+<blockquote>
+<p><strong>遇到 HWT 无法识别的时候，不要自己脑补 metadata，先尽可能贴近一个已经在自己设备上验证成功的主题包。</strong></p>
+</blockquote>
+<hr>
+<h1 id="7-编写-unlock-theme-xml"><a href="#7-编写-unlock-theme-xml" class="headerlink" title="7. 编写 unlock&#x2F;theme.xml"></a>7. 编写 unlock&#x2F;theme.xml</h1><p>示例：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">HWTheme</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;slide&quot;</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">package</span>=<span class="hljs-string">&quot;com.huawei.ucdlockscreen&quot;</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">dynamicPath</span>=<span class="hljs-string">&quot;lockscreen&quot;</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">minversion</span>=<span class="hljs-string">&quot;2.0.24&quot;</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">title-cn</span>=<span class="hljs-string">&quot;我的平板主题&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;My MatePad Theme&quot;</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">maxHeight</span>=<span class="hljs-string">&quot;2800&quot;</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">baseVersion</span>=<span class="hljs-string">&quot;10.1&quot;</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">asyncLoad</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">engineType</span>=<span class="hljs-string">&quot;HWThemeEngine&quot;</span>/&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">HWTheme</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>其中最重要的是：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">dynamicPath</span>=<span class="hljs-string">&quot;lockscreen&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>它告诉主题引擎：</p>
+<blockquote>
+<p>真正的动态锁屏配置在 <code>unlock/lockscreen/</code> 里面。</p>
+</blockquote>
+<hr>
+<h1 id="8-制作真正的锁屏-manifest"><a href="#8-制作真正的锁屏-manifest" class="headerlink" title="8. 制作真正的锁屏 manifest"></a>8. 制作真正的锁屏 manifest</h1><p>下面是一个简化版示例。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">Lockscreen</span></span><br><span class="hljs-tag">    <span class="hljs-attr">version</span>=<span class="hljs-string">&quot;1&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">frameRate</span>=<span class="hljs-string">&quot;30&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">vibrate</span>=<span class="hljs-string">&quot;false&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">screenWidth</span>=<span class="hljs-string">&quot;2800&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;2026081601&quot;</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Var</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;notification&quot;</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">&quot;1&quot;</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Image</span></span><br><span class="hljs-tag">        <span class="hljs-attr">x</span>=<span class="hljs-string">&quot;0&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">y</span>=<span class="hljs-string">&quot;0&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;bg_landscape_2800x1840.jpg&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">scaleType</span>=<span class="hljs-string">&quot;center_crop&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">isBackground</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">DateTime</span></span><br><span class="hljs-tag">        <span class="hljs-attr">x</span>=<span class="hljs-string">&quot;#screen_width/2&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">y</span>=<span class="hljs-string">&quot;300&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">align</span>=<span class="hljs-string">&quot;center&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">alignV</span>=<span class="hljs-string">&quot;top&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">color</span>=<span class="hljs-string">&quot;#FF191C22&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;250&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">format</span>=<span class="hljs-string">&quot;HH:mm&quot;</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">DateTime</span></span><br><span class="hljs-tag">        <span class="hljs-attr">x</span>=<span class="hljs-string">&quot;#screen_width/2&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">y</span>=<span class="hljs-string">&quot;575&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">align</span>=<span class="hljs-string">&quot;center&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">color</span>=<span class="hljs-string">&quot;#D652565F&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;50&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">format</span>=<span class="hljs-string">&quot;yyyy.MM.dd  ·  EEEE&quot;</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">Unlocker</span></span><br><span class="hljs-tag">        <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;unlocker&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">bounceInitSpeed</span>=<span class="hljs-string">&quot;2000&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">bounceAcceleration</span>=<span class="hljs-string">&quot;3000&quot;</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">StartPoint</span></span><br><span class="hljs-tag">            <span class="hljs-attr">x</span>=<span class="hljs-string">&quot;0&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">y</span>=<span class="hljs-string">&quot;0&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">w</span>=<span class="hljs-string">&quot;#screen_width&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">h</span>=<span class="hljs-string">&quot;#screen_height&quot;</span>/&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">EndPoint</span></span><br><span class="hljs-tag">            <span class="hljs-attr">x</span>=<span class="hljs-string">&quot;0&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">y</span>=<span class="hljs-string">&quot;-420&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">w</span>=<span class="hljs-string">&quot;#screen_width&quot;</span></span><br><span class="hljs-tag">            <span class="hljs-attr">h</span>=<span class="hljs-string">&quot;240&quot;</span>&gt;</span><br><br>            <span class="hljs-tag">&lt;<span class="hljs-name">Path</span></span><br><span class="hljs-tag">                <span class="hljs-attr">x</span>=<span class="hljs-string">&quot;0&quot;</span></span><br><span class="hljs-tag">                <span class="hljs-attr">y</span>=<span class="hljs-string">&quot;0&quot;</span></span><br><span class="hljs-tag">                <span class="hljs-attr">w</span>=<span class="hljs-string">&quot;#screen_width&quot;</span></span><br><span class="hljs-tag">                <span class="hljs-attr">h</span>=<span class="hljs-string">&quot;#screen_height&quot;</span>&gt;</span><br><br>                <span class="hljs-tag">&lt;<span class="hljs-name">Position</span> <span class="hljs-attr">x</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">y</span>=<span class="hljs-string">&quot;0&quot;</span>/&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">Position</span> <span class="hljs-attr">x</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">y</span>=<span class="hljs-string">&quot;-420&quot;</span>/&gt;</span><br><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">Path</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">EndPoint</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">Unlocker</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">Lockscreen</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>里面真正值得注意的是：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">screenWidth=&quot;2800&quot;<br></code></pre></td></tr></table></figure>
+
+<p>以及：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml">x=&quot;#screen_width/2&quot;<br>align=&quot;center&quot;<br></code></pre></td></tr></table></figure>
+
+<p>这样时间就会以屏幕中心作为锚点。</p>
+<p>之后想上下移动时钟，基本只需要调：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">y=&quot;300&quot;<br></code></pre></td></tr></table></figure>
+
+<p>即可。</p>
+<hr>
+<h1 id="9-一个非常重要的坑：时钟到底用-PNG、SVG-还是文字？"><a href="#9-一个非常重要的坑：时钟到底用-PNG、SVG-还是文字？" class="headerlink" title="9. 一个非常重要的坑：时钟到底用 PNG、SVG 还是文字？"></a>9. 一个非常重要的坑：时钟到底用 PNG、SVG 还是文字？</h1><p>这个地方是我折腾过程中比较有意思的一次路线变化。</p>
+<p>最开始的时钟使用的是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">Time<br>+<br>0～9 PNG 数字图片<br></code></pre></td></tr></table></figure>
+
+<p>也就是类似：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">time_0.png<br>time_1.png<br>time_2.png<br>...<br>time_9.png<br>time_dot.png<br></code></pre></td></tr></table></figure>
+
+<p>这样有一个好处：</p>
+<p><strong>你可以完全控制字体长什么样。</strong></p>
+<p>比如可以提前使用某个漂亮的衬线字体把数字渲染出来。</p>
+<p>但问题也非常明显：</p>
+<h3 id="放大以后会糊。"><a href="#放大以后会糊。" class="headerlink" title="放大以后会糊。"></a>放大以后会糊。</h3><p>尤其是在 2800 × 1840 的平板上，小时钟 PNG 一旦放大，边缘非常容易软掉。</p>
+<p>于是我一开始想：</p>
+<blockquote>
+<p>那我直接把数字换成 SVG 不就好了？</p>
+</blockquote>
+<p>结果查了华为的 <code>Time</code> 组件文档以后发现：</p>
+<p><strong>官方 Time 组件本身仍然是围绕 PNG 数字资源设计的，并没有明确提供直接把数字组替换成 SVG 的方案。</strong></p>
+<p>所以最后我没有硬上 SVG。</p>
+<p>而是直接换成：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">DateTime</span> <span class="hljs-attr">format</span>=<span class="hljs-string">&quot;HH:mm&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>也就是：</p>
+<p><strong>让 HarmonyOS 自己实时渲染文字。</strong></p>
+<p>这样做的优点是：</p>
+<ul>
+<li><p>时间非常清晰；</p>
+</li>
+<li><p>不再受 PNG 分辨率限制；</p>
+</li>
+<li><p>放大以后边缘仍然锐利。</p>
+</li>
+</ul>
+<p>缺点则是：</p>
+<ul>
+<li><p>自定义字体自由度降低；</p>
+</li>
+<li><p>很难百分之百复刻原先那套漂亮的衬线数字。</p>
+</li>
+</ul>
+<p>最后我还是选择了清晰度。</p>
+<p>于是这一版也就变成了：</p>
+<blockquote>
+<p><strong>v5 VectorClock &#x2F; Clear Clock</strong></p>
+</blockquote>
+<p>严格来说它并不是 SVG Clock，而是：</p>
+<p><strong>系统 DateTime 矢量式文字渲染方案。</strong></p>
+<hr>
+<h1 id="10-横屏和竖屏最好分别做-manifest"><a href="#10-横屏和竖屏最好分别做-manifest" class="headerlink" title="10. 横屏和竖屏最好分别做 manifest"></a>10. 横屏和竖屏最好分别做 manifest</h1><p>我的主题里最后同时保留：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">2560_1600_manifest.xml<br>1600_2560_manifest.xml<br></code></pre></td></tr></table></figure>
+
+<p>以及针对自己设备增加：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">2800_1840_manifest.xml<br>1840_2800_manifest.xml<br></code></pre></td></tr></table></figure>
+
+<p>这里需要注意：</p>
+<p>华为官方给出的标准资源尺寸和我针对 MatePad Air 做的原生分辨率优化，并不是互斥关系。</p>
+<p>主题引擎本身存在虚拟坐标和缩放机制。</p>
+<p>但针对单台设备时，我还是更倾向于额外准备：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">2800 × 1840<br>1840 × 2800<br></code></pre></td></tr></table></figure>
+
+<p>的原生背景。</p>
+<p>这样至少可以尽可能减少：</p>
+<ul>
+<li><p>二次缩放；</p>
+</li>
+<li><p>模糊；</p>
+</li>
+<li><p>不必要的 center crop；</p>
+</li>
+<li><p>人物位置变化。</p>
+</li>
+</ul>
+<hr>
+<h1 id="11-为什么最开始主题根本不显示"><a href="#11-为什么最开始主题根本不显示" class="headerlink" title="11. 为什么最开始主题根本不显示"></a>11. 为什么最开始主题根本不显示</h1><p>这是整个项目最坑的一部分。</p>
+<p>最开始我做了一个非常“干净”的版本：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">unlock/<br>description.xml<br></code></pre></td></tr></table></figure>
+
+<p>理论上动态锁屏资源都有了。</p>
+<p>结果复制到：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">Huawei/Themes<br></code></pre></td></tr></table></figure>
+
+<p>以后——</p>
+<p><strong>主题 App 根本看不到。</strong></p>
+<p>后来拿一个已经能正常识别的 HWT 拆开对照，逐渐补齐：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">description.xml<br>icons<br>launcher<br>preview<br>unlock<br>wallpaper<br></code></pre></td></tr></table></figure>
+
+<p>同时减少一些未经验证的 metadata 字段，再使用新的文件名和主题名。</p>
+<p>之后主题才正常出现。</p>
+<p>所以这里必须强调：</p>
+<p>我没有找到官方文档明确写着：</p>
+<blockquote>
+<p>“HarmonyOS 4.2 一定会过滤 lockscreen-only HWT。”</p>
+</blockquote>
+<p>所以不能把它当成官方规则。</p>
+<p>我们真正能够确定的是：</p>
+<blockquote>
+<p><strong>在我的 MatePad Air + HarmonyOS 4.2 上，极简锁屏包第一次没有成功识别；而按照已经可用的完整 HWT 补齐主题壳以后，可以正常识别。</strong></p>
+</blockquote>
+<p>因此这属于：</p>
+<p><strong>真机兼容经验。</strong></p>
+<p>而不是严格意义上的官方规范。</p>
+<hr>
+<h1 id="12-打包成真正的-HWT"><a href="#12-打包成真正的-HWT" class="headerlink" title="12. 打包成真正的 HWT"></a>12. 打包成真正的 HWT</h1><p>假设目录是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">MyTheme/<br>├─ description.xml<br>├─ preview/<br>├─ wallpaper/<br>└─ unlock/<br></code></pre></td></tr></table></figure>
+
+<p>一定要：</p>
+<p><strong>进入 MyTheme 之后压里面的内容。</strong></p>
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> MyTheme<br><br>zip -r ../MyTheme_v1.zip .<br><br><span class="hljs-built_in">mv</span> ../MyTheme_v1.zip ../MyTheme_v1.hwt<br></code></pre></td></tr></table></figure>
+
+<p>千万不要变成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">MyTheme.hwt<br>└─ MyTheme/<br>   ├─ description.xml<br>   ├─ preview/<br>   └─ unlock/<br></code></pre></td></tr></table></figure>
+
+<p>正确的应该是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">MyTheme.hwt<br>├─ description.xml<br>├─ preview/<br>├─ wallpaper/<br>└─ unlock/<br></code></pre></td></tr></table></figure>
+
+<p>也就是：</p>
+<blockquote>
+<p><strong>打开 HWT 第一层就应该直接看到 description.xml。</strong></p>
+</blockquote>
+<hr>
+<h1 id="13-打包以后先自己检查"><a href="#13-打包以后先自己检查" class="headerlink" title="13. 打包以后先自己检查"></a>13. 打包以后先自己检查</h1><p>推荐先运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">unzip -t MyTheme_v1.hwt<br></code></pre></td></tr></table></figure>
+
+<p>检查 ZIP 是否损坏。</p>
+<p>然后：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">unzip -l MyTheme_v1.hwt<br></code></pre></td></tr></table></figure>
+
+<p>看看目录结构。</p>
+<p>重点确认：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs text">✓ description.xml 在第一层<br><br>✓ unlock 在第一层<br><br>✓ wallpaper 在第一层<br><br>✓ preview 在第一层<br><br>✓ XML 是 UTF-8<br><br>✓ XML 中引用的图片真实存在<br><br>✓ 大小写完全一致<br><br>✓ 横竖屏 manifest 都引用正确背景<br><br>✓ 文件是真的 .hwt，而不是 .hwt.zip<br></code></pre></td></tr></table></figure>
+
+<p>Windows 尤其要注意最后一点。</p>
+<p>有时候资源管理器隐藏扩展名以后，看起来像：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">theme.hwt<br></code></pre></td></tr></table></figure>
+
+<p>实际上文件可能叫：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">theme.hwt.zip<br></code></pre></td></tr></table></figure>
+
+<p>HarmonyOS 当然不会认。</p>
+<hr>
+<h1 id="14-安装到华为平板"><a href="#14-安装到华为平板" class="headerlink" title="14. 安装到华为平板"></a>14. 安装到华为平板</h1><p>把最终的：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">MyTheme_v1.hwt<br></code></pre></td></tr></table></figure>
+
+<p>复制到：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">内部存储/Huawei/Themes/<br></code></pre></td></tr></table></figure>
+
+<p>如果之前已经测试过很多版本，建议先把旧版本移走。</p>
+<p>之后：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">设置<br>→ 应用和服务<br>→ 应用管理<br>→ 主题<br>→ 存储<br>→ 清除缓存<br></code></pre></td></tr></table></figure>
+
+<p>必要时再：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">强行停止<br></code></pre></td></tr></table></figure>
+
+<p>然后重新打开：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">主题<br>→ 我的<br>→ 我的主题<br></code></pre></td></tr></table></figure>
+
+<p>正常情况下就能够看到刚才复制进去的主题。</p>
+<p>如果只想用某一个部分，也可以在主题的：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">混搭 / DIY<br></code></pre></td></tr></table></figure>
+
+<p>里面单独选择：</p>
+<ul>
+<li><p>桌面壁纸；</p>
+</li>
+<li><p>锁屏；</p>
+</li>
+<li><p>图标；</p>
+</li>
+<li><p>字体等。</p>
+</li>
+</ul>
+<p>具体名称在不同 HarmonyOS 版本中可能略有区别。</p>
+<hr>
+<h1 id="15-如果主题还是不出现"><a href="#15-如果主题还是不出现" class="headerlink" title="15. 如果主题还是不出现"></a>15. 如果主题还是不出现</h1><p>可以按照下面这个顺序查。</p>
+<h3 id="1-路径"><a href="#1-路径" class="headerlink" title="1. 路径"></a>1. 路径</h3><p>是不是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">Huawei/Themes<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-文件后缀"><a href="#2-文件后缀" class="headerlink" title="2. 文件后缀"></a>2. 文件后缀</h3><p>是不是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">xxx.hwt<br></code></pre></td></tr></table></figure>
+
+<p>而不是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">xxx.hwt.zip<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-包结构"><a href="#3-包结构" class="headerlink" title="3. 包结构"></a>3. 包结构</h3><p>打开 HWT 第一层是不是直接：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">description.xml<br>unlock<br>preview<br>wallpaper<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-metadata"><a href="#4-metadata" class="headerlink" title="4. metadata"></a>4. metadata</h3><p>尝试参考一个已经能在自己机器上正常识别的 HWT。</p>
+<h3 id="5-preview-wallpaper"><a href="#5-preview-wallpaper" class="headerlink" title="5. preview &#x2F; wallpaper"></a>5. preview &#x2F; wallpaper</h3><p>如果自己做的是极简 unlock-only 包，可以尝试补齐完整主题结构。</p>
+<h3 id="6-缓存"><a href="#6-缓存" class="headerlink" title="6. 缓存"></a>6. 缓存</h3><p>清理主题 App 缓存并强制停止。</p>
+<h3 id="7-文件名"><a href="#7-文件名" class="headerlink" title="7. 文件名"></a>7. 文件名</h3><p>不要反复用：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">theme.hwt<br></code></pre></td></tr></table></figure>
+
+<p>覆盖。</p>
+<p>直接：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">theme_v1.hwt<br>theme_v2.hwt<br>theme_v3.hwt<br></code></pre></td></tr></table></figure>
+
+<p>同时修改主题标题。</p>
+<p>这样可以减少缓存干扰。</p>
+<hr>
+<h1 id="16-其他常见问题"><a href="#16-其他常见问题" class="headerlink" title="16. 其他常见问题"></a>16. 其他常见问题</h1><h2 id="时间很模糊"><a href="#时间很模糊" class="headerlink" title="时间很模糊"></a>时间很模糊</h2><p>如果使用：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">Time + PNG<br></code></pre></td></tr></table></figure>
+
+<p>优先检查 PNG 数字源图尺寸。</p>
+<p>或者像我一样直接换成：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">DateTime</span> <span class="hljs-attr">format</span>=<span class="hljs-string">&quot;HH:mm&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="时间位置不对"><a href="#时间位置不对" class="headerlink" title="时间位置不对"></a>时间位置不对</h2><p>改：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">y=&quot;xxx&quot;<br></code></pre></td></tr></table></figure>
+
+<p>横屏和竖屏分别调整。</p>
+<p>不要指望一套坐标自动适合两个方向。</p>
+<hr>
+<h2 id="人物被裁掉"><a href="#人物被裁掉" class="headerlink" title="人物被裁掉"></a>人物被裁掉</h2><p>首先怀疑的不要是 XML。</p>
+<p>而是：</p>
+<p><strong>壁纸本身的构图。</strong></p>
+<p>如果 <code>center_crop</code> 怎么调都不舒服，就重新做一张目标比例壁纸。</p>
+<hr>
+<h2 id="桌面好看，但锁屏很怪"><a href="#桌面好看，但锁屏很怪" class="headerlink" title="桌面好看，但锁屏很怪"></a>桌面好看，但锁屏很怪</h2><p>别再强迫两个场景使用同一张图。</p>
+<p>我的最终方案就是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">Desktop → v3<br>Lockscreen → v2<br></code></pre></td></tr></table></figure>
+
+<p>问题直接解决。</p>
+<hr>
+<h2 id="应用以后图标也变了"><a href="#应用以后图标也变了" class="headerlink" title="应用以后图标也变了"></a>应用以后图标也变了</h2><p>很可能是参考 HWT 里面还带着自己的图标映射。</p>
+<p>可以：</p>
+<ul>
+<li><p>使用空的兼容占位；</p>
+</li>
+<li><p>或者在主题混搭里只应用锁屏和壁纸。</p>
+</li>
+</ul>
+<hr>
+<h1 id="17-整个主题是怎么一步步做出来的"><a href="#17-整个主题是怎么一步步做出来的" class="headerlink" title="17. 整个主题是怎么一步步做出来的"></a>17. 整个主题是怎么一步步做出来的</h1><p>这次实际上前后一共经历了好几个版本。</p>
+<h3 id="v1"><a href="#v1" class="headerlink" title="v1"></a>v1</h3><p>第一次尝试动态锁屏。</p>
+<p>问题：</p>
+<ul>
+<li><p>时间偏上；</p>
+</li>
+<li><p>使用极简 lockscreen-only 结构；</p>
+</li>
+<li><p>MatePad Air 上主题不识别。</p>
+</li>
+</ul>
+<hr>
+<h3 id="v2"><a href="#v2" class="headerlink" title="v2"></a>v2</h3><p>拆了一个已经能正常工作的 HWT 当参考。</p>
+<p>补齐：</p>
+<ul>
+<li><p>description</p>
+</li>
+<li><p>preview</p>
+</li>
+<li><p>wallpaper</p>
+</li>
+<li><p>unlock</p>
+</li>
+<li><p>icons &#x2F; launcher 壳</p>
+</li>
+</ul>
+<p>同时把时间向下移动。</p>
+<p>结果：</p>
+<p><strong>主题终于能够正常识别。</strong></p>
+<p>而且这一版锁屏人物位置我后来一直很喜欢。</p>
+<hr>
+<h3 id="v3"><a href="#v3" class="headerlink" title="v3"></a>v3</h3><p>重新修改原图构图。</p>
+<p>把：</p>
+<ul>
+<li><p>明日香向左；</p>
+</li>
+<li><p>绫波丽向右；</p>
+</li>
+</ul>
+<p>中央留出更大的空白区域。</p>
+<p>效果：</p>
+<p><strong>桌面明显比 v2 好看。</strong></p>
+<p>但用作锁屏以后反而没有 v2 自然。</p>
+<hr>
+<h3 id="v4-Hybrid"><a href="#v4-Hybrid" class="headerlink" title="v4 Hybrid"></a>v4 Hybrid</h3><p>于是干脆：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">桌面 → v3<br>锁屏 → v2<br></code></pre></td></tr></table></figure>
+
+<p>并增加：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">2800 × 1840<br>1840 × 2800<br></code></pre></td></tr></table></figure>
+
+<p>原生分辨率资源。</p>
+<p>到这里视觉方案其实已经基本确定。</p>
+<hr>
+<h3 id="v5-VectorClock"><a href="#v5-VectorClock" class="headerlink" title="v5 VectorClock"></a>v5 VectorClock</h3><p>最后解决时钟模糊问题。</p>
+<p>从：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">Time + PNG 数字<br></code></pre></td></tr></table></figure>
+
+<p>切换到：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">DateTime + HH:mm<br></code></pre></td></tr></table></figure>
+
+<p>由 HarmonyOS 自己渲染时间。</p>
+<p>最终得到：</p>
+<p><strong>静默双生·清晰时钟 v5</strong></p>
+<hr>
+<h1 id="18-这次折腾下来真正学到的东西"><a href="#18-这次折腾下来真正学到的东西" class="headerlink" title="18. 这次折腾下来真正学到的东西"></a>18. 这次折腾下来真正学到的东西</h1><p>最后回头看，这个项目其实比“换壁纸”有意思得多。</p>
+<p>我觉得至少搞明白了五件事情。</p>
+<h3 id="第一，能显示和能被主题-App-识别是两件事"><a href="#第一，能显示和能被主题-App-识别是两件事" class="headerlink" title="第一，能显示和能被主题 App 识别是两件事"></a>第一，能显示和能被主题 App 识别是两件事</h3><p>锁屏 XML 本身正确，不意味着 HarmonyOS 一定把你的 <code>.hwt</code> 当成完整主题。</p>
+<hr>
+<h3 id="第二，适配不是把图片改个分辨率"><a href="#第二，适配不是把图片改个分辨率" class="headerlink" title="第二，适配不是把图片改个分辨率"></a>第二，适配不是把图片改个分辨率</h3><p>真正的适配是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">桌面<br>锁屏<br>横屏<br>竖屏<br></code></pre></td></tr></table></figure>
+
+<p>分别考虑。</p>
+<p>甚至一张图是否“好看”，本身都是和使用场景有关的。</p>
+<hr>
+<h3 id="第三，能让系统渲染的东西，尽量让系统渲染"><a href="#第三，能让系统渲染的东西，尽量让系统渲染" class="headerlink" title="第三，能让系统渲染的东西，尽量让系统渲染"></a>第三，能让系统渲染的东西，尽量让系统渲染</h3><p>PNG 数字再漂亮，放到大屏幕上依然会面对分辨率问题。</p>
+<p>而：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">DateTime</span>/&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>可以直接让系统实时生成文字。</p>
+<hr>
+<h3 id="第四，一个已经在自己机器上成功运行的-HWT-极其有价值"><a href="#第四，一个已经在自己机器上成功运行的-HWT-极其有价值" class="headerlink" title="第四，一个已经在自己机器上成功运行的 HWT 极其有价值"></a>第四，一个已经在自己机器上成功运行的 HWT 极其有价值</h3><p>官方文档告诉你：</p>
+<blockquote>
+<p>正确的理论结构是什么。</p>
+</blockquote>
+<p>现成主题告诉你：</p>
+<blockquote>
+<p>这台机器实际上接受什么。</p>
+</blockquote>
+<p>两者结合，效率远高于自己乱猜。</p>
+<hr>
+<h3 id="第五，每次测试最好只改一个变量"><a href="#第五，每次测试最好只改一个变量" class="headerlink" title="第五，每次测试最好只改一个变量"></a>第五，每次测试最好只改一个变量</h3><p>特别是 HarmonyOS 主题 App 还存在缓存。</p>
+<p>如果：</p>
+<ul>
+<li><p>壁纸改了；</p>
+</li>
+<li><p>XML 改了；</p>
+</li>
+<li><p>metadata 改了；</p>
+</li>
+<li><p>目录也改了；</p>
+</li>
+</ul>
+<p>然后突然成功或者失败，你根本不知道到底是哪一步造成的。</p>
+<p>所以最好：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">v1<br>v2<br>v3<br>v4<br>...<br></code></pre></td></tr></table></figure>
+
+<p>一路版本化。</p>
+<p>这也是这次后半段效率明显提高的原因。</p>
+<hr>
+<h1 id="19-最简复现流程"><a href="#19-最简复现流程" class="headerlink" title="19. 最简复现流程"></a>19. 最简复现流程</h1><p>如果你已经理解了上面的原理，只想快速重新做一个主题，那么以后基本只需要走下面这套流程：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs text">1. 确认型号 / HarmonyOS 版本 / 分辨率<br><br>2. 分别设计桌面和锁屏构图<br><br>3. 输出横屏和竖屏原生壁纸<br><br>4. 准备完整 HWT 目录<br><br>5. 修改 description.xml<br><br>6. 修改 unlock/theme.xml<br><br>7. 修改横竖屏 manifest<br><br>8. 用 DateTime 放置时间和日期<br><br>9. 准备 preview / wallpaper<br><br>10. 进入主题根目录，压缩一级文件<br><br>11. ZIP 改名为 .hwt<br><br>12. unzip -t 检查完整性<br><br>13. 复制到 Huawei/Themes<br><br>14. 清除主题 App 缓存<br><br>15. 打开“主题 → 我的 → 我的主题”<br><br>16. 真机检查横屏 / 竖屏 / 通知 / 充电 / 解锁<br></code></pre></td></tr></table></figure>
+
+<p>以后想更换风格时，基本不需要重新研究 HWT。</p>
+<p>只需要改：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs text">壁纸<br>+<br>XML 坐标<br>+<br>颜色<br>+<br>字号<br></code></pre></td></tr></table></figure>
+
+<p>然后重新打包即可。</p>
+<hr>
+<h1 id="20-一页自检表"><a href="#20-一页自检表" class="headerlink" title="20. 一页自检表"></a>20. 一页自检表</h1><p>最后再留一个以后自己也能看的 checklist。</p>
+<ul>
+<li><p>型号、系统版本、分辨率已确认</p>
+</li>
+<li><p>桌面与锁屏分别完成构图</p>
+</li>
+<li><p>横屏和竖屏壁纸尺寸正确</p>
+</li>
+<li><p><code>description.xml</code> 为 UTF-8</p>
+</li>
+<li><p><code>unlock/theme.xml</code> 正确指向 <code>lockscreen</code></p>
+</li>
+<li><p>manifest 中所有 <code>src</code> 都真实存在</p>
+</li>
+<li><p>时间组件已经确认使用 <code>Time</code> 或 <code>DateTime</code></p>
+</li>
+<li><p><code>preview/</code> 存在</p>
+</li>
+<li><p><code>wallpaper/</code> 存在</p>
+</li>
+<li><p><code>unlock/</code> 存在</p>
+</li>
+<li><p>打包时没有多套一层目录</p>
+</li>
+<li><p>文件不是 <code>.hwt.zip</code></p>
+</li>
+<li><p><code>unzip -t</code> 检查通过</p>
+</li>
+<li><p>新版本使用了新的文件名</p>
+</li>
+<li><p>已清除主题 App 缓存</p>
+</li>
+<li><p>已检查横屏</p>
+</li>
+<li><p>已检查竖屏</p>
+</li>
+<li><p>已检查通知</p>
+</li>
+<li><p>已检查充电状态</p>
+</li>
+<li><p>已检查滑动解锁</p>
+</li>
+</ul>
+<hr>
+<h1 id="21-参考资料"><a href="#21-参考资料" class="headerlink" title="21. 参考资料"></a>21. 参考资料</h1><p>这次主要参考：</p>
+<ul>
+<li><p>Huawei Theme Studio<br>  <a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/en/huawei-theme-studio/">https://developer.huawei.com/consumer/en/huawei-theme-studio/</a></p>
+</li>
+<li><p>华为平板主题规范（HarmonyOS 4.x 及以下）<br>  <a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/doc/tablet-themes-specification-0000001078779076">https://developer.huawei.com/consumer/cn/doc/tablet-themes-specification-0000001078779076</a></p>
+</li>
+<li><p>锁屏应用 &#x2F; Themes Engine<br>  <a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/doc/unlock-application-0000001305921217">https://developer.huawei.com/consumer/cn/doc/unlock-application-0000001305921217</a></p>
+</li>
+<li><p>Time 组件<br>  <a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/doc/content/time-0000001074625954">https://developer.huawei.com/consumer/cn/doc/content/time-0000001074625954</a></p>
+</li>
+<li><p>DateTime 组件<br>  <a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/doc/content/datetime-0000001073760045">https://developer.huawei.com/consumer/cn/doc/content/datetime-0000001073760045</a></p>
+</li>
+<li><p>Dynamic Theme Codelab<br>  <a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/en/codelab/theme-particle/index.html">https://developer.huawei.com/consumer/en/codelab/theme-particle/index.html</a></p>
+</li>
+<li><p>华为主题混搭 &#x2F; DIY<br>  <a target="_blank" rel="noopener" href="https://consumer.huawei.com/cn/support/content/zh-cn16028416/">https://consumer.huawei.com/cn/support/content/zh-cn16028416/</a></p>
+</li>
+</ul>
+<hr>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>最开始只是因为：</p>
+<p><strong>主题商店又贵，又没有几个我真正喜欢的主题。</strong></p>
+<p>结果一路从改壁纸，折腾到了 HWT 目录、HarmonyOS Theme Engine、动态锁屏 XML、横竖屏适配、PNG 时钟以及 DateTime 文本渲染。</p>
+<p>但也正因为把这套东西彻底跑通了，以后再想做新的主题反而变得非常简单。</p>
+<p>整个项目最后留下来的，不只是：</p>
+<blockquote>
+<p><strong>「静默双生·清晰时钟」</strong></p>
+</blockquote>
+<p>这个主题本身。</p>
+<p>更重要的是得到了一套可以不断复用的流程：</p>
+<blockquote>
+<p><strong>先查官方文档确定能力边界，再找真机可用 HWT 确认兼容结构，随后通过截图不断调整构图与坐标，最后版本化测试。</strong></p>
+</blockquote>
+<p>以后无论是换壁纸、换人物、调整时钟、改日期格式，还是重新做一套完全不同风格的主题，都不需要再从零开始研究。</p>
+<p>嗯。</p>
+<p>以后华为主题商店里再没喜欢的——</p>
+<p><strong>那就自己做。</strong></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/" class="category-chain-item">折腾杂项</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/" class="print-no-link">#折腾的小杂项</a>
+      
+        <a href="/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/" class="print-no-link">#生活美学</a>
+      
+        <a href="/tags/PDF/" class="print-no-link">#PDF</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>从零制作华为平板自定义主题：HWT 动态锁屏与桌面壁纸实战</div>
+      <div>https://hwnote.space/posts/2026/08/14/hwt/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年8月15日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/2026/08/14/carefree-wandering/" title="逍遥游笔记">
+                        <span class="hidden-mobile">逍遥游笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

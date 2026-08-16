@@ -6,7 +6,7 @@
   <link href="https://hwnote.space/atom.xml" rel="self"/>
   
   <link href="https://hwnote.space/"/>
-  <updated>2026-08-14T16:17:50.169Z</updated>
+  <updated>2026-08-16T15:24:17.741Z</updated>
   <id>https://hwnote.space/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零制作华为平板自定义主题：HWT 动态锁屏与桌面壁纸实战</title>
+    <link href="https://hwnote.space/posts/2026/08/14/hwt/"/>
+    <id>https://hwnote.space/posts/2026/08/14/hwt/</id>
+    <published>2026-08-15T14:50:57.000Z</published>
+    <updated>2026-08-16T15:24:17.741Z</updated>
+    
+    
+    <summary type="html">自己找图整了一套华为主题，记录一下。本文由codex全程赞助</summary>
+    
+    
+    
+    <category term="折腾杂项" scheme="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="折腾的小杂项" scheme="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/"/>
+    
+    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>逍遥游笔记</title>
+    <link href="https://hwnote.space/posts/2026/08/14/carefree-wandering/"/>
+    <id>https://hwnote.space/posts/2026/08/14/carefree-wandering/</id>
+    <published>2026-08-15T14:50:57.000Z</published>
+    <updated>2026-08-16T15:25:09.136Z</updated>
+    
+    
+    <summary type="html">简要梳理了一下逍遥游在干什么，庄子的核心观点是什么</summary>
+    
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    <category term="读书笔记" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="认知" scheme="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5/"/>
+    
+    <category term="读书笔记" scheme="https://hwnote.space/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>思维拓扑学</title>
@@ -965,7 +1013,7 @@
     <link href="https://hwnote.space/posts/2025/10/29/noisy-channel-coding/"/>
     <id>https://hwnote.space/posts/2025/10/29/noisy-channel-coding/</id>
     <published>2025-10-29T11:09:11.000Z</published>
-    <updated>2026-07-06T10:15:41.539Z</updated>
+    <updated>2026-08-16T14:58:39.516Z</updated>
     
     
     <summary type="html">本章的核心是香农第二定理（有噪信道编码定理），它阐述了在存在噪声和干扰的信道中，实现无差错传输所能达到的最大信息传输率（即信道容量）。同时讨论了错误概率、译码规则以及编码方法对通信可靠性的影响。</summary>
