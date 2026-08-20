@@ -1,0 +1,863 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="A statistical method that explores relations among variables and makes predictions by constructing a linear model.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Multiple Linear Regression">
+<meta property="og:url" content="https://hwnote.space/en/posts/2025/05/02/multiple-linear-regression/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="A statistical method that explores relations among variables and makes predictions by constructing a linear model.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/regression.jpg">
+<meta property="article:published_time" content="2025-05-02T10:14:11.000Z">
+<meta property="article:modified_time" content="2026-08-20T16:52:34.585Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Mathematical Modeling">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/regression.jpg">
+  
+  
+  
+  <title>Multiple Linear Regression - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/regression.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Multiple Linear Regression"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-05-02 18:14" pubdate>
+          May 2, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          254 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          4 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Multiple Linear Regression</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Multiple-Linear-Regression"><a href="#Multiple-Linear-Regression" class="headerlink" title="Multiple Linear Regression"></a>Multiple Linear Regression</h1><p>Regression analysis is a central instrument of data analysis. By examining the relation between independent variables X and a dependent variable Y, it seeks to reveal how Y is produced and to make predictions. Multiple linear regression explains an outcome through a linear combination of variables and quantifies the weight of each factor. It is therefore widely applied in economics, management, engineering, and related fields.</p>
+<hr>
+<h2 id="I-Purposes"><a href="#I-Purposes" class="headerlink" title="I. Purposes"></a>I. Purposes</h2><ol>
+<li><strong>Identify important variables:</strong> select the values of X that are significantly related to Y, through stepwise regression, for example.</li>
+<li><strong>Determine direction:</strong> establish whether X has a positive or negative influence on Y.</li>
+<li><strong>Estimate weights:</strong> use regression coefficients to represent the relative importance of the variables.</li>
+</ol>
+<hr>
+<h2 id="II-Construction"><a href="#II-Construction" class="headerlink" title="II. Construction"></a>II. Construction</h2><p>$$<br>Y_i &#x3D; \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \cdots + \beta_k X_{ki} + \mu_i<br>$$<br>Here, $\beta_0$ is the intercept, $\beta_j$ is a partial regression coefficient, and $\mu_i$ is the disturbance term.</p>
+<ul>
+<li>Holding the other variables constant, $\beta_j$ means that each one-unit increase in $X_j$ is associated with an average change in $Y$ of $\beta_j$ units.</li>
+<li>The data may first be standardized with a $Z-Score$. The larger the absolute regression coefficient, the more substantial the contribution.</li>
+</ul>
+<hr>
+<h2 id="III-Model-Testing-and-Optimisation"><a href="#III-Model-Testing-and-Optimisation" class="headerlink" title="III. Model Testing and Optimisation"></a>III. Model Testing and Optimisation</h2><h3 id="1-Goodness-of-fit"><a href="#1-Goodness-of-fit" class="headerlink" title="1. Goodness of fit"></a>1. Goodness of fit</h3><ul>
+<li><strong>Coefficient of determination $R^2$:</strong> represents the proportion of variation explained by the model. Since $R^2 \in [0,1]$, a higher value generally indicates a better fit.</li>
+<li><strong>Adjusted $R^2$:</strong> guards against an artificially high fit caused merely by adding too many independent variables.</li>
+</ul>
+<h3 id="2-Dealing-with-heteroskedasticity"><a href="#2-Dealing-with-heteroskedasticity" class="headerlink" title="2. Dealing with heteroskedasticity"></a>2. Dealing with heteroskedasticity</h3><ul>
+<li><strong>Symptom:</strong> the residuals spread out as the predicted value increases.</li>
+<li><strong>Diagnosis:</strong> the Breusch–Pagan test or White test.</li>
+<li><strong>Solution:</strong> use <code>OLS + robust standard errors</code> or generalized least squares (GLS).</li>
+</ul>
+<h3 id="3-Multicollinearity"><a href="#3-Multicollinearity" class="headerlink" title="3. Multicollinearity"></a>3. Multicollinearity</h3><ul>
+<li><strong>Symptoms:</strong> coefficient signs appear abnormal, or individual $t$ tests are insignificant even though $R^2$ is high.</li>
+<li><strong>Diagnosis:</strong> the variance inflation factor, with VIF &gt; 10 commonly treated as severe.</li>
+<li><strong>Solutions:</strong> remove highly correlated variables, enlarge the sample, or reduce dimensionality through principal component analysis.</li>
+<li>The subject itself deserves another blog post.</li>
+</ul>
+<hr>
+<h2 id="IV-Stata-Examples"><a href="#IV-Stata-Examples" class="headerlink" title="IV. Stata Examples"></a>IV. Stata Examples</h2><h3 id="1-Basic-regression"><a href="#1-Basic-regression" class="headerlink" title="1. Basic regression"></a>1. Basic regression</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">* 导入数据并描述统计</span><br>import excel <span class="hljs-string">&quot;data.xlsx&quot;</span>, firstrow <span class="hljs-keyword">clear</span><br><span class="hljs-keyword">summarize</span> Y X1 X2<br><br><span class="hljs-comment">* 多元回归（含虚拟变量）</span><br><span class="hljs-keyword">regress</span> Y X1 X2 i.region, robust<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-Stepwise-regression"><a href="#2-Stepwise-regression" class="headerlink" title="2. Stepwise regression"></a>2. Stepwise regression</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-comment">* 向前逐步回归（显著性阈值5%）</span><br><span class="hljs-keyword">stepwise</span> <span class="hljs-keyword">regress</span> Y X1 X2 X3, pe(0.05) robust<br><br><span class="hljs-comment">* 向后逐步回归</span><br><span class="hljs-keyword">stepwise</span> <span class="hljs-keyword">regress</span> Y X1 X2 X3, <span class="hljs-keyword">pr</span>(0.05) robust<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="V-Applications-and-Extensions"><a href="#V-Applications-and-Extensions" class="headerlink" title="V. Applications and Extensions"></a>V. Applications and Extensions</h2><h3 id="1-Limitations"><a href="#1-Limitations" class="headerlink" title="1. Limitations"></a>1. Limitations</h3><ul>
+<li><strong>Endogeneity:</strong> omitted variables or measurement errors may bias the coefficients. More precisely, a model is exogenous when the error term $μ$ is unrelated to all independent variables. If they are related, endogeneity is present, and the estimates of the regression coefficients are neither unbiased nor consistent. Instrumental variables must then be introduced.</li>
+<li><strong>Overfitting:</strong> when there are too many variables, the model should be improved through cross-validation or regularisation such as LASSO or Ridge.</li>
+<li><strong>Misrepresenting nonlinear relations:</strong> variable transformations, such as logarithms, or interaction terms may be introduced.</li>
+</ul>
+<h3 id="2-Possible-extensions"><a href="#2-Possible-extensions" class="headerlink" title="2. Possible extensions"></a>2. Possible extensions</h3><ul>
+<li><p><strong>Combine regression with principal component analysis:</strong> reduce the dimensionality of high-dimensional data before regression so as to address multicollinearity.</p>
+</li>
+<li><p><strong>Mixed-effects models:</strong> handle individual and temporal effects in panel data.</p>
+</li>
+<li><p><strong>Combine it with machine learning:</strong> use a random forest to select important variables and then construct the regression model.</p>
+</li>
+<li><p><strong>Take logarithms:</strong> a logarithmic form expresses the elasticity of the original dependent variable with respect to an explanatory variable—that is, percentage rather than numerical change. Its advantages include: (1) weakening heteroskedasticity; (2) allowing a variable that is not normally distributed to become approximately normal after transformation; and (3) giving the model a form with economic meaning.</p>
+</li>
+<li><p><strong>Standardize in advance for easier interpretation:</strong> the data may first be processed with a $Z-Score$, after which a larger absolute coefficient indicates a greater contribution.</p>
+</li>
+<li><p><strong>Introduce dummy variables:</strong></p>
+<p>Qualitative variables such as sex and region must be converted into 0–1 dummy variables. For example:<br>$$<br>\text{工资} &#x3D; \beta_0 + \delta_0 \text{Female}_i + \beta_1 \text{教育年限}_i + \mu_i<br>$$<br>$\delta_0$ represents the wage difference between women and men at the same level of education, while $ \text{Female}_i$ uses 0 and 1 to distinguish the two groups.</p>
+</li>
+</ul>
+<hr>
+<h2 id="VI-Case-Studies"><a href="#VI-Case-Studies" class="headerlink" title="VI. Case Studies"></a>VI. Case Studies</h2><p>Both examples come from Qingfeng’s mathematical-modeling materials.</p>
+<h3 id="Case-1-Factors-influencing-the-number-of-product-reviews-in-e-commerce"><a href="#Case-1-Factors-influencing-the-number-of-product-reviews-in-e-commerce" class="headerlink" title="Case 1: Factors influencing the number of product reviews in e-commerce"></a>Case 1: Factors influencing the number of product reviews in e-commerce</h3><ul>
+<li><strong>Objective:</strong> examine how price, brand, place of origin, and other factors affect sales.</li>
+<li><strong>Method:</strong> standardized regression coefficients and dummy variables.</li>
+<li><strong>Conclusion:</strong> price has a significant negative effect, while imported brands enjoy a clear premium.</li>
+</ul>
+<h3 id="Case-2-Population-prediction"><a href="#Case-2-Population-prediction" class="headerlink" title="Case 2: Population prediction"></a>Case 2: Population prediction</h3><ul>
+<li><strong>Data:</strong> historical population and economic indicators.</li>
+<li><strong>Model:</strong> introduce a Logistic curve to fit the growth trend.</li>
+<li><strong>Extension:</strong> combine the model with ARIMA forecasts of economic variables.</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Mathematical-Modeling/" class="print-no-link">#Mathematical Modeling</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Multiple Linear Regression</div>
+      <div>https://hwnote.space/en/posts/2025/05/02/multiple-linear-regression/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>May 2, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js"></script>
+<script src="/js/bilingual-switch.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

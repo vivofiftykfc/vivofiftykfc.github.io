@@ -1,0 +1,916 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="This largely descriptive chapter gives the most basic definition of a channel and supplies some background knowledge. It first explains what a channel is, how it can be represented mathematically, and">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chapter 4 — Communication Channels">
+<meta property="og:url" content="https://hwnote.space/en/posts/2025/10/19/communication-channel/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="This largely descriptive chapter gives the most basic definition of a channel and supplies some background knowledge. It first explains what a channel is, how it can be represented mathematically, and">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/fce.jpg">
+<meta property="article:published_time" content="2025-10-19T13:54:12.000Z">
+<meta property="article:modified_time" content="2026-08-20T17:10:54.837Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Notes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/fce.jpg">
+  
+  
+  
+  <title>Chapter 4 — Communication Channels - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/fce.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Chapter 4 — Communication Channels"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-19 21:54" pubdate>
+          October 19, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          421 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          6 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Chapter 4 — Communication Channels</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Definition-of-a-Channel"><a href="#Definition-of-a-Channel" class="headerlink" title="Definition of a Channel"></a>Definition of a Channel</h1><p>A channel is a path through which a signal travels, and it is indispensable in a communication system.</p>
+<h2 id="Channel-in-the-Narrow-Sense"><a href="#Channel-in-the-Narrow-Sense" class="headerlink" title="Channel in the Narrow Sense"></a>Channel in the Narrow Sense</h2><p>In the narrow sense, a channel refers to the transmission medium—the physical path between the transmitter and receiver.</p>
+<ul>
+<li>Guided media: optical fibre, twisted-pair cable, and coaxial cable</li>
+<li>Unguided media: radio and infrared waves</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510192027955.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h2 id="Channel-in-the-Broad-Sense"><a href="#Channel-in-the-Broad-Sense" class="headerlink" title="Channel in the Broad Sense"></a>Channel in the Broad Sense</h2><p>In the broad sense, a channel is an equivalent model that incorporates some of the other equipment in a communication system:</p>
+<ul>
+<li>A modulation channel extends from the output of the modulator to the input of the demodulator, and concerns modulated signals.</li>
+<li>A coding channel extends from the output of the encoder to the input of the decoder, and concerns digital sequences.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510192029053.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h3 id="Modulation-Channel-Model"><a href="#Modulation-Channel-Model" class="headerlink" title="Modulation-Channel Model"></a>Modulation-Channel Model</h3><p>A modulation channel transmits modulated signals, so the main concerns are signal distortion and the influence of noise. Because the instantaneous value of a modulated signal varies continuously, it is also called a continuous channel—or, in some contexts, simply a channel.</p>
+<p>Its detailed characteristics do not seem especially important here. They probably belong to general background knowledge, so I will not describe them further.</p>
+<p>The textbook states that the great majority of modulation channels are linear. It should be noted, however, that this is merely an approximation adopted at the present stage because our analytical ability is still limited.</p>
+<p>Its mathematical model is shown below:</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510192043723.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h3 id="Coding-Channel-Model"><a href="#Coding-Channel-Model" class="headerlink" title="Coding-Channel Model"></a>Coding-Channel Model</h3><p>A coding channel, also called a digital channel, contains and depends on a modulation channel. Its interference is reflected in bit errors, and its principal performance measure is therefore the bit error rate.</p>
+<p>Depending on whether the transition probability between successive symbols is dependent on earlier symbols, coding channels may be further divided into channels with memory and channels without memory.</p>
+<h1 id="Performance-Parameters"><a href="#Performance-Parameters" class="headerlink" title="Performance Parameters"></a>Performance Parameters</h1><p>The reliability of a communication system is mainly affected by two factors: noise and imperfections in the transmission characteristics of the channel.</p>
+<h1 id="Characteristics-of-Constant-Parameter-Channels"><a href="#Characteristics-of-Constant-Parameter-Channels" class="headerlink" title="Characteristics of Constant-Parameter Channels"></a>Characteristics of Constant-Parameter Channels</h1><h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><h4 id="Twisted-Pair-Cable"><a href="#Twisted-Pair-Cable" class="headerlink" title="Twisted-Pair Cable"></a>Twisted-Pair Cable</h4><p>Twisted-pair cable can be used for both analogue and data transmission. Its bandwidth depends on the thickness of the cable and the transmission distance.</p>
+<p>It is divided into unshielded twisted pair (UTP) and shielded twisted pair (STP); the latter uses foil shielding to reduce interference.</p>
+<h4 id="Coaxial-Cable"><a href="#Coaxial-Cable" class="headerlink" title="Coaxial Cable"></a>Coaxial Cable</h4><p>Baseband coaxial cable: 50 $\Omega$. It transmits baseband digital signals for data communication and is widely used in local area networks.<br>10 Mb&#x2F;s, 1 km</p>
+<p>Broadband coaxial cable: 75 $\Omega$. It is mainly used in CATV systems to carry frequency-division-multiplexed analogue signals.<br>6 MHz&#x2F;300–400 MHz, 100 km</p>
+<h4 id="Optical-Fibre"><a href="#Optical-Fibre" class="headerlink" title="Optical Fibre"></a>Optical Fibre</h4><p>An optical fibre is a double-layer cylindrical communication medium that carries information through light waves. It offers high transmission rates, a broad bandwidth, low loss, strong resistance to interference, good confidentiality, and low weight. Yet optical modulators and photodetectors are required at the two ends, making the system relatively complicated. Connections can also be troublesome, and the fibre itself is fragile—step on it once and it is gone.</p>
+<p>Three wavelength windows are commonly used:</p>
+<p>0.85 um: attenuation is high, so the transmission rate and distance are limited, but the equipment is inexpensive;</p>
+<p>1.30 um: attenuation is low; without dispersion compensation or power amplification, the maximum range is 40 km in the worst case;</p>
+<p>1.55 um: attenuation is low; without dispersion compensation or power amplification, the maximum range is 80 km in the worst case.</p>
+<h4 id="Terrestrial-Line-of-Sight-Radio-Relay"><a href="#Terrestrial-Line-of-Sight-Radio-Relay" class="headerlink" title="Terrestrial Line-of-Sight Radio Relay"></a>Terrestrial Line-of-Sight Radio Relay</h4><p>Transmission between two ground stations, point to point.</p>
+<p>Distance: 50–100 km; frequency: 2G–40 GHz</p>
+<p>Its performance depends on the weather and operating frequency.</p>
+<p>Applications include long-distance transmission of speech and television signals, as well as LAN interconnection between buildings.</p>
+<h4 id="Communication-Satellite-Relay-Channel"><a href="#Communication-Satellite-Relay-Channel" class="headerlink" title="Communication-Satellite Relay Channel"></a>Communication-Satellite Relay Channel</h4><p>This classification is becoming absurd. You are seriously telling me that this thing has constant parameters? Who exactly is supposed to believe that?</p>
+<p>It uses microwaves.</p>
+<p>A transponder receives and retransmits signals.</p>
+<p>Advantages include a long transmission distance, broad geographical coverage, stable and reliable transmission, and high capacity.</p>
+<p>Applications include television-signal transmission, long-distance speech transmission, and the construction of private networks.</p>
+<p>Point-to-multipoint transmission is supported.</p>
+<p>C band: 4&#x2F;6 GHz</p>
+<pre><code class="hljs">Uplink: 5.925–6.425 GHz
+Downlink: 3.7–4.2 GHz
+</code></pre>
+<p>Ku band: 12&#x2F;14 GHz</p>
+<pre><code class="hljs">Uplink: 14–14.5 GHz
+Downlink: 11.7–12.2 GHz
+</code></pre>
+<h2 id="Characteristics"><a href="#Characteristics" class="headerlink" title="Characteristics"></a>Characteristics</h2><p>In a constant-parameter channel, the channel characteristics do not change with time. More specifically:</p>
+<p>$$ h(t) \Leftrightarrow H(\omega) &#x3D; |H(\omega)| e^{j\varphi(\omega)} $$</p>
+<p> Amplitude-frequency characteristic: $|H(\omega)|$</p>
+<p> Phase-frequency characteristic: $\varphi(\omega)$</p>
+<p> Group-delay characteristic: $\tau(\omega) &#x3D; -\frac{d\varphi(\omega)}{d\omega}$</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510192108615.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h1 id="Characteristics-of-Time-Varying-Channels"><a href="#Characteristics-of-Time-Varying-Channels" class="headerlink" title="Characteristics of Time-Varying Channels"></a>Characteristics of Time-Varying Channels</h1><h2 id="Examples-1"><a href="#Examples-1" class="headerlink" title="Examples"></a>Examples</h2><h3 id="Short-Wave-Ionospheric-Reflection-Channel"><a href="#Short-Wave-Ionospheric-Reflection-Channel" class="headerlink" title="Short-Wave Ionospheric-Reflection Channel"></a>Short-Wave Ionospheric-Reflection Channel</h3><p>All right, this one certainly varies more than the previous examples.</p>
+<p>The ionosphere is an atmospheric layer 60–600 km above the ground. Counting upward from the surface, the atmosphere can be divided into the troposphere, stratosphere, mesosphere, ionosphere, and exosphere. The refractive index of the medium decreases with altitude, so the path of a radio wave gradually bends until total reflection occurs at a certain height.</p>
+<p>Short wave: 3–30 MHz (100–10 m)</p>
+<p>This mode of transmission has no blind zone and requires only simple, flexible equipment. Antarctic scientific expeditions, for example, use it as a means of communication. The ionosphere reflects the frequency bands used by ordinary radio broadcasting, but it cannot reflect radio waves with shorter wavelengths. Television happens to use shorter radio waves, which is why a television set cannot receive programmes from a distant station by this mechanism.</p>
+<p>Transmission reliability is poor, and the operating frequency must be changed frequently.</p>
+<p>Applications include short-wave broadcasting, emergency communication, disaster-response communication, and military communication.</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510192118898.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>The most basic reason short-wave communication attracts users is that long-distance communication requires only modest transmission power and moderately priced equipment. It also possesses a relay system—the ionosphere—that is not easily “destroyed”. Practice has shown that short-wave communication modernised with contemporary technology can provide high-quality, reasonably priced links with high availability. It nevertheless has several shortcomings, mainly in the following two respects:</p>
+<ol>
+<li><p>It cannot overcome the weaknesses inherent in the high-frequency medium itself;</p>
+</li>
+<li><p>It cannot resist interception or various forms of deliberate interference.</p>
+</li>
+</ol>
+<p>It can also produce multipath propagation:</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510192121670.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h3 id="Tropospheric-Scatter-Channel"><a href="#Tropospheric-Scatter-Channel" class="headerlink" title="Tropospheric-Scatter Channel"></a>Tropospheric-Scatter Channel</h3><p>The troposphere is the part of the atmosphere below an altitude of roughly 10–12 km.</p>
+<p>It is used with very-high-frequency and microwave bands.</p>
+<p>Its advantages include strong survivability, good confidentiality, high mobility, and an ability to adapt to complex terrain.</p>
+<p>It supports point-to-point communication in military applications, between islands and the mainland, and in emergency or disaster-relief communication.</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510192123190.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h3 id="Other-Examples"><a href="#Other-Examples" class="headerlink" title="Other Examples"></a>Other Examples</h3><p>Other examples include short-wave ionospheric reflection, VHF meteor-trail scattering, VHF and microwave tropospheric scattering, short-wave ionospheric scattering, and beyond-line-of-sight VHF diffraction.</p>
+<h2 id="Characteristics-1"><a href="#Characteristics-1" class="headerlink" title="Characteristics"></a>Characteristics</h2><p>With respect to signal transmission, the transmission medium has the dominant influence, whereas the influence of converters is secondary and may even be neglected. The main task is therefore to study the common characteristics of transmission media and their effects on signals.</p>
+<h4 id="Characteristics-of-Time-Varying-Channels-1"><a href="#Characteristics-of-Time-Varying-Channels-1" class="headerlink" title="Characteristics of Time-Varying Channels"></a>Characteristics of Time-Varying Channels</h4><p>In multipath transmission, the attenuation and delay of every path vary randomly. Both the attenuation imposed on the signal and the transmission delay consequently change over time.</p>
+<p>In mathematical language:</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510192141047.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>We can see that R(X) may be regarded as a narrowband random process: multipath propagation turns a deterministic single-frequency carrier into a narrowband signal whose envelope and phase are both modulated—that is, a fading signal.</p>
+<p>From the time-domain perspective, the result is multipath delay spread; from the frequency-domain perspective, it is frequency dispersion or broadening.</p>
+<h4 id="Statistical-Characteristics"><a href="#Statistical-Characteristics" class="headerlink" title="Statistical Characteristics"></a>Statistical Characteristics</h4><p>When $n$ is sufficiently large, $X_c(t)$ and $X_s(t)$ are stationary Gaussian processes, so $R(t)$ is a narrowband Gaussian process.  </p>
+<p>The one-dimensional distribution of $V(t)$ is a <strong>Rayleigh distribution</strong>, corresponding to Rayleigh fading:</p>
+<p>$$f(V) &#x3D; \frac{V}{\sigma^2}\exp\left(-\frac{V^2}{2\sigma^2}\right), \quad V \geq 0, \sigma &gt; 0$$</p>
+<p>The one-dimensional distribution of $\varphi(t)$ is a <strong>uniform distribution</strong>:</p>
+<p>$$f(\varphi) &#x3D; \frac{1}{2\pi}, \quad -\pi \leq \varphi \leq \pi $$</p>
+<h4 id="Frequency-Selective-Fading"><a href="#Frequency-Selective-Fading" class="headerlink" title="Frequency-Selective Fading"></a><strong>Frequency-Selective Fading</strong></h4><p>This is the fading of certain components in a signal spectrum. After the frequency components of a signal arrive over multiple paths, their phases differ. Components with the same phase reinforce one another when their vectors are added, whereas components with opposite phases cancel. The amplitudes of different frequency components in the received signal therefore change, much as if the signal had passed through a selectively attenuating network; hence the term frequency-selective fading.</p>
+<p> <img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510192149354.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h4 id="Coherence-Bandwidth-and-Types-of-Fading"><a href="#Coherence-Bandwidth-and-Types-of-Fading" class="headerlink" title="Coherence Bandwidth and Types of Fading"></a>Coherence Bandwidth and Types of Fading</h4><p>Frequency-selective fading in multipath propagation depends on the <strong>relative delay difference</strong>, represented by the maximum multipath delay difference $\tau_m$.</p>
+<p>The coherence bandwidth is defined as:</p>
+<p>$$\Delta f &#x3D; \frac{1}{\tau_m}  $$</p>
+<p>When the signal bandwidth satisfies $B &gt; \Delta f$, the waveform $R(t)$ is distorted, producing <strong>frequency-selective fading</strong>;</p>
+<p>When the signal bandwidth satisfies $B &lt;&lt; \Delta f$, the strength of $R(t)$ varies over time and depends on $\tau$, producing <strong>flat fading</strong>, or general fading;</p>
+<p>To avoid obvious frequency-selective fading, $B$ should be smaller than $\Delta f$. Techniques such as diversity reception may also be adopted to stabilise the signal.</p>
+<p>To be honest, I still do not quite understand this part.</p>
+<h2 id="Improvement"><a href="#Improvement" class="headerlink" title="Improvement"></a>Improvement</h2><h3 id="Diversity"><a href="#Diversity" class="headerlink" title="Diversity"></a>Diversity</h3><h4 id="Concept"><a href="#Concept" class="headerlink" title="Concept"></a>Concept</h4><p>Diversity reception is an important technique developed in mobile communication to overcome various forms of fading and improve system performance.</p>
+<p>Its basic principle is to separate the received multipath signal into several uncorrelated, or independent, signals, and then combine their energy according to a particular rule so as to maximise the useful signal energy at the receiver.</p>
+<p>For a digital system, the objective is to minimise the bit error rate at the receiver.<br>For an analogue system, the objective is to improve the signal-to-noise ratio at the receiver.</p>
+<h4 id="Forms-of-Diversity"><a href="#Forms-of-Diversity" class="headerlink" title="Forms of Diversity"></a>Forms of Diversity</h4><p>Time diversity uses time interleaving and channel coding to provide replicas of a signal in the time domain.</p>
+<p>Frequency diversity transmits symbols on different carrier frequencies, thereby providing replicas in the frequency domain.</p>
+<p>Space diversity is realised through multiple antennas.</p>
+<h3 id="Combining"><a href="#Combining" class="headerlink" title="Combining"></a>Combining</h3><p>Selection combining chooses the branch with the highest signal-to-noise ratio; naturally, the result will tend towards a limiting value at a later stage.</p>
+<p>Equal-gain combining adds the signals from all branches directly with the same gain.</p>
+<p>Maximum-ratio combining sets the gain of each branch in proportion to the signal-to-noise ratio of that branch.</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Notes/" class="print-no-link">#Notes</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Chapter 4 — Communication Channels</div>
+      <div>https://hwnote.space/en/posts/2025/10/19/communication-channel/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>October 19, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js"></script>
+<script src="/js/bilingual-switch.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

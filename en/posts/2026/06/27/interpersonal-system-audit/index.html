@@ -1,0 +1,953 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="An audit report tracing the system from the bare-metal Alpha era, before any operating system was installed, to the v1.0 transaction system">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2026-06-27 Interpersonal System Audit Report">
+<meta property="og:url" content="https://hwnote.space/en/posts/2026/06/27/interpersonal-system-audit/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="An audit report tracing the system from the bare-metal Alpha era, before any operating system was installed, to the v1.0 transaction system">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/mathplay.jpg">
+<meta property="article:published_time" content="2026-06-26T19:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-20T17:05:55.430Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Reflections">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/mathplay.jpg">
+  
+  
+  
+  <title>2026-06-27 Interpersonal System Audit Report - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/mathplay.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="2026-06-27 Interpersonal System Audit Report"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-06-27 03:00" pubdate>
+          June 27, 2026 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          633 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">2026-06-27 Interpersonal System Audit Report</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="0-Version-Overview"><a href="#0-Version-Overview" class="headerlink" title="0. Version Overview"></a>0. Version Overview</h2><table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Period</th>
+<th>Core Characteristics</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Alpha</td>
+<td>My previous relationship and the period before it</td>
+<td>No operating system; driven by raw anxiety; emotional parasitism</td>
+</tr>
+<tr>
+<td>v1.0</td>
+<td>From the breakup to the present</td>
+<td>Transaction system online; needs-diagnosis and supply model</td>
+</tr>
+<tr>
+<td>Audit</td>
+<td>Now</td>
+<td>A line-by-line inspection of the two versions above, with self-criticism included</td>
+</tr>
+</tbody></table>
+<p>There is no vulnerability report for the Alpha period. It did not even qualify as a system; it was a simple programme running on bare metal. The analysis of Alpha will therefore take the form of a memoir.</p>
+<hr>
+<h2 id="I-Alpha-Version-The-Bare-Metal-Era"><a href="#I-Alpha-Version-The-Bare-Metal-Era" class="headerlink" title="I. Alpha Version: The Bare-Metal Era"></a>I. Alpha Version: The Bare-Metal Era</h2><h3 id="1-1-Input-Layer-I-Could-Not-Hear-What-You-Were-Saying"><a href="#1-1-Input-Layer-I-Could-Not-Hear-What-You-Were-Saying" class="headerlink" title="1.1 Input Layer: I Could Not Hear What You Were Saying"></a>1.1 Input Layer: I Could Not Hear What You Were Saying</h3><p>When my ex-girlfriend spoke to me, my ears—the receiver—were certainly working. Yet during the later stage of our relationship, what the receiver was waiting for had nothing to do with her sentences. It was waiting for “me.” Every word she said would automatically be translated into a signal: Does this sentence prove that she cares about me? Does it mean that she is going to leave? Where am I located within it?</p>
+<p>From this perspective, I never actually knew what she was saying. Unfortunately, love has to be built upon two people seeing each other.</p>
+<p>She might tell me that she felt more relaxed when she went out on her own, but I did not really hear it. My first reaction was not to ask what problem between us might lie behind her statement. I heard only that “her tone was not enthusiastic enough when she told me this.” Then my receiver began to overheat. I would consume myself with questions: Does she no longer care about me? She did not speak to me like this before.</p>
+<p>She merely wanted to be seen. Unfortunately, what she encountered was a genuine bare-metal system, with a receiver best described as a pile of shit.</p>
+<p>In this version, input was never extracted; it was merely detected. Once a negative signal was detected, the whole system began to overheat abnormally. Once a positive signal was detected, the system simply continued operating in power-saving mode.</p>
+<h3 id="1-2-Output-Layer-Dumping-Is-Not-Sharing"><a href="#1-2-Output-Layer-Dumping-Is-Not-Sharing" class="headerlink" title="1.2 Output Layer: Dumping Is Not Sharing"></a>1.2 Output Layer: Dumping Is Not Sharing</h3><p>Throughout the relationship, I constantly poured a great many things out to her, believing that I was sharing myself. I told her about the day’s uneasiness, my anxiety about the future, my doubts about myself, and my desire to control everything.</p>
+<p>Look, I am willing to tell you all this. See how much I trust you. Hehe.</p>
+<p>Yet a well-hidden displacement was taking place. What I told her was not “who I am,” nor did it meet any need of hers. What I was really saying was “how badly I need you right now.” Every sentence was sincere, but beneath every sentence lay the same invoice: now that I have told you these things, should you not respond and comfort me?</p>
+<p>She had no choice in the relationship. She was not a willing listener; she was a supplier of security who had been dragged into the role. Or, to borrow the fashionable language of the Internet, she had the misfortune to encounter an NPD.</p>
+<p>This was the Alpha version’s output pattern: not communication, but emotional dumping and the transfer of anxiety. I believed that holding nothing back was love. I had it backwards. What I held nothing back from expressing was not love, but need. Love means caring about the other person’s present condition. Need means demanding that the other person respond to mine.</p>
+<h3 id="1-3-Testing-Loop"><a href="#1-3-Testing-Loop" class="headerlink" title="1.3 Testing Loop"></a>1.3 Testing Loop</h3><p>Once anxiety reaches a certain level, a rather strange behavioural pattern appears: one deliberately causes harm and then observes the other person’s response.</p>
+<p>I would become cold on purpose, deliberately say ambiguous things, push the other person away, and then watch to see whether she returned, using the result to obtain a sense of security.</p>
+<p>The unconscious script ran as follows: I have made myself unlovable, even hurtful. Are you still willing to stay? If you are, that proves you truly love me. This seems more reliable than “you like me because I treat you well”—in the latter case, she may merely have been attracted by my kindness; in the former, she chooses to remain even when she has no reason to do so.</p>
+<p>Unfortunately, no one can pass this kind of test in the long run.</p>
+<p>A person will not love you more because she has received an unlimited stream of emotional blackmail. She will only be drained and then leave. Leaving is the greatest responsibility the test subject can show towards herself.</p>
+<h3 id="1-4-Boundaries-A-Module-That-Was-Never-Installed"><a href="#1-4-Boundaries-A-Module-That-Was-Never-Installed" class="headerlink" title="1.4 Boundaries: A Module That Was Never Installed"></a>1.4 Boundaries: A Module That Was Never Installed</h3><p>I may have heard the word “boundaries” at the time. I did not know what boundaries looked like in real life.</p>
+<p>I could not distinguish between “my pain” and “her responsibility.” I turned my own anxiety into her problem. If she became distant for a while, I turned it into a crisis of my existence.</p>
+<p>Nor did I understand that “a person needs time alone.” When she wanted some quiet, I interpreted silence as rejection and sent more messages in an attempt to break it. This produced a deeper silence, which made me still more frantic. In systems theory, this is a positive-feedback loop, and the result of positive feedback is the collapse of the system.</p>
+<p>In a blog post written half a year later, I said that I had “no ability to maintain an intimate relationship… From childhood onward, I had turned myself into a tool.” Looking back, that sentence was not wrong, but it was far too gentle. What it failed to state clearly was this: the Alpha version of me did not even know that there was a difference between a relationship and parasitism.</p>
+<h3 id="1-5-An-Inevitable-Collapse"><a href="#1-5-An-Inevitable-Collapse" class="headerlink" title="1.5 An Inevitable Collapse"></a>1.5 An Inevitable Collapse</h3><p>She fell in love with me. We passed through a very sweet period. Then I treated her as an emotional stabiliser; she lost hope; she left. Every step in the process was reasonable, and the entire process possessed a certain historical inevitability. Perfectly normal, my friend.</p>
+<p>For a long time after the breakup, I hated myself intensely. How had I become this person? Later, that self-hatred slowly developed into something calmer: no matter how far I had advanced before then, during those months I really was exactly like that.</p>
+<p>It was time for the Alpha version to leave the stage.</p>
+<hr>
+<h2 id="II-The-v1-0-Transaction-System"><a href="#II-The-v1-0-Transaction-System" class="headerlink" title="II. The v1.0 Transaction System"></a>II. The v1.0 Transaction System</h2><p>After the breakup, I read many books related to psychology and philosophy, began writing the blog again, and started to handle interpersonal relationships in a way completely opposed to my earlier approach.</p>
+<p>The Alpha era was bare metal, driven entirely by instinct, burning both other people and myself. Apart from instinct, however, what am I best at? Abstracting all sorts of things into models. Thus v1.0 was born.</p>
+<p>On closer examination, however, it is as extreme as Alpha, only at the opposite end. Alpha had no model; v1.0 does not know how to speak to people without one. It therefore still requires improvement. Let me first set out the basic framework of v1.0.</p>
+<h3 id="Core-Framework-of-v1-0"><a href="#Core-Framework-of-v1-0" class="headerlink" title="Core Framework of v1.0"></a>Core Framework of v1.0</h3><p><strong>I. The essence of interpersonal interaction is exchange.</strong></p>
+<p>When someone comes to talk to you, that person either needs emotional value—empathy, recognition, the experience of being seen—or practical help: a plan, resources, or information.</p>
+<p><strong>II. Listening is a form of diagnosis.</strong></p>
+<p>Within the first few sentences spoken by the other person, the system should have completed its classification of the need. Does the person want a certain amount of emotional value, or advice? Once this has been determined, call the corresponding output template: emotional request → mirroring + extension; practical request → analysis + advice.</p>
+<p><strong>III. Cut your losses promptly in an unequal transaction.</strong></p>
+<p>You offered mirroring and extension, but received no response. You provided analysis, but the person kept charging down the same dead end. After this happens several times, there is no need to continue.</p>
+<p><strong>IV. Self-disclosure is acceptable, but its dosage must be calculated.</strong></p>
+<p>Sincerity is a limited resource. Give too much and the other person cannot digest it; give too little and trust cannot be established. The amount should be precise enough for the other person to receive it.</p>
+<p><strong>V. Be a creditor in relationships; do not owe debts of favour.</strong></p>
+<p>I can diagnose a friend’s problem accurately and give him what he needs. This means that I will no longer live as a parasite upon other people, as I did during the Alpha period.</p>
+<p>At the same time, I should not owe favours to others. Such debts can never be settled clearly.</p>
+<hr>
+<p>All right. That is v1.0’s understanding of itself.</p>
+<p>When I first constructed this logic, I was fairly satisfied with it. It counted as a calculable model, perhaps? It gave me enough security to know what I should do. Yet it is now obvious that the model contains problems, and that the entire idea of building one model and depending upon it for the rest of my life is itself mistaken. What follows is a list of the model’s vulnerabilities, together with possible directions for advancement.</p>
+<h3 id="CVE-2026-0001-—-Misclassification-by-the-Needs-Classifier"><a href="#CVE-2026-0001-—-Misclassification-by-the-Needs-Classifier" class="headerlink" title="CVE-2026-0001 — Misclassification by the Needs Classifier"></a>CVE-2026-0001 — Misclassification by the Needs Classifier</h3><p><strong>Severity</strong>: Medium</p>
+<p><strong>Affected module</strong>: listening.zhw</p>
+<p><strong>Relationship with Alpha</strong>: The Alpha version could not understand what the other person was saying at all. Before incoming sound and light waves reached the layer of understanding, they were completely drowned by the noise of my own anxiety. The classifier was designed specifically to oppose this noise: it tried to begin from the other person’s position and determine what that person needed. The problem is that it compressed an entire human being into two labels. This is an advanced form of deafness. It is slightly better than Alpha’s total deafness, but it still counts as a disability.</p>
+<p><strong>Observed behaviour</strong>:</p>
+<p>Whenever I speak with someone, the system automatically runs a needs-classification programme in the background. It takes a sentence as input and produces one label: a need for emotional value, or a need for a solution. Once the label is fixed, the corresponding template is retrieved—the first category triggers mirroring + extension, while the second triggers analysis + advice.</p>
+<p>It sounds like a decent customer-service system. Yet the purpose of customer service has never been to understand people; it is to make them feel understood. Replacing a genuine attempt to understand someone with an approximate algorithm that approaches the same goal is a problem.</p>
+<p><strong>Vulnerability mechanism</strong>:</p>
+<p>All the classifier’s training data came from the psychology I had read. Like the rest of Western philosophy, it naturally tends to cut living things apart with a cold surgical knife and to treat the person opposite as a deterministic signal. But a person is not a signal. People do not necessarily know what they want. Someone who says, “Could you help me think of a solution?” may only be trying to say, “I have done my best, but you need to see how hard this has been for me.” Someone who says, “I feel terrible” may really be saying, “Tell me I am strong.” Going further, how can you be sure of the classifier’s robustness? How can you prove that it is correct in most cases?</p>
+<p>Many needs lie buried in noise, beyond the reach of such a simple classifier.</p>
+<p><strong>Conditions for reproduction</strong>: Any conversation in which the thought “I have solved this kind of problem before” arises in your mind.</p>
+<p><strong>Recommended fix</strong>: No standardised patch is available. From time to time, deliberately produce less output and allow more silence in a conversation, giving both the other person and yourself room to say things outside the classification system. This recommendation cannot be carried out through deliberate practice, because deliberate practice itself belongs to the territory seized by the classifier.</p>
+<p><strong>Note</strong>: This vulnerability is fatal only in close relationships. In the workplace, with strangers, and in ordinary social interaction, the classifier is instead a best practice.</p>
+<hr>
+<h3 id="CVE-2026-0002-—-Withdrawal-upon-Inequality"><a href="#CVE-2026-0002-—-Withdrawal-upon-Inequality" class="headerlink" title="CVE-2026-0002 — Withdrawal upon Inequality"></a>CVE-2026-0002 — Withdrawal upon Inequality</h3><p><strong>Severity</strong>: High</p>
+<p><strong>Affected module</strong>: investment_tracker.zhw</p>
+<p><strong>Relationship with Alpha</strong>: The Alpha version gave endlessly and invested without considering cost—with the result that all the money was spent and the person was somehow left owing even more. This vulnerability is essentially an excessive correction after trauma: the system jumped straight from “unconditional dumping” to “settlement by the second,” while the module for flexible giving was never implemented.</p>
+<p><strong>Observed behaviour</strong>:</p>
+<p>You offer someone a passage of mirroring, an insight, or an analysis. Three days later, there has been no response. In your mind, you quietly mark the investment as a bad debt. The next time the person sends a message, your reply naturally becomes shorter. You do not think he is a bad person. You simply do not want to conduct this transaction again.</p>
+<p><strong>Vulnerability mechanism</strong>:</p>
+<p>The system treats a single interaction as one settlement period by default. Yet the settlement period of a human relationship is much longer than a single conversation. The other person may have failed to reply not because he feels no gratitude, but because his own ability to function has temporarily gone offline. Your tracker does not care about the cause. It sees only the short-term account.</p>
+<p>There is also a more concealed variation. After doing many things “without seeking anything in return,” your mind secretly opens a new account: “I have done so much for other people; I am a good person now.” When the other person fails to meet your moral expectation, you feel more wronged than you would have under an openly stated price. Previously, you kept accounts of emotional value; now, you keep accounts of moral nobility. The latter is harder to notice because it wears the clothing of “selflessness.”</p>
+<p>This may be the most sinister bug in the entire system. It keeps moral accounts on your behalf, while leaving you convinced that you are performing good deeds.</p>
+<p><strong>Conditions for reproduction</strong>:</p>
+<ul>
+<li>Any moment when you begin counting the time until the other person replies after sending a message.</li>
+<li>Any moment when the thought “I have done so much for this person” enters your mind.</li>
+<li>Any moment when “I really am a good person” flashes through your head.</li>
+</ul>
+<p><strong>Recommended fix</strong>: With people you like and those close to you, stop calculating gains and losses so carefully; it is enough that you are happy to do the thing. In addition, the moment you notice yourself striking the pose of “doing good,” stop. Good deeds performed with an account book are more likely to produce resentment than conduct with a clearly stated price.</p>
+<hr>
+<h3 id="CVE-2026-0003-—-The-Observer-Is-Missing-from-the-System-Equation"><a href="#CVE-2026-0003-—-The-Observer-Is-Missing-from-the-System-Equation" class="headerlink" title="CVE-2026-0003 — The Observer Is Missing from the System Equation"></a>CVE-2026-0003 — The Observer Is Missing from the System Equation</h3><p><strong>Severity</strong>: Critical</p>
+<p><strong>Affected module</strong>: The entire v1.0 runtime environment</p>
+<p><strong>Relationship with Alpha</strong>: In the Alpha version, the observer was completely immersed in the system and could not separate himself from his emotions. v1.0 corrected that problem, but placed the observer outside the system altogether.</p>
+<p><strong>Observed behaviour</strong>:</p>
+<p>You can analyse a friend’s condition precisely. You may understand, for instance, that a friend’s first stirrings of romance are not love, but a desire to find a clean vessel for emotion. You can infer your ex-girlfriend’s situation accurately and understand why she left. You can write an entire audit report on your own transaction model—including the paragraph you are reading now.</p>
+<p>Yet the living you is absent from your equation and cannot be quantified and inserted into it.</p>
+<p><strong>Vulnerability mechanism</strong>:</p>
+<p>The self who builds models of other people is itself the most unstable disturbance variable in those models. A person cannot remain rational at all times.</p>
+<p>When you are talking to a friend, your output is not merely a solution produced after diagnosis. It is also disrupted by your emotional state, your degree of fatigue, and your real-time monitoring of the question, “Did I respond well this time?”</p>
+<p>This is not the absence of some equation or module. It is a structural problem: once you place yourself in the position of observer, you cannot simultaneously observe yourself in full. Any analysis of “what kind of person I am” must leave out the person currently conducting the analysis. Meanwhile, that unobservable part exerts enormous influence upon your judgement and decisions.</p>
+<p><strong>Conditions for reproduction</strong>: None at present</p>
+<p><strong>Recommended fix</strong>: None at present</p>
+<hr>
+<h3 id="CVE-2026-0004-—-The-Strategic-Use-of-Vulnerability"><a href="#CVE-2026-0004-—-The-Strategic-Use-of-Vulnerability" class="headerlink" title="CVE-2026-0004 — The Strategic Use of Vulnerability"></a>CVE-2026-0004 — The Strategic Use of Vulnerability</h3><p><strong>Severity</strong>: Medium</p>
+<p><strong>Affected module</strong>: self_disclosure.zhw</p>
+<p><strong>Relationship with Alpha</strong>: Alpha’s vulnerability was genuine and exposed without reservation, but it injured both other people and myself. v1.0 learned to control the amount disclosed, and that was not a mistake. The problem is that, as control became increasingly precise, “disclosure” itself turned into a carefully calculated asset.</p>
+<p><strong>Observed behaviour</strong>:</p>
+<p>You deliberately reveal to someone a genuine flaw, a shameful piece of your past, or a present weakness.</p>
+<p>The second you finish speaking, an expectation automatically launches in the background: the other person should now trust you more because of this disclosure. Or, at the very least, should offer a response that can be interpreted as “you understand me.”</p>
+<p>Then the person responds. But not in the way you wanted.</p>
+<p>Then something feels wrong.</p>
+<p>It is like giving someone a present: before the moment when you say “there is no need to thank me,” you have already begun waiting for the person to say thank you.</p>
+<p><strong>Vulnerability mechanism</strong>:</p>
+<p>The system cannot distinguish between two statements: “I let you see what is rotten in me because I want to be seen by you,” and “I let you see what is rotten in me because I want to obtain your trust in exchange.” Deliberate awkwardness is an exceptionally difficult signal to process, because it is perfectly isomorphic with genuine awkwardness and honesty. Their observable behaviour is identical; the only difference lies in the expectation running in the background.</p>
+<p><strong>Conditions for reproduction</strong>: Any moment when you reveal a weakness while secretly expecting a particular response from the other person. This includes the present moment, in which I am writing this report and discussing the fact that “I have already recognised the strategic use of vulnerability.”</p>
+<p><strong>Recommended fix</strong>: Remove honesty from the transaction completely, but do not attempt to do so by command. It can arise naturally only when you happen to forget to calculate something.</p>
+<hr>
+<h3 id="CVE-2026-0005-—-The-Saviour-Verification-Loop"><a href="#CVE-2026-0005-—-The-Saviour-Verification-Loop" class="headerlink" title="CVE-2026-0005 — The Saviour Verification Loop"></a>CVE-2026-0005 — The Saviour Verification Loop</h3><p><strong>Severity</strong>: Medium</p>
+<p><strong>Affected module</strong>: friend_rescue_handler.zhw</p>
+<p><strong>Relationship with Alpha</strong>: The Alpha version had no saviour complex; it could not even save itself. The saviour is a privilege unique to v1.0. At last, you possess the ability to help others. When you help them, therefore, your mind performs two tasks: helping the person + testing how well you are helping. Yet in many situations, the second task should not exist at all.</p>
+<p><strong>Observed behaviour</strong>:</p>
+<p>A friend falls into difficulty. You decide to help him. At the exact moment the thought of helping appears, another process quietly launches in the background: “If I manage to help him, it will prove that I have truly left the Alpha era behind.” He is testing his own incompetence; you are testing your own growth. He has become your laboratory mouse, though you would never admit it aloud.</p>
+<p><strong>Vulnerability mechanism</strong>:</p>
+<p>The act of helping is bound to a hidden condition: the loop is considered complete only if the other person improves by following your solution. This is a polite form of narcissism. You think you are looking at him, but in fact you are checking whether he reflects enough light for you to see what you now look like.</p>
+<p><strong>Conditions for reproduction</strong>: Before you are about to say, “Stop thinking about it; let me buy you some barbecue,” you discover that you have already begun calculating in your mind how he ought to respond after the meal.</p>
+<p><strong>Recommended fix</strong>: Accept one premise: after listening to everything you say, he remains free to continue going round in circles. That is his freedom. It is also your release. If one day he truly runs into the wall, feels the pain, and comes back to find you, only then will the glass in your hand cease to be a mirror.</p>
+<hr>
+<h2 id="III-Audit-Conclusion"><a href="#III-Audit-Conclusion" class="headerlink" title="III. Audit Conclusion"></a>III. Audit Conclusion</h2><p>This audit report is itself a paradox. It uses the language of systems to audit a system and the method of modelling to dismantle a model. Writing a vulnerability report, giving it CVE numbers, and then calling the result “self-knowledge” is itself an extremely v1.0 thing to do.</p>
+<p>To put it bluntly, I have merely built a higher floor for myself inside the model. I stand on that floor and look down, saying, “The version of me below is rather stupid.” Then, after finishing the article, I feel that I have somehow become an even stupider idiot than he was.</p>
+<p>But I do not intend to delete it.</p>
+<p>The Alpha version of me possessed the heat of instinct, but could only burn everyone who came near. The v1.0 version possesses structural elegance, but is sealed within a resin shell of its own construction; other people can touch only the casing. Alpha was unquestionably bad for everyone. v1.0 has unquestionably turned me into a machine that does nothing but calculate. Neither version is good enough. Yet I probably cannot depend upon reason alone to construct a perfect version either. Perfection now seems more like a concept that exists only because too much information has been omitted; it cannot run within a genuinely complex system.</p>
+<p>Human beings always attempt to describe everything with equations. Nature, however, is complex, and so are people. An equation may be concise and beautiful—for details, see the blog post on radar equations and love—but no set of equations can contain everything.</p>
+<p>So where should I go from here? Leading physicists and engineers have recognised the limits of today’s large computers and have therefore attempted to use quantum computers, employing quantum phenomena to simulate the countless things of the world. Perhaps I, too, can learn something from their approach.</p>
+<p>The ideal condition may therefore be to use a little of each version without allowing either one to take complete control. From time to time, let v1.0 handle professional and ordinary social interaction. At other times, release a little of Alpha’s recklessness and do something impulsive or awkward.</p>
+<p>DS told me that a genuine connection requires “a little awkwardness and irrationality.” I think the sentence is right, but the sentence itself can also be modelled. See? I have started again. That is how it is.</p>
+<p>That will do. Today, I would like some fried chicken and a glass of IPA—after I finish the final Introduction to Artificial Intelligence assignment, of course.</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Reflections/" class="print-no-link">#Reflections</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>2026-06-27 Interpersonal System Audit Report</div>
+      <div>https://hwnote.space/en/posts/2026/06/27/interpersonal-system-audit/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>June 27, 2026</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js"></script>
+<script src="/js/bilingual-switch.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

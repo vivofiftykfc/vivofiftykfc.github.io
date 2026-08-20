@@ -1,0 +1,906 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="From multicollinearity to variable selection, the central ideas of regularized regression.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ridge and Lasso Regression">
+<meta property="og:url" content="https://hwnote.space/en/posts/2025/05/02/ridge-lasso-regression/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="From multicollinearity to variable selection, the central ideas of regularized regression.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/ridge_lasso.jpg">
+<meta property="article:published_time" content="2025-05-02T14:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-20T16:53:47.845Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Mathematical Modeling">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/ridge_lasso.jpg">
+  
+  
+  
+  <title>Ridge and Lasso Regression - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/ridge_lasso.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Ridge and Lasso Regression"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-05-02 22:00" pubdate>
+          May 2, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          341 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          5 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Ridge and Lasso Regression</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="A-Complete-Introduction-to-Ridge-and-Lasso-Regression"><a href="#A-Complete-Introduction-to-Ridge-and-Lasso-Regression" class="headerlink" title="A Complete Introduction to Ridge and Lasso Regression"></a>A Complete Introduction to Ridge and Lasso Regression</h1><h2 id="I-Why-Is-Regularized-Regression-Necessary"><a href="#I-Why-Is-Regularized-Regression-Necessary" class="headerlink" title="I. Why Is Regularized Regression Necessary?"></a>I. Why Is Regularized Regression Necessary?</h2><h3 id="1-The-difficulty-faced-by-OLS"><a href="#1-The-difficulty-faced-by-OLS" class="headerlink" title="1. The difficulty faced by OLS"></a>1. The difficulty faced by OLS</h3><p>Ordinary least squares is a fundamental method of modeling. When the data contain <strong>multicollinearity</strong> or simply <strong>too many variables</strong>, however, OLS faces two major problems:</p>
+<ul>
+<li><strong>Unstable coefficient estimates:</strong> a minor change in the data may cause a dramatic change in the coefficients.</li>
+<li><strong>Risk of overfitting:</strong> the model performs well on its training set but generalizes poorly.</li>
+</ul>
+<h3 id="2-The-introduction-of-regularization"><a href="#2-The-introduction-of-regularization" class="headerlink" title="2. The introduction of regularization"></a>2. The introduction of regularization</h3><p>A <strong>penalty term</strong> is added to the loss function in order to restrict the complexity of the model:</p>
+<ul>
+<li><strong>Ridge regression:</strong> L2 regularization</li>
+<li><strong>Lasso regression:</strong> L1 regularization</li>
+</ul>
+<hr>
+<h2 id="II-Mathematical-Principles-From-OLS-to-Regularization"><a href="#II-Mathematical-Principles-From-OLS-to-Regularization" class="headerlink" title="II. Mathematical Principles: From OLS to Regularization"></a>II. Mathematical Principles: From OLS to Regularization</h2><h3 id="1-OLS-regression"><a href="#1-OLS-regression" class="headerlink" title="1. OLS regression"></a>1. OLS regression</h3><p>The loss function is:<br>$$<br>\min_{\beta} \sum_{i&#x3D;1}^n (y_i - \beta_0 - \sum_{j&#x3D;1}^p \beta_j x_{ij})^2<br>$$</p>
+<h3 id="2-Ridge-regression"><a href="#2-Ridge-regression" class="headerlink" title="2. Ridge regression"></a>2. Ridge regression</h3><p>An L2-norm, or Euclidean-norm, penalty is added, with λ controlling the strength of the penalty:<br>$$<br>\min_{\beta} \left[ \sum_{i&#x3D;1}^n (y_i - \beta_0 - \sum_{j&#x3D;1}^p \beta_j x_{ij})^2 + \lambda \sum_{j&#x3D;1}^p \beta_j^2 \right]<br>$$</p>
+<p><strong>Features:</strong></p>
+<ul>
+<li>All coefficients are shrunk proportionally, but none is reduced exactly to zero.</li>
+<li>Multicollinearity is alleviated, and model stability improves.</li>
+<li>Ridge regression addresses an ill-conditioned matrix at the cost of unbiasedness and some precision.</li>
+</ul>
+<h3 id="3-Lasso-regression"><a href="#3-Lasso-regression" class="headerlink" title="3. Lasso regression"></a>3. Lasso regression</h3><p>An L1, or Manhattan-norm, penalty is added:<br>$$<br>\min_{\beta} \left[ \sum_{i&#x3D;1}^n (y_i - \beta_0 - \sum_{j&#x3D;1}^p \beta_j x_{ij})^2 + \lambda \sum_{j&#x3D;1}^p |\beta_j| \right]<br>$$</p>
+<p><strong>Features:</strong></p>
+<ul>
+<li>The coefficients of unimportant variables may be reduced to zero, thereby performing <strong>variable selection</strong>.</li>
+<li>The method is suitable for high-dimensional data, including cases in which there are more variables than observations.</li>
+</ul>
+<hr>
+<h2 id="III-The-Central-Operation-Selecting-the-Regularization-Parameter-λ"><a href="#III-The-Central-Operation-Selecting-the-Regularization-Parameter-λ" class="headerlink" title="III. The Central Operation: Selecting the Regularization Parameter λ"></a>III. The Central Operation: Selecting the Regularization Parameter λ</h2><h3 id="1-K-fold-cross-validation"><a href="#1-K-fold-cross-validation" class="headerlink" title="1. K-fold cross-validation"></a>1. K-fold cross-validation</h3><ul>
+<li><strong>Procedure:</strong> divide the data into K parts. In turn, use K−1 parts for training and one part for validation, and then calculate the average error.</li>
+<li><strong>Objective:</strong> select the value of λ that minimizes validation error.</li>
+</ul>
+<h3 id="2-The-regularization-path"><a href="#2-The-regularization-path" class="headerlink" title="2. The regularization path"></a>2. The regularization path</h3><ul>
+<li><strong>Ridge regression:</strong> as λ increases, the coefficients gradually approach zero.</li>
+<li><strong>Lasso:</strong> as λ increases, some coefficients abruptly become zero.</li>
+</ul>
+<p><strong>Python example for visualizing the path:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LassoCV, RidgeCV<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br><span class="hljs-comment"># Lasso路径</span><br>alphas = np.logspace(-<span class="hljs-number">4</span>, <span class="hljs-number">0</span>, <span class="hljs-number">100</span>)<br>coefs = []<br><span class="hljs-keyword">for</span> alpha <span class="hljs-keyword">in</span> alphas:<br>    lasso = Lasso(alpha=alpha)<br>    lasso.fit(X, y)<br>    coefs.append(lasso.coef_)<br><br>plt.plot(alphas, coefs)<br>plt.xscale(<span class="hljs-string">&#x27;log&#x27;</span>)<br>plt.xlabel(<span class="hljs-string">&#x27;λ&#x27;</span>)<br>plt.ylabel(<span class="hljs-string">&#x27;Coefficients&#x27;</span>)<br>plt.title(<span class="hljs-string">&#x27;Lasso Regularization Path&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="IV-Case-Study-Predicting-Cotton-Yield"><a href="#IV-Case-Study-Predicting-Cotton-Yield" class="headerlink" title="IV. Case Study: Predicting Cotton Yield"></a>IV. Case Study: Predicting Cotton Yield</h2><h3 id="1-Data"><a href="#1-Data" class="headerlink" title="1. Data"></a>1. Data</h3><ul>
+<li><strong>Independent variables:</strong> expenditure on seed, fertilizer, pesticide, machinery, and irrigation</li>
+<li><strong>Dependent variable:</strong> cotton yield per unit area, based on data from 1990 to 2007</li>
+</ul>
+<h3 id="2-Procedure-in-Python"><a href="#2-Procedure-in-Python" class="headerlink" title="2. Procedure in Python"></a>2. Procedure in Python</h3><h4 id="1-Standardizing-the-data"><a href="#1-Standardizing-the-data" class="headerlink" title="(1) Standardizing the data"></a>(1) Standardizing the data</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> StandardScaler<br>scaler = StandardScaler()<br>X_scaled = scaler.fit_transform(X)<br></code></pre></td></tr></table></figure>
+
+<h4 id="2-Constructing-the-Lasso-model"><a href="#2-Constructing-the-Lasso-model" class="headerlink" title="(2) Constructing the Lasso model"></a>(2) Constructing the Lasso model</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LassoCV<br><br><span class="hljs-comment"># 10折交叉验证选择λ</span><br>lasso = LassoCV(cv=<span class="hljs-number">10</span>, random_state=<span class="hljs-number">42</span>)<br>lasso.fit(X_scaled, y)<br><br><span class="hljs-comment"># 输出结果</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;最优λ：&quot;</span>, lasso.alpha_)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;非零系数：&quot;</span>, lasso.coef_)<br></code></pre></td></tr></table></figure>
+
+<h4 id="3-Interpreting-the-results"><a href="#3-Interpreting-the-results" class="headerlink" title="(3) Interpreting the results"></a>(3) Interpreting the results</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs css">最优λ：<span class="hljs-number">0.05</span><br>非零系数：种子费<span class="hljs-selector-attr">[0.32]</span>、农药费<span class="hljs-selector-attr">[-0.34]</span>、灌溉费<span class="hljs-selector-attr">[0.74]</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li><strong>Conclusion:</strong> expenditure on machinery and fertilizer is removed, leaving three principal variables in the model.</li>
+</ul>
+<hr>
+<h2 id="V-Points-Requiring-Attention"><a href="#V-Points-Requiring-Attention" class="headerlink" title="V. Points Requiring Attention"></a>V. Points Requiring Attention</h2><h3 id="1-The-data-must-be-standardized"><a href="#1-The-data-must-be-standardized" class="headerlink" title="1. The data must be standardized"></a>1. The data must be standardized</h3><ul>
+<li><strong>Reason:</strong> regularization is sensitive to scale, so a variable with a large numerical range may dominate the penalty.</li>
+<li><strong>Method:</strong> use <code>StandardScaler</code> to give each variable a mean of 0 and a variance of 1.</li>
+</ul>
+<h3 id="2-How-should-the-coefficients-be-interpreted"><a href="#2-How-should-the-coefficients-be-interpreted" class="headerlink" title="2. How should the coefficients be interpreted?"></a>2. How should the coefficients be interpreted?</h3><ul>
+<li><strong>Ridge regression:</strong> the sign of a coefficient indicates the direction of a variable’s influence on the target, but its magnitude is affected by λ.</li>
+<li><strong>Lasso:</strong> a nonzero coefficient indicates an important variable, but absolute magnitudes are not directly comparable.</li>
+</ul>
+<h3 id="3-Traps-in-selecting-λ"><a href="#3-Traps-in-selecting-λ" class="headerlink" title="3. Traps in selecting λ"></a>3. Traps in selecting λ</h3><ul>
+<li><strong>Too small:</strong> the model approaches OLS and loses the effect of regularization.</li>
+<li><strong>Too large:</strong> all coefficients are excessively compressed, and the model underfits.</li>
+</ul>
+<hr>
+<h2 id="VI-Comparing-and-Selecting-Models"><a href="#VI-Comparing-and-Selecting-Models" class="headerlink" title="VI. Comparing and Selecting Models"></a>VI. Comparing and Selecting Models</h2><table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Ridge regression</th>
+<th>Lasso regression</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Type of regularization</td>
+<td>L2</td>
+<td>L1</td>
+</tr>
+<tr>
+<td>Coefficient behaviour</td>
+<td>Continuous shrinkage, without zero</td>
+<td>Sparse, with some coefficients zero</td>
+</tr>
+<tr>
+<td>Suitable situation</td>
+<td>Severe multicollinearity</td>
+<td>High-dimensional data or selection</td>
+</tr>
+<tr>
+<td>Computational cost</td>
+<td>Closed-form solution and fast</td>
+<td>Iterative optimisation and slower</td>
+</tr>
+<tr>
+<td>Implementation</td>
+<td><code>RidgeCV</code> in Python</td>
+<td><code>LassoCV</code> in Python</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="VII-Frequently-Asked-Questions"><a href="#VII-Frequently-Asked-Questions" class="headerlink" title="VII. Frequently Asked Questions"></a>VII. Frequently Asked Questions</h2><h3 id="Q1-When-should-ridge-be-used-and-when-should-Lasso-be-used"><a href="#Q1-When-should-ridge-be-used-and-when-should-Lasso-be-used" class="headerlink" title="Q1: When should ridge be used, and when should Lasso be used?"></a>Q1: When should ridge be used, and when should Lasso be used?</h3><ul>
+<li><strong>Ridge regression:</strong> when all variables are important but collinearity is present, as in the analysis of economic indicators.</li>
+<li><strong>Lasso:</strong> when there are many variables and the principal factors must be selected, as in genetic-data modeling.</li>
+</ul>
+<h3 id="Q2-What-is-Elastic-Net"><a href="#Q2-What-is-Elastic-Net" class="headerlink" title="Q2: What is Elastic Net?"></a>Q2: What is Elastic Net?</h3><ul>
+<li><strong>Mixed regularization:</strong> L1+L2, balancing variable selection against stability.</li>
+<li><strong>Formula:</strong><br>$$\text{损失函数} + \lambda (\alpha \sum |\beta_j| + (1-\alpha) \sum \beta_j^2)$$</li>
+</ul>
+<h3 id="Q3-How-should-λ-0-be-interpreted"><a href="#Q3-How-should-λ-0-be-interpreted" class="headerlink" title="Q3: How should λ&#x3D;0 be interpreted?"></a>Q3: How should λ&#x3D;0 be interpreted?</h3><ul>
+<li>When λ&#x3D;0, the model reduces to ordinary OLS regression.</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Mathematical-Modeling/" class="print-no-link">#Mathematical Modeling</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Ridge and Lasso Regression</div>
+      <div>https://hwnote.space/en/posts/2025/05/02/ridge-lasso-regression/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>May 2, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js"></script>
+<script src="/js/bilingual-switch.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

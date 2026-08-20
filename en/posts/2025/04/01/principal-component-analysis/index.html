@@ -1,0 +1,853 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="A method for determining whether indicators are representative and reducing dimensionality, although the resulting components may be difficult to interpret.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Principal Component Analysis (PCA)">
+<meta property="og:url" content="https://hwnote.space/en/posts/2025/04/01/principal-component-analysis/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="A method for determining whether indicators are representative and reducing dimensionality, although the resulting components may be difficult to interpret.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/pca.jpg">
+<meta property="article:published_time" content="2025-03-31T16:28:11.000Z">
+<meta property="article:modified_time" content="2026-08-20T16:55:18.145Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Mathematical Modeling">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/pca.jpg">
+  
+  
+  
+  <title>Principal Component Analysis (PCA) - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/pca.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Principal Component Analysis (PCA)"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-04-01 00:28" pubdate>
+          April 1, 2025 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          438 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          6 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Principal Component Analysis (PCA)</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Principal-Component-Analysis-PCA"><a href="#Principal-Component-Analysis-PCA" class="headerlink" title="Principal Component Analysis (PCA)"></a>Principal Component Analysis (PCA)</h1><p>Principal component analysis is an algorithm for dimensionality reduction. It forms mutually uncorrelated principal components from linear combinations of the original variables, retaining the main information while removing noise and accelerating data processing. PCA is often used to simplify data, support cluster analysis, and address multicollinearity in regression. Since the meaning of a principal component is often ambiguous, however, PCA is not commonly chosen as an evaluation model.</p>
+<hr>
+<h2 id="I-Introduction"><a href="#I-Introduction" class="headerlink" title="I. Introduction"></a>I. Introduction</h2><ul>
+<li><strong>Objective:</strong> replace a large number of original variables with a smaller number of new ones while preserving as much information as possible.</li>
+<li><strong>Applications:</strong> dimensionality reduction, noise removal, and faster data processing.</li>
+<li><strong>Suitable situations:</strong> the indicators are highly correlated and reasonably easy to explain, while interpretability is not a major requirement.</li>
+<li><strong>Limitations:</strong> nonlinear relationships are handled poorly, and details may be lost if the retained contribution is insufficient.</li>
+</ul>
+<hr>
+<h2 id="II-Central-Idea"><a href="#II-Central-Idea" class="headerlink" title="II. Central Idea"></a>II. Central Idea</h2><p>Suppose there are $n$ samples and $p$ indicators, forming an $ n \times p$ sample matrix:</p>
+<p>$$<br>X &#x3D; \begin{bmatrix}<br>x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1p} \<br>x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2p} \<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{np} \<br>\end{bmatrix}<br>&#x3D; (x_1, x_2, \cdots, x_p)<br>$$<br>The aim is to find new variables $ z_1, z_2, \dots, z_m $, where $ m \leq p $, such that:</p>
+<p>$$<br>\begin{cases}<br>z_1 &#x3D; l_{11}x_1 + l_{12}x_2 + \cdots + l_{1p}x_p \<br>z_2 &#x3D; l_{21}x_1 + l_{22}x_2 + \cdots + l_{2p}x_p \<br>\vdots \<br>z_m &#x3D; l_{m1}x_1 + l_{m2}x_2 + \cdots + l_{mp}x_p \<br>\end{cases}<br>$$<br><strong>The coefficients $ l_{ij} $ are determined according to the following principles:</strong></p>
+<ol>
+<li>Different principal components are mutually uncorrelated.</li>
+<li>The first principal component has the greatest variance among all possible linear combinations.</li>
+<li>Subject to being uncorrelated with the first, the second principal component has the greatest possible variance.</li>
+<li>The process continues until $ m $ principal components have been selected.</li>
+</ol>
+<hr>
+<h2 id="III-Calculation"><a href="#III-Calculation" class="headerlink" title="III. Calculation"></a>III. Calculation</h2><h3 id="1-Standardize-the-data"><a href="#1-Standardize-the-data" class="headerlink" title="1. Standardize the data"></a>1. Standardize the data</h3><ul>
+<li><p><strong>Calculate the mean and standard deviation:</strong><br>$$<br>\bar{x}<em>j &#x3D; \frac{1}{n} \sum</em>{i&#x3D;1}^{n} x_{ij},\quad S_j &#x3D; \sqrt{\frac{\sum_{i&#x3D;1}^{n}(x_{ij}-\bar{x}_j)^2}{n-1}}<br>$$</p>
+</li>
+<li><p><strong>Standardize each observation:</strong><br>$$<br>X_{ij} &#x3D; \frac{x_{ij}-\bar{x}_j}{S_j}<br>$$</p>
+</li>
+<li><p><strong>The standardized matrix is:</strong><br>$$<br>X &#x3D; \begin{bmatrix}<br>X_{11} &amp; X_{12} &amp; \cdots &amp; X_{1p} \<br>X_{21} &amp; X_{22} &amp; \cdots &amp; X_{2p} \<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>X_{n1} &amp; X_{n2} &amp; \cdots &amp; X_{np} \<br>\end{bmatrix}<br>$$</p>
+</li>
+</ul>
+<h3 id="2-Calculate-the-covariance-matrix"><a href="#2-Calculate-the-covariance-matrix" class="headerlink" title="2. Calculate the covariance matrix"></a>2. Calculate the covariance matrix</h3><ul>
+<li><strong>Definition:</strong><br>$$<br>R &#x3D; \begin{bmatrix}<br>r_{11} &amp; r_{12} &amp; \cdots &amp; r_{1p} \<br>r_{21} &amp; r_{22} &amp; \cdots &amp; r_{2p} \<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>r_{p1} &amp; r_{p2} &amp; \cdots &amp; r_{pp} \<br>\end{bmatrix},\quad r_{ij} &#x3D; \frac{1}{n-1}\sum_{k&#x3D;1}^{n} X_{ki} X_{kj}<br>$$</li>
+</ul>
+<h3 id="3-Solve-for-eigenvalues-and-eigenvectors"><a href="#3-Solve-for-eigenvalues-and-eigenvectors" class="headerlink" title="3. Solve for eigenvalues and eigenvectors"></a>3. Solve for eigenvalues and eigenvectors</h3><ul>
+<li><p><strong>Eigenvalues:</strong><br>$$<br>\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_p \geq 0<br>$$<br>Here, $ R $ is a positive semidefinite matrix.</p>
+</li>
+<li><p><strong>Corresponding eigenvectors:</strong><br>$$<br>a_1 &#x3D; \begin{bmatrix} a_{11} \ a_{21} \ \vdots \ a_{p1} \end{bmatrix},\quad<br>a_2 &#x3D; \begin{bmatrix} a_{12} \ a_{22} \ \vdots \ a_{p2} \end{bmatrix},\quad \dots,\quad<br>a_p &#x3D; \begin{bmatrix} a_{1p} \ a_{2p} \ \vdots \ a_{pp} \end{bmatrix}<br>$$</p>
+</li>
+<li></li>
+</ul>
+<h3 id="4-Calculate-the-contribution-and-cumulative-contribution"><a href="#4-Calculate-the-contribution-and-cumulative-contribution" class="headerlink" title="4. Calculate the contribution and cumulative contribution"></a>4. Calculate the contribution and cumulative contribution</h3><ul>
+<li><p><strong>Contribution:</strong><br>$$<br>\text{贡献率} &#x3D; \frac{\lambda_i}{\sum_{k&#x3D;1}^{p}\lambda_k}<br>$$</p>
+</li>
+<li><p><strong>Cumulative contribution:</strong><br>$$<br>\text{累计贡献率} &#x3D; \frac{\sum_{k&#x3D;1}^{i}\lambda_k}{\sum_{k&#x3D;1}^{p}\lambda_k}\quad (i&#x3D;1,2,\dots,p)<br>$$</p>
+</li>
+<li></li>
+</ul>
+<h3 id="5-Write-the-principal-components"><a href="#5-Write-the-principal-components" class="headerlink" title="5. Write the principal components"></a>5. Write the principal components</h3><p>In general, the first ( m ) components whose cumulative contribution exceeds 80 percent are selected:</p>
+<p>$$<br>F_i &#x3D; a_{1i}X_1 + a_{2i}X_2 + \cdots + a_{pi}X_p,\quad (i&#x3D;1,2,\dots,m)<br>$$</p>
+<h3 id="6-Interpret-the-components"><a href="#6-Interpret-the-components" class="headerlink" title="6. Interpret the components"></a>6. Interpret the components</h3><p>The meaning of a component is judged from the loading of each indicator upon it. An indicator with a larger loading has a greater influence on that component.</p>
+<hr>
+<h2 id="IV-Extensions"><a href="#IV-Extensions" class="headerlink" title="IV. Extensions"></a>IV. Extensions</h2><ol>
+<li><strong>Cluster analysis:</strong> dimensionality reduction simplifies the independent variables and makes graphical presentation easier.</li>
+<li><strong>Regression analysis:</strong> PCA may alleviate multicollinearity.</li>
+<li><strong>Factor analysis:</strong> PCA is, in effect, a special case of factor analysis. Since factor analysis is generally easier to interpret, it is often the better choice when interpretation matters.</li>
+</ol>
+<hr>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43819566/article/details/113800120">Qingfeng’s Mathematical Modeling Notes: The Principles and a Case Study of PCA—CSDN</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.baidu.com/article/details/3015610">Principal Component Analysis in Mathematical Modeling: Explanation and Applications—Baidu Developer Center</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/677797684">Modeling Encyclopedia: PCA Explained, with Python Code—Zhihu</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Mathematical-Modeling/" class="print-no-link">#Mathematical Modeling</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Principal Component Analysis (PCA)</div>
+      <div>https://hwnote.space/en/posts/2025/04/01/principal-component-analysis/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>April 1, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js"></script>
+<script src="/js/bilingual-switch.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,946 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="A forecasting method designed for small samples or incomplete data.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grey Prediction Models: GM(n,m)">
+<meta property="og:url" content="https://hwnote.space/en/posts/2025/05/02/grey-prediction-model/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="A forecasting method designed for small samples or incomplete data.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/grey_predict.jpg">
+<meta property="article:published_time" content="2025-05-02T09:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-20T16:58:15.172Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Mathematical Modeling">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/grey_predict.jpg">
+  
+  
+  
+  <title>Grey Prediction Models: GM(n,m) - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/grey_predict.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Grey Prediction Models: GM(n,m)"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-05-02 17:00" pubdate>
+          May 2, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          609 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Grey Prediction Models: GM(n,m)</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Grey-Prediction-Models-GM-n-m"><a href="#Grey-Prediction-Models-GM-n-m" class="headerlink" title="Grey Prediction Models: GM(n,m)"></a>Grey Prediction Models: GM(n,m)</h1><p>I did not need this model in the mathematical-modeling contest for which these notes were prepared. The detailed derivation below was generated by AI and has not yet been checked by me.</p>
+<h2 id="I-Background"><a href="#I-Background" class="headerlink" title="I. Background"></a>I. Background</h2><h3 id="1-The-shortage-of-data"><a href="#1-The-shortage-of-data" class="headerlink" title="1. The shortage of data"></a>1. The shortage of data</h3><p>Mathematical-modeling problems often provide <strong>very few observations</strong>, perhaps four to ten periods, or <strong>incomplete information</strong>. Examples include:</p>
+<ul>
+<li>a city’s GDP over the past five years;</li>
+<li>three years of experimental records for a new material; and</li>
+<li>the number of infections during the first seven days of an epidemic.</li>
+</ul>
+<p><strong>Conventional forecasting methods, including regression and time-series analysis, generally require substantial amounts of data.</strong> Grey prediction attempts to identify regularities when both the sample and the available information are limited.</p>
+<h3 id="2-Grey-system-theory"><a href="#2-Grey-system-theory" class="headerlink" title="2. Grey system theory"></a>2. Grey system theory</h3><ul>
+<li><strong>White system:</strong> information is completely known, as in a circuit system.</li>
+<li><strong>Grey system:</strong> some information is known and some remains unknown, as in an economic system.</li>
+<li><strong>Black system:</strong> information is entirely unknown, as with dark matter in the universe.</li>
+</ul>
+<p>Grey prediction is designed precisely for a <strong>grey system</strong>. Its central idea is to <strong>process disordered raw data into a sequence with stronger regularity and then construct a differential equation to forecast its future development</strong>.</p>
+<h3 id="3-Suitable-situations"><a href="#3-Suitable-situations" class="headerlink" title="3. Suitable situations"></a>3. Suitable situations</h3><p>The following view comes from Qingfeng’s mathematical-modeling course.</p>
+<p>The choice of a forecasting model is open to reasonable disagreement:</p>
+<ol>
+<li>The observations should be nonnegative annual data. Monthly or quarterly data should instead be handled with the time-series models discussed in the preceding lesson.</li>
+<li>The data should pass a test for a quasi-exponential pattern. Apart from the first two periods, the smoothness ratio should be below 0.5 in at least 90 percent of the remaining periods.</li>
+<li>The series should be short and not strongly associated with other data. Ten periods or fewer are suitable, although a series can also be too short—for example, only three observations. A conventional time-series model is generally preferable when many periods are available.</li>
+</ol>
+<hr>
+<h2 id="II-The-GM-1-1-Model-in-Detail"><a href="#II-The-GM-1-1-Model-in-Detail" class="headerlink" title="II. The GM(1,1) Model in Detail"></a>II. The GM(1,1) Model in Detail</h2><h3 id="1-Data-preprocessing"><a href="#1-Data-preprocessing" class="headerlink" title="1. Data preprocessing"></a>1. Data preprocessing</h3><h4 id="1-Converting-the-direction-of-indicators"><a href="#1-Converting-the-direction-of-indicators" class="headerlink" title="(1) Converting the direction of indicators"></a>(1) Converting the direction of indicators</h4><p>See the corresponding benefit-type transformations in the notes on evaluation models.</p>
+<h4 id="2-Testing-the-data"><a href="#2-Testing-the-data" class="headerlink" title="(2) Testing the data"></a>(2) Testing the data</h4><ul>
+<li><strong>Level-ratio test:</strong> determine whether the observations are suitable for a GM model.<br>$$<br>\sigma(k) &#x3D; \frac{x^{(0)}(k)}{x^{(0)}(k-1)} \quad (k&#x3D;2,3,…,n)<br>$$<br>Every ratio must lie within $(e^{-\frac{2}{n+1}}, e^{\frac{2}{n+1}})$.</li>
+</ul>
+<hr>
+<h3 id="2-Constructing-the-model-in-four-steps"><a href="#2-Constructing-the-model-in-four-steps" class="headerlink" title="2. Constructing the model in four steps"></a>2. Constructing the model in four steps</h3><h4 id="Step-1-First-order-accumulated-generating-operation-1-AGO"><a href="#Step-1-First-order-accumulated-generating-operation-1-AGO" class="headerlink" title="Step 1: First-order accumulated generating operation (1-AGO)"></a>Step 1: First-order accumulated generating operation (1-AGO)</h4><p><strong>Purpose:</strong> transform fluctuating data into a monotonically increasing sequence.<br>$$<br>x^{(1)}(k) &#x3D; \sum_{i&#x3D;1}^k x^{(0)}(i) \quad (k&#x3D;1,2,…,n)<br>$$</p>
+<p><strong>Example:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Sequence</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Original data</td>
+<td>2.87</td>
+<td>3.28</td>
+<td>3.34</td>
+<td>3.39</td>
+<td>3.68</td>
+</tr>
+<tr>
+<td>Accumulated data</td>
+<td>2.87</td>
+<td>6.15</td>
+<td>9.49</td>
+<td>12.88</td>
+<td>16.56</td>
+</tr>
+</tbody></table>
+<h4 id="Step-2-Generate-the-adjacent-mean-sequence-Z"><a href="#Step-2-Generate-the-adjacent-mean-sequence-Z" class="headerlink" title="Step 2: Generate the adjacent-mean sequence Z"></a>Step 2: Generate the adjacent-mean sequence Z</h4><p><strong>Purpose:</strong> construct a discrete approximation to the differential equation.<br>$$<br>z^{(1)}(k) &#x3D; 0.5x^{(1)}(k) + 0.5x^{(1)}(k-1) \quad (k&#x3D;2,3,…,n)<br>$$</p>
+<p><strong>Continuing the example:</strong></p>
+<p>| Z sequence | - | (2.87+6.15)&#x2F;2&#x3D;4.51 | (6.15+9.49)&#x2F;2&#x3D;7.82 | … |</p>
+<h4 id="Step-3-Establish-the-grey-differential-equation"><a href="#Step-3-Establish-the-grey-differential-equation" class="headerlink" title="Step 3: Establish the grey differential equation"></a>Step 3: Establish the grey differential equation</h4><p>$$<br>x^{(0)}(k) + a z^{(1)}(k) &#x3D; b<br>$$<br>The parameters are estimated by least squares:<br>$$<br>\begin{bmatrix}<br>a \<br>b<br>\end{bmatrix} &#x3D; (B^T B)^{-1} B^T Y<br>$$<br>where:<br>$$<br>B &#x3D; \begin{bmatrix}<br>-z^{(1)}(2) &amp; 1 \<br>-z^{(1)}(3) &amp; 1 \<br>\vdots &amp; \vdots \<br>-z^{(1)}(n) &amp; 1<br>\end{bmatrix}, \quad<br>Y &#x3D; \begin{bmatrix}<br>x^{(0)}(2) \<br>x^{(0)}(3) \<br>\vdots \<br>x^{(0)}(n)<br>\end{bmatrix}<br>$$</p>
+<h4 id="Step-4-Solve-the-whitenization-equation"><a href="#Step-4-Solve-the-whitenization-equation" class="headerlink" title="Step 4: Solve the whitenization equation"></a>Step 4: Solve the whitenization equation</h4><p>The corresponding continuous differential equation is:<br>$$<br>\frac{dx^{(1)}}{dt} + a x^{(1)} &#x3D; b<br>$$<br>Its solution is:<br>$$<br>\hat{x}^{(1)}(t) &#x3D; \left(x^{(0)}(1) - \frac{b}{a}\right)e^{-a(t-1)} + \frac{b}{a}<br>$$</p>
+<p><strong>Restore the predicted values:</strong><br>$$<br>\hat{x}^{(0)}(k) &#x3D; \hat{x}^{(1)}(k) - \hat{x}^{(1)}(k-1)<br>$$</p>
+<hr>
+<h3 id="3-Testing-the-model"><a href="#3-Testing-the-model" class="headerlink" title="3. Testing the model"></a>3. Testing the model</h3><h4 id="1-Test-for-a-quasi-exponential-pattern—the-crucial-test"><a href="#1-Test-for-a-quasi-exponential-pattern—the-crucial-test" class="headerlink" title="(1) Test for a quasi-exponential pattern—the crucial test"></a>(1) Test for a quasi-exponential pattern—the crucial test</h4><ul>
+<li><strong>Smoothness ratio:</strong> (\rho(k) &#x3D; \frac{x^{(0)}(k)}{x^{(1)}(k-1)})</li>
+<li><strong>Passing criterion:</strong><ul>
+<li>the first two periods may be treated more leniently;</li>
+<li>(\rho(k)&lt;0.5) in the final 80 percent of the periods.</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-Test-of-the-development-coefficient"><a href="#2-Test-of-the-development-coefficient" class="headerlink" title="(2) Test of the development coefficient"></a>(2) Test of the development coefficient</h4><table>
+<thead>
+<tr>
+<th>Development coefficient (-a)</th>
+<th>Suitable forecasting horizon</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;0.3</td>
+<td>Medium or long term, 5–10 periods</td>
+</tr>
+<tr>
+<td>0.3–0.5</td>
+<td>Short term, 1–3 periods</td>
+</tr>
+<tr>
+<td>&gt;0.5</td>
+<td>Residual correction or another model is required</td>
+</tr>
+</tbody></table>
+<h4 id="3-Residual-test"><a href="#3-Residual-test" class="headerlink" title="(3) Residual test"></a>(3) Residual test</h4><p>$$<br>\text{平均相对误差} &#x3D; \frac{1}{n-1}\sum_{k&#x3D;2}^n \left|\frac{x^{(0)}(k)-\hat{x}^{(0)}(k)}{x^{(0)}(k)}\right|<br>$$</p>
+<ul>
+<li>Below 10 percent: high precision</li>
+<li>10–20 percent: acceptable</li>
+<li>Above 20 percent: the model is not credible</li>
+</ul>
+<hr>
+<h2 id="III-MATLAB-Example-Predicting-Pollution-in-the-Yangtze-River"><a href="#III-MATLAB-Example-Predicting-Pollution-in-the-Yangtze-River" class="headerlink" title="III. MATLAB Example: Predicting Pollution in the Yangtze River"></a>III. MATLAB Example: Predicting Pollution in the Yangtze River</h2><h3 id="1-Preparing-the-data"><a href="#1-Preparing-the-data" class="headerlink" title="1. Preparing the data"></a>1. Preparing the data</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">% 1995-2004年排污量（万吨）</span><br>data = [<span class="hljs-number">174</span>, <span class="hljs-number">179</span>, <span class="hljs-number">183</span>, <span class="hljs-number">189</span>, <span class="hljs-number">207</span>, <span class="hljs-number">234</span>, <span class="hljs-number">220.5</span>, <span class="hljs-number">256</span>, <span class="hljs-number">270</span>, <span class="hljs-number">285</span>];<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-Complete-implementation"><a href="#2-Complete-implementation" class="headerlink" title="2. Complete implementation"></a>2. Complete implementation</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[predict, a, b]</span> = <span class="hljs-title">GM11</span><span class="hljs-params">(data, forecast_num)</span></span><br>    <span class="hljs-comment">% 数据检验</span><br>    n = <span class="hljs-built_in">length</span>(data);<br>    lambda = data(<span class="hljs-number">2</span>:<span class="hljs-keyword">end</span>)./data(<span class="hljs-number">1</span>:<span class="hljs-keyword">end</span><span class="hljs-number">-1</span>);<br>    range = [<span class="hljs-built_in">exp</span>(<span class="hljs-number">-2</span>/(n+<span class="hljs-number">1</span>)), <span class="hljs-built_in">exp</span>(<span class="hljs-number">2</span>/(n+<span class="hljs-number">1</span>))];<br>    <span class="hljs-keyword">if</span> any(lambda &lt; range(<span class="hljs-number">1</span>)) || any(lambda &gt; range(<span class="hljs-number">2</span>))<br>        error(<span class="hljs-string">&#x27;级比检验未通过！&#x27;</span>);<br>    <span class="hljs-keyword">end</span><br>    <br>    <span class="hljs-comment">% 累加生成</span><br>    X1 = cumsum(data);<br>    <br>    <span class="hljs-comment">% 紧邻均值</span><br>    Z = (X1(<span class="hljs-number">1</span>:<span class="hljs-keyword">end</span><span class="hljs-number">-1</span>) + X1(<span class="hljs-number">2</span>:<span class="hljs-keyword">end</span>)) / <span class="hljs-number">2</span>;<br>    <br>    <span class="hljs-comment">% 构建矩阵</span><br>    B = [-Z&#x27;, <span class="hljs-built_in">ones</span>(n<span class="hljs-number">-1</span>,<span class="hljs-number">1</span>)];<br>    Y = data(<span class="hljs-number">2</span>:<span class="hljs-keyword">end</span>)&#x27;;<br>    <br>    <span class="hljs-comment">% 参数估计</span><br>    u = (B&#x27;*B) \ B&#x27;*Y;<br>    a = u(<span class="hljs-number">1</span>);<br>    b = u(<span class="hljs-number">2</span>);<br>    <br>    <span class="hljs-comment">% 模型求解</span><br>    predict_X1 = (data(<span class="hljs-number">1</span>)-b/a)*<span class="hljs-built_in">exp</span>(-a*(<span class="hljs-number">0</span>:n+forecast_num<span class="hljs-number">-1</span>)) + b/a;<br>    predict = diff(predict_X1);<br>    <br>    <span class="hljs-comment">% 检验</span><br>    error = <span class="hljs-built_in">abs</span>(data - predict(<span class="hljs-number">1</span>:n))./data;<br>    <span class="hljs-built_in">disp</span>([<span class="hljs-string">&#x27;平均相对误差：&#x27;</span>, num2str(<span class="hljs-built_in">mean</span>(error)*<span class="hljs-number">100</span>), <span class="hljs-string">&#x27;%&#x27;</span>]);<br><span class="hljs-keyword">end</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="3-Output"><a href="#3-Output" class="headerlink" title="3. Output"></a>3. Output</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs matlab">&gt;&gt; [predict, a, b] = GM11(data, <span class="hljs-number">3</span>);<br>平均相对误差：<span class="hljs-number">4.23</span><span class="hljs-comment">%</span><br>&gt;&gt; <span class="hljs-built_in">disp</span>(predict(<span class="hljs-number">11</span>:<span class="hljs-number">13</span>))  <span class="hljs-comment">% 预测2005-2007年</span><br>  <span class="hljs-number">303.01</span>   <span class="hljs-number">324.33</span>   <span class="hljs-number">346.72</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="IV-Common-Pitfalls"><a href="#IV-Common-Pitfalls" class="headerlink" title="IV. Common Pitfalls"></a>IV. Common Pitfalls</h2><h3 id="1-Fewer-than-four-periods-of-data"><a href="#1-Fewer-than-four-periods-of-data" class="headerlink" title="1. Fewer than four periods of data"></a>1. Fewer than four periods of data</h3><ul>
+<li><strong>Possible response:</strong> average the results of three GM variants—the conventional, new-information, and metabolic models.</li>
+</ul>
+<h3 id="2-Negative-predicted-values"><a href="#2-Negative-predicted-values" class="headerlink" title="2. Negative predicted values"></a>2. Negative predicted values</h3><ul>
+<li><strong>Cause:</strong> the data were not transformed into a suitable positive direction.</li>
+<li><strong>Solution:</strong> examine the preprocessing stage and translate the observations with (x’ &#x3D; x - \min(x) + 1).</li>
+</ul>
+<h3 id="3-Distorted-long-term-forecasts"><a href="#3-Distorted-long-term-forecasts" class="headerlink" title="3. Distorted long-term forecasts"></a>3. Distorted long-term forecasts</h3><ul>
+<li><strong>Response:</strong> use rolling forecasts, updating the model after each newly predicted period.</li>
+</ul>
+<h3 id="4-Improving-precision"><a href="#4-Improving-precision" class="headerlink" title="4. Improving precision"></a>4. Improving precision</h3><ul>
+<li>Residual correction: construct another GM(1,1) model for the forecast residuals.</li>
+<li>Combined forecasting: form a weighted combination with ARIMA, exponential smoothing, or another model.</li>
+</ul>
+<hr>
+<h2 id="V-Recommended-Applications"><a href="#V-Recommended-Applications" class="headerlink" title="V. Recommended Applications"></a>V. Recommended Applications</h2><table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Suitability</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Forecasting economic indicators</td>
+<td>★★★★★</td>
+<td>GDP and population growth</td>
+</tr>
+<tr>
+<td>Engineering forecasts</td>
+<td>★★★★☆</td>
+<td>Material fatigue life and equipment failure rates</td>
+</tr>
+<tr>
+<td>Ecological and environmental forecasts</td>
+<td>★★★★☆</td>
+<td>Pollutant concentration and carbon-emission trends</td>
+</tr>
+<tr>
+<td>Forecasting emergencies</td>
+<td>★★☆☆☆</td>
+<td>Epidemic spread and disaster losses</td>
+</tr>
+</tbody></table>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Mathematical-Modeling/" class="print-no-link">#Mathematical Modeling</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Grey Prediction Models: GM(n,m)</div>
+      <div>https://hwnote.space/en/posts/2025/05/02/grey-prediction-model/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>May 2, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js"></script>
+<script src="/js/bilingual-switch.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

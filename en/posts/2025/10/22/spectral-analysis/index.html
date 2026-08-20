@@ -1,0 +1,923 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="This chapter examines the statistical characteristics of random signals in the frequency domain, focusing on the definition and properties of power spectral density, its relationship with the autocorr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chapter 3 — Random Processes: Spectral Analysis">
+<meta property="og:url" content="https://hwnote.space/en/posts/2025/10/22/spectral-analysis/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="This chapter examines the statistical characteristics of random signals in the frequency domain, focusing on the definition and properties of power spectral density, its relationship with the autocorr">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/1ran.jpg">
+<meta property="article:published_time" content="2025-10-22T08:33:58.000Z">
+<meta property="article:modified_time" content="2026-08-20T17:06:48.946Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Notes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/1ran.jpg">
+  
+  
+  
+  <title>Chapter 3 — Random Processes: Spectral Analysis - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/1ran.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Chapter 3 — Random Processes: Spectral Analysis"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-22 16:33" pubdate>
+          October 22, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          622 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Chapter 3 — Random Processes: Spectral Analysis</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>So tired, meow QAQ. I really do not want to write any more, meow QAQ.</p>
+<h1 id="1-Spectral-Analysis-of-Random-Processes"><a href="#1-Spectral-Analysis-of-Random-Processes" class="headerlink" title="1 Spectral Analysis of Random Processes"></a>1 Spectral Analysis of Random Processes</h1><p>As usual, before analysing random signals, let us begin with deterministic signals and establish an initial intuition.</p>
+<h2 id="1-1-Review-of-the-Spectrum-of-Deterministic-Signals"><a href="#1-1-Review-of-the-Spectrum-of-Deterministic-Signals" class="headerlink" title="1.1 Review of the Spectrum of Deterministic Signals"></a>1.1 Review of the Spectrum of Deterministic Signals</h2><h3 id="1-Energy-Signal"><a href="#1-Energy-Signal" class="headerlink" title="(1) Energy Signal"></a>(1) Energy Signal</h3><p>This is a relatively simple idea. Consider, for example, a sudden “duang” sound: once it has been played, it is over, and its finite energy can be calculated directly.</p>
+<p>A signal may be highly irregular in time, yet what often matters is the frequencies at which its energy is concentrated.<br>Thus, in moving from the time domain to the frequency domain, the first step is to define energy:</p>
+<p>$$<br>E &#x3D; \int_{-\infty}^{+\infty} |x(t)|^2 , dt<br>$$</p>
+<p>If $E&lt;\infty$, the signal is called an energy signal, as in the case of a finite-duration, non-periodic signal.</p>
+<p>Its Fourier transform is:<br>$$<br>X(\omega) &#x3D; \int_{-\infty}^{+\infty} x(t)e^{-j\omega t} dt<br>$$</p>
+<p>The squared magnitude gives the distribution of energy over frequency and is called the energy spectral density:</p>
+<p>$$<br>|X(\omega)|^2<br>$$</p>
+<p><strong>Parseval’s theorem:</strong></p>
+<p>$$<br>\int_{-\infty}^{+\infty} |x(t)|^2 dt &#x3D; \frac{1}{2\pi} \int_{-\infty}^{+\infty} |X(\omega)|^2 d\omega<br>$$</p>
+<p>The energy spectral density reveals how a signal’s energy is distributed in the frequency domain.</p>
+<p>Intuitively, the theorem converts the integral of a squared signal in the time domain into a corresponding integral in the frequency domain. Energy can therefore be calculated from two different perspectives.</p>
+<hr>
+<h3 id="2-Power-Signal"><a href="#2-Power-Signal" class="headerlink" title="(2) Power Signal"></a>(2) Power Signal</h3><p> $X(t)$ generally does not come to an end, so its energy is infinite.  </p>
+<p>We therefore adopt a different perspective and examine only the average energy per unit time—that is, power:</p>
+<p>$$<br>P &#x3D; \lim_{T\to\infty} \frac{1}{2T} \int_{-T}^{T} |x(t)|^2 dt<br>$$</p>
+<p>A periodic signal with finite power is called a power signal. Our concern then shifts to the distribution of power over frequency, namely, power spectral density (PSD).</p>
+<p>Power spectral density is defined as:</p>
+<p>$$<br>S_x(\omega) &#x3D; \lim_{T\to\infty} \frac{E[|X_T(\omega)|^2]}{2T}<br>$$</p>
+<p>Here, $X_T(\omega)$ is the Fourier transform within the time window $[-T, T]$.</p>
+<p>PSD is therefore the distribution of average power along the frequency dimension.</p>
+<hr>
+<h2 id="1-2-Average-Power-Spectral-Density-of-a-Random-Signal"><a href="#1-2-Average-Power-Spectral-Density-of-a-Random-Signal" class="headerlink" title="1.2 Average Power Spectral Density of a Random Signal"></a>1.2 Average Power Spectral Density of a Random Signal</h2><p>The power spectral density of a random signal $X(t)$ is defined below.</p>
+<p>It represents the average power of the signal in the neighbourhood of a particular frequency.</p>
+<p>$$<br>S_X(\omega) &#x3D; \lim_{T \to \infty} \frac{E[|X_T(\omega)|^2]}{2T}<br>$$</p>
+<p>Its supposed characteristics include the following:</p>
+<blockquote>
+<p>[!WARNING]<br>These characteristics have not yet been verified and need to be checked in the next revision.</p>
+</blockquote>
+<ol>
+<li><p>A sample signal is generally a power signal;</p>
+</li>
+<li><p>Different sample signals possess different spectral densities;</p>
+</li>
+<li><p>$S_X(\omega)$ is a random function, and its <strong>mathematical expectation</strong> is generally taken;</p>
+</li>
+<li><p>The random-signal power $P_X &#x3D; E[|X(t)|^2]$ is a random variable, and usually only its mean is of interest.</p>
+</li>
+</ol>
+<hr>
+<h2 id="1-3-Power-Spectral-Density-and-the-Complex-Frequency-Plane"><a href="#1-3-Power-Spectral-Density-and-the-Complex-Frequency-Plane" class="headerlink" title="1.3 Power Spectral Density and the Complex-Frequency Plane"></a>1.3 Power Spectral Density and the Complex-Frequency Plane</h2><p>The power spectral density $S_X(\omega)$ is defined on the complex-frequency plane $s&#x3D;j\omega$:<br>$$<br>S_X(s) &#x3D; \int_{-\infty}^{+\infty} R_X(\tau)e^{-s\tau} d\tau<br>$$<br>If $S_X(\omega)$ is a rational spectrum, it can be expressed as:<br>$$<br>S_X(s) &#x3D; K \frac{\prod (s - \alpha_i)(s + \alpha_i)}{\prod (s - \beta_i)(s + \beta_i)}<br>$$<br>A real signal satisfies:<br>$$<br>S_X(s) &#x3D; S_X^*(-s)<br>$$</p>
+<p>For the detailed method of solution, I need to return to signals and systems and review the Laplace transform.</p>
+<hr>
+<h1 id="2-Properties-of-the-Power-Spectral-Density-of-a-Random-Process"><a href="#2-Properties-of-the-Power-Spectral-Density-of-a-Random-Process" class="headerlink" title="2 Properties of the Power Spectral Density of a Random Process"></a>2 Properties of the Power Spectral Density of a Random Process</h1><ol>
+<li><p><strong>Real-valued evenness:</strong><br>$$<br>S_X(-\omega) &#x3D; S_X(\omega)<br>$$</p>
+</li>
+<li><p><strong>Non-negativity:</strong><br>$$<br>S_X(\omega) \ge 0<br>$$</p>
+</li>
+<li><p><strong>Parseval relation:</strong><br>$$<br>R_X(0) &#x3D; \frac{1}{2\pi} \int_{-\infty}^{+\infty} S_X(\omega)d\omega<br>$$</p>
+</li>
+<li><p><strong>Finiteness of the integral:</strong><br>For a stationary process, $\int S_X(\omega)d\omega$ converges.</p>
+</li>
+<li><p><strong>Rational spectral factorisation:</strong><br>If the spectrum is a rational function, its poles lie in the left half-plane, while its zeros lie on the imaginary axis or in the left half-plane.</p>
+</li>
+</ol>
+<hr>
+<h1 id="3-Relationship-between-Power-Spectral-Density-and-the-Autocorrelation-Function"><a href="#3-Relationship-between-Power-Spectral-Density-and-the-Autocorrelation-Function" class="headerlink" title="3 Relationship between Power Spectral Density and the Autocorrelation Function"></a>3 Relationship between Power Spectral Density and the Autocorrelation Function</h1><h2 id="Wiener–Khinchin-Theorem"><a href="#Wiener–Khinchin-Theorem" class="headerlink" title="Wiener–Khinchin Theorem"></a>Wiener–Khinchin Theorem</h2><p>If the random process $X(t)$ is wide-sense stationary (WSS), then:<br>$$<br>S_X(\omega) &#x3D; \int_{-\infty}^{+\infty} R_X(\tau)e^{-j\omega\tau} d\tau<br>$$<br>$$<br>R_X(\tau) &#x3D; \frac{1}{2\pi}\int_{-\infty}^{+\infty} S_X(\omega)e^{j\omega\tau} d\omega<br>$$</p>
+<p>The average power is:<br>$$<br>E[X^2(t)] &#x3D; R_X(0) &#x3D; \frac{1}{2\pi}\int_{-\infty}^{+\infty} S_X(\omega)d\omega<br>$$</p>
+<p>The smoother a signal is, the more slowly $R_X(\tau)$ decays, and the more its spectrum is dominated by low-frequency components.<br>The faster a signal changes, the more rapidly $R_X(\tau)$ decays, indicating stronger high-frequency components.</p>
+<hr>
+<h1 id="4-Power-Spectral-Density-of-a-Discrete-Time-Random-Process"><a href="#4-Power-Spectral-Density-of-a-Discrete-Time-Random-Process" class="headerlink" title="4 Power Spectral Density of a Discrete-Time Random Process"></a>4 Power Spectral Density of a Discrete-Time Random Process</h1><p>Suppose that $X(n)$ is a wide-sense stationary random sequence obtained by uniformly sampling $X(t)$ at a sampling interval $T$.</p>
+<p>If $X(n)$ is a stationary discrete random sequence:</p>
+<p>$$<br>R_X(m) &#x3D; E[X(n)X(n+m)] &#x3D; R_X(mT)<br>$$</p>
+<p>Its power spectral density is:</p>
+<p>$$<br>S_X(\Omega) &#x3D; \sum_{m&#x3D;-\infty}^{+\infty} R_X(m)e^{-j\Omega m}<br>$$</p>
+<p>Its inverse transform is:</p>
+<p>$$<br>R_X(m) &#x3D; \frac{1}{2\pi}\int_{-\pi}^{\pi} S_X(\Omega)e^{j\Omega m} d\Omega<br>$$</p>
+<p>The average power is:</p>
+<p>$$<br>E[|X(n)|^2] &#x3D; R_X(0) &#x3D; \frac{1}{2\pi}\int_{-\pi}^{\pi} S_X(\Omega)d\Omega<br>$$</p>
+<p>When the sampling interval is $T$:</p>
+<p>$$<br>S_X(\omega) &#x3D;\frac{1}{T} \sum_{k&#x3D;-\infty}^{+\infty} S_c(\omega - k\omega_s)<br>$$</p>
+<p>This is the <strong>sampling theorem for power spectral density</strong>.</p>
+<p>Here, $\omega_s &#x3D; \frac{2\pi}{T}$.</p>
+<blockquote>
+<p>[!NOTE]<br>The sampling theorem was not explained in much detail, and I still do not understand it very well. Since I did not learn this part of signals and systems properly, I barely listened to it—including the spectral factorisation theorem, which I understand even less.</p>
+</blockquote>
+<hr>
+<h1 id="5-Cross-Spectral-Density-of-Jointly-Stationary-Random-Processes"><a href="#5-Cross-Spectral-Density-of-Jointly-Stationary-Random-Processes" class="headerlink" title="5 Cross-Spectral Density of Jointly Stationary Random Processes"></a>5 Cross-Spectral Density of Jointly Stationary Random Processes</h1><p>To be honest, I can no longer follow what she is deriving on the slides. All the notes below were therefore completed by AI.</p>
+<p>If $X(t)$ and $Y(t)$ are jointly stationary processes, their cross-power spectral density is defined as:<br>$$<br>S_{XY}(\omega) &#x3D; \int_{-\infty}^{+\infty} R_{XY}(\tau)e^{-j\omega\tau} d\tau<br>$$</p>
+<p>It has the following properties:</p>
+<ol>
+<li>$S_{XY}^*(\omega) &#x3D; S_{YX}(\omega)$;</li>
+<li>For real processes, $S_{XY}(-\omega) &#x3D; S_{YX}^*(\omega)$;</li>
+<li>If $X,Y$ are uncorrelated, then $S_{XY}(\omega)&#x3D;0$.</li>
+</ol>
+<hr>
+<h1 id="6-White-Noise"><a href="#6-White-Noise" class="headerlink" title="6 White Noise"></a>6 White Noise</h1><h2 id="1-Definition"><a href="#1-Definition" class="headerlink" title="(1) Definition"></a>(1) Definition</h2><ul>
+<li><p>If the power spectral density is constant:<br>$$<br>S_N(\omega) &#x3D; \frac{N_0}{2}<br>$$<br>the noise is called <strong>white noise</strong>.</p>
+</li>
+<li><p>Its autocorrelation function is:<br>$$<br>R_N(\tau) &#x3D; \frac{N_0}{2}\delta(\tau)<br>$$</p>
+</li>
+</ul>
+<hr>
+<h2 id="2-Ideal-White-Noise"><a href="#2-Ideal-White-Noise" class="headerlink" title="(2) Ideal White Noise"></a>(2) Ideal White Noise</h2><p>Its characteristics include:</p>
+<ul>
+<li>A mean of zero;</li>
+<li>A constant $S_N(\omega)$;</li>
+<li>Infinite average power;</li>
+<li>Non-existence in practice, meaning that it can only be approximated.</li>
+</ul>
+<hr>
+<h2 id="3-Band-Limited-White-Noise-and-Coloured-Noise"><a href="#3-Band-Limited-White-Noise-and-Coloured-Noise" class="headerlink" title="(3) Band-Limited White Noise and Coloured Noise"></a>(3) Band-Limited White Noise and Coloured Noise</h2><ul>
+<li><p>If $S_N(\omega)$ is constant within the finite bandwidth $[-W, W]$:<br>$$<br>S_N(\omega) &#x3D; N_0&#x2F;2, \quad |\omega| \le W<br>$$<br>it is called <strong>band-limited white noise</strong>;</p>
+</li>
+<li><p>If the spectral density varies with frequency, the noise is called <strong>coloured noise</strong>.</p>
+</li>
+</ul>
+<hr>
+<h2 id="4-Signal-to-Noise-Ratio-SNR"><a href="#4-Signal-to-Noise-Ratio-SNR" class="headerlink" title="(4) Signal-to-Noise Ratio (SNR)"></a>(4) Signal-to-Noise Ratio (SNR)</h2><p>It is defined as:<br>$$<br>\mathrm{SNR} &#x3D; \frac{P_s}{P_n}, \quad \text{(dB)} &#x3D; 10\log_{10}\frac{P_s}{P_n}<br>$$</p>
+<p><strong>Example:</strong><br>Suppose $s(t)&#x3D;4\cos(\omega_0 t)$, while $n(t)$ is low-pass white noise with a bandwidth of $2$ kHz and a power spectral density of $S_N(\omega)&#x3D;2$:</p>
+<p>$$<br>P_s &#x3D; \frac{A^2}{2} &#x3D; 8, \quad P_n &#x3D; 2W&#x2F;\pi &#x3D; 8000<br>$$<br>$$<br>\mathrm{SNR} &#x3D; 10\log_{10}\frac{8}{8000} \approx -30 \text{ dB}<br>$$</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Notes/" class="print-no-link">#Notes</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Chapter 3 — Random Processes: Spectral Analysis</div>
+      <div>https://hwnote.space/en/posts/2025/10/22/spectral-analysis/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>October 22, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js"></script>
+<script src="/js/bilingual-switch.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

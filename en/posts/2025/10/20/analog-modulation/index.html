@@ -1,0 +1,1052 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="This chapter introduces modulation, with an emphasis on linear modulation. Nonlinear angle modulation receives only a brief treatment, since the course does not appear to pursue the subject in great d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chapter 5 — Analogue Modulation Systems">
+<meta property="og:url" content="https://hwnote.space/en/posts/2025/10/20/analog-modulation/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="This chapter introduces modulation, with an emphasis on linear modulation. Nonlinear angle modulation receives only a brief treatment, since the course does not appear to pursue the subject in great d">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/git1.jpg">
+<meta property="article:published_time" content="2025-10-20T15:04:12.000Z">
+<meta property="article:modified_time" content="2026-08-20T17:12:35.544Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Notes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/git1.jpg">
+  
+  
+  
+  <title>Chapter 5 — Analogue Modulation Systems - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/git1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Chapter 5 — Analogue Modulation Systems"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-20 23:04" pubdate>
+          October 20, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          968 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Chapter 5 — Analogue Modulation Systems</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="Definition-and-Purposes-of-Modulation"><a href="#Definition-and-Purposes-of-Modulation" class="headerlink" title="Definition and Purposes of Modulation"></a>Definition and Purposes of Modulation</h2><p>Modulation places the message signal $m(t)$ upon a certain parameter of the carrier, such as $\cos(\omega_c t)$, thereby producing a modulated signal.</p>
+<h3 id="Purposes"><a href="#Purposes" class="headerlink" title="Purposes"></a>Purposes</h3><ol>
+<li><p>To improve antenna radiation efficiency, which is achieved by shifting the spectrum. A low-frequency signal has a long wavelength and therefore requires an enormous antenna, whereas a high-frequency signal has a shorter wavelength and permits an antenna of reasonable size.</p>
+</li>
+<li><p>To share spectrum resources. Different signals occupy different frequency bands through frequency-division multiplexing (FDM), making multichannel communication possible.</p>
+</li>
+<li><p>To improve resistance to interference. Nonlinear modulation, such as FM, can improve the signal-to-noise ratio.</p>
+</li>
+</ol>
+<h2 id="Carrier-Signal"><a href="#Carrier-Signal" class="headerlink" title="Carrier Signal"></a>Carrier Signal</h2><p>The textbook mainly discusses sinusoidal-wave modulation. Pulse modulation is set aside for the moment and may appear later.</p>
+<p>A carrier signal is usually written as:</p>
+<p>$$<br>c(t) &#x3D; A_c \cos(\omega_c t + \phi_c)<br>$$</p>
+<p>Here, $A_c$ is the carrier amplitude, $\omega_c$ is the carrier angular frequency, and $\phi_c$ is its initial phase. Modulation makes $A_c$, $\omega_c$, or $\phi_c$ vary with the baseband signal $m(t)$.</p>
+<h2 id="Classification-of-Analogue-Modulation"><a href="#Classification-of-Analogue-Modulation" class="headerlink" title="Classification of Analogue Modulation"></a>Classification of Analogue Modulation</h2><ol>
+<li><p><strong>Amplitude Modulation (AM):</strong> the carrier amplitude varies with the signal. This is linear modulation.</p>
+<ul>
+<li>DSB (double sideband)</li>
+<li>AM (conventional amplitude modulation)</li>
+<li>SSB (single sideband)</li>
+<li>VSB (vestigial sideband)</li>
+</ul>
+</li>
+<li><p><strong>Angle Modulation (PM&#x2F;FM):</strong> the carrier phase or frequency varies with $m(t)$.</p>
+<ul>
+<li>FM (frequency modulation)</li>
+<li>PM (phase modulation)</li>
+</ul>
+</li>
+</ol>
+<h1 id="Linear-Modulation-Systems-Amplitude-Modulation"><a href="#Linear-Modulation-Systems-Amplitude-Modulation" class="headerlink" title="Linear Modulation Systems (Amplitude Modulation)"></a>Linear Modulation Systems (Amplitude Modulation)</h1><p>In linear modulation, the baseband signal $m(t)$ acts linearly upon the carrier amplitude. The modulated signal can be represented in the time domain as:</p>
+<p>$$<br>s_{AM}(t) &#x3D; A(t) \cos(\omega_c t)<br>$$</p>
+<p>The general model of an amplitude modulator is:</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510200008962.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>Its particular type is determined by the different choices of $m(t)$ and $h(t)$.</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510200010466.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h2 id="Conventional-Amplitude-Modulation-AM"><a href="#Conventional-Amplitude-Modulation-AM" class="headerlink" title="Conventional Amplitude Modulation (AM)"></a>Conventional Amplitude Modulation (AM)</h2><h3 id="Time-Domain-Expression"><a href="#Time-Domain-Expression" class="headerlink" title="Time-Domain Expression"></a>Time-Domain Expression</h3><p>An AM signal adds a <strong>carrier component</strong> to DSB:</p>
+<p>$$<br>s_{AM}(t) &#x3D; [A_0 + m(t)] \cos(\omega_c t)<br>$$</p>
+<p>Here, $A_0$ is a DC offset and must satisfy $A_0 &gt; |m(t)|_{max}$ so that $[A_0 + m(t)] &gt; 0$ and overmodulation does not occur.</p>
+<h3 id="Modulation-Index-mu"><a href="#Modulation-Index-mu" class="headerlink" title="Modulation Index ($\mu$)"></a>Modulation Index ($\mu$)</h3><p>$$<br>\mu &#x3D; \frac{|m(t)|_{max}}{A_0} \le 1<br>$$</p>
+<p>A value greater than one indicates overmodulation, which causes distortion and a loss of information.</p>
+<h3 id="Power-and-Efficiency"><a href="#Power-and-Efficiency" class="headerlink" title="Power and Efficiency"></a>Power and Efficiency</h3><p>The total power of an AM signal is $P_{AM} &#x3D; P_c + P_{SB}$. The sideband power $P_{SB}$ carries information, whereas the carrier power $P_c$ carries none.</p>
+<ul>
+<li><strong>Efficiency:</strong> $\eta &#x3D; \frac{P_{SB}}{P_c + P_{SB}}$. AM efficiency is generally low because the modulation index cannot exceed 1, and the carrier power must consequently be greater than the sideband power.</li>
+</ul>
+<h3 id="Demodulation-Methods"><a href="#Demodulation-Methods" class="headerlink" title="Demodulation Methods"></a>Demodulation Methods</h3><p>Direct non-coherent demodulation can be performed with an <strong>envelope detector</strong>. It amounts to little more than a diode and a capacitor: the circuit is simple and requires no synchronised carrier.</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510200022754.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>Coherent demodulation is also possible and is relatively more complicated. Since the carrier component is available, however, synchronisation remains fairly easy. Remember that the DC component must be removed after demodulation.</p>
+<h2 id="Double-Sideband-Suppressed-Carrier-Modulation-DSB-SC"><a href="#Double-Sideband-Suppressed-Carrier-Modulation-DSB-SC" class="headerlink" title="Double-Sideband Suppressed-Carrier Modulation (DSB-SC)"></a>Double-Sideband Suppressed-Carrier Modulation (DSB-SC)</h2><h3 id="Time-Domain-Expression-1"><a href="#Time-Domain-Expression-1" class="headerlink" title="Time-Domain Expression"></a>Time-Domain Expression</h3><p>There is no carrier component.</p>
+<p>$$<br>s_{DSB}(t) &#x3D; m(t) \cos(\omega_c t)<br>$$</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510200028435.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>Note that a reversal point appears when the carrier and input signal change polarity at the same time.</p>
+<h3 id="Frequency-Domain-Characteristics"><a href="#Frequency-Domain-Characteristics" class="headerlink" title="Frequency-Domain Characteristics"></a>Frequency-Domain Characteristics</h3><p>The spectrum of a DSB signal is obtained by shifting the baseband spectrum $M(\omega)$ to the left and right:</p>
+<p>$$<br>S_{DSB}(\omega) &#x3D; \frac{1}{2} [M(\omega - \omega_c) + M(\omega + \omega_c)]<br>$$</p>
+<ul>
+<li><strong>Bandwidth:</strong> $B_{DSB} &#x3D; 2f_H$, where $f_H$ is the highest frequency of the baseband signal.</li>
+</ul>
+<ul>
+<li>There is no carrier component.</li>
+<li>The amplitude is reduced by half.</li>
+</ul>
+<h3 id="Demodulation-Methods-1"><a href="#Demodulation-Methods-1" class="headerlink" title="Demodulation Methods"></a>Demodulation Methods</h3><p>The distinction between coherent and non-coherent demodulation can be summarised as follows:</p>
+<p>(1) Coherent demodulation can operate with a signal-to-noise ratio below 0 dB;</p>
+<p>(2) Non-coherent demodulation requires a signal-to-noise ratio greater than 10 dB;</p>
+<p>(3) Coherent demodulation offers better signal-to-noise performance, whereas non-coherent demodulation adapts more effectively to mobile conditions and environments with a wide dynamic range of signal-to-noise ratios.</p>
+<p>Coherent demodulation is introduced first.</p>
+<p>The receiver requires a local carrier $\cos(\omega_c t)$ with the same frequency and phase as the transmitted carrier.</p>
+<p>The received signal contains no carrier component, so one must somehow be extracted. When can a <strong>frequency-domain component</strong> be generated? Through a nonlinear operation. Multiplication is therefore introduced:</p>
+<ol>
+<li><strong>Multiplication:</strong></li>
+</ol>
+<p>$$r(t) &#x3D; s_{DSB}(t) \cdot 2\cos(\omega_c t) &#x3D; m(t) \cos^2(\omega_c t) &#x3D; m(t) [1 + \cos(2\omega_c t)]$$</p>
+<p>$$<br>r(t) &#x3D; m(t) + m(t) \cos(2\omega_c t)<br>$$</p>
+<ol start="2">
+<li><strong>Low-pass filtering (LPF):</strong> Filter out the high-frequency term $m(t) \cos(2\omega_c t)$ to obtain $m(t)$. In effect, the coherent component is multiplied into the signal, after which the high-frequency part is removed.</li>
+</ol>
+<p>Non-coherent demodulation was discussed above and will not be repeated.</p>
+<h2 id="Single-Sideband-Modulation-SSB"><a href="#Single-Sideband-Modulation-SSB" class="headerlink" title="Single-Sideband Modulation (SSB)"></a>Single-Sideband Modulation (SSB)</h2><h3 id="Spectral-Characteristics"><a href="#Spectral-Characteristics" class="headerlink" title="Spectral Characteristics"></a>Spectral Characteristics</h3><p>SSB retains only one of the upper sideband (USB) and lower sideband (LSB), thereby saving a substantial amount of bandwidth and improving power efficiency.</p>
+<p>Because an ideal filter does not exist, however, producing SSB in the frequency domain with an LPF is complicated and only moderately effective. Phase cancellation can also be used, but it is complicated as well.</p>
+<p>A conventional AM receiver cannot receive an SSB signal because it can perform only envelope detection, not coherent demodulation.</p>
+<ul>
+<li><strong>Bandwidth:</strong> $B_{SSB} &#x3D; f_H$.</li>
+</ul>
+<h3 id="Time-Domain-Expression-2"><a href="#Time-Domain-Expression-2" class="headerlink" title="Time-Domain Expression"></a>Time-Domain Expression</h3><p>$$<br>s_{SSB}(t) &#x3D; m(t) \cos(\omega_c t) \mp \hat{m}(t) \sin(\omega_c t)<br>$$</p>
+<p>Here, $\hat{m}(t)$ is the <strong>Hilbert transform</strong> of $m(t)$. A Hilbert transform shifts a sine or cosine by half of pi. The minus sign may be regarded as producing the upper sideband, whereas the plus sign produces the lower sideband.</p>
+<h3 id="Demodulation-Method-Coherent-Demodulation"><a href="#Demodulation-Method-Coherent-Demodulation" class="headerlink" title="Demodulation Method: Coherent Demodulation"></a>Demodulation Method: Coherent Demodulation</h3><p>SSB can be demodulated only coherently. Why exactly is that?</p>
+<h2 id="Vestigial-Sideband-Modulation-VSB"><a href="#Vestigial-Sideband-Modulation-VSB" class="headerlink" title="Vestigial-Sideband Modulation (VSB)"></a>Vestigial-Sideband Modulation (VSB)</h2><h3 id="Spectral-Characteristics-1"><a href="#Spectral-Characteristics-1" class="headerlink" title="Spectral Characteristics"></a>Spectral Characteristics</h3><p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510200048283.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>It is sufficient for the cut-off characteristic of the filter to satisfy the condition of complementary symmetry at the carrier frequency.</p>
+<p>VSB retains one complete sideband and <strong>part</strong> of the other sideband—the vestigial sideband. It is therefore a compromise between DSB and SSB.</p>
+<ul>
+<li><strong>Bandwidth:</strong> $f_H &lt; B_{VSB} &lt; 2f_H$.</li>
+</ul>
+<h3 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h3><p>VSB avoids the filter-realisation difficulty of SSB while retaining low-frequency components. It is consequently suitable for signals rich in low-frequency content, including a DC component, as in television transmission.</p>
+<h3 id="Demodulation-Method-Coherent-Demodulation-1"><a href="#Demodulation-Method-Coherent-Demodulation-1" class="headerlink" title="Demodulation Method: Coherent Demodulation"></a>Demodulation Method: Coherent Demodulation</h3><h1 id="Angle-Modulation-Systems-Nonlinear-Modulation"><a href="#Angle-Modulation-Systems-Nonlinear-Modulation" class="headerlink" title="Angle-Modulation Systems (Nonlinear Modulation)"></a>Angle-Modulation Systems (Nonlinear Modulation)</h1><p>This material is not included in our examination, so the course discusses only a little of it. We basically need to know what FM and PM are, that they are nonlinear forms of modulation, that they generate many frequency-domain components and occupy a wider bandwidth, and that the resulting signal quality is better.</p>
+<p>Angle modulation is nonlinear: either the carrier’s <strong>instantaneous phase</strong> or its <strong>instantaneous frequency</strong> varies with the baseband signal $m(t)$.</p>
+<h2 id="Frequency-Modulation-FM"><a href="#Frequency-Modulation-FM" class="headerlink" title="Frequency Modulation (FM)"></a>Frequency Modulation (FM)</h2><h3 id="Instantaneous-Frequency"><a href="#Instantaneous-Frequency" class="headerlink" title="Instantaneous Frequency"></a>Instantaneous Frequency</h3><p>The instantaneous carrier frequency $\omega_i(t)$ varies linearly with $m(t)$:<br>$$<br>\omega_i(t) &#x3D; \omega_c + k_f m(t)<br>$$<br>Here, $k_f$ is the <strong>frequency-modulation coefficient</strong>, measured in $\text{rad&#x2F;s&#x2F;V}$.</p>
+<h3 id="Time-Domain-Expression-3"><a href="#Time-Domain-Expression-3" class="headerlink" title="Time-Domain Expression"></a>Time-Domain Expression</h3><p>$$<br>s_{FM}(t) &#x3D; A_c \cos[\omega_c t + \phi(t)]<br>$$<br>The instantaneous phase $\phi(t)$ is the integral of instantaneous frequency over time:<br>$$<br>\phi(t) &#x3D; \int^t \omega_i(\tau) d\tau &#x3D; \omega_c t + k_f \int^t m(\tau) d\tau<br>$$<br>The <strong>FM signal</strong> is:<br>$$<br>s_{FM}(t) &#x3D; A_c \cos[\omega_c t + k_f \int^t m(\tau) d\tau]<br>$$</p>
+<h3 id="Modulation-Index-beta"><a href="#Modulation-Index-beta" class="headerlink" title="Modulation Index ($\beta$)"></a>Modulation Index ($\beta$)</h3><p>For single-tone modulation $m(t) &#x3D; A_m \cos(\omega_m t)$, the <strong>modulation index</strong> of the FM signal is:<br>$$<br>\beta &#x3D; \frac{\Delta \omega}{\omega_m} &#x3D; \frac{k_f A_m}{\omega_m}<br>$$<br>Here, $\Delta \omega &#x3D; k_f A_m$ is the <strong>maximum angular-frequency deviation</strong>.</p>
+<h3 id="Bandwidth-Carson’s-Rule"><a href="#Bandwidth-Carson’s-Rule" class="headerlink" title="Bandwidth (Carson’s Rule)"></a>Bandwidth (Carson’s Rule)</h3><p>The spectrum of an FM signal is infinitely wide, but most of its energy is concentrated within a finite bandwidth. <strong>Carson’s rule</strong> estimates its effective bandwidth:<br>$$<br>B_{FM} \approx 2(\Delta f + f_m) &#x3D; 2(\beta + 1) f_m<br>$$<br>Here, $\Delta f$ is the maximum frequency deviation in hertz.</p>
+<h3 id="Demodulation-Method"><a href="#Demodulation-Method" class="headerlink" title="Demodulation Method"></a>Demodulation Method</h3><p>An FM signal is generally demodulated with a <strong>frequency discriminator</strong>, which converts changes in frequency into changes in amplitude before envelope detection or low-pass filtering is performed.</p>
+<h2 id="Phase-Modulation-PM"><a href="#Phase-Modulation-PM" class="headerlink" title="Phase Modulation (PM)"></a>Phase Modulation (PM)</h2><h3 id="Instantaneous-Phase"><a href="#Instantaneous-Phase" class="headerlink" title="Instantaneous Phase"></a>Instantaneous Phase</h3><p>The instantaneous carrier phase $\theta_i(t)$ varies linearly with $m(t)$:<br>$$<br>\theta_i(t) &#x3D; \omega_c t + k_p m(t)<br>$$<br>Here, $k_p$ is the <strong>phase-modulation coefficient</strong>.</p>
+<h3 id="Time-Domain-Expression-4"><a href="#Time-Domain-Expression-4" class="headerlink" title="Time-Domain Expression"></a>Time-Domain Expression</h3><p>$$<br>s_{PM}(t) &#x3D; A_c \cos[\omega_c t + k_p m(t)]<br>$$</p>
+<h3 id="Relationship-between-FM-and-PM"><a href="#Relationship-between-FM-and-PM" class="headerlink" title="Relationship between FM and PM"></a>Relationship between FM and PM</h3><ul>
+<li><strong>Integrate</strong> $m(t)$ and then perform <strong>FM modulation</strong> on the carrier to obtain a PM signal.</li>
+<li><strong>Differentiate</strong> $m(t)$ and then perform <strong>PM modulation</strong> on the carrier to obtain an FM signal.</li>
+</ul>
+<h2 id="Resistance-of-Analogue-Modulation-Systems-to-Noise"><a href="#Resistance-of-Analogue-Modulation-Systems-to-Noise" class="headerlink" title="Resistance of Analogue Modulation Systems to Noise"></a>Resistance of Analogue Modulation Systems to Noise</h2><p>The noise resistance of a communication system is generally measured through that of its <strong>demodulator</strong>. The performance of different modulation systems is studied in the presence of additive Gaussian white noise in the channel.</p>
+<h3 id="Performance-Analysis-Model-and-Measures"><a href="#Performance-Analysis-Model-and-Measures" class="headerlink" title="Performance-Analysis Model and Measures"></a>Performance-Analysis Model and Measures</h3><h3 id="Receiver-Model"><a href="#Receiver-Model" class="headerlink" title="Receiver Model"></a>Receiver Model</h3><p>After the modulated signal $s_m(t)$ is mixed with the additive Gaussian white noise $n(t)$ of the channel, it first passes through a band-pass filter (BPF), which removes noise outside the signal band. The signal entering the demodulator is $s_m(t)$ and its noise is $n_i(t)$. The useful output of the demodulator is $m_o(t)$, while the output noise is $n_o(t)$.</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510200108778.png" srcset="/img/loading.gif" lazyload alt="Analysis of the input to the demodulator after a signal mixed with Gaussian white noise passes through a band-pass filter"></p>
+<h3 id="Characteristics-of-Input-Noise"><a href="#Characteristics-of-Input-Noise" class="headerlink" title="Characteristics of Input Noise"></a>Characteristics of Input Noise</h3><p>The noise $n_i(t)$ entering the demodulator is obtained when stationary Gaussian white noise $n(t)$ passes through a band-pass filter, and can be regarded as <strong>stationary narrowband Gaussian noise</strong>.</p>
+<p>Narrowband Gaussian noise can be represented as:</p>
+<p>$$<br>n_{i}(t)&#x3D;n_{c}(t)\cos\omega_{c}t-n_{s}(t)\sin\omega_{c}t<br>$$</p>
+<p>Here, $n_c(t)$ and $n_s(t)$ are respectively the in-phase and quadrature components. Both have a mean of $0$ and the same variance.</p>
+<ul>
+<li><p><strong>Input noise power:</strong> If the one-sided power spectral density of the white noise is $N_0$, and the BPF bandwidth is $B$, equal to the modulated-signal bandwidth $W$:</p>
+<p>  $$<br>  N_{i}&#x3D;\overline{n_{i}^{2}(t)}&#x3D;N_{0}B<br>  $$</p>
+</li>
+</ul>
+<h3 id="Quality-Measures"><a href="#Quality-Measures" class="headerlink" title="Quality Measures"></a>Quality Measures</h3><ol>
+<li><p><strong>Output signal-to-noise ratio (Output SNR):</strong> This measures the quality of the demodulator output.</p>
+<p> $$<br> \frac{S_{o}}{N_{o}}&#x3D;\frac{\overline{m_{o}^{2}(t)}}{\overline{n_{o}^{2}(t)}}<br> $$</p>
+</li>
+<li><p><strong>Input signal-to-noise ratio (Input SNR):</strong></p>
+<p> $$<br> \frac{S_{i}}{N_{i}}&#x3D;\frac{\overline{s_{m}^{2}(t)}}{\overline{n_{i}^{2}(t)}}<br> $$</p>
+</li>
+<li><p><strong>Modulation-system gain:</strong> This is used to compare the performance of modulation systems of the same type.</p>
+<p> $$<br> G&#x3D;\frac{S_{o}&#x2F;N_{o}}{S_{i}&#x2F;N_{i}}<br> $$</p>
+</li>
+</ol>
+<h2 id="Performance-Derivation-for-Linear-Modulation-Systems"><a href="#Performance-Derivation-for-Linear-Modulation-Systems" class="headerlink" title="Performance Derivation for Linear Modulation Systems"></a>Performance Derivation for Linear Modulation Systems</h2><h3 id="1-DSB-SC-Modulation-System-Coherent-Demodulation"><a href="#1-DSB-SC-Modulation-System-Coherent-Demodulation" class="headerlink" title="1. DSB-SC Modulation System (Coherent Demodulation)"></a>1. DSB-SC Modulation System (Coherent Demodulation)</h3><ul>
+<li><p><strong>Input signal power:</strong> $S_{i} &#x3D; \overline{s_{DSB}^{2}(t)} &#x3D; \frac{1}{2}\overline{m^{2}(t)}$.</p>
+</li>
+<li><p><strong>Output signal:</strong> $m_{o}(t)&#x3D;\frac{1}{2}m(t)$.</p>
+</li>
+<li><p><strong>Output signal power:</strong> $S_{o} &#x3D; \overline{m_{o}^{2}(t)} &#x3D; \frac{1}{4}\overline{m^{2}(t)}$.</p>
+</li>
+<li><p><strong>Output noise power:</strong> $N_{o} &#x3D; \frac{1}{4}\overline{n_{i}^{2}(t)} &#x3D; \frac{1}{4}N_{0}B$.</p>
+</li>
+<li><p><strong>Modulation-system gain:</strong> $G_{DSB} &#x3D; 2$.</p>
+</li>
+</ul>
+<h3 id="2-SSB-SC-Modulation-System-Coherent-Demodulation"><a href="#2-SSB-SC-Modulation-System-Coherent-Demodulation" class="headerlink" title="2. SSB-SC Modulation System (Coherent Demodulation)"></a>2. SSB-SC Modulation System (Coherent Demodulation)</h3><ul>
+<li><p><strong>Bandwidth:</strong> $B&#x3D;W$, the baseband-signal bandwidth.</p>
+</li>
+<li><p><strong>Output signal power:</strong> $S_{o}&#x3D;\overline{m_{o}^{2}(t)}&#x3D;\frac{1}{16}\overline{m^{2}(t)}$.</p>
+</li>
+<li><p><strong>Output noise power:</strong> $N_{o} &#x3D; \frac{1}{4}N_{0}W$.</p>
+</li>
+<li><p><strong>Modulation-system gain:</strong> $G_{SSB} &#x3D; 1$.</p>
+</li>
+</ul>
+<h3 id="3-Performance-Comparison-between-DSB-and-SSB"><a href="#3-Performance-Comparison-between-DSB-and-SSB" class="headerlink" title="3. Performance Comparison between DSB and SSB"></a>3. Performance Comparison between DSB and SSB</h3><p>Although $G_{DSB}&#x3D;2$ and $G_{SSB}&#x3D;1$, these values do not directly prove that DSB performs better, because the input signal powers and bandwidths of the two systems differ.</p>
+<p><strong>Conclusion:</strong> Under the same input signal power $S_i$, the same noise power spectral density $N_0$, and the same baseband-signal bandwidth $W$, DSB and SSB have an <strong>equal output signal-to-noise ratio</strong>, indicating that their <strong>resistance to noise is the same</strong>.</p>
+<h3 id="4-Performance-of-AM-Envelope-Detection"><a href="#4-Performance-of-AM-Envelope-Detection" class="headerlink" title="4. Performance of AM Envelope Detection"></a>4. Performance of AM Envelope Detection</h3><ul>
+<li><p><strong>High signal-to-noise ratio:</strong> Envelope detection performs as well as coherent demodulation.</p>
+</li>
+<li><p><strong>Low signal-to-noise ratio:</strong> A <strong>threshold effect</strong> occurs. At a low signal-to-noise ratio, the envelope detector confuses the useful signal with noise, and the output signal-to-noise ratio deteriorates sharply.</p>
+</li>
+</ul>
+<h1 id="Performance-Comparison-of-Analogue-Modulation-Systems"><a href="#Performance-Comparison-of-Analogue-Modulation-Systems" class="headerlink" title="Performance Comparison of Analogue Modulation Systems"></a>Performance Comparison of Analogue Modulation Systems</h1><table>
+<thead>
+<tr>
+<th align="center">Modulation</th>
+<th align="center">Transmission bandwidth</th>
+<th align="center">DC response</th>
+<th align="center">Equipment complexity</th>
+<th align="center">Main applications</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>DSB</strong></td>
+<td align="center">$2f_H$ (none)</td>
+<td align="center"><strong>None</strong></td>
+<td align="center">Moderate: coherent demodulation required</td>
+<td align="center">Analogue data transmission</td>
+</tr>
+<tr>
+<td align="center"><strong>AM</strong></td>
+<td align="center">$2f_H$ (present)</td>
+<td align="center"><strong>Present</strong></td>
+<td align="center">Low: simple modulation and demodulation</td>
+<td align="center">Radio broadcasting</td>
+</tr>
+<tr>
+<td align="center"><strong>SSB</strong></td>
+<td align="center">$f_H$ (none)</td>
+<td align="center"><strong>None</strong></td>
+<td align="center">High: coherent demodulation required; modulator also relatively complicated</td>
+<td align="center">Speech communication and frequency-division multiplexing of speech channels</td>
+</tr>
+<tr>
+<td align="center"><strong>VSB</strong></td>
+<td align="center">$f_H &lt; B &lt; 2f_H$ (present)</td>
+<td align="center"><strong>Present</strong></td>
+<td align="center">High: coherent demodulation required; modulator needs a symmetric filter</td>
+<td align="center">Data transmission and broadband television systems</td>
+</tr>
+<tr>
+<td align="center"><strong>FM</strong></td>
+<td align="center">$2(\Delta f + f_m)$ (present)</td>
+<td align="center"><strong>Present</strong></td>
+<td align="center">Moderate: somewhat complicated modulator and relatively simple demodulator</td>
+<td align="center">Data transmission, radio broadcasting, and microwave relay</td>
+</tr>
+</tbody></table>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510200112067.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h3 id="Main-Conclusions"><a href="#Main-Conclusions" class="headerlink" title="Main Conclusions"></a>Main Conclusions</h3><ol>
+<li><p><strong>Resistance to noise:</strong> <strong>WBFM</strong>, or wideband frequency modulation, performs best; DSB, SSB, and VSB come next, while <strong>AM performs worst</strong>. When the input signal-to-noise ratio is high, a larger FM modulation index $\beta$ produces stronger resistance to noise.</p>
+</li>
+<li><p><strong>Spectral efficiency:</strong> <strong>SSB has the narrowest bandwidth</strong>, $B_{SSB}&#x3D;f_H$, and therefore the highest spectral efficiency. <strong>FM occupies the greatest bandwidth</strong>, which increases with the modulation index $\beta$, and consequently has the lowest spectral efficiency.</p>
+</li>
+<li><p><strong>Trade-off:</strong> FM is a typical example of sacrificing <strong>effectiveness</strong>, in the form of bandwidth, in exchange for <strong>reliability</strong>, in the form of resistance to noise.</p>
+</li>
+</ol>
+<h1 id="Frequency-Division-Multiplexing-FDM"><a href="#Frequency-Division-Multiplexing-FDM" class="headerlink" title="Frequency-Division Multiplexing (FDM)"></a>Frequency-Division Multiplexing (FDM)</h1><h2 id="Concept-and-Purpose"><a href="#Concept-and-Purpose" class="headerlink" title="Concept and Purpose"></a>Concept and Purpose</h2><p><strong>Multiplexing:</strong> a technology that addresses how several signals can be transmitted simultaneously through a single physical channel. Its purpose is to make full use of the frequency, time, and spatial resources of a channel, thereby improving channel utilisation.</p>
+<p><strong>Frequency-division multiplexing (FDM):</strong> a form of multiplexing that <strong>divides a channel by frequency</strong>.</p>
+<h2 id="Principle-and-Implementation-of-FDM"><a href="#Principle-and-Implementation-of-FDM" class="headerlink" title="Principle and Implementation of FDM"></a>Principle and Implementation of FDM</h2><ol>
+<li><p><strong>Division into frequency bands:</strong> Divide the total channel bandwidth into several <strong>non-overlapping</strong> bands, or subchannels, each occupied by one signal.</p>
+</li>
+<li><p><strong>Guard bands:</strong> Leave an unused <strong>guard band</strong> between adjacent signals so as to prevent spectral overlap and interchannel interference.</p>
+</li>
+<li><p><strong>Transmitter:</strong> Each baseband signal $m_i(t)$ first passes through a low-pass filter (LPF) and is then multiplied by a different carrier $\omega_{c_i}$ for modulation. A sideband filter ($\text{SBF}_i$) selects the required sideband, after which an adder combines the modulated signals and sends them into the channel.</p>
+</li>
+<li><p><strong>Receiver:</strong> The received composite signal passes through a band-pass filter ($\text{BPF}<em>i$), which separates the corresponding subchannel. It is then multiplied by a carrier $\omega</em>{c_i}$ of the same frequency for demodulation, and finally passes through an LPF to recover the original baseband signal $m_i(t)$.</p>
+</li>
+</ol>
+<h2 id="Advantages-and-Disadvantages-of-FDM"><a href="#Advantages-and-Disadvantages-of-FDM" class="headerlink" title="Advantages and Disadvantages of FDM"></a>Advantages and Disadvantages of FDM</h2><p><strong>Advantages:</strong></p>
+<ol>
+<li><p>High channel utilisation.</p>
+</li>
+<li><p>A large number of channels can be multiplexed.</p>
+</li>
+<li><p>Individual channels can be separated conveniently by frequency.</p>
+</li>
+</ol>
+<p><strong>Disadvantages:</strong></p>
+<ol>
+<li><p>The equipment is relatively complicated to manufacture.</p>
+</li>
+<li><p>Imperfect filter characteristics and nonlinearities within the channel can produce <strong>interchannel interference</strong>.</p>
+</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Notes/" class="print-no-link">#Notes</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Chapter 5 — Analogue Modulation Systems</div>
+      <div>https://hwnote.space/en/posts/2025/10/20/analog-modulation/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>October 20, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js"></script>
+<script src="/js/bilingual-switch.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

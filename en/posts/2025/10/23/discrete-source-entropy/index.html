@@ -1,0 +1,1066 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="This chapter introduces measures of information, mathematical descriptions of sources, and several representative source models.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Information Theory, Chapter 2: Discrete Sources and Measures of Information">
+<meta property="og:url" content="https://hwnote.space/en/posts/2025/10/23/discrete-source-entropy/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="This chapter introduces measures of information, mathematical descriptions of sources, and several representative source models.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/regression.jpg">
+<meta property="article:published_time" content="2025-10-23T08:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-20T17:19:01.157Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Study Notes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/regression.jpg">
+  
+  
+  
+  <title>Information Theory, Chapter 2: Discrete Sources and Measures of Information - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/regression.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Information Theory, Chapter 2: Discrete Sources and Measures of Information"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-23 16:00" pubdate>
+          October 23, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          16 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Information Theory, Chapter 2: Discrete Sources and Measures of Information</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="1-Measuring-Information"><a href="#1-Measuring-Information" class="headerlink" title="1. Measuring Information"></a>1. Measuring Information</h2><h3 id="Self-Information"><a href="#Self-Information" class="headerlink" title="Self-Information"></a>Self-Information</h3><p>Self-information measures how much uncertainty is removed when a particular piece of information is obtained.</p>
+<p>The definition is the same as that of information entropy in the earlier notes on communication principles. Both subjects were developed by people working on communication, after all. I will therefore borrow the relevant reasoning and explanation directly.</p>
+<p>Once information itself becomes an object of study, it has to be quantified. What do we use? We take the logarithm of the reciprocal of probability and call the result the <strong>amount of information</strong>. Note that the present concept is specifically self-information.</p>
+<p>$$<br>I&#x3D;-log_aP(x) \tag{式1}<br>$$</p>
+<p>This definition agrees well with two requirements:</p>
+<ul>
+<li><p>The less probable an event is, the more information it carries; the function is monotonically decreasing. An event certain to occur carries zero information, while an impossible event carries infinite information.</p>
+</li>
+<li><p>The information contained in a message composed of several independent events equals the sum of the information carried by the individual events.</p>
+</li>
+</ul>
+<p>Fine—the borrowed part is now out of the way. What follows are the details developed in this course.</p>
+<p>One point deserves attention: $x_ i$ is a random quantity, whereas $I(x_i)$ is a function of that random quantity. Self-information is therefore also a random variable and has no single fixed value.</p>
+<p>In Equation 1, choosing 2, e, or 10 as the base a gives units of bits, nats, or hartleys, respectively.</p>
+<h3 id="Joint-Self-Information"><a href="#Joint-Self-Information" class="headerlink" title="Joint Self-Information"></a>Joint Self-Information</h3><p>$$\begin{bmatrix} XY \ P(XY) \end{bmatrix} &#x3D; \begin{cases} x_1y_1, \dots, x_1y_m, &amp; x_2y_1, \dots, &amp; x_2y_m, \dots, &amp; x_ny_1, \dots, &amp; x_ny_m \ p(x_1y_1), \dots, p(x_1y_m), &amp; p(x_2y_1), \dots, &amp; p(x_2y_m), \dots, &amp; p(x_ny_1), \dots, &amp; p(x_ny_m) \end{cases}$$</p>
+<p>One glance is enough to see that its self-information is obtained simply by replacing $X$ with $XY$:</p>
+<p>$$I(x_i,y_j) &#x3D; \log_{2}\frac{1}{p(x_i,y_j)}$$</p>
+<p>When only the joint probability distribution of two variables is given, the self-information calculated for the pair is their joint self-information.</p>
+<h3 id="Conditional-Self-Information"><a href="#Conditional-Self-Information" class="headerlink" title="Conditional Self-Information"></a>Conditional Self-Information</h3><p>Given $y_j$, the conditional self-information associated with the occurrence of $x_i$ is:</p>
+<p>$$I(x_i &#x2F; y_j)&#x3D;\log_{2}\frac{1}{p(x_i &#x2F; y_j)}$$</p>
+<p>When $x_i$ is known, the conditional self-information associated with the occurrence of $y_j$ is:</p>
+<p>$$I(y_j &#x2F; x_i)&#x3D;\log_{2}\frac{1}{p(y_j &#x2F; x_i)}  $$</p>
+<p>The relationship among self-information, conditional self-information, and joint self-information is:</p>
+<p>$$\begin{align*} I(x_i y_j)&amp;&#x3D;\log_{2}\frac{1}{p(x_i)p(y_j &#x2F; x_i)} &#x3D; I(x_i)+I(y_j &#x2F; x_i)\ &amp;&#x3D;\log_{2}\frac{1}{p(y_j)p(x_i &#x2F; y_j)} &#x3D; I(y_j)+I(x_i &#x2F; y_j) \end{align*} $$</p>
+<h3 id="Mutual-Information"><a href="#Mutual-Information" class="headerlink" title="Mutual Information"></a>Mutual Information</h3><p>When information travels from a source to a destination, channel noise becomes mixed with it. Viewed from the uncertainty removed at the destination, mutual information is the uncertainty eliminated after the transmitted information is received.</p>
+<p>Let us therefore reason from the destination’s point of view. First, assume a probability that the source sends $x_i$; this is the prior probability.</p>
+<p>After the destination receives $y_i$, it estimates the probability that the source sent $x_i$. This conditional probability is the posterior probability.</p>
+<p>Subtracting posterior uncertainty from prior uncertainty gives mutual information. Notice that the discussion concerns <strong>uncertainty</strong>, which is itself an amount of information.</p>
+<p>The formula is:</p>
+<p>$$<br>\begin{align*}<br>I(x_i ; y_j) &amp;&#x3D; \log_{2}\frac{p(x_i &#x2F; y_j)}{p(x_i)} \quad (i &#x3D; 1,2,\dots,n; j &#x3D; 1,2,\dots,m) \<br>&amp;&#x3D; \log_{2}\frac{1}{p(x_i)} - \log_{2}\frac{1}{p(x_i &#x2F; y_j)} \<br>&amp;&#x3D; I(x_i) - I(x_i &#x2F; y_j)<br>\end{align*}<br>$$</p>
+<p>In short, mutual information is defined to <strong>quantify how observing one event changes our uncertainty about another</strong>. In the example above, observing what arrives at the destination changes the uncertainty about the information sent by the source, helping us determine what the source actually transmitted.</p>
+<p>I personally find this idea somewhat difficult. I had to think for a while even as I wrote the preceding paragraph.</p>
+<p>Here is another example to make the idea easier to understand.</p>
+<p>Suppose a source must transmit whether a coin shows heads or tails. There are two possibilities:</p>
+<ul>
+<li>$x_1 &#x3D; 正$, $p(x_1)&#x3D;0.5$</li>
+<li>$x_2 &#x3D; 反$, $p(x_2)&#x3D;0.5$</li>
+</ul>
+<p>Noise during transmission may “flip” the result received by the destination:</p>
+<table>
+<thead>
+<tr>
+<th>Sent by the source $x_i$</th>
+<th>Received by the destination $y_j$</th>
+<th>Conditional probability</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Heads</td>
+<td>Heads</td>
+<td>0.8</td>
+</tr>
+<tr>
+<td>Heads</td>
+<td>Tails</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>Tails</td>
+<td>Heads</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>Tails</td>
+<td>Tails</td>
+<td>0.8</td>
+</tr>
+</tbody></table>
+<p>When the destination receives $y_1 &#x3D; 正$, now calculate the mutual information $I(x; y_1)$.</p>
+<p><strong>Step 1: Find the posterior probability $p(x_i|y_1)$</strong></p>
+<p>The total probability that the destination receives “heads” is:</p>
+<p>$$p(y_1)&#x3D;p(x_1)p(y_1|x_1) + p(x_2)p(y_1|x_2)&#x3D;0.5×0.8+0.5×0.2&#x3D;0.5$$</p>
+<p>The posterior probabilities are:</p>
+<p>$$p(x_1|y_1)&#x3D;\frac{0.5×0.8}{0.5}&#x3D;0.8,\quad p(x_2|y_1)&#x3D;0.2$$</p>
+<p><strong>Step 2: Calculate the mutual information</strong></p>
+<p>Take $x_1&#x3D;正$ as an example:</p>
+<p>$$I(x_1;y_1)&#x3D;\log_2\frac{p(x_1|y_1)}{p(x_1)}&#x3D;\log_2\frac{0.8}{0.5}&#x3D;\log_2(1.6)≈0.678\text{ bit}$$</p>
+<p>This means that <strong>we were originally uncertain about whether “heads” had been sent, with 1 bit of uncertainty. Once we see that “heads” has been received, that uncertainty falls by about 0.678 bit. I am therefore inclined to believe that heads was sent, though tails remains possible. The final sentence may be problematic.</strong></p>
+<p>Similarly, if the mutual information for tails is calculated, it turns out to be negative.</p>
+<h3 id="Properties-of-Mutual-Information"><a href="#Properties-of-Mutual-Information" class="headerlink" title="Properties of Mutual Information"></a>Properties of Mutual Information</h3><p>Two statements are enough:</p>
+<ul>
+<li><p>It is symmetric: the mutual information about b obtained from knowing a is the same as that about a obtained from knowing b.</p>
+</li>
+<li><p>The mutual information between two statistically independent events is 0.</p>
+</li>
+</ul>
+<h3 id="Conditional-Mutual-Information"><a href="#Conditional-Mutual-Information" class="headerlink" title="Conditional Mutual Information"></a>Conditional Mutual Information</h3><p><strong>Definition</strong>: the mutual information between the message $x_i$ and the pair of messages $y_j z_k$ is:</p>
+<p>$$I(x_i ; y_j z_k) &#x3D; \log_{2}\frac{p(x_i &#x2F; y_j z_k)}{p(x_i)} &#x3D; \log_{2}\frac{1}{p(x_i)} - \log_{2}\frac{1}{p(x_i &#x2F; y_j z_k)} $$</p>
+<p><strong>Definition of conditional mutual information</strong>:</p>
+<p>Given $z_k$, it is the mutual information between $x_i$ and $y_j$.</p>
+<p>$$I(x_i ; y_j &#x2F; z_k) &#x3D; \log_{2}\frac{p(x_i &#x2F; y_j z_k)}{p(x_i &#x2F; z_k)} &#x3D; \log_{2}\frac{1}{p(x_i &#x2F; z_k)} - \log_{2}\frac{1}{p(x_i &#x2F; y_j z_k)} $$</p>
+<p>The mutual information between $x_i$ and $y_j z_k$ is:</p>
+<p>$$I(x_i ; y_j z_k) &#x3D; I(x_i ; z_k) + I(x_i ; y_j &#x2F; z_k)$$</p>
+<p>The equation states that, after the joint event $y_j z_k$ occurs, the information it provides about $x_i$, namely $I(x_i ; y_j z_k)$, equals the information provided by the occurrence of $z_k$ about $x_i$, namely $I(x_i ; z_k)$, plus the information provided, under the condition $z_k$ and after $y_j$ occurs, about $x_i$, namely $I(x_i ; y_j &#x2F; z_k)$.</p>
+<h3 id="Information-Entropy"><a href="#Information-Entropy" class="headerlink" title="Information Entropy"></a>Information Entropy</h3><p>As before, I will borrow the relevant content from Chapter 1 of the communication-principles notes.</p>
+<p>Define the discrete <strong>information entropy</strong> $H$ as:</p>
+<p>$$<br>H(x) &#x3D;  \sum P(x_i)I(x_i)<br>$$</p>
+<p>It is simply a weighted sum and describes the <strong>average amount of information</strong>.</p>
+<p>One point should be noted: the weights concern the overall probability rather than the sample. The following example gives the details.</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510092040161.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>The class also mentioned some humanistic ideas, but I do not think dwelling on the terminology is very useful, so I will simply leave the material here.</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510102023026.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h3 id="Fundamental-Properties-of-Information-Entropy"><a href="#Fundamental-Properties-of-Information-Entropy" class="headerlink" title="Fundamental Properties of Information Entropy"></a>Fundamental Properties of Information Entropy</h3><ul>
+<li><strong>Non-negativity</strong></li>
+</ul>
+<p>This holds for a discrete source, but not for a continuous one.</p>
+<ul>
+<li><strong>Symmetry and certainty</strong></li>
+</ul>
+<p>Not especially useful, so I will not discuss them.</p>
+<ul>
+<li><strong>Extensibility</strong></li>
+</ul>
+<p>If an event with an extremely small probability is added, the event itself carries an enormous amount of information, but the change in source entropy is tiny and almost negligible.</p>
+<ul>
+<li><strong>The maximum discrete-entropy theorem</strong></li>
+</ul>
+<p>Rather like a fundamental inequality, the theorem states that discrete entropy is greatest when the symbols of a discrete source are equiprobable. The proof is omitted directly.</p>
+<ul>
+<li><strong>Additivity</strong></li>
+</ul>
+<p>The entropy of a joint distribution equals the entropy of a plus the conditional entropy of b given that a has occurred.</p>
+<p>When a and b are statistically independent, their joint entropy is simply the sum of their entropies:</p>
+<p>$$\begin{align*}<br>H(XY) &amp;&#x3D; H(X) + H(Y&#x2F;X) \<br>H(XY) &amp;&#x3D; H(Y) + H(X&#x2F;Y) \<br>H(XY) &amp;&#x3D; H(X) + H(Y) \quad \text{X与Y统计独立时}<br>\end{align*}<br>$$</p>
+<ul>
+<li><strong>Concavity</strong></li>
+</ul>
+<p>For $f$, take any two vectors $X$ and $Y$ in its domain. If:</p>
+<p>$$f[aX + (1 - a)Y] &gt; af(X) + (1 - a)f(Y)$$</p>
+<h2 id="2-Mathematical-Models-of-Sources"><a href="#2-Mathematical-Models-of-Sources" class="headerlink" title="2. Mathematical Models of Sources"></a>2. Mathematical Models of Sources</h2><p>In a communication system, a <strong>source</strong> can be regarded as a random process that generates messages. Since its output is random, it may be described by:</p>
+<ul>
+<li>a random variable, for a single-symbol source;</li>
+<li>a random vector, for a multi-symbol source;</li>
+<li>a random process, for a continuous-time source.</li>
+</ul>
+<p>In information theory, a source is defined as a device capable of randomly sending different messages according to their probabilities. Mathematically:</p>
+<p>$$<br>\begin{bmatrix}<br>X\<br>P(x)<br>\end{bmatrix}</p>
+<p>&#x3D;</p>
+<p>\begin{bmatrix}<br>a_1 &amp; a_2 &amp; a_3 &amp; … &amp; a_q\<br>P(a_1) &amp; P(a_2) &amp; P(a_3) &amp; … &amp; P(a_q)<br>\end{bmatrix}<br>$$</p>
+<p>This, of course, is a discrete source. The form of a continuous source is obvious at a glance, so I will not write it out.</p>
+<p>The model above is the simplest case, a single-symbol source. A multi-symbol discrete source can instead be described by a random vector.</p>
+<p>Incidentally, a continuous source is described by a random process. That belongs to another course, random-signal analysis, and will not be examined here.</p>
+<p>Similarly, let me briefly mention the destination. If it is represented by Y, its mathematical model may be written as:</p>
+<p>$$\begin{bmatrix}<br>Y\<br>P(y)<br>\end{bmatrix}</p>
+<p>&#x3D;</p>
+<p>\begin{bmatrix}<br>b_1 &amp; b_2 &amp; b_3 &amp; … &amp; b_q\<br>P(b_1) &amp; P(b_2) &amp; P(b_3) &amp; … &amp; P(b_q)<br>\end{bmatrix}$$</p>
+<h2 id="3-Examples-of-Typical-Discrete-Sources"><a href="#3-Examples-of-Typical-Discrete-Sources" class="headerlink" title="3. Examples of Typical Discrete Sources"></a>3. Examples of Typical Discrete Sources</h2><h3 id="An-Extended-Discrete-Memoryless-Source"><a href="#An-Extended-Discrete-Memoryless-Source" class="headerlink" title="An Extended Discrete Memoryless Source"></a>An Extended Discrete Memoryless Source</h3><p>A discrete memoryless source is simple: successive symbols are statistically independent, so I will skip the details.</p>
+<p>On this basis, if N binary digits are treated as one group, the new source is called the Nth extension of a binary memoryless source.</p>
+<p>Its information entropy gains another property:</p>
+<p>$$H(X^N)&#x3D;NH(X)$$</p>
+<p>The result is easy to see. Before extension, we calculate with $H(X)$. If the source is extended N times, we merely add another $H(X)$ for each extension.</p>
+<h3 id="A-Discrete-Stationary-Source"><a href="#A-Discrete-Stationary-Source" class="headerlink" title="A Discrete Stationary Source"></a>A Discrete Stationary Source</h3><p>One point should be made first. After the memoryless source discussed above, the following models are assumed to have memory: the message sent at the next moment is related to the one sent at the preceding moment.</p>
+<p>Thinking about it more carefully, this is natural. If no relationship existed, the model could simply be treated as a memoryless source, and there would be no need to introduce the idea of a stationary source.</p>
+<p>Stationarity has now appeared in three courses. Random-signal analysis introduced wide-sense and strict-sense stationarity, communication principles discussed it, and here it is again.</p>
+<p>In random-signal analysis, wide-sense stationarity means that the one-dimensional probability distribution is independent of time while the two-dimensional distribution depends only on the time interval. More directly, it is sufficient that the autocorrelation function and mean be independent of time.</p>
+<p>The definition here resembles wide-sense stationarity: <strong>the statistical properties of the sequence do not change as time passes</strong>.</p>
+<p><strong>One point is essential: conditional probabilities of different orders depend only on the correlation length N, not on the starting time; conditional entropies of different orders likewise depend only on the correlation length, not on the starting time.</strong> This is the key idea of the chapter.</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510231438115.png" srcset="/img/loading.gif" lazyload alt="Screenshot 2025-10-23 143434.png"></p>
+<p>A discrete stationary source has several properties of its own:</p>
+<ul>
+<li><p>At any moment $t$, its statistical properties do not vary with time.</p>
+</li>
+<li><p>The $N$th-order conditional entropy $H(X_N|X_1…X_{N-1})$ is <strong>monotonically non-increasing</strong> as $N$ grows. This is easy to understand—rather like the Order of Enfeoffment.</p>
+</li>
+<li><p>A limiting entropy exists:</p>
+</li>
+</ul>
+<p>$$H_\infty &#x3D; \lim_{N \to \infty} H(X_N|X_1…X_{N-1})$$</p>
+<p>The <strong>limiting entropy</strong> deserves some further explanation.</p>
+<h3 id="Limiting-Entropy"><a href="#Limiting-Entropy" class="headerlink" title="Limiting Entropy"></a>Limiting Entropy</h3><p>Why introduce limiting entropy?</p>
+<p>If a source is memoryless, every symbol is completely independent of every other. The average amount of information produced whenever a symbol is emitted is therefore fixed:</p>
+<p>$$H(X_1, X_2, \ldots, X_N) &#x3D; N \cdot H(X)$$</p>
+<p>Obviously, however, we need to allow for sources with memory, in which a symbol is inevitably influenced by the previous symbol or even by many earlier ones. Conditional entropy is introduced to describe precisely this phenomenon.</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510231438638.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h3 id="A-Two-Dimensional-Stationary-Source"><a href="#A-Two-Dimensional-Stationary-Source" class="headerlink" title="A Two-Dimensional Stationary Source"></a>A Two-Dimensional Stationary Source</h3><p>The simplest stationary source is two-dimensional and contains dependence only between two consecutive symbols. We can analyse its second-order extension.</p>
+<p>Unlike a memoryless source, it has not only a joint probability distribution but also a conditional probability. Given that $a_i$ has appeared, this is the probability that $a_{i+1}$ appears next.</p>
+<p>According to the characteristics of the symbol sequence emitted by a two-dimensional discrete source, every two symbols can be placed in one group, and each group represents a symbol of the new source $X &#x3D; X_1X_2$. We also assume that different groups are statistically independent and uncorrelated.</p>
+<p>The result is a new discrete memoryless source $X_1X_2$, whose joint probability space is:</p>
+<h1 id="begin-bmatrix-X-1X-2-P-x-1x-2-end-bmatrix"><a href="#begin-bmatrix-X-1X-2-P-x-1x-2-end-bmatrix" class="headerlink" title="$$\begin{bmatrix}X_1X_2 \P(x_1x_2)\end{bmatrix}"></a>$$<br>\begin{bmatrix}<br>X_1X_2 \<br>P(x_1x_2)<br>\end{bmatrix}</h1><p>\begin{bmatrix}<br>a_1a_1, a_1a_2, \dots, a_{q-1}a_q, a_q a_q \<br>P(a_i a_j) &#x3D; P(a_i)P(a_j \mid a_i)<br>\end{bmatrix}<br>$$</p>
+<p>On this basis, we examine the information entropy of the source.</p>
+<ul>
+<li><strong>Joint entropy</strong></li>
+</ul>
+<p>$$<br>H(X_1X_2) &#x3D; -\sum_{i&#x3D;1}^{q} \sum_{j&#x3D;1}^{q} P(a_i a_j) \log P(a_i a_j)<br>$$</p>
+<p>Because the source is stationary, perhaps half of this $H(X_1H_2)$ can directly represent the original unextended version. This description seems problematic.</p>
+<ul>
+<li><strong>Conditional entropy</strong></li>
+</ul>
+<p>$$H(X_2 \mid X_1 &#x3D; a_i) &#x3D; -\sum_{j&#x3D;1}^{q} P(a_j \mid a_i) \log P(a_j \mid a_i)$$</p>
+<p>$$\begin{align*}<br>H(X_2 \mid X_1) &amp;&#x3D; \sum_{i&#x3D;1}^{q} P(a_i) H(X_2 \mid X_1 &#x3D; a_i) \<br>&amp;&#x3D; -\sum_{i&#x3D;1}^{q} \sum_{j&#x3D;1}^{q} P(a_i) P(a_j \mid a_i) \log P(a_j \mid a_i) \<br>&amp;&#x3D; -\sum_{i&#x3D;1}^{q} \sum_{j&#x3D;1}^{q} P(a_i a_j) \log P(a_j \mid a_i)<br>\end{align*}<br>$$</p>
+<h3 id="Markov-Sources"><a href="#Markov-Sources" class="headerlink" title="Markov Sources"></a>Markov Sources</h3><ul>
+<li>Definition</li>
+</ul>
+<p>A Markov source is a source in which <strong>symbols have a finite dependence on one another</strong>. Markov chains and Markov processes share the same central idea.</p>
+<p>The output at any moment depends only on the preceding $m$ symbols:</p>
+<p>$$P(x_n|x_{n-1}, x_{n-2}, …, x_1) &#x3D; P(x_n|x_{n-1}, …, x_{n-m})<br>$$</p>
+<p>When $m&#x3D;0$: a discrete memoryless source.</p>
+<p>When $m&#x3D;1$: a first-order Markov source.</p>
+<p>To describe the state of a Markov source at successive moments, we introduce a state space and state-transition probabilities, which can be extended into a state-transition matrix.</p>
+<p>The state space—the range of states, or the probabilities of the possible results—is $E&#x3D;{E_1,E_2,…,E_J}$, while the symbol alphabet, which is effectively its set of subscripts, is $X&#x3D;{a_1,a_2,…,a_q}$.</p>
+<p>Definitions:</p>
+<ul>
+<li><p><strong>Emission probability</strong>: $p(a_k|E_i)$</p>
+</li>
+<li><p><strong>State-transition probability</strong>: $p(E_j|E_i)$</p>
+</li>
+</ul>
+<p>If these probabilities are independent of time, the process is called a <strong>homogeneous Markov chain</strong>.</p>
+<p>In the state-transition diagram of a Markov chain, every circle represents a state and a directed line between two states represents a transition from one to the other. The symbol and number beside a directed line represent, respectively, the emitted symbol and conditional probability.</p>
+<p>For an mth-order source:</p>
+<p>$$H_{m+1} &#x3D; -\sum_{x_{1}^{m+1}} P(x_{1}^{m+1}) \log P(x_{m+1}|x_1…x_m)$$</p>
+<p>Moreover, $H_0 \ge H_1 \ge H_2 \ge … \ge H_\infty$.</p>
+<p>Ergodicity and limiting entropy:</p>
+<p>If the Markov chain is <strong>ergodic</strong>, a unique <strong>stationary distribution</strong> exists:</p>
+<p>$$Q(E_i) &#x3D; \sum_j Q(E_j)p(E_i|E_j)$$</p>
+<p>The limiting entropy is:</p>
+<p>$$H_\infty &#x3D; -\sum_{i,j} Q(E_i)p(a_j|E_i)\log p(a_j|E_i)$$</p>
+<p>It should also be noted that the limiting entropy of an mth-order Markov source equals its mth-order conditional entropy; that is, $H_m &#x3D; H_{无穷}$.</p>
+<h3 id="Source-Redundancy-and-the-Entropy-of-Natural-Language"><a href="#Source-Redundancy-and-the-Entropy-of-Natural-Language" class="headerlink" title="Source Redundancy and the Entropy of Natural Language"></a>Source Redundancy and the Entropy of Natural Language</h3><h4 id="Approximating-a-Real-Source"><a href="#Approximating-a-Real-Source" class="headerlink" title="Approximating a Real Source"></a>Approximating a Real Source</h4><p>Real sources are often <strong>non-stationary</strong>, and the limiting entropy $H_\infty$ does not necessarily exist.</p>
+<p>By measuring the conditional probability $P(X_N|X_1X_2…X_{N-1})$ of a sufficiently long sequence, we may approximate:</p>
+<p>$$H_N(X) \approx H_\infty$$</p>
+<h4 id="2-Approximation-with-a-Markov-Source"><a href="#2-Approximation-with-a-Markov-Source" class="headerlink" title="(2) Approximation with a Markov Source"></a>(2) Approximation with a Markov Source</h4><p>The entropy of a stationary source is difficult to calculate, so it may be approximated by the entropy $H_{m+1}$ of an mth-order Markov source:</p>
+<p>$$H_{m+1} \approx H_\infty$$</p>
+<p>The accuracy of the approximation depends on the memory length $m$.</p>
+<h4 id="3-Correlation-Among-Source-Symbols-and-Average-Information"><a href="#3-Correlation-Among-Source-Symbols-and-Average-Information" class="headerlink" title="(3) Correlation Among Source Symbols and Average Information"></a>(3) Correlation Among Source Symbols and Average Information</h4><p>$$\log_2 q &#x3D; H_0 \ge H_1 \ge H_2 \ge … \ge H_m \ge H_\infty$$</p>
+<p>The stronger the dependence, the lower the entropy; the more independent the symbols, the higher the entropy.</p>
+<h2 id="IX-Source-Redundancy-and-Communication-Efficiency"><a href="#IX-Source-Redundancy-and-Communication-Efficiency" class="headerlink" title="IX. Source Redundancy and Communication Efficiency"></a>IX. Source Redundancy and Communication Efficiency</h2><h3 id="1-Definitions"><a href="#1-Definitions" class="headerlink" title="(1) Definitions"></a>(1) Definitions</h3><ul>
+<li><strong>Relative entropy rate</strong>:</li>
+</ul>
+<p>$$  \eta &#x3D; \frac{H_\infty}{H_0}$$</p>
+<ul>
+<li><strong>Source redundancy</strong>:</li>
+</ul>
+<p>$$  \gamma &#x3D; 1 - \eta &#x3D; 1 - \frac{H_\infty}{H_0}$$</p>
+<h3 id="2-Meaning"><a href="#2-Meaning" class="headerlink" title="(2) Meaning"></a>(2) Meaning</h3><ul>
+<li>( \gamma ) reflects the dependence among symbols.</li>
+<li>The greater ( \gamma ) is, the more compressible the source becomes.</li>
+</ul>
+<p>For example, the redundancy of English is:<br>[<br>\gamma &#x3D; 1 - \frac{1.41}{\log_2 27} \approx 0.71<br>]<br>→ <strong>Seventy-one per cent of the information in English is predictable</strong>, leaving only 29 per cent as free variation.</p>
+<h3 id="3-Conclusions"><a href="#3-Conclusions" class="headerlink" title="(3) Conclusions"></a>(3) Conclusions</h3><ul>
+<li>High redundancy → easy compression and strong resistance to noise.</li>
+<li>Low redundancy → high efficiency but greater vulnerability to interference.</li>
+<li>Coding must balance <strong>efficiency</strong> against <strong>reliability</strong>.</li>
+</ul>
+<hr>
+<h2 id="X-Communication-Efficiency-and-Reliability"><a href="#X-Communication-Efficiency-and-Reliability" class="headerlink" title="X. Communication Efficiency and Reliability"></a>X. Communication Efficiency and Reliability</h2><ul>
+<li><strong>Source coding</strong> reduces redundancy and improves efficiency.</li>
+<li><strong>Channel coding</strong> adds redundancy and improves reliability.</li>
+</ul>
+<p>Together they form the fundamental tension and point of balance in an information-transmission system.</p>
+<hr>
+<p>📘 <strong>Summary</strong></p>
+<blockquote>
+<p>The essence of this chapter is to understand entropy as a measure of information.<br>Markov sources describe the finite memory of real sources,<br>while redundancy and limiting entropy reveal both the compressibility of linguistic information and its resistance to interference.</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Study-Notes/" class="print-no-link">#Study Notes</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Information Theory, Chapter 2: Discrete Sources and Measures of Information</div>
+      <div>https://hwnote.space/en/posts/2025/10/23/discrete-source-entropy/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>October 23, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js"></script>
+<script src="/js/bilingual-switch.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
