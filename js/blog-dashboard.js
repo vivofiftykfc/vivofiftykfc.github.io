@@ -3,6 +3,16 @@
 
   if (!/^\/?(?:index\.html)?$/.test(window.location.pathname)) return;
 
+  var dashboardData = null;
+
+  function isEnglish() {
+    return document.documentElement.getAttribute('data-site-language') === 'en';
+  }
+
+  function text(chinese, english) {
+    return isEnglish() ? english : chinese;
+  }
+
   function escapeHtml(value) {
     return String(value == null ? '' : value)
       .replace(/&/g, '&amp;')
@@ -21,6 +31,11 @@
 
   function compactNumber(value) {
     var number = Number(value || 0);
+    if (isEnglish()) {
+      if (number >= 1000000) return (number / 1000000).toFixed(number >= 10000000 ? 0 : 1).replace(/\.0$/, '') + 'M';
+      if (number >= 1000) return (number / 1000).toFixed(number >= 100000 ? 0 : 1).replace(/\.0$/, '') + 'K';
+      return number.toLocaleString('en-US');
+    }
     if (number >= 10000) return (number / 10000).toFixed(number >= 100000 ? 0 : 1) + '万';
     return number.toLocaleString('zh-CN');
   }
@@ -37,7 +52,7 @@
     }).join('');
 
     return '<article class="zhw-card zhw-now-card">' +
-      '<div class="zhw-card-heading"><span class="zhw-eyebrow">NOW / 最近施工</span>' +
+      '<div class="zhw-card-heading"><span class="zhw-eyebrow">' + text('NOW / 最近施工', 'NOW / CURRENT WORK') + '</span>' +
       '<time>' + escapeHtml(now && now.updated) + '</time></div>' +
       '<ul class="zhw-now-list">' + rows + '</ul>' +
     '</article>';
@@ -46,26 +61,28 @@
   function buildRandomCard(postCount) {
     return '<article class="zhw-card zhw-random-card">' +
       '<span class="zhw-eyebrow">RANDOM WALK</span>' +
-      '<h3>随便看看</h3>' +
-      '<p>从 ' + escapeHtml(postCount) + ' 篇文章中随机抽一张，可能是一份碎碎念，也有可能是一份完整教程。</p>' +
-      '<button type="button" id="zhw-random-post">抽一篇旧文章 <span aria-hidden="true">↗</span></button>' +
+      '<h3>' + text('随便看看', 'Random Reading') + '</h3>' +
+      '<p>' + (isEnglish()
+        ? 'Pick at random from ' + escapeHtml(postCount) + ' translated posts: perhaps a brief reflection, perhaps a complete tutorial.'
+        : '从 ' + escapeHtml(postCount) + ' 篇文章中随机抽一张，可能是一份碎碎念，也有可能是一份完整教程。') + '</p>' +
+      '<button type="button" id="zhw-random-post">' + text('抽一篇旧文章', 'Pick an Older Post') + ' <span aria-hidden="true">↗</span></button>' +
     '</article>';
   }
 
   function buildStatsCard(stats) {
     var entries = [
-      ['文章', compactNumber(stats.postCount)],
-      ['约计字数', compactNumber(stats.totalWords)],
-      ['写作日', compactNumber(stats.writingDays)],
-      ['标签', compactNumber(stats.tagCount)]
+      [text('文章', 'Posts'), compactNumber(stats.postCount)],
+      [text('约计字数', 'Approx. Words'), compactNumber(stats.totalWords)],
+      [text('写作日', 'Writing Days'), compactNumber(stats.writingDays)],
+      [text('标签', 'Tags'), compactNumber(stats.tagCount)]
     ];
     var cells = entries.map(function (entry) {
       return '<div><strong>' + escapeHtml(entry[1]) + '</strong><span>' + escapeHtml(entry[0]) + '</span></div>';
     }).join('');
 
     return '<article class="zhw-card zhw-stats-card">' +
-      '<div class="zhw-card-heading"><div><span class="zhw-eyebrow">SITE DATA</span><h3>全站数据</h3></div>' +
-      '<small>' + escapeHtml(stats.firstPostDate) + ' 起</small></div>' +
+      '<div class="zhw-card-heading"><div><span class="zhw-eyebrow">SITE DATA</span><h3>' + text('全站数据', 'Site Statistics') + '</h3></div>' +
+      '<small>' + (isEnglish() ? 'Since ' : '') + escapeHtml(stats.firstPostDate) + (isEnglish() ? '' : ' 起') + '</small></div>' +
       '<div class="zhw-stats-grid">' + cells + '</div>' +
     '</article>';
   }
@@ -89,14 +106,14 @@
       var level = count === 0 ? 0 : count === 1 ? 1 : count === 2 ? 2 : count === 3 ? 3 : 4;
       if (count > 0) activeDays += 1;
       postTotal += count;
-      cells.push('<span class="zhw-heat-cell level-' + level + '" title="' + key + ' · ' + count + ' 篇" aria-label="' + key + '，' + count + ' 篇"></span>');
+      cells.push('<span class="zhw-heat-cell level-' + level + '" title="' + key + ' · ' + count + text(' 篇', ' posts') + '" aria-label="' + key + text('，', ', ') + count + text(' 篇', ' posts') + '"></span>');
     }
 
     return '<article class="zhw-card zhw-heatmap-card">' +
-      '<div class="zhw-card-heading"><div><span class="zhw-eyebrow">WRITING TRACE</span><h3>过去一年的写作热力图</h3></div>' +
-      '<small>' + activeDays + ' 天写下 ' + postTotal + ' 篇</small></div>' +
-      '<div class="zhw-heatmap-scroll"><div class="zhw-heatmap" role="img" aria-label="过去一年写作热力图">' + cells.join('') + '</div></div>' +
-      '<div class="zhw-heat-legend"><span>少</span><i class="level-0"></i><i class="level-1"></i><i class="level-2"></i><i class="level-3"></i><i class="level-4"></i><span>多</span></div>' +
+      '<div class="zhw-card-heading"><div><span class="zhw-eyebrow">WRITING TRACE</span><h3>' + text('过去一年的写作热力图', 'Writing Activity over the Past Year') + '</h3></div>' +
+      '<small>' + (isEnglish() ? activeDays + ' days · ' + postTotal + ' posts' : activeDays + ' 天写下 ' + postTotal + ' 篇') + '</small></div>' +
+      '<div class="zhw-heatmap-scroll"><div class="zhw-heatmap" role="img" aria-label="' + text('过去一年写作热力图', 'Writing activity over the past year') + '">' + cells.join('') + '</div></div>' +
+      '<div class="zhw-heat-legend"><span>' + text('少', 'Less') + '</span><i class="level-0"></i><i class="level-1"></i><i class="level-2"></i><i class="level-3"></i><i class="level-4"></i><span>' + text('多', 'More') + '</span></div>' +
     '</article>';
   }
 
@@ -115,39 +132,41 @@
           '</span><span class="zhw-track-arrow" aria-hidden="true">↗</span></a></li>';
       }).join('') + '</ol>';
     } else {
-      content = '<p class="zhw-music-empty">本次构建没有取到公开听歌记录，先去网易云主页看看。</p>';
+      content = '<p class="zhw-music-empty">' + text('本次构建没有取到公开听歌记录，先去网易云主页看看。', 'No public listening history was available during this build; visit the NetEase profile instead.') + '</p>';
     }
 
-    var refreshed = generatedAt ? new Date(generatedAt).toLocaleDateString('zh-CN') : '';
+    var refreshed = generatedAt ? new Date(generatedAt).toLocaleDateString(isEnglish() ? 'en-CA' : 'zh-CN') : '';
     return '<article class="zhw-card zhw-music-card">' +
-      '<div class="zhw-card-heading"><div><span class="zhw-eyebrow">NETEASE CLOUD MUSIC</span><h3>最近一周常听</h3></div>' +
-      '<a href="' + escapeHtml(netease.profileUrl) + '" target="_blank" rel="noopener noreferrer">主页 ↗</a></div>' +
-      content + '<p class="zhw-music-note">公开听歌排行 · 构建于 ' + escapeHtml(refreshed) + '</p>' +
+      '<div class="zhw-card-heading"><div><span class="zhw-eyebrow">NETEASE CLOUD MUSIC</span><h3>' + text('最近一周常听', 'Most Played This Week') + '</h3></div>' +
+      '<a href="' + escapeHtml(netease.profileUrl) + '" target="_blank" rel="noopener noreferrer">' + text('主页 ↗', 'Profile ↗') + '</a></div>' +
+      content + '<p class="zhw-music-note">' + (isEnglish() ? 'Public listening chart · built on ' : '公开听歌排行 · 构建于 ') + escapeHtml(refreshed) + '</p>' +
     '</article>';
   }
 
   function mountDashboard(data) {
-    if (window.__zhwDashboardMounted) return;
+    dashboardData = data;
     var target = document.querySelector('#board .col-12.col-md-10.m-auto');
     if (!target) return;
     var board = document.getElementById('board');
     var pageShell = board && board.parentElement;
     if (!board || !pageShell) return;
 
-    window.__zhwDashboardMounted = true;
-    var wrapper = document.createElement('section');
-    wrapper.className = 'zhw-dashboard col-12 col-md-10 m-auto';
-    wrapper.setAttribute('aria-label', '博客概览');
+    var wrapper = document.querySelector('.zhw-dashboard');
+    if (!wrapper) {
+      wrapper = document.createElement('section');
+      wrapper.className = 'zhw-dashboard col-12 col-md-10 m-auto';
+      pageShell.insertBefore(wrapper, board);
+    }
+    wrapper.setAttribute('aria-label', text('博客概览', 'Blog overview'));
     wrapper.innerHTML =
-      '<header class="zhw-dashboard-header"><div><span class="zhw-eyebrow">SITE PULSE</span><h2>博客现在还活着</h2></div>' +
-      '<a class="zhw-tag-entry" href="/tags/"><span aria-hidden="true">#</span> 标签云</a></header>' +
-      '<div class="zhw-primary-grid">' + buildNowCard(data.now || {}) +
+      '<header class="zhw-dashboard-header"><div><span class="zhw-eyebrow">SITE PULSE</span><h2>' + text('博客现在还活着', 'The Blog Is Still Alive') + '</h2></div>' +
+      '<a class="zhw-tag-entry" href="/tags/"><span aria-hidden="true">#</span> ' + text('标签云', 'Tag Cloud') + '</a></header>' +
+      '<div class="zhw-primary-grid">' + buildNowCard(isEnglish() ? (data.nowEn || data.now || {}) : (data.now || {})) +
       '<div class="zhw-side-stack">' + buildRandomCard((data.posts || []).length) + buildStatsCard(data.stats || {}) + '</div></div>' +
       '<div class="zhw-secondary-grid">' + buildHeatmap(data.heatmap || {}) + buildMusicCard(data.netease || {}, data.generatedAt) + '</div>';
 
     board.classList.add('zhw-dashboard-mounted');
     pageShell.classList.add('zhw-page-shell');
-    pageShell.insertBefore(wrapper, board);
 
     var heatmapScroll = wrapper.querySelector('.zhw-heatmap-scroll');
     if (heatmapScroll) {
@@ -166,9 +185,12 @@
         var posts = Array.isArray(data.posts) ? data.posts : [];
         if (!posts.length) return;
         var picked = posts[Math.floor(Math.random() * posts.length)];
-        window.location.href = picked.url;
+        var language = window.ZHWSiteLanguage;
+        window.location.href = language ? language.routeFor(picked.url, language.current()) : picked.url;
       });
     }
+
+    document.dispatchEvent(new CustomEvent('zhw:dashboardrendered'));
   }
 
   function init() {
@@ -182,6 +204,10 @@
         console.warn('[blog-dashboard] data unavailable:', error.message);
       });
   }
+
+  document.addEventListener('zhw:languageapplied', function () {
+    if (dashboardData) mountDashboard(dashboardData);
+  });
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init, { once: true });

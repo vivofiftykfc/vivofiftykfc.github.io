@@ -186,11 +186,11 @@
       
       <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
-      <category domain="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/">实践</category>
-      
       <category domain="https://hwnote.space/tags/%E4%BD%9B%E5%AD%A6/">佛学</category>
       
       <category domain="https://hwnote.space/tags/%E5%AE%97%E6%95%99/">宗教</category>
+      
+      <category domain="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/">实践</category>
       
       
       <comments>https://hwnote.space/posts/2026/08/06/buddhism-is-not-just-letting-go/#disqus_thread</comments>
@@ -213,11 +213,11 @@
       
       <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
+      <category domain="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/">实践</category>
+      
       <category domain="https://hwnote.space/tags/%E5%93%B2%E5%AD%A6/">哲学</category>
       
       <category domain="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5%E8%AE%BA/">认知论</category>
-      
-      <category domain="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/">实践</category>
       
       <category domain="https://hwnote.space/tags/%E6%97%B6%E4%BB%A3/">时代</category>
       
@@ -352,11 +352,11 @@
       
       <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
+      <category domain="https://hwnote.space/tags/%E5%8F%8B%E6%83%85/">友情</category>
+      
       <category domain="https://hwnote.space/tags/%E5%85%B3%E7%B3%BB/">关系</category>
       
       <category domain="https://hwnote.space/tags/%E4%B8%BB%E4%BD%93%E6%80%A7/">主体性</category>
-      
-      <category domain="https://hwnote.space/tags/%E5%8F%8B%E6%83%85/">友情</category>
       
       
       <comments>https://hwnote.space/posts/2026/07/14/islands-and-continent/#disqus_thread</comments>
@@ -702,9 +702,9 @@
       <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
       
       
-      <category domain="https://hwnote.space/tags/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86/">第一性原理</category>
-      
       <category domain="https://hwnote.space/tags/PDF/">PDF</category>
+      
+      <category domain="https://hwnote.space/tags/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86/">第一性原理</category>
       
       <category domain="https://hwnote.space/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">信号与系统</category>
       
@@ -2040,27 +2040,6 @@
     </item>
     
     <item>
-      <title>Hexo+Fluid+Obsidian博客搭建及优化</title>
-      <link>https://hwnote.space/posts/2025/04/07/building-this-blog/</link>
-      <guid>https://hwnote.space/posts/2025/04/07/building-this-blog/</guid>
-      <pubDate>Mon, 07 Apr 2025 15:14:11 GMT</pubDate>
-      
-      <description>记录本博客搭建过程和相关博文的写作工作流</description>
-      
-      
-      
-      
-      <category domain="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/">折腾杂项</category>
-      
-      
-      <category domain="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/">折腾的小杂项</category>
-      
-      
-      <comments>https://hwnote.space/posts/2025/04/07/building-this-blog/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>批处理文件（.bat）入门</title>
       <link>https://hwnote.space/posts/2025/04/07/batch-file/</link>
       <guid>https://hwnote.space/posts/2025/04/07/batch-file/</guid>
@@ -2078,6 +2057,27 @@
       
       
       <comments>https://hwnote.space/posts/2025/04/07/batch-file/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Hexo+Fluid+Obsidian博客搭建及优化</title>
+      <link>https://hwnote.space/posts/2025/04/07/building-this-blog/</link>
+      <guid>https://hwnote.space/posts/2025/04/07/building-this-blog/</guid>
+      <pubDate>Mon, 07 Apr 2025 15:14:11 GMT</pubDate>
+      
+      <description>记录本博客搭建过程和相关博文的写作工作流</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/">折腾杂项</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/">折腾的小杂项</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/04/07/building-this-blog/#disqus_thread</comments>
       
     </item>
     
