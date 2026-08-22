@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>重学英语</title>
+    <link href="/posts/2026/08/22/relearning-english/"/>
+    <url>/posts/2026/08/22/relearning-english/</url>
+    
+    <content type="html"><![CDATA[<p>这几天重新学英语，意外发现用英语思考是个终止胡思乱想的好办法。</p><p>可能是因为词汇量还没有多到能供我自由发挥。换成中文，一件小事能顺着情绪、过去和将来一路递归下去；换成英语，脑子里只剩下：谁，做了什么，为什么。</p><p>这样学着学着，英语好像也没有原来想的那么难。语言无非是用来陈述事实、表达关系的工具：共性的句子结构是语法，具体要说什么由词汇填进去，中间再用一些词交代因果、转折和条件。一句话怎么长出来，几句话又怎样连成一段完整的意思，慢慢拆开来看，甚至有点爽。</p><p>从头学习一门语言，也确实像是在重新训练表达。以前很多话凭语感就说完了，现在却必须看清主谓宾，看清一句判断的前提到底在哪里。至少在这一点上，英语逼着我严谨了一些。</p><p>当然，这样来训练自己的表达能力的副作用也很明显：本来聊天就像写论文，这下更像写论文了。当然怎么学习正常人类的说话方式这一部分的内容之后再说</p><p>嗯，下面是梳理出来的英语的核心语法大纲：</p><h2 id="一、句子的主干"><a href="#一、句子的主干" class="headerlink" title="一、句子的主干"></a>一、句子的主干</h2><p>主语、谓语和宾语或补语构成句子的主干；定语和状语负责向外扩展；从句则是把一整句话塞进某个句子成分里。</p><p>英语最基本的主干可以分成五种：</p><table><thead><tr><th>结构</th><th>作用</th><th>例句</th></tr></thead><tbody><tr><td>SV</td><td>主语 + 谓语</td><td>Birds fly.</td></tr><tr><td>SVO</td><td>主语 + 谓语 + 宾语</td><td>I like music.</td></tr><tr><td>SVC</td><td>主语 + 系动词 + 表语</td><td>She is happy.</td></tr><tr><td>SVOO</td><td>主语 + 谓语 + 间接宾语 + 直接宾语</td><td>I gave him a book.</td></tr><tr><td>SVOC</td><td>主语 + 谓语 + 宾语 + 宾语补语</td><td>I found the book useful.</td></tr></tbody></table><p>这五种结构是骨架。这里尤其要补一个“表语”。在 <code>She is happy.</code> 里面，<code>happy</code> 不是宾语，而是在说明主语 <code>She</code> 是什么状态，所以它是表语，也可以叫主语补语。</p><h2 id="二、什么东西能占据主语和宾语"><a href="#二、什么东西能占据主语和宾语" class="headerlink" title="二、什么东西能占据主语和宾语"></a>二、什么东西能占据主语和宾语</h2><p>主语、宾语和表语的位置，不只可以放一个名词，还可以逐渐放进更复杂的东西：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">名词或代词 → 名词短语 → 不定式或动名词 → 名词性从句<br></code></pre></td></tr></table></figure><p>比如：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">I like music.<br>I like reading.<br>I want to read.<br>I know that he is right.<br>What he said surprised me.<br></code></pre></td></tr></table></figure><p>英语可以把一个动作，甚至一整件事，当成一个“东西”放进句子里。理解了这一点，名词性从句就没那么神秘了。</p><h2 id="三、定语：扩展名词"><a href="#三、定语：扩展名词" class="headerlink" title="三、定语：扩展名词"></a>三、定语：扩展名词</h2><p>定语回答的是：<strong>哪一个？什么样的？</strong></p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">形容词：a beautiful girl<br>介词短语：the book on the table<br>分词：the man standing there<br>不定式：something to eat<br>定语从句：the book that I bought yesterday<br></code></pre></td></tr></table></figure><p>这些形式长得不同，做的却是同一件事：给一个名词增加信息。</p><h2 id="四、状语：扩展动作或者整句话"><a href="#四、状语：扩展动作或者整句话" class="headerlink" title="四、状语：扩展动作或者整句话"></a>四、状语：扩展动作或者整句话</h2><p>状语回答的是：<strong>什么时候、在哪里、为什么、怎样、在什么条件下、为了什么？</strong></p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">副词：He runs quickly.<br>介词短语：He studies in the library.<br>不定式表目的：I study to pass the exam.<br>状语从句：I stayed home because it was raining.<br></code></pre></td></tr></table></figure><p>因果、条件、让步、时间和目的这些逻辑关系，大多会在这里出现。</p><h2 id="五、补语和表语：把意思补完整"><a href="#五、补语和表语：把意思补完整" class="headerlink" title="五、补语和表语：把意思补完整"></a>五、补语和表语：把意思补完整</h2><p>有些动词后面只有一个名词还不够，需要继续说明主语或宾语是什么、怎么样，或者做了什么。</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">She is smart.<br>The news made me happy.<br>I saw him leave.<br>I want you to understand this.<br></code></pre></td></tr></table></figure><p>这里会碰到系动词、表语、宾语补足语、不定式和分词。判断它们时先别急着背名字，只问一句：<strong>这部分是在描述谁，或者补全谁的状态？</strong></p><h2 id="六、动词系统"><a href="#六、动词系统" class="headerlink" title="六、动词系统"></a>六、动词系统</h2><p>英语句子的很多变化都由动词控制。与其把所谓十二或者十六种时态分别背成表格，不如先看四件事：</p><ul><li><strong>时态（tense）</strong>：事情位于过去还是现在。</li><li><strong>体（aspect）</strong>：把事情看成正在进行、已经完成，还是一般状态。</li><li><strong>语态（voice）</strong>：谁做动作，谁承受动作。</li><li><strong>情态（modality）</strong>：能、应该、必须、可能等态度。</li></ul><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs text">I study.<br>I am studying.<br>I have studied.<br>I studied.<br>I will study.<br>I can study.<br>It was studied.<br></code></pre></td></tr></table></figure><p>这些不是几张互不相干的表，而是人从不同的时间、状态和态度去描述同一个动作。</p><h2 id="七、非谓语：把动作变成句子零件"><a href="#七、非谓语：把动作变成句子零件" class="headerlink" title="七、非谓语：把动作变成句子零件"></a>七、非谓语：把动作变成句子零件</h2><p>不定式、动名词和分词都来自动词，但不再独立充当一句话的谓语。它们可以变成名词、定语、状语或者补语：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">To learn a language takes time.<br>Reading helps me think.<br>The man standing there is my teacher.<br>I study English to express myself clearly.<br></code></pre></td></tr></table></figure><p>所以“非谓语”不该只按固定搭配记。更重要的问题仍然是：<strong>它此刻在句子里充当什么成分？</strong></p><h2 id="八、三类从句"><a href="#八、三类从句" class="headerlink" title="八、三类从句"></a>八、三类从句</h2><p>三类从句其实就是把原来由一个词或短语承担的工作，交给一整句话。</p><table><thead><tr><th>从句</th><th>在大句子里充当什么</th><th>例句</th></tr></thead><tbody><tr><td>名词性从句</td><td>主语、宾语或表语</td><td>I think <strong>that he is right</strong>.</td></tr><tr><td>定语从句</td><td>定语，修饰名词</td><td>The man <strong>who came yesterday</strong> is my teacher.</td></tr><tr><td>状语从句</td><td>原因、条件、时间、让步等状语</td><td>I stayed home <strong>because it was raining</strong>.</td></tr></tbody></table><h2 id="九、句子之间的逻辑"><a href="#九、句子之间的逻辑" class="headerlink" title="九、句子之间的逻辑"></a>九、句子之间的逻辑</h2><p>最后再用连接词把几句话连起来，才从“造句”进入“表达一段完整的逻辑”。</p><table><thead><tr><th>逻辑关系</th><th>常用表达</th></tr></thead><tbody><tr><td>因果</td><td>because &#x2F; so &#x2F; therefore</td></tr><tr><td>转折与让步</td><td>but &#x2F; however &#x2F; although</td></tr><tr><td>条件</td><td>if &#x2F; unless</td></tr><tr><td>目的</td><td>to &#x2F; in order to &#x2F; so that</td></tr><tr><td>递进</td><td>and &#x2F; also &#x2F; moreover &#x2F; not only…but also</td></tr><tr><td>比较</td><td>than &#x2F; as…as &#x2F; compared with</td></tr><tr><td>举例</td><td>for example &#x2F; such as</td></tr><tr><td>解释与换言</td><td>in other words &#x2F; that is &#x2F; which means</td></tr><tr><td>推论</td><td>therefore &#x2F; thus &#x2F; as a result</td></tr></tbody></table><p>初学时先把因果、转折、条件和目的练熟，已经足够表达不少完整观点。还要注意两个常见的中式结构：英语通常不同时使用 <code>because...so...</code>，也不同时使用 <code>although...but...</code>。连接关系保留一边就够了。</p><h2 id="十、学习顺序"><a href="#十、学习顺序" class="headerlink" title="十、学习顺序"></a>十、学习顺序</h2><p>整套语法可以先压成一条线：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">单词 → 短语 → 句子成分 → 简单句 → 复合句 → 有逻辑的段落<br></code></pre></td></tr></table></figure><p>再具体一点：</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs text">五种基本句型<br>→ 名词和名词短语<br>→ 定语<br>→ 状语<br>→ 补语和表语<br>→ 时态、体、语态、情态<br>→ 不定式、动名词、分词<br>→ 名词性从句、定语从句、状语从句<br>→ 连接词和段落逻辑<br></code></pre></td></tr></table></figure><p>eg.</p><blockquote><p>The student <strong>who is sitting by the window</strong> studies English <strong>because he wants to study abroad</strong>.</p></blockquote><p>先把两块加粗的部分拿掉，只剩：</p><blockquote><p>The student studies English.</p></blockquote><p>这是最普通的 SVO。前一块是定语从句；后一块是原因状语从句。所谓长难句，很多时候不过是先有一句很简单的话，再一层层往上长东西。</p><h2 id="十一、还没有展开的知识点"><a href="#十一、还没有展开的知识点" class="headerlink" title="十一、还没有展开的知识点"></a>十一、还没有展开的知识点</h2><p>上面这套大纲讲清楚了英语语法的核心结构：一句话有什么主干，怎样增加成分，怎样扩展成从句，又怎样连接成一段逻辑。但它还不是全部语法知识点。下面这些内容仍然在图里，只是暂时没有逐项展开。</p><table><thead><tr><th>模块</th><th>还没有展开的知识点</th></tr></thead><tbody><tr><td>名词系统</td><td>可数与不可数、单复数、所有格、冠词、限定词、数量词、代词</td></tr><tr><td>形容词与副词</td><td>在句子中的位置、比较级、最高级、程度修饰、<code>as...as</code></td></tr><tr><td>介词系统</td><td>时间关系、空间关系、抽象关系、介词搭配</td></tr><tr><td>动词系统</td><td>及物与不及物、动词配价、助动词、短语动词、主谓一致</td></tr><tr><td>时体语态</td><td>各种时体的具体意义、被动语态的使用和限制、时态呼应</td></tr><tr><td>情态系统</td><td><code>can/could/may/might/must/should</code> 表示能力、可能、推测、义务和语气时的差别</td></tr><tr><td>句子变形</td><td>否定句、一般疑问句、特殊疑问句、祈使句、感叹句</td></tr><tr><td>特殊句式</td><td><code>there be</code>、形式主语与形式宾语 <code>it</code>、强调句、倒装、省略、替代</td></tr><tr><td>非谓语细节</td><td><code>to do</code> 与 <code>doing</code> 的选择、现在分词与过去分词、独立主格、悬垂修饰</td></tr><tr><td>从句细节</td><td><code>that/whether/what</code> 的区别、限制性与非限制性定语从句、关系代词、关系副词</td></tr><tr><td>条件与虚拟</td><td>真实条件、非真实条件、虚拟语气、混合条件句</td></tr><tr><td>引语系统</td><td>直接引语、间接引语，以及转换时的人称、时态、时间和地点变化</td></tr><tr><td>句间组织</td><td>并列、平行结构、照应、省略、替代、标点与信息衔接</td></tr><tr><td>实际使用</td><td>固定搭配、语域、礼貌程度、重音、语调和信息焦点</td></tr></tbody></table><p>这里面有些属于狭义语法，有些已经接近词汇、语用和篇章组织。暂时把它们放在一起，是因为真正使用英语时，这些东西本来也不会按照课本章节分别出现。</p><p>给这些语法框架梳理清楚之后，我再来刷一些视频，下意识的就开始分析句子的语言结构，作者的行文逻辑，然后发现大多数的对话是如此的言之无物，中间包含的内容也是如此的贫瘠，当然有关这些的东西也之后再说吧。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>想法思考</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>一些思考</tag>
+      
+      <tag>语言</tag>
+      
+      <tag>认知</tag>
+      
+      <tag>英语</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>从零制作华为平板自定义主题：HWT 动态锁屏与桌面壁纸实战</title>
     <link href="/posts/2026/08/14/hwt/"/>
     <url>/posts/2026/08/14/hwt/</url>
@@ -20,11 +51,11 @@
     
     <tags>
       
+      <tag>PDF</tag>
+      
       <tag>折腾的小杂项</tag>
       
       <tag>生活美学</tag>
-      
-      <tag>PDF</tag>
       
     </tags>
     
@@ -82,9 +113,9 @@
       
       <tag>一些思考</tag>
       
-      <tag>认知</tag>
-      
       <tag>语言</tag>
+      
+      <tag>认知</tag>
       
       <tag>对话</tag>
       
@@ -115,9 +146,9 @@
       
       <tag>实践</tag>
       
-      <tag>老庄</tag>
-      
       <tag>认知</tag>
+      
+      <tag>老庄</tag>
       
     </tags>
     
@@ -204,11 +235,11 @@
       
       <tag>一些思考</tag>
       
+      <tag>实践</tag>
+      
       <tag>佛学</tag>
       
       <tag>宗教</tag>
-      
-      <tag>实践</tag>
       
     </tags>
     
@@ -235,11 +266,11 @@
       
       <tag>一些思考</tag>
       
-      <tag>实践</tag>
-      
       <tag>哲学</tag>
       
       <tag>认知论</tag>
+      
+      <tag>实践</tag>
       
       <tag>时代</tag>
       
@@ -291,9 +322,9 @@
     
     <tags>
       
-      <tag>生活美学</tag>
-      
       <tag>PDF</tag>
+      
+      <tag>生活美学</tag>
       
       <tag>投资</tag>
       
@@ -324,15 +355,15 @@
     
     <tags>
       
-      <tag>生活美学</tag>
-      
       <tag>PDF</tag>
       
-      <tag>调研报告</tag>
+      <tag>生活美学</tag>
       
       <tag>烹饪</tag>
       
       <tag>美食</tag>
+      
+      <tag>调研报告</tag>
       
     </tags>
     
@@ -590,8 +621,6 @@
     
     <tags>
       
-      <tag>生活美学</tag>
-      
       <tag>PDF</tag>
       
       <tag>健身</tag>
@@ -599,6 +628,8 @@
       <tag>形象管理</tag>
       
       <tag>审美</tag>
+      
+      <tag>生活美学</tag>
       
     </tags>
     
@@ -623,13 +654,13 @@
     
     <tags>
       
-      <tag>生活美学</tag>
-      
       <tag>PDF</tag>
       
       <tag>形象管理</tag>
       
       <tag>审美</tag>
+      
+      <tag>生活美学</tag>
       
       <tag>面部美学</tag>
       
@@ -656,11 +687,11 @@
     
     <tags>
       
-      <tag>生活美学</tag>
-      
       <tag>PDF</tag>
       
       <tag>形象管理</tag>
+      
+      <tag>生活美学</tag>
       
       <tag>护肤</tag>
       
@@ -689,13 +720,13 @@
     
     <tags>
       
-      <tag>生活美学</tag>
-      
       <tag>PDF</tag>
       
       <tag>形象管理</tag>
       
       <tag>审美</tag>
+      
+      <tag>生活美学</tag>
       
       <tag>发型</tag>
       
@@ -722,15 +753,15 @@
     
     <tags>
       
+      <tag>PDF</tag>
+      
       <tag>生活美学</tag>
       
-      <tag>PDF</tag>
+      <tag>调研报告</tag>
       
       <tag>眼镜</tag>
       
       <tag>配镜</tag>
-      
-      <tag>调研报告</tag>
       
     </tags>
     
@@ -829,9 +860,9 @@
       
       <tag>信号与系统</tag>
       
-      <tag>学习笔记</tag>
-      
       <tag>速成教程</tag>
+      
+      <tag>学习笔记</tag>
       
     </tags>
     
@@ -860,9 +891,9 @@
       
       <tag>PDF</tag>
       
-      <tag>学习笔记</tag>
-      
       <tag>速成教程</tag>
+      
+      <tag>学习笔记</tag>
       
       <tag>雷达信号处理</tag>
       

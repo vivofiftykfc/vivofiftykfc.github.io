@@ -1,6 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Relearning English</title>
+    <url>/en/posts/2026/08/22/relearning-english/</url>
+    <content type="html"><![CDATA[<p>Over the past few days, I have started learning English again. By accident, I discovered that thinking in English is quite a good way to stop my mind running in circles.</p>
+<p>Perhaps my vocabulary is simply not large enough to let my thoughts roam freely. In Chinese, one small event can recurse through emotions, the past, and the future; in English, all that remains in my head is: who did what, and why?</p>
+<p>As I continued, English also began to seem less difficult than I had imagined. Language is, after all, a tool for stating facts and expressing relationships. Grammar provides the structures shared by sentences; vocabulary fills those structures with whatever we actually want to say; and other words establish cause, contrast, and condition between the parts. Taking the process apart slowly—watching one sentence grow and several sentences join into a complete thought—is surprisingly satisfying.</p>
+<p>Learning a language again from the beginning really does feel like retraining expression. Many things that I once said by intuition now require me to see the subject, verb, and object clearly, and to identify exactly where the premise of a judgement lies. In this respect, at least, English has forced me to become a little more rigorous.</p>
+<p>Of course, the side effect of training my expression this way is also obvious: I already talked like I was writing a paper, and now I sound even more like one. How to learn to speak like a normal human being can wait until later.</p>
+<p>For now, here is the core outline of English grammar that I have put together.</p>
+<h2 id="I-The-Skeleton-of-a-Sentence"><a href="#I-The-Skeleton-of-a-Sentence" class="headerlink" title="I. The Skeleton of a Sentence"></a>I. The Skeleton of a Sentence</h2><p>The subject, verb, and object or complement form the main skeleton of a sentence. Modifiers and adverbials expand it outwards, while clauses place an entire proposition inside one of its grammatical positions.</p>
+<p>The most basic English sentence structures can be divided into five patterns:</p>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Structure</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SV</td>
+<td>Subject + Verb</td>
+<td>Birds fly.</td>
+</tr>
+<tr>
+<td>SVO</td>
+<td>Subject + Verb + Object</td>
+<td>I like music.</td>
+</tr>
+<tr>
+<td>SVC</td>
+<td>Subject + Linking Verb + Subject Complement</td>
+<td>She is happy.</td>
+</tr>
+<tr>
+<td>SVOO</td>
+<td>Subject + Verb + Indirect Object + Direct Object</td>
+<td>I gave him a book.</td>
+</tr>
+<tr>
+<td>SVOC</td>
+<td>Subject + Verb + Object + Object Complement</td>
+<td>I found the book useful.</td>
+</tr>
+</tbody></table>
+<p>These five patterns provide the skeleton. One particularly important addition here is the subject complement. In <code>She is happy.</code>, <code>happy</code> is not an object. It describes the state of the subject, <code>She</code>, so it is a subject complement, also called a predicative complement.</p>
+<h2 id="II-What-Can-Occupy-the-Subject-and-Object-Positions"><a href="#II-What-Can-Occupy-the-Subject-and-Object-Positions" class="headerlink" title="II. What Can Occupy the Subject and Object Positions?"></a>II. What Can Occupy the Subject and Object Positions?</h2><p>The subject, object, and complement positions can contain more than a single noun. They can gradually be filled by increasingly complex structures:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">noun or pronoun → noun phrase → infinitive or gerund → noun clause<br></code></pre></td></tr></table></figure>
+
+<p>For example:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">I like music.<br>I like reading.<br>I want to read.<br>I know that he is right.<br>What he said surprised me.<br></code></pre></td></tr></table></figure>
+
+<p>English can treat an action, or even a whole proposition, as a “thing” and place it inside a sentence. Once this becomes clear, noun clauses cease to look quite so mysterious.</p>
+<h2 id="III-Modifiers-Expanding-Nouns"><a href="#III-Modifiers-Expanding-Nouns" class="headerlink" title="III. Modifiers: Expanding Nouns"></a>III. Modifiers: Expanding Nouns</h2><p>A modifier of a noun answers two questions: <strong>Which one? What kind of one?</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">adjective: a beautiful girl<br>prepositional phrase: the book on the table<br>participle: the man standing there<br>infinitive: something to eat<br>relative clause: the book that I bought yesterday<br></code></pre></td></tr></table></figure>
+
+<p>These forms look different, but they all do the same job: they add information to a noun.</p>
+<h2 id="IV-Adverbials-Expanding-an-Action-or-a-Whole-Sentence"><a href="#IV-Adverbials-Expanding-an-Action-or-a-Whole-Sentence" class="headerlink" title="IV. Adverbials: Expanding an Action or a Whole Sentence"></a>IV. Adverbials: Expanding an Action or a Whole Sentence</h2><p>An adverbial answers questions such as: <strong>When? Where? Why? How? Under what condition? For what purpose?</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">adverb: He runs quickly.<br>prepositional phrase: He studies in the library.<br>infinitive of purpose: I study to pass the exam.<br>adverbial clause: I stayed home because it was raining.<br></code></pre></td></tr></table></figure>
+
+<p>Logical relations such as cause, condition, concession, time, and purpose mostly appear here.</p>
+<h2 id="V-Complements-Completing-the-Meaning"><a href="#V-Complements-Completing-the-Meaning" class="headerlink" title="V. Complements: Completing the Meaning"></a>V. Complements: Completing the Meaning</h2><p>With some verbs, a noun alone is not enough. Something else must explain what the subject or object is, what state it is in, or what it does.</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">She is smart.<br>The news made me happy.<br>I saw him leave.<br>I want you to understand this.<br></code></pre></td></tr></table></figure>
+
+<p>This is where linking verbs, subject complements, object complements, infinitives, and participles appear. Before memorising the terminology, I can ask a simpler question: <strong>Whom does this part describe, or whose state does it complete?</strong></p>
+<h2 id="VI-The-Verb-System"><a href="#VI-The-Verb-System" class="headerlink" title="VI. The Verb System"></a>VI. The Verb System</h2><p>Many changes in an English sentence are controlled by the verb. Instead of memorising the so-called twelve or sixteen tenses as separate tables, it is more useful to begin with four dimensions:</p>
+<ul>
+<li><strong>Tense:</strong> whether an event is located in the past or the present.</li>
+<li><strong>Aspect:</strong> whether the event is viewed as ongoing, completed, or in a general state.</li>
+<li><strong>Voice:</strong> who performs the action and who undergoes it.</li>
+<li><strong>Modality:</strong> attitudes such as ability, obligation, necessity, and possibility.</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs text">I study.<br>I am studying.<br>I have studied.<br>I studied.<br>I will study.<br>I can study.<br>It was studied.<br></code></pre></td></tr></table></figure>
+
+<p>These are not several unrelated tables. They are different ways of describing the same action from different positions in time, state, and attitude.</p>
+<h2 id="VII-Non-finite-Verbs-Turning-Actions-into-Sentence-Components"><a href="#VII-Non-finite-Verbs-Turning-Actions-into-Sentence-Components" class="headerlink" title="VII. Non-finite Verbs: Turning Actions into Sentence Components"></a>VII. Non-finite Verbs: Turning Actions into Sentence Components</h2><p>Infinitives, gerunds, and participles all derive from verbs, but they no longer function independently as the finite verb of a clause. They can instead act as nouns, modifiers, adverbials, or complements:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">To learn a language takes time.<br>Reading helps me think.<br>The man standing there is my teacher.<br>I study English to express myself clearly.<br></code></pre></td></tr></table></figure>
+
+<p>Non-finite forms should therefore not be memorised only as fixed patterns. The more important question remains: <strong>What grammatical function is this form performing here?</strong></p>
+<h2 id="VIII-Three-Types-of-Subordinate-Clause"><a href="#VIII-Three-Types-of-Subordinate-Clause" class="headerlink" title="VIII. Three Types of Subordinate Clause"></a>VIII. Three Types of Subordinate Clause</h2><p>The three main types of subordinate clause simply hand an entire clause the work that would otherwise be performed by a word or phrase.</p>
+<table>
+<thead>
+<tr>
+<th>Clause</th>
+<th>Function in the larger sentence</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Noun clause</td>
+<td>Subject, object, or subject complement</td>
+<td>I think <strong>that he is right</strong>.</td>
+</tr>
+<tr>
+<td>Relative clause</td>
+<td>Modifier of a noun</td>
+<td>The man <strong>who came yesterday</strong> is my teacher.</td>
+</tr>
+<tr>
+<td>Adverbial clause</td>
+<td>Adverbial of cause, condition, time, concession, and so on</td>
+<td>I stayed home <strong>because it was raining</strong>.</td>
+</tr>
+</tbody></table>
+<h2 id="IX-Logic-between-Sentences"><a href="#IX-Logic-between-Sentences" class="headerlink" title="IX. Logic between Sentences"></a>IX. Logic between Sentences</h2><p>Only when connecting words join several propositions together do we move from “making sentences” to expressing a complete line of reasoning.</p>
+<table>
+<thead>
+<tr>
+<th>Logical relation</th>
+<th>Common expressions</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cause and effect</td>
+<td>because &#x2F; so &#x2F; therefore</td>
+</tr>
+<tr>
+<td>Contrast and concession</td>
+<td>but &#x2F; however &#x2F; although</td>
+</tr>
+<tr>
+<td>Condition</td>
+<td>if &#x2F; unless</td>
+</tr>
+<tr>
+<td>Purpose</td>
+<td>to &#x2F; in order to &#x2F; so that</td>
+</tr>
+<tr>
+<td>Addition and progression</td>
+<td>and &#x2F; also &#x2F; moreover &#x2F; not only…but also</td>
+</tr>
+<tr>
+<td>Comparison</td>
+<td>than &#x2F; as…as &#x2F; compared with</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>for example &#x2F; such as</td>
+</tr>
+<tr>
+<td>Explanation and reformulation</td>
+<td>in other words &#x2F; that is &#x2F; which means</td>
+</tr>
+<tr>
+<td>Inference</td>
+<td>therefore &#x2F; thus &#x2F; as a result</td>
+</tr>
+</tbody></table>
+<p>For a beginner, mastering cause and effect, contrast, condition, and purpose is already enough to express many complete ideas. Two common Chinese-influenced structures also deserve attention: English does not normally use <code>because...so...</code> together, nor does it normally use <code>although...but...</code> together. One side of the connection is enough.</p>
+<h2 id="X-The-Order-of-Study"><a href="#X-The-Order-of-Study" class="headerlink" title="X. The Order of Study"></a>X. The Order of Study</h2><p>The whole system of grammar can first be compressed into one line:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">word → phrase → sentence component → simple sentence → complex sentence → logical paragraph<br></code></pre></td></tr></table></figure>
+
+<p>More specifically:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs text">five basic sentence patterns<br>→ nouns and noun phrases<br>→ modifiers of nouns<br>→ adverbials<br>→ subject and object complements<br>→ tense, aspect, voice, and modality<br>→ infinitives, gerunds, and participles<br>→ noun clauses, relative clauses, and adverbial clauses<br>→ connectors and paragraph logic<br></code></pre></td></tr></table></figure>
+
+<p>For example:</p>
+<blockquote>
+<p>The student <strong>who is sitting by the window</strong> studies English <strong>because he wants to study abroad</strong>.</p>
+</blockquote>
+<p>Remove the two bold sections, and only this remains:</p>
+<blockquote>
+<p>The student studies English.</p>
+</blockquote>
+<p>This is an ordinary SVO sentence. The first bold section is a relative clause; the second is an adverbial clause of reason. What we call a difficult long sentence often begins as something very simple, then grows layer by layer.</p>
+<h2 id="XI-Points-Not-Yet-Developed"><a href="#XI-Points-Not-Yet-Developed" class="headerlink" title="XI. Points Not Yet Developed"></a>XI. Points Not Yet Developed</h2><p>The outline above explains the core architecture of English grammar: what skeleton a sentence has, how information is added, how clauses expand it, and how several propositions form a line of reasoning. It does not, however, cover every point of grammar. The following topics still belong on the map, but have not yet been developed one by one.</p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Points not yet developed</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Noun system</td>
+<td>Count and non-count nouns, singular and plural, possession, articles, determiners, quantifiers, and pronouns</td>
+</tr>
+<tr>
+<td>Adjectives and adverbs</td>
+<td>Position in the sentence, comparatives, superlatives, degree modification, and <code>as...as</code></td>
+</tr>
+<tr>
+<td>Preposition system</td>
+<td>Temporal, spatial, and abstract relations, together with prepositional collocations</td>
+</tr>
+<tr>
+<td>Verb system</td>
+<td>Transitive and intransitive verbs, verb valency, auxiliary verbs, phrasal verbs, and subject–verb agreement</td>
+</tr>
+<tr>
+<td>Tense, aspect, and voice</td>
+<td>The precise meanings of different tense–aspect combinations, the uses and limits of the passive, and sequence of tenses</td>
+</tr>
+<tr>
+<td>Modality</td>
+<td>Differences among <code>can/could/may/might/must/should</code> when expressing ability, possibility, inference, obligation, and shades of attitude</td>
+</tr>
+<tr>
+<td>Sentence transformations</td>
+<td>Negatives, yes–no questions, wh-questions, imperatives, and exclamatives</td>
+</tr>
+<tr>
+<td>Special constructions</td>
+<td>Existential <code>there</code>, anticipatory and dummy <code>it</code>, cleft sentences, inversion, ellipsis, and substitution</td>
+</tr>
+<tr>
+<td>Details of non-finite verbs</td>
+<td>Choosing between <code>to do</code> and <code>doing</code>, present and past participles, absolute constructions, and dangling modifiers</td>
+</tr>
+<tr>
+<td>Details of clauses</td>
+<td>Differences among <code>that/whether/what</code>, restrictive and non-restrictive relative clauses, relative pronouns, and relative adverbs</td>
+</tr>
+<tr>
+<td>Conditionals and the subjunctive</td>
+<td>Real and unreal conditions, the subjunctive, and mixed conditionals</td>
+</tr>
+<tr>
+<td>Reported speech</td>
+<td>Direct and indirect speech, together with changes in person, tense, time, and place during conversion</td>
+</tr>
+<tr>
+<td>Organisation between sentences</td>
+<td>Coordination, parallelism, reference, ellipsis, substitution, punctuation, and information cohesion</td>
+</tr>
+<tr>
+<td>Actual use</td>
+<td>Collocation, register, politeness, stress, intonation, and information focus</td>
+</tr>
+</tbody></table>
+<p>Some of these topics belong to grammar in the narrow sense, while others approach vocabulary, pragmatics, and discourse organisation. I have placed them together for the moment because, when English is actually used, they do not appear in separate textbook chapters.</p>
+<p>Once I had sorted out this grammatical framework, I went back to scrolling through some videos. I automatically began analysing the structure of the sentences and the logic of the way their authors wrote, only to discover how much of the dialogue said almost nothing and how thin its content was. But that, too, can wait for another time.</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Building a Custom Huawei Tablet Theme from Scratch: HWT Dynamic Lock Screen and Home-Screen Wallpaper</title>
     <url>/en/posts/2026/08/14/hwt/</url>
     <content type="html"><![CDATA[<blockquote>
