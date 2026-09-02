@@ -1,0 +1,1493 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="先从连续时间 LTI 系统推出一个最小可运行模型，再把傅里叶级数、抽样、调制、收敛域、零极点等旁支逐一接回主干。主体脉络由我提供，文章由 Codex 协助整理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信号与系统发展脉络（上）傅里叶与拉普拉斯变换的生成逻辑">
+<meta property="og:url" content="https://hwnote.space/posts/2026/08/30/fourier-laplace-knowledge-tree/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="先从连续时间 LTI 系统推出一个最小可运行模型，再把傅里叶级数、抽样、调制、收敛域、零极点等旁支逐一接回主干。主体脉络由我提供，文章由 Codex 协助整理。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hwnote.space/img/blogs/git1.jpg">
+<meta property="article:published_time" content="2026-08-29T17:20:00.000Z">
+<meta property="article:modified_time" content="2026-08-29T19:19:21.137Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="信号与系统">
+<meta property="article:tag" content="傅里叶变换">
+<meta property="article:tag" content="拉普拉斯变换">
+<meta property="article:tag" content="LTI系统">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/git1.jpg">
+  
+  
+  
+  <title>信号与系统发展脉络（上）傅里叶与拉普拉斯变换的生成逻辑 - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css?v=20260821-global-language.css">
+<link rel="stylesheet" href="/css/tag-cloud.css?v=20260824-bilingual-cloud.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/git1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="信号与系统发展脉络（上）傅里叶与拉普拉斯变换的生成逻辑"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-08-30 01:20" pubdate>
+          2026年8月30日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          123 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">信号与系统发展脉络（上）傅里叶与拉普拉斯变换的生成逻辑</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>前几天在纸上写傅里叶变换和拉普拉斯变换，写着写着发现卷积、频谱、传递函数、零极点，单独拿出来都能算；但若只按课时顺序记，它们很容易变成一排互不相干的工具。真正把这些东西串起来的，并不是某张变换表，而是一个更早的问题：</p>
+<blockquote>
+<p>能不能给信号换一套坐标，使一个复杂系统的运算，在新坐标里变成逐点相乘？</p>
+</blockquote>
+<p>下面不再按照教材章节平铺知识点。第一部分只做一件事：一步步推出一套能够闭合的最小模型。第二部分再处理这套模型暂时忽略的问题，并说明每条旁支应当接回主干的哪个节点。</p>
+<p>本文以我手写的两页思维框架（这两张纸倒是不用读，我给放文章最后面了）为起点，逐课核对了信号与系统的LT、FT部分。历史脉络参考了这篇<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/2034966558422909199">知乎文章</a>，这里只保留必要背景。本文的“完整”也限于连续时间 LTI 信号与系统这门课，仅限于深化看这个学科的知识框架的体系，如果想要提升做题能力还是需要进一步大量的练习。</p>
+<h1 id="〇、历史发展脉络"><a href="#〇、历史发展脉络" class="headerlink" title="〇、历史发展脉络"></a>〇、历史发展脉络</h1><p>人最先观察到的是量随时间怎样变化。早期机械、电路和调速问题自然写成微分方程，于是有了时域分析：给定初始状态和输入，求 $y(t)$。</p>
+<p>傅里叶在研究热传导时系统化了谐波分解。到电路、通信和控制工程中，人们逐渐发现，与其逐次求解不同输入下的微分方程，不如先问系统对各个频率分别放大多少、滞后多少。20 世纪三十年代，奈奎斯特和伯德等人的工作又把频率响应变成了可用于稳定性判断和工程设计的方法。</p>
+<p>拉普拉斯变换的数学来源更早。后来经过 Heaviside 的运算方法以及控制理论的吸收，$s$ 域才成为处理暂态、初始条件和系统函数的日常工具。再往后有根轨迹、状态空间和离散 $Z$ 域，但它们不是依次废掉前一种表示。根轨迹仍然看 $s$ 平面的闭环极点，状态空间仍然描述微分方程，只是换了对象和坐标。</p>
+<p>所以这段历史真正留下来的不是“时域不行了，换频域；频域不行了，再换复域”，而是一个反复出现的动作：<strong>当原表示里的运算太纠缠，就换一种表示，使结构显出来。</strong></p>
+<h1 id="壹、主干"><a href="#壹、主干" class="headerlink" title="壹、主干"></a>壹、主干</h1><p>讨论范围先限定为：</p>
+<ul>
+<li>连续时间信号；</li>
+<li>单输入、单输出的线性时不变系统；</li>
+<li>先研究零状态响应，即暂不考虑系统内部已有储能；</li>
+<li>假设涉及的积分在普通或广义函数意义下成立。</li>
+</ul>
+<p>在这个范围内，整条主干只有五步。</p>
+<p>以及在开始推理之前，请允许我给本章所涉及到的逻辑框架放在这里：</p>
+<p>$$<br>\boxed{<br>\text{LTI}<br>\Rightarrow y&#x3D;x*h<br>\Rightarrow e^{st}\text{ 是特征函数}<br>\Rightarrow Y(s)&#x3D;H(s)X(s)<br>\Rightarrow<br>\begin{cases}<br>s&#x3D;j\omega &amp; \text{FT} \<br>s&#x3D;\sigma+j\omega &amp; \text{LT}<br>\end{cases}}<br>$$</p>
+<h2 id="一、研究问题"><a href="#一、研究问题" class="headerlink" title="一、研究问题"></a>一、研究问题</h2><p>系统是把输入信号映射为输出信号的算子：</p>
+<p>$$<br>T:x(t)\longmapsto y(t).<br>$$</p>
+<p>直接在时域求 $T{x}$，不同时间处的量往往互相耦合。我们真正需要的不是另一个更复杂的算法，而是一组适合系统的“坐标轴”：输入若沿其中一根坐标轴变化，输出仍留在同一根轴上，只改变一个倍数。</p>
+<p>在线性代数中，这叫寻找特征向量并把矩阵对角化。信号空间是无限维的，但问题没有变：</p>
+<p>$$<br>T{\phi_\lambda(t)}&#x3D;H(\lambda)\phi_\lambda(t).<br>$$</p>
+<p>若能找到这样的 $\phi_\lambda$，再把一般信号分解到它们上面，系统运算就会从“整体纠缠”变成“各坐标独立相乘”。</p>
+<h2 id="二、LTI-系统为什么必然由卷积描述"><a href="#二、LTI-系统为什么必然由卷积描述" class="headerlink" title="二、LTI 系统为什么必然由卷积描述"></a>二、LTI 系统为什么必然由卷积描述</h2><p>任意足够良好的信号都可以写成移位冲激的连续叠加：</p>
+<p>$$<br>x(t)&#x3D;\int_{-\infty}^{\infty}x(\tau)\delta(t-\tau),d\tau.<br>$$</p>
+<p>令系统对单位冲激的零状态响应为</p>
+<p>$$<br>h(t)&#x3D;T{\delta(t)}.<br>$$</p>
+<p>时不变性保证冲激平移后，响应只作同样的平移：</p>
+<p>$$<br>T{\delta(t-\tau)}&#x3D;h(t-\tau).<br>$$</p>
+<p>再由线性把每个局部响应叠加起来：</p>
+<p>$$<br>\begin{aligned}<br>y(t)<br>&amp;&#x3D;T{x(t)} \<br>&amp;&#x3D;\int_{-\infty}^{\infty}x(\tau)h(t-\tau),d\tau \<br>&amp;&#x3D;x(t)*h(t).<br>\end{aligned}<br>$$</p>
+<p>因此，一个连续时间 LTI 系统的全部零状态输入—输出行为，都被压缩进一个函数 $h(t)$：</p>
+<p>$$<br>\boxed{\text{LTI 系统}\quad\Longleftrightarrow\quad h(t)\quad\Longleftrightarrow\quad y&#x3D;x*h}<br>$$</p>
+<p>到这里我们已经把“未知算子 $T$”压缩成了“与固定函数 $h$ 卷积”。但卷积仍然是积分，还没有变成最简单的乘法。</p>
+<h2 id="三、为什么应当选复指数作为坐标轴"><a href="#三、为什么应当选复指数作为坐标轴" class="headerlink" title="三、为什么应当选复指数作为坐标轴"></a>三、为什么应当选复指数作为坐标轴</h2><p>把复指数 $e^{st}$ 输入卷积系统：</p>
+<p>$$<br>\begin{aligned}<br>T{e^{st}}<br>&amp;&#x3D;\int_{-\infty}^{\infty}h(\tau)e^{s(t-\tau)},d\tau \<br>&amp;&#x3D;\left[\int_{-\infty}^{\infty}h(\tau)e^{-s\tau},d\tau\right]e^{st}.<br>\end{aligned}<br>$$</p>
+<p>记</p>
+<p>$$<br>H(s)&#x3D;\int_{-\infty}^{\infty}h(\tau)e^{-s\tau},d\tau,<br>$$</p>
+<p>便有</p>
+<p>$$<br>\boxed{T{e^{st}}&#x3D;H(s)e^{st}}.<br>$$</p>
+<p>这就是关键一步：复指数经过任何 LTI 系统以后形状不变，只乘上一个复数 $H(s)$。所以 $e^{st}$ 是所有 LTI 系统共同的特征函数，$H(s)$ 是系统在这根坐标轴上的特征值。</p>
+<p>这里必须分清两个相反的指数：</p>
+<ul>
+<li><p>$e^{st}$ 是用来合成信号的基函数，也是送入系统的特征函数；</p>
+</li>
+<li><p>$e^{-st}$ 是从原信号中提取相应坐标系数的分析核。</p>
+</li>
+</ul>
+<p>符号相反不是两套理论，而是“合成”和“分析”互为逆过程。</p>
+<h2 id="四、把一般信号投影到复指数坐标系"><a href="#四、把一般信号投影到复指数坐标系" class="headerlink" title="四、把一般信号投影到复指数坐标系"></a>四、把一般信号投影到复指数坐标系</h2><p>既然复指数能让 LTI 系统只剩乘法，就用它表示一般信号。双边拉普拉斯变换定义为</p>
+<p>$$<br>X(s)&#x3D;\int_{-\infty}^{\infty}x(t)e^{-st},dt,<br>\qquad s&#x3D;\sigma+j\omega.<br>$$</p>
+<p>在某条位于收敛域内的竖直线上，信号可以由逆变换重新合成：</p>
+<p>$$<br>x(t)&#x3D;\frac{1}{2\pi j}<br>\int_{\gamma-j\infty}^{\gamma+j\infty}X(s)e^{st},ds.<br>$$</p>
+<p>将这一分解送入系统。由于每个 $e^{st}$ 都只被乘以 $H(s)$，输出中相应的坐标系数就变成</p>
+<p>$$<br>\boxed{Y(s)&#x3D;H(s)X(s)}.<br>$$</p>
+<p>于是最初的问题已经得到回答：</p>
+<table>
+<thead>
+<tr>
+<th>原表示</th>
+<th>换坐标以后</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>信号 $x(t)$</td>
+<td>坐标 $X(s)$</td>
+</tr>
+<tr>
+<td>LTI 系统 $T$</td>
+<td>各坐标上的倍率 $H(s)$</td>
+</tr>
+<tr>
+<td>时域卷积 $x*h$</td>
+<td>复频域乘法 $HX$</td>
+</tr>
+<tr>
+<td>求整个输出波形</td>
+<td>分别处理每个指数模态，再合成</td>
+</tr>
+</tbody></table>
+<p>这就是傅里叶变换和拉普拉斯变换背后共同的最小模型。变换不是目的；把卷积算子对角化才是目的。</p>
+<h2 id="五、LT-FT-的对立统一"><a href="#五、LT-FT-的对立统一" class="headerlink" title="五、LT&#x2F;FT 的对立统一"></a>五、LT&#x2F;FT 的对立统一</h2><p>令</p>
+<p>$$<br>s&#x3D;\sigma+j\omega,<br>\qquad<br>e^{st}&#x3D;e^{\sigma t}e^{j\omega t}.<br>$$</p>
+<p>它同时包含两种变化：$\sigma$ 控制指数增长或衰减，$\omega$ 控制振荡频率。</p>
+<h3 id="1-只看纯振荡：傅里叶变换"><a href="#1-只看纯振荡：傅里叶变换" class="headerlink" title="1. 只看纯振荡：傅里叶变换"></a>1. 只看纯振荡：傅里叶变换</h3><p>取 $\sigma&#x3D;0$，即 $s&#x3D;j\omega$，得到</p>
+<p>$$<br>X(j\omega)&#x3D;\int_{-\infty}^{\infty}x(t)e^{-j\omega t},dt.<br>$$</p>
+<p>此时坐标轴是纯振荡 $e^{j\omega t}$。系统对每个频率的作用为</p>
+<p>$$<br>Y(j\omega)&#x3D;H(j\omega)X(j\omega).<br>$$</p>
+<p>$|H(j\omega)|$ 决定该频率被放大或衰减多少，$\arg H(j\omega)$ 决定它发生多少相移。所以傅里叶变换最适合回答“系统如何处理不同振荡频率”。</p>
+<h3 id="2-允许增长和衰减：拉普拉斯变换"><a href="#2-允许增长和衰减：拉普拉斯变换" class="headerlink" title="2. 允许增长和衰减：拉普拉斯变换"></a>2. 允许增长和衰减：拉普拉斯变换</h3><p>当普通傅里叶积分不收敛，或者问题本身包含暂态和指数模态时，允许 $\sigma\neq0$：</p>
+<p>$$<br>X(\sigma+j\omega)<br>&#x3D;\int_{-\infty}^{\infty}<br>\bigl[x(t)e^{-\sigma t}\bigr]e^{-j\omega t},dt.<br>$$</p>
+<p>因此，固定一个 $\sigma$ 后，拉普拉斯变换就是对加权信号 $x(t)e^{-\sigma t}$ 做傅里叶变换。不同的 $\sigma$ 对应不同的指数权重。</p>
+<p>但不是所有 $s$ 都能使积分收敛。必须把变换式和收敛域一起保留：</p>
+<p>$$<br>\boxed{\text{拉普拉斯变换}&#x3D;\text{代数表达式}+\text{ROC}}.<br>$$</p>
+<p>若虚轴 $s&#x3D;j\omega$ 落在 ROC 内，拉普拉斯变换才能在虚轴上退化为通常意义下的傅里叶变换。</p>
+<p>至此，最小模型闭合：</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202608300238363.png" srcset="/img/loading.gif" lazyload></p>
+<p>也可以压缩成一句话：</p>
+<p>$$<br>\boxed{<br>\text{LTI}<br>\Rightarrow y&#x3D;x*h<br>\Rightarrow e^{st}\text{ 是特征函数}<br>\Rightarrow Y(s)&#x3D;H(s)X(s)<br>\Rightarrow<br>\begin{cases}<br>s&#x3D;j\omega &amp; \text{FT} \<br>s&#x3D;\sigma+j\omega &amp; \text{LT}<br>\end{cases}}<br>$$</p>
+<p>这已经是一套可以运行的最小模型：给出 $h(t)$，就能得到 $H(s)$；给出 $X(s)$，就能用 $Y&#x3D;HX$ 求零状态输出。余下知识都在回答这套模型暂时没有回答的问题。</p>
+<h1 id="贰、旁支问题"><a href="#贰、旁支问题" class="headerlink" title="贰、旁支问题"></a>贰、旁支问题</h1><p>下面不再重复推导主干，而是按照课件的实际内容，把每条旁支补成四个问题：</p>
+<ol>
+<li>它解决主干遗漏的什么问题；</li>
+<li>它接在主干哪个节点之后；</li>
+<li>它内部有哪些必须掌握的结论；</li>
+<li>通常怎样把它组织成题目。</li>
+</ol>
+<p>课件与旁支的对应关系如下：</p>
+<table>
+<thead>
+<tr>
+<th>主要内容</th>
+<th>在本知识树中的位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>信号表示、奇异信号、系统性质</td>
+<td>旁支一</td>
+</tr>
+<tr>
+<td>经典法、响应分类、冲激匹配、零输入&#x2F;零状态、冲激&#x2F;阶跃响应</td>
+<td>旁支八、九</td>
+</tr>
+<tr>
+<td>卷积定义、图解法、性质、矩形卷积</td>
+<td>主干第二步的计算展开，并入旁支九</td>
+</tr>
+<tr>
+<td>FS、FT、周期信号频谱、抽样</td>
+<td>旁支二、三、五</td>
+</tr>
+<tr>
+<td>滤波、频域分析、相关、调制、Hilbert 变换</td>
+<td>旁支四、五、六</td>
+</tr>
+<tr>
+<td>LT、ROC、逆变换、系统响应、特征输入、因果稳定</td>
+<td>旁支七、八、九、十</td>
+</tr>
+<tr>
+<td>方框图、信号流图、Mason、Routh</td>
+<td>旁支十、十一</td>
+</tr>
+</tbody></table>
+<h2 id="一、接在“系统算子”之前：先确认对象与前提"><a href="#一、接在“系统算子”之前：先确认对象与前提" class="headerlink" title="一、接在“系统算子”之前：先确认对象与前提"></a>一、接在“系统算子”之前：先确认对象与前提</h2><h3 id="要解决的问题"><a href="#要解决的问题" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>第一部分直接写出 $T:x\mapsto y$，但在进入 LTI 推理之前，至少要回答三件事：输入是什么信号、题目对信号做了什么运算、给出的系统是否真的满足线性和时不变。</p>
+<h3 id="1-信号的表示、分类与基本运算"><a href="#1-信号的表示、分类与基本运算" class="headerlink" title="1. 信号的表示、分类与基本运算"></a>1. 信号的表示、分类与基本运算</h3><p>连续时间信号通常有三种给法：</p>
+<ul>
+<li><p>解析式，例如 $x(t)&#x3D;e^{-at}u(t)$；</p>
+</li>
+<li><p>波形图；</p>
+</li>
+<li><p>基本信号的组合，例如用阶跃写分段信号。</p>
+</li>
+</ul>
+<p>分类时真正影响后续计算的是：</p>
+<ul>
+<li><p><strong>周期性</strong>：若干连续时间正弦信号的频率比均为有理数时，才可能存在公共基波周期；</p>
+</li>
+<li><p><strong>能量与功率</strong>：</p>
+</li>
+</ul>
+<p>$$<br>E&#x3D;\int_{-\infty}^{\infty}|x(t)|^2dt,<br>\qquad<br>P&#x3D;\lim_{T\to\infty}\frac{1}{2T}\int_{-T}^{T}|x(t)|^2dt;<br>$$</p>
+<ul>
+<li><strong>奇偶分解</strong>：</li>
+</ul>
+<p>$$<br>x_e(t)&#x3D;\frac{x(t)+x(-t)}{2},<br>\qquad<br>x_o(t)&#x3D;\frac{x(t)-x(-t)}{2};<br>$$</p>
+<ul>
+<li><p><strong>时间运算</strong>：平移、反转、尺度伸缩以及三者复合；</p>
+</li>
+<li><p><strong>微分与积分</strong>：连续段按普通函数处理，跳变点必须同时考虑冲激。</p>
+</li>
+</ul>
+<p>复合时间变换最好统一按“先找新变量，再找关键点”处理。对于 $y(t)&#x3D;x(at+b)$，先令 $at+b&#x3D;t_k$，把原信号的每个转折点 $t_k$ 映射到新时间轴，再判断是否发生反转。</p>
+<h3 id="2-奇异信号是后续计算的语法"><a href="#2-奇异信号是后续计算的语法" class="headerlink" title="2. 奇异信号是后续计算的语法"></a>2. 奇异信号是后续计算的语法</h3><p>课件中的阶跃、冲激和斜坡不是孤立定义，而是一套表达分段变化的语言：</p>
+<p>$$<br>\frac{d}{dt}u(t)&#x3D;\delta(t),<br>\qquad<br>\int_{-\infty}^{t}\delta(\tau)d\tau&#x3D;u(t).<br>$$</p>
+<p>必须掌握：</p>
+<p>$$<br>\int_{-\infty}^{\infty}x(t)\delta(t-t_0)dt&#x3D;x(t_0),<br>$$</p>
+<p>$$<br>x(t)\delta(t-t_0)&#x3D;x(t_0)\delta(t-t_0),<br>$$</p>
+<p>$$<br>\delta(at-b)&#x3D;\frac{1}{|a|}<br>\delta\left(t-\frac{b}{a}\right),<br>$$</p>
+<p>以及更一般的</p>
+<p>$$<br>\delta(g(t))<br>&#x3D;\sum_{g(t_k)&#x3D;0}<br>\frac{\delta(t-t_k)}{|g’(t_k)|}.<br>$$</p>
+<p>遇到 $\delta^{(n)}(t)$ 时，抽样对象转为被积函数的导数，并伴随符号：</p>
+<p>$$<br>\int x(t)\delta^{(n)}(t-t_0)dt<br>&#x3D;(-1)^n x^{(n)}(t_0).<br>$$</p>
+<h3 id="3-系统性质决定哪些结论可以使用"><a href="#3-系统性质决定哪些结论可以使用" class="headerlink" title="3. 系统性质决定哪些结论可以使用"></a>3. 系统性质决定哪些结论可以使用</h3><p>判断系统性质时应回到定义：</p>
+<ul>
+<li><p>线性：是否满足齐次性和可加性；</p>
+</li>
+<li><p>时不变：输入平移与输出平移能否交换；</p>
+</li>
+<li><p>因果：$y(t_0)$ 是否只依赖 $t\le t_0$ 的输入；</p>
+</li>
+<li><p>无记忆：$y(t_0)$ 是否只依赖 $x(t_0)$；</p>
+</li>
+<li><p>BIBO 稳定：任意有界输入是否产生有界输出；</p>
+</li>
+<li><p>可逆：能否由输出唯一恢复输入。</p>
+</li>
+</ul>
+<p>对 LTI 系统可进一步压缩为</p>
+<p>$$<br>\begin{aligned}<br>\text{因果}&amp;\Longleftrightarrow h(t)&#x3D;0,\quad t&lt;0,\<br>\text{BIBO 稳定}&amp;\Longleftrightarrow<br>\int_{-\infty}^{\infty}|h(t)|dt&lt;\infty.<br>\end{aligned}<br>$$</p>
+<h3 id="考法"><a href="#考法" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>波形变换题</strong>：给出 $x(t)$ 的图形，要求画 $x(at+b)$、$x(-t)$、微分或积分后的波形。入口是先映射转折点，再处理幅度和跳变。</p>
+</li>
+<li><p><strong>周期、能量、功率判断题</strong>：多个正弦相加时先判断频率比；非周期衰减信号多为能量信号，非零周期信号多为功率信号，但最后仍要以定义为准。</p>
+</li>
+<li><p><strong>阶跃表示题</strong>：把有限区间波形写成若干 $u(t-t_k)$ 或斜坡之差；反过来也会要求由表达式画图。</p>
+</li>
+<li><p><strong>冲激积分题</strong>：计算含 $\delta(at-b)$、$\delta(g(t))$、$\delta’(t)$ 的积分。入口是先找冲激位置和尺度，再抽样，不能直接把冲激“代成无穷大”。</p>
+</li>
+<li><p><strong>系统性质综合判断</strong>：系统可能由公式、框图或微分关系给出，逐项判断线性、时不变、因果、稳定和记忆性。最常见失误是用直觉判断时不变，而没有比较 $T{x(t-t_0)}$ 与 $y(t-t_0)$。</p>
+</li>
+<li><p><strong>逆系统与级联题</strong>：求一个系统的逆，或判断先后级联能否抵消。入口是检查映射是否一一对应，而不只是形式上“做相反运算”。</p>
+</li>
+</ol>
+<h2 id="二、接在“复指数坐标”之前：傅里叶级数为什么先于傅里叶变换"><a href="#二、接在“复指数坐标”之前：傅里叶级数为什么先于傅里叶变换" class="headerlink" title="二、接在“复指数坐标”之前：傅里叶级数为什么先于傅里叶变换"></a>二、接在“复指数坐标”之前：傅里叶级数为什么先于傅里叶变换</h2><h3 id="要解决的问题-1"><a href="#要解决的问题-1" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>第一部分直接使用复指数坐标。本旁支解释周期信号如何获得离散的复指数坐标，以及周期趋于无穷时离散谱怎样过渡为连续谱。</p>
+<h3 id="1-三角形式和指数形式"><a href="#1-三角形式和指数形式" class="headerlink" title="1. 三角形式和指数形式"></a>1. 三角形式和指数形式</h3><p>周期为 $T_0$、基频为 $\omega_0&#x3D;2\pi&#x2F;T_0$ 的信号可写成</p>
+<p>$$<br>x(t)&#x3D;a_0+\sum_{n&#x3D;1}^{\infty}<br>\bigl[a_n\cos(n\omega_0t)+b_n\sin(n\omega_0t)\bigr],<br>$$</p>
+<p>也可写成</p>
+<p>$$<br>x(t)&#x3D;\sum_{k&#x3D;-\infty}^{\infty}F_k e^{jk\omega_0t},<br>\qquad<br>F_k&#x3D;\frac{1}{T_0}<br>\int_{t_0}^{t_0+T_0}x(t)e^{-jk\omega_0t}dt.<br>$$</p>
+<p>两种系数只是同一频谱的不同记法：</p>
+<p>$$<br>F_k&#x3D;\frac{a_k-jb_k}{2},\quad k&gt;0,<br>\qquad<br>F_{-k}&#x3D;F_k^*<br>$$</p>
+<p>对实信号成立。</p>
+<h3 id="2-对称性可以显著减少积分"><a href="#2-对称性可以显著减少积分" class="headerlink" title="2. 对称性可以显著减少积分"></a>2. 对称性可以显著减少积分</h3><ul>
+<li><p>实偶信号：只含余弦项，$F_k$ 为实偶序列；</p>
+</li>
+<li><p>实奇信号：只含正弦项，$F_k$ 为纯虚奇序列；</p>
+</li>
+<li><p>半波对称：偶次谐波消失；</p>
+</li>
+<li><p>平移不改变幅度谱，只改变相位谱。</p>
+</li>
+</ul>
+<p>频谱图要同时标清基频、谱线间隔、正负频率、幅度和相位。只画一侧频谱而不说明共轭对称，通常是不完整的。</p>
+<h3 id="3-从-FS-到-FT"><a href="#3-从-FS-到-FT" class="headerlink" title="3. 从 FS 到 FT"></a>3. 从 FS 到 FT</h3><p>当 $T_0\to\infty$ 时，</p>
+<p>$$<br>\omega_0&#x3D;\frac{2\pi}{T_0}\to0.<br>$$</p>
+<p>离散谱线变密，系数经尺度调整后形成连续频谱：</p>
+<p>$$<br>\boxed{\text{FS：离散频率坐标}<br>\xrightarrow{T_0\to\infty}<br>\text{FT：连续频率坐标}}.<br>$$</p>
+<p>反过来，周期信号的 FT 是冲激谱：</p>
+<p>$$<br>X(j\omega)<br>&#x3D;2\pi\sum_{k&#x3D;-\infty}^{\infty}<br>F_k\delta(\omega-k\omega_0).<br>$$</p>
+<h3 id="考法-1"><a href="#考法-1" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>由波形求傅里叶级数</strong>：矩形波、三角波、锯齿波是典型载体。先用奇偶、半波对称删去必为零的系数，再积分。</p>
+</li>
+<li><p><strong>三角系数与指数系数互换</strong>：常结合幅相谱作图，重点是 $F_{-k}&#x3D;F_k^*$ 和负频率相位。</p>
+</li>
+<li><p><strong>由谱线反推周期信号</strong>：根据谱线间隔确定 $\omega_0$ 和 $T_0$，再由幅相恢复各谐波。</p>
+</li>
+<li><p><strong>周期信号的 FT</strong>：先求 $F_k$，再乘 $2\pi$ 并放到 $\omega&#x3D;k\omega_0$ 的冲激上。最常见错误是漏掉 $2\pi$ 或把谱线画成连续曲线。</p>
+</li>
+<li><p><strong>利用单周期 FT 求 FS 系数</strong>：若已知一个周期截段 $x_0(t)$ 的 FT 为 $X_0(j\omega)$，则</p>
+</li>
+</ol>
+<p>$$<br>F_k&#x3D;\frac{1}{T_0}X_0(jk\omega_0).<br>$$</p>
+<p>这类题把 FS、FT 和抽样思想连在一起，是课件中的典型综合入口。</p>
+<h2 id="三、接在-FT-定义之后：变换性质和常用变换对"><a href="#三、接在-FT-定义之后：变换性质和常用变换对" class="headerlink" title="三、接在 FT 定义之后：变换性质和常用变换对"></a>三、接在 FT 定义之后：变换性质和常用变换对</h2><h3 id="要解决的问题-2"><a href="#要解决的问题-2" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>定义给出了频谱，但考试不会允许每题都从积分起算。真正的计算能力来自“基本变换对 + 性质 + 波形分解”。</p>
+<h3 id="1-必须形成闭环的性质"><a href="#1-必须形成闭环的性质" class="headerlink" title="1. 必须形成闭环的性质"></a>1. 必须形成闭环的性质</h3><p>若 $x(t)\longleftrightarrow X(j\omega)$，则：</p>
+<p>$$<br>x(t-t_0)<br>\longleftrightarrow<br>e^{-j\omega t_0}X(j\omega),<br>$$</p>
+<p>$$<br>x(t)e^{j\omega_0t}<br>\longleftrightarrow<br>X\bigl(j(\omega-\omega_0)\bigr),<br>$$</p>
+<p>$$<br>x(at)<br>\longleftrightarrow<br>\frac{1}{|a|}X\left(j\frac{\omega}{a}\right),<br>$$</p>
+<p>$$<br>\frac{d^n x(t)}{dt^n}<br>\longleftrightarrow<br>(j\omega)^nX(j\omega),<br>$$</p>
+<p>$$<br>(-jt)^n x(t)<br>\longleftrightarrow<br>\frac{d^nX(j\omega)}{d\omega^n},<br>$$</p>
+<p>$$<br>x_1<em>x_2<br>\longleftrightarrow<br>X_1X_2,<br>\qquad<br>x_1x_2<br>\longleftrightarrow<br>\frac{1}{2\pi}X_1</em>X_2.<br>$$</p>
+<p>对偶性质与共轭对称性质经常用于从一个已知变换对生成另一个变换对。</p>
+<h3 id="2-课件中的核心变换对"><a href="#2-课件中的核心变换对" class="headerlink" title="2. 课件中的核心变换对"></a>2. 课件中的核心变换对</h3><p>应熟悉矩形脉冲与 $\operatorname{Sa}$、三角脉冲与 $\operatorname{Sa}^2$、冲激与常数、常数与频域冲激、指数衰减、符号函数、阶跃、正弦和余弦等。对非绝对可积信号，要在广义函数意义下使用：</p>
+<p>$$<br>1\longleftrightarrow2\pi\delta(\omega),<br>$$</p>
+<p>$$<br>e^{j\omega_0t}<br>\longleftrightarrow<br>2\pi\delta(\omega-\omega_0),<br>$$</p>
+<p>$$<br>u(t)<br>\longleftrightarrow<br>\pi\delta(\omega)+\operatorname{PV}\frac{1}{j\omega}.<br>$$</p>
+<h3 id="3-计算顺序"><a href="#3-计算顺序" class="headerlink" title="3. 计算顺序"></a>3. 计算顺序</h3><p>面对一个陌生信号，顺序应是：</p>
+<p>$$<br>\boxed{<br>\text{识别基本波形}<br>\to<br>\text{分解}<br>\to<br>\text{调用性质}<br>\to<br>\text{最后才直接积分}}<br>$$</p>
+<h3 id="考法-2"><a href="#考法-2" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>直接积分求 FT</strong>：常见于有限时宽分段信号。先写清积分区间，再整理成 $\operatorname{Sa}$ 或指数形式。</p>
+</li>
+<li><p><strong>由已知变换对求新变换</strong>：综合使用平移、尺度、频移、微分和对偶。应逐步写变换链，避免同时变时域和频域后丢尺度因子。</p>
+</li>
+<li><p><strong>波形分解题</strong>：把梯形、三角形或分段波形拆成矩形卷积、阶跃之差或基本函数的移位叠加。</p>
+</li>
+<li><p><strong>反求时域信号</strong>：由 $X(j\omega)$ 的形状或表达式，利用对偶和逆性质恢复 $x(t)$。</p>
+</li>
+<li><p><strong>含冲激的频谱题</strong>：正弦、余弦、周期信号和直流分量会产生频域冲激，必须保留冲激的面积而不是把它画成普通峰值。</p>
+</li>
+<li><p><strong>性质真假判断题</strong>：重点考平移方向、尺度因子、卷积中的 $1&#x2F;(2\pi)$ 以及实信号的共轭对称。</p>
+</li>
+</ol>
+<h2 id="四、接在-Y-j-omega-H-j-omega-X-j-omega-之后：频率响应"><a href="#四、接在-Y-j-omega-H-j-omega-X-j-omega-之后：频率响应" class="headerlink" title="四、接在 $Y(j\omega)&#x3D;H(j\omega)X(j\omega)$ 之后：频率响应"></a>四、接在 $Y(j\omega)&#x3D;H(j\omega)X(j\omega)$ 之后：频率响应</h2><h3 id="要解决的问题-3"><a href="#要解决的问题-3" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>FT 不只是求信号频谱。进入系统以后，核心是由 $H(j\omega)$ 判断系统保留、抑制和延迟了哪些频率。</p>
+<h3 id="1-幅频和相频"><a href="#1-幅频和相频" class="headerlink" title="1. 幅频和相频"></a>1. 幅频和相频</h3><p>$$<br>H(j\omega)&#x3D;|H(j\omega)|e^{j\phi(\omega)},<br>$$</p>
+<p>$$<br>Y(j\omega)&#x3D;H(j\omega)X(j\omega).<br>$$</p>
+<p>其中 $|H|$ 改变各频率幅度，$\phi$ 改变相位。对于复指数或正弦输入，不需要重新做卷积，只需在对应频率处读取系统特征值。</p>
+<p>若</p>
+<p>$$<br>x(t)&#x3D;\sum_k A_k e^{j\omega_kt},<br>$$</p>
+<p>则</p>
+<p>$$<br>y(t)&#x3D;\sum_k A_kH(j\omega_k)e^{j\omega_kt}.<br>$$</p>
+<h3 id="2-滤波与无失真传输"><a href="#2-滤波与无失真传输" class="headerlink" title="2. 滤波与无失真传输"></a>2. 滤波与无失真传输</h3><p>理想低通的频率响应若为矩形，则冲激响应为无限延伸的 $\operatorname{Sa}$ 型函数。这直接揭示理想砖墙滤波器通常非因果、无限时长。</p>
+<p>无失真传输要求在输入占据的频带内</p>
+<p>$$<br>H(j\omega)&#x3D;Ke^{-j\omega t_0}.<br>$$</p>
+<p>它允许统一增益和统一时延，但不允许不同频率获得不同的相对幅度或非线性相位。</p>
+<h3 id="3-频域与时域的选择"><a href="#3-频域与时域的选择" class="headerlink" title="3. 频域与时域的选择"></a>3. 频域与时域的选择</h3><ul>
+<li><p>输入是若干正弦或已知频谱：优先用 $H(j\omega)$；</p>
+</li>
+<li><p>输入和 $h(t)$ 都是简单有限波形：卷积可能更直接；</p>
+</li>
+<li><p>系统由微分方程给出：先求 $H$，再根据输入形式选择 FT 或 LT。</p>
+</li>
+</ul>
+<h3 id="考法-3"><a href="#考法-3" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>特征输入响应题</strong>：给 $H(j\omega)$ 和正弦、余弦或周期输入，逐个频率读取增益与相移，再合成输出。</p>
+</li>
+<li><p><strong>频谱通过滤波器题</strong>：画出 $X$、$H$、$Y&#x3D;HX$，判断哪些谱线或频带被保留。矩形频谱与理想低通最常见。</p>
+</li>
+<li><p><strong>由 $H(j\omega)$ 求 $h(t)$</strong>：理想低通、高通或带通信号常借助基本变换对和平移性质。</p>
+</li>
+<li><p><strong>无失真判断题</strong>：检查输入频带内幅度是否为常数、相位是否为过原点的线性函数；只看幅频平坦是不够的。</p>
+</li>
+<li><p><strong>由微分方程求频率响应</strong>：将 $d&#x2F;dt$ 替换为 $j\omega$，在零状态条件下得到 $H(j\omega)$，再求稳态输出。</p>
+</li>
+<li><p><strong>系统选择题</strong>：比较时域卷积、频域相乘和特征函数法，识别最短路径。</p>
+</li>
+</ol>
+<h2 id="五、接在“频谱搬移与复制”之后：抽样、调制与-Hilbert-变换"><a href="#五、接在“频谱搬移与复制”之后：抽样、调制与-Hilbert-变换" class="headerlink" title="五、接在“频谱搬移与复制”之后：抽样、调制与 Hilbert 变换"></a>五、接在“频谱搬移与复制”之后：抽样、调制与 Hilbert 变换</h2><h3 id="要解决的问题-4"><a href="#要解决的问题-4" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>这条旁支处理两类工程动作：抽样把连续信号变成离散样本，调制把基带频谱搬到载频附近。二者在数学上都来自时域相乘和频域卷积。</p>
+<h3 id="1-理想抽样与频谱复制"><a href="#1-理想抽样与频谱复制" class="headerlink" title="1. 理想抽样与频谱复制"></a>1. 理想抽样与频谱复制</h3><p>令冲激列</p>
+<p>$$<br>p(t)&#x3D;\sum_{n&#x3D;-\infty}^{\infty}\delta(t-nT_s),<br>\qquad<br>\omega_s&#x3D;\frac{2\pi}{T_s}.<br>$$</p>
+<p>抽样信号为</p>
+<p>$$<br>x_s(t)&#x3D;x(t)p(t),<br>$$</p>
+<p>频谱为</p>
+<p>$$<br>X_s(j\omega)<br>&#x3D;\frac{1}{T_s}<br>\sum_{k&#x3D;-\infty}^{\infty}<br>X\bigl(j(\omega-k\omega_s)\bigr).<br>$$</p>
+<p>若 $X(j\omega)&#x3D;0$ 对 $|\omega|&gt;\omega_m$，无混叠重建要求</p>
+<p>$$<br>\omega_s&gt;2\omega_m.<br>$$</p>
+<p>临界抽样时还要检查频谱边界是否确实为零，不能只机械写等号。</p>
+<h3 id="2-调制与相干解调"><a href="#2-调制与相干解调" class="headerlink" title="2. 调制与相干解调"></a>2. 调制与相干解调</h3><p>乘以余弦会生成左右两个搬移副本：</p>
+<p>$$<br>x(t)\cos\omega_ct<br>\longleftrightarrow<br>\frac{1}{2}<br>\left[<br>X\bigl(j(\omega-\omega_c)\bigr)<br>+X\bigl(j(\omega+\omega_c)\bigr)<br>\right].<br>$$</p>
+<p>课件中的主要形式包括：</p>
+<ul>
+<li><p>普通 AM：载波与双边带同时存在；</p>
+</li>
+<li><p>DSB-SC：只保留双边带抑制载波；</p>
+</li>
+<li><p>SSB：只保留上边带或下边带；</p>
+</li>
+<li><p>相干解调：再次乘同频同相载波，再经低通恢复基带。</p>
+</li>
+</ul>
+<h3 id="3-Hilbert-变换"><a href="#3-Hilbert-变换" class="headerlink" title="3. Hilbert 变换"></a>3. Hilbert 变换</h3><p>Hilbert 变换器的频率响应为</p>
+<p>$$<br>H_H(j\omega)&#x3D;<br>\begin{cases}<br>-j,&amp;\omega&gt;0,\<br>+j,&amp;\omega&lt;0.<br>\end{cases}<br>$$</p>
+<p>它对正、负频率分别施加相反的 $90^\circ$ 相移。由</p>
+<p>$$<br>x_a(t)&#x3D;x(t)+j\hat x(t)<br>$$</p>
+<p>可构造只含正频率的解析信号，并据此生成 SSB。</p>
+<h3 id="考法-4"><a href="#考法-4" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>抽样频谱作图题</strong>：由 $X(j\omega)$ 画 $X_s(j\omega)$，必须标出复制间隔 $\omega_s$ 和整体尺度 $1&#x2F;T_s$。</p>
+</li>
+<li><p><strong>最低抽样频率题</strong>：先找最高有效角频率或频率，再统一单位。带通信号有时可利用带通抽样，不能一律把最高频率乘二。</p>
+</li>
+<li><p><strong>混叠判断与重建题</strong>：观察频谱副本是否重叠，给出理想低通重建范围和增益。</p>
+</li>
+<li><p><strong>抽样系统框图题</strong>：输入经抽样、系统和重建滤波器后，逐级画频谱并判断输出。</p>
+</li>
+<li><p><strong>调制频谱题</strong>：给基带谱，依次画 AM、DSB 或 SSB 的频谱，重点检查搬移位置、幅度的 $1&#x2F;2$ 因子和载波冲激。</p>
+</li>
+<li><p><strong>相干解调题</strong>：信号再次乘载波后会同时产生基带与二倍载频分量，低通只保留前者；载波相位误差会改变恢复幅度。</p>
+</li>
+<li><p><strong>Hilbert&#x2F;SSB 题</strong>：求正弦、余弦的 Hilbert 变换，或判断相移网络如何组合出上边带、下边带。</p>
+</li>
+</ol>
+<h2 id="六、接在“频谱”之后：能量、功率与相关"><a href="#六、接在“频谱”之后：能量、功率与相关" class="headerlink" title="六、接在“频谱”之后：能量、功率与相关"></a>六、接在“频谱”之后：能量、功率与相关</h2><h3 id="要解决的问题-5"><a href="#要解决的问题-5" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>频谱还可以用来回答“能量分布在哪里”“两个信号有多相似”“一个系统怎样改变总能量或平均功率”。</p>
+<h3 id="1-Parseval-与谱密度"><a href="#1-Parseval-与谱密度" class="headerlink" title="1. Parseval 与谱密度"></a>1. Parseval 与谱密度</h3><p>能量信号满足</p>
+<p>$$<br>E&#x3D;\int_{-\infty}^{\infty}|x(t)|^2dt<br>&#x3D;\frac{1}{2\pi}<br>\int_{-\infty}^{\infty}|X(j\omega)|^2d\omega.<br>$$</p>
+<p>能量谱密度为</p>
+<p>$$<br>G_x(\omega)&#x3D;|X(j\omega)|^2.<br>$$</p>
+<p>周期功率信号的平均功率可由 FS 系数求得：</p>
+<p>$$<br>P&#x3D;\sum_{k&#x3D;-\infty}^{\infty}|F_k|^2.<br>$$</p>
+<h3 id="2-相关函数"><a href="#2-相关函数" class="headerlink" title="2. 相关函数"></a>2. 相关函数</h3><p>对能量信号，</p>
+<p>$$<br>R_{xy}(\tau)<br>&#x3D;\int_{-\infty}^{\infty}<br>x(t)y^*(t-\tau)dt.<br>$$</p>
+<p>自相关为 $R_{xx}(\tau)$。它与频谱之间满足：</p>
+<p>$$<br>R_{xx}(\tau)<br>\longleftrightarrow<br>|X(j\omega)|^2.<br>$$</p>
+<p>自相关具有共轭对称性，且</p>
+<p>$$<br>|R_{xx}(\tau)|\le R_{xx}(0),<br>\qquad<br>R_{xx}(0)&#x3D;E<br>$$</p>
+<p>对能量信号成立。</p>
+<h3 id="3-系统后的能量和功率"><a href="#3-系统后的能量和功率" class="headerlink" title="3. 系统后的能量和功率"></a>3. 系统后的能量和功率</h3><p>由 $Y&#x3D;HX$：</p>
+<p>$$<br>|Y(j\omega)|^2<br>&#x3D;|H(j\omega)|^2|X(j\omega)|^2.<br>$$</p>
+<p>因此输出能量、输出功率谱和相关函数都可以在频域中直接计算。</p>
+<h3 id="考法-5"><a href="#考法-5" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>时域&#x2F;频域能量互算</strong>：一侧积分复杂时，利用 Parseval 转到另一侧。</p>
+</li>
+<li><p><strong>由 FS 系数求周期信号功率</strong>：避免先平方再做长时间积分。</p>
+</li>
+<li><p><strong>由自相关求能量或功率谱</strong>：先判断信号属于能量还是功率类，再使用对应的相关定义。</p>
+</li>
+<li><p><strong>相关函数性质判断</strong>：考察偶对称、最大值位置、时移和共轭关系。</p>
+</li>
+<li><p><strong>通过 LTI 系统后的能量题</strong>：由 $|H|^2|X|^2$ 积分，或判断理想滤波器保留了多少频带能量。</p>
+</li>
+<li><p><strong>正弦和周期信号相关题</strong>：先按一个周期平均，结果仍为周期函数，不能套用能量信号的普通积分定义。</p>
+</li>
+</ol>
+<h2 id="七、接在-LT-定义之后：ROC、性质、逆变换与左右边信号"><a href="#七、接在-LT-定义之后：ROC、性质、逆变换与左右边信号" class="headerlink" title="七、接在 LT 定义之后：ROC、性质、逆变换与左右边信号"></a>七、接在 LT 定义之后：ROC、性质、逆变换与左右边信号</h2><h3 id="要解决的问题-6"><a href="#要解决的问题-6" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>FT 只观察虚轴，LT 则在整个 $s$ 平面上观察指数模态。新增的实部带来了更强的收敛能力，也带来了一个不能省略的新对象：ROC。</p>
+<h3 id="1-变换式与-ROC-必须成对"><a href="#1-变换式与-ROC-必须成对" class="headerlink" title="1. 变换式与 ROC 必须成对"></a>1. 变换式与 ROC 必须成对</h3><p>双边 LT 为</p>
+<p>$$<br>X(s)&#x3D;\int_{-\infty}^{\infty}x(t)e^{-st}dt.<br>$$</p>
+<p>对于</p>
+<p>$$<br>X(s)&#x3D;\frac{1}{s+a},<br>$$</p>
+<ul>
+<li><p>ROC 为 $\operatorname{Re}(s)&gt;-a$ 时，对应 $e^{-at}u(t)$；</p>
+</li>
+<li><p>ROC 为 $\operatorname{Re}(s)&lt;-a$ 时，对应 $-e^{-at}u(-t)$。</p>
+</li>
+</ul>
+<p>因此，同一个代数式没有 ROC 就不能唯一确定时域信号。</p>
+<p>有理 LT 的 ROC：</p>
+<ul>
+<li><p>不包含任何极点；</p>
+</li>
+<li><p>右边信号位于最右极点右侧；</p>
+</li>
+<li><p>左边信号位于最左极点左侧；</p>
+</li>
+<li><p>双边信号位于两条极点竖线之间；</p>
+</li>
+<li><p>有限时宽且可积的普通信号，其 ROC 为整个 $s$ 平面。</p>
+</li>
+</ul>
+<h3 id="2-LT-性质"><a href="#2-LT-性质" class="headerlink" title="2. LT 性质"></a>2. LT 性质</h3><p>LT 的线性、时移、尺度、微分、积分、卷积与 FT 同构，但必须同时更新 ROC。尤其是双边时移：</p>
+<p>$$<br>x(t-t_0)<br>\longleftrightarrow<br>e^{-st_0}X(s).<br>$$</p>
+<p>时域乘指数对应 $s$ 平移：</p>
+<p>$$<br>e^{s_0t}x(t)<br>\longleftrightarrow<br>X(s-s_0).<br>$$</p>
+<h3 id="3-逆-LT"><a href="#3-逆-LT" class="headerlink" title="3. 逆 LT"></a>3. 逆 LT</h3><p>有理函数主要靠部分分式展开：</p>
+<ul>
+<li><p>单实极点；</p>
+</li>
+<li><p>重极点；</p>
+</li>
+<li><p>共轭复极点；</p>
+</li>
+<li><p>假分式先做多项式长除。</p>
+</li>
+</ul>
+<p>反演时不能只看系数，还要由 ROC 决定每一项是左边还是右边信号。</p>
+<h3 id="4-初值、终值定理"><a href="#4-初值、终值定理" class="headerlink" title="4. 初值、终值定理"></a>4. 初值、终值定理</h3><p>单边形式常用</p>
+<p>$$<br>x(0^+)&#x3D;\lim_{s\to\infty}sX(s),<br>$$</p>
+<p>$$<br>x(\infty)&#x3D;\lim_{s\to0}sX(s).<br>$$</p>
+<p>终值定理要求 $sX(s)$ 的极点满足相应稳定条件；若存在右半平面极点或持续振荡极点，不能使用。</p>
+<h3 id="考法-6"><a href="#考法-6" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>由定义求 LT 与 ROC</strong>：分段信号、左右边指数和有限时宽信号是典型对象。</p>
+</li>
+<li><p><strong>给代数式和 ROC 求原信号</strong>：先部分分式，再由 ROC 决定左右边。只写代数反演而不写 $u(t)$ 通常不完整。</p>
+</li>
+<li><p><strong>给极点和时域支撑判断 ROC</strong>：利用因果、稳定、左边&#x2F;右边条件排除不可能区域。</p>
+</li>
+<li><p><strong>利用性质求 LT</strong>：时间平移、$s$ 平移、微分、积分和卷积常被组合使用，必须追踪 ROC 可能怎样变化。</p>
+</li>
+<li><p><strong>部分分式题</strong>：课件覆盖互异实根、重根、共轭复根和假分式。重极点系数可用求导法，复根可先保持共轭形式再合成为正弦余弦。</p>
+</li>
+<li><p><strong>初值终值题</strong>：先检查定理条件，再取极限；题目常故意设置不能使用终值定理的系统。</p>
+</li>
+<li><p><strong>已知一部分时域&#x2F;复域条件补参数</strong>：结合 ROC、因果性、初值或终值确定未知系数。</p>
+</li>
+</ol>
+<h2 id="八、接在“零状态”假设之后：单边-LT-与完整响应"><a href="#八、接在“零状态”假设之后：单边-LT-与完整响应" class="headerlink" title="八、接在“零状态”假设之后：单边 LT 与完整响应"></a>八、接在“零状态”假设之后：单边 LT 与完整响应</h2><h3 id="要解决的问题-7"><a href="#要解决的问题-7" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>第一部分的 $Y&#x3D;HX$ 只描述零状态响应。课件在时域经典法和单边 LT 中反复训练的，是怎样把初始储能重新放回系统。</p>
+<h3 id="1-四组响应概念必须分清"><a href="#1-四组响应概念必须分清" class="headerlink" title="1. 四组响应概念必须分清"></a>1. 四组响应概念必须分清</h3><p>$$<br>\text{全响应}<br>&#x3D;\text{零输入响应}<br>+\text{零状态响应}.<br>$$</p>
+<ul>
+<li><p>零输入&#x2F;零状态：按初始状态和外部输入的来源划分；</p>
+</li>
+<li><p>自由&#x2F;受迫：按齐次解和特解的生成机制划分；</p>
+</li>
+<li><p>暂态&#x2F;稳态：按 $t\to\infty$ 后是否消失划分。</p>
+</li>
+</ul>
+<p>这些分类可能部分重合，但不恒等。例如稳定系统的自由响应通常是暂态；若系统含虚轴极点，自由响应也可能长期存在。</p>
+<h3 id="2-0-、-0-与跳变"><a href="#2-0-、-0-与跳变" class="headerlink" title="2. $0^-$、$0^+$ 与跳变"></a>2. $0^-$、$0^+$ 与跳变</h3><p>若输入含冲激，状态量及其导数可能在 $t&#x3D;0$ 跳变。课件中的冲激函数匹配法本质是：在微分方程两侧比较 $\delta(t)$、$\delta’(t)$ 等奇异项的系数，从而得到 $0^-$ 到 $0^+$ 的跃变条件。</p>
+<p>不能未经判断就令</p>
+<p>$$<br>y(0^+)&#x3D;y(0^-).<br>$$</p>
+<p>哪些量连续，取决于方程最高阶导数和冲激阶数。</p>
+<h3 id="3-单边-LT-自动携带初值"><a href="#3-单边-LT-自动携带初值" class="headerlink" title="3. 单边 LT 自动携带初值"></a>3. 单边 LT 自动携带初值</h3><p>$$<br>\mathcal L_+{x’(t)}<br>&#x3D;sX(s)-x(0^-),<br>$$</p>
+<p>$$<br>\mathcal L_+{x’’(t)}<br>&#x3D;s^2X(s)-sx(0^-)-x’(0^-).<br>$$</p>
+<p>将它们代入微分方程，可以一次性得到包含零输入和零状态部分的全响应。</p>
+<h3 id="考法-7"><a href="#考法-7" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>经典法求全响应</strong>：先求齐次解和特解，再由初始条件定系数，并标注自由&#x2F;受迫、暂态&#x2F;稳态成分。</p>
+</li>
+<li><p><strong>零输入响应题</strong>：由特征根写自然模态，再用 $0^-$ 或 $0^+$ 初值定系数。</p>
+</li>
+<li><p><strong>零状态响应题</strong>：可用卷积、冲激响应、频域或 LT，题目常要求比较不同方法。</p>
+</li>
+<li><p><strong>含冲激输入的跳变题</strong>：先做奇异项匹配得到 $0^+$ 初值，再求 $t&gt;0$ 的普通响应。</p>
+</li>
+<li><p><strong>单边 LT 求全响应</strong>：把初值项保留在代数方程中，最后部分分式反演。最常见错误是把初值清零，误算成零状态响应。</p>
+</li>
+<li><p><strong>响应分类题</strong>：给出完整表达式，要求指出零输入&#x2F;零状态、自由&#x2F;受迫、暂态&#x2F;稳态。判断依据必须分别说明。</p>
+</li>
+</ol>
+<h2 id="九、接在“复指数特征函数”之后：微分方程、冲激响应与卷积计算"><a href="#九、接在“复指数特征函数”之后：微分方程、冲激响应与卷积计算" class="headerlink" title="九、接在“复指数特征函数”之后：微分方程、冲激响应与卷积计算"></a>九、接在“复指数特征函数”之后：微分方程、冲激响应与卷积计算</h2><h3 id="要解决的问题-8"><a href="#要解决的问题-8" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>系统在题目中不只以 $h(t)$ 或 $H(s)$ 给出，还常以微分方程、阶跃响应或框图给出。本旁支负责在这些描述之间转换。</p>
+<h3 id="1-微分方程与自然模态"><a href="#1-微分方程与自然模态" class="headerlink" title="1. 微分方程与自然模态"></a>1. 微分方程与自然模态</h3><p>对于常系数方程</p>
+<p>$$<br>\sum_{k&#x3D;0}^{N}a_k y^{(k)}(t)<br>&#x3D;\sum_{m&#x3D;0}^{M}b_m x^{(m)}(t),<br>$$</p>
+<p>令齐次解为 $e^{st}$，得到特征多项式</p>
+<p>$$<br>\sum_{k&#x3D;0}^{N}a_ks^k&#x3D;0.<br>$$</p>
+<p>实根产生指数模态，重根还要乘 $t^r$，共轭复根产生指数包络的正弦和余弦。</p>
+<h3 id="2-微分方程、-h-t-、-g-t-与-H-s-的互换"><a href="#2-微分方程、-h-t-、-g-t-与-H-s-的互换" class="headerlink" title="2. 微分方程、$h(t)$、$g(t)$ 与 $H(s)$ 的互换"></a>2. 微分方程、$h(t)$、$g(t)$ 与 $H(s)$ 的互换</h3><p>零初始条件下，把 $d&#x2F;dt$ 替换为 $s$：</p>
+<p>$$<br>H(s)<br>&#x3D;\frac{\sum_{m&#x3D;0}^{M}b_ms^m}<br>{\sum_{k&#x3D;0}^{N}a_ks^k}.<br>$$</p>
+<p>冲激响应和阶跃响应满足</p>
+<p>$$<br>h(t)&#x3D;\frac{d}{dt}g(t),<br>\qquad<br>g(t)&#x3D;h(t)*u(t).<br>$$</p>
+<p>若 $g(t)$ 有跳变，对它求导时必须产生冲激项。</p>
+<h3 id="3-卷积的考试计算层"><a href="#3-卷积的考试计算层" class="headerlink" title="3. 卷积的考试计算层"></a>3. 卷积的考试计算层</h3><p>课时 6—7 对主干中的 $y&#x3D;x*h$ 展开了三种算法：</p>
+<ol>
+<li><p><strong>定义积分</strong>：先确定两个信号重叠的 $\tau$ 区间，再分段积分；</p>
+</li>
+<li><p><strong>图解法</strong>：翻转、平移、相乘、积分；</p>
+</li>
+<li><p><strong>性质法</strong>：利用平移、微分、积分、交换、结合和分配律。</p>
+</li>
+</ol>
+<p>卷积支撑区间满足</p>
+<p>$$<br>[a,b]*[c,d]\quad\Rightarrow\quad[a+c,b+d].<br>$$</p>
+<p>两个矩形脉冲卷积得到三角形或梯形，转折点由两脉冲边界相遇的时刻决定。</p>
+<h3 id="4-s-域特征输入"><a href="#4-s-域特征输入" class="headerlink" title="4. $s$ 域特征输入"></a>4. $s$ 域特征输入</h3><p>若输入是 $e^{s_0t}$，且 $s_0$ 位于系统函数合法区域内，则零状态输出包含</p>
+<p>$$<br>H(s_0)e^{s_0t}.<br>$$</p>
+<p>若 $s_0$ 与系统极点重合，会出现共振型的 $t^re^{s_0t}$，不能直接把无穷大的 $H(s_0)$ 当成普通增益。</p>
+<h3 id="考法-8"><a href="#考法-8" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>由微分方程求 $h(t)$ 或 $H(s)$</strong>：默认条件必须辨明；求 $h$ 时输入为 $\delta(t)$，并满足零状态。</p>
+</li>
+<li><p><strong>冲激匹配法</strong>：设 $h(t)$ 为若干自然模态乘 $u(t)$，代回方程匹配冲激及其导数系数。</p>
+</li>
+<li><p><strong>阶跃响应与冲激响应互求</strong>：特别检查 $g(t)$ 在零点的跳变是否产生 $\delta(t)$。</p>
+</li>
+<li><p><strong>图解卷积题</strong>：矩形、三角形、指数与有限时宽信号组合。第一步不是积分，而是写出重叠区间随 $t$ 的变化。</p>
+</li>
+<li><p><strong>卷积性质题</strong>：利用 $x*\delta(t-t_0)&#x3D;x(t-t_0)$、微分性质和结合律简化多级系统。</p>
+</li>
+<li><p><strong>由框图求等效冲激响应</strong>：串联对应卷积，并联对应相加，反馈结构需先写方程。</p>
+</li>
+<li><p><strong>特征输入题</strong>：给 $H(s)$ 与 $e^{s_0t}$、正弦或余弦输入，求零状态响应；若输入频率碰到极点，要单独处理共振。</p>
+</li>
+</ol>
+<h2 id="十、接在-H-s-之后：零极点、因果稳定、全通最小相位与-Routh"><a href="#十、接在-H-s-之后：零极点、因果稳定、全通最小相位与-Routh" class="headerlink" title="十、接在 $H(s)$ 之后：零极点、因果稳定、全通最小相位与 Routh"></a>十、接在 $H(s)$ 之后：零极点、因果稳定、全通最小相位与 Routh</h2><h3 id="要解决的问题-9"><a href="#要解决的问题-9" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>有了</p>
+<p>$$<br>H(s)&#x3D;K<br>\frac{\prod_i(s-z_i)}<br>{\prod_k(s-p_k)},<br>$$</p>
+<p>就可以不做完整反演，直接读取系统模态、因果稳定条件和幅相结构。</p>
+<h3 id="1-极点、零点与频率响应"><a href="#1-极点、零点与频率响应" class="headerlink" title="1. 极点、零点与频率响应"></a>1. 极点、零点与频率响应</h3><p>极点决定自然模态，零点决定哪些模态被抑制。虚轴上的频率响应可以由零极点到 $j\omega$ 点的向量几何读出：</p>
+<p>$$<br>|H(j\omega)|<br>&#x3D;|K|<br>\frac{\prod_i|j\omega-z_i|}<br>{\prod_k|j\omega-p_k|},<br>$$</p>
+<p>相位为各零点向量角度之和减去各极点向量角度之和。</p>
+<h3 id="2-因果性和稳定性必须与-ROC-联立"><a href="#2-因果性和稳定性必须与-ROC-联立" class="headerlink" title="2. 因果性和稳定性必须与 ROC 联立"></a>2. 因果性和稳定性必须与 ROC 联立</h3><p>对有理连续时间系统：</p>
+<ul>
+<li><p>因果 $\Rightarrow$ ROC 在最右极点右侧；</p>
+</li>
+<li><p>BIBO 稳定 $\Rightarrow$ ROC 包含虚轴；</p>
+</li>
+<li><p>因果且稳定 $\Rightarrow$ 全部极点位于左半平面。</p>
+</li>
+</ul>
+<p>最后一条有明确前提，不能脱离“因果有理系统”单独使用。</p>
+<h3 id="3-全通、最小相位与逆系统"><a href="#3-全通、最小相位与逆系统" class="headerlink" title="3. 全通、最小相位与逆系统"></a>3. 全通、最小相位与逆系统</h3><p>连续时间全通因子可写为</p>
+<p>$$<br>H_{\mathrm{ap}}(s)<br>&#x3D;\frac{s-a}{s+a},<br>\qquad a&gt;0,<br>$$</p>
+<p>其零、极点关于虚轴镜像，在虚轴上幅度为常数，只改变相位。</p>
+<p>最小相位系统的极点和零点均位于左半平面；在给定幅度响应的因果稳定系统中，它具有较小的相位滞后，并拥有因果稳定逆系统。一般系统可分为</p>
+<p>$$<br>H(s)&#x3D;H_{\min}(s)H_{\mathrm{ap}}(s).<br>$$</p>
+<h3 id="4-Routh-判据"><a href="#4-Routh-判据" class="headerlink" title="4. Routh 判据"></a>4. Routh 判据</h3><p>对特征多项式</p>
+<p>$$<br>a_ns^n+a_{n-1}s^{n-1}+\cdots+a_0,<br>$$</p>
+<p>构造 Routh 表。第一列符号变化次数等于右半平面根数。考试还会出现：</p>
+<ul>
+<li><p>第一列首元素为零：用小正数 $\varepsilon$ 替代并取极限；</p>
+</li>
+<li><p>某一整行为零：由上一行构造辅助多项式并求导替换；</p>
+</li>
+<li><p>含参数：由第一列同号列不等式确定稳定范围。</p>
+</li>
+</ul>
+<h3 id="考法-9"><a href="#考法-9" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>由 $H(s)$ 画零极点图并反推系统性质</strong>：结合 ROC 判断因果、稳定和时域支撑。</p>
+</li>
+<li><p><strong>给因果&#x2F;稳定条件补 ROC 或补参数</strong>：因果决定 ROC 方向，稳定决定是否包含虚轴。</p>
+</li>
+<li><p><strong>由零极点几何判断幅相</strong>：求某个 $\omega$ 处增益相位，或比较零极点移动对频响的影响。</p>
+</li>
+<li><p><strong>全通与最小相位分解</strong>：把右半平面零点镜像到左半平面，镜像造成的差额放入全通因子。</p>
+</li>
+<li><p><strong>求逆系统并判断可实现性</strong>：$1&#x2F;H(s)$ 的极点来自原系统零点；原系统若有右半平面零点，稳定因果逆通常不存在。</p>
+</li>
+<li><p><strong>Routh 稳定判据题</strong>：求右半平面极点数、判断稳定、求参数范围，并处理首项为零或全零行的特殊情况。</p>
+</li>
+<li><p><strong>极零相消辨析题</strong>：外部传递函数中的相消可能隐藏内部不稳定模态，不能仅凭约分后的 $H(s)$ 判断内部稳定。</p>
+</li>
+</ol>
+<h2 id="十一、接在“单个系统函数”之后：方框图、信号流图、Mason-与模型边界"><a href="#十一、接在“单个系统函数”之后：方框图、信号流图、Mason-与模型边界" class="headerlink" title="十一、接在“单个系统函数”之后：方框图、信号流图、Mason 与模型边界"></a>十一、接在“单个系统函数”之后：方框图、信号流图、Mason 与模型边界</h2><h3 id="要解决的问题-10"><a href="#要解决的问题-10" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>前面研究单个系统，本旁支处理多个子系统的连接。目标仍是把复杂结构压缩成一个总体系统函数。</p>
+<h3 id="1-方框图代数"><a href="#1-方框图代数" class="headerlink" title="1. 方框图代数"></a>1. 方框图代数</h3><ul>
+<li>串联：</li>
+</ul>
+<p>$$<br>H_{\mathrm{eq}}&#x3D;H_1H_2;<br>$$</p>
+<ul>
+<li>并联：</li>
+</ul>
+<p>$$<br>H_{\mathrm{eq}}&#x3D;H_1+H_2;<br>$$</p>
+<ul>
+<li>负反馈：</li>
+</ul>
+<p>$$<br>H_{\mathrm{cl}}<br>&#x3D;\frac{G}{1+GH}.<br>$$</p>
+<p>移动比较点和引出点时，要同步补偿跨过的方框增益，不能只凭图形位置移动。</p>
+<h3 id="2-信号流图与-Mason-公式"><a href="#2-信号流图与-Mason-公式" class="headerlink" title="2. 信号流图与 Mason 公式"></a>2. 信号流图与 Mason 公式</h3><p>先识别：</p>
+<ul>
+<li><p>前向通路增益 $P_k$；</p>
+</li>
+<li><p>回路增益 $L_i$；</p>
+</li>
+<li><p>两两、三三互不接触回路；</p>
+</li>
+<li><p>与第 $k$ 条前向通路不接触的余因子 $\Delta_k$。</p>
+</li>
+</ul>
+<p>$$<br>\Delta<br>&#x3D;1-\sum_iL_i<br>+\sum_{i&lt;j}L_iL_j<br>-\sum_{i&lt;j&lt;r}L_iL_jL_r+\cdots,<br>$$</p>
+<p>$$<br>H&#x3D;\frac{\sum_kP_k\Delta_k}{\Delta}.<br>$$</p>
+<p>“不接触”指两个回路没有任何公共节点，而不只是图上没有交叉线。</p>
+<h3 id="3-当前模型的边界"><a href="#3-当前模型的边界" class="headerlink" title="3. 当前模型的边界"></a>3. 当前模型的边界</h3><p>传递函数只保留外部输入—输出关系。极零相消可能遮蔽内部状态，因此下面的问题需要状态空间：</p>
+<ul>
+<li><p>内部状态是否稳定；</p>
+</li>
+<li><p>多输入多输出；</p>
+</li>
+<li><p>初值怎样在各内部变量间传播；</p>
+</li>
+<li><p>不可控、不可观模态。</p>
+</li>
+</ul>
+<p>时变、非线性和随机系统也不能直接套用本篇的 LTI 对角化结论。离散时间系统仍沿“卷积—复指数特征函数—变换域乘法”发展，但应转入 $Z$ 变换和单位圆。</p>
+<h3 id="考法-10"><a href="#考法-10" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>方框图化简题</strong>：通过串并联、反馈和比较点&#x2F;引出点移动求总传递函数。每一步都应保持节点信号定义不变。</p>
+</li>
+<li><p><strong>由系统方程画方框图或流图</strong>：先选中间变量，再按因果运算连接，避免直接从高阶方程凭空画图。</p>
+</li>
+<li><p><strong>方框图转信号流图</strong>：比较点对应代数求和，方框对应支路增益，节点表示同一个信号变量。</p>
+</li>
+<li><p><strong>Mason 公式题</strong>：列出所有前向通路、单回路和互不接触回路。漏回路和误判接触关系是主要失分点。</p>
+</li>
+<li><p><strong>多环反馈综合题</strong>：先判断直接化简是否方便；结构交叉较多时，Mason 往往比移动比较点更稳。</p>
+</li>
+<li><p><strong>结构稳定性题</strong>：先由框图或 Mason 得到闭环特征多项式，再接到旁支十的 Routh 判据。</p>
+</li>
+</ol>
+<h1 id="叁、总结"><a href="#叁、总结" class="headerlink" title="叁、总结"></a>叁、总结</h1><p>至此，主干和旁支的位置可以最终压缩为：</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202608300231457.png" srcset="/img/loading.gif" lazyload></p>
+<p>第一部分回答的是：<strong>傅里叶变换和拉普拉斯变换为什么会从 LTI 系统中长出来。</strong></p>
+<p>第二部分回答的是：<strong>当最小模型遇到周期性、收敛、初始状态、频谱搬移、能量测量和系统结构时，应该在主干的哪一个节点上加什么工具。</strong></p>
+<h2 id="参考与说明"><a href="#参考与说明" class="headerlink" title="参考与说明"></a>参考与说明</h2><ul>
+<li>信号与系统系列课件。</li>
+<li>周1力：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/2034966558422909199">《大白话讲透：历史上时域、频域、复域、根轨迹、状态空间是怎么一步步被发明出来的》</a>，用于历史动机的参考与校正。</li>
+</ul>
+<p>框架图片：</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202608300121004.jpg" srcset="/img/loading.gif" lazyload alt="老旧的框架图1"><br><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202608300122534.jpg" srcset="/img/loading.gif" lazyload alt="老旧的框架图2"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/" class="category-chain-item">学习资源</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="category-chain-item">信号与系统</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="print-no-link">#信号与系统</a>
+      
+        <a href="/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" class="print-no-link">#傅里叶变换</a>
+      
+        <a href="/tags/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2/" class="print-no-link">#拉普拉斯变换</a>
+      
+        <a href="/tags/LTI%E7%B3%BB%E7%BB%9F/" class="print-no-link">#LTI系统</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>信号与系统发展脉络（上）傅里叶与拉普拉斯变换的生成逻辑</div>
+      <div>https://hwnote.space/posts/2026/08/30/fourier-laplace-knowledge-tree/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年8月30日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/2026/08/30/discrete-z-transform-knowledge-tree/" title="信号与系统发展脉络（下）从离散卷积到Z变换的生成逻辑">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">信号与系统发展脉络（下）从离散卷积到Z变换的生成逻辑</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/2026/08/29/dream/" title="六月士">
+                        <span class="hidden-mobile">六月士</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js?v=20260821-global-language.js"></script>
+<script src="/js/bilingual-switch.js?v=20260821-global-language.js"></script>
+<script src="/js/tag-cloud.js?v=20260824-bilingual-cloud.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

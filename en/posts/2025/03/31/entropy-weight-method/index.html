@@ -1,0 +1,894 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="An objective method for assigning weights">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Entropy Weight Method (EWM)">
+<meta property="og:url" content="https://hwnote.space/en/posts/2025/03/31/entropy-weight-method/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="An objective method for assigning weights">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/ewm.jpg">
+<meta property="article:published_time" content="2025-03-31T15:14:11.000Z">
+<meta property="article:modified_time" content="2026-08-20T16:38:56.860Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Mathematical Modeling">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/ewm.jpg">
+  
+  
+  
+  <title>Entropy Weight Method (EWM) - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css?v=20260821-global-language.css">
+<link rel="stylesheet" href="/css/tag-cloud.css?v=20260824-bilingual-cloud.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/ewm.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Entropy Weight Method (EWM)"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-03-31 23:14" pubdate>
+          March 31, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Entropy Weight Method (EWM)</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Entropy-Weight-Method-EWM"><a href="#Entropy-Weight-Method-EWM" class="headerlink" title="Entropy Weight Method (EWM)"></a>Entropy Weight Method (EWM)</h1><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>This is a more objective method for assigning weights that appears frequently in mathematical modeling. Because the Analytic Hierarchy Process (AHP) is too subjective—expert scoring is essentially making things up arbitrarily—the entropy weight method is introduced as an alternative.</p>
+<h2 id="Intuition"><a href="#Intuition" class="headerlink" title="Intuition"></a>Intuition</h2><p>For a set of data indicators, the larger the variance, the smaller the similarity among the data, and thus the greater its contribution. To take an extreme case: if for a given indicator all of its values are identical, then its similarity is maximal, and the weight assigned to this indicator for the purpose of discrimination can be set directly to zero. Entropy is a measure of uncertainty: the greater the uncertainty, the larger the entropy, and the more information it contains. Consequently, the weight of its influence on the final decision should be set higher.</p>
+<p>To illustrate with an example from Qingfeng’s mathematical modeling course: suppose Xiao Zhang and Xiao Wang are two high school students. Xiao Zhang is a good student who always gets full marks on final exams, whereas Xiao Wang is a poor student who often fails. In one particular exam, Xiao Zhang again gets full marks—but Xiao Wang also gets full marks. That is highly unusual. Xiao Wang’s result carries a great deal of information, and the corresponding weight should therefore be higher.</p>
+<h2 id="Definitions"><a href="#Definitions" class="headerlink" title="Definitions"></a>Definitions</h2><ul>
+<li><p><strong>Information Content</strong></p>
+<p>The amount of information is defined as:<br>$$<br>I(x) &#x3D; -\ln(p(x))<br>$$</p>
+</li>
+<li><p><strong>Information Entropy</strong><br>Information entropy is defined as the expected value of the information content:<br>$$<br>H(X) &#x3D; -\sum_{i&#x3D;1}^{n} p(x_i)\ln(p(x_i))<br>$$<br>When all events are equally likely, entropy reaches its maximum:<br>$$<br>H(X) &#x3D; \ln(n)<br>$$</p>
+</li>
+</ul>
+<hr>
+<h2 id="Calculation-Procedure"><a href="#Calculation-Procedure" class="headerlink" title="Calculation Procedure"></a>Calculation Procedure</h2><p>The entropy weight method mainly consists of the following three steps:</p>
+<h3 id="Data-Standardization"><a href="#Data-Standardization" class="headerlink" title="Data Standardization"></a>Data Standardization</h3><p>Suppose there are objects and indicators, and the raw data form a matrix (which must first be positively oriented):</p>
+<p>$$<br>X &#x3D; \begin{bmatrix}<br>x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1m} \<br>x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2m} \<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{nm}<br>\end{bmatrix}<br>$$</p>
+<h4 id="Positive-Orientation"><a href="#Positive-Orientation" class="headerlink" title="Positive Orientation"></a>Positive Orientation</h4><ul>
+<li><strong>Requirement</strong>: When computing probabilities in the subsequent steps, every element must be non-negative.</li>
+<li><strong>Treatment</strong>: If any negative values are present, a specific method must be applied to standardize them into the [0,1] interval.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Indicator Type</th>
+<th>Characteristic</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Benefit indicator (positive)</td>
+<td>The larger, the better</td>
+<td>Grades, profit, GDP growth rate</td>
+</tr>
+<tr>
+<td>Cost indicator (negative)</td>
+<td>The smaller, the better</td>
+<td>Expenses, pollution level, unemployment rate</td>
+</tr>
+<tr>
+<td>Intermediate indicator</td>
+<td>The closer to a certain value, the better</td>
+<td>PH value in water quality assessment</td>
+</tr>
+<tr>
+<td>Interval indicator</td>
+<td>Best when falling within an interval</td>
+<td>Body temperature, the content of a certain substance in water</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Converting cost indicators to benefit indicators:</li>
+</ul>
+<p>$$<br>x_i &#x3D; \max{x_1, x_2, …, x_i} - x_i<br>$$</p>
+<p>Note: If all elements are positive, the reciprocal can be taken directly.</p>
+<ul>
+<li>Converting intermediate indicators to benefit indicators:</li>
+</ul>
+<p>For an intermediate indicator sequence with the optimal value being $x_{best}$, and $x_{new}$ being the positively oriented benefit indicator, the orientation formula is:</p>
+<p>$$<br>  M &#x3D; \max{|x_i - x_{best}|}<br>$$</p>
+<p>$$<br>x_{new} &#x3D; 1 - \frac{|x_i - x_{best}|}{M}<br>$$</p>
+<ul>
+<li>Converting interval indicators to benefit indicators:</li>
+</ul>
+<p>For an interval indicator sequence with the optimal interval being $x_{best}$, and $x_{new}$ being the positively oriented benefit indicator, the orientation formula is:<br>$$<br>M &#x3D; \max{a - \min{x_i}, \max{x_i} - b}<br>$$</p>
+<p>$$<br>x_{new} &#x3D;<br>\begin{cases}<br>1 - \frac{a - x}{M}, &amp; x &lt; a \<br>1, &amp; a \leq x \leq b \<br>1 - \frac{x - b}{M}, &amp; x &gt; b<br>\end{cases}<br>$$</p>
+<h4 id="Standardization-Methods"><a href="#Standardization-Methods" class="headerlink" title="Standardization Methods"></a>Standardization Methods</h4><ul>
+<li><p><strong>Method 1</strong> (applicable when there are no negative values):<br>$$<br>z_{ij} &#x3D; \frac{x_{ij}}{\sqrt{\sum_{i&#x3D;1}^{n} x_{ij}^2}}<br>$$</p>
+</li>
+<li><p><strong>Method 2</strong> (when negative values exist):<br>$$<br>z_{ij} &#x3D; \frac{x_{ij} - \min{x_{1j}, x_{2j}, \ldots, x_{nj}}}{\max{x_{1j}, x_{2j}, \ldots, x_{nj}} - \min{x_{1j}, x_{2j}, \ldots, x_{nj}}}<br>$$</p>
+</li>
+</ul>
+<hr>
+<h3 id="Calculating-the-Probability-Matrix"><a href="#Calculating-the-Probability-Matrix" class="headerlink" title="Calculating the Probability Matrix"></a>Calculating the Probability Matrix</h3><p>Starting from the standardized matrix, calculate the proportion of each sample under each indicator to form the probability matrix:</p>
+<p>$$<br>p_{ij} &#x3D; \frac{z_{ij}}{\sum_{i&#x3D;1}^{n} z_{ij}}<br>$$<br>This ensures that the probabilities in each column (for each indicator) sum to 1.</p>
+<hr>
+<h3 id="Calculating-Information-Entropy-and-Entropy-Weights"><a href="#Calculating-Information-Entropy-and-Entropy-Weights" class="headerlink" title="Calculating Information Entropy and Entropy Weights"></a>Calculating Information Entropy and Entropy Weights</h3><h4 id="Calculating-Information-Entropy"><a href="#Calculating-Information-Entropy" class="headerlink" title="Calculating Information Entropy"></a>Calculating Information Entropy</h4><p>Compute the information entropy:</p>
+<p>$$<br>e_j &#x3D; -\frac{1}{\ln n} \sum_{i&#x3D;1}^{n} p_{ij}\ln(p_{ij}) \quad (j&#x3D;1,2,\ldots,m)<br>$$<br><em>Note: When $p_{ij}&#x3D;0$, it is stipulated that $\ln(0)&#x3D;0$.</em></p>
+<p>Here, dividing by $\ln n$ normalizes $e_j$ to the $[0,1]$ interval.</p>
+<h4 id="Calculating-the-Information-Utility-Value"><a href="#Calculating-the-Information-Utility-Value" class="headerlink" title="Calculating the Information Utility Value"></a>Calculating the Information Utility Value</h4><p>The information utility value $d_j$ is defined as:<br>$$<br>d_j &#x3D; 1 - e_j<br>$$<br>The larger the information utility value, the more information the indicator contains.</p>
+<h4 id="Normalizing-to-Obtain-Entropy-Weights"><a href="#Normalizing-to-Obtain-Entropy-Weights" class="headerlink" title="Normalizing to Obtain Entropy Weights"></a>Normalizing to Obtain Entropy Weights</h4><p>Finally, the information utility values for all indicators are normalized to obtain the entropy weights $\omega_j$:<br>$$<br>\omega_j &#x3D; \frac{d_j}{\sum_{j&#x3D;1}^{m} d_j} \quad (j&#x3D;1,2,\ldots,m)<br>$$</p>
+<h4 id="Score"><a href="#Score" class="headerlink" title="Score"></a>Score</h4><p>$$<br>score_i &#x3D;  \sum_{j&#x3D;1}^{m} w_{j}z_{ij} \quad (i&#x3D;1,2,\ldots,n)<br>$$</p>
+<h2 id="Example-Code"><a href="#Example-Code" class="headerlink" title="Example Code"></a>Example Code</h2><p>(Taken from <a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46246301/article/details/106735607">this post</a>)</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">% 代码实战一下吧，如下是清风老师的课程里的例子，自己再敲了一下代码并简化了一丢丢？</span><br>clc,clear;<br><br><span class="hljs-comment">% 定义函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[lnP]</span> = <span class="hljs-title">My_log</span><span class="hljs-params">(P)</span></span><br>    <span class="hljs-comment">% 当矩阵P中的元素为0时，返回0</span><br>    n = <span class="hljs-built_in">size</span>(P,<span class="hljs-number">1</span>);<br>    m = <span class="hljs-built_in">size</span>(P,<span class="hljs-number">2</span>);<br>    lnP = <span class="hljs-built_in">zeros</span>(n,m);<br>    <span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:n*m<br>        <span class="hljs-keyword">if</span> P(<span class="hljs-built_in">i</span>) == <span class="hljs-number">0</span><br>            lnP(<span class="hljs-built_in">i</span>) = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">else</span><br>            lnP(<span class="hljs-built_in">i</span>) = <span class="hljs-built_in">log</span>(P(<span class="hljs-built_in">i</span>));<br>        <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-comment">% 传入三个参数：</span><br><span class="hljs-comment">% i为第几列,type为指标类型(1：极小型， 2：中间型， 3：区间型),A_col为对应列向量</span><br><span class="hljs-comment">% 返回正向化后的列向量A_col</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">[A_col]</span> = <span class="hljs-title">Positivization</span><span class="hljs-params">(i,type,A_col)</span></span><br>    <br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">type</span> == <span class="hljs-number">1</span>        <span class="hljs-comment">% 极小型</span><br>        <span class="hljs-built_in">disp</span>([<span class="hljs-string">&#x27;第&#x27;</span>,num2str(<span class="hljs-built_in">i</span>),<span class="hljs-string">&#x27;列是极小型&#x27;</span>] )<br>        A_col = min_to_max(A_col);<br>    <span class="hljs-keyword">elseif</span> <span class="hljs-built_in">type</span> == <span class="hljs-number">2</span>    <span class="hljs-comment">% 中间型</span><br>        <span class="hljs-built_in">disp</span>([<span class="hljs-string">&#x27;第&#x27;</span>,num2str(<span class="hljs-built_in">i</span>),<span class="hljs-string">&#x27;列是中间型&#x27;</span>] )<br>        value = input(<span class="hljs-string">&#x27;请输入最佳值： &#x27;</span>);<br>        A_col = mid_to_max(A_col, value);<br>    <span class="hljs-keyword">elseif</span> <span class="hljs-built_in">type</span> == <span class="hljs-number">3</span>    <span class="hljs-comment">% 区间型</span><br>        <span class="hljs-built_in">disp</span>([<span class="hljs-string">&#x27;第&#x27;</span>,num2str(<span class="hljs-built_in">i</span>),<span class="hljs-string">&#x27;列是区间型&#x27;</span>] )<br>        l = input(<span class="hljs-string">&#x27;请输入区间的下界： &#x27;</span>);<br>        r = input(<span class="hljs-string">&#x27;请输入区间的上界： &#x27;</span>); <br>        A_col = inter_to_max(A_col, l, r);<br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-built_in">disp</span>(<span class="hljs-string">&#x27;没有这种类型的指标,请检查type是否输入错误&#x27;</span>)<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-comment">% 1、导入数据</span><br>load data_river.mat<br><span class="hljs-comment">% 2、正向化</span><br>[n,m] = <span class="hljs-built_in">size</span>(A);<br><span class="hljs-built_in">disp</span>([<span class="hljs-string">&#x27;该数据一共有&#x27;</span>,num2str(n),<span class="hljs-string">&#x27;个评价对象,有&#x27;</span>,num2str(m),<span class="hljs-string">&#x27;个评价指标&#x27;</span>])<br>jud = input([<span class="hljs-string">&#x27;这&#x27;</span> num2str(m) <span class="hljs-string">&#x27;个指标是否需要进行正向化处理，需要请输入1 ，不需要输入0：&#x27;</span>]);<br><span class="hljs-keyword">if</span> jud == <span class="hljs-number">1</span><br>    col_list = input(<span class="hljs-string">&#x27;请输入需要正向化的指标所在列组成的列表，如第2、3列，需输入[2,3]: &#x27;</span>);<br>    type_list = input(<span class="hljs-string">&#x27;请输入这些列的指标类型组成的列表（1：极小型， 2：中间型， 3：区间型): &#x27;</span>);<br>    <span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span> = <span class="hljs-number">1</span>:<span class="hljs-built_in">size</span>(col_list,<span class="hljs-number">2</span>)  <span class="hljs-comment">% 列</span><br>        A(:,col_list(<span class="hljs-built_in">i</span>)) = Positivization(col_list(<span class="hljs-built_in">i</span>),type_list(<span class="hljs-built_in">i</span>),A(:,col_list(<span class="hljs-built_in">i</span>)));<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><span class="hljs-comment">% 3、标准化</span><br><span class="hljs-keyword">if</span> <span class="hljs-built_in">isempty</span>(<span class="hljs-built_in">find</span>(A &lt; <span class="hljs-number">0</span>))<br>    <span class="hljs-built_in">disp</span>(<span class="hljs-string">&#x27;不存在负数，标准化后的矩阵为:&#x27;</span>)<br>    <span class="hljs-comment">% A_stand = A./ repmat(sum(A.*A).^(1/2),n,1) % 按列求和</span><br>    A_stand = (A - <span class="hljs-built_in">repmat</span>(<span class="hljs-built_in">min</span>(A),n,<span class="hljs-number">1</span>))./(<span class="hljs-built_in">repmat</span>(<span class="hljs-built_in">max</span>(A)-<span class="hljs-built_in">min</span>(A),n,<span class="hljs-number">1</span>)) <br><span class="hljs-keyword">else</span><br>    <span class="hljs-built_in">disp</span>(<span class="hljs-string">&#x27;存在负数，标准化后的矩阵为:&#x27;</span>)<br>    A_stand = (A - <span class="hljs-built_in">repmat</span>(<span class="hljs-built_in">min</span>(A),n,<span class="hljs-number">1</span>))./(<span class="hljs-built_in">repmat</span>(<span class="hljs-built_in">max</span>(A)-<span class="hljs-built_in">min</span>(A),n,<span class="hljs-number">1</span>)) <br><span class="hljs-keyword">end</span><br><span class="hljs-comment">% 4、计算概率矩阵:相当于每个标准化后的指标归一化</span><br><span class="hljs-built_in">disp</span>(<span class="hljs-string">&#x27;概率矩阵为:&#x27;</span>)<br>P = A_stand./<span class="hljs-built_in">repmat</span>(sum(A_stand),n,<span class="hljs-number">1</span>)<br><span class="hljs-comment">% 5、计算每个指标的信息熵</span><br><span class="hljs-built_in">disp</span>(<span class="hljs-string">&#x27;指标的信息熵:&#x27;</span>)<br>E = -sum(P.*My_log(P))/<span class="hljs-built_in">log</span>(n)<br><span class="hljs-comment">% 6、计算权重</span><br><span class="hljs-built_in">disp</span>(<span class="hljs-string">&#x27;指标对应的权重:&#x27;</span>)<br>W = (<span class="hljs-number">1</span>-E)./sum(E)<br><span class="hljs-comment">% 归一化</span><br>W = W./sum(W)<br><span class="hljs-comment">% 7、计算最终得分</span><br><span class="hljs-built_in">disp</span>(<span class="hljs-string">&#x27;最终综合得分为:&#x27;</span>)<br>score = sum(W.*A_stand,<span class="hljs-number">2</span>)<br>score_stand = score ./ sum(score);<br>[score_stand_sort, index] = <span class="hljs-built_in">sort</span>(score_stand, <span class="hljs-string">&#x27;descend&#x27;</span>);<br><span class="hljs-built_in">disp</span>(<span class="hljs-string">&#x27;最终名次为:&#x27;</span>)<br><span class="hljs-built_in">disp</span>(index)<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Extensions"><a href="#Extensions" class="headerlink" title="Extensions"></a>Extensions</h2><ol>
+<li><strong>Modified TOPSIS Method</strong>: The entropy weight method can be used to modify the TOPSIS method, making the decision-making process more objective.</li>
+<li><strong>Combining Subjective and Objective Weights</strong>: Combining objective weighting (entropy weight method) with subjective weighting can yield a more reasonable weight allocation.</li>
+<li><strong>Other Objective Weighting Methods</strong>: For example, grey relational analysis can also serve as a method for calculating weights.</li>
+<li><strong>Choice of Standardization Method</strong>: Different standardization methods will produce different (Z) matrices, so the appropriate method should be chosen according to the specific situation.</li>
+</ol>
+<hr>
+<h2 id="Model-Summary"><a href="#Model-Summary" class="headerlink" title="Model Summary"></a>Model Summary</h2><ul>
+<li><strong>Step 1</strong>: Check whether the input matrix contains negative values and perform any necessary standardization to ensure the data are non-negative.</li>
+<li><strong>Step 2</strong>: Calculate the proportion of each sample under each indicator to construct the probability matrix.</li>
+<li><strong>Step 3</strong>: Use the probability matrix to compute the information entropy for each indicator, then calculate the information utility value, and finally normalize to obtain the weight for each indicator.</li>
+</ul>
+<hr>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Mathematical-Modeling/" class="print-no-link">#Mathematical Modeling</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Entropy Weight Method (EWM)</div>
+      <div>https://hwnote.space/en/posts/2025/03/31/entropy-weight-method/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>March 31, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js?v=20260821-global-language.js"></script>
+<script src="/js/bilingual-switch.js?v=20260821-global-language.js"></script>
+<script src="/js/tag-cloud.js?v=20260824-bilingual-cloud.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

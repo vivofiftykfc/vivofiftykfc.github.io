@@ -1,0 +1,1032 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="This chapter marks the transition from discrete to continuous models in information theory. Its central concern is the measurement of information in continuous sources and channels, including the stat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Information Theory, Chapter 4: Waveform Sources and Waveform Channels">
+<meta property="og:url" content="https://hwnote.space/en/posts/2025/10/29/waveform-source-channel/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="This chapter marks the transition from discrete to continuous models in information theory. Its central concern is the measurement of information in continuous sources and channels, including the stat">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/20.jpg">
+<meta property="article:published_time" content="2025-10-29T09:09:11.000Z">
+<meta property="article:modified_time" content="2026-08-20T17:05:10.101Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Study Notes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/20.jpg">
+  
+  
+  
+  <title>Information Theory, Chapter 4: Waveform Sources and Waveform Channels - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css?v=20260821-global-language.css">
+<link rel="stylesheet" href="/css/tag-cloud.css?v=20260824-bilingual-cloud.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/20.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Information Theory, Chapter 4: Waveform Sources and Waveform Channels"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-29 17:09" pubdate>
+          October 29, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          622 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Information Theory, Chapter 4: Waveform Sources and Waveform Channels</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="Section-1-Statistical-Properties-and-Discretization-of-Waveform-Sources"><a href="#Section-1-Statistical-Properties-and-Discretization-of-Waveform-Sources" class="headerlink" title="Section 1: Statistical Properties and Discretization of Waveform Sources"></a>Section 1: Statistical Properties and Discretization of Waveform Sources</h2><p>A random waveform source produces a random process ${x(t)}$ that is continuous both in time and in value. Each sample function $x_i(t)$ is one realization of that random process. Such processes may be divided into stationary and non-stationary ones—a distinction that has now appeared for the third time in different courses.</p>
+<h3 id="Ergodicity"><a href="#Ergodicity" class="headerlink" title="Ergodicity"></a>Ergodicity</h3><p>I will not explain precisely what it is here; let us simply use the property of ergodicity. We have encountered it several times already.</p>
+<p>For an ergodic random process, the time average equals the statistical average, with probability 1:</p>
+<p>$$<br>\lim_{T\to\infty} \frac{1}{2T}\int_{-T}^T x(t),dt &#x3D; E[X(t)].<br>$$</p>
+<h3 id="Sampling-and-Quantization"><a href="#Sampling-and-Quantization" class="headerlink" title="Sampling and Quantization"></a>Sampling and Quantization</h3><p>When a band-limited random process is sampled, each sample value is a random variable.</p>
+<p>Within a duration $T$ and a bandwidth $F$, we can obtain $2FT$ sample values.</p>
+<p>After <strong>quantization</strong>, or discretization, these values form a discrete random sequence.</p>
+<blockquote>
+<p>Sampling + quantization transforms a random waveform source into a continuous source and then into a discrete source.</p>
+</blockquote>
+<p>Generally speaking, a signal in a communication system is treated directly as a stationary random process.</p>
+<hr>
+<h2 id="Section-2-Information-Measures-for-Continuous-and-Waveform-Sources"><a href="#Section-2-Information-Measures-for-Continuous-and-Waveform-Sources" class="headerlink" title="Section 2: Information Measures for Continuous and Waveform Sources"></a>Section 2: Information Measures for Continuous and Waveform Sources</h2><h3 id="1-Definition-of-a-Continuous-Source"><a href="#1-Definition-of-a-Continuous-Source" class="headerlink" title="(1) Definition of a Continuous Source"></a>(1) Definition of a Continuous Source</h3><p>The output of the source is a continuous random variable, which can be described by a probability density function $p(x)$:</p>
+<p>$$<br>\int_R p(x),dx &#x3D; 1.<br>$$</p>
+<p>Its one-dimensional, joint, and conditional probability density functions are denoted by $p(x)$, $p(x,y)$, and $p(y|x)$, respectively.</p>
+<hr>
+<h3 id="2-Entropy-of-a-Continuous-Source-Differential-Entropy"><a href="#2-Entropy-of-a-Continuous-Source-Differential-Entropy" class="headerlink" title="(2) Entropy of a Continuous Source: Differential Entropy"></a>(2) Entropy of a Continuous Source: Differential Entropy</h3><p>The definition is extended from discrete entropy:</p>
+<p>$$<br>h(X) &#x3D; -\int_R p(x)\log_2 p(x),dx<br>$$</p>
+<p>Several points deserve attention:</p>
+<p>Although its form resembles that of discrete entropy, the <strong>concept is different</strong>.</p>
+<p>$h(X)$ may be negative—for example, when the interval of a uniform distribution is smaller than 1—so it does not possess the non-negativity of discrete entropy.</p>
+<p>It represents “relative uncertainty” and is also called <strong>relative entropy</strong> here.</p>
+<p>Still, it is better to call it differential entropy. Since it <strong>does not possess the absolute character of discrete-source entropy</strong>, it cannot represent either the average uncertainty of the source or the amount of information produced by a continuous source. It is only a relative value and need not be non-negative.</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510291601256.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<hr>
+<h3 id="3-Differential-Entropy-of-Common-Continuous-Sources"><a href="#3-Differential-Entropy-of-Common-Continuous-Sources" class="headerlink" title="(3) Differential Entropy of Common Continuous Sources"></a>(3) Differential Entropy of Common Continuous Sources</h3><ul>
+<li><p><strong>Uniform distribution</strong>:</p>
+<p>$$<br>p(x)&#x3D;\frac{1}{b-a},\quad h(X)&#x3D;\log_2(b-a)<br>$$</p>
+</li>
+<li><p><strong>Gaussian distribution</strong>:</p>
+</li>
+</ul>
+<p>$$<br>  p(x)&#x3D;\frac{1}{\sqrt{2\pi\sigma^2}}\exp!\left(-\frac{(x-m)^2}{2\sigma^2}\right)<br>  $$</p>
+<p>  $$<br>  h(X)&#x3D;\frac{1}{2}\log_2(2\pi e\sigma^2)<br>  $$</p>
+<blockquote>
+<p>The entropy of a Gaussian source depends only on the variance $\sigma^2$, rather than on the mean $m$. This is consistent with the specific meaning of the differential entropy of a continuous signal: its entropy is relative.</p>
+</blockquote>
+<hr>
+<h3 id="4-Differential-Entropy-and-Entropy-Rate-of-a-Waveform-Source"><a href="#4-Differential-Entropy-and-Entropy-Rate-of-a-Waveform-Source" class="headerlink" title="(4) Differential Entropy and Entropy Rate of a Waveform Source"></a>(4) Differential Entropy and Entropy Rate of a Waveform Source</h3><ul>
+<li>For a random process {x(t)} limited to bandwidth F and duration T, its samples form an $N&#x3D;2FT$-dimensional random vector:</li>
+</ul>
+<p>$$<br>  h(X_1, X_2, …, X_N)<br>  $$</p>
+<ul>
+<li><p>The entropy rate, or amount of information per unit time, is:</p>
+<p>$$<br>h_t(X) &#x3D; 2F \log_2(b-a)\ \text{比特&#x2F;秒}<br>$$</p>
+</li>
+</ul>
+<p>Wait—is this formula restricted to the uniform distribution?</p>
+<hr>
+<h2 id="Section-3-Properties-of-Continuous-Source-Entropy-and-the-Maximum-Differential-Entropy-Theorem"><a href="#Section-3-Properties-of-Continuous-Source-Entropy-and-the-Maximum-Differential-Entropy-Theorem" class="headerlink" title="Section 3: Properties of Continuous-Source Entropy and the Maximum Differential-Entropy Theorem"></a>Section 3: Properties of Continuous-Source Entropy and the Maximum Differential-Entropy Theorem</h2><h3 id="1-Properties"><a href="#1-Properties" class="headerlink" title="1. Properties"></a>1. Properties</h3><ol>
+<li><p><strong>Additivity</strong>:</p>
+<p>$h(X,Y)&#x3D;h(X)+h(Y|X)&#x3D;h(Y)+h(X|Y)$</p>
+</li>
+<li><p><strong>Concavity and the extremal property</strong>:</p>
+<p>Entropy is a concave function of $p(x)$.</p>
+</li>
+<li><p><strong>Possibility of negative values</strong>:</p>
+<p>Because it is “relative entropy,” it does not possess the non-negativity of discrete entropy.</p>
+</li>
+<li><p><strong>Transformation property</strong>:</p>
+<p>If $Y&#x3D;f(X)$ is a one-to-one transformation,</p>
+<p>$$<br>h(Y)&#x3D;h(X)+E[\log_2 |J(\frac{X}{Y})|]<br>$$</p>
+<p>where $J$ is the Jacobian determinant.</p>
+</li>
+</ol>
+<hr>
+<h3 id="2-The-Maximum-Differential-Entropy-Theorem"><a href="#2-The-Maximum-Differential-Entropy-Theorem" class="headerlink" title="2. The Maximum Differential-Entropy Theorem"></a>2. The Maximum Differential-Entropy Theorem</h3><h4 id="1-Under-a-Peak-Power-Constraint"><a href="#1-Under-a-Peak-Power-Constraint" class="headerlink" title="(1) Under a Peak-Power Constraint"></a>(1) Under a Peak-Power Constraint</h4><p>If the source output $X\in[a,b]$, then:</p>
+<ul>
+<li><p>Entropy is maximized when $p(x)$ is a <strong>uniform distribution</strong>.</p>
+</li>
+<li><p>The maximum entropy is:</p>
+<p>$$<br>h_{\max} &#x3D; \log_2(b-a)<br>$$</p>
+</li>
+</ul>
+<h4 id="2-Under-an-Average-Power-Constraint"><a href="#2-Under-an-Average-Power-Constraint" class="headerlink" title="(2) Under an Average-Power Constraint"></a>(2) Under an Average-Power Constraint</h4><p>If $E[X^2]&#x3D;P$, meaning that the average power of the output signal is constrained to P, then:</p>
+<ul>
+<li><p>Entropy is maximized when $X$ follows a <strong>Gaussian distribution</strong>.</p>
+</li>
+<li><p>The maximum entropy is:<br>$$<br>h_{\max} &#x3D; \frac{1}{2}\log_2(2\pi e P)<br>$$</p>
+</li>
+</ul>
+<blockquote>
+<p>In other words:</p>
+<p>Uniform distribution ↔ constrained peak value</p>
+<p>Gaussian distribution ↔ constrained average power</p>
+<p>The two cases correspond respectively to two common kinds of noise: uniform noise and Gaussian noise.</p>
+<p>This is consistent with the idea that noise is a maximally uncertain random process, while the greatest amount of information can be obtained only from events with the greatest uncertainty.</p>
+</blockquote>
+<hr>
+<h2 id="Section-4-Transformation-of-Continuous-Source-Entropy"><a href="#Section-4-Transformation-of-Continuous-Source-Entropy" class="headerlink" title="Section 4: Transformation of Continuous-Source Entropy"></a>Section 4: Transformation of Continuous-Source Entropy</h2><p>After the source $X$ undergoes the linear transformation $Y&#x3D;kX+a$:</p>
+<p>For the probability density function,</p>
+<p>$$p_Y(y_1 y_2 \cdots y_N) &#x3D; p_X(x_1 x_2 \cdots x_N) \left| J\left( \frac{X}{Y} \right) \right|$$</p>
+<p>For differential entropy,</p>
+<p>$$<br>h(Y)&#x3D;h(X)+\log_2|k|<br>$$</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202510291631692.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<hr>
+<h2 id="Section-5-Categories-of-Continuous-and-Waveform-Channels"><a href="#Section-5-Categories-of-Continuous-and-Waveform-Channels" class="headerlink" title="Section 5: Categories of Continuous and Waveform Channels"></a>Section 5: Categories of Continuous and Waveform Channels</h2><h3 id="1-Definitions"><a href="#1-Definitions" class="headerlink" title="1. Definitions"></a>1. Definitions</h3><ul>
+<li><p><strong>Waveform channel</strong>: both the input and output are random processes, ${x(t)}$ and ${y(t)}$.</p>
+</li>
+<li><p><strong>Continuous channel</strong>: the input and output are continuous random variables $X,Y$.</p>
+</li>
+</ul>
+<p>After sampling under restrictions of duration and bandwidth,</p>
+<p>$$<br>{x(t)} \to (X_1, X_2, …, X_N), \quad {y(t)} \to (Y_1, Y_2, …, Y_N)<br>$$</p>
+<p>a waveform channel can therefore be represented by an equivalent <strong>multidimensional continuous channel</strong>.</p>
+<hr>
+<h3 id="2-Classification-by-Statistical-Properties"><a href="#2-Classification-by-Statistical-Properties" class="headerlink" title="2. Classification by Statistical Properties"></a>2. Classification by Statistical Properties</h3><ul>
+<li><p><strong>Memoryless channel</strong>: the output depends only on the corresponding input.</p>
+</li>
+<li><p><strong>Channel with memory</strong>: the output depends on inputs at multiple moments.</p>
+</li>
+</ul>
+<hr>
+<h3 id="3-Classification-by-Noise-Type"><a href="#3-Classification-by-Noise-Type" class="headerlink" title="3. Classification by Noise Type"></a>3. Classification by Noise Type</h3><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Characteristic</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Gaussian channel</td>
+<td>Noise follows a Gaussian distribution</td>
+<td>Commonly used model</td>
+</tr>
+<tr>
+<td>White-noise channel</td>
+<td>Noise power spectral density is constant</td>
+<td>$N_0&#x2F;2$</td>
+</tr>
+<tr>
+<td>Coloured-noise channel</td>
+<td>Power spectral density varies with frequency</td>
+<td>Has memory</td>
+</tr>
+<tr>
+<td>Additive channel</td>
+<td>$y&#x3D;x+n$</td>
+<td>Noise and signal are independent</td>
+</tr>
+<tr>
+<td>Multiplicative channel</td>
+<td>$y&#x3D;x·n$</td>
+<td>Common in wireless communication</td>
+</tr>
+</tbody></table>
+<p>In an additive channel, the conditional entropy is:</p>
+<p>$$<br>h(Y|X)&#x3D;h(n)<br>$$</p>
+<p>It is called <strong>noise entropy</strong>.</p>
+<hr>
+<h2 id="Section-6-Information-Transmission-Rates-of-Continuous-and-Waveform-Channels"><a href="#Section-6-Information-Transmission-Rates-of-Continuous-and-Waveform-Channels" class="headerlink" title="Section 6: Information Transmission Rates of Continuous and Waveform Channels"></a>Section 6: Information Transmission Rates of Continuous and Waveform Channels</h2><h3 id="A-Single-Symbol-Continuous-Channel"><a href="#A-Single-Symbol-Continuous-Channel" class="headerlink" title="A Single-Symbol Continuous Channel"></a>A Single-Symbol Continuous Channel</h3><p>The average mutual information is:</p>
+<p>$$<br>I(X;Y)&#x3D;h(Y)-h(Y|X)&#x3D;h(Y)-h(n)<br>$$</p>
+<h3 id="A-Multidimensional-Continuous-Channel"><a href="#A-Multidimensional-Continuous-Channel" class="headerlink" title="A Multidimensional Continuous Channel"></a>A Multidimensional Continuous Channel</h3><p>$$<br>I(X;Y)&#x3D;\int\int p(x,y)\log_2\frac{p(x,y)}{p(x)p(y)},dxdy<br>$$</p>
+<p>The information transmission rate per degree of freedom is:</p>
+<p>$$<br>R &#x3D; \frac{1}{N}I(X;Y)<br>$$</p>
+<h3 id="A-Waveform-Channel"><a href="#A-Waveform-Channel" class="headerlink" title="A Waveform Channel"></a>A Waveform Channel</h3><p>The information transmission rate per unit time is:</p>
+<p>$$<br>R_t &#x3D; \lim_{T\to\infty} \frac{1}{T} I({x(t)}, {y(t)})<br>$$</p>
+<hr>
+<h3 id="Properties-of-Average-Mutual-Information"><a href="#Properties-of-Average-Mutual-Information" class="headerlink" title="Properties of Average Mutual Information"></a>Properties of Average Mutual Information</h3><ol>
+<li><p>Non-negativity: $I(X;Y)\ge 0$</p>
+</li>
+<li><p>Symmetry: $I(X;Y)&#x3D;I(Y;X)$</p>
+</li>
+<li><p>Concavity: it is concave in the input distribution.</p>
+</li>
+<li><p>Information cannot increase: the data processing theorem.</p>
+<p>If $X \to Y \to Z$, then $I(X;Z)\le I(X;Y)$</p>
+</li>
+<li><p>Invariance under one-to-one transformations: such a transformation leaves $I(X;Y)$ unchanged.</p>
+</li>
+</ol>
+<hr>
+<h2 id="Section-7-Channel-Capacity-of-Continuous-and-Waveform-Channels"><a href="#Section-7-Channel-Capacity-of-Continuous-and-Waveform-Channels" class="headerlink" title="Section 7: Channel Capacity of Continuous and Waveform Channels"></a>Section 7: Channel Capacity of Continuous and Waveform Channels</h2><p>Channel capacity is defined as the greatest achievable average mutual information:</p>
+<p>$$<br>C &#x3D; \max_{p(x)} I(X;Y)<br>$$</p>
+<h3 id="A-General-Continuous-Channel"><a href="#A-General-Continuous-Channel" class="headerlink" title="A General Continuous Channel"></a>A General Continuous Channel</h3><p>$$<br>C &#x3D; \max_{p(x)} [h(Y)-h(Y|X)]<br>$$</p>
+<h3 id="An-Additive-Continuous-Channel"><a href="#An-Additive-Continuous-Channel" class="headerlink" title="An Additive Continuous Channel"></a>An Additive Continuous Channel</h3><p>The noise is independent of the input, and $h(Y|X)&#x3D;h(n)$; therefore,</p>
+<p>$$<br>C &#x3D; \max_{p(x)} [h(Y)-h(n)]<br>$$</p>
+<hr>
+<h3 id="An-Additive-Gaussian-Channel-The-AWGN-Channel"><a href="#An-Additive-Gaussian-Channel-The-AWGN-Channel" class="headerlink" title="An Additive Gaussian Channel: The AWGN Channel"></a>An Additive Gaussian Channel: The AWGN Channel</h3><p>The noise $n\sim N(0,\sigma^2)$.</p>
+<p>The input power is constrained by $E[X^2]&#x3D;P$.</p>
+<p>The output is therefore $Y&#x3D;X+n$.</p>
+<p>According to the maximum-entropy theorem, the optimal input distribution is also Gaussian.</p>
+<ul>
+<li><p>Output entropy:</p>
+<p>$$<br>h(Y)&#x3D;\frac{1}{2}\log_2(2\pi e (P+N))<br>$$</p>
+</li>
+<li><p>Noise entropy:</p>
+</li>
+</ul>
+<p>$$<br>  h(n)&#x3D;\frac{1}{2}\log_2(2\pi e N)<br>  $$</p>
+<ul>
+<li><p>Capacity:</p>
+<p>$$<br>C &#x3D; \frac{1}{2}\log_2\left(1+\frac{P}{N}\right)\quad \text{(比特&#x2F;自由度)}<br>$$</p>
+</li>
+<li><p>Capacity per unit time:</p>
+<p>$$<br>C_t &#x3D; F\log_2\left(1+\frac{P}{N}\right)\ \text{(比特&#x2F;秒)}<br>$$</p>
+</li>
+</ul>
+<blockquote>
+<p>This is the celebrated <strong>Shannon channel-capacity formula</strong>. It shows that, when average power is constrained and additive white Gaussian noise is present, the information transmission rate has an upper limit.</p>
+</blockquote>
+<hr>
+<h2 id="Section-8-The-Significance-of-Shannon’s-Formula"><a href="#Section-8-The-Significance-of-Shannon’s-Formula" class="headerlink" title="Section 8: The Significance of Shannon’s Formula"></a>Section 8: The Significance of Shannon’s Formula</h2><ul>
+<li><p>It reveals the fundamental restrictions that <strong>bandwidth and the signal-to-noise ratio</strong> place on the information transmission rate.</p>
+</li>
+<li><p>It provides a <strong>theoretical limit</strong> for the design of communication systems.</p>
+</li>
+<li><p>It identifies two ways to raise the communication rate:</p>
+<ul>
+<li><p>increasing the bandwidth;</p>
+</li>
+<li><p>improving the signal-to-noise ratio.</p>
+</li>
+</ul>
+</li>
+<li><p>It forms a foundation of modern digital communication and coding theory.</p>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Study-Notes/" class="print-no-link">#Study Notes</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Information Theory, Chapter 4: Waveform Sources and Waveform Channels</div>
+      <div>https://hwnote.space/en/posts/2025/10/29/waveform-source-channel/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>October 29, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js?v=20260821-global-language.js"></script>
+<script src="/js/bilingual-switch.js?v=20260821-global-language.js"></script>
+<script src="/js/tag-cloud.js?v=20260824-bilingual-cloud.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

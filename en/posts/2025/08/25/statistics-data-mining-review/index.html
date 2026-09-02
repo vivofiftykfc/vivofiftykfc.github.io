@@ -1,0 +1,1727 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="A systematic account of the fundamental concepts and methods of statistics and data mining and their applications in data analysis.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A Review of Statistics and Data Mining">
+<meta property="og:url" content="https://hwnote.space/en/posts/2025/08/25/statistics-data-mining-review/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="A systematic account of the fundamental concepts and methods of statistics and data mining and their applications in data analysis.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/inright.jpg">
+<meta property="article:published_time" content="2025-08-25T09:14:11.000Z">
+<meta property="article:modified_time" content="2026-08-20T17:17:57.166Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Mathematical Modelling">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/inright.jpg">
+  
+  
+  
+  <title>A Review of Statistics and Data Mining - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css?v=20260821-global-language.css">
+<link rel="stylesheet" href="/css/tag-cloud.css?v=20260824-bilingual-cloud.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/inright.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="A Review of Statistics and Data Mining"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-08-25 17:14" pubdate>
+          August 25, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.8k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          23 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">A Review of Statistics and Data Mining</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>This article reviews the basic concepts and methodology of statistics and data mining, together with their applications in data analysis. It begins with the processes of data understanding, preparation, and modelling and introduces the principal evaluation metrics for classification and regression. It then compares ensemble-learning methods—Bagging, Boosting, Stacking, and Blending—and explains how they improve model performance and robustness. The statistical section covers hypothesis testing, contingency analysis, correlation, regression, and analysis of variance, emphasizing their value in exploring relationships and verifying significance. The discussion then turns to predictive modelling, classification, clustering, association and sequential-pattern mining, and typical techniques in Web data mining. By combining the rigorous methodology of statistics with the practical algorithmic framework of data mining, the review offers a systematic way to understand and solve real problems and provides useful background for mathematical modelling and interdisciplinary data analysis.</p>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><h3 id="1-1-Concepts"><a href="#1-1-Concepts" class="headerlink" title="1.1 Concepts"></a>1.1 Concepts</h3><p>Data mining discovers characteristics expressed in large databases and generalizes them into new knowledge and methods.</p>
+<p>Statistics is a methodological science concerned with measuring, collecting, organizing, and analysing data that reflect objective phenomena, thereby helping people understand the quantitative laws of the objective world. It includes statistical methods for data acquisition, processing, and analysis.</p>
+<h3 id="1-2-Methodology"><a href="#1-2-Methodology" class="headerlink" title="1.2 Methodology"></a>1.2 Methodology</h3><p>A cross-industry standard process for data mining consists of the following steps.</p>
+<ol>
+<li><p><strong>Business understanding</strong> means examining the state of research at home and abroad. In other words, clarify the requirements and ultimate purpose of the analysis and determine what data mining can contribute. In a mathematical competition, the objective is usually explicit. The task is to consult relevant literature, identify appropriate methods, and assess the difficulty of reproducing them and the room for improvement.</p>
+</li>
+<li><p><strong>Data understanding</strong> means determining what preprocessing the data require, examining their completeness and correctness, forming a preliminary view of their possible characteristics, and deciding which modelling methods may be suitable.</p>
+</li>
+<li><p><strong>Data preparation</strong> means preprocessing the data.</p>
+</li>
+<li><p><strong>Select an appropriate modelling method.</strong> Parameters may be adjusted manually, or grid search can traverse specified combinations of hyperparameters before fitting the model. Random search and Bayesian search are other possibilities. The relevant material and code should be prepared in advance. If it is unclear which model is better, several can be trained and combined through a suitable strategy into a stronger ensemble.</p>
+</li>
+<li><p><strong>Evaluate model performance.</strong></p>
+</li>
+<li><p><strong>Present the modelling results.</strong></p>
+</li>
+</ol>
+<h3 id="1-3-Model-Evaluation-Metrics"><a href="#1-3-Model-Evaluation-Metrics" class="headerlink" title="1.3 Model-Evaluation Metrics"></a>1.3 Model-Evaluation Metrics</h3><p>After building a model for classification or prediction, we need objective standards by which to measure its performance.</p>
+<h4 id="Metrics-for-Classification-Models"><a href="#Metrics-for-Classification-Models" class="headerlink" title="Metrics for Classification Models"></a>Metrics for Classification Models</h4><p>These models predict categories, such as yes or no, classes A&#x2F;B&#x2F;C, or diseased and healthy. Their evaluation usually begins with a <strong>confusion matrix</strong>, a table summarizing the different ways in which the model is right or wrong.</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="center"><strong>Predicted positive</strong></th>
+<th align="center"><strong>Predicted negative</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Actually positive</strong></td>
+<td align="center">True positive (TP)</td>
+<td align="center">False negative (FN)</td>
+</tr>
+<tr>
+<td align="left"><strong>Actually negative</strong></td>
+<td align="center">False positive (FP)</td>
+<td align="center">True negative (TN)</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>Positive</strong> is usually the class of greater interest, such as “diseased” or “spam.”</li>
+<li><strong>TP, true positive</strong>: the model is correct; the sample is positive and is predicted as positive.</li>
+<li><strong>FN, false negative</strong>: the model is wrong; the sample is positive but is predicted as negative. This is a <strong>missed detection</strong>.</li>
+<li><strong>FP, false positive</strong>: the model is wrong; the sample is negative but is predicted as positive. This is a <strong>false alarm</strong>.</li>
+<li><strong>TN, true negative</strong>: the model is correct; the sample is negative and is predicted as negative.</li>
+</ul>
+<p>The matrix gives rise to the following metrics.</p>
+<ul>
+<li><p><strong>Accuracy</strong></p>
+<ul>
+<li><p><strong>Definition:</strong> the proportion of all samples that the model classifies correctly.</p>
+</li>
+<li><p><strong>Formula:</strong> <code>(TP + TN) / (TP + TN + FP + FN)</code></p>
+</li>
+<li><p><strong>Limitation:</strong> with an <strong>imbalanced sample</strong>, accuracy can be deceptive. Suppose a cancer-detection dataset contains only one patient among 1,000 people. A lazy model that labels everyone healthy achieves an accuracy of 99.9 per cent. It looks excellent but fails to find even the single patient and is therefore useless.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Precision</strong></p>
+<ul>
+<li><p><strong>Definition:</strong> among the samples predicted as positive, the proportion that really are positive.</p>
+</li>
+<li><p><strong>Formula:</strong> <code>TP / (TP + FP)</code></p>
+</li>
+<li><p><strong>Application:</strong> high precision is desirable when a <strong>false positive is costly</strong>. In spam detection, for example, an important work email should not be classified as spam, even if that means letting some spam through.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Recall</strong></p>
+<ul>
+<li><p><strong>Definition:</strong> among all genuinely positive samples, the proportion successfully found by the model.</p>
+</li>
+<li><p><strong>Formula:</strong> <code>TP / (TP + FN)</code></p>
+</li>
+<li><p><strong>Application:</strong> high recall is desirable when a <strong>false negative is costly</strong>. In screening for an infectious disease or cancer, missing a real patient can have grave consequences, so it is better to ask some healthy people to undergo further examination.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>F1-score</strong></p>
+<ul>
+<li><p><strong>Definition:</strong> the harmonic mean of precision and recall.</p>
+</li>
+<li><p><strong>Formula:</strong> <code>2 * (Precision * Recall) / (Precision + Recall)</code></p>
+</li>
+<li><p>Precision and recall often conflict: raising one may lower the other. The F1-score seeks a balance and becomes high only when both are high, making it a more comprehensive and robust measure.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Metrics-for-Continuous-Variable-Prediction-or-Regression"><a href="#Metrics-for-Continuous-Variable-Prediction-or-Regression" class="headerlink" title="Metrics for Continuous-Variable Prediction, or Regression"></a>Metrics for Continuous-Variable Prediction, or Regression</h4><p>Such models predict numerical values, including house prices, temperature, and stock prices.</p>
+<ul>
+<li><p><strong>Mean squared error, MSE</strong></p>
+<ul>
+<li><p><strong>Definition:</strong> the mean of the squared differences between predicted and actual values.</p>
+</li>
+<li><p><strong>Formula:</strong> (1&#x2F;n) * Σ(y_true - y_pred)²</p>
+</li>
+<li><p><strong>Limitation:</strong> it is sensitive to very large deviations.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Root mean squared error, RMSE</strong></p>
+<ul>
+<li><p><strong>Definition:</strong> the square root of MSE.</p>
+</li>
+<li><p><strong>Formula:</strong> <code>sqrt(MSE)</code></p>
+</li>
+<li><p>Its advantage is that it has <strong>the same unit as the original data</strong>. If the model predicts house prices in units of ten thousand yuan, RMSE is expressed in the same unit. We can then understand directly the scale of the average prediction error, making RMSE easier to interpret than MSE.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Mean absolute error, MAE</strong></p>
+<ul>
+<li><p><strong>Definition:</strong> the mean of the absolute differences between predicted and actual values.</p>
+</li>
+<li><p><strong>Formula:</strong> <code>(1/n) * Σ|y_true - y_pred|</code></p>
+</li>
+<li><p><strong>In plain language:</strong> it also measures how far predictions miss the target. Because it uses absolute values rather than squares, it is <strong>less sensitive</strong> to extraordinary outliers, behaves more gently, and better reflects ordinary prediction error.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Coefficient of determination, R-squared or R²</strong></p>
+<ul>
+<li><p><strong>Definition:</strong> a goodness-of-fit measure representing the percentage of variation in the dependent variable explained by the model’s predictions.</p>
+</li>
+<li><p><strong>Formula:</strong> <code>1 - (Σ(y_true - y_pred)² / Σ(y_true - y_mean)²) </code></p>
+</li>
+<li><p><strong>In plain language:</strong> its value is commonly interpreted between 0 and 1. If we use no model and simply guess that every sample equals the mean, <code>y_mean</code>, we produce a total error. The model produces an error of <code>Σ(y_true - y_pred)²</code>. R² measures <strong>how much better the model is than blindly guessing the mean</strong>.</p>
+<ul>
+<li><strong>R² &#x3D; 1</strong>: a perfect model; predictions and actual values are identical.</li>
+<li><strong>R² &#x3D; 0</strong>: the model is no better than blind guessing.</li>
+<li><strong>R² &lt; 0</strong>: the model is worse than blind guessing and actively makes matters worse.</li>
+</ul>
+</li>
+<li><p>It provides an intuitive, unit-free percentage measure of model quality.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-4-Ensemble-Learning-Methods"><a href="#1-4-Ensemble-Learning-Methods" class="headerlink" title="1.4 Ensemble-Learning Methods"></a>1.4 Ensemble-Learning Methods</h3><p>Ensemble learning combines several models into one larger model in order to improve overall accuracy and robustness. The combination of several regression analyses into one grand “ana—fog—lysis” during the second internal competition was an example of the same idea.</p>
+<p>Its principal forms are as follows.</p>
+<h4 id="Bagging"><a href="#Bagging" class="headerlink" title="Bagging"></a>Bagging</h4><p>Bagging is a parallel ensemble method. It constructs several independent models and combines them by voting, averaging, or weighting to form a strong learner.</p>
+<p><strong>Random forests</strong> are a typical application. They build many decision trees and use voting or averaging to make the final prediction.</p>
+<h4 id="Boosting"><a href="#Boosting" class="headerlink" title="Boosting"></a>Boosting</h4><p>Boosting is a sequential ensemble method in which base learners are arranged in series to construct a strong learner. It adjusts the weights of data points while training a sequence of weak learners, assigning greater weight to misclassified observations so that each later learner attempts to correct the errors of the preceding one. AdaBoost is a representative method.</p>
+<h4 id="Stacking"><a href="#Stacking" class="headerlink" title="Stacking"></a>Stacking</h4><p>Stacking combines aspects of Bagging and Boosting. The outputs of first-layer models become the inputs of a second-layer model. Modelling this stack of predictions improves generalization.</p>
+<h4 id="Blending"><a href="#Blending" class="headerlink" title="Blending"></a>Blending</h4><p>Blending improves accuracy and stability by combining the predictions of several models. It has two main stages. First, several base models are trained; they may be homogeneous, using the same kind of algorithm, or heterogeneous, using different algorithms. Second, their outputs on a validation set become features for training a meta-model, usually linear regression, which then predicts the test set.</p>
+<p>Its advantages include ease of understanding and high extensibility: base models can be added or replaced as required.</p>
+<p>Its disadvantages are difficult implementation and heavy computation. At my present level, I do not think I would use it in the national competition.</p>
+<h2 id="2-Data-Preparation-and-Exploratory-Analysis"><a href="#2-Data-Preparation-and-Exploratory-Analysis" class="headerlink" title="2. Data Preparation and Exploratory Analysis"></a>2. Data Preparation and Exploratory Analysis</h2><h3 id="2-1-Introduction-to-Statistics"><a href="#2-1-Introduction-to-Statistics" class="headerlink" title="2.1 Introduction to Statistics"></a><strong>2.1 Introduction to Statistics</strong></h3><p>Definition: the science of collecting, analysing, presenting, and interpreting data.</p>
+<p>The statistical research process consists of collecting, organizing, analysing, and interpreting data.</p>
+<p>Basic concepts include the population, sample, parameter, and statistic.</p>
+<h3 id="2-2-Categories-of-Statistical-Data"><a href="#2-2-Categories-of-Statistical-Data" class="headerlink" title="2.2 Categories of Statistical Data"></a><strong>2.2 Categories of Statistical Data</strong></h3><p><strong>By level of measurement</strong>: nominal, ordinal, and interval data.</p>
+<p><strong>By collection method</strong>: observational and experimental data.</p>
+<p><strong>By temporal form</strong>: cross-sectional and time-series data.</p>
+<h3 id="2-3-Descriptive-Statistics"><a href="#2-3-Descriptive-Statistics" class="headerlink" title="2.3 Descriptive Statistics"></a><strong>2.3 Descriptive Statistics</strong></h3><p><strong>Central tendency</strong>: mean, median, mode, and sum, together with their relationships and characteristics.</p>
+<p><strong>Dispersion</strong>: standard deviation, variance, minimum, maximum, range, and standard error of the mean.</p>
+<p><strong>Shape</strong>: skewness and kurtosis and their interpretation of a distribution.</p>
+<p>The standard score and its uses.</p>
+<h3 id="2-4-Data-Visualization"><a href="#2-4-Data-Visualization" class="headerlink" title="2.4 Data Visualization"></a><strong>2.4 Data Visualization</strong></h3><p>Visualization is the scientific study of visual representations of data. Its stages of development include scientific visualization, information visualization, data visualization, and visual analytics.</p>
+<p>The DIKW hierarchy describes the transformation from data -&gt; information -&gt; knowledge -&gt; wisdom.</p>
+<p><strong>Types of statistical chart</strong>:</p>
+<p>Bar chart: shows the frequency distribution of categorical data.</p>
+<p>Line chart: shows the changing trend of a variable and is suitable for continuous variables.</p>
+<p>Box plot: displays the distribution of raw data—the maximum, minimum, median, and quartiles—and reveals its shape.</p>
+<p>Scatter plot: displays the quantitative relationship and trend between two variables.</p>
+<p>Histogram: displays the frequency distribution of grouped data.</p>
+<p>P-P and Q-Q plots: test whether data follow a specified theoretical distribution, such as the normal distribution.</p>
+<h3 id="2-5-Exploratory-Data-Analysis-EDA"><a href="#2-5-Exploratory-Data-Analysis-EDA" class="headerlink" title="2.5 Exploratory Data Analysis, EDA"></a>2.5 <strong>Exploratory Data Analysis, EDA</strong></h3><h4 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h4><p>EDA is a method of statistical analysis that uses visual charts and tables of statistics to explore the internal structure and patterns of data and extract key information without imposing many prior assumptions.</p>
+<h4 id="Purposes"><a href="#Purposes" class="headerlink" title="Purposes"></a>Purposes</h4><ul>
+<li><p><strong>Data understanding and preprocessing:</strong> clarify the meaning and structure of the data and discover outliers, missing values, and duplicates so that the dataset can be cleaned and organized.</p>
+</li>
+<li><p><strong>Description and relationship analysis:</strong> understand important features, including the distributions of variables and the relationships among them.</p>
+</li>
+<li><p><strong>Preparation for later analysis:</strong> decide whether transformations, non-parametric methods, or linear regression are needed, thereby translating a practical question into a feasible data-analysis problem.</p>
+</li>
+</ul>
+<h4 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h4><ol>
+<li><p><strong>Data screening:</strong> check for missing values, outliers, and duplicates; determine whether the sample is balanced; and decide whether sampling, new variables, or variable transformations are required.</p>
+</li>
+<li><p><strong>Description of data characteristics:</strong></p>
+</li>
+</ol>
+<ul>
+<li><p><strong>Continuous variables:</strong> use statistics such as the mean, median, and standard deviation and charts such as histograms and box plots.</p>
+</li>
+<li><p><strong>Discrete variables, nominal or ordinal:</strong> use frequencies and proportions, together with frequency tables, bar charts, and pie charts.</p>
+</li>
+</ul>
+<ol start="3">
+<li><strong>Relationships among variables:</strong></li>
+</ol>
+<p><strong>Continuous versus continuous variables</strong></p>
+<p>This belongs to correlation analysis.</p>
+<p>Charts: scatter plots, correlation matrices, and heat maps.</p>
+<p>Measures: Pearson, Spearman, and Kendall correlation coefficients. See the related articles on this site for details.</p>
+<p><strong>Discrete versus discrete variables</strong></p>
+<p>Charts: pairwise cross-tabulations and grouped bar charts; grid charts for several discrete variables.</p>
+<p>Ordinal discrete variables use correlation analysis and the correlation coefficients just mentioned.</p>
+<p>Nominal discrete variables use contingency analysis, with the $\varphi$ coefficient, the $V$ coefficient, and the contingency coefficient as quantitative measures.</p>
+<p><strong>Discrete versus continuous variables</strong></p>
+<p>Charts: histograms, box plots, and violin plots.</p>
+<p>Quantitative analysis: t-tests, analysis of variance, and similar methods.</p>
+<p>Measures: the t statistic and corresponding p-value in an independent-samples t-test, and the statistics used in one-way and multifactor analysis of variance.</p>
+<ol start="4">
+<li><strong>Testing data for normality</strong></li>
+</ol>
+<p>Histogram: examine how closely its shape matches a bell curve.</p>
+<p>Box plot: examine whether the distribution is symmetrical.</p>
+<p>P-P plot: under normality, the cumulative proportion of the data remains broadly consistent with that of the normal distribution. Place the cumulative proportion of the data on the X-axis and the corresponding normal cumulative proportion on the Y-axis. If the points lie approximately along a straight line, the data follow the specified distribution.</p>
+<p>Q-Q plot: compare the quantiles of the data with those of a theoretical distribution.</p>
+<ol start="5">
+<li><strong>Testing the type of distribution</strong></li>
+</ol>
+<p>The Shapiro–Wilk test.</p>
+<p>The Kolmogorov–Smirnov test.</p>
+<ol start="6">
+<li><strong>Data transformation</strong></li>
+</ol>
+<p>The Box–Cox transformation.</p>
+<h4 id="Descriptive-Statistics"><a href="#Descriptive-Statistics" class="headerlink" title="Descriptive Statistics"></a><strong>Descriptive Statistics</strong></h4><ul>
+<li><p><strong>Central tendency:</strong></p>
+<ul>
+<li><p><strong>Mean:</strong> the most frequently used measure, but easily affected by extreme values.</p>
+</li>
+<li><p><strong>Median:</strong> the middle value after ordering the data. It is not affected by extremes and is suitable for all distributions.</p>
+</li>
+<li><p><strong>Mode:</strong> the most frequent value. It is not affected by extremes, and several modes may exist.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Dispersion:</strong></p>
+<ul>
+<li>Measures such as standard deviation, variance, and range describe how widely data are spread.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Visualization-Charts"><a href="#Visualization-Charts" class="headerlink" title="Visualization Charts"></a><strong>Visualization Charts</strong></h4><ul>
+<li><p><strong>Bar chart:</strong> represents categorical frequencies by the length of bars and is suitable for discrete variables.</p>
+</li>
+<li><p><strong>Line chart:</strong> uses rising and falling lines to show how a variable changes over time and is suitable for continuous variables.</p>
+</li>
+<li><p><strong>Box plot:</strong> uses a box and line segments to display the maximum, minimum, median, and quartiles, making symmetry visible at a glance.</p>
+</li>
+</ul>
+<h2 id="3-Principal-Methods-of-Analysis"><a href="#3-Principal-Methods-of-Analysis" class="headerlink" title="3. Principal Methods of Analysis"></a>3. Principal Methods of Analysis</h2><h3 id="3-1-Hypothesis-Testing"><a href="#3-1-Hypothesis-Testing" class="headerlink" title="3.1 Hypothesis Testing"></a><strong>3.1 Hypothesis Testing</strong></h3><p>We may have a suspicion or claim, such as “this new drug is effective,” but cannot draw a conclusion directly. We must first establish a null hypothesis H0, which usually represents “no effect” or “no change,” and presume it innocent. We then collect sample data and ask whether the evidence is strong enough to overturn that innocent assumption beyond reasonable doubt—at a specified probability level.</p>
+<h4 id="The-Steps-of-the-Trial"><a href="#The-Steps-of-the-Trial" class="headerlink" title="The Steps of the Trial"></a><strong>The Steps of the Trial</strong></h4><ol>
+<li><strong>State the hypotheses</strong></li>
+</ol>
+<p>The <strong>null hypothesis, H0</strong>, represents the status quo or absence of an effect and always contains equality (&#x3D;, ≤, or ≥). In court, it is the claim that the defendant is innocent. For example: <code>H0: the mean effect of the new drug = the mean effect of the placebo</code>.</p>
+<p>The <strong>alternative hypothesis, H1 or Ha</strong>, is the opposing claim that we hope to establish and always contains an inequality (≠, &lt;, or &gt;). In court, it is the claim that the defendant is guilty. For example: <code>H1: the mean effect of the new drug ≠ the mean effect of the placebo</code>.</p>
+<ol start="2">
+<li><strong>Set the significance level α</strong></li>
+</ol>
+<p>Before the trial begins, we set a standard for conviction. This is the significance level α, commonly 0.05. It is the maximum risk of a mistaken judgement that we are willing to bear. An α of 0.05 means accepting a five-per-cent probability of condemning an innocent person—in statistical terms, wrongly rejecting a null hypothesis that is actually true.</p>
+<ol start="3">
+<li><strong>Calculate the test statistic</strong></li>
+</ol>
+<p>This step reduces the evidence, or sample data, to a single numerical value. The statistic measures how far the sample result lies from what H0 predicts. Different problems require different statistics, including Z, t, χ², and F.</p>
+<ol start="4">
+<li><strong>Make the statistical decision</strong></li>
+</ol>
+<p>This is the final verdict. Two methods are available.</p>
+<p><strong>Critical-value method:</strong> compare the calculated statistic with a critical value obtained from a table according to α. If the statistic falls in the rejection region, reject H0.</p>
+<p><strong>P-value approach:</strong> this is the method most commonly used by modern statistical software. Calculate the <strong>p-value</strong>, which is <strong>the probability, if H0 is true, of observing the present sample result or one still more extreme</strong>. Compare it with α:</p>
+<p>If <strong>p ≤ α</strong>, the observed event is unlikely under H0. We have reason to question H0 and therefore <strong>reject the null hypothesis</strong>.</p>
+<p>If <strong>p &gt; α</strong>, the sample result is ordinary under H0 and gives no cause for alarm. We <strong>do not have sufficient evidence to reject H0</strong>.</p>
+<p><strong>Two types of error:</strong></p>
+<p>A <strong>Type I error</strong>, or rejecting a true hypothesis, occurs when H0 is true but we reject it. Its probability is the chosen <strong>α</strong>.</p>
+<p>A <strong>Type II error</strong>, or accepting a false hypothesis, occurs when H0 is false but the evidence is insufficient to reject it. Its probability is denoted by <strong>β</strong>.</p>
+<h4 id="Common-Tests"><a href="#Common-Tests" class="headerlink" title="Common Tests"></a><strong>Common Tests</strong></h4><h5 id="1-Tests-of-Parameters-in-One-Normal-Population"><a href="#1-Tests-of-Parameters-in-One-Normal-Population" class="headerlink" title="1. Tests of Parameters in One Normal Population"></a>1. Tests of Parameters in One Normal Population</h5><p><strong>Test of a mean with known σ: the Z-test</strong></p>
+<p><strong>Question:</strong> “The national mean height of men is known to be 175 cm, with a standard deviation σ of 5 cm. A random sample of 100 men from our university has a mean height of 177 cm. Are men at our university taller than the national population?”</p>
+<p><strong>Test statistic:</strong></p>
+<p>$$ Z &#x3D; \frac{\bar{x} - \mu_0}{\sigma &#x2F; \sqrt{n}} $$</p>
+<p>Here, $\bar{x}$ is the sample mean, $\mu_0$ the hypothesized population mean, and $\sigma$ the population standard deviation; <code>n</code> is the sample size.</p>
+<p><strong>Test of a mean with unknown σ: the t-test</strong></p>
+<p><strong>Question:</strong> this is the more common situation. “I want to know whether the mean lifetime of a new batch of light bulbs is 800 hours. I sample 25 bulbs and obtain a mean lifetime of 790 hours and a sample standard deviation s of 30 hours.”</p>
+<p><strong>Test statistic:</strong></p>
+<p>$$ t &#x3D; \frac{\bar{x} - \mu_0}{s &#x2F; \sqrt{n}} $$</p>
+<p>The sample standard deviation <code>s</code> is used here. The t distribution has heavier tails than the Z distribution because it allows for the additional uncertainty introduced when <code>s</code> estimates <code>σ</code>.</p>
+<p><strong>Test of a variance: the chi-squared test</strong></p>
+<p><strong>Question:</strong> “A manufacturing standard requires that the variance in the length of a component not exceed 0.01 mm². A sample of 30 components has a variance of 0.015 mm². Is the production line insufficiently stable?”</p>
+<p><strong>Test statistic:</strong></p>
+<p>$$ \chi^2 &#x3D; \frac{(n-1)s^2}{\sigma_0^2} $$</p>
+<p>Here, $s^2$ is the sample variance and $\sigma_0^2$ is the hypothesized population variance.</p>
+<p><strong>Test of a proportion: the Z-test</strong></p>
+<p><strong>Question:</strong> “Our product had a market share of 20 per cent last year. After a promotional campaign this year, 230 of 1,000 new users chose it. Has the market share increased significantly?”</p>
+<p><strong>Test statistic:</strong></p>
+<p>$$ Z &#x3D; \frac{\hat{p} - p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}} $$</p>
+<p>Here, $\hat{p}$ is the sample proportion and <code>p₀</code> is the hypothesized population proportion.</p>
+<h5 id="2-Tests-of-Parameters-in-Two-Normal-Populations"><a href="#2-Tests-of-Parameters-in-Two-Normal-Populations" class="headerlink" title="2. Tests of Parameters in Two Normal Populations"></a>2. Tests of Parameters in Two Normal Populations</h5><p><strong>The independent-samples t-test for means</strong></p>
+<p><strong>Question:</strong> “Which of two teaching methods, A and B, is more effective? Students are randomly divided into two groups, one taught with A and the other with B, and their mean final-examination scores are compared.”</p>
+<p><strong>Test statistic, assuming equal variances:</strong></p>
+<p>$$ t &#x3D; \frac{(\bar{x}_1 - \bar{x}_2) - (\mu_1 - \mu_2)_0}{\sqrt{s_p^2 (\frac{1}{n_1} + \frac{1}{n_2})}} \quad , \quad s_p^2 &#x3D; \frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1+n_2-2} $$</p>
+<p>Here, $s_p^2$ is the pooled variance.</p>
+<p><strong>The F-test for two independent-sample variances</strong></p>
+<p><strong>Question:</strong> “Before carrying out the preceding t-test, I need to decide whether the variances of the two groups are equal. Group A has a score variance of 100 and Group B one of 120. Do the variances differ significantly?”</p>
+<p><strong>Test statistic:</strong></p>
+<p>$$ F &#x3D; \frac{s_1^2}{s_2^2} $$</p>
+<p>By convention, the larger sample variance is placed in the numerator.</p>
+<p><strong>The paired-samples t-test</strong></p>
+<p><strong>Question:</strong> “I want to know whether a weight-loss drug works. I record the weight of a group of people before they take it and again after one month, then compare the two sets of measurements.”</p>
+<p><strong>Approach:</strong> these are not independent samples because the observations occur in pairs, comparing the same person before and after treatment. First calculate each person’s weight <strong>difference d</strong>. The problem then becomes a <strong>one-sample t-test on these differences</strong>, asking whether their mean $\bar{d}$ differs significantly from zero.</p>
+<p><strong>Test statistic:</strong></p>
+<p>$$ t &#x3D; \frac{\bar{d} - D_0}{s_d &#x2F; \sqrt{n}} $$</p>
+<p>Here, <code>D₀</code> is normally 0, and <code>s_d</code> is the standard deviation of the differences <code>d</code>.</p>
+<h3 id="3-2-Contingency-Analysis"><a href="#3-2-Contingency-Analysis" class="headerlink" title="3.2 Contingency Analysis"></a><strong>3.2 Contingency Analysis</strong></h3><p><strong>Purpose:</strong> to determine whether <strong>qualitative, or categorical, variables</strong> are associated.</p>
+<ul>
+<li><p><strong>Approach—the chi-squared test:</strong></p>
+<ul>
+<li>Its central idea is a <strong>comparison between expectation and reality</strong>.</li>
+</ul>
+<ol>
+<li><p><strong>State H0:</strong> first assume that the two variables are completely independent and unrelated.</p>
+</li>
+<li><p><strong>Calculate expected frequencies:</strong> under independence, calculate how many observations should theoretically appear in each cell of the contingency table.</p>
+<ul>
+<li><strong>Formula:</strong> expected frequency in a cell &#x3D; <code>(total of its row × total of its column) / total number of observations</code></li>
+</ul>
+</li>
+<li><p><strong>Calculate the chi-squared statistic:</strong> compare expectation with reality, meaning the observed frequency. The chi-squared value measures their overall difference.</p>
+<ul>
+<li><p><strong>Formula:</strong><br>  $$ \chi^2 &#x3D; \sum \frac{(\text{观测频数} - \text{期望频数})^2}{\text{期望频数}} $$</p>
+</li>
+<li><p><strong>Interpretation:</strong> if reality differs greatly from expectation, χ² becomes large, suggesting that independence may be untenable.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Make the statistical decision:</strong> compare χ² with a critical value, or inspect the p-value. If p is below α, reject the null and conclude that a <strong>significant association</strong> exists.</p>
+</li>
+</ol>
+</li>
+<li><p><strong>Measures of association in a contingency table:</strong></p>
+<ul>
+<li><p>The chi-squared test tells us whether an association exists but not how strong it is. The following coefficients measure its strength.</p>
+</li>
+<li><p><strong>The φ, or Phi, coefficient</strong> is designed for a <strong>2x2</strong> contingency table.</p>
+<ul>
+<li><p><strong>Formula:</strong> $\phi &#x3D; \sqrt{\frac{\chi^2}{n}}$ (n is the total sample size)</p>
+</li>
+<li><p><strong>Interpretation:</strong> values range from 0 to 1, and a value closer to 1 indicates a stronger association.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Cramér’s V</strong> is more general and can be applied to a contingency table of any size.</p>
+<ul>
+<li><p><strong>Formula:</strong> $V &#x3D; \sqrt{\frac{\chi^2}{n \cdot (\min(r, c) - 1)}}$ (r is the number of rows and c the number of columns)</p>
+</li>
+<li><p><strong>Interpretation:</strong> it likewise ranges from 0 to 1, with values nearer 1 indicating stronger association. Because it can be compared across tables of different sizes, it is one of the most common measures in practice.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-3-Correlation-Analysis"><a href="#3-3-Correlation-Analysis" class="headerlink" title="3.3 Correlation Analysis"></a><strong>3.3 Correlation Analysis</strong></h3><ul>
+<li><p><strong>Purpose:</strong> to determine whether <strong>quantitative data, or continuous variables</strong>, are associated and to measure the strength and direction of that association.</p>
+</li>
+<li><p><strong>How does correlation differ from a functional relationship?</strong></p>
+<ul>
+<li><p>A <strong>functional relationship</strong> is deterministic: one value of X corresponds exactly to one value of Y. In <code>y = 2x + 1</code>, once x is fixed, y is fixed with no deviation, and the graph is a perfect line.</p>
+</li>
+<li><p>A <strong>correlation</strong> is non-deterministic and random. Variables follow a general tendency but not a strict rule. Taller people, for example, tend to weigh more, but not without exception. Their observations form a cloud of points around a trend line. <strong>Regression finds the average trend line behind that cloud, whereas correlation measures how tightly the points gather around it.</strong></p>
+</li>
+</ul>
+</li>
+<li><p><strong>Measuring correlation:</strong></p>
+<ul>
+<li><p><strong>The scatter plot</strong> is the most intuitive tool. Its pattern reveals:</p>
+<ul>
+<li><p>direction—from lower left to upper right for positive correlation and from upper left to lower right for negative correlation;</p>
+</li>
+<li><p>form—a straight line or a curve;</p>
+</li>
+<li><p>strength—the more tightly points cluster around a line, the stronger the relationship.</p>
+</li>
+</ul>
+</li>
+<li><p>A <strong>correlation coefficient</strong> turns the visual relationship into a number.</p>
+<ul>
+<li><p><strong>Pearson’s simple correlation coefficient, r:</strong></p>
+<ul>
+<li><p><strong>Use:</strong> the most common coefficient, measuring the strength and direction of a <strong>linear relationship</strong> between two <strong>continuous variables</strong>.</p>
+</li>
+<li><p><strong>Formula:</strong><br>  $$ r &#x3D; \frac{\sum_{i&#x3D;1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i&#x3D;1}^{n}(x_i - \bar{x})^2 \sum_{i&#x3D;1}^{n}(y_i - \bar{y})^2}} $$</p>
+</li>
+<li><p><strong>Interpretation:</strong></p>
+<ul>
+<li><p>Values range from <strong>-1 to +1</strong>.</p>
+</li>
+<li><p><code>r &gt; 0</code> indicates positive correlation; <code>r &lt; 0</code> indicates negative correlation.</p>
+</li>
+<li><p>The larger the absolute value <code>|r|</code>, the stronger the linear relationship. <code>|r| = 1</code> means perfect linear correlation, with every point on one line. <code>r = 0</code> means no linear relationship.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Important assumption:</strong> the variables should be normally distributed, and the coefficient is highly sensitive to outliers.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Spearman’s rank correlation coefficient, ρ or rs:</strong></p>
+<ul>
+<li><p><strong>Use:</strong> appropriate when data are not normally distributed or are <strong>ordinal variables</strong>, such as the relationship between a ranking of product preference and a ranking of advertising expenditure.</p>
+</li>
+<li><p><strong>Procedure:</strong> rather than use the raw values, order each variable from smallest to largest and replace every observation by its rank. Then calculate Pearson’s coefficient for the two rank sequences.</p>
+</li>
+<li><p><strong>Interpretation:</strong> it measures the strength of a monotonic relationship—whether the two variables tend to rise and fall together.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Kendall’s Tau, τ:</strong></p>
+<ul>
+<li><p><strong>Use:</strong> another non-parametric rank coefficient suitable for ordinal variables.</p>
+</li>
+<li><p><strong>Procedure:</strong> its calculation is more involved and compares the number of all <strong>concordant pairs</strong>, whose variables are ordered in the same direction, with <strong>discordant pairs</strong>, whose ordering is reversed.</p>
+</li>
+<li><p><strong>Interpretation:</strong> compared with Spearman’s coefficient, Kendall’s Tau may be more robust with small samples or many tied ranks.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Significance test for a correlation coefficient, using a t-test:</strong></p>
+<ul>
+<li><p>A sample correlation r may differ from zero merely by chance. We must test whether correlation also exists in the population.</p>
+</li>
+<li><p><strong>Test statistic:</strong></p>
+<p>  $$ t &#x3D; \frac{r\sqrt{n-2}}{\sqrt{1-r^2}} $$</p>
+</li>
+<li><p>Compare the calculated t with a critical value from the t distribution, or inspect the p-value, to determine whether the correlation differs significantly from zero.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Partial correlation:</strong></p>
+<ul>
+<li><p><strong>Purpose:</strong> in multivariate analysis, identify the “pure” relationship between X1 and Y after <strong>removing the influence of another variable, such as X2</strong>.</p>
+</li>
+<li><p><strong>In plain language:</strong> suppose ice-cream sales, X1, are strongly positively correlated with the number of drownings, Y. This is probably spurious because both are influenced by temperature, X2. Partial correlation measures what remains of the relationship between ice-cream sales and drownings when temperature is <strong>held constant</strong>. The remaining correlation will probably be nearly zero.</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>3.4 Regression Analysis</strong></p>
+<ul>
+<li><p><strong>Purpose:</strong> construct a quantitative relationship of dependence among variables for prediction or control.</p>
+</li>
+<li><p><strong>Categories:</strong> univariate or multivariate, simple or multiple, and linear or nonlinear regression.</p>
+</li>
+<li><p><strong>Linear regression analysis:</strong></p>
+<ul>
+<li><p><strong>Model assumptions:</strong></p>
+<ol>
+<li><p><strong>Linearity:</strong> the relationship between independent and dependent variables must be linear.</p>
+</li>
+<li><p><strong>Independence:</strong> error terms for different observations must be independent. The error in predicting today’s share price, for example, should not influence the error in predicting tomorrow’s.</p>
+</li>
+<li><p><strong>Homoscedasticity:</strong> the variance of the error term should remain constant rather than changing with the independent variable. In plain language, the degree to which predictions miss the mark should be uniform; the model should not be accurate at small values of the independent variable and wildly inaccurate at large ones.</p>
+</li>
+<li><p><strong>Normality:</strong> the error terms must follow a normal distribution.</p>
+</li>
+</ol>
+</li>
+<li><p><strong>Least-squares estimation of regression coefficients.</strong></p>
+</li>
+<li><p><strong>Goodness of fit of the regression equation:</strong></p>
+<p>  Coefficient of determination, R²:</p>
+<p>  $$<br>  R^2 &#x3D; 1 - \frac{SS_{Res}}{SS_{Total}}<br>   $$</p>
+<p>  Multiple correlation coefficient:</p>
+<p>  $$R &#x3D; \sqrt{R^2}$$</p>
+<p>  Adjusted coefficient of determination:</p>
+<p>  $$R^2_{\text{adj}} &#x3D; 1 - (1 - R^2) \cdot \frac{n - 1}{n - p - 1}$$</p>
+<ul>
+<li><p>Ordinary R² has a weakness: adding independent variables can only increase it or leave it unchanged, even if the added variable is irrelevant—using a zodiac sign to predict house prices, for example. This can mislead us into believing that a more complicated model is always better.</p>
+</li>
+<li><p><strong>Interpretation:</strong> adjusted R² patches this defect by accounting for the number of independent variables. If a new variable makes no meaningful contribution, adjusted R² falls. When models containing different numbers of variables are compared, <strong>adjusted R² is more trustworthy than ordinary R²</strong>. In the formula, <code>n</code> is the sample size and <code>p</code> the number of independent variables.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Standard error of regression</strong></p>
+</li>
+<li><p><strong>Significance tests</strong></p>
+<ul>
+<li><p>Are the model and its variables genuinely meaningful, or are they merely accidents of the data? Significance tests answer this question.</p>
+</li>
+<li><p><strong>Overall significance of the regression: the F-test</strong></p>
+</li>
+<li><p><strong>Purpose:</strong> test the <strong>overall significance</strong> of the entire model. Is the regression equation useful as a whole?</p>
+</li>
+<li><p><strong>How to judge:</strong> inspect the p-value of the F-test. If it is small, below 0.05 for example, we can reject the null that none of the independent variables is related to the dependent variable and conclude that the model as a whole is valid.</p>
+</li>
+<li><p><strong>Significance of individual regression coefficients: the t-test</strong></p>
+</li>
+<li><p><strong>Purpose:</strong> test the <strong>individual significance</strong> of <strong>each independent variable</strong>. Does this particular variable have a significant influence on the dependent variable?</p>
+</li>
+<li><p><strong>How to judge:</strong> inspect the t-test p-value for each coefficient. A small value, below 0.05, identifies a useful predictor. A large value suggests that the variable may contribute little and might be removed.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Residual analysis:</strong></p>
+<ul>
+<li><p><strong>Concept:</strong> a residual is actual value minus predicted value—the unexpected part that the model fails to explain.</p>
+</li>
+<li><p><strong>Purpose:</strong> analyse these surprises to determine whether the theory is defective.</p>
+</li>
+<li><p><strong>Residual plot:</strong> the most important diagnostic tool is usually a scatter plot of residual versus predicted value. A good residual plot resembles loose sand: its points are distributed randomly and evenly above and below zero with no visible pattern.</p>
+<ul>
+<li><p>A <strong>trumpet or funnel shape</strong> indicates <strong>heteroscedasticity</strong>.</p>
+</li>
+<li><p>A clear <strong>curved pattern</strong> suggests a <strong>nonlinear relationship</strong>.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>P-P and Q-Q plots:</strong> these specifically test the <strong>normality of residuals</strong>. If the points lie broadly along the diagonal, the residuals are approximately normal.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Other issues:</strong></p>
+<ul>
+<li><p><strong>Methods of selecting independent variables</strong></p>
+</li>
+<li><p>When many independent variables are available, we want to select the best combination. Manual screening is cumbersome, so automatic methods have been developed.</p>
+<ul>
+<li><p><strong>Forward selection:</strong> like building with blocks. Begin with an empty model and add, at each step, the variable that produces the greatest significant improvement. Stop when no variable can improve the model significantly.</p>
+</li>
+<li><p><strong>Backward elimination:</strong> like pruning a tree. Begin with a full model containing every variable and remove, at each step, the least useful one—the variable with the largest p-value—until every remaining variable is significant.</p>
+</li>
+<li><p><strong>Stepwise regression:</strong> a more flexible combination of forward and backward methods. Whenever a variable enters, reconsider all existing variables. If the newcomer makes one of them less important, remove it.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Multicollinearity</strong></p>
+<ul>
+<li><p><strong>Concept:</strong> a high degree of correlation among independent variables in multiple regression.</p>
+</li>
+<li><p><strong>In plain language:</strong> several independent variables in the model are saying almost the same thing, so their information overlaps. Using both usable floor area and gross floor area to predict a house price, for example, may produce multicollinearity because the variables are highly correlated.</p>
+</li>
+<li><p><strong>Harm:</strong> estimates of regression coefficients become unstable, their signs may contradict expectations, and t-tests may be insignificant, preventing us from identifying the separate contribution of each variable.</p>
+</li>
+<li><p><strong>Diagnosis:</strong> the most common measure is the <strong>variance inflation factor, VIF</strong>. A large VIF, commonly above 5 or 10, indicates serious multicollinearity with other independent variables.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>3.5 Analysis of Variance, ANOVA: Outline</strong></p>
+<ul>
+<li><p><strong>Introduction:</strong></p>
+<ul>
+<li><p>Purpose: test whether several population means are equal and study the effect of a categorical independent variable on a numerical dependent variable.</p>
+</li>
+<li><p>Relevant terminology.</p>
+</li>
+<li><p>Central idea: compare between-group variance, which contains systematic and random error, with within-group variance, which contains random error, and use their F ratio to decide whether the differences among means are significant.</p>
+</li>
+<li><p>Fundamental assumptions: normality, homogeneity of variance, and independence.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>One-way analysis of variance:</strong></p>
+<ul>
+<li><p>Data structure.</p>
+</li>
+<li><p>Steps: state hypotheses; construct test statistics, including SST, SSA, SSE and their degrees of freedom and the mean squares MSA and MSE; calculate F; and make the statistical decision.</p>
+</li>
+<li><p>Measure the strength of the relationship with R².</p>
+</li>
+<li><p>Multiple comparisons: after rejecting the null, test which particular means differ, using the LSD method for example.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Two-way analysis of variance:</strong></p>
+<ul>
+<li><p>Types: without interaction and with interaction.</p>
+</li>
+<li><p>Purpose: analyse the effects of two factors, represented as row and column factors, and their interaction on the experimental result.</p>
+</li>
+<li><p>Data structure.</p>
+</li>
+<li><p>Steps: state hypotheses for the row factor, column factor, and their interaction; calculate sums of squares—SST, SSR, SSC, SSinteract, and SSE; calculate mean squares and F values; and make the statistical decision.</p>
+</li>
+<li><p>Measure the strength of the relationship.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-4-Analysis-of-Variance-ANOVA-Detailed-Account"><a href="#3-4-Analysis-of-Variance-ANOVA-Detailed-Account" class="headerlink" title="3.4 Analysis of Variance, ANOVA: Detailed Account"></a><strong>3.4 Analysis of Variance, ANOVA: Detailed Account</strong></h3><ul>
+<li><p><strong>Introduction</strong></p>
+<ul>
+<li><p><strong>Purpose:</strong> ANOVA is mainly used to test whether the means of <strong>two or more populations or groups are equal</strong>. In essence, it studies the influence of one or more <strong>categorical independent variables</strong> on a <strong>numerical dependent variable</strong>.</p>
+<ul>
+<li><strong>In plain language:</strong> when more than two groups must be compared—for example, the mean student scores produced by teaching methods A, B, and C—performing many t-tests increases the risk of a Type I error. ANOVA provides an all-at-once solution that determines whether all group means are equal.</li>
+</ul>
+</li>
+<li><p><strong>Terminology:</strong></p>
+<ul>
+<li><p>A <strong>factor</strong> is the categorical independent variable under study, such as teaching method.</p>
+</li>
+<li><p>A <strong>level</strong> is one possible value of that factor, such as methods A, B, and C.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Central idea:</strong></p>
+<ul>
+<li><p>The essence of ANOVA is to <strong>decompose total variation</strong> into two parts.</p>
+<ol>
+<li><p><strong>Between-group variance:</strong> systematic differences caused by different groups, or levels of the factor—for instance, genuine differences in the effects of teaching methods A, B, and C. It contains both <strong>systematic error</strong> and random error.</p>
+</li>
+<li><p><strong>Within-group variance:</strong> variation within the same group caused by individual differences and other random factors. Even when every student is taught with method A, their scores will not be identical. This part is treated as pure <strong>random error</strong>.</p>
+</li>
+</ol>
+</li>
+<li><p><strong>The F ratio:</strong> comparing these variances permits a decision.<br>  $$ F &#x3D; \frac{\text{组间方差}}{\text{组内方差}} &#x3D; \frac{MSA}{MSE} $$</p>
+<ul>
+<li><strong>Logic:</strong> if the null that all group means are equal is true, no systematic error exists, and between- and within-group variances should be similar; F will be close to 1. If group means genuinely differ, between-group variance will be much larger and F will be large.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Assumptions:</strong> like linear regression, ANOVA has foundations that must hold.</p>
+<ol>
+<li><p><strong>Normality:</strong> each group is sampled from a normal population.</p>
+</li>
+<li><p><strong>Homogeneity of variance:</strong> population variances are equal across groups, an especially important condition for ANOVA.</p>
+</li>
+<li><p><strong>Independence:</strong> the observations are mutually independent.</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="One-Way-ANOVA"><a href="#One-Way-ANOVA" class="headerlink" title="One-Way ANOVA"></a><strong>One-Way ANOVA</strong></h4><ul>
+<li><p>It studies the influence of <strong>one</strong> categorical independent variable on one numerical dependent variable.</p>
+</li>
+<li><p><strong>Steps:</strong></p>
+<ol>
+<li><p><strong>State the hypotheses:</strong></p>
+<ul>
+<li><p>H0: $\mu_1 &#x3D; \mu_2 &#x3D; \dots &#x3D; \mu_k$ (all population group means are equal)</p>
+</li>
+<li><p>H1: at least two group means are unequal.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Construct the test statistic:</strong> the central task is to decompose the sum of squares.</p>
+<ul>
+<li><p><strong>Total sum of squares, SST:</strong> the sum of squared deviations between every observation and the grand mean, representing total variation.</p>
+</li>
+<li><p><strong>Between-group sum of squares, SSA:</strong> also called the treatment sum of squares, representing variation caused by differences among groups.</p>
+<p>  $$ SSA &#x3D; \sum_{i&#x3D;1}^{k} n_i (\bar{x}_i - \bar{\bar{x}})^2 $$</p>
+<p>  ($k$ is the number of groups, $n_i$ the sample size of group i, $\bar{x}_i$ its mean, and $\bar{\bar{x}}$ the grand mean)</p>
+</li>
+<li><p><strong>Within-group sum of squares, SSE:</strong> also called the error sum of squares, representing variation caused by random error.</p>
+<p>  $$ SSE &#x3D; \sum_{i&#x3D;1}^{k} \sum_{j&#x3D;1}^{n_i} (x_{ij} - \bar{x}_i)^2 $$</p>
+</li>
+<li><p><strong>Relationship:</strong> $SST &#x3D; SSA + SSE$</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Calculate F:</strong></p>
+<ul>
+<li><p>To remove the effect of sample size, divide each sum of squares by its <strong>degrees of freedom, df</strong>, obtaining a <strong>mean square</strong>.</p>
+<ul>
+<li><p>Between-group mean square, MSA: $MSA &#x3D; \frac{SSA}{k-1}$</p>
+</li>
+<li><p>Within-group mean square, MSE: $MSE &#x3D; \frac{SSE}{N-k}$ (N is the total sample size)</p>
+</li>
+</ul>
+</li>
+<li><p><strong>F statistic:</strong></p>
+<p>  $$ F &#x3D; \frac{MSA}{MSE} $$</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Make the statistical decision:</strong> compare F with a critical value from the F distribution, or inspect the p-value. If p &lt; α, reject H0 and conclude that significant differences exist among the group means.</p>
+</li>
+</ol>
+</li>
+<li><p><strong>Post-hoc multiple comparisons:</strong></p>
+<ul>
+<li><p>Rejecting H0 with the F-test tells us only that the means are not all equal, not <strong>which particular groups differ</strong>. Is the difference between A and B, or between B and C? Multiple comparisons provide the follow-up investigation.</p>
+</li>
+<li><p><strong>Common methods:</strong> LSD, or least significant difference, Tukey HSD, and Bonferroni. They are essentially variants of pairwise t-tests with corrected significance levels that control the overall Type I error rate.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="Two-Way-ANOVA"><a href="#Two-Way-ANOVA" class="headerlink" title="Two-Way ANOVA"></a><strong>Two-Way ANOVA</strong></h4><ul>
+<li><p>It studies the influence of <strong>two categorical independent variables</strong> and their <strong>interaction</strong> on one numerical dependent variable.</p>
+</li>
+<li><p><strong>Types:</strong></p>
+<ul>
+<li><p><strong>Two-way ANOVA without interaction:</strong> assumes that the effects of the two factors are independent and additive.</p>
+</li>
+<li><p><strong>Two-way ANOVA with interaction:</strong> the more common and realistic case. It considers not only the separate <strong>main effect</strong> of each factor but also the distinctive “chemical reaction,” or <strong>interaction effect</strong>, produced when they occur together.</p>
+<ul>
+<li><strong>Example of interaction:</strong> suppose we study the effects of fertilizer type, A or B, and water level, high or low, on crop yield. If fertilizer A works well with little water while B works well with much water, the factors interact. Their effects are not a simple 1+1&#x3D;2.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Steps:</strong></p>
+<ol>
+<li><p><strong>State the hypotheses:</strong> three sets must now be tested.</p>
+<ul>
+<li><p>For the <strong>interaction</strong>, H0 states that the two factors do not interact.</p>
+</li>
+<li><p>For the <strong>row-factor main effect</strong>, H0 states that the means at all levels of the row factor are equal.</p>
+</li>
+<li><p>For the <strong>column-factor main effect</strong>, H0 states that the means at all levels of the column factor are equal.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Calculate sums of squares:</strong> total variation is decomposed more finely.</p>
+<ul>
+<li><p>$SST &#x3D; SSR + SSC + SS_{interaction} + SSE$</p>
+<ul>
+<li><p><strong>SST:</strong> total sum of squares.</p>
+</li>
+<li><p><strong>SSR, rows:</strong> sum of squares caused by the row factor.</p>
+</li>
+<li><p><strong>SSC, columns:</strong> sum of squares caused by the column factor.</p>
+</li>
+<li><p><strong>SS_interaction:</strong> sum of squares caused by interaction.</p>
+</li>
+<li><p><strong>SSE:</strong> sum of squares caused by random error.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Calculate F:</strong> three separate F values are required.</p>
+<ul>
+<li><p>$F_{interaction} &#x3D; \frac{MS_{interaction}}{MSE}$</p>
+</li>
+<li><p>$F_{R} &#x3D; \frac{MSR}{MSE}$</p>
+</li>
+<li><p>$F_{C} &#x3D; \frac{MSC}{MSE}$</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Make the statistical decision:</strong></p>
+<ul>
+<li><p><strong>Examine the F-test for interaction first.</strong> If interaction is significant, the effects of the two factors are entangled. Analysing either main effect by itself is then of limited value, and attention should turn to the pattern of interaction.</p>
+</li>
+<li><p>If interaction is not significant, inspect the F-tests for the two main effects separately to determine whether each factor independently and significantly influences the dependent variable.</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="4-Modelling-Problems"><a href="#4-Modelling-Problems" class="headerlink" title="4. Modelling Problems"></a>4. Modelling Problems</h2><h3 id="4-1-Predictive-Modelling"><a href="#4-1-Predictive-Modelling" class="headerlink" title="4.1 Predictive Modelling"></a>4.1 <strong>Predictive Modelling</strong></h3><p>Predictive modelling uses existing data to construct a mathematical model that predicts future numerical values.</p>
+<h4 id="Regression-Analysis"><a href="#Regression-Analysis" class="headerlink" title="Regression Analysis"></a><strong>Regression Analysis</strong></h4><p>(This subject was developed in detail in an earlier conversation. The following material supplements and improves the discussion of other regression models.)</p>
+<ul>
+<li><p><strong>Linear regression:</strong> the basic model, which finds the best straight line, or hyperplane, for the data.</p>
+</li>
+<li><p><strong>Ridge regression</strong></p>
+<ul>
+<li><p><strong>Purpose:</strong> chiefly to address <strong>multicollinearity</strong> in linear regression. When independent variables are highly correlated, ordinary least squares, or OLS, produces regression coefficients that are extremely unstable and have large variance.</p>
+</li>
+<li><p><strong>In plain language:</strong> ridge regression places unstable coefficients in restraints. It adds a penalty term, the L2 norm, to least squares, preventing coefficients from becoming too large. This constraint makes the model more stable and reliable overall, at the cost of a little accuracy on the training set.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Lasso regression</strong></p>
+<ul>
+<li><p><strong>Purpose:</strong> like ridge regression, it addresses multicollinearity, but it possesses the more powerful feature of <strong>feature selection</strong>.</p>
+</li>
+<li><p><strong>In plain language:</strong> Lasso’s L1 penalty is harsher than ridge’s. It not only suppresses large coefficients but compresses the coefficients of independent variables it considers unimportant <strong>all the way to zero</strong>. It therefore produces a stable model while simultaneously screening variables and identifying those that truly matter.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Logistic regression</strong></p>
+<ul>
+<li><p><strong>Note:</strong> despite the word regression in its name, this is actually a <strong>classification model</strong>.</p>
+</li>
+<li><p><strong>Purpose:</strong> to predict a <strong>binary outcome</strong>, such as yes&#x2F;no or 1&#x2F;0—for example, whether a user will click an advertisement or an email is spam.</p>
+</li>
+<li><p><strong>In plain language:</strong> a special <strong>sigmoid function</strong> maps the continuous output of linear regression, which can range from negative to positive infinity, into the interval (0, 1). The result can be interpreted as the probability of an event. An output of 0.8 means an estimated 80-per-cent probability of a positive case. We then choose a threshold, such as 0.5: values above it become 1 and values below it become 0, completing the classification.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Regression-Decision-Trees-C-R-Classification-and-Regression-Trees"><a href="#Regression-Decision-Trees-C-R-Classification-and-Regression-Trees" class="headerlink" title="Regression Decision Trees: C&amp;R, Classification and Regression Trees"></a><strong>Regression Decision Trees: C&amp;R, Classification and Regression Trees</strong></h4><ul>
+<li><p><strong>Purpose:</strong> to make regression predictions with a tree structure.</p>
+</li>
+<li><p><strong>In plain language:</strong> every leaf in a classification tree represents a class, while every leaf in a regression tree represents a <strong>particular numerical value</strong>. The tree repeatedly asks a question about a feature—“Is the floor area below 80 square metres?”, for example—to split the data. Each split aims to minimize the <strong>variance of the dependent variable</strong>, such as price, within the resulting nodes or branches. When growth stops and a new sample falls into a leaf, its prediction is the <strong>mean</strong> of all training observations in that leaf.</p>
+</li>
+</ul>
+<h4 id="XGBoost-Regression-eXtreme-Gradient-Boosting"><a href="#XGBoost-Regression-eXtreme-Gradient-Boosting" class="headerlink" title="XGBoost Regression: eXtreme Gradient Boosting"></a><strong>XGBoost Regression: eXtreme Gradient Boosting</strong></h4><ul>
+<li><p><strong>Purpose:</strong> an extremely powerful and efficient ensemble-learning algorithm.</p>
+</li>
+<li><p><strong>In plain language:</strong> imagine an elite team that continually learns from and repairs its mistakes.</p>
+<ol>
+<li><p>The first learner, a simple decision tree, makes a rough prediction.</p>
+</li>
+<li><p>The second does not predict the original data. It specifically learns and predicts <strong>the portion the first learner got wrong—the residuals</strong>.</p>
+</li>
+<li><p>The third learns and predicts the residuals still left by the second, and so forth.</p>
+</li>
+</ol>
+<p>  The process continues, every new tree compensating for the shortcomings of all its predecessors. XGBoost adds extensive optimization, making the method fast and effective, and includes regularization to prevent overfitting.</p>
+</li>
+</ul>
+<h4 id="Neural-Networks"><a href="#Neural-Networks" class="headerlink" title="Neural Networks"></a><strong>Neural Networks</strong></h4><p>Neural networks imitate connections among neurons in the human brain to learn extremely complex nonlinear relationships in data. I will skip the details.</p>
+<h4 id="Support-Vector-Regression-SVR"><a href="#Support-Vector-Regression-SVR" class="headerlink" title="Support Vector Regression, SVR"></a><strong>Support Vector Regression, SVR</strong></h4><ul>
+<li><p><strong>Purpose:</strong> the regression version of support vector machines, or SVMs.</p>
+</li>
+<li><p><strong>In plain language:</strong> ordinary linear regression seeks a line that minimizes the sum of squared distances from all observations. SVR instead seeks a <strong>tube</strong> or <strong>street</strong> of width <code>2ε</code>. It tries to place <strong>as many points as possible inside the tube</strong> while keeping the tube itself narrow. Loss is calculated only for points outside it. The observations defining its boundaries are the <strong>support vectors</strong>. By refusing to worry about points inside the tube, SVR becomes less sensitive to outliers and more robust.</p>
+</li>
+</ul>
+<h3 id="4-2-Classification-Modelling"><a href="#4-2-Classification-Modelling" class="headerlink" title="4.2 Classification Modelling"></a>4.2 <strong>Classification Modelling</strong></h3><p>Classification uses a mathematical model to assign objects to predefined categories. Its dependent variable Y is discrete.</p>
+<ul>
+<li><p><strong>Logistic regression</strong> and <strong>discriminant analysis</strong></p>
+</li>
+<li><p><strong>Classification decision trees</strong></p>
+</li>
+<li><p><strong>Neural networks</strong></p>
+</li>
+<li><p><strong>Support vector classification, SVC:</strong></p>
+<p>  Its central idea is to find the <strong>widest street</strong>, or maximum-margin hyperplane, between samples of different classes. The edges of the street are supported by the nearest observations, the <strong>support vectors</strong>. This boundary offers the greatest tolerance for error. When the data are not linearly separable, the <strong>kernel trick</strong> maps them into a higher-dimensional space where they become separable, after which the widest street is found.</p>
+</li>
+<li><p><strong>Random forests:</strong></p>
+<p>  A random forest is both an ensemble-learning algorithm and a form of decision tree.</p>
+<ol>
+<li><p>It builds <strong>many different decision trees</strong>. To ensure their diversity, training introduces two kinds of randomness: randomly sampling observations, or <strong>row sampling</strong>, and randomly sampling features used in decisions, or <strong>column sampling</strong>.</p>
+</li>
+<li><p>For prediction, every tree votes independently. The majority wins, and the class receiving the most votes becomes the final result.</p>
+</li>
+</ol>
+<p>  This mechanism greatly improves accuracy and stability and effectively prevents the overfitting common in a single decision tree.</p>
+</li>
+</ul>
+<h3 id="4-3-Association-Analysis"><a href="#4-3-Association-Analysis" class="headerlink" title="4.3 Association Analysis"></a>4.3 <strong>Association Analysis</strong></h3><p>Association analysis searches a collection of apparently unrelated events for patterns of the form “if A occurs, B is also likely to occur.” The classic example is the story of beer and nappies.</p>
+<ul>
+<li><p><strong>The Apriori algorithm</strong></p>
+<ul>
+<li><p><strong>Central idea:</strong> <strong>if an itemset is frequent, all its subsets must also be frequent.</strong> Conversely, if an itemset is not frequent, none of its supersets can be frequent.</p>
+</li>
+<li><p><strong>Operation:</strong> like a sieve, Apriori begins with frequent sets containing one item and moves upwards layer by layer to sets containing two, three, and more items. At every layer, the principle above prunes large numbers of combinations that cannot be frequent, improving efficiency.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>The FP-growth algorithm</strong></p>
+<ul>
+<li><p><strong>Central idea:</strong> Apriori repeatedly scans the database and generates many candidate sets, which is inefficient. FP-growth instead compresses the transactions of the entire database into a special tree called an <strong>FP tree, or Frequent Pattern Tree</strong>.</p>
+</li>
+<li><p><strong>Operation:</strong> it scans the database only twice—once to count item frequencies and once to build the tree. All subsequent mining takes place in this compact tree without returning to the original database, greatly increasing speed.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>The CARMA algorithm</strong></p>
+</li>
+<li><p><strong>Sequential-pattern-mining algorithms</strong></p>
+</li>
+</ul>
+<h3 id="4-4-Cluster-Analysis"><a href="#4-4-Cluster-Analysis" class="headerlink" title="4.4 Cluster Analysis"></a>4.4 <strong>Cluster Analysis</strong></h3><ul>
+<li><p><strong>In plain language:</strong> clustering means that birds of a feather flock together. The classes are not known in advance, and no standard answer exists. The algorithm must inspect the characteristics of the data, automatically group similar samples, and separate dissimilar ones.</p>
+</li>
+<li><p><strong>Hierarchical clustering</strong></p>
+<ul>
+<li><strong>Operation:</strong> two approaches exist. Agglomerative clustering begins with each point as a separate cluster and repeatedly merges the two closest clusters until every point belongs to one large cluster, drawing a dendrogram in the process. Divisive clustering works in the reverse direction.</li>
+</ul>
+</li>
+<li><p><strong>K-Means</strong></p>
+<ul>
+<li><p><strong>Operation:</strong> one of the classic clustering algorithms.</p>
+<ol>
+<li><p>First <strong>specify the desired number of clusters, K</strong>.</p>
+</li>
+<li><p>The algorithm randomly selects K points as the initial cluster centres.</p>
+</li>
+<li><p>Every remaining point joins the cluster whose centre is nearest.</p>
+</li>
+<li><p>Recalculate each cluster’s centre as the mean position of all its points.</p>
+</li>
+<li><p>Repeat Steps 3 and 4 until the centres stop moving.</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>The TwoStep algorithm</strong></li>
+</ul>
+<h3 id="4-5-Sequence-Analysis"><a href="#4-5-Sequence-Analysis" class="headerlink" title="4.5 Sequence Analysis"></a>4.5 <strong>Sequence Analysis</strong></h3><ul>
+<li><p><strong>Purpose:</strong> like association analysis, but with the additional consideration of <strong>temporal order</strong>. It seeks patterns such as “the customer bought A first and then bought B after some time.”</p>
+</li>
+<li><p><strong>In plain language:</strong> association analysis tells us what appears together in a shopping basket, whereas sequence analysis tells us what the customer’s shopping timeline looks like. It may discover that buyers of a new computer usually purchase a printer within a month, or that viewers of film A are likely to watch sequel B the following week.</p>
+</li>
+<li><p><strong>Applications:</strong> website clickstream analysis, customer-lifetime-value analysis, and DNA-sequence analysis.</p>
+</li>
+</ul>
+<h3 id="4-6-Web-Data-Mining"><a href="#4-6-Web-Data-Mining" class="headerlink" title="4.6 Web Data Mining"></a>4.6 <strong>Web Data Mining</strong></h3><p><strong>Purpose:</strong> a comprehensive field that applies data-mining techniques to vast quantities of Web data—including page content, link structures, and access logs—to discover useful knowledge and patterns.</p>
+<p><strong>Principal areas:</strong></p>
+<ol>
+<li><p><strong>Web content mining:</strong> extract information from text, images, audio, and video on Web pages. Search-engine indexing belongs to this category.</p>
+</li>
+<li><p><strong>Web structure mining:</strong> analyse links among pages. Google’s PageRank, for example, uses link structure to estimate the importance of a page.</p>
+</li>
+<li><p><strong>Web usage mining:</strong> analyse access logs to discover users’ browsing patterns and habits. This includes the Web applications of association and sequence analysis mentioned above and supports personalized recommendation and website-layout optimization.</p>
+</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Mathematical-Modelling/" class="print-no-link">#Mathematical Modelling</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>A Review of Statistics and Data Mining</div>
+      <div>https://hwnote.space/en/posts/2025/08/25/statistics-data-mining-review/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>August 25, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js?v=20260821-global-language.js"></script>
+<script src="/js/bilingual-switch.js?v=20260821-global-language.js"></script>
+<script src="/js/tag-cloud.js?v=20260824-bilingual-cloud.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

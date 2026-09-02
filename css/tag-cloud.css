@@ -1,0 +1,57 @@
+.tagcloud.zhw-wordcloud {
+  padding: 1rem 2%;
+  text-align: center;
+}
+
+.zhw-wordcloud__summary {
+  color: var(--sec-text-color);
+  font-size: 0.78rem;
+  margin: 0 0 1rem;
+}
+
+.zhw-wordcloud__plane {
+  margin: 0 auto;
+  max-width: 100%;
+  min-height: 420px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.zhw-wordcloud__plane a {
+  color: var(--link-color);
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1.15;
+  padding: 0;
+  position: absolute;
+  text-decoration: none;
+  transform: translate(-50%, -50%);
+  transition: color 160ms ease, opacity 160ms ease, transform 160ms ease;
+  white-space: nowrap;
+}
+
+.zhw-wordcloud__plane a:hover,
+.zhw-wordcloud__plane a:focus-visible {
+  color: var(--link-hover-color) !important;
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) scale(1.08);
+  z-index: 2;
+}
+
+@media (max-width: 575.98px) {
+  .tagcloud.zhw-wordcloud {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .zhw-wordcloud__plane a {
+    max-width: 48vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zhw-wordcloud__plane a {
+    transition: none;
+  }
+}

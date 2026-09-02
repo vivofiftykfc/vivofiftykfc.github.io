@@ -1,0 +1,974 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="The opening article in my mathematical-modeling series, based on an experience-sharing session held by the Network Association.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Notes from a Mathematical Modeling Workshop">
+<meta property="og:url" content="https://hwnote.space/en/posts/2025/04/21/network-modeling-sharing/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="The opening article in my mathematical-modeling series, based on an experience-sharing session held by the Network Association.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/mathplay.jpg">
+<meta property="article:published_time" content="2025-04-21T15:14:11.000Z">
+<meta property="article:modified_time" content="2026-08-20T17:09:34.686Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Mathematical Modeling">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/mathplay.jpg">
+  
+  
+  
+  <title>Notes from a Mathematical Modeling Workshop - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css?v=20260821-global-language.css">
+<link rel="stylesheet" href="/css/tag-cloud.css?v=20260824-bilingual-cloud.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/mathplay.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Notes from a Mathematical Modeling Workshop"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-04-21 23:14" pubdate>
+          April 21, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          593 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Notes from a Mathematical Modeling Workshop</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="An-Overview-of-Mathematical-Modeling"><a href="#An-Overview-of-Mathematical-Modeling" class="headerlink" title="An Overview of Mathematical Modeling"></a>An Overview of Mathematical Modeling</h1><p>Mathematical modeling is, in my view, a category of competition well worth entering. It teaches the basic process and techniques of academic writing, traditional methods of modeling and analysis—which matter all the more in an age dominated by machine learning—and the use of scientific reasoning to examine real problems. That last part can make one’s thinking more rational. From a more practical perspective, the competition may also contribute to comprehensive assessment, postgraduate recommendation, and interview performance. Our university has developed a fairly mature sequence: three rounds of campus competition introduce the basic models, after which students alternate between the Mathematical Contest in Modeling and China’s national contest. I would recommend it to first-year BIT students. Programming, advanced mathematics, and mathematical analysis are studied in the first semester, and the contest arrives in the second. The timing is rather good.</p>
+<p>This article organizes the subject according to my own way of thinking. I am an engineering student, so the account may lean toward familiar engineering procedures. Deriving models from differential equations and similar work is left aside.</p>
+<p>I also omit machine-learning methods. Many are black boxes that cannot readily be explained, and such contests were not originally designed as machine-learning exercises. Some competitions simply ban those methods.</p>
+<p>This post follows a 2025 mathematical-modeling workshop held by the Network Association, and much of it is copied directly. My thanks go to the speaker, Guo Wentao.</p>
+<h2 id="Modeling-and-Programming"><a href="#Modeling-and-Programming" class="headerlink" title="Modeling and Programming"></a>Modeling and Programming</h2><p>The following broad categories can guide model selection. Beginners may as well start from nothing and learn while competing—“learn warfare through warfare,” as Chairman Mao put it.</p>
+<p>My recommended route is to enter a campus contest, use CSDN, Zhihu, and Bilibili to find methods, verify them in SPSS, and ask GPT, DeepSeek, or whatever AI is currently popular to explain them. Understanding grows gradually through use.</p>
+<pre><code class=" mermaid">
+flowchart LR
+  B[AI及搜索了解可用模型]
+  B --&gt; C[SPSS验证方法可行性]
+  C --&gt; D[写代码]
+
+</code></pre>
+
+<p>The prerequisite, of course, is knowing which methods exist. For each major direction, understand the available models, their inputs and outputs, their central ideas, and the situations and characteristics for which they are suitable.</p>
+<h3 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization"></a>Optimization</h3><p>Optimization seeks a maximum or minimum. More precisely, it consists of variables, constraints, and an objective function. Anyone familiar with the basic idea of a neural network will notice a resemblance to placing an objective function before the model and training toward it. I tell you which variables exist and what final quantity I want—the shortest path, for example—and you construct a model that produces it.</p>
+<p>Points to note include:</p>
+<ul>
+<li>Linear route-finding and similar problems may have a unique optimal solution.</li>
+<li>Simulated annealing, genetic algorithms, and particle-swarm optimization produce simulated results and may become trapped in local optima. Run them several times.</li>
+<li>Differential and difference equations often appear in biological or population problems, with competition and other conditions added over repeated simulations. They are common in Problem A of the MCM.</li>
+<li>The speaker did not know much graph theory, and neither do I. It is rather theoretical.</li>
+</ul>
+<pre><code class=" mermaid">
+flowchart LR
+  A[优化模型] --&gt; B[数学规划]
+  B --&gt; B1[dp]
+  A --&gt; C[微分、差分方程]
+  C --&gt; C1[传染病模型SIR]
+  C --&gt; C2[Lotka-Volterra]
+  C --&gt; C3[Leslie种群模型]
+  A --&gt; D[图论与网络]
+  D --&gt; D1[最短路]
+  D --&gt; D2[网络最大流]
+  D --&gt; D3[旅行商问题TSP]
+  A --&gt; E[优化算法]
+  E --&gt; E1[退火算法]
+  E --&gt; E2[遗传算法]
+  E --&gt; E3[粒子群算法]
+
+</code></pre>
+
+<h3 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h3><p>Classification assigns existing objects to classes and may involve large amounts of data. It seldom forms an entire problem by itself, but often appears inside an evaluation task.</p>
+<p>K-means, SVM, and XGBoost are particularly important.</p>
+<pre><code class=" mermaid">
+flowchart LR
+  A[分类模型] --&gt; B1[判别分析]
+  B1 --&gt; B11[距离判别法]
+  B1 --&gt; B12[Fisher判别法]
+  B1 --&gt; B13[Bayes判别法]
+
+  A --&gt; B2[聚类分析]
+  B2 --&gt; B21[K-means聚类]
+
+
+  A --&gt; B3[神经网络分类]
+  B3 --&gt; B22[CNN]
+  B3 --&gt; B23[yolo]
+  B3 --&gt; B31[随机森林]
+  B3 --&gt; B32[SVM]
+  B3 --&gt; B33[XGBoost]
+
+</code></pre>
+
+<h3 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h3><p>Evaluation compares the quality of alternatives through an appropriate judgment method. Problem B in the first round of the 2025 campus contest belonged to this category. Entropy weighting combined with TOPSIS worked well, while PCA first removed several variables and also made it possible to draw attractive heat maps. If nothing else comes to mind, a purely subjective method such as AHP can at least produce a complete answer.</p>
+<p>The danger is that these highly conventional procedures produce homogeneous papers. The final choice still deserves careful thought.</p>
+<pre><code class=" mermaid">
+flowchart LR
+  A[评价模型] --&gt; B1[层次分析法（AHP）]
+  A --&gt; B2[灰色关联度分析]
+  A --&gt; B3[BP神经网络]
+  A --&gt; B4[数据包络法DEA]
+  A --&gt; B5[组合评价法]
+  A --&gt; B6[熵权法+TOPSIS]
+
+</code></pre>
+
+<h3 id="Forecasting"><a href="#Forecasting" class="headerlink" title="Forecasting"></a>Forecasting</h3><p>Forecasting estimates future changes.</p>
+<ul>
+<li>Input: variables arranged over time</li>
+<li>Output: future values of variables arranged over time</li>
+<li>Principal methods: linear regression and ARIMA\GM</li>
+<li>Several variables: LSTM may be attempted, or a non-temporal model may make judgments from specified factors</li>
+</ul>
+<pre><code class=" mermaid">
+flowchart LR
+  A[预测模型] --&gt; B1[回归分析]
+  B1 --&gt; B11[线性回归]
+  B1 --&gt; B12[岭回归]
+
+  A --&gt; B2[时间序列分析]
+  B2 --&gt; B21[ARIMA]
+
+  A --&gt; B3[灰色预测]
+  B3 --&gt; B31[&quot;GM(1,1)&quot;]
+
+  A --&gt; B4[&quot;支持向量机 SVM&quot;]
+
+  A --&gt; B5[机器学习]
+  B5 --&gt; B51[BP神经网络]
+  B5 --&gt; B52[LSTM]
+  B5 --&gt; B53[GRU]
+  B5 --&gt; B54[随机森林]
+  B5 --&gt; B55[梯度提升机 GBDT]
+  B5 --&gt; B56[XGBoost 回归]
+  B5 --&gt; B57[LightGBM]
+  B5 --&gt; B58[SVR 回归]
+
+  A --&gt; B6[组合预测]
+
+</code></pre>
+
+<h3 id="Overall-Procedure"><a href="#Overall-Procedure" class="headerlink" title="Overall Procedure"></a>Overall Procedure</h3><pre><code class=" mermaid">
+flowchart LR
+  B[AI及搜索了解可用模型]
+  B --&gt; C[SPSS验证方法可行性]
+  C --&gt; D[写代码]
+  D --&gt; E[优化图表]
+  E --&gt; F[结果验证，评估]
+
+</code></pre>
+
+<p>Evaluation is sometimes optional. When several models are available, compare them; when an indicator looks good—for example, an excellent fit—mention it. When the result is poor, perhaps do not. But let me repeat: always verify feasibility before investing effort in a method.</p>
+<h2 id="The-Paper"><a href="#The-Paper" class="headerlink" title="The Paper"></a>The Paper</h2><h3 id="Document-Structure"><a href="#Document-Structure" class="headerlink" title="Document Structure"></a>Document Structure</h3><ol>
+<li><strong>Abstract</strong></li>
+<li><strong>Contents</strong></li>
+<li><strong>Introduction to the problem</strong><ul>
+<li>Background</li>
+<li>Restatement</li>
+<li>Analysis</li>
+</ul>
+</li>
+<li><strong>List of symbols</strong></li>
+<li><strong>Basic assumptions</strong></li>
+<li><strong>Model construction and solution</strong><ul>
+<li>Parts one, two, and three</li>
+</ul>
+</li>
+<li><strong>Strengths and weaknesses, evaluation, and sensitivity analysis</strong></li>
+</ol>
+<h3 id="Main-Body"><a href="#Main-Body" class="headerlink" title="Main Body"></a>Main Body</h3><p>Introduce the method + present formulas + use figures + give results.</p>
+<ul>
+<li><strong>Explain why it is used:</strong> identify the category of model and the purpose it serves.</li>
+<li><strong>Explain how it is used:</strong> provide the formulas and, where useful, a process diagram.</li>
+<li><strong>Explain the result:</strong> show the result graph and analyse the error.</li>
+</ul>
+<h2 id="Points-to-Note"><a href="#Points-to-Note" class="headerlink" title="Points to Note"></a>Points to Note</h2><ul>
+<li>Pay attention to the position of each task. The first may be handled more lightly; the third usually demands much more work.</li>
+<li>Always verify feasibility and avoid wasted effort.</li>
+<li>Polish every graph. In practice, many teams use similar models, so attractive figures matter enormously.</li>
+<li>The abstract is also important. The modeler should revise it after all other work is complete.</li>
+<li>Remember to add the list of symbols.</li>
+<li>Whatever the detail or completeness of the modeling, address every requested task and figure and fill every part of the template.</li>
+<li>The writer should begin on the first day, working on background research and similar material.</li>
+<li>Figures need patient refinement. A slide from the workshop appears below.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202506222335264.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>The modeler and writer must communicate properly.</li>
+<li>The modeler should assess strengths and weaknesses and design a sensitivity analysis. According to the workshop, SHAP may be useful for this? I have never used it anyway.</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Mathematical-Modeling/" class="print-no-link">#Mathematical Modeling</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Notes from a Mathematical Modeling Workshop</div>
+      <div>https://hwnote.space/en/posts/2025/04/21/network-modeling-sharing/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>April 21, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js?v=20260821-global-language.js"></script>
+<script src="/js/bilingual-switch.js?v=20260821-global-language.js"></script>
+<script src="/js/tag-cloud.js?v=20260824-bilingual-cloud.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

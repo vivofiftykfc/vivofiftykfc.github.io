@@ -1,0 +1,1471 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Starting from a continuous-time LTI system, we derive a minimal workable model, then attach each branch—Fourier series, sampling, modulation, region of convergence, poles and zeros—back to the main tr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Evolution of Signals and Systems (Part I) — The Generative Logic Behind the Fourier and Laplace Transforms">
+<meta property="og:url" content="https://hwnote.space/en/posts/2026/08/30/fourier-laplace-knowledge-tree/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="Starting from a continuous-time LTI system, we derive a minimal workable model, then attach each branch—Fourier series, sampling, modulation, region of convergence, poles and zeros—back to the main tr">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/git1.jpg">
+<meta property="article:published_time" content="2026-08-29T17:20:00.000Z">
+<meta property="article:modified_time" content="2026-08-29T19:07:55.640Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Signals and Systems">
+<meta property="article:tag" content="Fourier Transform">
+<meta property="article:tag" content="Laplace Transform">
+<meta property="article:tag" content="LTI Systems">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/git1.jpg">
+  
+  
+  
+  <title>The Evolution of Signals and Systems (Part I) — The Generative Logic Behind the Fourier and Laplace Transforms - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css?v=20260821-global-language.css">
+<link rel="stylesheet" href="/css/tag-cloud.css?v=20260824-bilingual-cloud.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/git1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="The Evolution of Signals and Systems (Part I) — The Generative Logic Behind the Fourier and Laplace Transforms"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-08-30 01:20" pubdate>
+          August 30, 2026 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          37 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">The Evolution of Signals and Systems (Part I) — The Generative Logic Behind the Fourier and Laplace Transforms</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>A few days ago, while writing out the Fourier transform and the Laplace transform on paper, I realized that convolution, spectra, transfer functions, and poles and zeros can each be computed in isolation. But if you merely follow the order of the lectures, they easily become a row of unrelated tools. What actually ties them together is not some table of transforms, but an earlier question:</p>
+<blockquote>
+<p>Can we switch the signal to a new coordinate system, so that the operation of a complex system becomes pointwise multiplication in the new coordinates?</p>
+</blockquote>
+<p>Below, I will not lay out knowledge points flatly according to the textbook chapters. The first part does only one thing: step by step, it derives a minimal model that closes on itself. The second part then handles the problems that this model temporarily ignores, and explains at which node each branch should rejoin the main trunk.</p>
+<p>This article starts from a two-page framework I wrote by hand (you do not need to read those pages; I put them at the very end), and checks the LT and FT portions of the signals and systems course lecture by lecture. The historical thread follows this <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/2034966558422909199">Zhihu article</a>; only the necessary background is kept here. The “completeness” of this article is also limited to the continuous-time LTI signals and systems course, and is limited to deepening the knowledge framework of this subject. If you want to improve problem-solving skills, further extensive practice is still required.</p>
+<h1 id="〇-Historical-Development"><a href="#〇-Historical-Development" class="headerlink" title="〇, Historical Development"></a>〇, Historical Development</h1><p>What people first observed was how quantities change over time. Early mechanical, electrical, and speed-regulation problems naturally took the form of differential equations, giving rise to time-domain analysis: given the initial state and input, find $y(t)$.</p>
+<p>Fourier systematized harmonic decomposition while studying heat conduction. In circuit, communication, and control engineering, people gradually discovered that rather than solving differential equations for each different input one by one, it was better to first ask how much the system amplifies and delays each frequency. In the 1930s, the work of Nyquist, Bode, and others turned the frequency response into a method usable for stability judgment and engineering design.</p>
+<p>The mathematical origins of the Laplace transform go back even earlier. Later, through Heaviside’s operational methods and the absorption by control theory, the $s$ domain became the daily tool for handling transients, initial conditions, and system functions. After that came root locus, state space, and the discrete $Z$ domain, but these did not successively discard earlier representations. Root locus still looks at the closed-loop poles in the $s$ plane; state space still describes differential equations—only the objects and coordinates change.</p>
+<p>So what this history truly leaves behind is not “the time domain failed, so switch to the frequency domain; the frequency domain failed, so switch to the complex domain,” but rather a recurring action: <strong>when the operations in the original representation become too entangled, switch to another representation, so that the structure becomes visible.</strong></p>
+<h1 id="壹-The-Main-Trunk"><a href="#壹-The-Main-Trunk" class="headerlink" title="壹, The Main Trunk"></a>壹, The Main Trunk</h1><p>The scope of discussion is first limited to:</p>
+<ul>
+<li>continuous-time signals;</li>
+<li>single-input, single-output linear time-invariant systems;</li>
+<li>initially studying the zero-state response, i.e., temporarily ignoring stored energy inside the system;</li>
+<li>assuming the integrals involved are valid in the ordinary or generalized-function sense.</li>
+</ul>
+<p>Within this scope, the entire main trunk has only five steps.</p>
+<p>And before beginning the reasoning, allow me to place the logical framework for this chapter here:</p>
+<p>$$<br>\boxed{<br>\text{LTI}<br>\Rightarrow y&#x3D;x*h<br>\Rightarrow e^{st}\text{ 是特征函数}<br>\Rightarrow Y(s)&#x3D;H(s)X(s)<br>\Rightarrow<br>\begin{cases}<br>s&#x3D;j\omega &amp; \text{FT} \<br>s&#x3D;\sigma+j\omega &amp; \text{LT}<br>\end{cases}}<br>$$</p>
+<h2 id="一-The-Problem-Under-Study"><a href="#一-The-Problem-Under-Study" class="headerlink" title="一, The Problem Under Study"></a>一, The Problem Under Study</h2><p>A system is an operator that maps an input signal to an output signal:</p>
+<p>$$<br>T:x(t)\longmapsto y(t).<br>$$</p>
+<p>Computing $T{x}$ directly in the time domain often involves quantities at different times that are coupled to each other. What we really need is not another more complicated algorithm, but a set of “coordinate axes” suitable for the system: if the input varies along one of these axes, the output remains on the same axis, only scaled by a factor.</p>
+<p>In linear algebra, this is called finding eigenvectors and diagonalizing the matrix. The signal space is infinite-dimensional, but the problem is unchanged:</p>
+<p>$$<br>T{\phi_\lambda(t)}&#x3D;H(\lambda)\phi_\lambda(t).<br>$$</p>
+<p>If such $\phi_\lambda$ can be found, and a general signal is then decomposed onto them, the system operation changes from “overall entanglement” to “independent multiplication on each coordinate.”</p>
+<h2 id="二-Why-an-LTI-System-Must-Be-Described-by-Convolution"><a href="#二-Why-an-LTI-System-Must-Be-Described-by-Convolution" class="headerlink" title="二, Why an LTI System Must Be Described by Convolution"></a>二, Why an LTI System Must Be Described by Convolution</h2><p>Any sufficiently well-behaved signal can be written as a continuous superposition of shifted impulses:</p>
+<p>$$<br>x(t)&#x3D;\int_{-\infty}^{\infty}x(\tau)\delta(t-\tau),d\tau.<br>$$</p>
+<p>Let the system’s zero-state response to a unit impulse be</p>
+<p>$$<br>h(t)&#x3D;T{\delta(t)}.<br>$$</p>
+<p>Time invariance guarantees that when the impulse is shifted, the response is shifted in exactly the same way:</p>
+<p>$$<br>T{\delta(t-\tau)}&#x3D;h(t-\tau).<br>$$</p>
+<p>Then linearity allows us to superpose each local response:</p>
+<p>$$<br>\begin{aligned}<br>y(t)<br>&amp;&#x3D;T{x(t)} \<br>&amp;&#x3D;\int_{-\infty}^{\infty}x(\tau)h(t-\tau),d\tau \<br>&amp;&#x3D;x(t)*h(t).<br>\end{aligned}<br>$$</p>
+<p>Therefore, the entire zero-state input–output behavior of a continuous-time LTI system is compressed into a single function $h(t)$:</p>
+<p>$$<br>\boxed{\text{LTI 系统}\quad\Longleftrightarrow\quad h(t)\quad\Longleftrightarrow\quad y&#x3D;x*h}<br>$$</p>
+<p>At this point we have compressed the “unknown operator $T$ “ into “convolution with a fixed function $h$ .” But convolution is still an integral; it has not yet become the simplest multiplication.</p>
+<h2 id="三-Why-the-Complex-Exponential-Should-Be-Chosen-as-the-Coordinate-Axis"><a href="#三-Why-the-Complex-Exponential-Should-Be-Chosen-as-the-Coordinate-Axis" class="headerlink" title="三, Why the Complex Exponential Should Be Chosen as the Coordinate Axis"></a>三, Why the Complex Exponential Should Be Chosen as the Coordinate Axis</h2><p>Feed the complex exponential $e^{st}$ into the convolution system:</p>
+<p>$$<br>\begin{aligned}<br>T{e^{st}}<br>&amp;&#x3D;\int_{-\infty}^{\infty}h(\tau)e^{s(t-\tau)},d\tau \<br>&amp;&#x3D;\left[\int_{-\infty}^{\infty}h(\tau)e^{-s\tau},d\tau\right]e^{st}.<br>\end{aligned}<br>$$</p>
+<p>Write</p>
+<p>$$<br>H(s)&#x3D;\int_{-\infty}^{\infty}h(\tau)e^{-s\tau},d\tau,<br>$$</p>
+<p>Then we have</p>
+<p>$$<br>\boxed{T{e^{st}}&#x3D;H(s)e^{st}}.<br>$$</p>
+<p>This is the key step: after passing through any LTI system, a complex exponential keeps its shape unchanged, and is only multiplied by a complex number $H(s)$ . Thus $e^{st}$ is a common eigenfunction of all LTI systems, and $H(s)$ is the eigenvalue of the system on this coordinate axis.</p>
+<p>Two opposite exponentials must be clearly distinguished here:</p>
+<ul>
+<li><p>$e^{st}$ is the basis function used to synthesize the signal, and is also the eigenfunction fed into the system;</p>
+</li>
+<li><p>$e^{-st}$ is the analysis kernel used to extract the corresponding coordinate coefficients from the original signal.</p>
+</li>
+</ul>
+<p>Opposite signs do not constitute two separate theories; rather, “synthesis” and “analysis” are inverse processes of each other.</p>
+<h2 id="四-Projecting-a-General-Signal-onto-the-Complex-Exponential-Coordinate-System"><a href="#四-Projecting-a-General-Signal-onto-the-Complex-Exponential-Coordinate-System" class="headerlink" title="四, Projecting a General Signal onto the Complex Exponential Coordinate System"></a>四, Projecting a General Signal onto the Complex Exponential Coordinate System</h2><p>Since the complex exponential leaves only multiplication in an LTI system, we use it to represent general signals. The bilateral Laplace transform is defined as</p>
+<p>$$<br>X(s)&#x3D;\int_{-\infty}^{\infty}x(t)e^{-st},dt,<br>\qquad s&#x3D;\sigma+j\omega.<br>$$</p>
+<p>On some vertical line within the region of convergence, the signal can be resynthesized by the inverse transform:</p>
+<p>$$<br>x(t)&#x3D;\frac{1}{2\pi j}<br>\int_{\gamma-j\infty}^{\gamma+j\infty}X(s)e^{st},ds.<br>$$</p>
+<p>Feed this decomposition into the system. Since each $e^{st}$ is only multiplied by $H(s)$ , the corresponding coordinate coefficient of the output becomes</p>
+<p>$$<br>\boxed{Y(s)&#x3D;H(s)X(s)}.<br>$$</p>
+<p>Thus the initial question has been answered:</p>
+<table>
+<thead>
+<tr>
+<th>Original representation</th>
+<th>After changing coordinates</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Signal $x(t)$</td>
+<td>Coordinates $X(s)$</td>
+</tr>
+<tr>
+<td>LTI system $T$</td>
+<td>Gain $H(s)$ on each coordinate</td>
+</tr>
+<tr>
+<td>Time-domain convolution $x*h$</td>
+<td>Complex-frequency-domain multiplication $HX$</td>
+</tr>
+<tr>
+<td>Finding the whole output waveform</td>
+<td>Handling each exponential mode separately, then synthesizing</td>
+</tr>
+</tbody></table>
+<p>This is the common minimal model behind both the Fourier transform and the Laplace transform. The transform is not the goal; diagonalizing the convolution operator is.</p>
+<h2 id="五-The-Unity-of-Opposites-between-LT-and-FT"><a href="#五-The-Unity-of-Opposites-between-LT-and-FT" class="headerlink" title="五, The Unity of Opposites between LT and FT"></a>五, The Unity of Opposites between LT and FT</h2><p>Let</p>
+<p>$$<br>s&#x3D;\sigma+j\omega,<br>\qquad<br>e^{st}&#x3D;e^{\sigma t}e^{j\omega t}.<br>$$</p>
+<p>It contains two kinds of variation at once: $\sigma$ controls exponential growth or decay, while $\omega$ controls the oscillation frequency.</p>
+<h3 id="1-Pure-Oscillation-Only-The-Fourier-Transform"><a href="#1-Pure-Oscillation-Only-The-Fourier-Transform" class="headerlink" title="1. Pure Oscillation Only: The Fourier Transform"></a>1. Pure Oscillation Only: The Fourier Transform</h3><p>Taking $\sigma&#x3D;0$, i.e., $s&#x3D;j\omega$, we obtain</p>
+<p>$$<br>X(j\omega)&#x3D;\int_{-\infty}^{\infty}x(t)e^{-j\omega t},dt.<br>$$</p>
+<p>Now the coordinate axes are pure oscillations $e^{j\omega t}$. The system’s effect on each frequency is</p>
+<p>$$<br>Y(j\omega)&#x3D;H(j\omega)X(j\omega).<br>$$</p>
+<p>$|H(j\omega)|$ determines how much that frequency is amplified or attenuated, and $\arg H(j\omega)$ determines how much phase shift it undergoes. So the Fourier transform is best suited to answer “how the system handles different oscillation frequencies.”</p>
+<h3 id="2-Allowing-Growth-and-Decay-The-Laplace-Transform"><a href="#2-Allowing-Growth-and-Decay-The-Laplace-Transform" class="headerlink" title="2. Allowing Growth and Decay: The Laplace Transform"></a>2. Allowing Growth and Decay: The Laplace Transform</h3><p>When the ordinary Fourier integral does not converge, or when the problem itself contains transients and exponential modes, $\sigma\neq0$ is allowed:</p>
+<p>$$<br>X(\sigma+j\omega)<br>&#x3D;\int_{-\infty}^{\infty}<br>\bigl[x(t)e^{-\sigma t}\bigr]e^{-j\omega t},dt.<br>$$</p>
+<p>Therefore, once $\sigma$ is fixed, the Laplace transform is simply the Fourier transform of the weighted signal $x(t)e^{-\sigma t}$. Different $\sigma$ correspond to different exponential weightings.</p>
+<p>But not every $s$ makes the integral converge. The transform expression and the region of convergence must be kept together:</p>
+<p>$$<br>\boxed{\text{拉普拉斯变换}&#x3D;\text{代数表达式}+\text{ROC}}.<br>$$</p>
+<p>Only if the imaginary axis $s&#x3D;j\omega$ lies inside the ROC can the Laplace transform reduce to the Fourier transform in the ordinary sense on the imaginary axis.</p>
+<p>At this point, the minimal model closes:</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202608300238363.png" srcset="/img/loading.gif" lazyload></p>
+<p>It can also be compressed into one sentence:</p>
+<p>$$<br>\boxed{<br>\text{LTI}<br>\Rightarrow y&#x3D;x*h<br>\Rightarrow e^{st}\text{ 是特征函数}<br>\Rightarrow Y(s)&#x3D;H(s)X(s)<br>\Rightarrow<br>\begin{cases}<br>s&#x3D;j\omega &amp; \text{FT} \<br>s&#x3D;\sigma+j\omega &amp; \text{LT}<br>\end{cases}}<br>$$</p>
+<p>This is already a workable minimal model: given $h(t)$, one obtains $H(s)$; given $X(s)$, one can use $Y&#x3D;HX$ to find the zero-state output. Everything else in the subject answers questions that this model has not yet answered.</p>
+<h1 id="贰-Branch-Problems"><a href="#贰-Branch-Problems" class="headerlink" title="贰, Branch Problems"></a>贰, Branch Problems</h1><p>Below I will not repeat the derivation of the main trunk. Instead, following the actual content of the lecture slides, I will fill in each branch with four questions:</p>
+<ol>
+<li>What problem, omitted by the main trunk, does it solve;</li>
+<li>At which node of the main trunk does it attach;</li>
+<li>What conclusions inside it must be mastered;</li>
+<li>How the Shanghai Jiao Tong University 819 lecture slides usually organize it into problems.</li>
+</ol>
+<p>The correspondence between the slides and the branches is as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Slides</th>
+<th>Main content</th>
+<th>Position in this knowledge tree</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Lectures 1–3</td>
+<td>Signal representation, singular signals, system properties</td>
+<td>Branch 1</td>
+</tr>
+<tr>
+<td>Lectures 4–5</td>
+<td>Classical method, response classification, impulse matching, zero-input&#x2F;zero-state, impulse&#x2F;step response</td>
+<td>Branches 8, 9</td>
+</tr>
+<tr>
+<td>Lectures 6–7</td>
+<td>Convolution definition, graphical method, properties, rectangular convolution</td>
+<td>Computational expansion of main trunk step 2, merged into branch 9</td>
+</tr>
+<tr>
+<td>Lectures 8–10</td>
+<td>FS, FT, spectrum of periodic signals, sampling</td>
+<td>Branches 2, 3, 5</td>
+</tr>
+<tr>
+<td>Lectures 11–12</td>
+<td>Filtering, frequency-domain analysis, correlation, modulation, Hilbert transform</td>
+<td>Branches 4, 5, 6</td>
+</tr>
+<tr>
+<td>Lectures 13–15</td>
+<td>LT, ROC, inverse transform, system response, eigenfunction input, causality and stability</td>
+<td>Branches 7, 8, 9, 10</td>
+</tr>
+<tr>
+<td>Lecture 16</td>
+<td>Block diagrams, signal flow graphs, Mason, Routh</td>
+<td>Branches 10, 11</td>
+</tr>
+</tbody></table>
+<h2 id="一-Attaching-before-the-“System-Operator”-First-Confirm-the-Object-and-Premises"><a href="#一-Attaching-before-the-“System-Operator”-First-Confirm-the-Object-and-Premises" class="headerlink" title="一, Attaching before the “System Operator”: First Confirm the Object and Premises"></a>一, Attaching before the “System Operator”: First Confirm the Object and Premises</h2><h3 id="The-Problem-It-Solves"><a href="#The-Problem-It-Solves" class="headerlink" title="The Problem It Solves"></a>The Problem It Solves</h3><p>Part I directly writes down $T:x\mapsto y$, but before entering the LTI reasoning, at least three things must be answered: what signal is the input, what operations are performed on the signal, and whether the given system really is linear and time-invariant.</p>
+<h3 id="1-Signal-Representation-Classification-and-Basic-Operations"><a href="#1-Signal-Representation-Classification-and-Basic-Operations" class="headerlink" title="1. Signal Representation, Classification, and Basic Operations"></a>1. Signal Representation, Classification, and Basic Operations</h3><p>Continuous-time signals are usually given in three ways:</p>
+<ul>
+<li><p>analytical expressions, e.g., $x(t)&#x3D;e^{-at}u(t)$;</p>
+</li>
+<li><p>waveform diagrams;</p>
+</li>
+<li><p>combinations of basic signals, e.g., writing piecewise signals using steps.</p>
+</li>
+</ul>
+<p>What actually affects later computation in classification is:</p>
+<ul>
+<li><p><strong>Periodicity</strong>: a common fundamental period can exist for a sum of continuous-time sinusoids only if their frequency ratios are all rational;</p>
+</li>
+<li><p><strong>Energy and power</strong>:</p>
+</li>
+</ul>
+<p>$$<br>E&#x3D;\int_{-\infty}^{\infty}|x(t)|^2dt,<br>\qquad<br>P&#x3D;\lim_{T\to\infty}\frac{1}{2T}\int_{-T}^{T}|x(t)|^2dt;<br>$$</p>
+<ul>
+<li><strong>Even&#x2F;odd decomposition</strong>:</li>
+</ul>
+<p>$$<br>x_e(t)&#x3D;\frac{x(t)+x(-t)}{2},<br>\qquad<br>x_o(t)&#x3D;\frac{x(t)-x(-t)}{2};<br>$$</p>
+<ul>
+<li><p><strong>Time operations</strong>: shifting, reversal, scaling, and their combinations;</p>
+</li>
+<li><p><strong>Differentiation and integration</strong>: continuous segments are handled as ordinary functions, but jump points must simultaneously account for impulses.</p>
+</li>
+</ul>
+<p>Composite time transformations are best handled uniformly by “first find the new variable, then find the key points.” For $y(t)&#x3D;x(at+b)$, first set $at+b&#x3D;t_k$, map each turning point $t_k$ of the original signal to the new time axis, then judge whether a reversal occurs.</p>
+<h3 id="2-Singular-Signals-Are-the-Syntax-of-Later-Computation"><a href="#2-Singular-Signals-Are-the-Syntax-of-Later-Computation" class="headerlink" title="2. Singular Signals Are the Syntax of Later Computation"></a>2. Singular Signals Are the Syntax of Later Computation</h3><p>The step, impulse, and ramp in the slides are not isolated definitions but a language for expressing piecewise change:</p>
+<p>$$<br>\frac{d}{dt}u(t)&#x3D;\delta(t),<br>\qquad<br>\int_{-\infty}^{t}\delta(\tau)d\tau&#x3D;u(t).<br>$$</p>
+<p>Must be mastered:</p>
+<p>$$<br>\int_{-\infty}^{\infty}x(t)\delta(t-t_0)dt&#x3D;x(t_0),<br>$$</p>
+<p>$$<br>x(t)\delta(t-t_0)&#x3D;x(t_0)\delta(t-t_0),<br>$$</p>
+<p>$$<br>\delta(at-b)&#x3D;\frac{1}{|a|}<br>\delta\left(t-\frac{b}{a}\right),<br>$$</p>
+<p>and the more general</p>
+<p>$$<br>\delta(g(t))<br>&#x3D;\sum_{g(t_k)&#x3D;0}<br>\frac{\delta(t-t_k)}{|g’(t_k)|}.<br>$$</p>
+<p>When encountering $\delta^{(n)}(t)$, the sampling target switches to the derivative of the integrand, with a sign attached:</p>
+<p>$$<br>\int x(t)\delta^{(n)}(t-t_0)dt<br>&#x3D;(-1)^n x^{(n)}(t_0).<br>$$</p>
+<h3 id="3-System-Properties-Determine-Which-Conclusions-Can-Be-Used"><a href="#3-System-Properties-Determine-Which-Conclusions-Can-Be-Used" class="headerlink" title="3. System Properties Determine Which Conclusions Can Be Used"></a>3. System Properties Determine Which Conclusions Can Be Used</h3><p>When judging system properties, return to the definitions:</p>
+<ul>
+<li><p>Linearity: whether homogeneity and additivity hold;</p>
+</li>
+<li><p>Time invariance: whether shifting the input commutes with shifting the output;</p>
+</li>
+<li><p>Causality: whether $y(t_0)$ depends only on the input at times $t\le t_0$;</p>
+</li>
+<li><p>Memorylessness: whether $y(t_0)$ depends only on $x(t_0)$;</p>
+</li>
+<li><p>BIBO stability: whether every bounded input produces a bounded output;</p>
+</li>
+<li><p>Invertibility: whether the input can be uniquely recovered from the output.</p>
+</li>
+</ul>
+<p>For LTI systems this can be further compressed to</p>
+<p>$$<br>\begin{aligned}<br>\text{因果}&amp;\Longleftrightarrow h(t)&#x3D;0,\quad t&lt;0,\<br>\text{BIBO 稳定}&amp;\Longleftrightarrow<br>\int_{-\infty}^{\infty}|h(t)|dt&lt;\infty.<br>\end{aligned}<br>$$</p>
+<h3 id="How-It-Is-Examined"><a href="#How-It-Is-Examined" class="headerlink" title="How It Is Examined"></a>How It Is Examined</h3><ol>
+<li><p><strong>Waveform transformation problems</strong>: given the graph of $x(t)$, draw $x(at+b)$, $x(-t)$, or the waveform after differentiation or integration. The entry point is to first map the turning points, then handle amplitude and jumps.</p>
+</li>
+<li><p><strong>Periodicity, energy, and power judgment problems</strong>: for a sum of sinusoids, first judge the frequency ratios; non-periodic decaying signals are mostly energy signals, and nonzero periodic signals are mostly power signals, but in the end the definitions must decide.</p>
+</li>
+<li><p><strong>Step representation problems</strong>: write a finite-interval waveform as a sum of several $u(t-t_k)$ or ramp differences; conversely, one may be asked to draw the graph from the expression.</p>
+</li>
+<li><p><strong>Impulse integral problems</strong>: compute integrals containing $\delta(at-b)$, $\delta(g(t))$, $\delta’(t)$. The entry point is to first locate the impulse position and scale, then sample; one must not simply replace the impulse with “infinity.”</p>
+</li>
+<li><p><strong>Comprehensive system property judgment problems</strong>: the system may be given by a formula, a block diagram, or a differential relationship; check linearity, time invariance, causality, stability, and memory item by item. The most common mistake is judging time invariance by intuition without comparing $T{x(t-t_0)}$ and $y(t-t_0)$.</p>
+</li>
+<li><p><strong>Inverse system and cascade problems</strong>: find the inverse of a system, or determine whether cascading two systems in series cancels out. The entry point is to check whether the mapping is one-to-one, not merely to “perform the opposite operation” formally.</p>
+</li>
+</ol>
+<h2 id="二-Attaching-before-the-“Complex-Exponential-Coordinates”-Why-the-Fourier-Series-Comes-Before-the-Fourier-Transform"><a href="#二-Attaching-before-the-“Complex-Exponential-Coordinates”-Why-the-Fourier-Series-Comes-Before-the-Fourier-Transform" class="headerlink" title="二, Attaching before the “Complex Exponential Coordinates”: Why the Fourier Series Comes Before the Fourier Transform"></a>二, Attaching before the “Complex Exponential Coordinates”: Why the Fourier Series Comes Before the Fourier Transform</h2><h3 id="The-Problem-It-Solves-1"><a href="#The-Problem-It-Solves-1" class="headerlink" title="The Problem It Solves"></a>The Problem It Solves</h3><p>Part I directly uses complex exponential coordinates. This branch explains how a periodic signal obtains discrete complex exponential coordinates, and how a discrete spectrum transitions to a continuous one as the period tends to infinity.</p>
+<h3 id="1-Trigonometric-and-Exponential-Forms"><a href="#1-Trigonometric-and-Exponential-Forms" class="headerlink" title="1. Trigonometric and Exponential Forms"></a>1. Trigonometric and Exponential Forms</h3><p>A signal with period $T_0$ and fundamental frequency $\omega_0&#x3D;2\pi&#x2F;T_0$ can be written as</p>
+<p>$$<br>x(t)&#x3D;a_0+\sum_{n&#x3D;1}^{\infty}<br>\bigl[a_n\cos(n\omega_0t)+b_n\sin(n\omega_0t)\bigr],<br>$$</p>
+<p>or equivalently as</p>
+<p>$$<br>x(t)&#x3D;\sum_{k&#x3D;-\infty}^{\infty}F_k e^{jk\omega_0t},<br>\qquad<br>F_k&#x3D;\frac{1}{T_0}<br>\int_{t_0}^{t_0+T_0}x(t)e^{-jk\omega_0t}dt.<br>$$</p>
+<p>The two sets of coefficients are merely different notations for the same spectrum:</p>
+<p>$$<br>F_k&#x3D;\frac{a_k-jb_k}{2},\quad k&gt;0,<br>\qquad<br>F_{-k}&#x3D;F_k^*<br>$$</p>
+<p>which holds for real signals.</p>
+<h3 id="2-Symmetry-Can-Significantly-Reduce-the-Integration"><a href="#2-Symmetry-Can-Significantly-Reduce-the-Integration" class="headerlink" title="2. Symmetry Can Significantly Reduce the Integration"></a>2. Symmetry Can Significantly Reduce the Integration</h3><ul>
+<li><p>Real even signals: contain only cosine terms, and $F_k$ is a real even sequence;</p>
+</li>
+<li><p>Real odd signals: contain only sine terms, and $F_k$ is a purely imaginary odd sequence;</p>
+</li>
+<li><p>Half-wave symmetry: even harmonics vanish;</p>
+</li>
+<li><p>Shifting does not change the magnitude spectrum, only the phase spectrum.</p>
+</li>
+</ul>
+<p>The spectrum diagram must clearly mark the fundamental frequency, the line spacing, positive and negative frequencies, magnitude, and phase. Drawing only one side of the spectrum without stating conjugate symmetry is usually incomplete.</p>
+<h3 id="3-From-FS-to-FT"><a href="#3-From-FS-to-FT" class="headerlink" title="3. From FS to FT"></a>3. From FS to FT</h3><p>When $T_0\to\infty$,</p>
+<p>$$<br>\omega_0&#x3D;\frac{2\pi}{T_0}\to0.<br>$$</p>
+<p>The discrete spectral lines become denser, and the coefficients, after scaling, form a continuous spectrum:</p>
+<p>$$<br>\boxed{\text{FS：离散频率坐标}<br>\xrightarrow{T_0\to\infty}<br>\text{FT：连续频率坐标}}.<br>$$</p>
+<p>Conversely, the FT of a periodic signal is an impulse spectrum:</p>
+<p>$$<br>X(j\omega)<br>&#x3D;2\pi\sum_{k&#x3D;-\infty}^{\infty}<br>F_k\delta(\omega-k\omega_0).<br>$$</p>
+<h3 id="How-It-Is-Examined-1"><a href="#How-It-Is-Examined-1" class="headerlink" title="How It Is Examined"></a>How It Is Examined</h3><ol>
+<li><p><strong>Computing the Fourier series from the waveform</strong>: rectangular waves, triangular waves, and sawtooth waves are typical carriers. First use even&#x2F;odd and half-wave symmetry to delete coefficients that must be zero, then integrate.</p>
+</li>
+<li><p><strong>Conversion between trigonometric and exponential coefficients</strong>: often combined with drawing the magnitude-phase spectrum; the key points are $F_{-k}&#x3D;F_k^*$ and the phase of negative frequencies.</p>
+</li>
+<li><p><strong>Recovering a periodic signal from spectral lines</strong>: determine $\omega_0$ and $T_0$ from the line spacing, then reconstruct each harmonic from magnitude and phase.</p>
+</li>
+<li><p><strong>FT of periodic signals</strong>: first compute $F_k$, then multiply by $2\pi$ and place it on impulses at $\omega&#x3D;k\omega_0$. The most common errors are dropping $2\pi$ or drawing the spectral lines as a continuous curve.</p>
+</li>
+<li><p><strong>Using the FT of a single period to find FS coefficients</strong>: if the FT of one period segment $x_0(t)$ is known to be $X_0(j\omega)$, then</p>
+</li>
+</ol>
+<p>$$<br>F_k&#x3D;\frac{1}{T_0}X_0(jk\omega_0).<br>$$</p>
+<p>This type of problem connects FS, FT, and the sampling idea, and is a typical comprehensive entry point in the slides.</p>
+<h2 id="三-Attaching-after-the-FT-Definition-Transform-Properties-and-Common-Transform-Pairs"><a href="#三-Attaching-after-the-FT-Definition-Transform-Properties-and-Common-Transform-Pairs" class="headerlink" title="三, Attaching after the FT Definition: Transform Properties and Common Transform Pairs"></a>三, Attaching after the FT Definition: Transform Properties and Common Transform Pairs</h2><h3 id="The-Problem-It-Solves-2"><a href="#The-Problem-It-Solves-2" class="headerlink" title="The Problem It Solves"></a>The Problem It Solves</h3><p>The definition gives the spectrum, but examinations will not allow starting from integration for every problem. Real computational ability comes from “basic transform pairs + properties + waveform decomposition.”</p>
+<h3 id="1-Properties-That-Must-Form-a-Closed-Loop"><a href="#1-Properties-That-Must-Form-a-Closed-Loop" class="headerlink" title="1. Properties That Must Form a Closed Loop"></a>1. Properties That Must Form a Closed Loop</h3><p>If $x(t)\longleftrightarrow X(j\omega)$, then:</p>
+<p>$$<br>x(t-t_0)<br>\longleftrightarrow<br>e^{-j\omega t_0}X(j\omega),<br>$$</p>
+<p>$$<br>x(t)e^{j\omega_0t}<br>\longleftrightarrow<br>X\bigl(j(\omega-\omega_0)\bigr),<br>$$</p>
+<p>$$<br>x(at)<br>\longleftrightarrow<br>\frac{1}{|a|}X\left(j\frac{\omega}{a}\right),<br>$$</p>
+<p>$$<br>\frac{d^n x(t)}{dt^n}<br>\longleftrightarrow<br>(j\omega)^nX(j\omega),<br>$$</p>
+<p>$$<br>(-jt)^n x(t)<br>\longleftrightarrow<br>\frac{d^nX(j\omega)}{d\omega^n},<br>$$</p>
+<p>$$<br>x_1<em>x_2<br>\longleftrightarrow<br>X_1X_2,<br>\qquad<br>x_1x_2<br>\longleftrightarrow<br>\frac{1}{2\pi}X_1</em>X_2.<br>$$</p>
+<p>The duality property and conjugate symmetry property are often used to generate one transform pair from another known pair.</p>
+<h3 id="2-Core-Transform-Pairs-in-the-Slides"><a href="#2-Core-Transform-Pairs-in-the-Slides" class="headerlink" title="2. Core Transform Pairs in the Slides"></a>2. Core Transform Pairs in the Slides</h3><p>One should be familiar with the rectangular pulse and $\operatorname{Sa}$, the triangular pulse and $\operatorname{Sa}^2$, impulse and constant, constant and frequency-domain impulse, exponential decay, sign function, step, sine, and cosine. For signals that are not absolutely integrable, they must be used in the generalized-function sense:</p>
+<p>$$<br>1\longleftrightarrow2\pi\delta(\omega),<br>$$</p>
+<p>$$<br>e^{j\omega_0t}<br>\longleftrightarrow<br>2\pi\delta(\omega-\omega_0),<br>$$</p>
+<p>$$<br>u(t)<br>\longleftrightarrow<br>\pi\delta(\omega)+\operatorname{PV}\frac{1}{j\omega}.<br>$$</p>
+<h3 id="3-Computation-Order"><a href="#3-Computation-Order" class="headerlink" title="3. Computation Order"></a>3. Computation Order</h3><p>Faced with an unfamiliar signal, the order should be:</p>
+<p>$$<br>\boxed{<br>\text{识别基本波形}<br>\to<br>\text{分解}<br>\to<br>\text{调用性质}<br>\to<br>\text{最后才直接积分}}<br>$$</p>
+<h3 id="How-It-Is-Examined-2"><a href="#How-It-Is-Examined-2" class="headerlink" title="How It Is Examined"></a>How It Is Examined</h3><ol>
+<li><p><strong>Direct integration for the FT</strong>: common for finite-duration piecewise signals. First write the integration intervals clearly, then organize into $\operatorname{Sa}$ or exponential form.</p>
+</li>
+<li><p><strong>Finding a new transform from a known pair</strong>: combine shifting, scaling, frequency shifting, differentiation, and duality. Write out the transform chain step by step, to avoid losing the scale factor after transforming both time and frequency at once.</p>
+</li>
+<li><p><strong>Waveform decomposition problems</strong>: decompose trapezoidal, triangular, or piecewise waveforms into rectangular convolution, differences of steps, or shifted superpositions of basic functions.</p>
+</li>
+<li><p><strong>Recovering the time-domain signal</strong>: from the shape or expression of $X(j\omega)$, use duality and inverse properties to recover $x(t)$.</p>
+</li>
+<li><p><strong>Spectrum problems involving impulses</strong>: sine, cosine, periodic signals, and DC components produce frequency-domain impulses; the area of the impulse must be preserved rather than drawn as an ordinary peak.</p>
+</li>
+<li><p><strong>True&#x2F;false property judgment problems</strong>: focus on shift direction, scale factor, the $1&#x2F;(2\pi)$ in convolution, and conjugate symmetry for real signals.</p>
+</li>
+</ol>
+<h2 id="四-Attaching-after-Y-j-omega-H-j-omega-X-j-omega-Frequency-Response"><a href="#四-Attaching-after-Y-j-omega-H-j-omega-X-j-omega-Frequency-Response" class="headerlink" title="四, Attaching after $Y(j\omega)&#x3D;H(j\omega)X(j\omega)$: Frequency Response"></a>四, Attaching after $Y(j\omega)&#x3D;H(j\omega)X(j\omega)$: Frequency Response</h2><h3 id="The-Problem-It-Solves-3"><a href="#The-Problem-It-Solves-3" class="headerlink" title="The Problem It Solves"></a>The Problem It Solves</h3><p>The FT is not just for finding signal spectra. When entering a system, the core task is to use $H(j\omega)$ to judge which frequencies the system preserves, suppresses, and delays.</p>
+<h3 id="1-Magnitude-Response-and-Phase-Response"><a href="#1-Magnitude-Response-and-Phase-Response" class="headerlink" title="1. Magnitude Response and Phase Response"></a>1. Magnitude Response and Phase Response</h3><p>$$<br>H(j\omega)&#x3D;|H(j\omega)|e^{j\phi(\omega)},<br>$$</p>
+<p>$$<br>Y(j\omega)&#x3D;H(j\omega)X(j\omega).<br>$$</p>
+<p>Here $|H|$ changes the amplitude of each frequency, and $\phi$ changes the phase. For a complex exponential or sinusoidal input, there is no need to redo the convolution; one only needs to read the system eigenvalue at the corresponding frequency.</p>
+<p>If</p>
+<p>$$<br>x(t)&#x3D;\sum_k A_k e^{j\omega_kt},<br>$$</p>
+<p>then</p>
+<p>$$<br>y(t)&#x3D;\sum_k A_kH(j\omega_k)e^{j\omega_kt}.<br>$$</p>
+<h3 id="2-Filtering-and-Distortionless-Transmission"><a href="#2-Filtering-and-Distortionless-Transmission" class="headerlink" title="2. Filtering and Distortionless Transmission"></a>2. Filtering and Distortionless Transmission</h3><p>If the ideal low-pass frequency response is rectangular, then the impulse response is an infinitely extended $\operatorname{Sa}$-type function. This directly reveals that an ideal brick-wall filter is usually noncausal and of infinite duration.</p>
+<p>Distortionless transmission requires, over the band occupied by the input,</p>
+<p>$$<br>H(j\omega)&#x3D;Ke^{-j\omega t_0}.<br>$$</p>
+<p>It permits uniform gain and uniform delay, but does not permit different frequencies to receive different relative amplitudes or nonlinear phase.</p>
+<h3 id="3-Choosing-between-Frequency-Domain-and-Time-Domain"><a href="#3-Choosing-between-Frequency-Domain-and-Time-Domain" class="headerlink" title="3. Choosing between Frequency Domain and Time Domain"></a>3. Choosing between Frequency Domain and Time Domain</h3><ul>
+<li><p>If the input is a few sinusoids or a known spectrum: prefer $H(j\omega)$;</p>
+</li>
+<li><p>If both the input and $h(t)$ are simple finite waveforms: convolution may be more direct;</p>
+</li>
+<li><p>If the system is given by a differential equation: first find $H$, then choose FT or LT according to the input form.</p>
+</li>
+</ul>
+<h3 id="How-It-Is-Examined-3"><a href="#How-It-Is-Examined-3" class="headerlink" title="How It Is Examined"></a>How It Is Examined</h3><ol>
+<li><p><strong>Eigenfunction input response problems</strong>: given $H(j\omega)$ and sine, cosine, or periodic inputs, read the gain and phase shift at each frequency one by one, then synthesize the output.</p>
+</li>
+<li><p><strong>Spectrum passing through a filter</strong>: draw $X$, $H$, $Y&#x3D;HX$, and determine which spectral lines or bands are retained. Rectangular spectra and the ideal low-pass are the most common.</p>
+</li>
+<li><p><strong>Finding $H(j\omega)$ from $h(t)$</strong>: ideal low-pass, high-pass, or band-pass signals often make use of basic transform pairs and the shifting property.</p>
+</li>
+<li><p><strong>Distortionless judgment problems</strong>: check whether the magnitude within the input band is constant and whether the phase is a linear function passing through the origin; a flat magnitude response alone is not enough.</p>
+</li>
+<li><p><strong>Finding the frequency response from a differential equation</strong>: replace $d&#x2F;dt$ with $j\omega$, obtain $H(j\omega)$ under zero-state conditions, then find the steady-state output.</p>
+</li>
+<li><p><strong>System method selection problems</strong>: compare time-domain convolution, frequency-domain multiplication, and the eigenfunction method, and identify the shortest path.</p>
+</li>
+</ol>
+<h2 id="五-Attaching-after-“Spectrum-Shifting-and-Copying”-Sampling-Modulation-and-the-Hilbert-Transform"><a href="#五-Attaching-after-“Spectrum-Shifting-and-Copying”-Sampling-Modulation-and-the-Hilbert-Transform" class="headerlink" title="五, Attaching after “Spectrum Shifting and Copying”: Sampling, Modulation, and the Hilbert Transform"></a>五, Attaching after “Spectrum Shifting and Copying”: Sampling, Modulation, and the Hilbert Transform</h2><h3 id="The-Problem-It-Solves-4"><a href="#The-Problem-It-Solves-4" class="headerlink" title="The Problem It Solves"></a>The Problem It Solves</h3><p>This branch handles two kinds of engineering actions: sampling turns a continuous signal into discrete samples, and modulation shifts the baseband spectrum to the vicinity of the carrier frequency. Mathematically, both come from time-domain multiplication and frequency-domain convolution.</p>
+<h3 id="1-Ideal-Sampling-and-Spectrum-Copying"><a href="#1-Ideal-Sampling-and-Spectrum-Copying" class="headerlink" title="1. Ideal Sampling and Spectrum Copying"></a>1. Ideal Sampling and Spectrum Copying</h3><p>Let the impulse train be</p>
+<p>$$<br>p(t)&#x3D;\sum_{n&#x3D;-\infty}^{\infty}\delta(t-nT_s),<br>\qquad<br>\omega_s&#x3D;\frac{2\pi}{T_s}.<br>$$</p>
+<p>The sampled signal is</p>
+<p>$$<br>x_s(t)&#x3D;x(t)p(t),<br>$$</p>
+<p>Its spectrum is</p>
+<p>$$<br>X_s(j\omega)<br>&#x3D;\frac{1}{T_s}<br>\sum_{k&#x3D;-\infty}^{\infty}<br>X\bigl(j(\omega-k\omega_s)\bigr).<br>$$</p>
+<p>If $X(j\omega)&#x3D;0$ for $|\omega|&gt;\omega_m$, alias-free reconstruction requires</p>
+<p>$$<br>\omega_s&gt;2\omega_m.<br>$$</p>
+<p>At critical sampling one must also check whether the spectrum boundary is truly zero; one cannot mechanically write the equality.</p>
+<h3 id="2-Modulation-and-Coherent-Demodulation"><a href="#2-Modulation-and-Coherent-Demodulation" class="headerlink" title="2. Modulation and Coherent Demodulation"></a>2. Modulation and Coherent Demodulation</h3><p>Multiplying by a cosine generates two shifted copies, left and right:</p>
+<p>$$<br>x(t)\cos\omega_ct<br>\longleftrightarrow<br>\frac{1}{2}<br>\left[<br>X\bigl(j(\omega-\omega_c)\bigr)<br>+X\bigl(j(\omega+\omega_c)\bigr)<br>\right].<br>$$</p>
+<p>The main forms in the slides include:</p>
+<ul>
+<li><p>ordinary AM: carrier and both sidebands present simultaneously;</p>
+</li>
+<li><p>DSB-SC: only the two sidebands, with the carrier suppressed;</p>
+</li>
+<li><p>SSB: only the upper or lower sideband;</p>
+</li>
+<li><p>coherent demodulation: multiply again by a carrier of the same frequency and phase, then recover the baseband through a low-pass filter.</p>
+</li>
+</ul>
+<h3 id="3-The-Hilbert-Transform"><a href="#3-The-Hilbert-Transform" class="headerlink" title="3. The Hilbert Transform"></a>3. The Hilbert Transform</h3><p>The frequency response of the Hilbert transformer is</p>
+<p>$$<br>H_H(j\omega)&#x3D;<br>\begin{cases}<br>-j,&amp;\omega&gt;0,\<br>+j,&amp;\omega&lt;0.<br>\end{cases}<br>$$</p>
+<p>It applies opposite $90^\circ$ phase shifts to positive and negative frequencies, respectively. From</p>
+<p>$$<br>x_a(t)&#x3D;x(t)+j\hat x(t)<br>$$</p>
+<p>one can construct an analytic signal containing only positive frequencies, and thereby generate SSB.</p>
+<h3 id="How-It-Is-Examined-4"><a href="#How-It-Is-Examined-4" class="headerlink" title="How It Is Examined"></a>How It Is Examined</h3><ol>
+<li><p><strong>Sampling spectrum plotting problems</strong>: from $X(j\omega)$, draw $X_s(j\omega)$; the replication interval $\omega_s$ and the overall scale $1&#x2F;T_s$ must be marked.</p>
+</li>
+<li><p><strong>Minimum sampling frequency problems</strong>: first find the highest effective angular frequency or frequency, then unify the units. Band-pass signals can sometimes use band-pass sampling; one must not always multiply the highest frequency by two.</p>
+</li>
+<li><p><strong>Aliasing judgment and reconstruction problems</strong>: observe whether the spectral copies overlap, and give the ideal low-pass reconstruction range and gain.</p>
+</li>
+<li><p><strong>Sampling system block diagram problems</strong>: after the input passes through sampling, the system, and the reconstruction filter, draw the spectrum at each stage and determine the output.</p>
+</li>
+<li><p><strong>Modulation spectrum problems</strong>: given a baseband spectrum, draw the spectra for AM, DSB, or SSB in sequence; pay special attention to the shift positions, the $1&#x2F;2$ factor on the amplitude, and the carrier impulses.</p>
+</li>
+<li><p><strong>Coherent demodulation problems</strong>: after the signal is multiplied again by the carrier, both the baseband and doubled-carrier-frequency components appear; the low-pass filter retains only the former. Carrier phase error changes the recovery amplitude.</p>
+</li>
+<li><p><strong>Hilbert&#x2F;SSB problems</strong>: find the Hilbert transform of sine and cosine, or determine how phase-shift networks combine to form the upper sideband and lower sideband.</p>
+</li>
+</ol>
+<h2 id="六-Attaching-after-the-“Spectrum”-Energy-Power-and-Correlation"><a href="#六-Attaching-after-the-“Spectrum”-Energy-Power-and-Correlation" class="headerlink" title="六, Attaching after the “Spectrum”: Energy, Power, and Correlation"></a>六, Attaching after the “Spectrum”: Energy, Power, and Correlation</h2><h3 id="The-Problem-It-Solves-5"><a href="#The-Problem-It-Solves-5" class="headerlink" title="The Problem It Solves"></a>The Problem It Solves</h3><p>The spectrum can also answer “where the energy is distributed,” “how similar two signals are,” and “how a system changes the total energy or average power.”</p>
+<h3 id="1-Parseval-and-Spectral-Densities"><a href="#1-Parseval-and-Spectral-Densities" class="headerlink" title="1. Parseval and Spectral Densities"></a>1. Parseval and Spectral Densities</h3><p>Energy signals satisfy</p>
+<p>$$<br>E&#x3D;\int_{-\infty}^{\infty}|x(t)|^2dt<br>&#x3D;\frac{1}{2\pi}<br>\int_{-\infty}^{\infty}|X(j\omega)|^2d\omega.<br>$$</p>
+<p>The energy spectral density is</p>
+<p>$$<br>G_x(\omega)&#x3D;|X(j\omega)|^2.<br>$$</p>
+<p>The average power of a periodic power signal can be obtained from the FS coefficients:</p>
+<p>$$<br>P&#x3D;\sum_{k&#x3D;-\infty}^{\infty}|F_k|^2.<br>$$</p>
+<h3 id="2-Correlation-Functions"><a href="#2-Correlation-Functions" class="headerlink" title="2. Correlation Functions"></a>2. Correlation Functions</h3><p>For energy signals,</p>
+<p>$$<br>R_{xy}(\tau)<br>&#x3D;\int_{-\infty}^{\infty}<br>x(t)y^*(t-\tau)dt.<br>$$</p>
+<p>The autocorrelation is $R_{xx}(\tau)$. It satisfies, with respect to the spectrum:</p>
+<p>$$<br>R_{xx}(\tau)<br>\longleftrightarrow<br>|X(j\omega)|^2.<br>$$</p>
+<p>Autocorrelation has conjugate symmetry, and</p>
+<p>$$<br>|R_{xx}(\tau)|\le R_{xx}(0),<br>\qquad<br>R_{xx}(0)&#x3D;E<br>$$</p>
+<p>holds for energy signals.</p>
+<h3 id="3-Energy-and-Power-after-the-System"><a href="#3-Energy-and-Power-after-the-System" class="headerlink" title="3. Energy and Power after the System"></a>3. Energy and Power after the System</h3><p>From $Y&#x3D;HX$:</p>
+<p>$$<br>|Y(j\omega)|^2<br>&#x3D;|H(j\omega)|^2|X(j\omega)|^2.<br>$$</p>
+<p>Therefore the output energy, output power spectrum, and correlation functions can all be computed directly in the frequency domain.</p>
+<h3 id="How-It-Is-Examined-5"><a href="#How-It-Is-Examined-5" class="headerlink" title="How It Is Examined"></a>How It Is Examined</h3><ol>
+<li><p><strong>Mutual computation of time-domain and frequency-domain energy</strong>: when the integral on one side is complicated, use Parseval to move to the other side.</p>
+</li>
+<li><p><strong>Finding the power of a periodic signal from FS coefficients</strong>: avoid squaring first and then doing a long time integral.</p>
+</li>
+<li><p><strong>Finding the energy or power spectrum from autocorrelation</strong>: first determine whether the signal belongs to the energy or power class, then use the corresponding correlation definition.</p>
+</li>
+<li><p><strong>Correlation function property judgment</strong>: examine even symmetry, the location of the maximum, time shifts, and conjugate relations.</p>
+</li>
+<li><p><strong>Energy problems after passing through an LTI system</strong>: integrate using $|H|^2|X|^2$, or determine how much band energy an ideal filter retains.</p>
+</li>
+<li><p><strong>Correlation problems with sinusoids and periodic signals</strong>: average over one period first; the result is still a periodic function, and the ordinary integral definition for energy signals cannot be applied.</p>
+</li>
+</ol>
+<h2 id="七-Attaching-after-the-LT-Definition-ROC-Properties-Inverse-Transform-and-Left-Right-Sided-Signals"><a href="#七-Attaching-after-the-LT-Definition-ROC-Properties-Inverse-Transform-and-Left-Right-Sided-Signals" class="headerlink" title="七, Attaching after the LT Definition: ROC, Properties, Inverse Transform, and Left-&#x2F;Right-Sided Signals"></a>七, Attaching after the LT Definition: ROC, Properties, Inverse Transform, and Left-&#x2F;Right-Sided Signals</h2><h3 id="The-Problem-It-Solves-6"><a href="#The-Problem-It-Solves-6" class="headerlink" title="The Problem It Solves"></a>The Problem It Solves</h3><p>The FT only observes the imaginary axis, whereas the LT observes exponential modes over the entire $s$ plane. The added real part brings stronger convergence capability, but also a new object that cannot be omitted: the ROC.</p>
+<h3 id="1-The-Transform-Expression-and-the-ROC-Must-Appear-in-Pairs"><a href="#1-The-Transform-Expression-and-the-ROC-Must-Appear-in-Pairs" class="headerlink" title="1. The Transform Expression and the ROC Must Appear in Pairs"></a>1. The Transform Expression and the ROC Must Appear in Pairs</h3><p>The bilateral LT is</p>
+<p>$$<br>X(s)&#x3D;\int_{-\infty}^{\infty}x(t)e^{-st}dt.<br>$$</p>
+<p>For</p>
+<p>$$<br>X(s)&#x3D;\frac{1}{s+a},<br>$$</p>
+<ul>
+<li><p>when the ROC is $\operatorname{Re}(s)&gt;-a$, it corresponds to $e^{-at}u(t)$;</p>
+</li>
+<li><p>when the ROC is $\operatorname{Re}(s)&lt;-a$, it corresponds to $-e^{-at}u(-t)$.</p>
+</li>
+</ul>
+<p>Therefore, the same algebraic expression without an ROC cannot uniquely determine the time-domain signal.</p>
+<p>For rational LT:</p>
+<ul>
+<li><p>the ROC contains no poles;</p>
+</li>
+<li><p>a right-sided signal has its ROC to the right of the rightmost pole;</p>
+</li>
+<li><p>a left-sided signal has its ROC to the left of the leftmost pole;</p>
+</li>
+<li><p>a two-sided signal has its ROC between two pole vertical lines;</p>
+</li>
+<li><p>for an ordinary finite-duration integrable signal, the ROC is the entire $s$ plane.</p>
+</li>
+</ul>
+<h3 id="2-LT-Properties"><a href="#2-LT-Properties" class="headerlink" title="2. LT Properties"></a>2. LT Properties</h3><p>Linearity, time shifting, scaling, differentiation, integration, and convolution for LT are isomorphic to those for FT, but the ROC must be updated accordingly. In particular, for two-sided time shifting:</p>
+<p>$$<br>x(t-t_0)<br>\longleftrightarrow<br>e^{-st_0}X(s).<br>$$</p>
+<p>Multiplying the time domain by an exponential corresponds to shifting $s$:</p>
+<p>$$<br>e^{s_0t}x(t)<br>\longleftrightarrow<br>X(s-s_0).<br>$$</p>
+<h3 id="3-Inverse-LT"><a href="#3-Inverse-LT" class="headerlink" title="3. Inverse LT"></a>3. Inverse LT</h3><p>Rational functions rely mainly on partial fraction expansion:</p>
+<ul>
+<li><p>distinct real poles;</p>
+</li>
+<li><p>repeated poles;</p>
+</li>
+<li><p>conjugate complex poles;</p>
+</li>
+<li><p>improper fractions first undergo polynomial long division.</p>
+</li>
+</ul>
+<p>When inverting, one cannot look only at the coefficients; the ROC determines whether each term is a left-sided or right-sided signal.</p>
+<h3 id="4-Initial-Value-and-Final-Value-Theorems"><a href="#4-Initial-Value-and-Final-Value-Theorems" class="headerlink" title="4. Initial-Value and Final-Value Theorems"></a>4. Initial-Value and Final-Value Theorems</h3><p>The one-sided forms are commonly used:</p>
+<p>$$<br>x(0^+)&#x3D;\lim_{s\to\infty}sX(s),<br>$$</p>
+<p>$$<br>x(\infty)&#x3D;\lim_{s\to0}sX(s).<br>$$</p>
+<p>The final-value theorem requires that the poles of $sX(s)$ satisfy the corresponding stability condition; if poles in the right half-plane or sustained-oscillation poles exist, it cannot be used.</p>
+<h3 id="How-It-Is-Examined-6"><a href="#How-It-Is-Examined-6" class="headerlink" title="How It Is Examined"></a>How It Is Examined</h3><ol>
+<li><p><strong>Finding the LT and ROC from the definition</strong>: piecewise signals, left- and right-sided exponentials, and finite-duration signals are typical objects.</p>
+</li>
+<li><p><strong>Finding the original signal given the algebraic expression and ROC</strong>: first do partial fractions, then decide left- or right-sided from the ROC. Writing only the algebraic inversion without the $u(t)$ is usually incomplete.</p>
+</li>
+<li><p><strong>Determining the ROC from poles and time-domain support</strong>: use causality, stability, and left&#x2F;right-sided conditions to eliminate impossible regions.</p>
+</li>
+<li><p><strong>Using properties to find the LT</strong>: time shifting, $s$ shifting, differentiation, integration, and convolution are often combined; one must track how the ROC may change.</p>
+</li>
+<li><p><strong>Partial fraction problems</strong>: the slides cover distinct real roots, repeated roots, conjugate complex roots, and improper fractions. Coefficients of repeated poles can be found by differentiation; for complex roots, one can keep the conjugate form first and then combine into sine and cosine.</p>
+</li>
+<li><p><strong>Initial-value and final-value problems</strong>: first check the theorem conditions, then take limits; problems often deliberately set up systems for which the final-value theorem cannot be used.</p>
+</li>
+<li><p><strong>Determining parameters from partial time-domain&#x2F;complex-domain conditions</strong>: combine the ROC, causality, initial values, or final values to fix unknown coefficients.</p>
+</li>
+</ol>
+<h2 id="八-Attaching-after-the-“Zero-State”-Assumption-The-One-Sided-LT-and-the-Complete-Response"><a href="#八-Attaching-after-the-“Zero-State”-Assumption-The-One-Sided-LT-and-the-Complete-Response" class="headerlink" title="八, Attaching after the “Zero-State” Assumption: The One-Sided LT and the Complete Response"></a>八, Attaching after the “Zero-State” Assumption: The One-Sided LT and the Complete Response</h2><h3 id="The-Problem-It-Solves-7"><a href="#The-Problem-It-Solves-7" class="headerlink" title="The Problem It Solves"></a>The Problem It Solves</h3><p>The $Y&#x3D;HX$ of Part I describes only the zero-state response. What the slides repeatedly train, in both the classical time-domain method and the one-sided LT, is how to put the stored initial energy back into the system.</p>
+<h3 id="1-Four-Sets-of-Response-Concepts-Must-Be-Kept-Distinct"><a href="#1-Four-Sets-of-Response-Concepts-Must-Be-Kept-Distinct" class="headerlink" title="1. Four Sets of Response Concepts Must Be Kept Distinct"></a>1. Four Sets of Response Concepts Must Be Kept Distinct</h3><p>$$<br>\text{全响应}<br>&#x3D;\text{零输入响应}<br>+\text{零状态响应}.<br>$$</p>
+<ul>
+<li><p>Zero-input&#x2F;zero-state: divided according to the source, initial state versus external input;</p>
+</li>
+<li><p>Free&#x2F;forced: divided according to the generation mechanism, homogeneous solution versus particular solution;</p>
+</li>
+<li><p>Transient&#x2F;steady-state: divided according to whether the term vanishes as $t\to\infty$.</p>
+</li>
+</ul>
+<p>These classifications may partially overlap, but they are not identical. For example, the free response of a stable system is usually transient; if the system has poles on the imaginary axis, the free response may also persist for a long time.</p>
+<h3 id="2-0-0-and-Jumps"><a href="#2-0-0-and-Jumps" class="headerlink" title="2. $0^-$, $0^+$, and Jumps"></a>2. $0^-$, $0^+$, and Jumps</h3><p>If the input contains an impulse, the state variable and its derivatives may jump at $t&#x3D;0$. The impulse matching method in the slides, in essence, compares the coefficients of singular terms such as $\delta(t)$ and $\delta’(t)$ on both sides of the differential equation, thereby obtaining the jump condition from $0^-$ to $0^+$.</p>
+<p>One may not, without judgment, simply set</p>
+<p>$$<br>y(0^+)&#x3D;y(0^-).<br>$$</p>
+<p>Which quantities are continuous depends on the highest-order derivative in the equation and the order of the impulse.</p>
+<h3 id="3-The-One-Sided-LT-Automatically-Carries-Initial-Values"><a href="#3-The-One-Sided-LT-Automatically-Carries-Initial-Values" class="headerlink" title="3. The One-Sided LT Automatically Carries Initial Values"></a>3. The One-Sided LT Automatically Carries Initial Values</h3><p>$$<br>\mathcal L_+{x’(t)}<br>&#x3D;sX(s)-x(0^-),<br>$$</p>
+<p>$$<br>\mathcal L_+{x’’(t)}<br>&#x3D;s^2X(s)-sx(0^-)-x’(0^-).<br>$$</p>
+<p>Substituting these into the differential equation gives, in one pass, the complete response containing both the zero-input and zero-state parts.</p>
+<h3 id="How-It-Is-Examined-7"><a href="#How-It-Is-Examined-7" class="headerlink" title="How It Is Examined"></a>How It Is Examined</h3><ol>
+<li><p><strong>Classical method for the complete response</strong>: first find the homogeneous and particular solutions, then use the initial conditions to fix the coefficients, and label the free&#x2F;forced and transient&#x2F;steady-state components.</p>
+</li>
+<li><p><strong>Zero-input response problems</strong>: write the natural modes from the characteristic roots, then use the $0^-$ or $0^+$ initial values to fix the coefficients.</p>
+</li>
+<li><p><strong>Zero-state response problems</strong>: can be solved by convolution, impulse response, frequency domain, or LT; problems often require comparing different methods.</p>
+</li>
+<li><p><strong>Jump problems with impulse inputs</strong>: first perform singular-term matching to obtain the $0^+$ initial values, then compute the ordinary response of $t&gt;0$.</p>
+</li>
+<li><p><strong>Complete response by one-sided LT</strong>: keep the initial-value terms in the algebraic equation, then do the partial fraction inversion. The most common error is zeroing the initial values, mistakenly computing the zero-state response.</p>
+</li>
+<li><p><strong>Response classification problems</strong>: given a complete expression, identify the zero-input&#x2F;zero-state, free&#x2F;forced, and transient&#x2F;steady-state parts. The basis for each judgment must be explained separately.</p>
+</li>
+</ol>
+<h2 id="九-Attaching-after-the-“Complex-Exponential-Eigenfunction”-Differential-Equations-Impulse-Response-and-Convolution-Computation"><a href="#九-Attaching-after-the-“Complex-Exponential-Eigenfunction”-Differential-Equations-Impulse-Response-and-Convolution-Computation" class="headerlink" title="九, Attaching after the “Complex Exponential Eigenfunction”: Differential Equations, Impulse Response, and Convolution Computation"></a>九, Attaching after the “Complex Exponential Eigenfunction”: Differential Equations, Impulse Response, and Convolution Computation</h2><h3 id="The-Problem-It-Solves-8"><a href="#The-Problem-It-Solves-8" class="headerlink" title="The Problem It Solves"></a>The Problem It Solves</h3><p>In examination problems, systems are not only given by $h(t)$ or $H(s)$, but also by differential equations, step responses, or block diagrams. This branch handles conversion among these descriptions.</p>
+<h3 id="1-Differential-Equations-and-Natural-Modes"><a href="#1-Differential-Equations-and-Natural-Modes" class="headerlink" title="1. Differential Equations and Natural Modes"></a>1. Differential Equations and Natural Modes</h3><p>For a constant-coefficient equation</p>
+<p>$$<br>\sum_{k&#x3D;0}^{N}a_k y^{(k)}(t)<br>&#x3D;\sum_{m&#x3D;0}^{M}b_m x^{(m)}(t),<br>$$</p>
+<p>set the homogeneous solution to $e^{st}$, giving the characteristic polynomial</p>
+<p>$$<br>\sum_{k&#x3D;0}^{N}a_ks^k&#x3D;0.<br>$$</p>
+<p>Real roots produce exponential modes; repeated roots additionally multiply by $t^r$; conjugate complex roots produce exponentially enveloped sines and cosines.</p>
+<h3 id="2-Interchange-among-Differential-Equation-h-t-g-t-and-H-s"><a href="#2-Interchange-among-Differential-Equation-h-t-g-t-and-H-s" class="headerlink" title="2. Interchange among Differential Equation, $h(t)$, $g(t)$, and $H(s)$"></a>2. Interchange among Differential Equation, $h(t)$, $g(t)$, and $H(s)$</h3><p>Under zero initial conditions, replace $d&#x2F;dt$ with $s$:</p>
+<p>$$<br>H(s)<br>&#x3D;\frac{\sum_{m&#x3D;0}^{M}b_ms^m}<br>{\sum_{k&#x3D;0}^{N}a_ks^k}.<br>$$</p>
+<p>The impulse response and step response satisfy</p>
+<p>$$<br>h(t)&#x3D;\frac{d}{dt}g(t),<br>\qquad<br>g(t)&#x3D;h(t)*u(t).<br>$$</p>
+<p>If $g(t)$ has a jump, differentiating it must produce an impulse term.</p>
+<h3 id="3-The-Examination-Computation-Layer-of-Convolution"><a href="#3-The-Examination-Computation-Layer-of-Convolution" class="headerlink" title="3. The Examination Computation Layer of Convolution"></a>3. The Examination Computation Layer of Convolution</h3><p>Lectures 6–7 develop three algorithms for the $y&#x3D;x*h$ in the main trunk:</p>
+<ol>
+<li><p><strong>Definition integral</strong>: first determine the $\tau$ intervals where the two signals overlap, then integrate piecewise;</p>
+</li>
+<li><p><strong>Graphical method</strong>: flip, shift, multiply, integrate;</p>
+</li>
+<li><p><strong>Property method</strong>: use shifting, differentiation, integration, commutativity, associativity, and distributivity.</p>
+</li>
+</ol>
+<p>The support interval of the convolution satisfies</p>
+<p>$$<br>[a,b]*[c,d]\quad\Rightarrow\quad[a+c,b+d].<br>$$</p>
+<p>Convolving two rectangular pulses gives a triangle or trapezoid, with turning points determined by the instants where the two pulse boundaries meet.</p>
+<h3 id="4-s-Domain-Eigenfunction-Inputs"><a href="#4-s-Domain-Eigenfunction-Inputs" class="headerlink" title="4. $s$-Domain Eigenfunction Inputs"></a>4. $s$-Domain Eigenfunction Inputs</h3><p>If the input is $e^{s_0t}$ and $s_0$ lies in the legitimate region of the system function, then the zero-state output contains</p>
+<p>$$<br>H(s_0)e^{s_0t}.<br>$$</p>
+<p>If $s_0$ coincides with a system pole, a resonance-type $t^re^{s_0t}$ appears, and the infinite $H(s_0)$ cannot be treated as an ordinary gain.</p>
+<h3 id="How-It-Is-Examined-8"><a href="#How-It-Is-Examined-8" class="headerlink" title="How It Is Examined"></a>How It Is Examined</h3><ol>
+<li><p><strong>Finding $h(t)$ or $H(s)$ from a differential equation</strong>: the default conditions must be identified; when finding $h$, the input is $\delta(t)$, with zero-state conditions satisfied.</p>
+</li>
+<li><p><strong>Impulse matching method</strong>: set $h(t)$ as several natural modes multiplied by $u(t)$, substitute back into the equation, and match the coefficients of the impulse and its derivatives.</p>
+</li>
+<li><p><strong>Mutual computation of step response and impulse response</strong>: in particular, check whether a jump in $g(t)$ at zero produces an $\delta(t)$.</p>
+</li>
+<li><p><strong>Graphical convolution problems</strong>: combinations of rectangular, triangular, exponential, and finite-duration signals. The first step is not integrating, but writing how the overlap interval changes with $t$.</p>
+</li>
+<li><p><strong>Convolution property problems</strong>: use $x*\delta(t-t_0)&#x3D;x(t-t_0)$, the differentiation property, and associativity to simplify multistage systems.</p>
+</li>
+<li><p><strong>Finding the equivalent impulse response from a block diagram</strong>: series connection corresponds to convolution, parallel connection to addition, and feedback structures require writing equations first.</p>
+</li>
+<li><p><strong>Eigenfunction input problems</strong>: given $H(s)$ and $e^{s_0t}$, sine, or cosine inputs, find the zero-state response; if the input frequency hits a pole, the resonance must be handled separately.</p>
+</li>
+</ol>
+<h2 id="十-Attaching-after-H-s-Poles-and-Zeros-Causality-and-Stability-All-Pass-and-Minimum-Phase-and-Routh"><a href="#十-Attaching-after-H-s-Poles-and-Zeros-Causality-and-Stability-All-Pass-and-Minimum-Phase-and-Routh" class="headerlink" title="十, Attaching after $H(s)$: Poles and Zeros, Causality and Stability, All-Pass and Minimum-Phase, and Routh"></a>十, Attaching after $H(s)$: Poles and Zeros, Causality and Stability, All-Pass and Minimum-Phase, and Routh</h2><h3 id="The-Problem-It-Solves-9"><a href="#The-Problem-It-Solves-9" class="headerlink" title="The Problem It Solves"></a>The Problem It Solves</h3><p>With</p>
+<p>$$<br>H(s)&#x3D;K<br>\frac{\prod_i(s-z_i)}<br>{\prod_k(s-p_k)},<br>$$</p>
+<p>one can read off system modes, causality and stability conditions, and magnitude–phase structure without a full inversion.</p>
+<h3 id="1-Poles-Zeros-and-Frequency-Response"><a href="#1-Poles-Zeros-and-Frequency-Response" class="headerlink" title="1. Poles, Zeros, and Frequency Response"></a>1. Poles, Zeros, and Frequency Response</h3><p>Poles determine the natural modes; zeros determine which modes are suppressed. The frequency response on the imaginary axis can be read geometrically from the vectors joining poles and zeros to the point $j\omega$:</p>
+<p>$$<br>|H(j\omega)|<br>&#x3D;|K|<br>\frac{\prod_i|j\omega-z_i|}<br>{\prod_k|j\omega-p_k|},<br>$$</p>
+<p>The phase is the sum of the angles of the zero vectors minus the sum of the angles of the pole vectors.</p>
+<h3 id="2-Causality-and-Stability-Must-Be-Combined-with-the-ROC"><a href="#2-Causality-and-Stability-Must-Be-Combined-with-the-ROC" class="headerlink" title="2. Causality and Stability Must Be Combined with the ROC"></a>2. Causality and Stability Must Be Combined with the ROC</h3><p>For a rational continuous-time system:</p>
+<ul>
+<li><p>causal $\Rightarrow$ ROC to the right of the rightmost pole;</p>
+</li>
+<li><p>BIBO stable $\Rightarrow$ ROC contains the imaginary axis;</p>
+</li>
+<li><p>causal and stable $\Rightarrow$ all poles lie in the left half-plane.</p>
+</li>
+</ul>
+<p>The last statement has a clear premise; it cannot be used apart from “causal rational system.”</p>
+<h3 id="3-All-Pass-Minimum-Phase-and-Inverse-Systems"><a href="#3-All-Pass-Minimum-Phase-and-Inverse-Systems" class="headerlink" title="3. All-Pass, Minimum-Phase, and Inverse Systems"></a>3. All-Pass, Minimum-Phase, and Inverse Systems</h3><p>A continuous-time all-pass factor can be written as</p>
+<p>$$<br>H_{\mathrm{ap}}(s)<br>&#x3D;\frac{s-a}{s+a},<br>\qquad a&gt;0,<br>$$</p>
+<p>Its poles and zeros are mirror images about the imaginary axis; on the imaginary axis the magnitude is constant, and only the phase changes.</p>
+<p>A minimum-phase system has both poles and zeros in the left half-plane; among causal stable systems with a given magnitude response, it has smaller phase lag and possesses a causal stable inverse. A general system can be decomposed as</p>
+<p>$$<br>H(s)&#x3D;H_{\min}(s)H_{\mathrm{ap}}(s).<br>$$</p>
+<h3 id="4-The-Routh-Criterion"><a href="#4-The-Routh-Criterion" class="headerlink" title="4. The Routh Criterion"></a>4. The Routh Criterion</h3><p>For the characteristic polynomial</p>
+<p>$$<br>a_ns^n+a_{n-1}s^{n-1}+\cdots+a_0,<br>$$</p>
+<p>construct the Routh table. The number of sign changes in the first column equals the number of roots in the right half-plane. The examination also includes:</p>
+<ul>
+<li><p>a zero as the first element of a row: replace it with a small positive $\varepsilon$ and take the limit;</p>
+</li>
+<li><p>an entire zero row: construct the auxiliary polynomial from the row above, differentiate, and substitute;</p>
+</li>
+<li><p>parameters present: determine the stability range from the inequalities requiring the first column to have the same sign.</p>
+</li>
+</ul>
+<h3 id="How-It-Is-Examined-9"><a href="#How-It-Is-Examined-9" class="headerlink" title="How It Is Examined"></a>How It Is Examined</h3><ol>
+<li><p><strong>Drawing the pole-zero plot from $H(s)$ and inferring system properties</strong>: combine the ROC to judge causality, stability, and time-domain support.</p>
+</li>
+<li><p><strong>Determining the ROC or parameters from causality&#x2F;stability conditions</strong>: causality fixes the ROC direction; stability determines whether the imaginary axis is included.</p>
+</li>
+<li><p><strong>Geometric pole-zero judgment of magnitude and phase</strong>: find the gain and phase at a given $\omega$, or compare how moving poles and zeros affects the frequency response.</p>
+</li>
+<li><p><strong>All-pass and minimum-phase decomposition</strong>: mirror right-half-plane zeros into the left half-plane, and put the resulting difference into an all-pass factor.</p>
+</li>
+<li><p><strong>Finding the inverse system and judging realizability</strong>: the poles of $1&#x2F;H(s)$ come from the zeros of the original system; if the original system has right-half-plane zeros, a stable causal inverse usually does not exist.</p>
+</li>
+<li><p><strong>Routh stability problems</strong>: find the number of right-half-plane poles, judge stability, find parameter ranges, and handle the special cases of a zero first element or an all-zero row.</p>
+</li>
+<li><p><strong>Pole-zero cancellation discrimination problems</strong>: cancellation in an external transfer function may hide unstable internal modes; internal stability cannot be judged solely from the reduced $H(s)$.</p>
+</li>
+</ol>
+<h2 id="十一-Attaching-after-the-“Single-System-Function”-Block-Diagrams-Signal-Flow-Graphs-Mason-and-the-Model-Boundary"><a href="#十一-Attaching-after-the-“Single-System-Function”-Block-Diagrams-Signal-Flow-Graphs-Mason-and-the-Model-Boundary" class="headerlink" title="十一, Attaching after the “Single System Function”: Block Diagrams, Signal Flow Graphs, Mason, and the Model Boundary"></a>十一, Attaching after the “Single System Function”: Block Diagrams, Signal Flow Graphs, Mason, and the Model Boundary</h2><h3 id="The-Problem-It-Solves-10"><a href="#The-Problem-It-Solves-10" class="headerlink" title="The Problem It Solves"></a>The Problem It Solves</h3><p>The previous discussion studied a single system; this branch handles the interconnection of multiple subsystems. The goal is still to compress a complex structure into a single overall system function.</p>
+<h3 id="1-Block-Diagram-Algebra"><a href="#1-Block-Diagram-Algebra" class="headerlink" title="1. Block Diagram Algebra"></a>1. Block Diagram Algebra</h3><ul>
+<li>Series:</li>
+</ul>
+<p>$$<br>H_{\mathrm{eq}}&#x3D;H_1H_2;<br>$$</p>
+<ul>
+<li>Parallel:</li>
+</ul>
+<p>$$<br>H_{\mathrm{eq}}&#x3D;H_1+H_2;<br>$$</p>
+<ul>
+<li>Negative feedback:</li>
+</ul>
+<p>$$<br>H_{\mathrm{cl}}<br>&#x3D;\frac{G}{1+GH}.<br>$$</p>
+<p>When moving summing points and take-off points, one must compensate for the gain of the blocks crossed; moving purely by graphical position is not allowed.</p>
+<h3 id="2-Signal-Flow-Graphs-and-Mason’s-Formula"><a href="#2-Signal-Flow-Graphs-and-Mason’s-Formula" class="headerlink" title="2. Signal Flow Graphs and Mason’s Formula"></a>2. Signal Flow Graphs and Mason’s Formula</h3><p>First identify:</p>
+<ul>
+<li><p>forward path gains $P_k$;</p>
+</li>
+<li><p>loop gains $L_i$;</p>
+</li>
+<li><p>pairs and triples of mutually non-touching loops;</p>
+</li>
+<li><p>the cofactor $\Delta_k$, non-touching with the $k$-th forward path.</p>
+</li>
+</ul>
+<p>$$<br>\Delta<br>&#x3D;1-\sum_iL_i<br>+\sum_{i&lt;j}L_iL_j<br>-\sum_{i&lt;j&lt;r}L_iL_jL_r+\cdots,<br>$$</p>
+<p>$$<br>H&#x3D;\frac{\sum_kP_k\Delta_k}{\Delta}.<br>$$</p>
+<p>“Non-touching” means that two loops share no common node, not merely that their lines do not cross in the drawing.</p>
+<h3 id="3-Boundary-of-the-Current-Model"><a href="#3-Boundary-of-the-Current-Model" class="headerlink" title="3. Boundary of the Current Model"></a>3. Boundary of the Current Model</h3><p>The transfer function keeps only the external input–output relationship. Pole-zero cancellation may hide internal states; the following problems require state space:</p>
+<ul>
+<li><p>whether the internal states are stable;</p>
+</li>
+<li><p>multiple-input multiple-output;</p>
+</li>
+<li><p>how initial values propagate among internal variables;</p>
+</li>
+<li><p>uncontrollable and unobservable modes.</p>
+</li>
+</ul>
+<p>Time-varying, nonlinear, and stochastic systems cannot directly borrow this article’s LTI diagonalization conclusions. Discrete-time systems still develop along “convolution—complex exponential eigenfunction—transform-domain multiplication,” but one should move to the $Z$ transform and the unit circle.</p>
+<h3 id="How-It-Is-Examined-10"><a href="#How-It-Is-Examined-10" class="headerlink" title="How It Is Examined"></a>How It Is Examined</h3><ol>
+<li><p><strong>Block diagram reduction problems</strong>: through series, parallel, feedback, and moving summing&#x2F;take-off points, find the overall transfer function. Each step must preserve the definition of the node signals.</p>
+</li>
+<li><p><strong>Drawing a block diagram or flow graph from system equations</strong>: first choose intermediate variables, then connect according to causal operations; avoid drawing directly from a high-order equation.</p>
+</li>
+<li><p><strong>Block diagram to signal flow graph conversion</strong>: summing points correspond to algebraic sums, blocks correspond to branch gains, and nodes represent the same signal variable.</p>
+</li>
+<li><p><strong>Mason’s formula problems</strong>: list all forward paths, single loops, and non-touching loops. Missing loops and misjudging touching relations are the main sources of lost points.</p>
+</li>
+<li><p><strong>Multi-loop feedback synthesis problems</strong>: first judge whether direct reduction is convenient; when the structure is highly crossed, Mason is often more reliable than moving summing points.</p>
+</li>
+<li><p><strong>Structural stability problems</strong>: first obtain the closed-loop characteristic polynomial from the block diagram or Mason, then connect to the Routh criterion from Branch 10.</p>
+</li>
+</ol>
+<h1 id="叁-Summary"><a href="#叁-Summary" class="headerlink" title="叁, Summary"></a>叁, Summary</h1><p>At this point, the positions of the main trunk and the branches can be finally compressed into:</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202608300231457.png" srcset="/img/loading.gif" lazyload></p>
+<p>Part I answers: <strong>why the Fourier transform and the Laplace transform grow naturally out of LTI systems.</strong></p>
+<p>Part II answers: <strong>when the minimal model encounters periodicity, convergence, initial states, spectrum shifting, energy measurement, and system structure, which tool should be added at which node of the main trunk.</strong></p>
+<h2 id="References-and-Notes"><a href="#References-and-Notes" class="headerlink" title="References and Notes"></a>References and Notes</h2><ul>
+<li>Signals and Systems course slides.</li>
+<li>Zhou 1li: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/2034966558422909199">“A Plain-Language Account: How the Time Domain, Frequency Domain, Complex Domain, Root Locus, and State Space Were Invented Step by Step in History”</a>, used for reference and correction of the historical motivation.</li>
+</ul>
+<p>Framework figures:</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202608300121004.jpg" srcset="/img/loading.gif" lazyload alt="Old framework figure 1"><br><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202608300122534.jpg" srcset="/img/loading.gif" lazyload alt="Old framework figure 2"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Signals-and-Systems/" class="print-no-link">#Signals and Systems</a>
+      
+        <a href="/tags/Fourier-Transform/" class="print-no-link">#Fourier Transform</a>
+      
+        <a href="/tags/Laplace-Transform/" class="print-no-link">#Laplace Transform</a>
+      
+        <a href="/tags/LTI-Systems/" class="print-no-link">#LTI Systems</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>The Evolution of Signals and Systems (Part I) — The Generative Logic Behind the Fourier and Laplace Transforms</div>
+      <div>https://hwnote.space/en/posts/2026/08/30/fourier-laplace-knowledge-tree/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>August 30, 2026</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js?v=20260821-global-language.js"></script>
+<script src="/js/bilingual-switch.js?v=20260821-global-language.js"></script>
+<script src="/js/tag-cloud.js?v=20260824-bilingual-cloud.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

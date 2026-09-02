@@ -1,0 +1,964 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="An introduction to my mathematical-modelling notes, based on what I studied before the 2025 national competition.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A Review of Mathematical Modelling">
+<meta property="og:url" content="https://hwnote.space/en/posts/2025/08/25/mathematical-modeling-review/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="An introduction to my mathematical-modelling notes, based on what I studied before the 2025 national competition.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/mathplay.jpg">
+<meta property="article:published_time" content="2025-08-25T15:14:11.000Z">
+<meta property="article:modified_time" content="2026-08-20T17:14:52.111Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Mathematical Modelling">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/mathplay.jpg">
+  
+  
+  
+  <title>A Review of Mathematical Modelling - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css?v=20260821-global-language.css">
+<link rel="stylesheet" href="/css/tag-cloud.css?v=20260824-bilingual-cloud.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/mathplay.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="A Review of Mathematical Modelling"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-08-25 23:14" pubdate>
+          August 25, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          419 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          6 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">A Review of Mathematical Modelling</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>The entire body of mathematical modelling can be organized into a framework consisting of <strong>three major pillars</strong> and a <strong>solid foundation</strong>. The framework classifies methods according to the central aim of the problem.</p>
+<ul>
+<li><p><strong>The first pillar is mechanism-driven modelling, or the white-box approach</strong>, whose central question is <strong>why</strong>. It builds differential or difference equations from known scientific principles, such as physical and biological laws, in order to explain and predict the dynamic behaviour of a system from first principles. It is particularly suitable when data are sparse or even absent but the governing mechanism is clear. It captures the essential laws of development rather than superficial patterns in the data. The process is: identify variables -&gt; analyse the governing rules -&gt; construct equations.</p>
+</li>
+<li><p><strong>The second pillar is data-driven modelling, or the black-box approach</strong>, whose central question is <strong>what</strong>. When the internal mechanism of a system is too complicated to understand but abundant data are available, statistical and machine-learning techniques can learn the mapping from inputs to outputs directly from the data, allowing precise prediction, classification, and pattern recognition. The process is: collect and prepare data -&gt; select a modelling paradigm -&gt; train and validate the model.</p>
+</li>
+<li><p><strong>The third pillar is decision-driven modelling, or optimization</strong>, whose central question is <strong>what should be done</strong>. It seeks the best solution to real-world problems such as resource allocation and route planning by optimizing an objective, such as profit or efficiency, under various constraints. Its main tools are mathematical programming and optimization algorithms. The process is: determine the decision variables -&gt; construct the objective function -&gt; specify the constraints.</p>
+</li>
+<li><p><strong>The solid foundation consists of general tools and ways of thinking</strong> that support every modelling activity. These mainly include <strong>data interpolation and fitting</strong>, which bridge data and models, and a <strong>model-evaluation system</strong>, which safeguards model quality.</p>
+</li>
+</ul>
+<p>In practice, the three pillars are not independent and are often combined. An epidemic model, for example, may use mechanism-based modelling together with data fitting to estimate its parameters, while many sales problems join prediction to decision-making. Combining the strengths of different methods makes it possible to solve more complex real-world problems. Understanding this framework helps us recognize the essence of a new problem quickly and select the most appropriate modelling path.</p>
+<h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><p>As the opening article in this series on mathematical modelling, this review surveys the central ideas, methodology, and common technical branches of the subject. The material studied and organized here covers the following topics. The aim is to make the core idea of each method clear and provide a basis for later discussions of its implementation.</p>
+<ul>
+<li><p><strong>Methodology of mathematical modelling</strong></p>
+</li>
+<li><p><strong>Optimization modelling</strong></p>
+</li>
+<li><p><strong>Statistics and data mining</strong></p>
+</li>
+<li><p><strong>Data fitting and interpolation</strong></p>
+</li>
+<li><p><strong>Differential- and difference-equation modelling, or dynamic-process modelling</strong></p>
+</li>
+<li><p><strong>Machine learning and ensemble methods</strong></p>
+</li>
+<li><p><strong>Model evaluation</strong></p>
+</li>
+</ul>
+<h2 id="I-The-Methodology-of-Mathematical-Modelling"><a href="#I-The-Methodology-of-Mathematical-Modelling" class="headerlink" title="I. The Methodology of Mathematical Modelling"></a>I. The Methodology of Mathematical Modelling</h2><p>Mathematical modelling is the process of translating a real-world problem into mathematical language. However much the setting may change, the core process follows a scientific and systematic set of principles, which can be summarized in six steps.</p>
+<ol>
+<li><p><strong>Problem understanding, or business understanding</strong>: first clarify the requirements and ultimate purpose of the problem. In a mathematical competition, this means analysing the question carefully, examining relevant literature and the current state of research, and rapidly identifying the available methods, their technical feasibility, expected performance, strengths, and weaknesses.</p>
+</li>
+<li><p><strong>Data understanding</strong>: examine the quantity and quality of the available data and assess their completeness and correctness. Calculate descriptive statistics and conduct exploratory data analysis, or EDA, to discover the inherent characteristics and patterns of the records and variables. Together with the literature, this allows us to judge which variables may be relevant to the target, whether the data need balancing, and which modelling method appears suitable at first sight.</p>
+</li>
+<li><p><strong>Data preparation</strong>: clean, transform, and reconstruct the raw data. This includes imputing missing values, handling outliers, and selecting variables relevant to the analytical objective. In regression analysis, for example, nominal variables such as sex and region must be converted into dummy variables. At times, derived variables constructed from expert knowledge—BMI calculated from height and weight, for instance—are more useful for modelling.</p>
+</li>
+<li><p><strong>Model selection and construction</strong>: select an appropriate modelling method according to the nature of the problem and the characteristics of the data. Parameters may be adjusted manually or determined through automated methods such as grid search and random search. If a single model performs poorly, or it is unclear which model is best, several can be trained and combined through ensemble learning to produce a model with better performance and stronger robustness.</p>
+</li>
+<li><p><strong>Model evaluation</strong>: assess the performance and effectiveness of the model objectively. Cross-validation and similar methods are commonly used to avoid fluctuations in measured accuracy caused by different divisions of the training and test sets. The central task is to determine whether the model underfits or overfits.</p>
+</li>
+<li><p><strong>Deployment and reporting</strong>: summarize and present the modelling results clearly and scientifically. The structure and logic of a scientific journal article can guide the organization of the result, helping ensure that the model is scientifically sound and innovative and that its conclusions are reliable.</p>
+</li>
+</ol>
+<h2 id="II-Core-Modelling-Methods"><a href="#II-Core-Modelling-Methods" class="headerlink" title="II. Core Modelling Methods"></a>II. Core Modelling Methods</h2><h3 id="2-1-Optimization-or-Mathematical-Programming"><a href="#2-1-Optimization-or-Mathematical-Programming" class="headerlink" title="2.1 Optimization, or Mathematical Programming"></a>2.1 Optimization, or Mathematical Programming</h3><p>An optimization problem seeks the best values of its decision variables under a set of constraints, so that its objective function reaches a maximum or minimum.</p>
+<ul>
+<li><p><strong>Linear programming, LP</strong>: both the objective and every constraint are linear functions. This is the most fundamental optimization model, and an optimal solution must occur at a vertex of the feasible region. Its principal solution algorithms are the simplex method and interior-point methods.</p>
+</li>
+<li><p><strong>Integer programming, IP</strong>: one or more decision variables in a linear program are required to take integer values. <strong>0-1 integer programming</strong>, in which variables can equal only 0 or 1, is often used for yes-or-no decisions. It is much harder to solve than linear programming, and common algorithms include branch and bound and cutting planes.</p>
+</li>
+<li><p><strong>Nonlinear programming, NLP</strong>: at least one objective or constraint function is nonlinear. This is the broadest and most complicated class of problems. Solutions usually depend on gradient descent, Newton’s method, or, for constrained problems, the method of Lagrange multipliers and the KKT conditions.</p>
+</li>
+<li><p><strong>Combinatorial optimization</strong>: the decision variables are discrete, and the purpose is to “combine” a large number of possibilities into the best plan, as in the traveling salesperson problem, or TSP, and facility-location problems. Most such problems are NP-hard. Large instances are commonly approached with heuristics such as genetic algorithms, simulated annealing, and ant-colony optimization.</p>
+</li>
+</ul>
+<h3 id="2-2-Data-Interpolation-and-Fitting"><a href="#2-2-Data-Interpolation-and-Fitting" class="headerlink" title="2.2 Data Interpolation and Fitting"></a>2.2 Data Interpolation and Fitting</h3><p>When we face a series of discrete data points, interpolation and fitting provide two ways to turn them into a continuous function, but their underlying assumptions are entirely different.</p>
+<ul>
+<li><p><strong>Interpolation</strong>:</p>
+<ul>
+<li><p><strong>Central idea</strong>: assume that every data point is <strong>perfectly accurate</strong> and require the constructed curve to <strong>pass strictly through</strong> each one.</p>
+</li>
+<li><p><strong>Methods</strong>: classical polynomial interpolation, including the Lagrange and Newton methods, encounters <strong>Runge’s phenomenon</strong>, or violent oscillations near the boundary, in high-degree problems. <strong>Spline interpolation</strong>, especially cubic splines, was developed to overcome this difficulty. By joining low-degree polynomial pieces smoothly, it balances precision and smoothness exceptionally well and is now the most robust interpolation method.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Data fitting</strong>:</p>
+<ul>
+<li><p><strong>Central idea</strong>: assume that data contain <strong>random error or noise</strong>. Instead of forcing the curve through any point, find the curve that best represents the <strong>overall trend</strong>.</p>
+</li>
+<li><p><strong>Methods</strong>: the foundation is <strong>least squares</strong>, which seeks a curve that minimizes the sum of the squared differences, or residuals, between observed values and function predictions. According to the form of the function, fitting may be linear, polynomial, or nonlinear. A nonlinear relationship is often <strong>linearized</strong> through a change of variables before it is solved.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-3-Statistics-and-Data-Mining"><a href="#2-3-Statistics-and-Data-Mining" class="headerlink" title="2.3 Statistics and Data Mining"></a>2.3 Statistics and Data Mining</h3><p>When the internal mechanism of a problem is unclear but sufficient data are available, statistical and data-mining methods—the black-box approach—can discover regularities and patterns in the data.</p>
+<ul>
+<li><p><strong>Exploratory data analysis, EDA</strong>: before modelling, calculate descriptive statistics such as the mean and variance and produce visualizations such as histograms, box plots, and scatter plots. These reveal internal structures, patterns, outliers, and relationships among variables.</p>
+</li>
+<li><p><strong>Hypothesis testing</strong>: determine whether the situation reflected by a sample differs significantly from a proposed null hypothesis. Assuming that the null is true, calculate the probability—the <strong>p-value</strong>—of observing the current sample result. If that value is sufficiently small, below 0.05 for example, reject the null. Common methods include the <strong>t-test</strong> for means, the <strong>F-test</strong> for variances and analysis of variance or ANOVA, and the <strong>chi-squared test</strong> for associations among categorical variables.</p>
+</li>
+<li><p><strong>Correlation and regression analysis</strong>:</p>
+<ul>
+<li><p><strong>Correlation analysis</strong> measures the strength and direction of a linear relationship between <strong>two continuous variables</strong>, using Pearson’s coefficient, or of an ordinal relationship, using Spearman’s coefficient.</p>
+</li>
+<li><p><strong>Regression analysis</strong> builds a quantitative model of the relationship between a dependent variable and one or more independent variables for prediction and explanation. Linear regression is fundamental and assumes linearity, independence, homoscedasticity, and normality. Regularized methods such as <strong>ridge regression</strong> and <strong>Lasso regression</strong> were developed to address multicollinearity.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Classification modelling</strong> is used when the dependent variable is categorical. Despite its name, <strong>logistic regression</strong> is a binary classification model. Other common models include <strong>decision trees, support vector classification or SVC, and random forests</strong>.</p>
+</li>
+<li><p><strong>Cluster analysis</strong> is an unsupervised-learning method. With no predefined classes, it automatically groups samples according to their similarity—birds of a feather, so to speak. The best-known method is <strong>K-Means</strong>.</p>
+</li>
+</ul>
+<h3 id="2-4-Differential-and-Difference-Equations-Dynamic-Process-Modelling"><a href="#2-4-Differential-and-Difference-Equations-Dynamic-Process-Modelling" class="headerlink" title="2.4 Differential and Difference Equations: Dynamic-Process Modelling"></a>2.4 Differential and Difference Equations: Dynamic-Process Modelling</h3><p>When a process evolves through time or space and its internal mechanism is clear, differential and difference equations are the preferred white-box tools.</p>
+<ul>
+<li><p><strong>Difference equations</strong> describe <strong>discrete, stepwise</strong> change, such as a population updated once a year. The central task is to establish the relationship between the present state $x_{n+1}$ and one or more earlier states $x_n, x_{n-1},…$. The classic <strong>Logistic model</strong> describes discrete population change under resource constraints and can even display chaotic behaviour.</p>
+</li>
+<li><p><strong>Differential equations</strong> describe <strong>smooth, continuous</strong> dynamic development. The central task is to identify the relationship between the rate of change and the current state. For example, $\frac{dx}{dt} &#x3D; kx$ describes unrestricted exponential growth or decay.</p>
+</li>
+<li><p><strong>Qualitative analysis</strong>: analytical solutions to either difference or differential equations are often difficult to obtain. It is therefore essential to study the long-term behaviour of a model, chiefly by finding its <strong>equilibrium points</strong> and judging their <strong>stability</strong>. Stability analysis tells us whether a system will return to equilibrium or collapse after a small disturbance.</p>
+</li>
+<li><p><strong>Partial differential equations, PDEs</strong>: if the object under study changes not only over time but also with <strong>spatial position</strong>, partial differential equations are needed. One example is the diffusion of a pollutant through lake water.</p>
+</li>
+</ul>
+<h3 id="2-5-Machine-Learning-and-Ensemble-Methods"><a href="#2-5-Machine-Learning-and-Ensemble-Methods" class="headerlink" title="2.5 Machine Learning and Ensemble Methods"></a>2.5 Machine Learning and Ensemble Methods</h3><ul>
+<li><p><strong>Machine learning</strong>, at the intersection of statistics and computer science, offers a large collection of powerful modelling tools and is particularly effective for high-dimensional and complicated nonlinear problems. Decision trees, support vector machines, and neural networks, all mentioned above, belong to this field.</p>
+</li>
+<li><p><strong>Ensemble learning</strong> is an advanced modelling strategy. Instead of relying on one model, it combines several “weak” learners into a more capable “committee of experts,” improving overall accuracy and robustness.</p>
+<ul>
+<li><p><strong>Bagging</strong> trains several models in parallel, as random forests train decision trees, and improves performance by voting or averaging their outputs.</p>
+</li>
+<li><p><strong>Boosting</strong> trains models in sequence. Each new model concentrates on the samples predicted incorrectly by the preceding one and thereby “corrects” its errors. Representative algorithms include AdaBoost and XGBoost.</p>
+</li>
+<li><p><strong>Stacking</strong> uses the outputs of several first-layer models as features for training a second-layer meta-model. It is a more complex form of ensemble learning.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="III-Model-Evaluation"><a href="#III-Model-Evaluation" class="headerlink" title="III. Model Evaluation"></a>III. Model Evaluation</h2><p>Once a model has been built, objective standards are required to measure its performance. Evaluation metrics differ according to the type of model, particularly classification or prediction.</p>
+<ul>
+<li><p><strong>Metrics for classification models</strong>, calculated from the <strong>confusion matrix</strong>:</p>
+<ul>
+<li><p><strong>Accuracy</strong>: the proportion of all samples that are classified correctly. It can be misleading when the sample is imbalanced.</p>
+</li>
+<li><p><strong>Precision</strong>: the proportion of samples predicted as positive that are genuinely positive. It matters when the cost of a false positive is high.</p>
+</li>
+<li><p><strong>Recall</strong>: the proportion of all genuine positive samples that are successfully identified. It matters when the cost of a false negative is high.</p>
+</li>
+<li><p><strong>F1-score</strong>: the harmonic mean of precision and recall and thus a combined measure.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Metrics for regression models</strong>:</p>
+<ul>
+<li><p><strong>Root mean squared error, RMSE</strong>: the square root of the mean of the squared differences between predicted and observed values. It has the same unit as the original data and is easy to interpret.</p>
+</li>
+<li><p><strong>Mean absolute error, MAE</strong>: the mean of the absolute differences between predicted and observed values. It is less sensitive to outliers.</p>
+</li>
+<li><p><strong>Coefficient of determination, $R^2$</strong>: the percentage of variation in the dependent variable that the model can explain. A value closer to 1 is better.</p>
+</li>
+<li><p><strong>Adjusted coefficient of determination, or adjusted $R^2$</strong>: it accounts for the number of independent variables in addition to $R^2$, making it fairer when models of different complexity are compared.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="IV-Summary-of-Applications-and-Tools"><a href="#IV-Summary-of-Applications-and-Tools" class="headerlink" title="IV. Summary of Applications and Tools"></a>IV. Summary of Applications and Tools</h2><ul>
+<li><p><strong>Problems governed by physical laws</strong>: if precise physical or natural laws underlie the problem, white-box models such as <strong>differential equations</strong> are preferred because they describe the system through its mechanism.</p>
+</li>
+<li><p><strong>Statistical and financial problems</strong>: if the mechanism is unclear but data are abundant, black-box methods such as statistical models, data mining, and machine learning are generally used to discover data-driven patterns. Derivative pricing in financial mathematics, such as the BSM partial differential equation, is an exception.</p>
+</li>
+<li><p><strong>Decision and planning problems</strong>: resource allocation, route selection, strategy design, and similar tasks centre on <strong>optimization</strong> and require an objective function and constraints.</p>
+</li>
+</ul>
+<p>Whatever the problem, a powerful mathematical-modelling toolbox should include at least:</p>
+<ul>
+<li><p><strong>data fitting and interpolation</strong> for preprocessing data and turning observations into functions;</p>
+</li>
+<li><p><strong>optimization</strong> for solving decision problems;</p>
+</li>
+<li><p><strong>machine-learning and statistical models</strong> for learning and prediction from data;</p>
+</li>
+<li><p><strong>approximation methods</strong> for solving differential and difference equations;</p>
+</li>
+<li><p><strong>linear programming</strong>.</p>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Mathematical-Modelling/" class="print-no-link">#Mathematical Modelling</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>A Review of Mathematical Modelling</div>
+      <div>https://hwnote.space/en/posts/2025/08/25/mathematical-modeling-review/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>August 25, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js?v=20260821-global-language.js"></script>
+<script src="/js/bilingual-switch.js?v=20260821-global-language.js"></script>
+<script src="/js/tag-cloud.js?v=20260824-bilingual-cloud.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

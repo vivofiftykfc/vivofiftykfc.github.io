@@ -1,0 +1,908 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="A systematic review of the principal methods used for data fitting and interpolation.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A Review of Data Fitting and Interpolation">
+<meta property="og:url" content="https://hwnote.space/en/posts/2025/08/25/data-fitting-interpolation-review/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="A systematic review of the principal methods used for data fitting and interpolation.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/photostart.jpg">
+<meta property="article:published_time" content="2025-08-25T12:14:11.000Z">
+<meta property="article:modified_time" content="2026-08-20T17:08:38.950Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Mathematical Modelling">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/photostart.jpg">
+  
+  
+  
+  <title>A Review of Data Fitting and Interpolation - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css?v=20260821-global-language.css">
+<link rel="stylesheet" href="/css/tag-cloud.css?v=20260824-bilingual-cloud.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/photostart.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="A Review of Data Fitting and Interpolation"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-08-25 20:14" pubdate>
+          August 25, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          362 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          5 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">A Review of Data Fitting and Interpolation</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>This article presents two fundamental approaches to transforming discrete observations into continuous functional models: data interpolation and data fitting. Interpolation requires the resulting curve to pass strictly through every data point. It is therefore suited to local estimation and exact reconstruction when the available data are highly accurate. The discussion begins with classical Lagrange and Newton polynomial interpolation, examines the Runge oscillations that arise when high-degree polynomials are used, and then turns to spline interpolation, which evolved from piecewise strategies. Cubic splines in particular have become the standard means of balancing global smoothness with local fidelity.</p>
+<p>Data fitting, by contrast, seeks to remove the influence of random errors and reveal the broad patterns within the data. Taking least squares as its theoretical foundation, this article explains the optimization principle of finding the best trend function by minimizing the sum of squared residuals. It covers linear models, polynomial models, and nonlinear models that can be linearized, while stressing the importance of objectively evaluating goodness of fit through such measures as R² and adjusted R².</p>
+<p>Through comparison, the review clarifies the essential differences between interpolation and fitting in their underlying assumptions, appropriate applications, and technical implementation. Its purpose is to help researchers make a sound methodological choice in response to different levels of data quality and different analytical aims, thereby supporting quantitative analysis that is both more precise and more revealing.</p>
+<h2 id="1-Overview"><a href="#1-Overview" class="headerlink" title="1. Overview"></a>1. Overview</h2><p>In scientific research and engineering practice, raw data usually take the form of a series of discrete observations, <code>(x_i, y_i)</code>. To conduct deeper analysis, predict unknown values, or uncover an underlying pattern, however, we must construct a continuous function <code>f(x)</code> that represents those data. Data fitting and interpolation are the two principal ways of doing so. They rest on different assumptions and serve different analytical purposes.</p>
+<ul>
+<li><p><strong>Interpolation</strong>: its central assumption is that <strong>the data are perfectly accurate</strong>. The constructed curve must <strong>pass strictly through every given data point</strong>; in other words, <code>f(x_i) = y_i</code> must hold for every <code>i</code>. Interpolation is primarily used to make precise, local numerical estimates between known observations. In essence, it “fills in the gaps.”</p>
+</li>
+<li><p><strong>Fitting or approximation</strong>: its central assumption is that <strong>the data contain noise</strong>. The curve need not pass through any particular observation. Instead, it should be smooth and reflect the <strong>overall trend</strong> of the data as closely as possible. Fitting seeks to separate random errors from the data and capture the fundamental relationship between variables. In essence, it “looks for the rule.”</p>
+</li>
+</ul>
+<h2 id="2-Interpolation-Constructing-an-Exact-Path"><a href="#2-Interpolation-Constructing-an-Exact-Path" class="headerlink" title="2. Interpolation: Constructing an Exact Path"></a><strong>2. Interpolation: Constructing an Exact Path</strong></h2><h3 id="2-1-Polynomial-Interpolation"><a href="#2-1-Polynomial-Interpolation" class="headerlink" title="2.1 Polynomial Interpolation"></a><strong>2.1 Polynomial Interpolation</strong></h3><p>An <code>n-1</code> degree polynomial is used to pass exactly through <code>n</code> data points.</p>
+<ul>
+<li><p><strong>Lagrange interpolation</strong>:</p>
+<ul>
+<li><p><strong>Idea</strong>: this is a constructive method. For each data point <code>(x_i, y_i)</code>, it carefully designs a basis function <code>L_i(x)</code>. That function equals 1 at <code>x_i</code> and 0 at every other <code>x_j</code> (<code>j ≠ i</code>). The final interpolation polynomial is the weighted sum of these basis functions, with the corresponding values <code>y_i</code> serving as weights.</p>
+<p>  $$ P(x) &#x3D; \sum_{i&#x3D;0}^{n-1} y_i L_i(x) \quad , \quad L_i(x) &#x3D; \prod_{j&#x3D;0, j \neq i}^{n-1} \frac{x - x_j}{x_i - x_j} $$</p>
+</li>
+<li><p><strong>Comment</strong>: the method is theoretically elegant but computationally limited. Whenever a data point is added, all basis functions must be recalculated, so previous calculations cannot readily be reused. More seriously, it cannot avoid the inherent risk of high-degree polynomial interpolation.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Newton interpolation</strong>:</p>
+</li>
+</ul>
+<p><strong>Idea</strong>: the polynomial is constructed iteratively. By introducing <strong>divided differences</strong>, the method allows each new data point to be accommodated by appending only one additional term. It therefore offers good inheritance and computational efficiency.</p>
+<p>$$ P(x) &#x3D; f(x_0) + f<a href="x-x_0">x_0, x_1</a> + \dots + f[x_0, \dots, x_{n-1}]\prod_{i&#x3D;0}^{n-2}(x-x_i) $$</p>
+<p><strong>Comment</strong>: it is computationally superior to the Lagrange method, but it still faces the following problem.</p>
+<ul>
+<li><strong>Runge’s phenomenon</strong>:</li>
+</ul>
+<p>This is a danger that must be taken seriously in high-degree polynomial interpolation. When a high-degree polynomial is fitted to equally spaced nodes, violent oscillations may appear near the boundaries of the interval even if the original function is smooth, producing substantial prediction errors. The lesson is clear: blindly forcing a single high-degree polynomial through every point is a hazardous approach.</p>
+<h3 id="2-2-Piecewise-and-Spline-Interpolation"><a href="#2-2-Piecewise-and-Spline-Interpolation" class="headerlink" title="2.2 Piecewise and Spline Interpolation"></a><strong>2.2 Piecewise and Spline Interpolation</strong></h3><p>A more robust way to avoid Runge’s phenomenon is to abandon a single global polynomial and adopt a piecewise, divide-and-conquer strategy.</p>
+<ul>
+<li><strong>Piecewise linear interpolation</strong>:</li>
+</ul>
+<p><strong>Idea</strong>: this is the simplest piecewise method; adjacent data points are connected successively by straight lines.</p>
+<p><strong>Comment</strong>: it is simple and fast, and it never produces oscillations. The cost, however, is the presence of sharp corners at the data points. The first derivative is discontinuous, and the curve as a whole lacks the smoothness required by most physical laws.</p>
+<ul>
+<li><strong>Spline interpolation</strong>:</li>
+</ul>
+<p><strong>Idea</strong>: spline interpolation is a major improvement on elementary piecewise methods and is designed to ensure global smoothness. It connects low-degree polynomial pieces, usually cubic ones, and imposes continuity conditions on their derivatives at the junctions, which are called knots.</p>
+<p><strong>Cubic splines</strong> are the most widely used. They ensure not only that the function itself is continuous, but also that its <strong>first and second derivatives remain continuous at every knot</strong>. Consequently, the curve has no sharp corners, while its curvature also changes continuously; it is highly smooth both visually and mathematically.</p>
+<p><strong>Comment</strong>: spline interpolation is now the most extensively used and consistently reliable interpolation method in scientific computing. It balances exactness and smoothness remarkably well, avoids Runge’s phenomenon, and has become the standard choice for interpolation tasks.</p>
+<h2 id="3-Fitting-Capturing-the-Underlying-Pattern-of-Data"><a href="#3-Fitting-Capturing-the-Underlying-Pattern-of-Data" class="headerlink" title="3. Fitting: Capturing the Underlying Pattern of Data"></a><strong>3. Fitting: Capturing the Underlying Pattern of Data</strong></h2><h3 id="3-1-The-Method-of-Least-Squares"><a href="#3-1-The-Method-of-Least-Squares" class="headerlink" title="3.1 The Method of Least Squares"></a><strong>3.1 The Method of Least Squares</strong></h3><p>Least squares is the foundational method of fitting. It turns the idea of a “best fit” into a measurable criterion.</p>
+<p><strong>Central idea</strong>: define the <strong>residual</strong> between a data point <code>(x_i, y_i)</code> and the fitted function <code>f(x)</code> as <code>e_i = y_i - f(x_i)</code>. The best fitted function is the one that minimizes the <strong>sum of squared residuals, or SSR</strong>.</p>
+<p>$$ SSR &#x3D; \sum_{i&#x3D;1}^{n} e_i^2 &#x3D; \sum_{i&#x3D;1}^{n} (y_i - f(x_i))^2 \rightarrow \min $$</p>
+<p>Squaring is chosen not only because it has convenient mathematical properties, including differentiability and convexity, but also because it assigns a greater “penalty weight” to large errors, or outliers.</p>
+<h3 id="3-2-Selecting-and-Implementing-a-Fitted-Model"><a href="#3-2-Selecting-and-Implementing-a-Fitted-Model" class="headerlink" title="3.2 Selecting and Implementing a Fitted Model"></a><strong>3.2 Selecting and Implementing a Fitted Model</strong></h3><ul>
+<li><p><strong>Linear fitting</strong>:</p>
+<ul>
+<li><p><strong>Model</strong>: the functional relationship is assumed to be linear.</p>
+</li>
+<li><p><strong>Solution</strong>: take partial derivatives of SSR with respect to all unknown parameters, such as a, b, and so forth, and set them to zero. This produces a system of linear equations known as the <strong>normal equations</strong>. Solving that system yields the best parameter estimates.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Polynomial fitting</strong>:</p>
+<ul>
+<li><p><strong>Model</strong>: the function is assumed to be a polynomial, such as <code>f(x) = a_nx^n + \dots + a_1x + a_0</code>.</p>
+</li>
+<li><p><strong>Solution</strong>: its least-squares solution can likewise be reduced to a system of normal equations.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Nonlinear fitting</strong>:</p>
+<ul>
+<li><p><strong>Model</strong>: when theory indicates that variables have a nonlinear relationship, such as an exponential, logarithmic, or power relation, nonlinear fitting is required.</p>
+</li>
+<li><p><strong>Strategies</strong>:</p>
+<ol>
+<li><p><strong>Linearization</strong>: a suitable change of variables can transform a nonlinear relationship into a linear one. For example, taking logarithms on both sides of <code>y = ae^&#123;bx&#125;</code> gives <code>ln(y) = ln(a) + bx</code>, after which linear fitting can be applied to <code>(x, ln(y))</code>. This is a common and efficient technique.</p>
+</li>
+<li><p><strong>Iterative optimization</strong>: when a complex model cannot be linearized, numerical optimization algorithms, such as gradient descent or the Levenberg–Marquardt algorithm, must search iteratively and gradually approach the parameter combination that minimizes SSR.</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-3-Evaluating-Goodness-of-Fit"><a href="#3-3-Evaluating-Goodness-of-Fit" class="headerlink" title="3.3 Evaluating Goodness of Fit"></a><strong>3.3 Evaluating Goodness of Fit</strong></h3><p>Once a model has been fitted, its quality must be evaluated quantitatively.</p>
+<ul>
+<li><p><strong>Coefficient of determination, R-squared or R²</strong>:</p>
+<ul>
+<li><p><strong>Definition</strong>: it measures the percentage of the total variation in the dependent variable that the model can explain. Its value lies between 0 and 1; the closer it is to 1, the stronger the explanatory power of the model.</p>
+<p>  $$ R^2 &#x3D; 1 - \frac{\sum (y_i - f(x_i))^2}{\sum (y_i - \bar{y})^2} &#x3D; 1 - \frac{SSR}{SST} $$</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Adjusted R²</strong>:</p>
+<ul>
+<li><strong>Purpose</strong>: R² has a weakness: increasing model complexity, for example by raising the degree of a polynomial, can only increase its value. Adjusted R² therefore introduces a penalty for the number of model parameters. When models of different complexity are compared, it provides a fairer measure.</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-Conclusion"><a href="#4-Conclusion" class="headerlink" title="4. Conclusion"></a><strong>4. Conclusion</strong></h2><p>Interpolation and fitting are both foundations of data analysis. <strong>Interpolation</strong> follows a philosophy of “<strong>trusting the data</strong>” and constructs exact bridges between one point and the next. <strong>Fitting</strong> follows a philosophy of “<strong>questioning the data</strong>” and searches for an underlying rule amid noisy observations. In practice, if the data source is reliable, the error is very small, and the aim is local estimation, interpolation—especially spline interpolation—is the better choice. Conversely, if measurements contain error and the aim is to explore a global pattern or make predictions, fitting, with least squares at its core, is necessary. A clear understanding of their differences and appropriate applications is a prerequisite for effective quantitative analysis.</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Mathematical-Modelling/" class="print-no-link">#Mathematical Modelling</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>A Review of Data Fitting and Interpolation</div>
+      <div>https://hwnote.space/en/posts/2025/08/25/data-fitting-interpolation-review/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>August 25, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js?v=20260821-global-language.js"></script>
+<script src="/js/bilingual-switch.js?v=20260821-global-language.js"></script>
+<script src="/js/tag-cloud.js?v=20260824-bilingual-cloud.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

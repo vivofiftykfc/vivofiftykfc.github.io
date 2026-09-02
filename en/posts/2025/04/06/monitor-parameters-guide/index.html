@@ -1,0 +1,944 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="I recently chose a monitor to serve as a secondary display, so I wrote this guide to explain the relevant specifications">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Understanding Monitor Specifications and the Principles behind Them">
+<meta property="og:url" content="https://hwnote.space/en/posts/2025/04/06/monitor-parameters-guide/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="I recently chose a monitor to serve as a secondary display, so I wrote this guide to explain the relevant specifications">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/screen.jpg">
+<meta property="article:published_time" content="2025-04-05T17:14:11.000Z">
+<meta property="article:modified_time" content="2026-09-02T05:53:13.784Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Hardware">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/screen.jpg">
+  
+  
+  
+  <title>Understanding Monitor Specifications and the Principles behind Them - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css?v=20260821-global-language.css">
+<link rel="stylesheet" href="/css/tag-cloud.css?v=20260824-bilingual-cloud.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/screen.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Understanding Monitor Specifications and the Principles behind Them"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-04-06 01:14" pubdate>
+          April 6, 2025 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          933 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Understanding Monitor Specifications and the Principles behind Them</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Monitor-Specifications-and-Their-Underlying-Principles"><a href="#Monitor-Specifications-and-Their-Underlying-Principles" class="headerlink" title="Monitor Specifications and Their Underlying Principles"></a>Monitor Specifications and Their Underlying Principles</h1><p>I recently bought a secondary monitor and decided to organise the relevant knowledge into an article that might make future purchases easier.</p>
+<h2 id="How-a-Colour-Display-Works"><a href="#How-a-Colour-Display-Works" class="headerlink" title="How a Colour Display Works"></a>How a Colour Display Works</h2><h3 id="Prerequisite-Knowledge"><a href="#Prerequisite-Knowledge" class="headerlink" title="Prerequisite Knowledge"></a>Prerequisite Knowledge</h3><ul>
+<li>Liquid crystal is a synthetic organic material whose state lies between a solid and a liquid. Without an electric field, its molecules may be arranged irregularly and block light; under voltage, they become ordered and transmit light. The reverse arrangement also exists, in which voltage blocks rather than transmits light.</li>
+<li>Polarisation is the selection of the vibration direction of a transverse wave. By controlling light with polarising filters and observing changes in intensity, one can verify both the transverse nature of light and the selectivity of its vibration direction. A high-school physics textbook gives the details.</li>
+</ul>
+<h3 id="Central-Idea"><a href="#Central-Idea" class="headerlink" title="Central Idea"></a>Central Idea</h3><p>Colours are produced by controlling and mixing RGB values.</p>
+<h3 id="Technical-Approaches"><a href="#Technical-Approaches" class="headerlink" title="Technical Approaches"></a>Technical Approaches</h3><h4 id="LCD"><a href="#LCD" class="headerlink" title="LCD"></a>LCD</h4><h5 id="Conventional-LCD"><a href="#Conventional-LCD" class="headerlink" title="Conventional LCD"></a>Conventional LCD</h5><p>This remains a mainstream, if relatively old, approach. At the bottom is a backlight emitting white light. Above it lies a liquid-crystal layer between two mutually perpendicular polarisers. The liquid crystal rotates the direction of polarisation and thereby controls how much light can pass, which controls brightness. A colour filter outside the liquid-crystal layer produces colour. A conventional backlight usually consists of an LED strip between a reflector and a diffusion plate. When the monitor displays black while switched on, the backlight is still active; moreover, even an unpowered liquid-crystal layer rotates part of the light. The result differs from the pure black of a powered-off screen and reduces contrast.</p>
+<p>According to the default state of the liquid-crystal layer, panels can be divided into three types:</p>
+<ul>
+<li>A VA panel is vertically aligned by default and twists under voltage to transmit light. It offers high contrast, average viewing angles, and a relatively slow response. Inferior panels may smear. It suits films and AAA games.</li>
+<li>An IPS panel is horizontally aligned by default and rotates in the horizontal plane under voltage. It provides average contrast, broad viewing angles, and a moderate response. It is the balanced choice for most situations.</li>
+<li>A TN panel twists horizontally by default and turns vertical under voltage to block light. Its contrast and viewing angles are poor, but its response is fast, making it suitable for Counter-Strike veterans and Valorant juniors.</li>
+</ul>
+<h5 id="QLED"><a href="#QLED" class="headerlink" title="QLED"></a>QLED</h5><p>QLED modifies an LCD by using a blue backlight and coating the substrate with quantum dots. A quantum dot is an extremely small compound that absorbs blue light and emits light at another wavelength—rather like an electron being excited and then returning to its ground state. This approach addresses the limited saturation of an ordinary LCD, but remains an LCD.</p>
+<h5 id="Mini-LED"><a href="#Mini-LED" class="headerlink" title="Mini-LED"></a>Mini-LED</h5><p>Mini-LED divides the backlight into zones and switches off those behind black regions; everything else resembles an LCD. This supports advanced HDR, although poor tuning can produce smearing or halos.</p>
+<h4 id="LED"><a href="#LED" class="headerlink" title="LED"></a>LED</h4><h5 id="OLED"><a href="#OLED" class="headerlink" title="OLED"></a>OLED</h5><p>OLED stands for Organic Light-Emitting Diode. Conventional diodes work well, but placing three diodes in every pixel and integrating them into a large panel is difficult, which led to OLED technology. Electricity directly excites fluorescent materials to emit coloured light, and three emitters form one pixel. This can also be understood as pixel-level local dimming: it produces no halo, high saturation, a thin panel, fast response, a broad colour gamut, low power consumption without a backlight, and even flexible displays. Its disadvantages arise partly because the three fluorescent materials age at different rates, making burn-in, retained colour, and colour shifts more likely. Other limitations include low peak brightness, PWM dimming, and reduced effective resolution.</p>
+<h5 id="W-OLED"><a href="#W-OLED" class="headerlink" title="W-OLED"></a>W-OLED</h5><p>W-OLED replaces the three coloured fluorescent materials with white emitters and places an RGBW filter above them. The white subpixel compensates for brightness, but its white light also interferes with the red, green, and blue subpixels, taking us back towards the problem faced by LCDs.</p>
+<h5 id="QD-OLED"><a href="#QD-OLED" class="headerlink" title="QD-OLED"></a>QD-OLED</h5><p>QD-OLED replaces the QLED backlight with blue fluorescent material and remains within the LED family. It addresses the problem of W-OLED, although external light may excite the quantum-dot material and contaminate the signal.</p>
+<h5 id="Micro-OLED"><a href="#Micro-OLED" class="headerlink" title="Micro-OLED"></a>Micro-OLED</h5><p>This uses microscopic light-emitting diodes and solves the problem of integrating three conventional diodes into every pixel of a large display. Massive-transfer technology is still immature, however, so a panel may cost hundreds of thousands.</p>
+<h2 id="Specifications"><a href="#Specifications" class="headerlink" title="Specifications"></a>Specifications</h2><h3 id="Screen-Size"><a href="#Screen-Size" class="headerlink" title="Screen Size"></a>Screen Size</h3><p>Screen size is the diagonal length, usually measured in inches. Ordinary mainstream monitors commonly measure 24, 27, or 32 inches. The portable monitors I have seen—not many—are often around 14 inches. A 24- or 27-inch display is the usual choice and resembles what one finds in an internet café. Anyone wanting more space can choose a larger or ultrawide panel; wealthy buyers may proceed as they please.</p>
+<h3 id="Resolution"><a href="#Resolution" class="headerlink" title="Resolution"></a>Resolution</h3><p>The most familiar resolutions are probably 1080p (1920*1080), 2K (2560*1440, or 16:9), and 4K (3840*2160). One also encounters names such as 2.5K, commonly used for a 16:10 resolution, although some people call 2560*1440 2.5K. These are only common examples, and labels such as 2K and 2.5K are often used rather casually. The following table, sourced from HeyBox, gives others.</p>
+<p><img src="/img/inblogs/76a78db4df63fe2a9e93637edd70ab7.jpg" srcset="/img/loading.gif" lazyload alt="76a78db4df63fe2a9e93637edd70ab7"></p>
+<p>The terminology is so inconsistent that it should not be examined too literally. Gamers, monitor manufacturers, film studios, and television companies all follow different conventions. A few examples:</p>
+<ul>
+<li>On common video platforms, standard definition means 480p, high definition 720p, ultra-high definition 1080p, Blu-ray 1080p at 60 frames per second, and 4K 2160p; the bit rates remain unknown.</li>
+<li>According to an editor at a Shanghai television station, 1080p at 10 Mbit&#x2F;s is HD, 2560*1440 is 2K, and 3840*2160 or 4096*2160 is 4K. Blu-ray refers specifically to an optical disc, a physical storage medium like magnetic tape.</li>
+<li>According to a worker at a Shandong television station, 480p is standard, 720p is HD, 1080p is ultra-HD, and 4K is simply 4K. Bit rate is calculated from MXF.</li>
+</ul>
+<p>For video, resolution alone is insufficient; bit rate is equally important. A 4K video at 5 Mbit&#x2F;s may look less clear than a 1080p video at 10 Mbit&#x2F;s. Likewise, a monitor should not be judged by resolution alone, since PPI also matters. Domestic streaming video often looks less clear than locally downloaded material because its bit rate is too low. Perhaps I will organise some sites for finding BitTorrent resources when time permits.</p>
+<p>Some serious film enthusiasts even use PotPlayer to adjust colour balance and decoding methods. I came across that practice while browsing forums.</p>
+<p>Another issue is scaling. Displaying a 1080p photograph on a 2K screen can make it appear blurrier because the source lacks enough exact pixels and the 2K panel must approximate them, though the difference may not be very noticeable.</p>
+<p>Some users point out that the advertised resolution of an OLED should be discounted by about twenty per cent because its pixels operate differently.</p>
+<h4 id="Basic-Units"><a href="#Basic-Units" class="headerlink" title="Basic Units"></a>Basic Units</h4><ul>
+<li>px, or pixel: the smallest display unit and the basic component of an image.</li>
+<li>pt, or point: a unit for font size. On digital devices, conversion between pt and px usually depends on resolution or PPI, such as 72 or 96 PPI.</li>
+<li>PPI, pixels per inch: a measure of pixel density. It is calculated as:</li>
+</ul>
+<p>$$<br>PPI &#x3D; \frac{\sqrt{(宽度像素数)^2 + (高度像素数)^2}}{屏幕对角线长度（英寸）}<br>$$</p>
+<ul>
+<li>DPI, dots per inch, describes the precision of printer output. DPI and PPI are sometimes confused, but strictly speaking DPI belongs mainly to printing, while PPI describes display devices.</li>
+</ul>
+<h3 id="Choosing-a-Panel"><a href="#Choosing-a-Panel" class="headerlink" title="Choosing a Panel"></a>Choosing a Panel</h3><p>See the preceding discussion of light-emission principles. In general, choose IPS or OLED directly. VA is worth considering for AAA games and films, while TN serves high-end competitive FPS play.</p>
+<h3 id="Refresh-Rate"><a href="#Refresh-Rate" class="headerlink" title="Refresh Rate"></a>Refresh Rate</h3><p>This is effectively the frame rate: the higher it is, the smoother motion appears. There is little else to say. For someone like me who mainly types and plays visual novels, 60 Hz is enough. Gamers, especially FPS players, benefit from higher rates.</p>
+<h3 id="Brightness"><a href="#Brightness" class="headerlink" title="Brightness"></a>Brightness</h3><h4 id="Units"><a href="#Units" class="headerlink" title="Units"></a>Units</h4><p>Monitor brightness is generally measured in nits, which describe luminous intensity per unit area. Elsewhere, one may also encounter:</p>
+<ul>
+<li>Candela: one of the seven SI base units and a measure of luminous intensity in a specified direction. It can be understood roughly as the luminous intensity of a point source divided by the solid angle of a sphere centred on that source. One candela is the intensity produced when a source emits radiation of 1&#x2F;683 watt per steradian in a given direction at a frequency of 540×10¹² Hz, corresponding to green light.</li>
+<li>Candlepower: an older unit, slightly smaller than a candela but often treated as approximately equal; it is now largely obsolete.</li>
+<li>Lumen: the total quantity of visible light emitted in all directions. 1 lumen &#x3D; 1 candela × 1 steradian (lm &#x3D; cd·sr).</li>
+<li>Nit: luminous intensity emitted or reflected per unit area. 1 nit &#x3D; 1 candela per square metre (nt &#x3D; cd&#x2F;m²).</li>
+<li>Lux: illuminance, or incident luminous flux per unit area. 1 lux &#x3D; 1 lumen per square metre (lx &#x3D; lm&#x2F;m²).</li>
+</ul>
+<p>In summary, luminous flux in lumens describes the ability of a source to emit light in all directions; luminous intensity in candelas describes its ability in a particular direction; luminance in nits describes emitted or reflected intensity per unit area; and illuminance in lux describes incident light per unit area.</p>
+<h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h4><p>A cinema screen is roughly 50 nits, while a phone used outdoors generally reaches at least 300 nits. This is why one should not look at a phone in a cinema. In total lumens, of course, the cinema screen far exceeds the phone.</p>
+<p>Sony HDR televisions can reach 10,000 nits. Most HDR devices peak near 2,000 nits; anything higher becomes an instrument for blinding people.</p>
+<p>Smartphones and tablets range from 200 to more than 1,000 nits. A 400–500-nit screen remains visible during the day, whereas 200 nits is difficult to see in sunlight.</p>
+<p>Laptops and monitors range from 200 to more than 600 nits. Excessive brightness is not recommended: a 200-nit maximum is low-end, while 400 is sufficient. If the display remains hard to see, close the curtains instead of raising the brightness. The secondary display I just bought reaches 400 nits.</p>
+<h3 id="Contrast-Ratio"><a href="#Contrast-Ratio" class="headerlink" title="Contrast Ratio"></a>Contrast Ratio</h3><p>Contrast is the ratio between the brightest white and darkest black in an image. A greater range means greater contrast. High contrast reveals more detail in both highlights and shadows and gives the picture a stronger sense of depth.</p>
+<p>Contrast can be evaluated with the tools at <a target="_blank" rel="noopener" href="https://www.pingmudiy.com/screentest/#welcome">this link</a>. I will not include an image here, since unexplained compression could make the result inaccurate.</p>
+<h3 id="Interfaces"><a href="#Interfaces" class="headerlink" title="Interfaces"></a>Interfaces</h3><ul>
+<li><strong>VGA:</strong> an ancient analogue interface. The last one I saw belonged to an antique family computer. It carries video only, is vulnerable to interference and distortion, often produces blurry text, and supports only relatively low resolutions such as 1080p@60Hz. It is disappearing, though it was glorious several decades ago.</li>
+<li><strong>DVI:</strong> introduced to remedy VGA’s limitations, DVI can carry both analogue and digital video and reach 1080p@144Hz, but does not support audio. It has also become rare and needs no detailed treatment.</li>
+<li><strong>HDMI:</strong> the mainstream digital interface, carrying synchronised audio and video. HDMI 2.0 provides 18 Gbit&#x2F;s for 1440p@144Hz, 1080p@240Hz, or 4K@60Hz. HDMI 2.1 provides 48 Gbit&#x2F;s, supports 4K@120Hz or 8K@60Hz, and adds dynamic HDR, making it suitable for game consoles and high-end graphics cards.</li>
+<li><strong>DisplayPort (DP):</strong> a professional PC interface. DP 1.4 supports 4K@120Hz HDR or 8K@60Hz HDR and 3:1 DSC compression. DP 2.0 raises bandwidth to 80 Gbit&#x2F;s and natively supports 8K@60Hz.</li>
+<li><strong>USB-C:</strong> a multifunction interface supporting video through DP Alt Mode, data, and charging through USB Power Delivery. Some monitors connect to laptops with a single USB-C cable, though bandwidth limitations must be considered; USB 3.2 Gen 2, for example, supports only 4K@60Hz.</li>
+</ul>
+<p>Competitive gamers should prefer DP 1.4 or HDMI 2.1 and above. Users of thin laptops may consider a single USB-C connection. Anyone switching among several devices should check whether the monitor includes KVM functionality.</p>
+<p>The supported resolution can be estimated from interface bandwidth:<br>$$<br>总像素<em>子像素</em>色深<em>刷新率 &#x3D; 总带宽<br>$$<br>where:<br>$$<br>总像素&#x3D;横向分辨率</em>纵向分辨率<br>$$</p>
+<p>$$<br>子像素&#x3D;RGB色素数&#x3D;3<br>$$</p>
+<p>For a 4K, 10-bit image at 144 Hz:<br>$$<br>3840<em>2160</em>3<em>10bit</em>144 &#x3D; 35.8Gbps。<br>$$</p>
+<h3 id="Colour-Gamut"><a href="#Colour-Gamut" class="headerlink" title="Colour Gamut"></a>Colour Gamut</h3><h4 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h4><p>Colour gamut is the range of colours a monitor can display; broader coverage generally means richer performance. Common standards include NTSC, now rather old, sRGB, P3, and Adobe RGB. For ordinary use, sRGB is usually enough: at least 95% for daily work and 99% or 100% for design or stronger preferences. Continue reading if more detail is required.</p>
+<h4 id="Further-Detail"><a href="#Further-Detail" class="headerlink" title="Further Detail"></a>Further Detail</h4><ul>
+<li><strong>sRGB:</strong> developed by Microsoft and HP, it is the default gamut for Windows interfaces and much software, as well as the standard colour space for online graphics. Its coverage within CIE 1931 is limited, especially in green, but most current monitors easily exceed 96% sRGB.</li>
+<li><strong>Adobe RGB:</strong> created by Adobe when sRGB proved insufficient. It is familiar to photographers and editors using products such as Photoshop, Illustrator, and Premiere. Its broader gamut produces richer colour and is used mainly in expensive professional art and design monitors.</li>
+<li><strong>DCI-P3:</strong> proposed mainly by the American film industry, this relatively new digital-imaging standard emphasises realistic human visual experience and meets cinematic colour requirements. It covers more red and green than sRGB, though I have encountered it less often.</li>
+<li><strong>Rec.2020:</strong> the International Telecommunication Union treats it as a reference standard for high-quality projectors, televisions, and broadcasting equipment. It specifies resolution, frame rate, bit depth, colour gamut, and other parameters.</li>
+<li><strong>P3:</strong> broadly includes DCI-P3 and Display P3. The former is a film-industry standard; the latter is Apple’s revision of DCI-P3 with reference to sRGB. Their white points and gamma differ, but they cover the same colours and both expand substantially beyond sRGB except in blue.</li>
+<li><strong>NTSC:</strong> established by the US National Television System Committee in 1953 for the then-new CRT colour television. It is far too old for modern displays—Apple DOS 3.1 appeared in 1978 and MS-DOS in 1980—and almost no creator working for PCs or mobile devices uses NTSC as a workspace. Its main surviving purpose is comparison with other colour spaces.</li>
+<li><strong>Rec.709:</strong> the film and high-definition television counterpart of sRGB. It began as a colour-gamut standard for early colour television and remains the most widely used standard, including in China’s film and television industry.</li>
+</ul>
+<p>Adobe RGB and DCI-P3 are much broader than sRGB and are called wide gamuts. A screen covering about 92% of DCI-P3 can generally be called wide-gamut.</p>
+<p><img src="https://pic2.zhimg.com/v2-3a55b4540248ffc6c308c23af36f4181_r.jpg" srcset="/img/loading.gif" lazyload alt="An Explanation of Television and Monitor Colour Gamuts: sRGB, DCI-P3, Adobe RGB, Rec.2020, and Wide Gamut"></p>
+<h4 id="Several-Misconceptions"><a href="#Several-Misconceptions" class="headerlink" title="Several Misconceptions"></a>Several Misconceptions</h4><ul>
+<li><strong>Monitors supporting multiple gamuts</strong></li>
+</ul>
+<p>Some professional monitors support different gamuts. A wide-gamut display usually exceeds sRGB, but showing sRGB material without management may produce colour shifts and distortion despite impressive saturation. The gamut must therefore be restricted to sRGB for ordinary use. Monitors with gamut-clamping functions explicitly advertise several modes: sRGB for everyday work and Adobe RGB for photographic editing or print proofing, where reliable colour matters.</p>
+<ul>
+<li><strong>Gamut volume above 100%</strong></li>
+</ul>
+<p>A manufacturer may advertise a figure such as 130%, meaning that the covered area extends beyond sRGB and reaches 130% of its nominal area. One trap is that shifting the gamut can improve the numerical value while distorting the actual picture.</p>
+<ul>
+<li><strong>72% NTSC</strong></li>
+</ul>
+<p>Many irresponsible manufacturers and media outlets have promoted the equation “72% NTSC &#x3D; 100% sRGB” to present an ordinary panel as suitable for professional work and equal to an older MacBook Pro with 100% sRGB, arguing that the MacBook also measured 72% NTSC. This exploits an information gap in consumers’ knowledge; the claim deserves scepticism.</p>
+<h3 id="Colour-Depth"><a href="#Colour-Depth" class="headerlink" title="Colour Depth"></a>Colour Depth</h3><p>Colour depth is the number of bits used to store the colour of one pixel in a bitmap or video frame buffer, also expressed as bits per pixel (bpp). Greater depth provides more available colours and smoother transitions.</p>
+<p>For each colour channel, 8 bit provides 256 grey levels, or 16.7 million colours across RGB, while 10 bit provides 1,024 levels, or 1.07 billion colours. Greater depth reduces banding and produces more natural gradients in skies and shadows.</p>
+<p>Most mainstream monitors use native 8-bit panels. Some IPS panels simulate 10-bit output through frame-rate control and are labelled 8 bit + FRC. Native 10-bit panels cost more and appear mainly in professional design monitors and high-end OLED displays. Eight bits is sufficient for most people.</p>
+<p><strong>Note:</strong> some manufacturers advertise “1.07 billion colours” without making clear that dithering produces them.</p>
+<h3 id="Colour-Accuracy"><a href="#Colour-Accuracy" class="headerlink" title="Colour Accuracy"></a>Colour Accuracy</h3><p>Colour accuracy measures whether a monitor displays the colour it is asked to display. It is usually expressed as ΔE, the deviation between displayed and standard colours; lower is better.</p>
+<p>The same parameter is also written Delta E or △E.</p>
+<ul>
+<li>△E ≤ 1: the difference is almost imperceptible and suitable for professional photography and print calibration.</li>
+<li>△E ≤ 2: sufficient for design and film post-production.</li>
+<li>△E &gt; 3: colour shifts are visible and calibration is needed.</li>
+</ul>
+<p>Professional monitors are calibrated before leaving the factory and include a <strong>ΔE report</strong>. Some support hardware calibration, such as writing a LUT. Ambient-light changes and panel ageing may cause accuracy to drift, so periodic recalibration with a device such as a Datacolor SpyderX or X-Rite i1Display Pro is recommended. During calibration:</p>
+<ul>
+<li>Warm up the monitor for at least 30 minutes.</li>
+<li>Disable dynamic contrast and HDR.</li>
+<li>Select a gamut that matches the workflow.</li>
+</ul>
+<h3 id="HDR"><a href="#HDR" class="headerlink" title="HDR"></a>HDR</h3><p>HDR, High Dynamic Range, has become popular in recent years. Put simply, switching it on can make the image more impressive; the certification indicates its level.</p>
+<p>By expanding <strong>brightness range</strong> and <strong>contrast</strong>, HDR reproduces highlight and shadow detail and colour levels closer to the physical world. Compared with standard dynamic range, it can preserve both textures in bright clouds and details in shadowed rocks, strengthening depth and immersion.</p>
+<h4 id="Standards"><a href="#Standards" class="headerlink" title="Standards"></a>Standards</h4><p>No single standard governs the whole industry.</p>
+<ul>
+<li><strong>HDR10:</strong> the basic standard, using static metadata with one brightness setting for an entire film. It supports 10-bit colour and usually requires peak brightness of at least 1,000 nits. It is widely used for games and video.</li>
+<li><strong>HDR10+:</strong> an upgraded form using dynamic metadata to optimise brightness frame by frame, with relatively broad compatibility.</li>
+<li><strong>Dolby Vision:</strong> a high-end Dolby Laboratories standard supporting 12-bit colour and dynamic metadata. It demands more capable hardware and appears mainly on premium televisions and streaming services such as Netflix.</li>
+<li><strong>DisplayHDR:</strong> a VESA certification system based on HDR10, with levels such as DisplayHDR 400, 600, and 1000. It specifies peak brightness, gamut coverage, and other parameters. DisplayHDR 1000, for example, requires 1,000-nit peak brightness and 99% DCI-P3 coverage.</li>
+</ul>
+<h4 id="Points-to-Note"><a href="#Points-to-Note" class="headerlink" title="Points to Note"></a>Points to Note</h4><ul>
+<li>Some monitors accept an HDR input signal but lack enough brightness or local dimming, so their actual result differs little from SDR.</li>
+<li>HDR works better in a dark room; intense ambient light reduces the benefit of high brightness.</li>
+<li>The source material, playback device, and display must all support HDR.</li>
+<li>HDR is less necessary for games because games possess an inherent advantage at the signal source.</li>
+<li>A television or monitor advertised as HDR-compatible may mean one of two things. First, both its display controller and panel satisfy an HDR standard. Second, the controller can decode HDR while the panel cannot necessarily pass certification. SDR is commonly based around 100 nits and the lowest HDR certification around 400 nits. A panel between those values can use controller-level HDR support to provide a wider range than SDR and an experience approaching HDR without meeting the full certification.</li>
+</ul>
+<h3 id="Weight"><a href="#Weight" class="headerlink" title="Weight"></a>Weight</h3><p>Weight matters for a portable monitor, unless one enjoys carrying a brick around. The acceptable value depends on the individual.</p>
+<h3 id="Stand-and-Wall-Mount-Support"><a href="#Stand-and-Wall-Mount-Support" class="headerlink" title="Stand and Wall-Mount Support"></a>Stand and Wall-Mount Support</h3><p>This depends entirely on personal requirements and is omitted here.</p>
+<h2 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h2><ul>
+<li>Contrast testing: <a target="_blank" rel="noopener" href="https://www.pingmudiy.com/screentest/#welcome">Pingmudiy Screen Test</a>.</li>
+<li>The small DisplayHDR application; search for it as needed.</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p><a target="_blank" rel="noopener" href="https://cn.windows-office.net/?p=10479">What Is Screen Brightness in Nits, and How Many Nits Do You Need?</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/606290120">Television and Monitor Colour Gamuts: sRGB, DCI-P3, Adobe RGB, Rec.2020, and Wide Gamut</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/562781181">Popular Science Series 155: The Structure of a Colour LCD</a></p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%85%89%E7%9A%84%E5%81%8F%E6%8C%AF/1277912">Polarisation of Light—Baidu Baike</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Me4y1k72b?spm_id_from=333.788.videopod.sections&vd_source=35efa20a3dc2d6382913a782f2bf8ad8">A Detailed Video Explaining LCD, OLED, QLED, Mini-LED, and Other Display Technologies—Bilibili</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/407170937">How Are Lumens, Nits, Lux, Candlepower, and Candelas Related, and Why Are Screens Measured in Nits?</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/didi_ya/article/details/122241863">A Detailed Explanation of VGA, DVI, HDMI, DP, and Other Monitor Interfaces—CSDN</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/440706026">Understanding the Differences among VGA, HDMI, DVI, DisplayPort, Thunderbolt, and Type-C</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/70673207">Which Monitor Interfaces Exist?</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/394352018">Monitor Fundamentals 6: Contrast Ratio</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/398281787">What Is HDR? Why Does Everyone Want HDR Mode?</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/70383462">Foundations of px, pt, and ppi</a></p>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%89%B2%E5%BD%A9%E6%B7%B1%E5%BA%A6">Colour Depth—Wikipedia</a></p>
+<p>[Do You Understand Colour Depth, Gamut, Accuracy, HDR, and Anti-Tearing?](<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/259139655#:~:text=%E8%89%B2%E6%B7%B1%E4%BB%A3%E8%A1%A8%E7%9D%80%E7%94%BB%E9%9D%A2%E9%A2%9C%E8%89%B2%E7%9A%84%E3%80%8C%E7%BB%86%E8%85%BB%E7%A8%8B%E5%BA%A6%E3%80%8D%EF%BC%8C%E4%B9%9F%E4%BB%A5%E7%AE%80%E5%8D%95%E7%90%86%E8%A7%A3%E4%B8%BA%E9%A2%9C%E8%89%B2%E6%95%B0%E9%87%8F%E7%9A%84%E5%A4%9A%E5%B0%91%E3%80%82">https://zhuanlan.zhihu.com/p/259139655#:~:text=色深代表着画面颜色的「细腻程度」，也以简单理解为颜色数量的多少。</a> 并且，数值越大就越细腻，同时色彩过渡就更加平滑自然。 目前主流显示器的色深一般是6 bit、8bit和10bit。 具体而言，色深8bit指的是红（R）、绿（G）、蓝（B）这三原色，在显示颜色时各有2的 8次方种（即 256 种）。,种不同的绿、256种不同的蓝，这三种原色组合起来，总的颜色数量就是256×256×256%3D16.7 百万。 以此类推，10bit的色数就是 10.7 亿，而6bit的色数是 0.26 百万。 由此可见6bit的色数是相对偏少的，因此色彩显示效果就比较差。)</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Hardware/" class="print-no-link">#Hardware</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Understanding Monitor Specifications and the Principles behind Them</div>
+      <div>https://hwnote.space/en/posts/2025/04/06/monitor-parameters-guide/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>April 6, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js?v=20260821-global-language.js"></script>
+<script src="/js/bilingual-switch.js?v=20260821-global-language.js"></script>
+<script src="/js/tag-cloud.js?v=20260824-bilingual-cloud.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,1705 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="This article recompresses the advanced-mathematics component of Mathematics I into a map that can later be unfolded: functions model relations, limits handle processes of approach, derivatives observe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Advanced Mathematics: An Epistemological Map from Functions to Fields">
+<meta property="og:url" content="https://hwnote.space/en/posts/2026/07/14/calculus-epistemology-map/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="This article recompresses the advanced-mathematics component of Mathematics I into a map that can later be unfolded: functions model relations, limits handle processes of approach, derivatives observe">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/remind1.jpg">
+<meta property="article:published_time" content="2026-07-14T14:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-02T05:58:23.890Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Epistemology">
+<meta property="article:tag" content="Advanced Mathematics">
+<meta property="article:tag" content="Learning Methods">
+<meta property="article:tag" content="Postgraduate Entrance Examination Mathematics">
+<meta property="article:tag" content="Mathematics I">
+<meta property="article:tag" content="Calculus">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/remind1.jpg">
+  
+  
+  
+  <title>Advanced Mathematics: An Epistemological Map from Functions to Fields - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css?v=20260821-global-language.css">
+<link rel="stylesheet" href="/css/tag-cloud.css?v=20260824-bilingual-cloud.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/remind1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Advanced Mathematics: An Epistemological Map from Functions to Fields"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-07-14 22:00" pubdate>
+          July 14, 2026 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          51 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Advanced Mathematics: An Epistemological Map from Functions to Fields</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>Before you look at this flower, both the flower and your mind remain in silence. Once you look at it, however, its colours become clear at once. You then know that the flower is not outside your mind.</p>
+<p>—Wang Yangming, <em>Instructions for Practical Living</em></p>
+</blockquote>
+<h2 id="0-A-Preliminary-Note-This-Is-Not-Another-Formula-Handbook"><a href="#0-A-Preliminary-Note-This-Is-Not-Another-Formula-Handbook" class="headerlink" title="0. A Preliminary Note: This Is Not Another Formula Handbook"></a>0. A Preliminary Note: This Is Not Another Formula Handbook</h2><p>This article grew out of an attempt to explain advanced mathematics again in my own words, and it follows the basic idea of the previous article, “Chapter One: Functions, Limits, and Continuity.” Its scope is arranged around the advanced-mathematics component of Mathematics I commonly required in engineering postgraduate entrance examinations. Yet it is neither a word-for-word reproduction of the examination syllabus nor a substitute for textbooks, lectures, and problem solving.</p>
+<p>What I want to do is closer to recompressing what has already been learned: why each concept was invented, which gap in the preceding model it fills, what input a theorem accepts and what conclusion it returns, and what roles the many apparently unrelated problem-solving techniques play in the system as a whole.</p>
+<p>If mathematical knowledge is reduced to a formula sheet, the compression ratio is high, but too much information has been damaged. If it remains hundreds of pages of derivations, it has been expanded so far that no entrance can be found. Genuine internalisation probably means moving freely between the two: seeing a formula and being able to unfold it, then finishing a chapter and compressing it back into one sentence.</p>
+<p>Of course, this overview is still only a model. Advanced mathematics will not enter my mind automatically merely because I have drawn a map of it. Problems still have to be solved. I had better add this qualification now, lest the writing itself create the illusion that the subject has already been mastered.</p>
+<h2 id="1-The-Epistemological-Starting-Point-Mathematics-Is-a-Lossy-Compression-of-Reality"><a href="#1-The-Epistemological-Starting-Point-Mathematics-Is-a-Lossy-Compression-of-Reality" class="headerlink" title="1. The Epistemological Starting Point: Mathematics Is a Lossy Compression of Reality"></a>1. The Epistemological Starting Point: Mathematics Is a Lossy Compression of Reality</h2><p>No one can move reality into the mind without alteration. From a continuous, chaotic, and enormous stream of perception, we can only select a few variables, disregard details that are temporarily unimportant, and express the relations among those variables as a model.</p>
+<p>A function compresses a relation into $y&#x3D;f(x)$; a derivative compresses local change into a number; an integral compresses countless local contributions into a total quantity; and a differential equation goes one step further, no longer telling us directly what an object is, but prescribing how it should change.</p>
+<p>Every model has three indicators:</p>
+<ol>
+<li><strong>Compression ratio</strong>: whether a small amount of information can describe a large range of phenomena;</li>
+<li><strong>Expandability</strong>: whether the chain of reasoning, conditions, and details can be recovered from the compressed result;</li>
+<li><strong>Domain of validity</strong>: under what conditions, scales, and levels of precision the model remains usable.</li>
+</ol>
+<p>What we call mathematical beauty may arise precisely when expandability is retained under a high compression ratio. Symmetry reduces independent information, unification brings several laws into one structure, and conservation ensures that something remains unchanged throughout a process of change. The feeling of “so that is how it works” may be the mind discovering that it can store a little less.</p>
+<p>Yet what can be explained cannot therefore be dissolved. Explaining the colour of a flower through spectra, cone cells, and neural coding does not make colour unreal; compressing motion into a differential equation does not mean that reality itself consists of a few lines of symbols. Mechanisms answer “how does it happen?”, while models answer “how can it be calculated?” Neither alone can answer “what is the world in itself?”</p>
+<p>The whole of advanced mathematics can first be compressed into the following map:</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202607141618622.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<p>Now we can begin to unfold it.</p>
+<hr>
+<h2 id="2-Functions-First-Decide-What-Relation-We-Are-Describing"><a href="#2-Functions-First-Decide-What-Relation-We-Are-Describing" class="headerlink" title="2. Functions: First Decide What Relation We Are Describing"></a>2. Functions: First Decide What Relation We Are Describing</h2><h3 id="2-1-A-Function-Is-Not-a-Formula-but-a-Rule-of-Correspondence"><a href="#2-1-A-Function-Is-Not-a-Formula-but-a-Rule-of-Correspondence" class="headerlink" title="2.1 A Function Is Not a Formula but a Rule of Correspondence"></a>2.1 A Function Is Not a Formula but a Rule of Correspondence</h3><p>The essence of a function is not the expression $x^2$ or $\sin x$, but a correspondence: within the domain $D$, every input $x$ is uniquely assigned an output $f(x)$ by the same rule.</p>
+<p>$$<br>f:D\to Y,\qquad x\mapsto f(x)<br>$$</p>
+<p>At least four matters must not be confused:</p>
+<ul>
+<li><p><strong>Domain</strong>: which inputs the model is allowed to accept;</p>
+</li>
+<li><p><strong>Rule of correspondence</strong>: how it turns an input into an output;</p>
+</li>
+<li><p><strong>Range</strong>: which outputs it can actually produce;</p>
+</li>
+<li><p><strong>Graph</strong>: the geometric representation of all ordered pairs $(x,f(x))$.</p>
+</li>
+</ul>
+<p>The same analytic expression with a different domain defines a different function. If $f(x)&#x3D;1&#x2F;x$ is considered only over the positive numbers, it differs from the same expression considered over all non-zero real numbers in its monotonic intervals, range, and inverse. The boundary of a model is not a footnote; it is part of the model itself.</p>
+<h3 id="2-2-What-the-Main-Operations-on-Functions-Actually-Do"><a href="#2-2-What-the-Main-Operations-on-Functions-Actually-Do" class="headerlink" title="2.2 What the Main Operations on Functions Actually Do"></a>2.2 What the Main Operations on Functions Actually Do</h3><p>A <strong>composite function</strong> $f(g(x))$ connects two models in series: the output of one model becomes the input of the next. The condition is not merely that “the substitution looks possible”; the value of $g(x)$ must lie in the domain of $f$.</p>
+<p>An <strong>inverse function</strong> $f^{-1}$ exchanges the positions of input and output. It requires the original function to be one-to-one on the interval under discussion; in the context of postgraduate entrance examinations, strict monotonicity is usually the most convenient sufficient condition. The two graphs are symmetric about $y&#x3D;x$, while their domains and ranges exchange places.</p>
+<p>An <strong>implicit function</strong> is not the absence of a function. Rather, the correspondence has not been explicitly solved into the form $y&#x3D;f(x)$. For example,</p>
+<p>$$<br>x^2+y^2&#x3D;1<br>$$</p>
+<p>cannot define $y$ as a single-valued function of $x$ over the entire circle, but it can do so locally on the upper or lower semicircle. A theme that will recur has already appeared here: global failure does not imply that local work is impossible.</p>
+<p>A <strong>parametric equation</strong> uses a third variable $t$ to generate $x$ and $y$ simultaneously:</p>
+<p>$$<br>x&#x3D;\varphi(t),\qquad y&#x3D;\psi(t)<br>$$</p>
+<p>It no longer forces $x$ to serve as the sole input and is therefore more suitable for describing directed trajectories such as circles and cycloids.</p>
+<h3 id="2-3-The-Properties-of-a-Function-Are-a-Diagnostic-Report-on-the-Model"><a href="#2-3-The-Properties-of-a-Function-Are-a-Diagnostic-Report-on-the-Model" class="headerlink" title="2.3 The Properties of a Function Are a Diagnostic Report on the Model"></a>2.3 The Properties of a Function Are a Diagnostic Report on the Model</h3><table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Mathematical question</th>
+<th>Epistemological meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Boundedness</td>
+<td>Does $f(x)\le M$ hold?</td>
+<td>Can the output escape a finite range of control?</td>
+</tr>
+<tr>
+<td>Monotonicity</td>
+<td>How does the output change as the input increases?</td>
+<td>Is the direction of the relation stable?</td>
+</tr>
+<tr>
+<td>Parity</td>
+<td>What is the relation between $f(-x)$ and $f(x)$?</td>
+<td>Is there a symmetry about the origin or the vertical axis that permits compression?</td>
+</tr>
+<tr>
+<td>Periodicity</td>
+<td>Is there an identity $f(x+T)&#x3D;f(x)$?</td>
+<td>Does change repeat in a fixed structure?</td>
+</tr>
+<tr>
+<td>Concavity and convexity</td>
+<td>Is the slope increasing or decreasing?</td>
+<td>How is the rate of change itself changing?</td>
+</tr>
+</tbody></table>
+<p>The basic elementary functions—power, exponential, logarithmic, trigonometric, and inverse trigonometric functions—may be viewed as the basic components of later models. Elementary functions are built from these components through a finite number of arithmetic operations and compositions.</p>
+<p>Functions answer the question of what is related to what. They do not yet tell us what happens to the output when the input never actually reaches a point but continually approaches it. The model therefore meets its first wall.</p>
+<hr>
+<h2 id="3-Sequences-The-Discrete-Branch-of-Functions"><a href="#3-Sequences-The-Discrete-Branch-of-Functions" class="headerlink" title="3. Sequences: The Discrete Branch of Functions"></a>3. Sequences: The Discrete Branch of Functions</h2><h3 id="3-1-Extracting-Integer-Moments-from-Continuous-Inputs"><a href="#3-1-Extracting-Integer-Moments-from-Continuous-Inputs" class="headerlink" title="3.1 Extracting Integer Moments from Continuous Inputs"></a>3.1 Extracting Integer Moments from Continuous Inputs</h3><p>A sequence can be regarded as a function whose domain is the set of positive integers:</p>
+<p>$$<br>n\mapsto a_n,\qquad n\in\mathbb N^+<br>$$</p>
+<p>It describes not the relation at every point on a continuous curve, but a succession of states indexed in order. Arithmetic, geometric, and recursive sequences correspond respectively to a constant increment, a constant ratio, and a dynamic structure in which the next state is generated from previous ones.</p>
+<p>The sum of the first $n$ terms,</p>
+<p>$$<br>S_n&#x3D;\sum_{k&#x3D;1}^{n}a_k<br>$$</p>
+<p>installs an accumulator on the original sequence. What an infinite series later studies is not whether $a_n$ itself approaches zero, but whether this accumulator $S_n$ eventually becomes stable.</p>
+<h3 id="3-2-The-Limit-of-a-Sequence-Where-Does-Infinite-Iteration-Stabilise"><a href="#3-2-The-Limit-of-a-Sequence-Where-Does-Infinite-Iteration-Stabilise" class="headerlink" title="3.2 The Limit of a Sequence: Where Does Infinite Iteration Stabilise?"></a>3.2 The Limit of a Sequence: Where Does Infinite Iteration Stabilise?</h3><p>If, for every $\varepsilon&gt;0$, there is a positive integer $N$ such that whenever $n&gt;N$,</p>
+<p>$$<br>|a_n-A|&lt;\varepsilon,<br>$$</p>
+<p>then $a_n\to A$.</p>
+<p>The essential point is not merely the intuition that the terms “get closer and closer.” Rather, however small the permitted error becomes, a single moment $N$ can always be found after which every term is locked within the error band. A limit describes the behaviour of the tail as a whole, not an occasional approach.</p>
+<p>A convergent sequence has three basic properties:</p>
+<ul>
+<li><p><strong>Uniqueness</strong>: it cannot converge to two different values;</p>
+</li>
+<li><p><strong>Boundedness</strong>: after convergence it cannot escape collectively to infinity, although boundedness alone does not guarantee convergence;</p>
+</li>
+<li><p><strong>Preservation of sign</strong>: if the limit is strictly positive or negative, all sufficiently late terms have the same sign.</p>
+</li>
+</ul>
+<p>Common criteria and computational tools include:</p>
+<ol>
+<li><p>the arithmetic laws of limits;</p>
+</li>
+<li><p>the squeeze theorem;</p>
+</li>
+<li><p>the monotone bounded criterion: a monotonically increasing sequence with an upper bound, or a monotonically decreasing sequence with a lower bound, must converge;</p>
+</li>
+<li><p>for a recursive sequence, one often proves monotonicity and boundedness first, then substitutes an assumed limit into the recurrence to find a candidate value;</p>
+</li>
+<li><p>the Stolz theorem can handle certain limits of ratios of sequences, although its use depends on the scope of the course.</p>
+</li>
+</ol>
+<p>Heine’s theorem connects function limits with sequence limits:</p>
+<blockquote>
+<p>$\lim_{x\to x_0}f(x)&#x3D;A$ if and only if, for every sequence satisfying $x_n\to x_0$ and $x_n\ne x_0$, we have $f(x_n)\to A$.</p>
+</blockquote>
+<p>Its contrapositive is especially useful. To prove that a function limit does not exist, it is enough to find two sequences approaching the same point for which the function values approach different results. For multivariable limits, this idea becomes “approaching along different paths.”</p>
+<p>A <strong>subsequence</strong> $a_{n_k}$ is obtained by sampling the original sequence at strictly increasing indices. If the original sequence converges, every subsequence converges to the same limit. Conversely, two subsequences with different limits are enough to prove that the original sequence diverges. A subsequence is not reporting local gossip; it is testing whether the original sequence truly possesses uniform tail behaviour.</p>
+<hr>
+<h2 id="4-Limits-Discussing-the-Result-Without-Requiring-Arrival"><a href="#4-Limits-Discussing-the-Result-Without-Requiring-Arrival" class="headerlink" title="4. Limits: Discussing the Result Without Requiring Arrival"></a>4. Limits: Discussing the Result Without Requiring Arrival</h2><h3 id="4-1-Limits-Introduce-Process-into-Functions"><a href="#4-1-Limits-Introduce-Process-into-Functions" class="headerlink" title="4.1 Limits Introduce Process into Functions"></a>4.1 Limits Introduce Process into Functions</h3><p>The value $f(x_0)$ describes one point, whereas the limit $\lim_{x\to x_0}f(x)$ describes the overall tendency near that point. The two may agree or have nothing to do with each other; a function may even be undefined at $x_0$ while its limit still exists.</p>
+<p>Strictly speaking,</p>
+<p>$$<br>\lim_{x\to x_0}f(x)&#x3D;A<br>$$</p>
+<p>means that for every $\varepsilon&gt;0$, there is a $\delta&gt;0$ such that whenever</p>
+<p>$$<br>0&lt;|x-x_0|&lt;\delta<br>$$</p>
+<p>we always have</p>
+<p>$$<br>|f(x)-A|&lt;\varepsilon.<br>$$</p>
+<p>$\varepsilon$ specifies the permissible output error, while $\delta$ provides the corresponding range of input control. The definition first allows the output precision to be made arbitrarily demanding and then proves that the input can always be controlled sufficiently well. This is the significance of the order of the quantifiers.</p>
+<p>The left-hand and right-hand limits restrict the approach to the two sides of $x_0$. A two-sided limit exists only when both one-sided limits exist and are equal:</p>
+<p>$$<br>\lim_{x\to x_0}f(x)&#x3D;A<br>\iff<br>\lim_{x\to x_0^-}f(x)&#x3D;\lim_{x\to x_0^+}f(x)&#x3D;A.<br>$$</p>
+<p>A limit at infinity studies the long-term behaviour of a function as $x$ escapes into the distance; an infinite limit describes function values exceeding every finite threshold. It should be noted that $\infty$ is not an ordinary real number in standard real analysis and cannot be manipulated algebraically like one.</p>
+<p>The equality sign in a limit statement is ordinary equality between real numbers, but it does not mean that the function values eventually become equal to the limit during the approach. Standard real analysis uses the $\varepsilon-\delta$ language to describe “arbitrarily close”; hyperreal theory, by contrast, introduces genuine infinitesimals and uses “infinitely close” and the standard-part map to provide another equivalent understanding of limits. I personally find this interpretation more intuitive. Of course, some of the proofs here are mixed with my own unofficial methods, so there may be problems in the middle.</p>
+<h3 id="4-2-Infinitesimals-Hyperreal-Numbers-and-0-999-ldots-—A-Crucial-Point"><a href="#4-2-Infinitesimals-Hyperreal-Numbers-and-0-999-ldots-—A-Crucial-Point" class="headerlink" title="4.2 Infinitesimals, Hyperreal Numbers, and $0.999\ldots$—A Crucial Point"></a>4.2 Infinitesimals, Hyperreal Numbers, and $0.999\ldots$—A Crucial Point</h3><p>Standard calculus defines an <strong>infinitesimal</strong> as a variable whose limit is zero, rather than as some fixed “extremely small real number.” If $\alpha(x)\to0$, then $\alpha$ is called an infinitesimal in the corresponding process. An infinite quantity is similar: it describes a variable whose absolute value can exceed any prescribed positive number.</p>
+<p>Hyperreal numbers do provide another rigorous framework, namely non-standard analysis, in which the number system may contain non-zero infinitesimals and infinitely large numbers. Yet this is a different theoretical tool, not a necessary premise for proving limits in standard postgraduate calculus.</p>
+<p>Among the real numbers,</p>
+<p>$$<br>0.999\ldots&#x3D;\lim_{n\to\infty}\sum_{k&#x3D;1}^{n}\frac9{10^k}&#x3D;1.<br>$$</p>
+<p>In other words, $1&#x3D;3<em>1&#x2F;3&#x3D;3</em>0.333…&#x3D;0.999…$; therefore, $0.999\ldots$ and $1$ are not two real numbers separated by “one infinitesimal,” but two representations of the same real number. In the hyperreal system, stopping at an infinite hyperinteger digit can indeed produce a hyperreal number infinitesimally different from $1$, but that is no longer the infinitely recurring decimal in its usual definition. We may borrow the intuition, but we must not mix the accounts.</p>
+<h3 id="4-3-Structural-Conclusions-about-Limits"><a href="#4-3-Structural-Conclusions-about-Limits" class="headerlink" title="4.3 Structural Conclusions about Limits"></a>4.3 Structural Conclusions about Limits</h3><p>When a limit exists, it generally has:</p>
+<ul>
+<li><p>uniqueness;</p>
+</li>
+<li><p>local boundedness;</p>
+</li>
+<li><p>local preservation of sign;</p>
+</li>
+<li><p>closure under arithmetic operations, with division requiring a non-zero denominator limit;</p>
+</li>
+<li><p>transitivity under composition, provided that the range of the inner function and the continuity conditions of the outer function are checked.</p>
+</li>
+</ul>
+<p>Two important limits are:</p>
+<p>$$<br>\lim_{x\to0}\frac{\sin x}{x}&#x3D;1,<br>\qquad<br>\lim_{x\to0}(1+x)^{1&#x2F;x}&#x3D;e.<br>$$</p>
+<p>The second has many equivalent forms. For an indeterminate form of type $1^\infty$, one often takes a logarithm first, thereby turning a power-exponential problem into a product limit.</p>
+<h3 id="4-4-Comparing-Infinitesimals"><a href="#4-4-Comparing-Infinitesimals" class="headerlink" title="4.4 Comparing Infinitesimals"></a>4.4 Comparing Infinitesimals</h3><p>If $\alpha,\beta\to0$ and $\beta\ne0$, consider</p>
+<p>$$<br>\lim\frac{\alpha}{\beta}.<br>$$</p>
+<ul>
+<li><p>If it equals $0$, $\alpha$ is an infinitesimal of higher order than $\beta$;</p>
+</li>
+<li><p>if it equals a non-zero constant $c$, they are of the same order;</p>
+</li>
+<li><p>if it equals $1$, they are equivalent, written $\alpha\sim\beta$;</p>
+</li>
+<li><p>if the limit does not exist or is infinite, they cannot be simply classified in the preceding way.</p>
+</li>
+</ul>
+<p>Common equivalent infinitesimals as $x\to0$ are:</p>
+<p>$$<br>\sin x\sim x,\quad \tan x\sim x,\quad \arcsin x\sim x,\quad \arctan x\sim x,<br>$$</p>
+<p>$$<br>1-\cos x\sim\frac{x^2}{2},\quad e^x-1\sim x,\quad \ln(1+x)\sim x,<br>$$</p>
+<p>$$<br>(1+x)^\alpha-1\sim\alpha x.<br>$$</p>
+<p>Equivalent substitution is safest when used for factors in products or quotients. Direct replacement in a sum or difference may cancel the leading terms and expose higher-order terms that had been ignored. For example, in $\sin x-x$, one cannot simply replace $\sin x$ with $x$ and announce that the result is zero; the third-order term is what actually determines the order of magnitude.</p>
+<p>One easily confused point deserves emphasis: do not split equivalent infinitesimal substitutions at will. If this method is to be used, one should also understand it through hyperreal numbers and recognise that the equivalence concerns two hyperreal infinitesimals of different orders, rather than two ordinary numbers.</p>
+<h3 id="4-5-A-Toolbox-for-Calculating-Limits"><a href="#4-5-A-Toolbox-for-Calculating-Limits" class="headerlink" title="4.5 A Toolbox for Calculating Limits"></a>4.5 A Toolbox for Calculating Limits</h3><table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Central operation</th>
+<th>What to check first</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Arithmetic laws</td>
+<td>Split a complicated limit into known limits</td>
+<td>Whether each limit exists and whether the denominator tends to zero</td>
+</tr>
+<tr>
+<td>Factorisation&#x2F;rationalisation</td>
+<td>Remove the apparent structure causing $0&#x2F;0$</td>
+<td>Whether a common factor or conjugate can be constructed</td>
+</tr>
+<tr>
+<td>Squeeze theorem</td>
+<td>Trap the target between upper and lower bounds</td>
+<td>Whether both bounds approach the same limit</td>
+</tr>
+<tr>
+<td>Equivalent infinitesimals</td>
+<td>Replace leading terms of the same order in products or quotients</td>
+<td>Whether the point approached is zero and whether subtraction causes cancellation</td>
+</tr>
+<tr>
+<td>L’Hôpital’s rule</td>
+<td>Compare the rates of change of numerator and denominator</td>
+<td>It must be of type $0&#x2F;0$ or $\infty&#x2F;\infty$, with differentiability and other conditions satisfied</td>
+</tr>
+<tr>
+<td>Taylor’s formula</td>
+<td>Extract leading terms order by order</td>
+<td>How many orders are required to avoid cancellation</td>
+</tr>
+<tr>
+<td>Substitution</td>
+<td>Turn an unfamiliar process of approach into a familiar one</td>
+<td>The tendency and range of the new variable</td>
+</tr>
+</tbody></table>
+<p>Other indeterminate forms—$0\cdot\infty$, $\infty-\infty$, $1^\infty$, $0^0$, and $\infty^0$—cannot be fed directly into L’Hôpital’s rule. They must first be transformed into quotient forms through operations such as finding a common denominator, taking reciprocals, or taking logarithms.</p>
+<hr>
+<h2 id="5-Continuity-Can-Tendency-and-Actual-Value-Be-Joined"><a href="#5-Continuity-Can-Tendency-and-Actual-Value-Be-Joined" class="headerlink" title="5. Continuity: Can Tendency and Actual Value Be Joined?"></a>5. Continuity: Can Tendency and Actual Value Be Joined?</h2><h3 id="5-1-The-Three-Interfaces-of-Continuity"><a href="#5-1-The-Three-Interfaces-of-Continuity" class="headerlink" title="5.1 The Three Interfaces of Continuity"></a>5.1 The Three Interfaces of Continuity</h3><p>For a function to be continuous at $x_0$, all three conditions must hold:</p>
+<ol>
+<li><p>$f(x_0)$ is defined;</p>
+</li>
+<li><p>$\lim_{x\to x_0}f(x)$ exists;</p>
+</li>
+<li><p>$\lim_{x\to x_0}f(x)&#x3D;f(x_0)$.</p>
+</li>
+</ol>
+<p>It may also be compressed into increment form: as $\Delta x\to0$,</p>
+<p>$$<br>\Delta y&#x3D;f(x_0+\Delta x)-f(x_0)\to0.<br>$$</p>
+<p>Continuity means more than a graph that “appears drawable without lifting the pen.” It means that a small disturbance in the input produces only a small disturbance in the output. It is the first expression of the local stability of a model.</p>
+<h3 id="5-2-Classifying-Discontinuities"><a href="#5-2-Classifying-Discontinuities" class="headerlink" title="5.2 Classifying Discontinuities"></a>5.2 Classifying Discontinuities</h3><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>One-sided limits</th>
+<th>Function value</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Removable discontinuity</td>
+<td>Exist and are equal</td>
+<td>Undefined or unequal to the limit</td>
+<td>Continuity can be restored by filling in one point</td>
+</tr>
+<tr>
+<td>Jump discontinuity</td>
+<td>Both exist but are unequal</td>
+<td>Arbitrary</td>
+<td>The tendencies on the two sides cannot be connected</td>
+</tr>
+<tr>
+<td>Infinite discontinuity</td>
+<td>At least one side tends to infinity</td>
+<td>Arbitrary</td>
+<td>The output escapes finite control</td>
+</tr>
+<tr>
+<td>Oscillatory discontinuity</td>
+<td>At least one one-sided limit does not exist</td>
+<td>Arbitrary</td>
+<td>Persistent oscillation in the neighbourhood prevents stability</td>
+</tr>
+</tbody></table>
+<p>The first two are usually called discontinuities of the first kind, and the latter two discontinuities of the second kind. These two, however, do not exhaust all discontinuities of the second kind.</p>
+<h3 id="5-3-Why-Continuous-Functions-on-Closed-Intervals-Matter"><a href="#5-3-Why-Continuous-Functions-on-Closed-Intervals-Matter" class="headerlink" title="5.3 Why Continuous Functions on Closed Intervals Matter"></a>5.3 Why Continuous Functions on Closed Intervals Matter</h3><p>If $f$ is continuous on a closed interval $[a,b]$, then:</p>
+<ul>
+<li><p>the <strong>boundedness theorem</strong> ensures that its values cannot escape to infinity;</p>
+</li>
+<li><p>the <strong>extreme-value theorem</strong> ensures that it attains both a maximum and a minimum;</p>
+</li>
+<li><p>the <strong>intermediate-value theorem</strong> ensures that it attains every value between its endpoint values;</p>
+</li>
+<li><p>the <strong>zero theorem</strong> ensures that if $f(a)f(b)&lt;0$, at least one $\xi\in(a,b)$ satisfies $f(\xi)&#x3D;0$.</p>
+</li>
+</ul>
+<p>Remove either “closed interval” or “continuity,” and these conclusions may fail. A theorem is not a blessing; it is a set of interface contracts. In a proof, the first task is not to recite the conclusion, but to verify each contract.</p>
+<hr>
+<h2 id="6-Derivatives-and-Differentials-Giving-a-Static-Relation-a-Local-Speedometer"><a href="#6-Derivatives-and-Differentials-Giving-a-Static-Relation-a-Local-Speedometer" class="headerlink" title="6. Derivatives and Differentials: Giving a Static Relation a Local Speedometer"></a>6. Derivatives and Differentials: Giving a Static Relation a Local Speedometer</h2><h3 id="6-1-A-Derivative-Is-a-Local-Rate-of-Change"><a href="#6-1-A-Derivative-Is-a-Local-Rate-of-Change" class="headerlink" title="6.1 A Derivative Is a Local Rate of Change"></a>6.1 A Derivative Is a Local Rate of Change</h3><p>A function gives a static correspondence between $x$ and $y$. A derivative asks how rapidly the output responds when the input changes by a small amount:</p>
+<p>$$<br>f’(x_0)&#x3D;\lim_{\Delta x\to0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}.<br>$$</p>
+<p>It admits three simultaneous interpretations:</p>
+<ul>
+<li>geometrically, it is the slope of the tangent line at the point;</li>
+<li>physically, it is the instantaneous rate of change;</li>
+<li>epistemologically, it uses a local constant to compress first-order change in a neighbourhood.</li>
+</ul>
+<p>A derivative exists only when the left and right derivatives both exist and are equal. Differentiability implies continuity, but continuity does not imply differentiability. A cusp, corner, vertical tangent, or violent oscillation may deprive a continuous curve of a finite derivative.</p>
+<h3 id="6-2-A-Differential-Is-Not-“Another-Derivative”"><a href="#6-2-A-Differential-Is-Not-“Another-Derivative”" class="headerlink" title="6.2 A Differential Is Not “Another Derivative”"></a>6.2 A Differential Is Not “Another Derivative”</h3><p>If the function increment can be written as</p>
+<p>$$<br>\Delta y&#x3D;A\Delta x+o(\Delta x),<br>$$</p>
+<p>the function is differentiable at that point, and its differential is defined as</p>
+<p>$$<br>dy&#x3D;A,dx&#x3D;f’(x)dx.<br>$$</p>
+<p>$A\Delta x$ is the linear principal part of the increment, while $o(\Delta x)$ is an error of higher order relative to $\Delta x$. A differential does not introduce a hyperreal number out of nowhere. Within the framework of real limits, it replaces a local curve with its best linear model. In other words, <strong>a differential is an approximation</strong>:</p>
+<p>$$<br>f(x+\Delta x)\approx f(x)+f’(x)\Delta x.<br>$$</p>
+<p>For a function of one variable, differentiability and the existence of a derivative are equivalent. For a multivariable function, the existence of all partial derivatives still does not imply differentiability, because measurements along the coordinate axes cannot control every direction in the plane. True differentiability requires one unified linear map that approximates all directions.</p>
+<h3 id="6-3-Rules-of-Differentiation"><a href="#6-3-Rules-of-Differentiation" class="headerlink" title="6.3 Rules of Differentiation"></a>6.3 Rules of Differentiation</h3><p>The basic rules are:</p>
+<p>$$<br>(u\pm v)’&#x3D;u’\pm v’,\qquad (uv)’&#x3D;u’v+uv’,<br>$$</p>
+<p>$$<br>\left(\frac uv\right)’&#x3D;\frac{u’v-uv’}{v^2},\qquad<br>[f(g(x))]’&#x3D;f’(g(x))g’(x).<br>$$</p>
+<p>Common methods include:</p>
+<ul>
+<li><p><strong>differentiating a composite function</strong>: multiply derivatives layer by layer along the chain of dependence;</p>
+</li>
+<li><p><strong>implicit differentiation</strong>: differentiate both sides with respect to $x$, treating $y$ as $y(x)$;</p>
+</li>
+<li><p><strong>differentiating an inverse function</strong>: if $y&#x3D;f(x)$ is invertible and $f’(x)\ne0$, then $(f^{-1})’(y)&#x3D;1&#x2F;f’(x)$;</p>
+</li>
+<li><p><strong>differentiating parametric equations</strong>: $\dfrac{dy}{dx}&#x3D;\dfrac{dy&#x2F;dt}{dx&#x2F;dt}$, requiring $dx&#x2F;dt\ne0$;</p>
+</li>
+<li><p><strong>logarithmic differentiation</strong>: suitable for repeated products, quotients, and variable-base variable-exponent functions;</p>
+</li>
+<li><p><strong>higher derivatives</strong>: continuing to measure how the rate of change itself changes, with $f’’$ describing the change in slope.</p>
+</li>
+</ul>
+<p>For $y&#x3D;u(x)^{v(x)}$, logarithmic differentiation gives:</p>
+<p>$$<br>\ln y&#x3D;v\ln u,<br>\qquad<br>\frac{y’}y&#x3D;v’\ln u+v\frac{u’}u,<br>$$</p>
+<p>provided that $u&gt;0$ over the real-valued range being discussed.</p>
+<h3 id="6-4-Taylor’s-Formula-Extracting-Local-Information-Order-by-Order"><a href="#6-4-Taylor’s-Formula-Extracting-Local-Information-Order-by-Order" class="headerlink" title="6.4 Taylor’s Formula: Extracting Local Information Order by Order"></a>6.4 Taylor’s Formula: Extracting Local Information Order by Order</h3><p>A differential retains only the first-order term, whereas Taylor’s formula allows a local model to gain precision order by order. If a function is sufficiently smooth,</p>
+<p>$$<br>f(x)&#x3D;\sum_{k&#x3D;0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k+R_n(x).<br>$$</p>
+<p>At $a$, the polynomial part has the same value, first derivative, second derivative, and so on through the $n$th derivative as the original function. The remainder records the error discarded in compression.</p>
+<p>Two common remainders are:</p>
+<p>$$<br>R_n(x)&#x3D;o((x-a)^n) \quad\text{（佩亚诺余项）},<br>$$</p>
+<p>$$<br>R_n(x)&#x3D;\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}<br>\quad\text{（拉格朗日余项）}.<br>$$</p>
+<p>The former is suitable for comparing orders in limits, while the latter is useful for estimating approximation errors.</p>
+<p>Frequently used Maclaurin expansions include:</p>
+<p>$$<br>e^x&#x3D;1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\cdots,<br>$$</p>
+<p>$$<br>\sin x&#x3D;x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots,<br>\qquad<br>\cos x&#x3D;1-\frac{x^2}{2!}+\frac{x^4}{4!}-\cdots,<br>$$</p>
+<p>$$<br>\ln(1+x)&#x3D;x-\frac{x^2}{2}+\frac{x^3}{3}-\cdots,<br>$$</p>
+<p>$$<br>(1+x)^\alpha&#x3D;1+\alpha x+\frac{\alpha(\alpha-1)}{2!}x^2+\cdots.<br>$$</p>
+<p>Taylor’s formula is not best described as “a straight line approximating a curve”; that is merely its first-order version. More precisely, it builds a local substitute of adjustable precision by using a polynomial whose derivatives match those of the original function order by order.</p>
+<hr>
+<h2 id="7-Mean-Value-Theorems-and-Applications-of-Derivatives-Inferring-the-Fate-of-an-Interval-from-Change-at-a-Point"><a href="#7-Mean-Value-Theorems-and-Applications-of-Derivatives-Inferring-the-Fate-of-an-Interval-from-Change-at-a-Point" class="headerlink" title="7. Mean-Value Theorems and Applications of Derivatives: Inferring the Fate of an Interval from Change at a Point"></a>7. Mean-Value Theorems and Applications of Derivatives: Inferring the Fate of an Interval from Change at a Point</h2><p>A derivative is local information. In practice, however, we often want to know monotonicity, extrema, zeros, concavity, or inequalities over an entire interval. Mean-value theorems form the bridge from the local to the global.</p>
+<h3 id="7-1-Three-Mean-Value-Theorems-Form-a-Chain-of-Increasing-Generality"><a href="#7-1-Three-Mean-Value-Theorems-Form-a-Chain-of-Increasing-Generality" class="headerlink" title="7.1 Three Mean-Value Theorems Form a Chain of Increasing Generality"></a>7.1 Three Mean-Value Theorems Form a Chain of Increasing Generality</h3><p><strong>Rolle’s theorem</strong>: if $f$ is continuous on $[a,b]$, differentiable on $(a,b)$, and $f(a)&#x3D;f(b)$, then there is at least one $\xi\in(a,b)$ such that</p>
+<p>$$<br>f’(\xi)&#x3D;0.<br>$$</p>
+<p>If a curve begins at one height and returns to the same height, it must have at least one horizontal tangent in between.</p>
+<p><strong>Lagrange’s mean-value theorem</strong>: if $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, there is at least one $\xi\in(a,b)$ such that</p>
+<p>$$<br>f’(\xi)&#x3D;\frac{f(b)-f(a)}{b-a}.<br>$$</p>
+<p>At some instant, the rate of change equals the average rate over the whole journey. It may also be written as</p>
+<p>$$<br>f(b)-f(a)&#x3D;f’(\xi)(b-a),<br>$$</p>
+<p>which connects a finite increment with a local derivative.</p>
+<p><strong>Cauchy’s mean-value theorem</strong>: if $f,g$ are both continuous on $[a,b]$, differentiable on $(a,b)$, and satisfy the corresponding non-degeneracy conditions, then there is a $\xi$ such that</p>
+<p>$$<br>\frac{f(b)-f(a)}{g(b)-g(a)}&#x3D;\frac{f’(\xi)}{g’(\xi)}.<br>$$</p>
+<p>It compares the total changes of two quantities with their instantaneous changes and provides the structural basis of L’Hôpital’s rule.</p>
+<p>The central task in applying these theorems is usually not memorising their conclusions but constructing an auxiliary function so that the desired statement becomes some $F’(\xi)&#x3D;0$ or a mean-value formula. Equal endpoint values suggest Rolle; a difference of function values suggests Lagrange; a ratio of increments of two functions suggests Cauchy.</p>
+<h3 id="7-2-The-Correct-Interface-for-L’Hopital’s-Rule"><a href="#7-2-The-Correct-Interface-for-L’Hopital’s-Rule" class="headerlink" title="7.2 The Correct Interface for L’Hôpital’s Rule"></a>7.2 The Correct Interface for L’Hôpital’s Rule</h3><p>Suppose that in the relevant limiting process,</p>
+<p>$$<br>f(x)\to0, g(x)\to0<br>\quad\text{或}<br>\quad |f(x)|,|g(x)|\to\infty,<br>$$</p>
+<p>and the functions are differentiable in a neighbourhood, $g’(x)\ne0$, and</p>
+<p>$$<br>\lim\frac{f’(x)}{g’(x)}&#x3D;L<br>$$</p>
+<p>exists or is infinite. Then, when all conditions of the rule are satisfied,</p>
+<p>$$<br>\lim\frac{f(x)}{g(x)}&#x3D;L.<br>$$</p>
+<p>This is not an algebraic identity that “differentiates the numerator and denominator simultaneously,” but a theorem about limits. The existence of the original limit does not guarantee the existence of the derivative-ratio limit. If the latter becomes more complicated, one should change tools at once. When L’Hôpital’s rule is applied repeatedly, the indeterminate form must be checked again at every round.</p>
+<h3 id="7-3-Reading-the-Graph-of-a-Function-through-Derivatives"><a href="#7-3-Reading-the-Graph-of-a-Function-through-Derivatives" class="headerlink" title="7.3 Reading the Graph of a Function through Derivatives"></a>7.3 Reading the Graph of a Function through Derivatives</h3><p><strong>Monotonicity</strong>: if $f’(x)&gt;0$ throughout an interval, the function is strictly increasing; if $f’(x)&lt;0$, it is strictly decreasing. Conversely, a differentiable monotone function only guarantees a non-negative or non-positive derivative, not a strictly signed derivative everywhere.</p>
+<p><strong>Local extrema</strong>: if a function attains a local extremum at an interior point and is differentiable there, then $f’(x_0)&#x3D;0$. This is a necessary, not a sufficient, condition. A stationary point may instead be a horizontal inflection point.</p>
+<p>Tests include:</p>
+<ul>
+<li><p>if the first derivative changes from positive to negative, there is a local maximum; if it changes from negative to positive, there is a local minimum;</p>
+</li>
+<li><p>if $f’(x_0)&#x3D;0$ and $f’’(x_0)&gt;0$, there is a local minimum; if $f’’(x_0)&lt;0$, there is a local maximum; if $f’’(x_0)&#x3D;0$, this test fails.</p>
+</li>
+</ul>
+<p><strong>Absolute extrema</strong>: on a closed interval, compare the function values at interior stationary points, non-differentiable points, and both endpoints. A local extremum is a local notion; an absolute extremum requires a global comparison.</p>
+<p><strong>Concavity and convexity</strong>: following the convention common in Chinese textbooks, a curve is concave when $f’’(x)&gt;0$ and convex when $f’’(x)&lt;0$. An inflection point requires an actual change of concavity across the point; $f’’(x_0)&#x3D;0$ is only a candidate condition.</p>
+<p><strong>Asymptotes</strong>:</p>
+<ul>
+<li><p>if, as $x\to x_0$, we have $f(x)\to\infty$, then $x&#x3D;x_0$ is a vertical asymptote;</p>
+</li>
+<li><p>if, as $x\to\pm\infty$, we have $f(x)\to b$, then $y&#x3D;b$ is a horizontal asymptote;</p>
+</li>
+<li><p>if $\lim_{x\to\infty}f(x)&#x2F;x&#x3D;k$ and $\lim_{x\to\infty}[f(x)-kx]&#x3D;b$, then $y&#x3D;kx+b$ is an oblique asymptote.</p>
+</li>
+</ul>
+<p>A common procedure for sketching a function can be compressed as follows: domain and symmetry → discontinuities and asymptotes → first derivative for monotonicity and extrema → second derivative for concavity and inflection points → a few key points for calibration.</p>
+<h3 id="7-4-Inequalities-Roots-of-Equations-and-Curvature"><a href="#7-4-Inequalities-Roots-of-Equations-and-Curvature" class="headerlink" title="7.4 Inequalities, Roots of Equations, and Curvature"></a>7.4 Inequalities, Roots of Equations, and Curvature</h3><p>To prove an inequality with derivatives, one often moves all terms to one side to construct $F(x)$ and then studies its monotonicity or extrema. The task is not to “calculate which side is larger” by force, but to prove that the difference model never crosses zero on the entire interval.</p>
+<p>Discussion of roots usually has three levels: continuity and the zero theorem guarantee <strong>existence</strong>; monotonicity or Rolle’s theorem guarantees <strong>uniqueness</strong>; and bisection or Newton’s method provides <strong>numerical approximation</strong>.</p>
+<p>For a plane curve $y&#x3D;f(x)$, the curvature is</p>
+<p>$$<br>\kappa&#x3D;\frac{|y’’|}{[1+(y’)^2]^{3&#x2F;2}},<br>$$</p>
+<p>and the radius of curvature is $\rho&#x3D;1&#x2F;\kappa$. This compresses the visual impression of “how sharply the curve bends” into a local quantity. A parametric curve has the corresponding formula:</p>
+<p>$$<br>\kappa&#x3D;\frac{|x’y’’-y’x’’|}{[(x’)^2+(y’)^2]^{3&#x2F;2}}.<br>$$</p>
+<hr>
+<h2 id="8-Indefinite-Integrals-Reconstructing-the-Original-Object-from-Its-Rate-of-Change"><a href="#8-Indefinite-Integrals-Reconstructing-the-Original-Object-from-Its-Rate-of-Change" class="headerlink" title="8. Indefinite Integrals: Reconstructing the Original Object from Its Rate of Change"></a>8. Indefinite Integrals: Reconstructing the Original Object from Its Rate of Change</h2><h3 id="8-1-Antiderivatives-Form-a-Family-of-Functions"><a href="#8-1-Antiderivatives-Form-a-Family-of-Functions" class="headerlink" title="8.1 Antiderivatives Form a Family of Functions"></a>8.1 Antiderivatives Form a Family of Functions</h3><p>If $F’(x)&#x3D;f(x)$ on an interval, then $F$ is called an antiderivative of $f$. All such antiderivatives form</p>
+<p>$$<br>\int f(x),dx&#x3D;F(x)+C.<br>$$</p>
+<p>The constant $C$ is not decorative. Differentiation eliminates constants, so when we invert a derivative, the lost initial height cannot be uniquely recovered from $f$. One derivative corresponds to an entire family of functions differing by constants.</p>
+<p>An indefinite integral is not “the area of some region”; it is the operation of finding antiderivatives. The variable of integration is also only a local notation:</p>
+<p>$$<br>\int f(x)dx&#x3D;\int f(t)dt.<br>$$</p>
+<h3 id="8-2-Basic-Methods-of-Integration"><a href="#8-2-Basic-Methods-of-Integration" class="headerlink" title="8.2 Basic Methods of Integration"></a>8.2 Basic Methods of Integration</h3><p><strong>Direct integration</strong> relies on the table of basic integrals and linearity:</p>
+<p>$$<br>\int[af(x)+bg(x)]dx&#x3D;a\int f(x)dx+b\int g(x)dx.<br>$$</p>
+<p><strong>Substitution of the first kind, or completing the differential</strong>: if a composite structure can be recognised,</p>
+<p>$$<br>\int f(\varphi(x))\varphi’(x)dx<br>&#x3D;\int f(u)du.<br>$$</p>
+<p>This is the inverse operation of differentiating a composite function.</p>
+<p><strong>Substitution of the second kind</strong>: set $x&#x3D;\varphi(t)$ to transform a radical or trigonometric structure into a variable in which integration is easier. After substitution, the integrand and $dx$ must both be replaced; for a definite integral, the bounds must also be changed.</p>
+<p><strong>Integration by parts</strong> comes from differentiating a product:</p>
+<p>$$<br>\int u,dv&#x3D;uv-\int v,du.<br>$$</p>
+<p>It is suitable for reducing a factor that is difficult to integrate but easy to differentiate, such as a logarithm, an inverse trigonometric function, or a product of a polynomial with an exponential or trigonometric function. The choice of $u$ should not follow a rigid memorised order, but should be guided by whether differentiation simplifies the whole expression.</p>
+<p>For a <strong>rational function</strong>, one generally performs polynomial division first and then decomposes the proper fraction into partial fractions. Over the real numbers, the denominator is factored into linear factors and irreducible quadratic factors, which correspond to basic forms involving logarithms and inverse tangents.</p>
+<p>A <strong>rational trigonometric expression</strong> may be handled through identities or the universal substitution $t&#x3D;\tan(x&#x2F;2)$. Radicals containing $\sqrt{a^2-x^2}$, $\sqrt{x^2+a^2}$, or $\sqrt{x^2-a^2}$ are often treated by trigonometric or hyperbolic substitution. In every case, the tool aims to rewrite an unfamiliar structure in a form recognised by the integration table.</p>
+<h3 id="8-3-Why-Some-Elementary-Functions-Cannot-Be-Integrated-in-Elementary-Form"><a href="#8-3-Why-Some-Elementary-Functions-Cannot-Be-Integrated-in-Elementary-Form" class="headerlink" title="8.3 Why Some Elementary Functions Cannot Be Integrated in Elementary Form"></a>8.3 Why Some Elementary Functions Cannot Be Integrated in Elementary Form</h3><p>An elementary function need not possess an antiderivative expressible by finitely many elementary functions. For example,</p>
+<p>$$<br>\int e^{-x^2}dx<br>$$</p>
+<p>has no elementary antiderivative. This is not because humanity has yet to discover a sufficiently clever substitution; it is a structural limitation that can be proved rigorously. In such cases, the result may be described by a definite integral, special function, series, or numerical method. Every modelling toolbox has a boundary, and a table of integrals is not an omnipotent dictionary.</p>
+<hr>
+<h2 id="9-Definite-Integrals-Compressing-Infinitely-Many-Local-Contributions-into-a-Total"><a href="#9-Definite-Integrals-Compressing-Infinitely-Many-Local-Contributions-into-a-Total" class="headerlink" title="9. Definite Integrals: Compressing Infinitely Many Local Contributions into a Total"></a>9. Definite Integrals: Compressing Infinitely Many Local Contributions into a Total</h2><h3 id="9-1-The-Four-Steps-of-a-Riemann-Sum"><a href="#9-1-The-Four-Steps-of-a-Riemann-Sum" class="headerlink" title="9.1 The Four Steps of a Riemann Sum"></a>9.1 The Four Steps of a Riemann Sum</h3><p>Partition the interval $[a,b]$:</p>
+<p>$$<br>a&#x3D;x_0&lt;x_1&lt;\cdots&lt;x_n&#x3D;b.<br>$$</p>
+<p>In each subinterval $[x_{i-1},x_i]$, choose any $\xi_i$ and construct the sum</p>
+<p>$$<br>\sum_{i&#x3D;1}^{n}f(\xi_i)\Delta x_i.<br>$$</p>
+<p>As the largest subinterval length $\lambda&#x3D;\max\Delta x_i\to0$, if this sum tends to the same finite value regardless of how the partition and sample points are chosen, we define</p>
+<p>$$<br>\int_a^bf(x)dx.<br>$$</p>
+<p>Its mechanism is always <strong>partition → local approximation → summation → limit</strong>. Area, distance, mass, work, and average value are merely different interpretations of the inputs to this machine of accumulation.</p>
+<h3 id="9-2-Properties-of-the-Definite-Integral"><a href="#9-2-Properties-of-the-Definite-Integral" class="headerlink" title="9.2 Properties of the Definite Integral"></a>9.2 Properties of the Definite Integral</h3><ul>
+<li><p>Linearity;</p>
+</li>
+<li><p>additivity over intervals;</p>
+</li>
+<li><p>preservation of order: $f\le g\Rightarrow\int f\le\int g$;</p>
+</li>
+<li><p>estimation: if $m\le f\le M$, then $m(b-a)\le\int_a^bf\le M(b-a)$;</p>
+</li>
+<li><p>the absolute-value inequality: $\left|\int f\right|\le\int|f|$;</p>
+</li>
+<li><p>the mean-value theorem for integrals: a continuous function attains its average height at least once.</p>
+</li>
+</ul>
+<p>If $f$ is odd, $\int_{-a}^af(x)dx&#x3D;0$; if it is even, $\int_{-a}^af(x)dx&#x3D;2\int_0^af(x)dx$. The integral of a periodic function over a whole period is independent of the starting point. All these properties use symmetry and repetition to reduce computation.</p>
+<h3 id="9-3-The-Fundamental-Theorem-of-Calculus-Local-Change-and-Global-Accumulation-Finally-Form-a-Closed-Loop"><a href="#9-3-The-Fundamental-Theorem-of-Calculus-Local-Change-and-Global-Accumulation-Finally-Form-a-Closed-Loop" class="headerlink" title="9.3 The Fundamental Theorem of Calculus: Local Change and Global Accumulation Finally Form a Closed Loop"></a>9.3 The Fundamental Theorem of Calculus: Local Change and Global Accumulation Finally Form a Closed Loop</h3><p>Define an integral with a variable upper limit:</p>
+<p>$$<br>\Phi(x)&#x3D;\int_a^xf(t)dt.<br>$$</p>
+<p>If $f$ is continuous, then</p>
+<p>$$<br>\Phi’(x)&#x3D;f(x).<br>$$</p>
+<p>If $F’(x)&#x3D;f(x)$, the Newton–Leibniz formula gives</p>
+<p>$$<br>\int_a^bf(x)dx&#x3D;F(b)-F(a).<br>$$</p>
+<p>A derivative compresses a whole function into a local rate of change, while a definite integral accumulates local rates of change back into a total change. Under suitable conditions, these apparently opposite operations are inverses. This is where the whole of calculus truly closes its loop.</p>
+<p>When differentiating an integral with variable bounds, the chain rule must be used. For example, if</p>
+<p>$$<br>F(x)&#x3D;\int_{u(x)}^{v(x)}f(t)dt<br>$$</p>
+<p>then</p>
+<p>$$<br>F’(x)&#x3D;f(v(x))v’(x)-f(u(x))u’(x).<br>$$</p>
+<h3 id="9-4-Calculating-Definite-Integrals-and-Their-Geometric-Applications"><a href="#9-4-Calculating-Definite-Integrals-and-Their-Geometric-Applications" class="headerlink" title="9.4 Calculating Definite Integrals and Their Geometric Applications"></a>9.4 Calculating Definite Integrals and Their Geometric Applications</h3><p>Substitution in a definite integral gives:</p>
+<p>$$<br>\int_a^bf(x)dx<br>&#x3D;\int_\alpha^\beta f(\varphi(t))\varphi’(t)dt,<br>$$</p>
+<p>where $\varphi(\alpha)&#x3D;a,\varphi(\beta)&#x3D;b$, together with the relevant conditions of continuity and monotonicity. Integration by parts for definite integrals is</p>
+<p>$$<br>\int_a^bu,dv&#x3D;[uv]_a^b-\int_a^bv,du.<br>$$</p>
+<p>Common geometric quantities include:</p>
+<p><strong>Plane area</strong>: first identify which function lies above or which curve lies to the right, and then integrate their difference. Area must not be allowed to cancel merely because of signs.</p>
+<p>$$<br>A&#x3D;\int_a^b[f(x)-g(x)]dx.<br>$$</p>
+<p><strong>Volume of a solid of revolution</strong>: the disk or washer method gives</p>
+<p>$$<br>V&#x3D;\pi\int_a^b[R(x)^2-r(x)^2]dx,<br>$$</p>
+<p>while the shell method accumulates “circumference × height × thickness.”</p>
+<p><strong>Arc length</strong>:</p>
+<p>$$<br>L&#x3D;\int_a^b\sqrt{1+[y’(x)]^2},dx,<br>$$</p>
+<p>and for a parametric curve,</p>
+<p>$$<br>L&#x3D;\int_\alpha^\beta\sqrt{[x’(t)]^2+[y’(t)]^2},dt.<br>$$</p>
+<p><strong>Area of a surface of revolution</strong>: when the curve rotates about the $x$-axis,</p>
+<p>$$<br>S&#x3D;2\pi\int_a^b|y|\sqrt{1+(y’)^2},dx.<br>$$</p>
+<p>Other applications include average values, work done by a variable force, fluid pressure, and centres of mass. They should not be memorised as isolated formulas, for they all arise from one template: identify the differential element → write its local contribution → accumulate over the correct interval.</p>
+<h3 id="9-5-Improper-Integrals-Extending-Integration-to-Infinite-Boundaries-or-Unbounded-Functions"><a href="#9-5-Improper-Integrals-Extending-Integration-to-Infinite-Boundaries-or-Unbounded-Functions" class="headerlink" title="9.5 Improper Integrals: Extending Integration to Infinite Boundaries or Unbounded Functions"></a>9.5 Improper Integrals: Extending Integration to Infinite Boundaries or Unbounded Functions</h3><p>An integral over an infinite interval is defined by a limit:</p>
+<p>$$<br>\int_a^{+\infty}f(x)dx<br>&#x3D;\lim_{b\to+\infty}\int_a^bf(x)dx.<br>$$</p>
+<p>For an unbounded function, limits are taken separately at its singular points. If a singularity lies inside the interval, the integral must be split into its left and right parts, both of which must converge; two infinities cannot be allowed to “cancel symmetrically.”</p>
+<p>The typical $p$-criteria are:</p>
+<p>$$<br>\int_1^{+\infty}\frac1{x^p}dx<br>\begin{cases}<br>\text{收敛},&amp;p&gt;1,\<br>\text{发散},&amp;p\le1,<br>\end{cases}<br>$$</p>
+<p>$$<br>\int_0^1\frac1{x^p}dx<br>\begin{cases}<br>\text{收敛},&amp;p&lt;1,\<br>\text{发散},&amp;p\ge1.<br>\end{cases}<br>$$</p>
+<p>Positive improper integrals may be tested by comparison or limit comparison. For general functions, absolute and conditional convergence must also be distinguished. An improper integral is not an ordinary definite integral with an infinity symbol attached; it is first of all a question about the existence of a limit.</p>
+<hr>
+<h2 id="10-Analytic-Geometry-in-Space-Building-a-Coordinate-Frame-for-a-Multivariable-World"><a href="#10-Analytic-Geometry-in-Space-Building-a-Coordinate-Frame-for-a-Multivariable-World" class="headerlink" title="10. Analytic Geometry in Space: Building a Coordinate Frame for a Multivariable World"></a>10. Analytic Geometry in Space: Building a Coordinate Frame for a Multivariable World</h2><p>Before moving from single-variable to multivariable functions, we must learn to describe points, directions, lines, planes, and surfaces in space.</p>
+<h3 id="10-1-A-Vector-Combines-Magnitude-and-Direction"><a href="#10-1-A-Vector-Combines-Magnitude-and-Direction" class="headerlink" title="10.1 A Vector Combines Magnitude and Direction"></a>10.1 A Vector Combines Magnitude and Direction</h3><p>The magnitude of the spatial vector $\mathbf a&#x3D;(a_1,a_2,a_3)$ is</p>
+<p>$$<br>|\mathbf a|&#x3D;\sqrt{a_1^2+a_2^2+a_3^2}.<br>$$</p>
+<p>The dot product</p>
+<p>$$<br>\mathbf a\cdot\mathbf b&#x3D;|\mathbf a||\mathbf b|\cos\theta<br>$$</p>
+<p>produces a scalar and is used to calculate angles, projections, and perpendicularity.</p>
+<p>The cross product</p>
+<p>$$<br>\mathbf a\times\mathbf b<br>$$</p>
+<p>produces a vector perpendicular to both inputs. Its magnitude is the area of the parallelogram they span, so it is used to construct normals, orientations, and area elements.</p>
+<p>The absolute value of the scalar triple product</p>
+<p>$$<br>[\mathbf a,\mathbf b,\mathbf c]<br>&#x3D;\mathbf a\cdot(\mathbf b\times\mathbf c)<br>$$</p>
+<p>is the volume of the parallelepiped and can also determine whether three vectors are coplanar.</p>
+<h3 id="10-2-Lines-Planes-and-Surfaces"><a href="#10-2-Lines-Planes-and-Surfaces" class="headerlink" title="10.2 Lines, Planes, and Surfaces"></a>10.2 Lines, Planes, and Surfaces</h3><p>The point-normal form of a plane is</p>
+<p>$$<br>\mathbf n\cdot(\mathbf r-\mathbf r_0)&#x3D;0,<br>$$</p>
+<p>and its general form is</p>
+<p>$$<br>Ax+By+Cz+D&#x3D;0,<br>$$</p>
+<p>where $(A,B,C)$ is a normal vector.</p>
+<p>The point-direction form of a line in space is</p>
+<p>$$<br>\mathbf r&#x3D;\mathbf r_0+t\mathbf s,<br>$$</p>
+<p>where $\mathbf s$ is its direction vector. A line may also be represented as the intersection of two planes.</p>
+<p>Problems about angles are all reduced to angles between direction vectors or normal vectors: line-to-line uses directions, plane-to-plane uses normals, and line-to-plane uses the complementary angle between a direction and a normal.</p>
+<p>Common quadratic surfaces—ellipsoids, elliptic paraboloids, hyperbolic paraboloids, one-sheeted and two-sheeted hyperboloids, and cones—should not be learned merely by memorising pictures. Fix one coordinate and examine what curve the remaining two variables form; the three-dimensional shape can then be reconstructed from two-dimensional traces. A surface of revolution is similarly generated by rotating a plane curve about an axis.</p>
+<hr>
+<h2 id="11-Differential-Calculus-of-Multivariable-Functions-One-Output-Responding-to-Several-Inputs"><a href="#11-Differential-Calculus-of-Multivariable-Functions-One-Output-Responding-to-Several-Inputs" class="headerlink" title="11. Differential Calculus of Multivariable Functions: One Output Responding to Several Inputs"></a>11. Differential Calculus of Multivariable Functions: One Output Responding to Several Inputs</h2><h3 id="11-1-From-a-Curve-to-a-Scalar-Field"><a href="#11-1-From-a-Curve-to-a-Scalar-Field" class="headerlink" title="11.1 From a Curve to a Scalar Field"></a>11.1 From a Curve to a Scalar Field</h3><p>A function of two variables,</p>
+<p>$$<br>z&#x3D;f(x,y)<br>$$</p>
+<p>assigns a number to every permissible point in the plane. Its graph is a surface in space, while a level curve $f(x,y)&#x3D;c$ connects points with the same function value. Temperature, elevation, and potential-energy fields all possess this structure.</p>
+<p>The double limit</p>
+<p>$$<br>\lim_{(x,y)\to(x_0,y_0)}f(x,y)&#x3D;A<br>$$</p>
+<p>requires the same result along every direction and every path of approach. Two paths producing different limits are enough to disprove existence; several familiar paths producing the same result cannot prove existence, because infinitely many paths remain. A genuine proof generally requires squeezing, polar substitution, or a rigorous estimate.</p>
+<p>Multivariable continuity still means that the limit equals the function value. Elementary multivariable functions are generally continuous where they are defined, so direct substitution is often possible, but boundaries involving zero denominators, radicals, or logarithms still require examination.</p>
+<h3 id="11-2-Partial-Derivatives-Measure-Only-Coordinate-Axis-Directions"><a href="#11-2-Partial-Derivatives-Measure-Only-Coordinate-Axis-Directions" class="headerlink" title="11.2 Partial Derivatives Measure Only Coordinate-Axis Directions"></a>11.2 Partial Derivatives Measure Only Coordinate-Axis Directions</h3><p>Holding $y$ fixed and varying only $x$ gives</p>
+<p>$$<br>f_x(x_0,y_0)<br>&#x3D;\lim_{\Delta x\to0}\frac{f(x_0+\Delta x,y_0)-f(x_0,y_0)}{\Delta x}.<br>$$</p>
+<p>$f_y$ is defined similarly. Partial derivatives measure instantaneous rates of change along the coordinate axes.</p>
+<p>Higher partial derivatives include $f_{xx},f_{yy},f_{xy},f_{yx}$. If the mixed partial derivatives are continuous in a neighbourhood, then</p>
+<p>$$<br>f_{xy}&#x3D;f_{yx}.<br>$$</p>
+<p>Without suitable smoothness conditions, the order of differentiation need not be interchangeable.</p>
+<p>The existence of partial derivatives guarantees neither continuity nor differentiability, because the coordinate axes are only two among infinitely many directions of approach.</p>
+<h3 id="11-3-The-Total-Differential-One-Plane-Approximating-Every-Direction"><a href="#11-3-The-Total-Differential-One-Plane-Approximating-Every-Direction" class="headerlink" title="11.3 The Total Differential: One Plane Approximating Every Direction"></a>11.3 The Total Differential: One Plane Approximating Every Direction</h3><p>If the increment satisfies</p>
+<p>$$<br>\Delta z&#x3D;A\Delta x+B\Delta y<br>+o\left(\sqrt{(\Delta x)^2+(\Delta y)^2}\right),<br>$$</p>
+<p>the function is differentiable, and</p>
+<p>$$<br>dz&#x3D;f_xdx+f_ydy.<br>$$</p>
+<p>Differentiability means that one tangent plane uniformly approximates the surface near the point. A common sufficient condition is that the partial derivatives exist in a neighbourhood and are continuous at the point. This condition is sufficient but not necessary.</p>
+<p>The tangent plane is:</p>
+<p>$$<br>z-z_0&#x3D;f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0).<br>$$</p>
+<p>At a regular point of the surface $F(x,y,z)&#x3D;0$, a normal vector is</p>
+<p>$$<br>\nabla F&#x3D;(F_x,F_y,F_z),<br>$$</p>
+<p>from which the equations of the tangent plane and normal line follow.</p>
+<h3 id="11-4-The-Chain-Rule-Total-Derivatives-and-Implicit-Functions"><a href="#11-4-The-Chain-Rule-Total-Derivatives-and-Implicit-Functions" class="headerlink" title="11.4 The Chain Rule, Total Derivatives, and Implicit Functions"></a>11.4 The Chain Rule, Total Derivatives, and Implicit Functions</h3><p>If $z&#x3D;f(u,v)$, while $u&#x3D;u(x,y),v&#x3D;v(x,y)$, then</p>
+<p>$$<br>\frac{\partial z}{\partial x}<br>&#x3D;f_u\frac{\partial u}{\partial x}<br>+f_v\frac{\partial v}{\partial x},<br>$$</p>
+<p>and similarly for $y$. When the dependence among variables becomes complicated, draw a tree of dependencies first; multiply along every path from input to output, then add the contributions of all paths.</p>
+<p>If $z&#x3D;f(x,y)$ and $x&#x3D;x(t),y&#x3D;y(t)$, the total derivative is</p>
+<p>$$<br>\frac{dz}{dt}&#x3D;f_x\frac{dx}{dt}+f_y\frac{dy}{dt}.<br>$$</p>
+<p>If the equation $F(x,y)&#x3D;0$ determines an implicit function $y&#x3D;y(x)$ near a point and $F_y\ne0$, then</p>
+<p>$$<br>\frac{dy}{dx}&#x3D;-\frac{F_x}{F_y}.<br>$$</p>
+<p>When a system of equations determines several implicit functions, the corresponding non-zero Jacobian determinant supplies the condition. The Jacobian matrix records the local linearisation of a multivariable mapping, while the Jacobian determinant describes the local scaling and orientation of area or volume.</p>
+<h3 id="11-5-Directional-Derivatives-and-the-Gradient"><a href="#11-5-Directional-Derivatives-and-the-Gradient" class="headerlink" title="11.5 Directional Derivatives and the Gradient"></a>11.5 Directional Derivatives and the Gradient</h3><p>The directional derivative along the unit direction $\mathbf e&#x3D;(\cos\alpha,\cos\beta)$ is</p>
+<p>$$<br>D_{\mathbf e}f&#x3D;\nabla f\cdot\mathbf e,<br>$$</p>
+<p>where</p>
+<p>$$<br>\nabla f&#x3D;(f_x,f_y).<br>$$</p>
+<p>The gradient points in the direction of fastest increase, and its magnitude is the largest directional derivative. It is also perpendicular to a level curve or level surface. Thus changes along many directions are compressed into one vector: once the gradient is known, any directional derivative can be recovered by an inner product.</p>
+<h3 id="11-6-Multivariable-Extrema-and-Constrained-Extrema"><a href="#11-6-Multivariable-Extrema-and-Constrained-Extrema" class="headerlink" title="11.6 Multivariable Extrema and Constrained Extrema"></a>11.6 Multivariable Extrema and Constrained Extrema</h3><p>At an interior extremum of a differentiable function,</p>
+<p>$$<br>f_x&#x3D;f_y&#x3D;0.<br>$$</p>
+<p>For the second-order test at a stationary point, let</p>
+<p>$$<br>A&#x3D;f_{xx},\quad B&#x3D;f_{xy},\quad C&#x3D;f_{yy},\quad D&#x3D;AC-B^2.<br>$$</p>
+<ul>
+<li><p>$D&gt;0,A&gt;0$: local minimum;</p>
+</li>
+<li><p>$D&gt;0,A&lt;0$: local maximum;</p>
+</li>
+<li><p>$D&lt;0$: saddle point;</p>
+</li>
+<li><p>$D&#x3D;0$: the test is inconclusive.</p>
+</li>
+</ul>
+<p>For an extremum subject to the constraint $g(x,y)&#x3D;0$, the method of Lagrange multipliers constructs</p>
+<p>$$<br>\nabla f&#x3D;\lambda\nabla g.<br>$$</p>
+<p>Geometrically, at an extremum the constraint curve is tangent to a level curve of the objective function, so their normal vectors are parallel. The method produces candidate points, which must still be compared with boundaries, endpoints, and the requirements of the actual problem.</p>
+<hr>
+<h2 id="12-Multiple-Integrals-Extending-One-Dimensional-Accumulation-to-Regions-and-Space"><a href="#12-Multiple-Integrals-Extending-One-Dimensional-Accumulation-to-Regions-and-Space" class="headerlink" title="12. Multiple Integrals: Extending One-Dimensional Accumulation to Regions and Space"></a>12. Multiple Integrals: Extending One-Dimensional Accumulation to Regions and Space</h2><h3 id="12-1-A-Double-Integral-Still-Has-Only-Four-Steps"><a href="#12-1-A-Double-Integral-Still-Has-Only-Four-Steps" class="headerlink" title="12.1 A Double Integral Still Has Only Four Steps"></a>12.1 A Double Integral Still Has Only Four Steps</h3><p>Divide a plane region $D$ into many small pieces, choose sample points $(\xi_i,\eta_i)$, and construct</p>
+<p>$$<br>\sum_i f(\xi_i,\eta_i)\Delta\sigma_i,<br>$$</p>
+<p>As the diameters of all pieces tend to zero, if the sum approaches one unique limit, define</p>
+<p>$$<br>\iint_D f(x,y)d\sigma.<br>$$</p>
+<p>This is still “partition—approximation—summation—limit,” except that the differential element has changed from a line segment $dx$ to an area $d\sigma$. When $f\ge0$, it may be interpreted as the volume under a surface; when $f$ takes both signs, the result is a signed accumulation.</p>
+<p>A double integral has linearity, additivity over regions, preservation of order, estimation, and mean-value properties. The real computational difficulty generally lies not in integration itself but in rewriting the region accurately as the bounds of an iterated integral.</p>
+<h3 id="12-2-Cartesian-Coordinates-Whichever-Variable-Is-Sliced-First-Goes-Inside"><a href="#12-2-Cartesian-Coordinates-Whichever-Variable-Is-Sliced-First-Goes-Inside" class="headerlink" title="12.2 Cartesian Coordinates: Whichever Variable Is Sliced First Goes Inside"></a>12.2 Cartesian Coordinates: Whichever Variable Is Sliced First Goes Inside</h3><p>If a region can be written as an $x$-type region,</p>
+<p>$$<br>D&#x3D;{(x,y):a\le x\le b,\ \varphi_1(x)\le y\le\varphi_2(x)},<br>$$</p>
+<p>then</p>
+<p>$$<br>\iint_Df(x,y)d\sigma<br>&#x3D;\int_a^b\left[\int_{\varphi_1(x)}^{\varphi_2(x)}f(x,y)dy\right]dx.<br>$$</p>
+<p>For a $y$-type region, the order is reversed. Changing the order of integration is not a mechanical exchange of $dx,dy$; it requires redrawing the region, projecting it again, and rewriting its boundaries. If one set of bounds cannot describe the whole region, the region must be divided.</p>
+<h3 id="12-3-Polar-Coordinates-Giving-Circular-Structure-a-More-Economical-Language"><a href="#12-3-Polar-Coordinates-Giving-Circular-Structure-a-More-Economical-Language" class="headerlink" title="12.3 Polar Coordinates: Giving Circular Structure a More Economical Language"></a>12.3 Polar Coordinates: Giving Circular Structure a More Economical Language</h3><p>Set</p>
+<p>$$<br>x&#x3D;r\cos\theta,\qquad y&#x3D;r\sin\theta.<br>$$</p>
+<p>The area element is not simply $drd\theta$, but</p>
+<p>$$<br>d\sigma&#x3D;r,drd\theta.<br>$$</p>
+<p>The additional $r$ is the absolute value of the Jacobian determinant, indicating that the polar grid stretches further at a larger radius. When the integrand or region involves $x^2+y^2$, circles, or sectors, polar coordinates can substantially reduce descriptive complexity.</p>
+<p>The general substitution $(x,y)&#x3D;(x(u,v),y(u,v))$ gives</p>
+<p>$$<br>dx,dy &#x3D; \left|\frac{\partial(x,y)}{\partial(u,v)}\right|,du,dv<br>$$</p>
+<p>The Jacobian must not be omitted, nor should it be used blindly before the one-to-one character of the mapping and the correspondence of regions have been checked.</p>
+<h3 id="12-4-Triple-Integrals-and-Three-Common-Coordinate-Systems"><a href="#12-4-Triple-Integrals-and-Three-Common-Coordinate-Systems" class="headerlink" title="12.4 Triple Integrals and Three Common Coordinate Systems"></a>12.4 Triple Integrals and Three Common Coordinate Systems</h3><p>A triple integral</p>
+<p>$$<br>\iiint_\Omega f(x,y,z)dv<br>$$</p>
+<p>accumulates density over a spatial region. In Cartesian coordinates, $dv&#x3D;dxdydz$.</p>
+<p>Cylindrical coordinates:</p>
+<p>$$<br>x&#x3D;r\cos\theta,\quad y&#x3D;r\sin\theta,\quad z&#x3D;z,<br>\qquad dv&#x3D;r,drd\theta dz.<br>$$</p>
+<p>They are suitable for cylinders, cones, and solids of revolution around the $z$-axis.</p>
+<p>Using the convention common in textbooks, spherical coordinates take $\varphi$ as the angle from the positive $z$-axis and $\theta$ as the azimuth:</p>
+<p>$$<br>x&#x3D;\rho\sin\varphi\cos\theta,<br>\quad y&#x3D;\rho\sin\varphi\sin\theta,<br>\quad z&#x3D;\rho\cos\varphi,<br>$$</p>
+<p>$$<br>dv&#x3D;\rho^2\sin\varphi,d\rho d\varphi d\theta.<br>$$</p>
+<p>Different textbooks may exchange the names $\theta,\varphi$. The formulas must follow the coordinate definitions rather than the letters alone.</p>
+<p>When symmetry is used, both the region and the integrand must be checked. If the region is symmetric about a coordinate plane and the integrand is odd in the corresponding variable, the integral is zero; only when it is even may the integral be replaced by twice that over half the region.</p>
+<h3 id="12-5-A-Unified-Template-for-Applications-of-Multiple-Integrals"><a href="#12-5-A-Unified-Template-for-Applications-of-Multiple-Integrals" class="headerlink" title="12.5 A Unified Template for Applications of Multiple Integrals"></a>12.5 A Unified Template for Applications of Multiple Integrals</h3><p>If the density is $\rho(x,y,z)$, then</p>
+<p>$$<br>M&#x3D;\iiint_\Omega \rho,dv<br>$$</p>
+<p>gives the mass; the coordinates of the centre of mass are first moments divided by total mass; and a moment of inertia accumulates “squared distance from the axis × mass element.”</p>
+<p>Likewise, double integrals can find the mass, centre of mass, and moment of inertia of a plane lamina. Once again, although the surfaces of the problems differ, their interior has only three steps: determine the density, write the differential contribution, and accumulate over the correct region.</p>
+<hr>
+<h2 id="13-Line-and-Surface-Integrals-The-Domain-of-Accumulation-Can-Itself-Be-Curved"><a href="#13-Line-and-Surface-Integrals-The-Domain-of-Accumulation-Can-Itself-Be-Curved" class="headerlink" title="13. Line and Surface Integrals: The Domain of Accumulation Can Itself Be Curved"></a>13. Line and Surface Integrals: The Domain of Accumulation Can Itself Be Curved</h2><p>Multiple integrals accumulate over regions or volumes, but real objects may also be distributed along a curve or spread over a surface. The domain of integration is therefore no longer flat.</p>
+<h3 id="13-1-Line-Integrals-of-the-First-Kind-Accumulating-a-Scalar-along-a-Curve"><a href="#13-1-Line-Integrals-of-the-First-Kind-Accumulating-a-Scalar-along-a-Curve" class="headerlink" title="13.1 Line Integrals of the First Kind: Accumulating a Scalar along a Curve"></a>13.1 Line Integrals of the First Kind: Accumulating a Scalar along a Curve</h3><p>A line integral of the first kind,</p>
+<p>$$<br>\int_L f(x,y,z)ds<br>$$</p>
+<p>may represent the total mass of a linear density distributed along a curve. It is independent of the direction of the curve because the arc-length element $ds\ge0$.</p>
+<p>If a plane curve is parameterised by $x&#x3D;x(t),y&#x3D;y(t)$ for $\alpha\le t\le\beta$, then</p>
+<p>$$<br>ds&#x3D;\sqrt{[x’(t)]^2+[y’(t)]^2}dt,<br>$$</p>
+<p>$$<br>\int_L fds<br>&#x3D;\int_\alpha^\beta f(x(t),y(t))<br>\sqrt{[x’(t)]^2+[y’(t)]^2}dt.<br>$$</p>
+<p>For a space curve, add $[z’(t)]^2$. The computational structure is to straighten a curved path onto a parameter axis and compensate with an arc-length scaling factor.</p>
+<h3 id="13-2-Line-Integrals-of-the-Second-Kind-How-Much-Work-a-Vector-Field-Does-along-the-Direction-of-Motion"><a href="#13-2-Line-Integrals-of-the-Second-Kind-How-Much-Work-a-Vector-Field-Does-along-the-Direction-of-Motion" class="headerlink" title="13.2 Line Integrals of the Second Kind: How Much Work a Vector Field Does along the Direction of Motion"></a>13.2 Line Integrals of the Second Kind: How Much Work a Vector Field Does along the Direction of Motion</h3><p>A line integral of the second kind,</p>
+<p>$$<br>\int_L Pdx+Qdy+Rdz<br>&#x3D;\int_L\mathbf F\cdot d\mathbf r<br>$$</p>
+<p>describes the accumulation of the tangential component of a vector field along a path, as in work done by a variable force. It depends on direction: reversing the path changes the sign of the integral.</p>
+<p>After parameterisation, it becomes:</p>
+<p>$$<br>\int_\alpha^\beta<br>[P(x(t),y(t))x’(t)+Q(x(t),y(t))y’(t)]dt.<br>$$</p>
+<p>The first kind accumulates scalar density, whereas the second accumulates the projection of a vector field onto the tangent direction. Their forms are similar, but their physical objects and directional properties are entirely different.</p>
+<h3 id="13-3-Green’s-Theorem-Reconciling-Boundary-Circulation-with-Interior-Rotation"><a href="#13-3-Green’s-Theorem-Reconciling-Boundary-Circulation-with-Interior-Rotation" class="headerlink" title="13.3 Green’s Theorem: Reconciling Boundary Circulation with Interior Rotation"></a>13.3 Green’s Theorem: Reconciling Boundary Circulation with Interior Rotation</h3><p>If a closed region $D$ has the positively oriented boundary $L$, and $P,Q$ have continuous partial derivatives, then</p>
+<p>$$<br>\oint_LPdx+Qdy<br>&#x3D;\iint_D\left(\frac{\partial Q}{\partial x}<br>-\frac{\partial P}{\partial y}\right)dxdy.<br>$$</p>
+<p>Positive orientation usually means that the region remains on the left while one travels along the boundary. Green’s theorem turns the total circulation around the boundary into the sum of the small rotations at every point inside the region.</p>
+<p>It can be used to:</p>
+<ul>
+<li><p>convert a difficult closed line integral into a double integral;</p>
+</li>
+<li><p>convert a double integral into a more convenient boundary integral;</p>
+</li>
+<li><p>calculate the area of a plane region;</p>
+</li>
+<li><p>determine whether a line integral is independent of path.</p>
+</li>
+</ul>
+<h3 id="13-4-Path-Independence-Conservative-Fields-and-Total-Differentials"><a href="#13-4-Path-Independence-Conservative-Fields-and-Total-Differentials" class="headerlink" title="13.4 Path Independence, Conservative Fields, and Total Differentials"></a>13.4 Path Independence, Conservative Fields, and Total Differentials</h3><p>In a simply connected region, if $P,Q$ have continuous partial derivatives, the following structures are generally equivalent:</p>
+<ol>
+<li><p>$\int_LPdx+Qdy$ is independent of path;</p>
+</li>
+<li><p>the integral around every closed curve is zero;</p>
+</li>
+<li><p>there is a potential function $u$ such that $du&#x3D;Pdx+Qdy$;</p>
+</li>
+<li><p>$P_y&#x3D;Q_x$.</p>
+</li>
+</ol>
+<p>“Simply connected” cannot be deleted casually. If a region has a hole, zero local curl may still coexist with non-zero circulation around that hole. Local irrotationality does not automatically produce a global potential function. This is another rupture between a local model and global topology.</p>
+<p>To find a potential function, one may first integrate $P$ with respect to $x$ and then use $u_y&#x3D;Q$ to determine the omitted “constant function of $y$”; alternatively, one may integrate along a piecewise linear path.</p>
+<h3 id="13-5-Surface-Integrals-of-the-First-Kind-Accumulating-a-Scalar-over-a-Surface"><a href="#13-5-Surface-Integrals-of-the-First-Kind-Accumulating-a-Scalar-over-a-Surface" class="headerlink" title="13.5 Surface Integrals of the First Kind: Accumulating a Scalar over a Surface"></a>13.5 Surface Integrals of the First Kind: Accumulating a Scalar over a Surface</h3><p>A surface integral of the first kind,</p>
+<p>$$<br>\iint_\Sigma f(x,y,z)dS<br>$$</p>
+<p>is independent of the orientation of the surface and may represent the total mass of a surface density.</p>
+<p>If the surface is $z&#x3D;z(x,y)$ and its projection onto the $xy$-plane is $D_{xy}$, then</p>
+<p>$$<br>dS&#x3D;\sqrt{1+z_x^2+z_y^2},dxdy,<br>$$</p>
+<p>$$<br>\iint_\Sigma fdS<br>&#x3D;\iint_{D_{xy}}f(x,y,z(x,y))<br>\sqrt{1+z_x^2+z_y^2},dxdy.<br>$$</p>
+<p>The square-root factor corrects for the stretching of the surface relative to its projection.</p>
+<h3 id="13-6-Surface-Integrals-of-the-Second-Kind-Flux-through-a-Surface"><a href="#13-6-Surface-Integrals-of-the-Second-Kind-Flux-through-a-Surface" class="headerlink" title="13.6 Surface Integrals of the Second Kind: Flux through a Surface"></a>13.6 Surface Integrals of the Second Kind: Flux through a Surface</h3><p>A surface integral of the second kind,</p>
+<p>$$<br>\iint_\Sigma P,dydz+Q,dzdx+R,dxdy<br>&#x3D;\iint_\Sigma\mathbf F\cdot\mathbf n,dS<br>$$</p>
+<p>describes the flux of a vector field through an oriented surface. Reversing the surface orientation changes the sign of the integral.</p>
+<p>If $z&#x3D;z(x,y)$ and the upward side is chosen, the oriented area vector may be written as</p>
+<p>$$<br>(-z_x,-z_y,1)dxdy;<br>$$</p>
+<p>for the downward side, its sign is reversed. When choosing the projection plane, one usually asks whether the surface equation can conveniently be solved for the corresponding variable.</p>
+<h3 id="13-7-Gauss’s-and-Stokes’s-Theorems-Two-Unifications-of-Interior-and-Boundary"><a href="#13-7-Gauss’s-and-Stokes’s-Theorems-Two-Unifications-of-Interior-and-Boundary" class="headerlink" title="13.7 Gauss’s and Stokes’s Theorems: Two Unifications of Interior and Boundary"></a>13.7 Gauss’s and Stokes’s Theorems: Two Unifications of Interior and Boundary</h3><p>For the outward side of a closed surface $\Sigma$ bounding the region $\Omega$, Gauss’s theorem states</p>
+<h1 id="iint-Sigma-P-dy-dz-Q-dz-dx-R-dx-dy"><a href="#iint-Sigma-P-dy-dz-Q-dz-dx-R-dx-dy" class="headerlink" title="$$\iint_\Sigma P,dy,dz+Q,dz,dx+R,dx,dy"></a>$$<br>\iint_\Sigma P,dy,dz+Q,dz,dx+R,dx,dy</h1><p>\iiint_\Omega<br>\left(P_x+Q_y+R_z\right),dv.<br>$$</p>
+<p>Here</p>
+<p>$$<br>\nabla\cdot\mathbf F&#x3D;P_x+Q_y+R_z<br>$$</p>
+<p>is the divergence, describing the tendency of net outflow near a unit volume. Gauss’s theorem says that total flux across a closed boundary equals the sum of all infinitesimal sources and sinks within it.</p>
+<p>Stokes’s theorem states</p>
+<p>$$<br>\oint_{\partial\Sigma}\mathbf F\cdot d\mathbf r<br>&#x3D;\iint_\Sigma(\nabla\times\mathbf F)\cdot\mathbf n,dS.<br>$$</p>
+<p>The curl $\nabla\times\mathbf F$ describes local rotation. The direction of the boundary curve and the surface normal obey the right-hand rule.</p>
+<p>Green’s theorem may be regarded as the planar special case of Stokes’s theorem. All three share one structure:</p>
+<blockquote>
+<p><strong>The total amount of “change” inside a region equals the net effect it leaves on the boundary.</strong></p>
+</blockquote>
+<p>At this point, the relation between differentiation and integration is no longer merely the one-dimensional Newton–Leibniz formula. It has become a more general duality between interior and boundary.</p>
+<hr>
+<h2 id="14-Infinite-Series-Can-Infinite-Superposition-Become-Stable"><a href="#14-Infinite-Series-Can-Infinite-Superposition-Become-Stable" class="headerlink" title="14. Infinite Series: Can Infinite Superposition Become Stable?"></a>14. Infinite Series: Can Infinite Superposition Become Stable?</h2><h3 id="14-1-A-Series-Studies-Partial-Sums-Not-Merely-Its-Terms"><a href="#14-1-A-Series-Studies-Partial-Sums-Not-Merely-Its-Terms" class="headerlink" title="14.1 A Series Studies Partial Sums, Not Merely Its Terms"></a>14.1 A Series Studies Partial Sums, Not Merely Its Terms</h3><p>The convergence of the infinite series</p>
+<p>$$<br>\sum_{n&#x3D;1}^{\infty}a_n<br>$$</p>
+<p>is defined by whether the sequence of partial sums</p>
+<p>$$<br>S_n&#x3D;\sum_{k&#x3D;1}^{n}a_k<br>$$</p>
+<p>has a finite limit.</p>
+<p>If a series converges, then necessarily $a_n\to0$; however, $a_n\to0$ is far from sufficient. For example, in the harmonic series</p>
+<p>$$<br>\sum_{n&#x3D;1}^{\infty}\frac1n<br>$$</p>
+<p>the terms tend to zero, while the partial sums still diverge. Each new contribution being small does not imply that the accumulated total is bounded.</p>
+<p>Two benchmark models are:</p>
+<p>$$<br>\sum_{n&#x3D;0}^{\infty}q^n<br>\begin{cases}<br>\text{收敛到 }\dfrac1{1-q},&amp;|q|&lt;1,\<br>\text{发散},&amp;|q|\ge1,<br>\end{cases}<br>$$</p>
+<p>$$<br>\sum_{n&#x3D;1}^{\infty}\frac1{n^p}<br>\begin{cases}<br>\text{收敛},&amp;p&gt;1,\<br>\text{发散},&amp;p\le1.<br>\end{cases}<br>$$</p>
+<h3 id="14-2-Tests-for-Positive-Term-Series"><a href="#14-2-Tests-for-Positive-Term-Series" class="headerlink" title="14.2 Tests for Positive-Term Series"></a>14.2 Tests for Positive-Term Series</h3><p>The partial sums of a positive-term series increase monotonically, so convergence is equivalent to their having an upper bound. Common tools include:</p>
+<p><strong>Comparison test</strong>: if $0\le a_n\le b_n$, convergence of the larger implies convergence of the smaller, while divergence of the smaller implies divergence of the larger.</p>
+<p><strong>Limit comparison test</strong>: if $a_n,b_n&gt;0$ and</p>
+<p>$$<br>\lim_{n\to\infty}\frac{a_n}{b_n}&#x3D;c,<br>\qquad 0&lt;c&lt;\infty,<br>$$</p>
+<p>the two series share the same convergence behaviour.</p>
+<p><strong>Ratio test</strong>: if</p>
+<p>$$<br>\lim_{n\to\infty}\frac{a_{n+1}}{a_n}&#x3D;\rho,<br>$$</p>
+<p>the series converges when $\rho&lt;1$, diverges when $\rho&gt;1$ or is infinite, and the test is inconclusive when $\rho&#x3D;1$. It is suitable for terms involving factorials or products of exponentials.</p>
+<p><strong>Root test</strong>: if</p>
+<p>$$<br>\lim_{n\to\infty}\sqrt[n]{a_n}&#x3D;\rho,<br>$$</p>
+<p>the conclusions are the same. It is suitable when the whole term is raised to the $n$th power.</p>
+<p><strong>Integral test</strong>: if $f$ is positive, continuous, and monotonically decreasing with $a_n&#x3D;f(n)$, then $\sum a_n$ and $\int f(x)dx$ either both converge or both diverge.</p>
+<p>Choosing a test essentially means finding a known scale for an unfamiliar series: polynomial decay suggests a $p$-series; exponentials or factorials suggest the ratio or root test; and slow decay involving logarithms often suggests integration or comparison.</p>
+<h3 id="14-3-Alternating-Series-Absolute-Convergence-and-Conditional-Convergence"><a href="#14-3-Alternating-Series-Absolute-Convergence-and-Conditional-Convergence" class="headerlink" title="14.3 Alternating Series, Absolute Convergence, and Conditional Convergence"></a>14.3 Alternating Series, Absolute Convergence, and Conditional Convergence</h3><p>For an alternating series</p>
+<p>$$<br>\sum_{n&#x3D;1}^{\infty}(-1)^{n-1}a_n<br>$$</p>
+<p>if $a_n$ decreases monotonically and tends to zero, the Leibniz test ensures convergence, and the absolute value of the remainder does not exceed the next term.</p>
+<p>If</p>
+<p>$$<br>\sum|a_n|<br>$$</p>
+<p>converges, the original series is absolutely convergent, and absolute convergence implies convergence. If the original series converges while the series of absolute values diverges, it is conditionally convergent. A conditionally convergent series is sensitive to rearrangement, which may change its sum or destroy convergence; absolute convergence is more stable.</p>
+<h3 id="14-4-Power-Series-Encoding-a-Function-as-an-Infinite-Polynomial"><a href="#14-4-Power-Series-Encoding-a-Function-as-an-Infinite-Polynomial" class="headerlink" title="14.4 Power Series: Encoding a Function as an Infinite Polynomial"></a>14.4 Power Series: Encoding a Function as an Infinite Polynomial</h3><p>A power series</p>
+<p>$$<br>\sum_{n&#x3D;0}^{\infty}a_n(x-x_0)^n<br>$$</p>
+<p>has a radius of convergence $R$:</p>
+<ul>
+<li>it converges absolutely when $|x-x_0|&lt;R$;</li>
+<li>it diverges when $|x-x_0|&gt;R$;</li>
+<li>the two endpoints must be substituted into the original series and tested separately.</li>
+</ul>
+<p>The radius is often found by the ratio or root test. Within the interval of convergence, a power series may be differentiated and integrated term by term without changing its radius, though the status of the endpoints may change.</p>
+<p>The Taylor series</p>
+<p>$$<br>\sum_{n&#x3D;0}^{\infty}\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n<br>$$</p>
+<p>is generated from all derivatives of a function at one point. Yet the existence of derivatives of every order does not automatically guarantee that a function equals its Taylor series; the remainder must also tend to zero. The finite-order approximation supplied by Taylor’s formula must be distinguished from the infinite expansion supplied by a Taylor series.</p>
+<p>Common methods for expanding a function into a power series include:</p>
+<ol>
+<li>using a known Maclaurin expansion directly;</li>
+<li>assembling one through substitution and arithmetic operations;</li>
+<li>differentiating or integrating a known series term by term;</li>
+<li>decomposing into partial fractions before using a geometric series.</li>
+</ol>
+<p>Summing a power series reverses this process: recognise the target series as a transformation of a known functional series, then recover it through differentiation, integration, and substitution.</p>
+<h3 id="14-5-Fourier-Series-Replacing-Polynomials-with-Period-and-Frequency-as-the-Basis"><a href="#14-5-Fourier-Series-Replacing-Polynomials-with-Period-and-Frequency-as-the-Basis" class="headerlink" title="14.5 Fourier Series: Replacing Polynomials with Period and Frequency as the Basis"></a>14.5 Fourier Series: Replacing Polynomials with Period and Frequency as the Basis</h3><p>Under suitable conditions, a function of period $2l$ may be expanded as</p>
+<p>$$<br>f(x)\sim\frac{a_0}{2}<br>+\sum_{n&#x3D;1}^{\infty}<br>\left(a_n\cos\frac{n\pi x}{l}<br>+b_n\sin\frac{n\pi x}{l}\right),<br>$$</p>
+<p>where</p>
+<p>$$<br>a_n&#x3D;\frac1l\int_{-l}^{l}f(x)\cos\frac{n\pi x}{l}dx,<br>$$</p>
+<p>$$<br>b_n&#x3D;\frac1l\int_{-l}^{l}f(x)\sin\frac{n\pi x}{l}dx.<br>$$</p>
+<p>For an odd function, only sine terms remain; for an even function, only cosine terms remain. If a function is given only on $[0,l]$, an odd extension produces a sine series, while an even extension produces a cosine series.</p>
+<p>Under common assumptions such as the Dirichlet conditions, a Fourier series converges to $f(x)$ at a point of continuity and to the average of the two one-sided limits at a jump:</p>
+<p>$$<br>\frac{f(x^-)+f(x^+)}2.<br>$$</p>
+<p>A Taylor expansion uses local derivatives to encode a function as powers, whereas a Fourier expansion uses inner products over a whole interval to encode it as frequencies. Both choose a set of simple basis functions and use coefficients to record how much of each component a complex object contains. One is more local and suited to analytic structure; the other is more global and suited to periodic structure.</p>
+<hr>
+<h2 id="15-Differential-Equations-Prescribing-How-an-Object-Changes-Rather-Than-Describing-It-Directly"><a href="#15-Differential-Equations-Prescribing-How-an-Object-Changes-Rather-Than-Describing-It-Directly" class="headerlink" title="15. Differential Equations: Prescribing How an Object Changes Rather Than Describing It Directly"></a>15. Differential Equations: Prescribing How an Object Changes Rather Than Describing It Directly</h2><h3 id="15-1-From-Functional-Models-to-Laws-of-Evolution"><a href="#15-1-From-Functional-Models-to-Laws-of-Evolution" class="headerlink" title="15.1 From Functional Models to Laws of Evolution"></a>15.1 From Functional Models to Laws of Evolution</h3><p>An equation containing an unknown function and its derivatives is called a differential equation. The order of its highest derivative is the order of the equation. A general solution usually contains as many independent arbitrary constants as the order; a solution determined by initial conditions is called a particular solution.</p>
+<p>A differential equation performs a more radical compression: we do not know the complete shape of $y(t)$, but we know how its rate of change depends on the current state and input. Solving the equation means reconstructing the whole trajectory from a local rule of evolution.</p>
+<h3 id="15-2-First-Order-Differential-Equations"><a href="#15-2-First-Order-Differential-Equations" class="headerlink" title="15.2 First-Order Differential Equations"></a>15.2 First-Order Differential Equations</h3><p><strong>Separable equation</strong>:</p>
+<p>$$<br>\frac{dy}{dx}&#x3D;g(x)h(y)<br>$$</p>
+<p>Rearrange it as</p>
+<p>$$<br>\frac{dy}{h(y)}&#x3D;g(x)dx<br>$$</p>
+<p>and integrate both sides. Before dividing by $h(y)$, check whether $h(y)&#x3D;0$ corresponds to a constant solution that would otherwise be lost.</p>
+<p><strong>Homogeneous-type equation</strong>:</p>
+<p>$$<br>\frac{dy}{dx}&#x3D;F\left(\frac yx\right)<br>$$</p>
+<p>Let $u&#x3D;y&#x2F;x$, so $y&#x3D;ux$ and $y’&#x3D;u+xu’$, reducing it to a separable equation.</p>
+<p><strong>First-order linear equation</strong>:</p>
+<p>$$<br>y’+P(x)y&#x3D;Q(x).<br>$$</p>
+<p>Its integrating factor is</p>
+<p>$$<br>\mu(x)&#x3D;e^{\int P(x)dx},<br>$$</p>
+<p>and hence</p>
+<p>$$<br>y&#x3D;e^{-\int Pdx}<br>\left(\int Qe^{\int Pdx}dx+C\right).<br>$$</p>
+<p><strong>Bernoulli equation</strong>:</p>
+<p>$$<br>y’+P(x)y&#x3D;Q(x)y^n,<br>\qquad n\ne0,1,<br>$$</p>
+<p>Let $z&#x3D;y^{1-n}$ to reduce it to a first-order linear equation. Again, check whether the transformation loses solutions such as $y&#x3D;0$.</p>
+<p><strong>Exact differential equation</strong>:</p>
+<p>$$<br>M(x,y)dx+N(x,y)dy&#x3D;0.<br>$$</p>
+<p>If $M_y&#x3D;N_x$ and the regional conditions are suitable, the left side is the total differential of some potential function $u(x,y)$, and the solution is $u(x,y)&#x3D;C$.</p>
+<h3 id="15-3-Higher-Order-Equations-That-Can-Be-Reduced-in-Order"><a href="#15-3-Higher-Order-Equations-That-Can-Be-Reduced-in-Order" class="headerlink" title="15.3 Higher-Order Equations That Can Be Reduced in Order"></a>15.3 Higher-Order Equations That Can Be Reduced in Order</h3><p>If the equation does not explicitly contain $y$, as in</p>
+<p>$$<br>y’’&#x3D;f(x,y’),<br>$$</p>
+<p>let $p&#x3D;y’$ to reduce the second-order equation to a first-order equation for $p(x)$.</p>
+<p>If the equation does not explicitly contain $x$, as in</p>
+<p>$$<br>y’’&#x3D;f(y,y’),<br>$$</p>
+<p>let $p(y)&#x3D;y’$ and use</p>
+<p>$$<br>y’’&#x3D;\frac{dp}{dx}&#x3D;\frac{dp}{dy}\frac{dy}{dx}&#x3D;p\frac{dp}{dy}<br>$$</p>
+<p>to reduce the order.</p>
+<p>Epistemologically, order reduction uses the symmetry represented by a missing variable to remove an unnecessary degree of freedom.</p>
+<h3 id="15-4-The-Superposition-Structure-of-Linear-Differential-Equations"><a href="#15-4-The-Superposition-Structure-of-Linear-Differential-Equations" class="headerlink" title="15.4 The Superposition Structure of Linear Differential Equations"></a>15.4 The Superposition Structure of Linear Differential Equations</h3><p>An $n$th-order linear equation can be written as</p>
+<p>$$<br>y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_n(x)y&#x3D;f(x).<br>$$</p>
+<p>For a homogeneous equation, the right side is zero. Linearity means that homogeneous solutions can be superposed; the general solution of a non-homogeneous equation is</p>
+<p>$$<br>y&#x3D;y_h+y_p,<br>$$</p>
+<p>namely the general homogeneous solution plus one particular non-homogeneous solution.</p>
+<p>For the second-order homogeneous equation with constant coefficients</p>
+<p>$$<br>y’’+py’+qy&#x3D;0,<br>$$</p>
+<p>setting $y&#x3D;e^{rx}$ yields the characteristic equation</p>
+<p>$$<br>r^2+pr+q&#x3D;0.<br>$$</p>
+<ul>
+<li><p>For two distinct real roots $r_1,r_2$: $y&#x3D;C_1e^{r_1x}+C_2e^{r_2x}$;</p>
+</li>
+<li><p>for a repeated real root $r$: $y&#x3D;(C_1+C_2x)e^{rx}$;</p>
+</li>
+<li><p>for conjugate complex roots $\alpha\pm i\beta$:</p>
+</li>
+</ul>
+<p>$$<br>y&#x3D;e^{\alpha x}(C_1\cos\beta x+C_2\sin\beta x).<br>$$</p>
+<p>Characteristic roots turn a differential operation into an algebraic equation. Since differentiation changes an exponential function only by a multiplicative factor, exponential functions are the natural eigenfunctions of linear constant-coefficient differential operators.</p>
+<h3 id="15-5-Non-Homogeneous-Particular-Solutions-Euler-Equations-and-Systems-of-Equations"><a href="#15-5-Non-Homogeneous-Particular-Solutions-Euler-Equations-and-Systems-of-Equations" class="headerlink" title="15.5 Non-Homogeneous Particular Solutions, Euler Equations, and Systems of Equations"></a>15.5 Non-Homogeneous Particular Solutions, Euler Equations, and Systems of Equations</h3><p>When the right side is $e^{\lambda x}P_m(x)$ or $e^{\alpha x}[P_l(x)\cos\beta x+Q_n(x)\sin\beta x]$, the method of undetermined coefficients can be used to propose a particular solution. If the proposed form overlaps with a homogeneous solution, it must be multiplied by a sufficiently high power of $x$ to remove the resonance.</p>
+<p>For the Euler equation</p>
+<p>$$<br>x^2y’’+pxy’+qy&#x3D;f(x)<br>$$</p>
+<p>set $x&#x3D;e^t$ to transform the variable-coefficient structure into a constant-coefficient equation.</p>
+<p>A system of linear differential equations with constant coefficients can be eliminated or written in matrix form:</p>
+<p>$$<br>\mathbf x’&#x3D;A\mathbf x+mathbf f(t).<br>$$</p>
+<p>Eigenvalues control the growth, decay, and oscillation of the modes of the system. Here advanced mathematics begins to connect with linear algebra, signals and systems, and automatic control: the same desire to “diagonalise the differential operator” repeatedly returns under different names in different courses.</p>
+<h3 id="15-6-What-a-Modelling-Problem-Truly-Lacks-Is-Not-a-Solution-Formula"><a href="#15-6-What-a-Modelling-Problem-Truly-Lacks-Is-Not-a-Solution-Formula" class="headerlink" title="15.6 What a Modelling Problem Truly Lacks Is Not a Solution Formula"></a>15.6 What a Modelling Problem Truly Lacks Is Not a Solution Formula</h3><p>Models of growth, decay, cooling, and vibration usually follow these steps:</p>
+<ol>
+<li><p>choose the state variables;</p>
+</li>
+<li><p>identify the conservation or change relation over a small interval of time;</p>
+</li>
+<li><p>write a differential equation;</p>
+</li>
+<li><p>add initial or boundary conditions;</p>
+</li>
+<li><p>solve it and check dimensions, signs, and long-term behaviour.</p>
+</li>
+</ol>
+<p>Obtaining a function does not mean that the model is complete. We must still ask whether the solution lies in the domain, whether it satisfies the initial values, whether its long-term tendency agrees with reality, what happens as parameters change, and when omitted factors begin to push back against the model.</p>
+<hr>
+<h2 id="16-Compressing-the-Entire-Subject-Again"><a href="#16-Compressing-the-Entire-Subject-Again" class="headerlink" title="16. Compressing the Entire Subject Again"></a>16. Compressing the Entire Subject Again</h2><p>The generative logic of advanced mathematics can now be compressed into one table.</p>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>The gap it fills</th>
+<th>Central object</th>
+<th>Most important awareness of boundaries</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Functions</td>
+<td>Relations in reality cannot be processed directly</td>
+<td>Correspondence from input to output</td>
+<td>Domain and rule jointly determine a function</td>
+</tr>
+<tr>
+<td>Sequences</td>
+<td>Continuous models do not suit discrete states</td>
+<td>Functions indexed by integers</td>
+<td>Terms tending to zero do not imply convergence of a series</td>
+</tr>
+<tr>
+<td>Limits</td>
+<td>Unreachable points and infinite processes cannot otherwise be discussed</td>
+<td>A stable value in a process of approach</td>
+<td>A limit concerns a neighbourhood, not the point value</td>
+</tr>
+<tr>
+<td>Continuity</td>
+<td>Tendency and actual value may be disconnected</td>
+<td>Local stability</td>
+<td>Continuity does not imply differentiability</td>
+</tr>
+<tr>
+<td>Derivatives</td>
+<td>Static correspondences lack speed of change</td>
+<td>Local rate of change</td>
+<td>Differentiability implies continuity, not conversely</td>
+</tr>
+<tr>
+<td>Differentials</td>
+<td>A local curve remains complicated</td>
+<td>Best linear principal part</td>
+<td>Existence of multivariable partial derivatives does not imply differentiability</td>
+</tr>
+<tr>
+<td>Mean-value theorems</td>
+<td>Local derivatives cannot directly describe the whole interval</td>
+<td>A bridge between local and global</td>
+<td>Check continuity, differentiability, and endpoint conditions one by one</td>
+</tr>
+<tr>
+<td>Indefinite integrals</td>
+<td>The rate of change is known, but the original object is not</td>
+<td>A family of antiderivatives</td>
+<td>Do not omit arbitrary constants or special solutions</td>
+</tr>
+<tr>
+<td>Definite integrals</td>
+<td>Countless local contributions must be combined</td>
+<td>Limit of Riemann sums</td>
+<td>Area requires sign handling; improper integrals require convergence first</td>
+</tr>
+<tr>
+<td>Analytic geometry in space</td>
+<td>Multivariable objects lack a descriptive language</td>
+<td>Vectors, planes, and surfaces</td>
+<td>The equation form must serve the geometric object</td>
+</tr>
+<tr>
+<td>Multivariable differentiation</td>
+<td>One output is influenced by several inputs</td>
+<td>Partial derivatives, gradients, and total differentials</td>
+<td>All local directions must be controlled uniformly</td>
+</tr>
+<tr>
+<td>Multiple integrals</td>
+<td>The domain of accumulation extends from lines to surfaces and volumes</td>
+<td>Area and volume elements</td>
+<td>A substitution requires a Jacobian and a rewritten region</td>
+</tr>
+<tr>
+<td>Line&#x2F;surface integrals</td>
+<td>The domain of accumulation is itself curved</td>
+<td>Circulation and flux</td>
+<td>First-kind integrals have no orientation; second-kind integrals do</td>
+</tr>
+<tr>
+<td>Series</td>
+<td>Infinite addition need not become stable</td>
+<td>Partial sums and function expansions</td>
+<td>Test endpoints separately; absolute and conditional convergence differ</td>
+</tr>
+<tr>
+<td>Differential equations</td>
+<td>The object is unknown, but its law of change is known</td>
+<td>Unknown functions and their derivatives</td>
+<td>A solution is only a model output and must still be checked against conditions</td>
+</tr>
+</tbody></table>
+<p>Compressed once more, it becomes:</p>
+<p>$$<br>\boxed{<br>\text{关系}<br>\to\text{趋近}<br>\to\text{局部变化}<br>\to\text{整体累积}<br>\to\text{多维推广}<br>\to\text{无限叠加与演化规律}<br>}<br>$$</p>
+<p>Another hidden line runs through the subject from beginning to end:</p>
+<p>$$<br>\boxed{<br>\text{选取变量}<br>\to\text{建立模型}<br>\to\text{在条件内运算}<br>\to\text{让现实或题目检验}<br>\to\text{修正模型}<br>}<br>$$</p>
+<p>I once understood advanced mathematics as “building a functional model and then adding derivatives and integrals.” That view now seems too narrow. What the subject repeatedly trains are two inverse movements: dividing a whole into infinitesimal local parts and accumulating those parts back into a whole; projecting a complex object onto coordinates or a basis in which it is easier to handle, and then calculating within that representation.</p>
+<p>This is why limits are not a tool to be discarded after the first chapter. A derivative is the limit of a difference quotient, a definite integral is the limit of a sum, a series is the limit of partial sums, and multivariable continuity and improper integrals are still asking about limits. The rooms keep changing throughout the building, but the load-bearing structure remains the same.</p>
+<p>Still, let me turn the argument back. Being able to draw this map only shows that I can compress the subject at present. Whether I can unfold it depends on whether I can state the conditions of each theorem one by one, derive the formulas myself, and recognise a problem after its surface has changed. Whether the whole system can run in the examination room is yet another question concerning “action.”</p>
+<p>I can even feel a slight impression that “this part is not so formidable after all.” Usually, when that feeling appears, it is not because I have mastered the material, but because I have not yet encountered a problem capable of pushing the model back at me.</p>
+<p>So the map ends here. I had better return to solving problems.</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Epistemology/" class="print-no-link">#Epistemology</a>
+      
+        <a href="/tags/Advanced-Mathematics/" class="print-no-link">#Advanced Mathematics</a>
+      
+        <a href="/tags/Learning-Methods/" class="print-no-link">#Learning Methods</a>
+      
+        <a href="/tags/Postgraduate-Entrance-Examination-Mathematics/" class="print-no-link">#Postgraduate Entrance Examination Mathematics</a>
+      
+        <a href="/tags/Mathematics-I/" class="print-no-link">#Mathematics I</a>
+      
+        <a href="/tags/Calculus/" class="print-no-link">#Calculus</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Advanced Mathematics: An Epistemological Map from Functions to Fields</div>
+      <div>https://hwnote.space/en/posts/2026/07/14/calculus-epistemology-map/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>July 14, 2026</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js?v=20260821-global-language.js"></script>
+<script src="/js/bilingual-switch.js?v=20260821-global-language.js"></script>
+<script src="/js/tag-cloud.js?v=20260824-bilingual-cloud.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

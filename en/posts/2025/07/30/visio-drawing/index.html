@@ -1,0 +1,891 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="A few notes on Visio—which, in the end, amount to almost nothing.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Drawing with Visio">
+<meta property="og:url" content="https://hwnote.space/en/posts/2025/07/30/visio-drawing/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="A few notes on Visio—which, in the end, amount to almost nothing.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/pearson.jpg">
+<meta property="article:published_time" content="2025-07-30T10:14:11.000Z">
+<meta property="article:modified_time" content="2026-08-20T16:59:35.159Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Tools and Experiments">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/pearson.jpg">
+  
+  
+  
+  <title>Drawing with Visio - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css?v=20260821-global-language.css">
+<link rel="stylesheet" href="/css/tag-cloud.css?v=20260824-bilingual-cloud.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/pearson.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Drawing with Visio"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-07-30 18:14" pubdate>
+          July 30, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          173 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          3 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Drawing with Visio</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="Download-and-Installation"><a href="#Download-and-Installation" class="headerlink" title="Download and Installation"></a>Download and Installation</h2><p>There is little need to explain the installation procedure in detail. The posts below can serve as references. Anyone who has reached the point of wanting to learn Visio probably does not need yet another tutorial that explains every click.</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-cn/office/%E5%AE%89%E8%A3%85-visio-%E6%88%96%E8%AE%BF%E9%97%AE-visio-%E7%BD%91%E9%A1%B5%E7%89%88-f98f21e3-aa02-4827-9167-ddab5b025710">Install Visio or Access Visio for the Web—Microsoft Support</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38348202/article/details/127723561">A Complete Guide from Installing to Using Visio—CSDN</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/binbinaishijie88/article/details/149247723">2025 Visio Installation Guide, Including the Installer—CSDN</a><br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzk0MzE4NDU4NQ==&mid=2247506730&idx=2&sn=4bcaa57e0835bc5e1fbdbf90cddde8fe&chksm=c335548cf442dd9a86ff301a26a85a9c30dcc9ecb84dd0584fde2281b71cce789df1b546a968&token=2032306290&lang=zh_CN&scene=21#wechat_redirect">Visio 2021 Installation Guide for 64-bit and 32-bit Systems</a></p>
+</blockquote>
+<p>Visio even has a web version. Looking around, I found that the entire Office family now seems to offer something similar. That is rather convenient if one can afford the subscription, although I have not used it myself:</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://visio.office.com/">https://visio.office.com/</a></p>
+</blockquote>
+<p>One peculiar problem arose during installation. With the Office 2021 suite—Word, PowerPoint, and the rest—already installed, I could not install Visio directly. Once Office had been removed, Visio could be installed. Rather strange.</p>
+<p><strong>The method I eventually settled on was to uninstall Office, obtain the complete Office disk image from the university’s licensed-software platform, reinstall the suite, and select Visio during setup. What a nuisance.</strong></p>
+<p>If you are a BIT student or alumnus, you might as well begin at ca.bit.edu.cn.</p>
+<h2 id="A-Short-Note-on-the-Historical-Development"><a href="#A-Short-Note-on-the-Historical-Development" class="headerlink" title="A Short Note on the Historical Development"></a>A Short Note on the Historical Development</h2><p>In broad terms, Microsoft first released the Office suite—Word, Excel, PowerPoint, and similar programs. These applications ran locally, and collaboration meant passing files back and forth by hand. In the 2010s, Microsoft introduced Office 365 and added cloud services such as OneDrive and email. In the 2020s, the brand was renamed Microsoft 365, with further collaborative and AI functions.</p>
+<p>The appropriate office software therefore depends mainly on how much collaboration is required and how much the user can afford.</p>
+<p>The more detailed account below comes from DeepSeek-R1:</p>
+<h3 id="A-Timeline-of-Microsoft’s-Office-Suites"><a href="#A-Timeline-of-Microsoft’s-Office-Suites" class="headerlink" title="A Timeline of Microsoft’s Office Suites"></a><strong>A Timeline of Microsoft’s Office Suites</strong></h3><h4 id="1-The-era-of-perpetual-licenses-1989–2010"><a href="#1-The-era-of-perpetual-licenses-1989–2010" class="headerlink" title="1. The era of perpetual licenses, 1989–2010"></a><strong>1. The era of perpetual licenses, 1989–2010</strong></h4><ul>
+<li><strong>1989:</strong> Microsoft first proposed the <strong>Microsoft Office</strong> brand, packaging several previously separate office applications for sale.</li>
+<li><strong>19 November 1990:</strong> the company released the landmark <strong>Office suite for Windows</strong>, containing <strong>Word 1.0, Excel 2.0, and PowerPoint 2.0</strong>. The familiar trio established a standard for document processing that would last for decades.</li>
+<li><strong>1995:</strong> distributed alongside <strong>Windows 95</strong>, <strong>Office 95</strong> spread rapidly and became the de facto standard for businesses and individuals worldwide, defeating competitors such as WordPerfect and Lotus.</li>
+<li><strong>The 2000s:</strong> Microsoft successively released perpetual-license editions including <strong>Office 2000, XP, 2003, 2007, and 2010</strong>. Their functions evolved, but they remained locally installed software, and collaboration continued to depend on file transfer.</li>
+</ul>
+<h4 id="2-The-transition-to-cloud-subscriptions-Office-365-2011–2019"><a href="#2-The-transition-to-cloud-subscriptions-Office-365-2011–2019" class="headerlink" title="2. The transition to cloud subscriptions: Office 365, 2011–2019"></a><strong>2. The transition to cloud subscriptions: Office 365, 2011–2019</strong></h4><ul>
+<li><strong>28 June 2011:</strong> Microsoft formally launched <strong>Office 365</strong>, marking the transition from perpetual licenses to subscription-based cloud services. The first version targeted <strong>business and educational users</strong> and combined Exchange Online, SharePoint Online, and Lync Online, later renamed Skype for Business.</li>
+<li><strong>2013:</strong><ul>
+<li>A premium subscription was introduced for <strong>small businesses</strong>.</li>
+<li>The business-intelligence tool <strong>Power BI</strong> was integrated with Excel.</li>
+</ul>
+</li>
+<li><strong>March 2014:</strong> subscription plans for <strong>individual consumers</strong>, including Personal and Family editions, extended cloud services to the consumer market for the first time.</li>
+<li><strong>2017:</strong><ul>
+<li>Office 365 accounted for <strong>more than half of Office revenue</strong> for the first time, a major milestone in the cloud transition.</li>
+<li>In <strong>July</strong>, Microsoft launched <strong>Microsoft 365 for enterprise</strong>, combining Office 365 Enterprise, Windows 10 Enterprise, and the Enterprise Mobility and Security suite. At this point, however, <strong>Office 365 remained the principal consumer brand</strong>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-A-unified-brand-and-an-expanded-ecosystem-Microsoft-365-2020-onward"><a href="#3-A-unified-brand-and-an-expanded-ecosystem-Microsoft-365-2020-onward" class="headerlink" title="3. A unified brand and an expanded ecosystem: Microsoft 365, 2020 onward"></a><strong>3. A unified brand and an expanded ecosystem: Microsoft 365, 2020 onward</strong></h4><ul>
+<li><strong>30 March 2020:</strong> Microsoft announced that the consumer Office 365 subscriptions, Personal and Family, would be formally renamed <strong>Microsoft 365</strong> on 21 April. The change marked the retreat of the “Office” brand and the growing importance of the cloud ecosystem.<ul>
+<li><strong>Principal additions:</strong> AI-related functions such as <strong>Microsoft Editor</strong>, <strong>Presenter Coach</strong>, and <strong>Money in Excel</strong>.</li>
+<li>Prices remained unchanged: 398 yuan per year for the Personal edition and 498 yuan for the Family edition in China.</li>
+</ul>
+</li>
+<li><strong>October 2022:</strong> at its Ignite conference, Microsoft announced that the Office applications on mobile, web, and desktop platforms would all be renamed the <strong>Microsoft 365 App</strong>, accompanied by revised interfaces and icons.</li>
+<li><strong>From 2023 onward:</strong><ul>
+<li>AI integration, including Copilot, cross-platform compatibility, and security updates continued to deepen.</li>
+<li><strong>Microsoft 365 developed into an integrated platform for office work, collaboration, cloud storage, AI, and security</strong>, extending well beyond the role of the traditional Office toolkit.</li>
+</ul>
+</li>
+</ul>
+<h3 id="The-Timeline-at-a-Glance"><a href="#The-Timeline-at-a-Glance" class="headerlink" title="The Timeline at a Glance"></a>The Timeline at a Glance</h3><table>
+<thead>
+<tr>
+<th>Period</th>
+<th>Principal product or brand</th>
+<th>Important events</th>
+<th>Model and characteristics</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1990–2010</strong></td>
+<td>Microsoft Office</td>
+<td>The three core applications appeared in 1990; Office spread with Windows 95; perpetual editions were updated</td>
+<td>Local installation and largely closed functions</td>
+</tr>
+<tr>
+<td><strong>2011–2019</strong></td>
+<td>Office 365</td>
+<td>Launched for enterprises in 2011; expanded to individuals in 2014; more than half of revenue by 2017</td>
+<td><strong>Subscription cloud service</strong> with online collaboration tools</td>
+</tr>
+<tr>
+<td><strong>2020 onward</strong></td>
+<td>Microsoft 365</td>
+<td>Consumer rebranding in April 2020; application-wide rebranding in 2022; deeper AI integration</td>
+<td><strong>Cloud, AI, and an ecosystem platform</strong> across devices</td>
+</tr>
+</tbody></table>
+<p>In any case, for my present self—a university student who does not know much yet—the simple answer is to keep using an educational edition of the Office suite.</p>
+<h2 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h2><p>Omitted. Only after opening the program did I discover that it follows essentially the same logic as the other Office applications. There is no need to waste more words on it here.</p>
+<p>So, to summarize: this post has said almost nothing.</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Tools-and-Experiments/" class="print-no-link">#Tools and Experiments</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Drawing with Visio</div>
+      <div>https://hwnote.space/en/posts/2025/07/30/visio-drawing/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>July 30, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js?v=20260821-global-language.js"></script>
+<script src="/js/bilingual-switch.js?v=20260821-global-language.js"></script>
+<script src="/js/tag-cloud.js?v=20260824-bilingual-cloud.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,1282 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Optimization, also known as mathematical programming, is a branch of operations research and appears frequently in mathematical-modelling competitions.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A Review of Optimization Methods">
+<meta property="og:url" content="https://hwnote.space/en/posts/2025/08/21/optimization-review/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="Optimization, also known as mathematical programming, is a branch of operations research and appears frequently in mathematical-modelling competitions.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/ridge_lasso.jpg">
+<meta property="article:published_time" content="2025-08-21T15:55:11.000Z">
+<meta property="article:modified_time" content="2026-08-20T17:11:11.231Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Mathematical Modelling">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/ridge_lasso.jpg">
+  
+  
+  
+  <title>A Review of Optimization Methods - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css?v=20260821-global-language.css">
+<link rel="stylesheet" href="/css/tag-cloud.css?v=20260824-bilingual-cloud.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/ridge_lasso.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="A Review of Optimization Methods"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-08-21 23:55" pubdate>
+          August 21, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          978 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">A Review of Optimization Methods</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>In essence, an optimization problem is about finding an extreme value—the maximum or minimum of an objective or evaluation function. This simple idea has an extremely wide range of applications.</p>
+<h2 id="Practical-Solving-Tools"><a href="#Practical-Solving-Tools" class="headerlink" title="Practical Solving Tools"></a>Practical Solving Tools</h2><ul>
+<li><p>MATLAB is not recommended, since its optimization support is relatively limited.</p>
+</li>
+<li><p>LINGO is recommended. It is specialized optimization software, although some extreme problems may still be too difficult for it to finish.</p>
+</li>
+<li><p>Gurobi is recommended. It performs very well and can be used directly from Python.</p>
+</li>
+</ul>
+<h2 id="How-to-Build-a-Mathematical-Model-for-an-Optimization-Problem"><a href="#How-to-Build-a-Mathematical-Model-for-an-Optimization-Problem" class="headerlink" title="How to Build a Mathematical Model for an Optimization Problem"></a>How to Build a Mathematical Model for an Optimization Problem</h2><p><strong>(1) Decision variables and parameters</strong></p>
+<p>Decision variables are unknown quantities whose values are determined by the solution of the mathematical model. Parameters represent the control variables of the system and may be either deterministic or random.</p>
+<p>In plain language, identify what is quantitative, what is unknown, and what must be solved for; then distinguish the independent variables from the dependent ones.</p>
+<p><strong>(2) Constraints or restrictions</strong></p>
+<p>Because a real system is limited by objective material conditions, the model must include constraints that keep decision variables within their feasible values. Such limits are usually expressed as mathematical constraint functions.</p>
+<p>In other words, find the constraints and express them in mathematical language.</p>
+<p><strong>(3) The objective function</strong></p>
+<p>This is a mathematical function of the system’s decision variables that measures its efficiency—in other words, the goal pursued by the system.</p>
+<h2 id="Categories-of-Optimization-Models"><a href="#Categories-of-Optimization-Models" class="headerlink" title="Categories of Optimization Models"></a>Categories of Optimization Models</h2><p>Optimization models can be divided into several categories according to the nature of their objective functions and constraints. Each category has distinctive features, and the methods and difficulty of solving them vary greatly.</p>
+<h3 id="1-Linear-Programming-LP"><a href="#1-Linear-Programming-LP" class="headerlink" title="1. Linear Programming, LP"></a>1. Linear Programming, LP</h3><ul>
+<li><p><strong>Characteristics:</strong> this is the most fundamental and classical form of optimization. Its defining feature is linearity:</p>
+<ol>
+<li><p><strong>The objective function is linear</strong>, for example $max Z &#x3D; 2x + 3y$.</p>
+</li>
+<li><p><strong>Every constraint is also linear</strong>, for example $x + y &lt;&#x3D; 10$ and $x - y &gt;&#x3D; 0$.</p>
+</li>
+<li><p>The decision variables <code>x, y</code> are continuous and may take fractional values.</p>
+</li>
+</ol>
+</li>
+<li><p><strong>Approach:</strong></p>
+<ul>
+<li><p><strong>Geometric intuition</strong>: when all the linear constraints are drawn in a coordinate system, they enclose a polygon in two dimensions or a polyhedron in higher dimensions. This is called the feasible region. Theory has proved that an optimal solution must occur at one of its vertices.</p>
+</li>
+<li><p><strong>Central algorithm</strong>: the <strong>simplex method</strong>. The method is remarkably ingenious. Beginning at one vertex of the feasible region, it travels along an edge to a better vertex and repeats this process until the optimal vertex is found. Large-scale linear-programming problems are now commonly solved with an <strong>interior-point method</strong>.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Still, why do I feel that this category would appear at most in the first sub-question? It does not seem particularly useful.</p>
+<h3 id="2-Integer-Programming-IP"><a href="#2-Integer-Programming-IP" class="headerlink" title="2. Integer Programming, IP"></a>2. Integer Programming, IP</h3><ul>
+<li><p><strong>Characteristics:</strong> integer programming adds to linear programming the requirement that one or more decision variables must be integers.</p>
+<ul>
+<li><p>If <strong>all</strong> decision variables must be integers, the problem is called <strong>pure integer programming, or pure IP</strong>.</p>
+</li>
+<li><p>If <strong>some</strong> variables must be integers while others may be continuous, the problem is called <strong>mixed-integer linear programming, or MILP</strong>.</p>
+</li>
+<li><p>The most special case is <strong>0-1 integer programming</strong>, in which a decision variable can only be 0 or 1. It is commonly used to represent such choices as yes or no and select or reject.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Approach:</strong></p>
+<ul>
+<li><p>Never assume that ordinary rounding will work. Rounding the result of a linear program may produce an infeasible or extremely poor solution.</p>
+</li>
+<li><p>Integer programming is much harder to solve than linear programming and belongs to the class of NP-hard problems.</p>
+</li>
+<li><p><strong>Central algorithms</strong>: <strong>branch and bound</strong> and the <strong>cutting-plane method</strong>. Branch and bound can be understood as an intelligent form of exhaustive search. It continually divides a problem into smaller subproblems, or branches, and uses solutions of the corresponding linear programs to determine which branches can be abandoned early, or bounded, thereby avoiding pointless search.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-Nonlinear-Programming-NLP"><a href="#3-Nonlinear-Programming-NLP" class="headerlink" title="3. Nonlinear Programming, NLP"></a>3. Nonlinear Programming, NLP</h3><p>If either the objective function or any constraint is nonlinear, the model falls within nonlinear programming. Its world is far more complicated than that of linear programming.</p>
+<h4 id="3-1-Unconstrained-Nonlinear-Programming"><a href="#3-1-Unconstrained-Nonlinear-Programming" class="headerlink" title="3.1 Unconstrained Nonlinear Programming"></a>3.1 Unconstrained Nonlinear Programming</h4><ul>
+<li><p><strong>Characteristics:</strong> the objective function is <strong>nonlinear</strong>, but there are <strong>no constraints</strong>. In plain language, the highest or lowest point of a function may be sought freely throughout its domain.</p>
+</li>
+<li><p><strong>Approach:</strong></p>
+<ul>
+<li><p>This is where calculus comes into its own. For a differentiable function, we look for points where the <strong>gradient</strong> is zero, namely points satisfying <code>∇f(x) = 0</code>. These stationary points are possible extrema.</p>
+</li>
+<li><p><strong>Central algorithms</strong>: various <strong>iterative descent algorithms</strong>. Starting from an initial point, each step moves a short distance in the direction that decreases, or increases, the function most rapidly, and the procedure gradually approaches an optimum. Classical algorithms include:</p>
+<ul>
+<li><p><strong>Gradient descent</strong>: the simplest method, which moves in the direction opposite to the gradient.</p>
+</li>
+<li><p><strong>Newton’s method</strong>: it takes second derivatives, represented by the Hessian matrix, into account. It converges faster but requires more computation.</p>
+</li>
+<li><p>The <strong>conjugate-gradient method</strong>, among others.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-2-Constrained-Nonlinear-Programming"><a href="#3-2-Constrained-Nonlinear-Programming" class="headerlink" title="3.2 Constrained Nonlinear Programming"></a>3.2 Constrained Nonlinear Programming</h4><ul>
+<li><p><strong>Characteristics:</strong> at least one objective or constraint function is <strong>nonlinear</strong>, and <strong>constraints are present</strong>. This is one of the most common and complicated classes of real-world problems.</p>
+</li>
+<li><p><strong>Approach:</strong></p>
+<ul>
+<li><p>Handling constraints is the key. The <strong>method of Lagrange multipliers</strong> is the classical theoretical basis for equality constraints. It converts a constrained problem into a larger unconstrained one by constructing a Lagrangian function.</p>
+</li>
+<li><p>Inequality constraints require the more complicated <strong>Karush–Kuhn–Tucker, or KKT, conditions</strong>, which extend the method of Lagrange multipliers.</p>
+</li>
+<li><p><strong>Central algorithms</strong>: methods include <strong>sequential quadratic programming, or SQP</strong>, the <strong>interior-point method</strong>, and the <strong>penalty method</strong>. These algorithms are generally complex and depend on mature optimization solvers.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-Quadratic-Programming-QP"><a href="#4-Quadratic-Programming-QP" class="headerlink" title="4. Quadratic Programming, QP"></a>4. Quadratic Programming, QP</h3><ul>
+<li><p><strong>Characteristics:</strong> this is a special and important subclass of nonlinear programming. Its objective function is <strong>quadratic</strong>, while all constraints remain <strong>linear</strong>.</p>
+</li>
+<li><p><strong>Approach:</strong> because its structure is comparatively well behaved—a quadratic objective and linear constraints—it can be solved by specialized algorithms that are more efficient than general nonlinear-programming methods, such as the <strong>active-set method</strong>. It is widely applied in finance, including portfolio optimization, and in machine learning, including support vector machines or SVMs.</p>
+</li>
+</ul>
+<h3 id="5-Dynamic-Programming-DP"><a href="#5-Dynamic-Programming-DP" class="headerlink" title="5. Dynamic Programming, DP"></a>5. Dynamic Programming, DP</h3><ul>
+<li><p><strong>Characteristics:</strong> strictly speaking, dynamic programming is an approach to problem solving, but it is often used for multistage decision-optimization problems. The decision process can be divided into a series of related stages, and the decision made at one stage affects the state of the next.</p>
+</li>
+<li><p><strong>Approach:</strong></p>
+<ul>
+<li><p><strong>Central ideas</strong>: <strong>optimal substructure</strong> and <strong>overlapping subproblems</strong>. Instead of making all decisions at once, dynamic programming solves the problem stage by stage, either backwards or forwards. It may first find the optimal decision for the final stage and then use that information to solve the penultimate stage, continuing until it returns to the starting point.</p>
+</li>
+<li><p>By recording and reusing the solutions of subproblems, usually in a table, it avoids repeated computation and greatly improves efficiency. The knapsack problem and shortest-path problems are classic applications.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-Combinatorial-Optimization"><a href="#6-Combinatorial-Optimization" class="headerlink" title="6. Combinatorial Optimization"></a>6. Combinatorial Optimization</h3><ul>
+<li><p><strong>Characteristics:</strong> <strong>the task is to find the best arrangement among various combinations, such as the land-allocation strategy in Problem C of the 2024 competition</strong>. Combinatorial optimization is not a single specific problem but a large family. Its defining feature is that the decision variables are <strong>discrete</strong>, and the number of feasible solutions is finite, though often astronomical. Rather than locating a minimum on a continuous curve, it must “combine” many possibilities into the best plan.</p>
+<ul>
+<li><p>In plain language, this means solving a “multiple-choice problem” or an “ordering problem.” If ten projects must be selected for investment from a hundred, which ten will maximize the return? That is selection. If ten processes in a workshop must be ordered, which order will minimize the total time? That is sequencing.</p>
+</li>
+<li><p><strong>Integer programming</strong>, discussed above, and the <strong>facility-location problem</strong> and <strong>TSP</strong>, discussed below, all belong to combinatorial optimization.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Approach:</strong> the methods used to solve a combinatorial problem vary widely according to its particular structure and difficulty.</p>
+<ul>
+<li><p><strong>Exact algorithms</strong> aim to find the absolute optimum.</p>
+<ul>
+<li><p>Some “simple” problems, such as finding a minimum spanning tree in a graph, have polynomial-time algorithms and can be solved rapidly.</p>
+</li>
+<li><p>For most “hard” or NP-hard problems, the time required by exact algorithms, such as dynamic programming and branch and bound, explodes as the scale of the problem grows. They are therefore suitable only for small instances.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Approximation algorithms</strong> accept a compromise. Instead of seeking the “best” solution, they seek one that is “good enough.” Such algorithms are fast and provide a theoretical guarantee that their result will not differ from the optimum by more than a specified ratio.</p>
+</li>
+<li><p><strong>Heuristics and metaheuristics</strong> become useful when a problem is too large for an exact algorithm and no satisfactory approximation algorithm exists. They are intelligent search strategies based on intuition or experience, including simulated annealing, genetic algorithms, and ant-colony algorithms. They can usually find a reasonable solution quickly, but cannot guarantee its quality and may become trapped in a local optimum. They are nevertheless used extensively in engineering practice.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-1-The-Facility-Location-Problem"><a href="#6-1-The-Facility-Location-Problem" class="headerlink" title="6.1 The Facility-Location Problem"></a>6.1 The Facility-Location Problem</h4><ul>
+<li><p><strong>Characteristics:</strong> this is a classic class of combinatorial-optimization problems. A typical setting contains a number of potential facility sites, such as warehouses, base stations, or supermarkets, and a number of customer locations. The aim is to decide <strong>where facilities should be built</strong>, <strong>how many should be built</strong>, and <strong>which facility should serve each customer</strong>, so that total cost, including construction and transportation, is minimized while all customer demand is met.</p>
+</li>
+<li><p><strong>Approach:</strong></p>
+<ul>
+<li><p>Facility-location problems are usually formulated as <strong>mixed-integer linear programs, or MILPs</strong>.</p>
+</li>
+<li><p>Whether a facility is built at a given location can be represented by a <strong>0-1 integer variable</strong>, where 1 means build and 0 means do not build.</p>
+</li>
+<li><p>Other variables can represent which facility serves each customer location.</p>
+</li>
+<li><p>Once the model has been built, mature optimization solvers such as Gurobi or CPLEX can be called. Large-scale problems likewise require specialized approximation algorithms or heuristics.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-2-TSP-The-Traveling-Salesperson-Problem"><a href="#6-2-TSP-The-Traveling-Salesperson-Problem" class="headerlink" title="6.2 TSP: The Traveling Salesperson Problem"></a>6.2 TSP: The Traveling Salesperson Problem</h4><ul>
+<li><p><strong>Characteristics:</strong> this is the most famous and representative “star problem” in combinatorial optimization.</p>
+<ul>
+<li><p><strong>Problem statement</strong>: a traveling salesperson must visit n cities. Starting from one city, the salesperson must visit <strong>each city exactly once</strong> and finally return to the starting city. In what order should the cities be visited to minimize the total distance travelled?</p>
+</li>
+<li><p>In plain language, draw one continuous route through every point and make that route as short as possible. TSP is a prominent <strong>NP-hard problem</strong>. Once the number of cities becomes even moderately large—several dozen, for example—finding the optimum by enumerating every possible route is already out of the question.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Approach:</strong></p>
+<ul>
+<li><p><strong>Exact algorithms</strong>: when the number of cities is small, for example no more than twenty, <strong>dynamic programming, such as the Held–Karp algorithm</strong>, or <strong>branch and bound</strong> can find an optimal solution.</p>
+</li>
+<li><p><strong>Approximation algorithms and heuristics</strong>: large TSP instances are almost always addressed through these two classes of method.</p>
+<ul>
+<li><p><strong>Approximation algorithm</strong>: Christofides’ algorithm, for example, guarantees a route no longer than 1.5 times the length of an optimal route.</p>
+</li>
+<li><p><strong>Heuristics</strong>: examples include a greedy strategy that always moves to the nearest unvisited city; 2-opt and 3-opt, which exchange two or three randomly selected edges to see whether the route improves; and more advanced methods such as genetic algorithms and simulated annealing. All can find routes close to the optimum within a reasonable time.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><em>The next two concepts are linked. They classify “algorithmic efficiency” rather than “optimization models,” but they are essential to understanding whether an optimization problem can in fact be “solved.”</em></p>
+<h3 id="7-Polynomial-Time-Algorithms-and-P-Problems"><a href="#7-Polynomial-Time-Algorithms-and-P-Problems" class="headerlink" title="7. Polynomial-Time Algorithms and P Problems"></a>7. Polynomial-Time Algorithms and P Problems</h3><ul>
+<li><p><strong>Characteristics:</strong> the upper bound on an algorithm’s running time, or number of computational steps, can be expressed as a polynomial function of the input size <code>n</code>, namely $O(n^k)$, where k is a constant.</p>
+<ul>
+<li><p>In plain language, such an algorithm is <strong>efficient</strong>. As the problem size <code>n</code> increases, its running time grows comparatively “gently” rather than running out of control. Both $O(n^2)$ and $O(n^3)$ are polynomial time, whereas the exponential running time $O(2^n)$ grows with terrifying speed.</p>
+</li>
+<li><p>All <strong>decision problems</strong>, which have yes-or-no answers, that can be solved by polynomial-time algorithms form a set called the <strong>class P, or polynomial time</strong>. P problems are generally regarded as “effectively solvable” or computationally tractable.</p>
+</li>
+<li><p><strong>Note</strong>: linear programming belongs to P. Although the simplex method takes exponential time in the worst case, interior-point methods run in polynomial time.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="8-Nondeterministic-Polynomial-Time-and-NP-Problems"><a href="#8-Nondeterministic-Polynomial-Time-and-NP-Problems" class="headerlink" title="8. Nondeterministic Polynomial Time and NP Problems"></a>8. Nondeterministic Polynomial Time and NP Problems</h3><ul>
+<li><p><strong>Characteristics:</strong> the name sounds mysterious, but its central idea is not complicated. It describes a class of decision problems with two features:</p>
+<ol>
+<li><p>Finding a solution directly may be extremely difficult, and it is not presently known whether a polynomial-time algorithm exists.</p>
+</li>
+<li><p>If someone gives you an <strong>answer claimed to be a solution</strong>, however, you can <strong>verify in polynomial time</strong> whether that answer is correct.</p>
+</li>
+</ol>
+<ul>
+<li><p>In plain language: <strong>solving is hard, but checking is easy</strong>.</p>
+</li>
+<li><p>The set of such problems is called the <strong>class NP, or nondeterministic polynomial time</strong>.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Example:</strong> consider the decision version of TSP: “Does there exist a tour shorter than L?”</p>
+<ul>
+<li><p><strong>Hard to solve</strong>: finding such a route directly is extremely difficult.</p>
+</li>
+<li><p><strong>Easy to check</strong>: if I draw a particular route for you, you need only add the lengths of its edges and see whether the sum is below L. Addition can be performed very quickly, in polynomial time.</p>
+</li>
+<li><p>TSP therefore belongs to NP.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Important relationships:</strong></p>
+<ul>
+<li><p>Every P problem is an NP problem, because if an answer can be found quickly, it can naturally be checked quickly as well.</p>
+</li>
+<li><p>But is every NP problem also a P problem? In other words, <strong>P &#x3D; NP?</strong> This is the central million-dollar question of computer science. The prevailing view is that P ≠ NP, which would mean that many problems can be checked quickly but cannot be solved quickly.</p>
+</li>
+<li><p>The hardest problems in NP are called <strong>NP-complete problems</strong>. TSP is one such problem. If a polynomial-time solution were found for any NP-complete problem, every problem in NP could be solved in polynomial time.</p>
+</li>
+<li><p><strong>Optimization problems</strong>, not merely decision problems, that are at least as difficult as NP-complete problems are called <strong>NP-hard</strong> problems.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Optimization-Methods"><a href="#Optimization-Methods" class="headerlink" title="Optimization Methods"></a>Optimization Methods</h2><h4 id="Optimization-with-Calculus"><a href="#Optimization-with-Calculus" class="headerlink" title="Optimization with Calculus"></a>Optimization with Calculus</h4><p>The first topic would be finding extrema of functions of one, two, or three variables by setting their derivatives equal to zero. There is no need to discuss that in detail here.</p>
+<p>The next method is the Lagrange multiplier method for extrema subject to constraints, which I will write down once more.</p>
+<p>To find possible extrema of the function $z&#x3D; f(x,y)$ subject to the condition $\phi(x,y)&#x3D;0$, first construct the function $F(x,y)&#x3D;f(x,y)+\lambda \phi(x,y)$, where $\lambda$ is a constant.</p>
+<p>We then solve</p>
+<p>$$<br>\begin{cases}<br>f_x(x, y) + \lambda \varphi_x(x, y) &#x3D; 0, \<br>f_y(x, y) + \lambda \varphi_y(x, y) &#x3D; 0, \<br>\varphi(x, y) &#x3D; 0.<br>\end{cases}<br>$$</p>
+<p>for $x,y,\lambda$; the values $x,y$ are the coordinates of possible extrema.</p>
+<h4 id="Heuristics"><a href="#Heuristics" class="headerlink" title="Heuristics"></a>Heuristics</h4><p>A heuristic is an algorithm constructed from intuition or experience. At an acceptable cost in computing time, storage space, and so forth, it provides a feasible solution for each instance of the combinatorial-optimization problem under consideration. How far that solution may lie from the optimum cannot necessarily be predicted in advance.</p>
+<p>In plain language, a heuristic is a set of “rules of thumb” or shortcuts. When a problem is too complicated for us to find a perfect optimum, or when doing so would take too long, a heuristic can rapidly provide a solution that is reasonably good and probably not far off. It pursues efficiency and practical value at the price of some guarantee of optimality.</p>
+<h5 id="Explanations-of-the-Algorithms"><a href="#Explanations-of-the-Algorithms" class="headerlink" title="Explanations of the Algorithms"></a>Explanations of the Algorithms</h5><p><strong>1. The Greedy Algorithm</strong></p>
+<ul>
+<li><p><strong>Concept:</strong> an algorithm concerned only with what lies immediately before it. Whenever it makes a decision, it chooses what currently appears best without considering the effect of that choice on the future. It hopes that a sequence of locally optimal decisions will eventually produce a global optimum.</p>
+<p>The algorithm always attempts to obtain a local optimum. For certain specially structured problems, this strategy really is the best. In most complicated settings, however, such short-sightedness can cause it to miss the globally optimal route or even take a large detour.</p>
+</li>
+<li><p><strong>Applications:</strong> although greedy algorithms are not always correct, they miraculously yield an optimum in certain problems, including Prim’s and Kruskal’s algorithms for minimum spanning trees and Dijkstra’s algorithm for single-source shortest paths.</p>
+</li>
+</ul>
+<p><strong>2. Neighbourhood Search, or Hill Climbing</strong></p>
+<ul>
+<li><p>Find a local optimum -&gt; move to that local optimum -&gt; search for another local optimum. Continue until no better solution can be found nearby.</p>
+</li>
+<li><p><strong>Analogy, from Gemini 2.5 Pro:</strong> imagine that you are trying to find the highest summit in a mountain range covered by dense fog. You are dropped at a random location, and all you can do is look around and take one step in the steepest upward direction available from where you stand. You repeat the process and “climb” one step at a time. Eventually, you reach a summit, because movement in every direction would then take you downhill.</p>
+</li>
+<li><p><strong>Central defect:</strong> the method easily stops at a local optimum instead of continuing to seek a global one.</p>
+</li>
+</ul>
+<p><strong>3. Simulated Annealing, SA</strong></p>
+<ul>
+<li><p>Simulated annealing was designed to overcome the tendency of hill climbing to become trapped in a local optimum. It adds randomness and a probabilistic escape mechanism to neighbourhood search.</p>
+</li>
+<li><p><strong>Analogy:</strong> the process imitates annealing in metalworking: a metal is melted at high temperature and then cooled slowly so that its internal molecules can settle into a stable state of minimum energy. Return to the example of climbing through fog. This time, you are not a steady mountaineer but a “slightly drunk mountaineer.” At the beginning, when the temperature is high, you are mildly intoxicated and full of energy. Most of the time you move uphill, but now and then you stagger a few steps downhill. This apparently foolish behaviour gives you a chance to leave the small hill on which you stand and explore other mountains farther away. As time passes and the temperature falls, the effects of the alcohol wear off. You become increasingly sober and steady, eventually choosing only upward steps until you reach what you regard as the highest summit.</p>
+</li>
+</ul>
+<p><strong>4. The Genetic Algorithm, GA</strong></p>
+<ul>
+<li><p>A genetic algorithm imitates the biological principle of natural selection and survival of the fittest. Instead of maintaining only one solution, it maintains a large group of solutions at once, called a population. The population evolves through generation after generation of reproduction and elimination, gradually improving in quality until a strong solution is obtained.</p>
+</li>
+<li><p>Imagine it as a breeding farm:</p>
+<ol>
+<li><p><strong>Initial population:</strong> you randomly cultivate the first batch of varied seeds, which represent initial solutions.</p>
+</li>
+<li><p><strong>Fitness evaluation:</strong> plant the seeds and observe which grow best, meaning which solutions are superior.</p>
+</li>
+<li><p><strong>Selection:</strong> preferentially choose the best-growing seeds as the “parents” of the next generation.</p>
+</li>
+<li><p><strong>Crossover or reproduction:</strong> cross these excellent parents to produce offspring. The offspring inherit favourable genes, or useful solution features, from both parents.</p>
+</li>
+<li><p><strong>Mutation:</strong> during reproduction, allow a very small probability of genetic mutation. This introduces new diversity and prevents all the seeds from becoming identical. After thousands of generations of selection and reproduction, the farm ultimately develops a superb variety.</p>
+</li>
+</ol>
+</li>
+</ul>
+<h5 id="Strengths"><a href="#Strengths" class="headerlink" title="Strengths"></a>Strengths</h5><p>The methods are simple, practical, and intuitive, and users can accept them readily.</p>
+<p>They are fast, which is particularly important in real-time management.</p>
+<p>In most cases, the programs are simple and therefore easy to modify.</p>
+<h5 id="Weaknesses"><a href="#Weaknesses" class="headerlink" title="Weaknesses"></a>Weaknesses</h5><p>They cannot guarantee an optimal solution.</p>
+<p>Their performance is unstable. A heuristic may work differently on different instances of the same problem: some solutions are good, while others are poor. In practical applications, such instability can make its results untrustworthy.</p>
+<p>The quality of an algorithm depends on the actual problem, experience, and the designer’s skill. General rules are difficult to summarize, and different algorithms are consequently hard to compare.</p>
+<h3 id="Modern-Optimization-Algorithms-or-Metaheuristics"><a href="#Modern-Optimization-Algorithms-or-Metaheuristics" class="headerlink" title="Modern Optimization Algorithms, or Metaheuristics"></a>Modern Optimization Algorithms, or Metaheuristics</h3><p>When a problem becomes extremely complicated, traditional heuristics such as greedy algorithms and hill climbing may no longer be adequate. Modern optimization algorithms, usually called <strong>metaheuristics</strong>, provide higher-level strategic frameworks that guide and improve lower-level heuristic search. They are often inspired by natural phenomena and tend to be more powerful and intelligent.</p>
+<p><strong>1. Tabu Search</strong></p>
+<ul>
+<li><p>Tabu search is an excellent improvement on hill climbing. The greatest weakness of hill climbing is that it can easily be trapped on a “small hill,” or local optimum. The central idea of tabu search is to possess a memory that helps the search escape this trap.</p>
+</li>
+<li><p>Return once again to climbing in fog. Hill climbing stops you at the first summit it finds. A tabu-search mountaineer, however, carries a <strong>tabu list</strong>, rather like a little black book.</p>
+<ol>
+<li><p>When you move from position A to a better position B, you write in the book: “I have just come from A; returning to A is forbidden for a while.”</p>
+</li>
+<li><p>Consequently, even if every path around the small hill at B leads downhill, the ban on retracing your steps <strong>forces</strong> you to explore a different downward path that you have not previously taken.</p>
+</li>
+<li><p>This forced movement gives you an opportunity to descend first and then climb the possibly higher mountain next to it from the other side.</p>
+</li>
+</ol>
+<p>  By remembering where it has been and refusing for a time to retrace its route, tabu search greatly improves its ability to escape local optima.</p>
+</li>
+</ul>
+<p><strong>2. Artificial Neural Networks, ANN</strong></p>
+<ul>
+<li><p>A neural network is not itself an algorithm that directly solves an optimization problem. It is a computational model that imitates the connections among neurons in the human brain. In optimization, however, it plays two important roles.</p>
+</li>
+<li><p><strong>Role one: a neural network is itself an enormous optimization problem.</strong></p>
+<ul>
+<li>It is an enormous optimization problem in its own right. The various competitions in AI that seek tiny improvements in performance are all attempts to optimize it further.</li>
+</ul>
+</li>
+<li><p><strong>Role two: it can assist in solving an optimization problem.</strong></p>
+<ul>
+<li>Suppose the objective function or constraints of an optimization problem are too complicated to express mathematically, as when the yield of a chemical process must be predicted. We can first train a neural network to learn the relationship between the inputs, such as the proportions of raw materials, and the output, such as yield. The trained network then becomes a surrogate model. Instead of optimizing the original process directly, we optimize the inputs of the network to obtain the highest predicted yield.</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. Ant Colony Optimization, ACO</strong></p>
+<ul>
+<li><p><strong>What it is:</strong> an algorithm that simulates the way real ant colonies search for food. It is particularly good at finding optimal routes in graphs, as in the traveling salesperson problem.</p>
+</li>
+<li><p><strong>Analogy:</strong> the analogy is unusually direct because it is the origin of the algorithm itself.</p>
+<ol>
+<li><p><strong>Initial exploration:</strong> several routes connect the nest and the food. At first, ants explore randomly in different directions.</p>
+</li>
+<li><p><strong>Pheromone release:</strong> ants leave a chemical called pheromone along the routes they travel.</p>
+</li>
+<li><p><strong>Positive feedback:</strong> suppose there are two routes, A and B, and A is shorter. Ants on route A can travel between the nest and food more quickly. In the same period, they therefore complete more journeys, and the pheromone concentration on route A grows higher.</p>
+</li>
+<li><p><strong>Route selection:</strong> later ants detect the pheromone and are more likely to choose the route where its concentration is high. More and more ants are consequently attracted to route A, further strengthening its pheromone trail.</p>
+</li>
+<li><p><strong>Convergence:</strong> through this positive-feedback process, the colony quickly “discovers” and settles on the shortest route. The artificial ants in the algorithm construct good solutions by simulating the same process.</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="Graph-Theory"><a href="#Graph-Theory" class="headerlink" title="Graph Theory"></a>Graph Theory</h3><p>Many optimization problems can be abstracted as graphs, including urban transport networks, social networks, and dependencies among tasks. Graph theory is the branch of mathematics that studies structures made up of such “points” and “lines.”</p>
+<h4 id="Foundations"><a href="#Foundations" class="headerlink" title="Foundations"></a>Foundations</h4><p>First, the word graph here does not refer to a bar chart or pie chart. It refers to a mathematical object made up of <strong>vertices</strong> and the <strong>edges</strong> that connect them.</p>
+<ul>
+<li><p><strong>Undirected graph</strong></p>
+<ul>
+<li><p><strong>Definition:</strong> the edges have no direction. If an edge joins vertex A and vertex B, one may travel from A to B or from B to A.</p>
+</li>
+<li><p>This is a “two-way relationship.” A WeChat friendship is an example: if you are my friend, I am necessarily yours. The line connecting us has no arrow.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Directed graph</strong></p>
+<ul>
+<li><p><strong>Definition:</strong> the edges have directions shown by arrows. An edge pointing from A to B means that movement from A to B is possible, but movement from B to A is not, unless a reverse edge also exists.</p>
+</li>
+<li><p>This is a “one-way relationship.” Following someone on Weibo is an example: I may follow you even if you do not follow me. The line connecting us requires an arrow to indicate the direction of the relationship. A network of one-way streets in a city is another typical directed graph.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Undirected weighted graph</strong></p>
+<ul>
+<li><p><strong>Definition:</strong> every edge in an undirected graph is assigned a numerical value called its weight or cost.</p>
+</li>
+<li><p>The relationship is not only bidirectional but also measured. On a map of cities, for example, the cities are vertices and the roads connecting them are edges. The roads permit two-way travel and are therefore undirected, while the length of each road in kilometres is its weight.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Directed weighted graph</strong></p>
+<ul>
+<li><p><strong>Definition:</strong> every directed edge in a directed graph is assigned a weight.</p>
+</li>
+<li><p>The relationship is one-way and has a measure. On a map of airfares, for example, cities are vertices, a flight from A to B is a directed edge, and the ticket price is its weight. Notice that the fare from A to B is usually different from the fare from B to A.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Adjacency matrix</strong></p>
+<ul>
+<li><p><strong>Definition:</strong> a matrix representation of a graph. For a graph with n vertices, an n x n matrix can be constructed. The element <code>A[i][j]</code> in row i and column j represents the connection between vertices i and j.</p>
+</li>
+<li><p>Put simply, it is a “table of connections.”</p>
+<ul>
+<li><p>For an <strong>unweighted graph</strong>, if an edge connects vertices i and j, then <code>A[i][j] = 1</code>; otherwise it equals 0.</p>
+</li>
+<li><p>For a <strong>weighted graph</strong>, if an edge connects i and j, then <code>A[i][j]</code> equals the weight of that edge; otherwise it can be assigned a special value, such as infinity ∞.</p>
+</li>
+</ul>
+</li>
+<li><p>The matrix is highly intuitive, but if the graph is “sparse,” with few edges, a matrix wastes a large amount of storage space.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Shortest-Paths"><a href="#Shortest-Paths" class="headerlink" title="Shortest Paths"></a>Shortest Paths</h4><ul>
+<li><p>In a weighted graph, directed or undirected, a shortest-path problem asks for the route from a starting vertex to a target vertex whose edge weights have the smallest sum. A “weight” may represent distance, time, cost, or any other additive measure. In plain language, this is navigation.</p>
+</li>
+<li><p><strong>Central algorithms and categories:</strong></p>
+<ul>
+<li><p><strong>Single-source shortest path, SSSP:</strong> calculate the shortest paths from one fixed starting vertex, or source, to every other vertex in the graph.</p>
+<ul>
+<li><p><strong>Dijkstra’s algorithm:</strong> the most classical SSSP algorithm. Its strategy is <strong>greedy</strong>.</p>
+<ul>
+<li><p><strong>Idea:</strong> imagine that you stand at the starting point and possess a region in which the shortest paths have already been determined; initially, the region contains only you. At each step, the algorithm expands outwards from the boundary of this region. It selects the nearest vertex not yet included, brings that vertex into the region, and updates the distances from the starting point to all its neighbours. Like ripples on water, the process spreads outwards in circles from the source until it covers every vertex you wish to reach.</p>
+</li>
+<li><p><strong>Important restriction:</strong> Dijkstra’s algorithm is highly efficient but has a fatal weakness: it <strong>cannot process a graph containing negative-weight edges</strong>. Once its greedy strategy brings a vertex into the “determined” region, it never revisits it, whereas a negative edge may make that supposed certainty uncertain.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>The Bellman–Ford algorithm:</strong> a more powerful SSSP algorithm capable of processing negative-weight edges.</p>
+<ul>
+<li><p><strong>Idea:</strong> instead of being greedy, it uses a forceful strategy of repeated relaxation. It repeatedly performs a “relaxation” operation on every edge, checking whether passage along that edge can shorten the distance from the source to its endpoint. The process is repeated <code>V-1</code> times, where V is the number of vertices. Since a shortest path contains at most <code>V-1</code> edges, <code>V-1</code> rounds are sufficient to propagate the shortest distance to the destination.</p>
+</li>
+<li><p><strong>Additional ability:</strong> Bellman–Ford has another unique skill: it can <strong>detect a negative-weight cycle</strong>. If an edge can still be relaxed after <code>V-1</code> rounds, the graph contains a cycle whose weight becomes smaller each time it is travelled. A shortest path is then meaningless, since its score can be reduced indefinitely.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>All-pairs shortest path, APSP:</strong> calculate the shortest path between every pair of vertices in the graph.</p>
+<ul>
+<li><p><strong>The Floyd–Warshall algorithm:</strong> the classical solution to APSP, based on <strong>dynamic programming</strong>.</p>
+<ul>
+<li><strong>Idea:</strong> its reasoning is elegant. It asks, “What is the shortest path from vertex i to vertex j if only vertex 1 may be used as an intermediate?” Then it asks, “What if vertices 1 and 2 may both be used as intermediates?” Through iteration, it gradually enlarges the set of vertices allowed as intermediate points and updates the shortest distance between every i and j. Once every vertex has been considered as a possible intermediate, the shortest paths between all pairs have been obtained. Its implementation in code is remarkably concise and beautiful.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="The-Traversability-Problem"><a href="#The-Traversability-Problem" class="headerlink" title="The Traversability Problem"></a>The Traversability Problem</h4><ul>
+<li><p>This problem considers how every edge or every vertex of a graph can be traversed without repetition. It is not concerned with how “short” a route is, only with whether the traversal can be completed and how to complete it. In other words, it asks whether the graph can be drawn in one stroke.</p>
+</li>
+<li><p><strong>Two classical problems:</strong></p>
+<ul>
+<li><p><strong>Eulerian paths and circuits:</strong></p>
+<ul>
+<li><p><strong>Problem:</strong> can a path be found that <strong>traverses every edge in the graph exactly once</strong>? If it begins and ends at the same vertex, it is an <strong>Eulerian circuit</strong>; if the starting and ending vertices differ, it is an <strong>Eulerian path</strong>.</p>
+</li>
+<li><p><strong>How to decide:</strong> thanks to Euler, this problem has a simple and definite criterion. The key is the <strong>degree</strong> of every vertex, meaning the number of edges incident on it.</p>
+<ul>
+<li><p>For an <strong>undirected graph</strong>:</p>
+<ul>
+<li><p>If every vertex has <strong>even degree</strong>, an Eulerian circuit must exist. It can start at any point and ultimately return there.</p>
+</li>
+<li><p>If exactly two vertices have <strong>odd degree</strong>, an Eulerian path exists. It must begin at one odd-degree vertex and end at the other.</p>
+</li>
+<li><p>In every other case, where more than two vertices have odd degree, no path can traverse all edges in one stroke.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Real-world application:</strong> route planning for an urban snowplough or postal worker. The aim is to travel along every street while minimizing the total distance, meaning that no street is repeated. This is a typical Eulerian-circuit problem.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Hamiltonian paths and circuits:</strong></p>
+<ul>
+<li><p><strong>Problem:</strong> can a path be found that <strong>visits every vertex in the graph exactly once</strong>? If it begins and ends at the same vertex, it is a <strong>Hamiltonian circuit</strong>.</p>
+</li>
+<li><p><strong>How to decide:</strong> although the problem looks similar to the Eulerian one, their difficulty could hardly be more different. <strong>The Hamiltonian problem is a celebrated NP-complete problem</strong>, and no simple general criterion is presently known. Unlike checking vertex degrees, we cannot quickly determine whether a graph contains a Hamiltonian path.</p>
+</li>
+<li><p><strong>Real-world application:</strong> the <strong>traveling salesperson problem, or TSP</strong>, mentioned earlier, asks for a minimum-weight <strong>Hamiltonian circuit</strong> in a complete weighted graph. The salesperson must visit each city, or vertex, exactly once and finally return to the starting point.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Mathematical-Modelling/" class="print-no-link">#Mathematical Modelling</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>A Review of Optimization Methods</div>
+      <div>https://hwnote.space/en/posts/2025/08/21/optimization-review/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>August 21, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js?v=20260821-global-language.js"></script>
+<script src="/js/bilingual-switch.js?v=20260821-global-language.js"></script>
+<script src="/js/tag-cloud.js?v=20260824-bilingual-cloud.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

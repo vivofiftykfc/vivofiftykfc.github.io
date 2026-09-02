@@ -1,0 +1,1448 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="从离散时间 LTI 系统推出卷积和、复指数特征函数、DTFT 与 Z 变换的共同主干，再把差分方程、响应分类、收敛域、频率响应、s-z 映射、Mason、全通与 Jury 判据逐一接回去。主体脉络由我提供，文章由 Codex 协助整理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信号与系统发展脉络（下）从离散卷积到Z变换的生成逻辑">
+<meta property="og:url" content="https://hwnote.space/posts/2026/08/30/discrete-z-transform-knowledge-tree/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="从离散时间 LTI 系统推出卷积和、复指数特征函数、DTFT 与 Z 变换的共同主干，再把差分方程、响应分类、收敛域、频率响应、s-z 映射、Mason、全通与 Jury 判据逐一接回去。主体脉络由我提供，文章由 Codex 协助整理。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hwnote.space/img/blogs/git1.jpg">
+<meta property="article:published_time" content="2026-08-29T20:10:00.000Z">
+<meta property="article:modified_time" content="2026-08-29T20:14:07.214Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="DTFT">
+<meta property="article:tag" content="信号与系统">
+<meta property="article:tag" content="LTI系统">
+<meta property="article:tag" content="离散时间系统">
+<meta property="article:tag" content="Z变换">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/git1.jpg">
+  
+  
+  
+  <title>信号与系统发展脉络（下）从离散卷积到Z变换的生成逻辑 - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css?v=20260821-global-language.css">
+<link rel="stylesheet" href="/css/tag-cloud.css?v=20260824-bilingual-cloud.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/git1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="信号与系统发展脉络（下）从离散卷积到Z变换的生成逻辑"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-08-30 04:10" pubdate>
+          2026年8月30日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          116 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">信号与系统发展脉络（下）从离散卷积到Z变换的生成逻辑</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><a href="/posts/2026/08/30/fourier-laplace-knowledge-tree/">上一篇</a>把连续时间部分压成了一条主干：LTI 系统由卷积描述，复指数是它的特征函数，傅里叶变换和拉普拉斯变换则把卷积变成乘法。</p>
+<p>到了离散部分，教材看起来换了一批符号：$t$ 变成 $n$，积分变成求和，微分方程变成差分方程，$s$ 平面变成 $z$ 平面。但真正的逻辑没有重开一局。它仍然在回答同一个问题：</p>
+<blockquote>
+<p>能不能给离散序列换一套坐标，使移位、卷积和差分方程在新坐标里变成代数运算？</p>
+</blockquote>
+<p>本文逐页核对了课时 17 至课时 21 的五份课件。第一部分只推出离散部分能够闭合的最小模型；第二部分再把课件里的序列运算、差分方程、DTFT 性质、Z 变换求解、流图、$s$-$z$ 映射、全通系统和 Jury 判据接回主干，并说明它们通常会被怎样组织成题目。</p>
+<p>本文的范围也需要先打一个补丁：这里只讨论这五份课件覆盖的离散时间 LTI 系统。DFS、DFT、FFT、数字滤波器设计和状态空间都与这条主干相连，但不是本文的主体。</p>
+<h1 id="〇、历史发展脉络"><a href="#〇、历史发展脉络" class="headerlink" title="〇、历史发展脉络"></a>〇、历史发展脉络</h1><p>离散时间理论并不是“计算机出现以后才有的连续理论简化版”。差分方程本来就用于描述按代际、按周期或按步数更新的量；抽样和数字计算则让它在通信、控制与信号处理里变成了日常语言。</p>
+<p>连续时间系统面对的是微分与积分，离散时间系统面对的是移位与求和。把连续信号每隔 $T$ 秒取一个样本以后，时间变量只剩整数编号 $n$，但系统仍然可能有记忆、反馈和内部自然模态。于是连续部分的核心动作再次出现：先用单位脉冲把序列拆开，再找移位算子的特征函数，最后把差分与卷积送进变换域。</p>
+<p>DTFT 负责观察单位圆上的频率，Z 变换则把观察位置从单位圆扩展到整个复平面的圆环。后来出现的 DFT 和 FFT，并没有推翻 DTFT；它们解决的是怎样用有限个样本在计算机上表示和计算频谱。这里仍然是同一个发展方向：<strong>原表示里的运算太纠缠，就换一种表示，让结构先显出来。</strong></p>
+<h1 id="壹、主干"><a href="#壹、主干" class="headerlink" title="壹、主干"></a>壹、主干</h1><p>讨论范围先限定为：</p>
+<ul>
+<li><p>离散时间序列；</p>
+</li>
+<li><p>单输入、单输出的线性时不变系统；</p>
+</li>
+<li><p>先研究零状态响应；</p>
+</li>
+<li><p>双边 Z 变换存在非空收敛域，需要讨论频率响应时单位圆位于该收敛域内。</p>
+</li>
+</ul>
+<p>在这个范围内，整条主干可以压成：</p>
+<p>$$<br>\boxed{<br>\text{离散 LTI}<br>\Rightarrow y[n]&#x3D;x[n]*h[n]<br>\Rightarrow z^n\text{ 是特征函数}<br>\Rightarrow Y(z)&#x3D;H(z)X(z)<br>\Rightarrow<br>\begin{cases}<br>z&#x3D;e^{j\omega} &amp; \text{DTFT} \<br>z&#x3D;re^{j\omega} &amp; \text{ZT}<br>\end{cases}}<br>$$</p>
+<h2 id="一、研究问题：离散不等于失去结构"><a href="#一、研究问题：离散不等于失去结构" class="headerlink" title="一、研究问题：离散不等于失去结构"></a>一、研究问题：离散不等于失去结构</h2><p>离散时间系统把输入序列映射为输出序列：</p>
+<p>$$<br>T:x[n]\longmapsto y[n].<br>$$</p>
+<p>时间现在只取整数，但不同 $n$ 之间仍然会耦合。比如一阶差分方程</p>
+<p>$$<br>y[n]-ay[n-1]&#x3D;x[n]<br>$$</p>
+<p>要求当前输出同时依赖当前输入和前一时刻输出。直接迭代当然能算，可一旦阶数提高、输入复杂或还要分析稳定性，逐项推进就很难看出系统的整体结构。</p>
+<p>所以我们仍然要寻找一组“坐标轴” $\phi[n]$，使它通过系统后形状不变：</p>
+<p>$$<br>T{\phi[n]}&#x3D;H\phi[n].<br>$$</p>
+<p>若一般序列能够分解到这些坐标轴上，系统就不必一次处理整段序列，只需分别修改每个坐标的系数。</p>
+<h2 id="二、离散-LTI-系统为什么由卷积和描述"><a href="#二、离散-LTI-系统为什么由卷积和描述" class="headerlink" title="二、离散 LTI 系统为什么由卷积和描述"></a>二、离散 LTI 系统为什么由卷积和描述</h2><p>任何序列都可以拆成移位单位脉冲的加权和：</p>
+<p>$$<br>x[n]&#x3D;\sum_{k&#x3D;-\infty}^{\infty}x[k]\delta[n-k].<br>$$</p>
+<p>令系统对单位脉冲的零状态响应为</p>
+<p>$$<br>h[n]&#x3D;T{\delta[n]}.<br>$$</p>
+<p>时不变性保证脉冲平移以后，响应只发生同样的平移：</p>
+<p>$$<br>T{\delta[n-k]}&#x3D;h[n-k].<br>$$</p>
+<p>再由线性叠加：</p>
+<p>$$<br>\begin{aligned}<br>y[n]<br>&amp;&#x3D;T{x[n]} \<br>&amp;&#x3D;\sum_{k&#x3D;-\infty}^{\infty}x[k]h[n-k] \<br>&amp;&#x3D;x[n]*h[n].<br>\end{aligned}<br>$$</p>
+<p>因此，一个离散时间 LTI 系统的全部零状态输入—输出行为，都被压缩进冲激响应 $h[n]$：</p>
+<p>$$<br>\boxed{\text{离散 LTI 系统}\Longleftrightarrow h[n]\Longleftrightarrow y&#x3D;x*h}<br>$$</p>
+<p>连续部分的卷积积分在这里变成卷积和。变的是测度，不变的是“把输入拆成基本脉冲，再叠加系统对每个脉冲的响应”。</p>
+<h2 id="三、为什么-z-n-是离散系统的坐标轴"><a href="#三、为什么-z-n-是离散系统的坐标轴" class="headerlink" title="三、为什么 $z^n$ 是离散系统的坐标轴"></a>三、为什么 $z^n$ 是离散系统的坐标轴</h2><p>把复指数序列 $z^n$ 输入卷积系统：</p>
+<p>$$<br>\begin{aligned}<br>T{z^n}<br>&amp;&#x3D;\sum_{k&#x3D;-\infty}^{\infty}h[k]z^{n-k} \<br>&amp;&#x3D;\left[\sum_{k&#x3D;-\infty}^{\infty}h[k]z^{-k}\right]z^n.<br>\end{aligned}<br>$$</p>
+<p>记</p>
+<p>$$<br>H(z)&#x3D;\sum_{k&#x3D;-\infty}^{\infty}h[k]z^{-k},<br>$$</p>
+<p>便有</p>
+<p>$$<br>\boxed{T{z^n}&#x3D;H(z)z^n}.<br>$$</p>
+<p>所以 $z^n$ 是离散 LTI 系统的特征函数，$H(z)$ 是系统在这根坐标轴上的特征值。</p>
+<p>将</p>
+<p>$$<br>z&#x3D;re^{j\omega}<br>$$</p>
+<p>代入，可以把这根坐标轴拆成</p>
+<p>$$<br>z^n&#x3D;r^ne^{j\omega n}.<br>$$</p>
+<p>$r$ 控制序列包络按样本增长或衰减，$\omega$ 控制相邻样本之间的相位推进。连续部分用 $e^{st}$ 同时容纳增长与振荡；离散部分用 $z^n$ 做同一件事。</p>
+<h2 id="四、Z-变换把卷积和变成乘法"><a href="#四、Z-变换把卷积和变成乘法" class="headerlink" title="四、Z 变换把卷积和变成乘法"></a>四、Z 变换把卷积和变成乘法</h2><p>双边 Z 变换定义为</p>
+<p>$$<br>X(z)&#x3D;\sum_{n&#x3D;-\infty}^{\infty}x[n]z^{-n}.<br>$$</p>
+<p>其中 $z^{-n}$ 是分析核，$z^n$ 是合成序列与系统特征函数。两者指数符号相反，仍然对应“提取坐标”和“按坐标合成”两个逆向动作。</p>
+<p>对卷积和作 Z 变换：</p>
+<p>$$<br>\mathcal{Z}{x[n]*h[n]}&#x3D;X(z)H(z),<br>$$</p>
+<p>于是</p>
+<p>$$<br>\boxed{Y(z)&#x3D;H(z)X(z)}.<br>$$</p>
+<p>差分方程里的单位延时也被代数化。零初始条件下，</p>
+<p>$$<br>\mathcal{Z}{x[n-k]}&#x3D;z^{-k}X(z).<br>$$</p>
+<p>因此 $z^{-1}$ 不只是一个符号，它就是“延迟一个样本”的算子。一个由加法器、乘法器和延时器组成的离散系统，可以直接被写成关于 $z^{-1}$ 的有理函数。</p>
+<h2 id="五、DTFT-与-Z-变换的对立统一"><a href="#五、DTFT-与-Z-变换的对立统一" class="headerlink" title="五、DTFT 与 Z 变换的对立统一"></a>五、DTFT 与 Z 变换的对立统一</h2><p>令 $z&#x3D;re^{j\omega}$，则</p>
+<p>$$<br>\begin{aligned}<br>X(re^{j\omega})<br>&amp;&#x3D;\sum_{n&#x3D;-\infty}^{\infty}x[n]r^{-n}e^{-j\omega n}.<br>\end{aligned}<br>$$</p>
+<p>固定半径 $r$ 后，这就是加权序列 $x[n]r^{-n}$ 的 DTFT。</p>
+<h3 id="1-只看单位圆：DTFT"><a href="#1-只看单位圆：DTFT" class="headerlink" title="1. 只看单位圆：DTFT"></a>1. 只看单位圆：DTFT</h3><p>取 $r&#x3D;1$，即 $z&#x3D;e^{j\omega}$，得到</p>
+<p>$$<br>X(e^{j\omega})<br>&#x3D;\sum_{n&#x3D;-\infty}^{\infty}x[n]e^{-j\omega n}.<br>$$</p>
+<p>离散复指数满足</p>
+<p>$$<br>e^{j(\omega+2\pi k)n}&#x3D;e^{j\omega n},<br>$$</p>
+<p>所以离散频率以 $2\pi$ 为周期，$\omega$ 与 $\omega+2\pi k$ 是同一根坐标轴。DTFT 也必然满足</p>
+<p>$$<br>X(e^{j(\omega+2\pi)})&#x3D;X(e^{j\omega}).<br>$$</p>
+<p>若单位圆位于 $H(z)$ 的 ROC 内，系统频率响应就是</p>
+<p>$$<br>H(e^{j\omega})&#x3D;H(z)\big|_{z&#x3D;e^{j\omega}},<br>$$</p>
+<p>并有</p>
+<p>$$<br>Y(e^{j\omega})&#x3D;H(e^{j\omega})X(e^{j\omega}).<br>$$</p>
+<h3 id="2-允许径向加权：Z-变换"><a href="#2-允许径向加权：Z-变换" class="headerlink" title="2. 允许径向加权：Z 变换"></a>2. 允许径向加权：Z 变换</h3><p>有些序列的 DTFT 不收敛，但乘上 $r^{-n}$ 后可以收敛。Z 变换因此不只保留单位圆，而是在 $z$ 平面上寻找所有能够使级数收敛的半径。</p>
+<p>对于有理 Z 变换，收敛域通常是圆内、圆外或两个圆之间的圆环，而且不能包含极点。必须把表达式与 ROC 一起保留：</p>
+<p>$$<br>\boxed{\text{Z 变换}&#x3D;\text{代数表达式}+\text{ROC}}.<br>$$</p>
+<p>同一个代数式配上不同 ROC，可以对应右边、左边或双边序列。只有单位圆落在 ROC 内，普通意义下的 DTFT 和频率响应才存在。</p>
+<p>至此，离散部分的最小模型闭合：</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202608300413366.png" srcset="/img/loading.gif" lazyload></p>
+<p>它与连续部分并不是两套背诵表，而是一组平行关系：</p>
+<table>
+<thead>
+<tr>
+<th>连续时间</th>
+<th>离散时间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>微分方程</td>
+<td>差分方程</td>
+</tr>
+<tr>
+<td>卷积积分</td>
+<td>卷积和</td>
+</tr>
+<tr>
+<td>$e^{st}$</td>
+<td>$z^n$</td>
+</tr>
+<tr>
+<td>$s$ 域乘法</td>
+<td>$z$ 域乘法</td>
+</tr>
+<tr>
+<td>虚轴上的 FT</td>
+<td>单位圆上的 DTFT</td>
+</tr>
+<tr>
+<td>左半平面稳定边界</td>
+<td>单位圆稳定边界</td>
+</tr>
+</tbody></table>
+<p>剩下的知识，都在回答这套最小模型暂时没有回答的问题。</p>
+<h1 id="贰、旁支问题与题型"><a href="#贰、旁支问题与题型" class="headerlink" title="贰、旁支问题与题型"></a>贰、旁支问题与题型</h1><p>下面仍按上一篇的办法整理。每条旁支回答四个问题：它补了主干的什么缺口，它接在哪个节点，它内部有哪些必须掌握的结论，考试会怎样问。</p>
+<p>五份课件与本知识树的对应关系如下：</p>
+<table>
+<thead>
+<tr>
+<th>课件</th>
+<th>主要内容</th>
+<th>在本知识树中的位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>课时 17</td>
+<td>序列、系统性质、差分方程、响应分类、卷积和</td>
+<td>旁支一、二、三</td>
+</tr>
+<tr>
+<td>课时 18</td>
+<td>DTFT 引入、变换对、性质、系统频域分析</td>
+<td>旁支四、五、六</td>
+</tr>
+<tr>
+<td>课时 19</td>
+<td>Z 变换、ROC、变换对、性质、逆变换</td>
+<td>旁支七</td>
+</tr>
+<tr>
+<td>课时 20</td>
+<td>Z 域求响应、系统函数、特征输入、因果稳定、零极点</td>
+<td>旁支八、九</td>
+</tr>
+<tr>
+<td>课时 21</td>
+<td>流图与 Mason、$s$-$z$ 映射、全通、Jury</td>
+<td>旁支十、十一</td>
+</tr>
+</tbody></table>
+<h2 id="一、接在“系统算子”之前：序列与离散系统的语法"><a href="#一、接在“系统算子”之前：序列与离散系统的语法" class="headerlink" title="一、接在“系统算子”之前：序列与离散系统的语法"></a>一、接在“系统算子”之前：序列与离散系统的语法</h2><h3 id="要解决的问题"><a href="#要解决的问题" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>主干直接写出 $T:x[n]\mapsto y[n]$，但做题前必须先确认：序列怎样表示，离散频率怎样判重，题目对序列做了什么移位或反转，给出的系统是否真的线性、时不变、因果和稳定。</p>
+<h3 id="1-基本序列与分解"><a href="#1-基本序列与分解" class="headerlink" title="1. 基本序列与分解"></a>1. 基本序列与分解</h3><p>单位脉冲与单位阶跃分别为</p>
+<p>$$<br>\delta[n]&#x3D;<br>\begin{cases}<br>1,&amp;n&#x3D;0,\<br>0,&amp;n\neq0,<br>\end{cases}<br>\qquad<br>u[n]&#x3D;<br>\begin{cases}<br>1,&amp;n\ge0,\<br>0,&amp;n&lt;0.<br>\end{cases}<br>$$</p>
+<p>二者满足</p>
+<p>$$<br>\delta[n]&#x3D;u[n]-u[n-1],<br>$$</p>
+<p>$$<br>u[n]&#x3D;\sum_{k&#x3D;-\infty}^{n}\delta[k].<br>$$</p>
+<p>长度为 $N$ 的矩形序列可以写成</p>
+<p>$$<br>R_N[n]&#x3D;u[n]-u[n-N].<br>$$</p>
+<p>最重要的抽样性质是</p>
+<p>$$<br>x[n]\delta[n-n_0]&#x3D;x[n_0]\delta[n-n_0],<br>$$</p>
+<p>而完备分解式</p>
+<p>$$<br>x[n]&#x3D;\sum_{k&#x3D;-\infty}^{\infty}x[k]\delta[n-k]<br>$$</p>
+<p>正是卷积和推导的起点。</p>
+<h3 id="2-序列运算与周期性"><a href="#2-序列运算与周期性" class="headerlink" title="2. 序列运算与周期性"></a>2. 序列运算与周期性</h3><p>离散时间只允许整数索引。$x[n-n_0]$ 表示右移 $n_0$，$x[-n]$ 表示反转；处理 $x[an+b]$ 时，必须检查 $an+b$ 是否仍为整数索引，不能把连续时间的任意尺度伸缩原样搬过来。</p>
+<p>离散复指数 $e^{j\omega_0n}$ 周期的充要条件是存在正整数 $N$ 与整数 $m$，使</p>
+<p>$$<br>\omega_0N&#x3D;2\pi m.<br>$$</p>
+<p>也就是 $\omega_0&#x2F;(2\pi)$ 为有理数。其基波周期是满足条件的最小正整数 $N$。多个周期序列相加时，还要继续寻找公共整数周期。</p>
+<h3 id="3-能量、功率与系统性质"><a href="#3-能量、功率与系统性质" class="headerlink" title="3. 能量、功率与系统性质"></a>3. 能量、功率与系统性质</h3><p>离散序列的能量和平均功率为</p>
+<p>$$<br>E&#x3D;\sum_{n&#x3D;-\infty}^{\infty}|x[n]|^2,<br>$$</p>
+<p>$$<br>P&#x3D;\lim_{N\to\infty}\frac{1}{2N+1}<br>\sum_{n&#x3D;-N}^{N}|x[n]|^2.<br>$$</p>
+<p>系统性质仍包括线性、时不变、因果、稳定和有无记忆。判断时不要只看方程长相：</p>
+<ul>
+<li><p>线性要同时检查可加性与齐次性；</p>
+</li>
+<li><p>时不变要比较 $T{x[n-n_0]}$ 与 $y[n-n_0]$；</p>
+</li>
+<li><p>因果要求 $y[n_0]$ 不依赖任何 $n&gt;n_0$ 的输入；</p>
+</li>
+<li><p>BIBO 稳定要求每个有界输入都产生有界输出。</p>
+</li>
+</ul>
+<h3 id="考法"><a href="#考法" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>序列画图与复合变换题</strong>：根据 $x[-2n+3]$ 一类表达式定位有效整数样本，先反转、再取样、最后平移，并标清 $n&#x3D;0$。</p>
+</li>
+<li><p><strong>周期判断题</strong>：判断复指数或正弦序列是否周期，求基波周期；常见陷阱是把连续正弦“必然周期”直接搬到离散域。</p>
+</li>
+<li><p><strong>能量功率题</strong>：有限长和衰减序列通常先算能量，周期序列通常先算一个周期的平均功率。</p>
+</li>
+<li><p><strong>单位脉冲分解题</strong>：把图示序列写成若干 $\delta[n-k]$，或把矩形段写成阶跃之差。</p>
+</li>
+<li><p><strong>系统性质题</strong>：逐项判断线性、时不变、因果、稳定和记忆性，并为每个结论给出定义或反例。</p>
+</li>
+</ol>
+<h2 id="二、接在“零状态”假设之后：差分方程与完整响应"><a href="#二、接在“零状态”假设之后：差分方程与完整响应" class="headerlink" title="二、接在“零状态”假设之后：差分方程与完整响应"></a>二、接在“零状态”假设之后：差分方程与完整响应</h2><h3 id="要解决的问题-1"><a href="#要解决的问题-1" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>卷积和只直接给出零状态响应，而课件中的差分方程题还会给系统初始储能。必须把“方程怎样解”和“解的每个部分属于什么响应”分开。</p>
+<h3 id="1-常系数线性差分方程"><a href="#1-常系数线性差分方程" class="headerlink" title="1. 常系数线性差分方程"></a>1. 常系数线性差分方程</h3><p>一般形式为</p>
+<p>$$<br>\sum_{k&#x3D;0}^{N}a_k y[n-k]<br>&#x3D;\sum_{k&#x3D;0}^{M}b_k x[n-k].<br>$$</p>
+<p>它有三种常见求法：</p>
+<ul>
+<li><p>直接迭代，适合只问前若干项；</p>
+</li>
+<li><p>经典法，先求齐次解再找特解；</p>
+</li>
+<li><p>Z 变换法，把移位关系化成代数方程。</p>
+</li>
+</ul>
+<p>齐次方程的特征多项式为</p>
+<p>$$<br>\sum_{k&#x3D;0}^{N}a_k\lambda^{N-k}&#x3D;0.<br>$$</p>
+<p>若根 $\lambda_i$ 互异，齐次解由 $\lambda_i^n$ 线性组合；若 $\lambda$ 是 $r$ 重根，还要补上</p>
+<p>$$<br>(C_0+C_1n+\cdots+C_{r-1}n^{r-1})\lambda^n.<br>$$</p>
+<p>复共轭根则可合并为 $r^n\cos(\omega n)$ 与 $r^n\sin(\omega n)$ 的实形式。</p>
+<h3 id="2-特解与输入形式"><a href="#2-特解与输入形式" class="headerlink" title="2. 特解与输入形式"></a>2. 特解与输入形式</h3><p>特解的试探形式跟随输入，但若输入模态与特征根重合，就必须乘 $n$ 消除冲突。例如输入为 $a^nu[n]$，通常试探 $Ca^n$；若 $a$ 是特征根，则改试 $Cna^n$，重合阶数更高时继续增加 $n$ 的幂次。</p>
+<p>这并不是另一套技巧。它与后面的系统函数极点完全一致：输入模态撞上系统自然模态时，代数上的极点发生重合，时域里便多出 $n$ 因子。</p>
+<h3 id="3-响应分类"><a href="#3-响应分类" class="headerlink" title="3. 响应分类"></a>3. 响应分类</h3><p>需要同时分清两组分类：</p>
+<p>$$<br>y[n]&#x3D;y_{zi}[n]+y_{zs}[n],<br>$$</p>
+<p>$$<br>y[n]&#x3D;y_n[n]+y_f[n].<br>$$</p>
+<ul>
+<li><p>零输入响应 $y_{zi}$ 由初始状态引起；</p>
+</li>
+<li><p>零状态响应 $y_{zs}$ 由外部输入引起；</p>
+</li>
+<li><p>自然响应 $y_n$ 由系统极点对应的模态组成；</p>
+</li>
+<li><p>强迫响应 $y_f$ 跟随输入的模态。</p>
+</li>
+</ul>
+<p>这两种分法依据不同，不能把“零输入”等同于“自然”，也不能把“零状态”等同于“强迫”。零状态响应中同样可能包含自然模态。</p>
+<h3 id="考法-1"><a href="#考法-1" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>迭代求样值题</strong>：由差分方程、输入和若干初始值依次求 $y[0],y[1],\ldots$，重点是下标与初始区间。</p>
+</li>
+<li><p><strong>经典法求全响应题</strong>：列特征方程，按输入选特解，再由初始条件定系数。</p>
+</li>
+<li><p><strong>重根与共振型特解题</strong>：识别重根、复根和输入模态与系统模态重合，写出正确试探形式。</p>
+</li>
+<li><p><strong>响应分类题</strong>：分别求 $y_{zi}$、$y_{zs}$ 或指出自然、强迫分量，避免按表达式外观误分。</p>
+</li>
+<li><p><strong>方程与模态互推题</strong>：由自然响应反推特征根或差分算子，或由特征多项式判断响应是否衰减、振荡、交替。</p>
+</li>
+</ol>
+<h2 id="三、接在“卷积和”之后：冲激响应、卷积计算、因果与稳定"><a href="#三、接在“卷积和”之后：冲激响应、卷积计算、因果与稳定" class="headerlink" title="三、接在“卷积和”之后：冲激响应、卷积计算、因果与稳定"></a>三、接在“卷积和”之后：冲激响应、卷积计算、因果与稳定</h2><h3 id="要解决的问题-2"><a href="#要解决的问题-2" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>主干已经证明 $y&#x3D;x*h$，但考试仍要落到怎样求 $h[n]$、怎样算卷积和、怎样从 $h[n]$ 直接判断系统性质。</p>
+<h3 id="1-冲激响应和阶跃响应"><a href="#1-冲激响应和阶跃响应" class="headerlink" title="1. 冲激响应和阶跃响应"></a>1. 冲激响应和阶跃响应</h3><p>冲激响应定义为</p>
+<p>$$<br>h[n]&#x3D;T{\delta[n]}\big|_{\text{零状态}}.<br>$$</p>
+<p>阶跃响应记为</p>
+<p>$$<br>g[n]&#x3D;T{u[n]}\big|_{\text{零状态}}.<br>$$</p>
+<p>由于 $\delta[n]&#x3D;u[n]-u[n-1]$，有</p>
+<p>$$<br>h[n]&#x3D;g[n]-g[n-1],<br>$$</p>
+<p>$$<br>g[n]&#x3D;\sum_{k&#x3D;-\infty}^{n}h[k].<br>$$</p>
+<h3 id="2-卷积和的计算层"><a href="#2-卷积和的计算层" class="headerlink" title="2. 卷积和的计算层"></a>2. 卷积和的计算层</h3><p>定义为</p>
+<p>$$<br>y[n]&#x3D;\sum_{k&#x3D;-\infty}^{\infty}x[k]h[n-k].<br>$$</p>
+<p>手算时可按“反转—平移—相乘—求和”处理。有限长序列还可直接利用支撑区间：若 $x[n]$ 长度为 $N$，$h[n]$ 长度为 $M$，且两者都无内部空洞，则卷积结果长度为</p>
+<p>$$<br>N+M-1.<br>$$</p>
+<p>卷积满足交换、结合和分配律：</p>
+<p>$$<br>x<em>h&#x3D;h</em>x,<br>$$</p>
+<p>$$<br>x*(h_1<em>h_2)&#x3D;(x</em>h_1)*h_2,<br>$$</p>
+<p>$$<br>x*(h_1+h_2)&#x3D;x<em>h_1+x</em>h_2.<br>$$</p>
+<h3 id="3-h-n-是系统性质的时域说明书"><a href="#3-h-n-是系统性质的时域说明书" class="headerlink" title="3. $h[n]$ 是系统性质的时域说明书"></a>3. $h[n]$ 是系统性质的时域说明书</h3><p>对离散 LTI 系统：</p>
+<ul>
+<li><p>因果的充要条件是 $h[n]&#x3D;0, n&lt;0$；</p>
+</li>
+<li><p>BIBO 稳定的充要条件是</p>
+</li>
+</ul>
+<p>$$<br>\sum_{n&#x3D;-\infty}^{\infty}|h[n]|&lt;\infty;<br>$$</p>
+<ul>
+<li>无记忆系统的冲激响应必须为 $h[n]&#x3D;K\delta[n]$。</li>
+</ul>
+<h3 id="考法-2"><a href="#考法-2" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>图解卷积题</strong>：给两段有限序列，按不同重叠区间写分段求和上下限。</p>
+</li>
+<li><p><strong>脉冲串卷积题</strong>：先利用 $x[n]*\delta[n-n_0]&#x3D;x[n-n_0]$，把卷积降为移位与叠加。</p>
+</li>
+<li><p><strong>由差分方程求 $h[n]$</strong>：令输入为 $\delta[n]$ 且初始状态为零，可迭代、经典求解或留到 Z 域求解。</p>
+</li>
+<li><p><strong>由阶跃响应求冲激响应</strong>：作一阶差分 $h[n]&#x3D;g[n]-g[n-1]$；反向则作累加。</p>
+</li>
+<li><p><strong>因果稳定判断题</strong>：由 $h[n]$ 的支撑与绝对可和性判断，双边序列尤其要分别检查两侧。</p>
+</li>
+</ol>
+<h2 id="四、接在“单位圆”之后：DTFT-变换对与性质"><a href="#四、接在“单位圆”之后：DTFT-变换对与性质" class="headerlink" title="四、接在“单位圆”之后：DTFT 变换对与性质"></a>四、接在“单位圆”之后：DTFT 变换对与性质</h2><h3 id="要解决的问题-3"><a href="#要解决的问题-3" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>定义式说明了 DTFT 是什么，却没有说明怎样快速计算。课时 18 的主体就是把连续傅里叶变换的经验迁移过来，同时标出离散域独有的周期性和求和结构。</p>
+<h3 id="1-核心变换对"><a href="#1-核心变换对" class="headerlink" title="1. 核心变换对"></a>1. 核心变换对</h3><p>必须熟悉的变换对包括：</p>
+<p>$$<br>\delta[n]\longleftrightarrow 1,<br>$$</p>
+<p>$$<br>1\longleftrightarrow 2\pi\sum_{k&#x3D;-\infty}^{\infty}\delta(\omega-2\pi k),<br>$$</p>
+<p>$$<br>a^nu[n]\longleftrightarrow\frac{1}{1-ae^{-j\omega}},<br>\qquad |a|&lt;1,<br>$$</p>
+<p>以及长度为 $N$ 的矩形序列</p>
+<p>$$<br>R_N[n]&#x3D;<br>\begin{cases}<br>1,&amp;0\le n\le N-1,\<br>0,&amp;\text{其他},<br>\end{cases}<br>$$</p>
+<p>对应</p>
+<p>$$<br>R_N(e^{j\omega})<br>&#x3D;e^{-j\omega(N-1)&#x2F;2}<br>\frac{\sin(N\omega&#x2F;2)}{\sin(\omega&#x2F;2)}.<br>$$</p>
+<p>它的幅度是周期化的 Dirichlet 核，线性相位来自序列支撑中心 $(N-1)&#x2F;2$。</p>
+<h3 id="2-必须形成闭环的性质"><a href="#2-必须形成闭环的性质" class="headerlink" title="2. 必须形成闭环的性质"></a>2. 必须形成闭环的性质</h3><p>设 $x[n]\leftrightarrow X(e^{j\omega})$，则：</p>
+<ul>
+<li>时移：</li>
+</ul>
+<p>$$<br>x[n-n_0]\leftrightarrow e^{-j\omega n_0}X(e^{j\omega});<br>$$</p>
+<ul>
+<li>频移：</li>
+</ul>
+<p>$$<br>e^{j\omega_0n}x[n]\leftrightarrow X(e^{j(\omega-\omega_0)});<br>$$</p>
+<ul>
+<li>时间反转：</li>
+</ul>
+<p>$$<br>x[-n]\leftrightarrow X(e^{-j\omega});<br>$$</p>
+<ul>
+<li>乘 $n$：</li>
+</ul>
+<p>$$<br>nx[n]\leftrightarrow j\frac{dX(e^{j\omega})}{d\omega};<br>$$</p>
+<ul>
+<li>一阶差分：</li>
+</ul>
+<p>$$<br>x[n]-x[n-1]\leftrightarrow(1-e^{-j\omega})X(e^{j\omega});<br>$$</p>
+<ul>
+<li>时域卷积：</li>
+</ul>
+<p>$$<br>x[n]*h[n]\leftrightarrow X(e^{j\omega})H(e^{j\omega});<br>$$</p>
+<ul>
+<li>时域相乘：</li>
+</ul>
+<p>$$<br>x[n]h[n]\leftrightarrow<br>\frac{1}{2\pi}\int_{-\pi}^{\pi}<br>X(e^{j\theta})H(e^{j(\omega-\theta)})d\theta;<br>$$</p>
+<ul>
+<li>Parseval：</li>
+</ul>
+<p>$$<br>\sum_{n&#x3D;-\infty}^{\infty}|x[n]|^2<br>&#x3D;\frac{1}{2\pi}\int_{-\pi}^{\pi}|X(e^{j\omega})|^2d\omega.<br>$$</p>
+<h3 id="3-奇偶虚实与周期性"><a href="#3-奇偶虚实与周期性" class="headerlink" title="3. 奇偶虚实与周期性"></a>3. 奇偶虚实与周期性</h3><p>若 $x[n]$ 为实序列，则</p>
+<p>$$<br>X(e^{-j\omega})&#x3D;X^*(e^{j\omega}).<br>$$</p>
+<p>于是实部为偶函数，虚部为奇函数，幅度为偶函数，相位在适当展开下为奇函数。再加上 $2\pi$ 周期性，很多积分只需计算半个周期。</p>
+<h3 id="考法-3"><a href="#考法-3" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>变换对与性质连用题</strong>：先识别基本序列，再按时移、反转、调制、乘 $n$ 的顺序变形。</p>
+</li>
+<li><p><strong>由矩形序列求频谱题</strong>：把有限等比和化成正弦比值，并保留线性相位因子。</p>
+</li>
+<li><p><strong>由频谱反推序列题</strong>：利用逆 DTFT、对称性或已知变换对，不把一个 $2\pi$ 周期频谱重复积分多次。</p>
+</li>
+<li><p><strong>差分与累加题</strong>：差分在频域乘 $(1-e^{-j\omega})$；累加需要处理 $\omega&#x3D;0$ 附近可能出现的冲激项和收敛问题。</p>
+</li>
+<li><p><strong>能量题</strong>：在时域求和与频域积分之间选择更短的一侧使用 Parseval。</p>
+</li>
+</ol>
+<h2 id="五、接在“离散频率”之后：周期序列与频谱冲激"><a href="#五、接在“离散频率”之后：周期序列与频谱冲激" class="headerlink" title="五、接在“离散频率”之后：周期序列与频谱冲激"></a>五、接在“离散频率”之后：周期序列与频谱冲激</h2><h3 id="要解决的问题-4"><a href="#要解决的问题-4" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>离散时间序列可以周期，但其 DTFT 不是普通连续曲线，而是在谐波频率上出现的周期冲激列。这里要把“时域离散”“频域周期”和“周期序列的线谱”三件事分开。</p>
+<p>若 $x_p[n]$ 的周期为 $N$，离散时间傅里叶级数写为</p>
+<p>$$<br>x_p[n]&#x3D;\sum_{k&#x3D;0}^{N-1}a_k e^{j2\pi kn&#x2F;N},<br>$$</p>
+<p>$$<br>a_k&#x3D;\frac{1}{N}\sum_{n&#x3D;0}^{N-1}x_p[n]e^{-j2\pi kn&#x2F;N}.<br>$$</p>
+<p>其 DTFT 是</p>
+<p>$$<br>X_p(e^{j\omega})<br>&#x3D;2\pi\sum_{k&#x3D;0}^{N-1}a_k<br>\sum_{m&#x3D;-\infty}^{\infty}<br>\delta\left(\omega-\frac{2\pi k}{N}-2\pi m\right).<br>$$</p>
+<p>频谱本身以 $2\pi$ 重复，而一个基本频率区间内只有 $N$ 个不同的谐波位置。</p>
+<h3 id="考法-4"><a href="#考法-4" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>判断周期并求 DFS 系数</strong>：先确定最小整数周期 $N$，再在任意一个完整周期上求和。</p>
+</li>
+<li><p><strong>周期延拓与频谱题</strong>：给一段长度 $N$ 的序列并周期延拓，求线谱位置与权重。</p>
+</li>
+<li><p><strong>复指数、余弦输入题</strong>：把余弦拆成两个复指数，注意 $\omega$ 与 $\omega+2\pi k$ 等价。</p>
+</li>
+<li><p><strong>冲激列读图题</strong>：从基本区间扩展到整个频率轴，或从重复线谱反推时域周期。</p>
+</li>
+</ol>
+<h2 id="六、接在-Y-HX-之后：频率响应与特征输入"><a href="#六、接在-Y-HX-之后：频率响应与特征输入" class="headerlink" title="六、接在 $Y&#x3D;HX$ 之后：频率响应与特征输入"></a>六、接在 $Y&#x3D;HX$ 之后：频率响应与特征输入</h2><h3 id="要解决的问题-5"><a href="#要解决的问题-5" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>主干说明频域中可以相乘，本旁支回答怎样从 $H(z)$ 或零极点图读出系统对某个频率的幅度和相位作用。</p>
+<p>当单位圆位于 ROC 内时，输入</p>
+<p>$$<br>x[n]&#x3D;e^{j\omega_0n}<br>$$</p>
+<p>产生零状态输出</p>
+<p>$$<br>y_{zs}[n]&#x3D;H(e^{j\omega_0})e^{j\omega_0n}.<br>$$</p>
+<p>对实正弦输入，可取复指数结果的实部。若</p>
+<p>$$<br>x[n]&#x3D;A\cos(\omega_0n+\phi),<br>$$</p>
+<p>则稳态响应为</p>
+<p>$$<br>y_{ss}[n]<br>&#x3D;A|H(e^{j\omega_0})|<br>\cos\bigl(\omega_0n+\phi+\arg H(e^{j\omega_0})\bigr).<br>$$</p>
+<p>若</p>
+<p>$$<br>H(z)&#x3D;K\frac{\prod_i(z-z_i)}{\prod_k(z-p_k)},<br>$$</p>
+<p>则在单位圆点 $z&#x3D;e^{j\omega}$ 上，幅度等于零点距离乘积与极点距离乘积之比，相位等于各零点向量角度之和减去各极点向量角度之和。</p>
+<p>因此：</p>
+<ul>
+<li><p>极点靠近单位圆上的某个角度，会在相应频率附近形成峰值；</p>
+</li>
+<li><p>零点靠近单位圆会形成衰减；</p>
+</li>
+<li><p>零点正好位于单位圆上，会在该频率形成陷波。</p>
+</li>
+</ul>
+<h3 id="考法-5"><a href="#考法-5" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>正弦稳态响应题</strong>：把 $e^{j\omega_0}$ 代入 $H(z)$，求幅度倍率和附加相位。</p>
+</li>
+<li><p><strong>由差分方程求频率响应</strong>：零初始条件下先求 $H(z)$，再令 $z&#x3D;e^{j\omega}$。</p>
+</li>
+<li><p><strong>零极点几何题</strong>：在单位圆指定点作向量，比较不同频率处的幅度和相位。</p>
+</li>
+<li><p><strong>滤波性质判断题</strong>：由单位圆附近的极点和零点判断低通、高通、带通或陷波倾向。</p>
+</li>
+<li><p><strong>存在性辨析题</strong>：若单位圆不在 ROC 内，不能把形式上的 $H(e^{j\omega})$ 直接称为稳定系统的频率响应。</p>
+</li>
+</ol>
+<h2 id="七、接在“Z-变换定义”之后：ROC、性质与逆变换"><a href="#七、接在“Z-变换定义”之后：ROC、性质与逆变换" class="headerlink" title="七、接在“Z 变换定义”之后：ROC、性质与逆变换"></a>七、接在“Z 变换定义”之后：ROC、性质与逆变换</h2><h3 id="要解决的问题-6"><a href="#要解决的问题-6" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>Z 变换比 DTFT 多出来的核心不是一张更长的变换表，而是 ROC。没有 ROC，时域支撑、因果性和稳定性都可能无法确定。</p>
+<h3 id="1-ROC-与序列支撑"><a href="#1-ROC-与序列支撑" class="headerlink" title="1. ROC 与序列支撑"></a>1. ROC 与序列支撑</h3><p>以</p>
+<p>$$<br>X(z)&#x3D;\frac{1}{1-az^{-1}}<br>$$</p>
+<p>为例：</p>
+<p>$$<br>a^nu[n]\longleftrightarrow\frac{1}{1-az^{-1}},<br>\qquad |z|&gt;|a|,<br>$$</p>
+<p>而</p>
+<p>$$<br>-a^nu[-n-1]\longleftrightarrow\frac{1}{1-az^{-1}},<br>\qquad |z|&lt;|a|.<br>$$</p>
+<p>同一代数式，因为 ROC 不同，对应完全不同的序列。</p>
+<p>对有理 Z 变换：</p>
+<ul>
+<li><p>右边序列的 ROC 在最外极点之外，并延伸到无穷远；</p>
+</li>
+<li><p>左边序列的 ROC 在最内极点之内，并延伸到原点；</p>
+</li>
+<li><p>双边序列的 ROC 是两组极点之间的圆环；</p>
+</li>
+<li><p>有限长序列的 ROC 通常是整个 $z$ 平面，但可能排除 $0$ 或 $\infty$；</p>
+</li>
+<li><p>ROC 不包含任何极点。</p>
+</li>
+</ul>
+<h3 id="2-Z-变换性质"><a href="#2-Z-变换性质" class="headerlink" title="2. Z 变换性质"></a>2. Z 变换性质</h3><p>除线性、时移、反转、卷积和乘 $n$ 外，Z 变换还有一个很有辨识度的尺度性质。若</p>
+<p>$$<br>x[n]\longleftrightarrow X(z),<br>$$</p>
+<p>则</p>
+<p>$$<br>a^nx[n]\longleftrightarrow X\left(\frac{z}{a}\right).<br>$$</p>
+<p>它把原 ROC 的半径按 $|a|$ 缩放。性质题中不能只写代数式，ROC 也要随运算一起更新；相加时 ROC 至少取原 ROC 的交集，但若发生极零相消，也可能扩大。</p>
+<h3 id="3-逆-Z-变换"><a href="#3-逆-Z-变换" class="headerlink" title="3. 逆 Z 变换"></a>3. 逆 Z 变换</h3><p>课件使用的主要方法是：</p>
+<ul>
+<li><p>部分分式展开，适合有理函数；</p>
+</li>
+<li><p>幂级数展开或长除法，适合根据 ROC 直接判断展开方向；</p>
+</li>
+<li><p>查表并结合时移、尺度、乘 $n$ 等性质。</p>
+</li>
+</ul>
+<p>留数围线积分属于理论定义，但不是这组课件要求的主要计算方法。</p>
+<p>部分分式以后仍必须依据 ROC 选择右边或左边序列。若分式用 $z^{-1}$ 表示，先整理成标准变换对再展开，避免把 $X(z)$ 与 $X(z)&#x2F;z$ 的系数对应混淆。</p>
+<h3 id="考法-6"><a href="#考法-6" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>由序列求 $X(z)$ 与 ROC</strong>：分别求每一项的收敛域，再取交集并检查是否为空。</p>
+</li>
+<li><p><strong>给代数式与 ROC 求逆变换</strong>：先找极点，再按圆内、圆外或圆环把每个分式分配为左边或右边序列。</p>
+</li>
+<li><p><strong>列出全部可能 ROC</strong>：按各极点模值排序，枚举最内圆内、相邻圆环和最外圆外，并分别写时域支撑。</p>
+</li>
+<li><p><strong>长除法题</strong>：圆外 ROC 按 $z^{-1}$ 展开，圆内 ROC 按 $z$ 展开，从系数直接读取序列。</p>
+</li>
+<li><p><strong>性质综合题</strong>：时移、反转、指数加权、乘 $n$ 和卷积连用，同时更新 ROC。</p>
+</li>
+</ol>
+<h2 id="八、接在“零状态”之后：双边-单边-Z-变换求系统响应"><a href="#八、接在“零状态”之后：双边-单边-Z-变换求系统响应" class="headerlink" title="八、接在“零状态”之后：双边&#x2F;单边 Z 变换求系统响应"></a>八、接在“零状态”之后：双边&#x2F;单边 Z 变换求系统响应</h2><h3 id="要解决的问题-7"><a href="#要解决的问题-7" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>双边 Z 变换最自然地处理零状态卷积和；单边 Z 变换则把初始条件带进移位公式。两者必须按题目目标选择，不能混着套公式。</p>
+<h3 id="1-零状态响应"><a href="#1-零状态响应" class="headerlink" title="1. 零状态响应"></a>1. 零状态响应</h3><p>零初始条件下，对差分方程取双边 Z 变换：</p>
+<p>$$<br>H(z)&#x3D;\frac{Y_{zs}(z)}{X(z)}.<br>$$</p>
+<p>再由</p>
+<p>$$<br>Y_{zs}(z)&#x3D;H(z)X(z)<br>$$</p>
+<p>作逆变换。此时 $H(z)$ 的 ROC 要根据系统的因果性或稳定性补齐，$Y_{zs}(z)$ 的 ROC 则由乘积、极零相消和时域支撑共同决定。</p>
+<h3 id="2-完整响应与单边-Z-变换"><a href="#2-完整响应与单边-Z-变换" class="headerlink" title="2. 完整响应与单边 Z 变换"></a>2. 完整响应与单边 Z 变换</h3><p>定义单边 Z 变换</p>
+<p>$$<br>X^+(z)&#x3D;\sum_{n&#x3D;0}^{\infty}x[n]z^{-n}.<br>$$</p>
+<p>它的移位性质会显式出现初始值。例如</p>
+<p>$$<br>\mathcal{Z}_+{y[n-1]}<br>&#x3D;z^{-1}Y^+(z)+y[-1],<br>$$</p>
+<p>$$<br>\mathcal{Z}_+{y[n+1]}<br>&#x3D;zY^+(z)-zy[0].<br>$$</p>
+<p>因此，给定差分方程、输入和 $n&#x3D;0$ 之前的初始条件时，单边 Z 变换可以直接求完整响应。</p>
+<h3 id="3-初值与终值"><a href="#3-初值与终值" class="headerlink" title="3. 初值与终值"></a>3. 初值与终值</h3><p>对右边序列，若条件满足：</p>
+<p>$$<br>x[0]&#x3D;\lim_{z\to\infty}X(z),<br>$$</p>
+<p>$$<br>\lim_{n\to\infty}x[n]<br>&#x3D;\lim_{z\to1}(1-z^{-1})X(z).<br>$$</p>
+<p>终值定理不能只看代入是否有结果。除可能位于 $z&#x3D;1$ 的单极点外，$(1-z^{-1})X(z)$ 的其余极点必须严格位于单位圆内。</p>
+<h3 id="考法-7"><a href="#考法-7" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>双边 Z 变换求零状态响应</strong>：先求 $H(z)$ 和 $X(z)$，相乘后结合因果条件确定 ROC，再逆变换。</p>
+</li>
+<li><p><strong>单边 Z 变换求全响应</strong>：把每个移位项携带的初值完整写出，解出 $Y^+(z)$ 后再部分分式展开。</p>
+</li>
+<li><p><strong>分求零输入与零状态响应</strong>：分别令输入为零、初始状态为零，再核验两部分相加等于完整响应。</p>
+</li>
+<li><p><strong>初终值定理题</strong>：先检查右边序列和极点条件，再取极限；单位圆上有振荡极点时通常不存在终值。</p>
+</li>
+<li><p><strong>方法选择题</strong>：只问有限个样值用迭代，问闭式全响应可用经典法或单边 Z 变换，问零状态和系统性质优先双边 Z 变换。</p>
+</li>
+</ol>
+<h2 id="九、接在-H-z-之后：系统函数、零极点、因果与稳定"><a href="#九、接在-H-z-之后：系统函数、零极点、因果与稳定" class="headerlink" title="九、接在 $H(z)$ 之后：系统函数、零极点、因果与稳定"></a>九、接在 $H(z)$ 之后：系统函数、零极点、因果与稳定</h2><h3 id="要解决的问题-8"><a href="#要解决的问题-8" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>系统函数把差分方程、冲激响应、频率响应和零极点图连成一张图，但这些对象之间的互推都带着“零初始”和 ROC 前提。</p>
+<h3 id="1-差分方程与系统函数"><a href="#1-差分方程与系统函数" class="headerlink" title="1. 差分方程与系统函数"></a>1. 差分方程与系统函数</h3><p>对</p>
+<p>$$<br>\sum_{k&#x3D;0}^{N}a_k y[n-k]<br>&#x3D;\sum_{k&#x3D;0}^{M}b_k x[n-k]<br>$$</p>
+<p>在零初始条件下取 Z 变换，得到</p>
+<p>$$<br>H(z)<br>&#x3D;\frac{\sum_{k&#x3D;0}^{M}b_kz^{-k}}<br>{\sum_{k&#x3D;0}^{N}a_kz^{-k}}.<br>$$</p>
+<p>反过来，把 $H(z)&#x3D;Y(z)&#x2F;X(z)$ 交叉相乘，再对照 $z^{-k}$ 与延时 $k$ 个样本，就能写回差分方程。</p>
+<h3 id="2-因果与稳定必须联立-ROC"><a href="#2-因果与稳定必须联立-ROC" class="headerlink" title="2. 因果与稳定必须联立 ROC"></a>2. 因果与稳定必须联立 ROC</h3><p>对离散 LTI 系统：</p>
+<ul>
+<li><p>因果等价于 $h[n]$ 为右边序列；对有理系统，ROC 在最外极点之外；</p>
+</li>
+<li><p>稳定等价于 $h[n]$ 绝对可和；在 Z 域中等价于 ROC 包含单位圆；</p>
+</li>
+<li><p>因果且稳定的有理系统，其所有极点必须严格位于单位圆内。</p>
+</li>
+</ul>
+<p>最后一条不能脱离“因果有理系统”单独使用。若系统允许反因果，同一组极点也可能通过圆内 ROC 构成稳定系统。</p>
+<h3 id="3-极点决定自然模态"><a href="#3-极点决定自然模态" class="headerlink" title="3. 极点决定自然模态"></a>3. 极点决定自然模态</h3><p>极点 $p&#x3D;re^{j\omega_0}$ 对应时域模态 $r^ne^{j\omega_0n}$。因此：</p>
+<ul>
+<li><p>$0&lt;r&lt;1$ 表示衰减；</p>
+</li>
+<li><p>$r&gt;1$ 表示增长；</p>
+</li>
+<li><p>负实极点产生正负交替；</p>
+</li>
+<li><p>共轭复极点产生振荡包络；</p>
+</li>
+<li><p>重极点会附带 $n,n^2,\ldots$ 因子。</p>
+</li>
+</ul>
+<h3 id="4-全通、最小相位与逆系统"><a href="#4-全通、最小相位与逆系统" class="headerlink" title="4. 全通、最小相位与逆系统"></a>4. 全通、最小相位与逆系统</h3><p>离散全通因子的零点与极点关于单位圆作共轭倒数镜像。例如 $|a|&lt;1$ 时可写</p>
+<p>$$<br>H_{\mathrm{ap}}(z)<br>&#x3D;\frac{z^{-1}-a^*}{1-az^{-1}},<br>$$</p>
+<p>在单位圆上满足</p>
+<p>$$<br>|H_{\mathrm{ap}}(e^{j\omega})|&#x3D;1.<br>$$</p>
+<p>它只改变相位，不改变幅度。因果稳定的最小相位系统要求零点也位于单位圆内，因此其逆系统仍可因果稳定。一般系统可以把单位圆外零点镜像进单位圆，差额归入全通因子。</p>
+<h3 id="考法-8"><a href="#考法-8" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>差分方程、$h[n]$、$H(z)$ 互推题</strong>：先声明零初始条件，再补上因果或稳定条件确定 ROC。</p>
+</li>
+<li><p><strong>给 $H(z)$ 画零极点图</strong>：统一多项式形式，注意用 $z^{-1}$ 表示时原点处可能出现补偿零极点。</p>
+</li>
+<li><p><strong>由 ROC 判断因果稳定</strong>：因果决定向外，稳定要求包含单位圆；二者联立后再判断极点位置。</p>
+</li>
+<li><p><strong>自然模态与响应形状题</strong>：由极点模和角度判断衰减、增长、交替与振荡。</p>
+</li>
+<li><p><strong>全通与最小相位分解题</strong>：把单位圆外零点映射到 $1&#x2F;z_i^*$，构造全通因子并保持原幅频响应。</p>
+</li>
+<li><p><strong>逆系统可实现性题</strong>：$1&#x2F;H(z)$ 的极点来自原系统零点；单位圆外零点会阻止因果稳定逆系统存在。</p>
+</li>
+</ol>
+<h2 id="十、接在“连续与离散平行关系”之后：抽样与-s-z-映射"><a href="#十、接在“连续与离散平行关系”之后：抽样与-s-z-映射" class="headerlink" title="十、接在“连续与离散平行关系”之后：抽样与 $s$-$z$ 映射"></a>十、接在“连续与离散平行关系”之后：抽样与 $s$-$z$ 映射</h2><h3 id="要解决的问题-9"><a href="#要解决的问题-9" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>前面只说连续与离散结构相似，本旁支说明两张复平面怎样通过抽样周期 $T$ 连接，以及为什么单位圆会成为离散系统的稳定边界。</p>
+<p>连续指数在采样时刻 $t&#x3D;nT$ 变为</p>
+<p>$$<br>e^{st}\big|_{t&#x3D;nT}&#x3D;e^{snT}&#x3D;(e^{sT})^n.<br>$$</p>
+<p>因此</p>
+<p>$$<br>\boxed{z&#x3D;e^{sT}}.<br>$$</p>
+<p>令 $s&#x3D;\sigma+j\Omega$，则</p>
+<p>$$<br>|z|&#x3D;e^{\sigma T},<br>\qquad<br>\arg z&#x3D;\Omega T\pmod{2\pi}.<br>$$</p>
+<p>所以：</p>
+<ul>
+<li><p>$s$ 平面左半平面映到单位圆内；</p>
+</li>
+<li><p>虚轴映到单位圆上；</p>
+</li>
+<li><p>右半平面映到单位圆外；</p>
+</li>
+<li><p>相差整数倍 $j2\pi&#x2F;T$ 的连续频率映到同一个 $z$ 点。</p>
+</li>
+</ul>
+<p>最后一条就是混叠在复平面上的表达。映射沿虚轴方向不是一一对应，不能仅凭一个离散极点唯一恢复原连续频率。</p>
+<p>课件补充的连续系统离散化关系，本质上也是选择怎样把连续冲激响应或连续极点映到离散系统。脉冲响应不变法让</p>
+<p>$$<br>h_d[n]&#x3D;Th_c(nT)<br>$$</p>
+<p>或按所用归一化约定省略比例因子，再作 Z 变换；它保留采样后的时域形状，但频谱会周期叠加，因此不适合存在严重混叠的场景。</p>
+<h3 id="考法-9"><a href="#考法-9" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>$s$ 平面到 $z$ 平面映射题</strong>：把连续极点 $s_k$ 映成 $z_k&#x3D;e^{s_kT}$，判断离散系统稳定性。</p>
+</li>
+<li><p><strong>由离散极点反推连续模态题</strong>：写出复对数的多值性，说明频率只能模 $2\pi&#x2F;T$ 确定。</p>
+</li>
+<li><p><strong>抽样与混叠题</strong>：由 $\omega&#x3D;\Omega T$ 判断不同连续频率是否映到同一离散频率。</p>
+</li>
+<li><p><strong>脉冲响应不变法题</strong>：先求 $h_c(t)$，采样得到 $h_d[n]$，再求 $H(z)$；同时检查频谱混叠风险。</p>
+</li>
+<li><p><strong>稳定区域对应题</strong>：解释为什么连续因果稳定极点在左半平面，而离散因果稳定极点在单位圆内。</p>
+</li>
+</ol>
+<h2 id="十一、接在“单个系统函数”之后：结构实现、Mason-与-Jury"><a href="#十一、接在“单个系统函数”之后：结构实现、Mason-与-Jury" class="headerlink" title="十一、接在“单个系统函数”之后：结构实现、Mason 与 Jury"></a>十一、接在“单个系统函数”之后：结构实现、Mason 与 Jury</h2><h3 id="要解决的问题-10"><a href="#要解决的问题-10" class="headerlink" title="要解决的问题"></a>要解决的问题</h3><p>前面把系统压成了单个 $H(z)$。最后一组课件反过来问：怎样用加法器、乘法器和单位延时实现它，怎样从复杂流图恢复总体系统函数，又怎样不显式求根就判断全部极点是否在单位圆内。</p>
+<h3 id="1-离散系统结构与信号流图"><a href="#1-离散系统结构与信号流图" class="headerlink" title="1. 离散系统结构与信号流图"></a>1. 离散系统结构与信号流图</h3><p>系统函数写成</p>
+<p>$$<br>H(z)&#x3D;\frac{b_0+b_1z^{-1}+\cdots+b_Mz^{-M}}<br>{1+a_1z^{-1}+\cdots+a_Nz^{-N}}<br>$$</p>
+<p>以后，可以构造直接 I 型、直接 II 型、级联型或并联型实现。直接 II 型共享延时链，通常使用较少延时单元；级联和并联则把高阶系统拆成若干低阶节，更容易观察局部极点与零点。</p>
+<p>信号流图中的支路对应乘法，节点对应信号变量，$z^{-1}$ 支路对应一个单位延时。由差分方程画图时，应先把 $y[n]$ 单独放在等式一侧，再按每个延时项建立反馈或前馈支路。</p>
+<h3 id="2-Mason-公式"><a href="#2-Mason-公式" class="headerlink" title="2. Mason 公式"></a>2. Mason 公式</h3><p>设前向通路增益为 $P_k$，回路增益为 $L_i$，则</p>
+<p>$$<br>\Delta<br>&#x3D;1-\sum_iL_i<br>+\sum_{i&lt;j}L_iL_j<br>-\sum_{i&lt;j&lt;r}L_iL_jL_r+\cdots,<br>$$</p>
+<p>其中乘积只取互不接触的回路。总体传递函数为</p>
+<p>$$<br>H(z)&#x3D;\frac{\sum_kP_k\Delta_k}{\Delta},<br>$$</p>
+<p>$\Delta_k$ 删除所有与第 $k$ 条前向通路接触的回路后计算。“不接触”表示没有公共节点，不是图上两条线没有交叉。</p>
+<h3 id="3-Jury-稳定判据"><a href="#3-Jury-稳定判据" class="headerlink" title="3. Jury 稳定判据"></a>3. Jury 稳定判据</h3><p>连续系统用 Routh 判断根是否都在左半平面，离散系统用 Jury 判断特征多项式的根是否都在单位圆内。</p>
+<p>设实系数多项式</p>
+<p>$$<br>A(z)&#x3D;a_0z^N+a_1z^{N-1}+\cdots+a_N,<br>\qquad a_0&gt;0.<br>$$</p>
+<p>必要条件包括</p>
+<p>$$<br>A(1)&gt;0,<br>$$</p>
+<p>$$<br>(-1)^N A(-1)&gt;0,<br>$$</p>
+<p>$$<br>|a_N|&lt;a_0.<br>$$</p>
+<p>高阶情形还要构造 Jury 表，逐层比较首尾系数并降阶。必要条件通过不等于已经稳定，必须继续完成表格要求的全部不等式。二阶多项式可把判据化成三组简单不等式，因此常作为参数范围题出现。</p>
+<h3 id="考法-10"><a href="#考法-10" class="headerlink" title="考法"></a>考法</h3><ol>
+<li><p><strong>由差分方程画结构图</strong>：明确前馈、反馈与每个 $z^{-1}$ 延时单元，比较直接 I 型和直接 II 型的存储量。</p>
+</li>
+<li><p><strong>结构图反推差分方程或 $H(z)$</strong>：为内部节点列方程，消去中间变量，不能只凭图形猜分子分母。</p>
+</li>
+<li><p><strong>Mason 公式题</strong>：完整列出前向通路、单回路、互不接触回路和各 $\Delta_k$。</p>
+</li>
+<li><p><strong>Jury 判稳题</strong>：先做 $A(1)$、$A(-1)$ 和首尾系数的快速必要条件，再按阶数完成 Jury 表。</p>
+</li>
+<li><p><strong>含参数稳定范围题</strong>：把 Jury 的每个条件转成参数不等式，最终取交集，注意严格不等号排除单位圆上的根。</p>
+</li>
+<li><p><strong>连续&#x2F;离散判据对照题</strong>：说明 Routh 检查左半平面，Jury 检查单位圆；若先作双线性变换，还可把单位圆问题转成左半平面问题。</p>
+</li>
+</ol>
+<h1 id="叁、总结"><a href="#叁、总结" class="headerlink" title="叁、总结"></a>叁、总结</h1><p>至此，离散部分的主干和旁支可以压成：</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202608300413367.png" srcset="/img/loading.gif" lazyload></p>
+<p>第一部分回答的是：<strong>为什么离散卷积、DTFT 和 Z 变换会从离散 LTI 系统中长出来。</strong></p>
+<p>离散序列可以拆成移位脉冲，LTI 系统因此由卷积和描述；$z^n$ 是卷积系统的特征函数，Z 变换于是把卷积和与差分方程化成乘法和代数式；单位圆上的 Z 变换就是 DTFT，ROC 是否包含单位圆则把频率响应与稳定性接到了一起。</p>
+<p>第二部分回答的是：<strong>当最小模型遇到初始状态、周期序列、收敛域、连续到离散的映射和系统实现时，应该在哪个节点上补什么工具。</strong></p>
+<p>真正需要反复检查的只有几组边界：</p>
+<ul>
+<li><p>表达式不能离开 ROC；</p>
+</li>
+<li><p>$H(z)$ 不能离开零初始条件与系统实现语境；</p>
+</li>
+<li><p>“全部极点在单位圆内”不能离开因果有理系统前提；</p>
+</li>
+<li><p>形式上代入单位圆，不等于频率响应一定存在；</p>
+</li>
+<li><p>零状态&#x2F;零输入与自然&#x2F;强迫是两套不同分类；</p>
+</li>
+<li><p>从 $s$ 到 $z$ 的指数映射不是一一对应，频率混叠就是它的多值性留下的痕迹。</p>
+</li>
+</ul>
+<p>说到底，离散部分并没有发明另一套世界。连续部分沿虚轴读频率，离散部分沿单位圆读频率；连续部分用 $e^{st}$ 展开，离散部分用 $z^n$ 展开。坐标换了，那个“先找特征函数，再把系统对角化”的动作没变。</p>
+<h2 id="参考与说明"><a href="#参考与说明" class="headerlink" title="参考与说明"></a>参考与说明</h2><ul>
+<li><p>课时 17：《第七章—离散域的时域分析》。</p>
+</li>
+<li><p>课时 18：《第八章—DTFT 离散时间傅里叶变换》。</p>
+</li>
+<li><p>课时 19：《第九章—Z 变换引入和变换对求解》。</p>
+</li>
+<li><p>课时 20：《第九章—Z 变换及响应求解》。</p>
+</li>
+<li><p>课时 21：《Mason 特征、Jury 补充知识点》。</p>
+</li>
+<li><p><a href="/posts/2026/08/30/fourier-laplace-knowledge-tree/">《信号与系统发展脉络（上）：傅里叶与拉普拉斯变换的生成逻辑》</a>，用于连续与离散两部分主干的对应。</p>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/" class="category-chain-item">学习资源</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="category-chain-item">信号与系统</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/DTFT/" class="print-no-link">#DTFT</a>
+      
+        <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" class="print-no-link">#信号与系统</a>
+      
+        <a href="/tags/LTI%E7%B3%BB%E7%BB%9F/" class="print-no-link">#LTI系统</a>
+      
+        <a href="/tags/%E7%A6%BB%E6%95%A3%E6%97%B6%E9%97%B4%E7%B3%BB%E7%BB%9F/" class="print-no-link">#离散时间系统</a>
+      
+        <a href="/tags/Z%E5%8F%98%E6%8D%A2/" class="print-no-link">#Z变换</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>信号与系统发展脉络（下）从离散卷积到Z变换的生成逻辑</div>
+      <div>https://hwnote.space/posts/2026/08/30/discrete-z-transform-knowledge-tree/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年8月30日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/2026/08/30/fourier-laplace-knowledge-tree/" title="信号与系统发展脉络（上）傅里叶与拉普拉斯变换的生成逻辑">
+                        <span class="hidden-mobile">信号与系统发展脉络（上）傅里叶与拉普拉斯变换的生成逻辑</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js?v=20260821-global-language.js"></script>
+<script src="/js/bilingual-switch.js?v=20260821-global-language.js"></script>
+<script src="/js/tag-cloud.js?v=20260824-bilingual-cloud.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

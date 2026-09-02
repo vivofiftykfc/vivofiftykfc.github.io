@@ -1,0 +1,2393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>HWのBLOGS</title>
+  
+  <subtitle>技术、文章、分享</subtitle>
+  <link href="https://hwnote.space/atom.xml" rel="self"/>
+  
+  <link href="https://hwnote.space/"/>
+  <updated>2026-08-29T20:14:07.214Z</updated>
+  <id>https://hwnote.space/</id>
+  
+  <author>
+    <name>ZHW</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>信号与系统发展脉络（下）从离散卷积到Z变换的生成逻辑</title>
+    <link href="https://hwnote.space/posts/2026/08/30/discrete-z-transform-knowledge-tree/"/>
+    <id>https://hwnote.space/posts/2026/08/30/discrete-z-transform-knowledge-tree/</id>
+    <published>2026-08-29T20:10:00.000Z</published>
+    <updated>2026-08-29T20:14:07.214Z</updated>
+    
+    
+    <summary type="html">从离散时间 LTI 系统推出卷积和、复指数特征函数、DTFT 与 Z 变换的共同主干，再把差分方程、响应分类、收敛域、频率响应、s-z 映射、Mason、全通与 Jury 判据逐一接回去。主体脉络由我提供，文章由 Codex 协助整理。</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="信号与系统" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="DTFT" scheme="https://hwnote.space/tags/DTFT/"/>
+    
+    <category term="信号与系统" scheme="https://hwnote.space/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="LTI系统" scheme="https://hwnote.space/tags/LTI%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="离散时间系统" scheme="https://hwnote.space/tags/%E7%A6%BB%E6%95%A3%E6%97%B6%E9%97%B4%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="Z变换" scheme="https://hwnote.space/tags/Z%E5%8F%98%E6%8D%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>信号与系统发展脉络（上）傅里叶与拉普拉斯变换的生成逻辑</title>
+    <link href="https://hwnote.space/posts/2026/08/30/fourier-laplace-knowledge-tree/"/>
+    <id>https://hwnote.space/posts/2026/08/30/fourier-laplace-knowledge-tree/</id>
+    <published>2026-08-29T17:20:00.000Z</published>
+    <updated>2026-08-29T19:19:21.137Z</updated>
+    
+    
+    <summary type="html">先从连续时间 LTI 系统推出一个最小可运行模型，再把傅里叶级数、抽样、调制、收敛域、零极点等旁支逐一接回主干。主体脉络由我提供，文章由 Codex 协助整理。</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="信号与系统" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="信号与系统" scheme="https://hwnote.space/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="傅里叶变换" scheme="https://hwnote.space/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/"/>
+    
+    <category term="拉普拉斯变换" scheme="https://hwnote.space/tags/%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E5%8F%98%E6%8D%A2/"/>
+    
+    <category term="LTI系统" scheme="https://hwnote.space/tags/LTI%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>六月士</title>
+    <link href="https://hwnote.space/posts/2026/08/29/dream/"/>
+    <id>https://hwnote.space/posts/2026/08/29/dream/</id>
+    <published>2026-08-28T16:50:57.000Z</published>
+    <updated>2026-08-28T16:33:32.874Z</updated>
+    
+    
+    <summary type="html">刚看了一些有关索罗斯的东西，借用一下月亮与六便士的题目，来谈谈理想吧</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="理想主义" scheme="https://hwnote.space/tags/%E7%90%86%E6%83%B3%E4%B8%BB%E4%B9%89/"/>
+    
+    <category term="认知论" scheme="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5%E8%AE%BA/"/>
+    
+    <category term="反身性" scheme="https://hwnote.space/tags/%E5%8F%8D%E8%BA%AB%E6%80%A7/"/>
+    
+    <category term="索罗斯" scheme="https://hwnote.space/tags/%E7%B4%A2%E7%BD%97%E6%96%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>重学英语</title>
+    <link href="https://hwnote.space/posts/2026/08/22/relearning-english/"/>
+    <id>https://hwnote.space/posts/2026/08/22/relearning-english/</id>
+    <published>2026-08-22T15:50:57.000Z</published>
+    <updated>2026-08-22T06:47:25.273Z</updated>
+    
+    
+    <summary type="html">重新学英语以后，我开始看见一句话是怎么长出来的，也重新想起：语言除了讲清楚事情，还要接住一个人。</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="语言" scheme="https://hwnote.space/tags/%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="认知" scheme="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5/"/>
+    
+    <category term="英语" scheme="https://hwnote.space/tags/%E8%8B%B1%E8%AF%AD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从零制作华为平板自定义主题：HWT 动态锁屏与桌面壁纸实战</title>
+    <link href="https://hwnote.space/posts/2026/08/14/hwt/"/>
+    <id>https://hwnote.space/posts/2026/08/14/hwt/</id>
+    <published>2026-08-15T14:50:57.000Z</published>
+    <updated>2026-08-16T15:24:17.741Z</updated>
+    
+    
+    <summary type="html">自己找图整了一套华为主题，记录一下。本文由codex全程赞助</summary>
+    
+    
+    
+    <category term="折腾杂项" scheme="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
+    
+    <category term="折腾的小杂项" scheme="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>逍遥游笔记</title>
+    <link href="https://hwnote.space/posts/2026/08/14/carefree-wandering/"/>
+    <id>https://hwnote.space/posts/2026/08/14/carefree-wandering/</id>
+    <published>2026-08-15T14:50:57.000Z</published>
+    <updated>2026-08-16T15:25:09.136Z</updated>
+    
+    
+    <summary type="html">简要梳理了一下逍遥游在干什么，庄子的核心观点是什么</summary>
+    
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    <category term="读书笔记" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="认知" scheme="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5/"/>
+    
+    <category term="读书笔记" scheme="https://hwnote.space/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>思维拓扑学</title>
+    <link href="https://hwnote.space/posts/2026/08/14/topology-of-thought/"/>
+    <id>https://hwnote.space/posts/2026/08/14/topology-of-thought/</id>
+    <published>2026-08-14T15:50:57.000Z</published>
+    <updated>2026-08-14T16:17:50.169Z</updated>
+    
+    
+    <summary type="html">通过持续对话中的词汇、造句逻辑与话题推进，尝试反演一个人相对稳定的思维结构，并据此理解语言、思维与对话对齐之间的关系。</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="语言" scheme="https://hwnote.space/tags/%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="对话" scheme="https://hwnote.space/tags/%E5%AF%B9%E8%AF%9D/"/>
+    
+    <category term="认知" scheme="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>不将不迎，应而不藏</title>
+    <link href="https://hwnote.space/posts/2026/08/09/respond-without-storing/"/>
+    <id>https://hwnote.space/posts/2026/08/09/respond-without-storing/</id>
+    <published>2026-08-09T04:00:00.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">老子说复归，给万物留下自生自化的余地；庄子说游，不再把保全一个固定的我当成所有变化的尺度。</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="实践" scheme="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/"/>
+    
+    <category term="认知" scheme="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5/"/>
+    
+    <category term="老庄" scheme="https://hwnote.space/tags/%E8%80%81%E5%BA%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>所有人，感受</title>
+    <link href="https://hwnote.space/posts/2026/08/07/only-kept-the-binary/"/>
+    <id>https://hwnote.space/posts/2026/08/07/only-kept-the-binary/</id>
+    <published>2026-08-07T06:15:00.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">人对世界的认知是一个有损信道，对过去的自己也是。我把很多经历压缩成了指标，然后又拿这些失真的指标去评价自己。</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="记忆" scheme="https://hwnote.space/tags/%E8%AE%B0%E5%BF%86/"/>
+    
+    <category term="现象学" scheme="https://hwnote.space/tags/%E7%8E%B0%E8%B1%A1%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>间桐家与女性主义</title>
+    <link href="https://hwnote.space/posts/2026/08/06/who-defines-whom/"/>
+    <id>https://hwnote.space/posts/2026/08/06/who-defines-whom/</id>
+    <published>2026-08-06T13:00:00.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">从 Fate 的对话出发，聊聊第二性、凝视，以及主体性。</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="关系" scheme="https://hwnote.space/tags/%E5%85%B3%E7%B3%BB/"/>
+    
+    <category term="主体性" scheme="https://hwnote.space/tags/%E4%B8%BB%E4%BD%93%E6%80%A7/"/>
+    
+    <category term="女性主义" scheme="https://hwnote.space/tags/%E5%A5%B3%E6%80%A7%E4%B8%BB%E4%B9%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>佛</title>
+    <link href="https://hwnote.space/posts/2026/08/06/buddhism-is-not-just-letting-go/"/>
+    <id>https://hwnote.space/posts/2026/08/06/buddhism-is-not-just-letting-go/</id>
+    <published>2026-08-06T12:30:00.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">最近了解了一下佛学。它主要解释痛苦的生成，描述变与不变，以及提出戒-定-慧的修行训练</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="实践" scheme="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/"/>
+    
+    <category term="佛学" scheme="https://hwnote.space/tags/%E4%BD%9B%E5%AD%A6/"/>
+    
+    <category term="宗教" scheme="https://hwnote.space/tags/%E5%AE%97%E6%95%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图外-ZHW思考体系v3</title>
+    <link href="https://hwnote.space/posts/2026/08/03/outside-the-map/"/>
+    <id>https://hwnote.space/posts/2026/08/03/outside-the-map/</id>
+    <published>2026-08-03T13:53:36.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">又把脑子里乱七八糟的东西整理了一遍。模型、身体、他人、AI、时代，还有为什么最后还是得从图里走出去。</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="实践" scheme="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/"/>
+    
+    <category term="认知论" scheme="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5%E8%AE%BA/"/>
+    
+    <category term="哲学" scheme="https://hwnote.space/tags/%E5%93%B2%E5%AD%A6/"/>
+    
+    <category term="时代" scheme="https://hwnote.space/tags/%E6%97%B6%E4%BB%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2026-07-28-镜子与石头</title>
+    <link href="https://hwnote.space/posts/2026/07/28/mirror-and-stone/"/>
+    <id>https://hwnote.space/posts/2026/07/28/mirror-and-stone/</id>
+    <published>2026-07-28T11:54:11.000Z</published>
+    <updated>2026-08-23T16:19:58.763Z</updated>
+    
+    
+    <summary type="html">是时候停笔了。</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="写作" scheme="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/"/>
+    
+    <category term="实践" scheme="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/"/>
+    
+    <category term="反思" scheme="https://hwnote.space/tags/%E5%8F%8D%E6%80%9D/"/>
+    
+    <category term="AI" scheme="https://hwnote.space/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>投资认知训练手册</title>
+    <link href="https://hwnote.space/posts/2026/07/27/investment-cognitive-training-manual/"/>
+    <id>https://hwnote.space/posts/2026/07/27/investment-cognitive-training-manual/</id>
+    <published>2026-07-27T15:09:00.000Z</published>
+    <updated>2026-08-02T04:54:35.177Z</updated>
+    
+    
+    <summary type="html">从&quot;为什么必须投资&quot;到&quot;12个月行动路线图&quot;——一份面向个人投资者的认知训练手册。覆盖金融学骨架、金融简史、市场运行逻辑、投资第一性原理、自我认知、股票/债券/基金、资产配置、行为金融、中国市场避坑与终身学习路径。</summary>
+    
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
+    
+    <category term="投资" scheme="https://hwnote.space/tags/%E6%8A%95%E8%B5%84/"/>
+    
+    <category term="理财" scheme="https://hwnote.space/tags/%E7%90%86%E8%B4%A2/"/>
+    
+    <category term="认知训练" scheme="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5%E8%AE%AD%E7%BB%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>烹饪调研报告</title>
+    <link href="https://hwnote.space/posts/2026/07/22/cooking-research-report/"/>
+    <id>https://hwnote.space/posts/2026/07/22/cooking-research-report/</id>
+    <published>2026-07-22T14:12:00.000Z</published>
+    <updated>2026-08-02T04:54:31.325Z</updated>
+    
+    
+    <summary type="html">从火的起源到分子料理的全面探索——一份关于烹饪的调研报告。覆盖烹饪发展简史、健康饮食标准、以传热介质为核心的烹饪分类体系、食材分类、调味料的作用、烹饪方式选择逻辑、通用流程、全球菜系巡礼与深层话题。</summary>
+    
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
+    
+    <category term="烹饪" scheme="https://hwnote.space/tags/%E7%83%B9%E9%A5%AA/"/>
+    
+    <category term="美食" scheme="https://hwnote.space/tags/%E7%BE%8E%E9%A3%9F/"/>
+    
+    <category term="调研报告" scheme="https://hwnote.space/tags/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>高等数学：从函数到场的认识论总图</title>
+    <link href="https://hwnote.space/posts/2026/07/14/calculus-epistemology-map/"/>
+    <id>https://hwnote.space/posts/2026/07/14/calculus-epistemology-map/</id>
+    <published>2026-07-14T14:00:00.000Z</published>
+    <updated>2026-08-29T17:47:15.906Z</updated>
+    
+    
+    <summary type="html">把数学一高数部分重新压缩成一张可以展开的地图：函数建模关系，极限处理趋近，导数观察局部变化，积分完成累积与反演，多元微积分把一条曲线扩展为空间中的场，级数与微分方程则分别处理无限叠加和变化规律本身。</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学工具" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="学习方法" scheme="https://hwnote.space/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+    
+    <category term="认知论" scheme="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5%E8%AE%BA/"/>
+    
+    <category term="高等数学" scheme="https://hwnote.space/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="考研数学" scheme="https://hwnote.space/tags/%E8%80%83%E7%A0%94%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="数学一" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E4%B8%80/"/>
+    
+    <category term="微积分" scheme="https://hwnote.space/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2026-07-14-孤岛与大陆</title>
+    <link href="https://hwnote.space/posts/2026/07/14/islands-and-continent/"/>
+    <id>https://hwnote.space/posts/2026/07/14/islands-and-continent/</id>
+    <published>2026-07-14T07:30:00.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">我们不可能完全理解另一个人，却仍然可以在有限的理解里，逐渐参与彼此的人生。</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="关系" scheme="https://hwnote.space/tags/%E5%85%B3%E7%B3%BB/"/>
+    
+    <category term="友情" scheme="https://hwnote.space/tags/%E5%8F%8B%E6%83%85/"/>
+    
+    <category term="主体性" scheme="https://hwnote.space/tags/%E4%B8%BB%E4%BD%93%E6%80%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2026-07-14-脑中的违章建筑</title>
+    <link href="https://hwnote.space/posts/2026/07/14/illegal-construction-of-us/"/>
+    <id>https://hwnote.space/posts/2026/07/14/illegal-construction-of-us/</id>
+    <published>2026-07-14T04:55:00.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">爱情大概就是一个人逐渐进入另一个人的意识，最后两个人之间又长出一个“我们”。</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="关系" scheme="https://hwnote.space/tags/%E5%85%B3%E7%B3%BB/"/>
+    
+    <category term="爱情" scheme="https://hwnote.space/tags/%E7%88%B1%E6%83%85/"/>
+    
+    <category term="主体性" scheme="https://hwnote.space/tags/%E4%B8%BB%E4%BD%93%E6%80%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2026-07-14-齿轮、落日与文明</title>
+    <link href="https://hwnote.space/posts/2026/07/14/gears-sunset-and-civilization/"/>
+    <id>https://hwnote.space/posts/2026/07/14/gears-sunset-and-civilization/</id>
+    <published>2026-07-13T17:20:00.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">和一个材料专业的同学聊热处理，话题从一枚齿轮一路拐到工业科技树、考研、第一性原理、认知盈余与涌现。聊到最后，我只是想知道，一副为了活下去而进化出来的大脑，为什么会觉得落日和公式很漂亮。</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="涌现" scheme="https://hwnote.space/tags/%E6%B6%8C%E7%8E%B0/"/>
+    
+    <category term="文明" scheme="https://hwnote.space/tags/%E6%96%87%E6%98%8E/"/>
+    
+    <category term="第一性原理" scheme="https://hwnote.space/tags/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>千帆之后</title>
+    <link href="https://hwnote.space/posts/2026/07/10/after-a-thousand-sails/"/>
+    <id>https://hwnote.space/posts/2026/07/10/after-a-thousand-sails/</id>
+    <published>2026-07-10T15:30:00.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">写题写不出来的时候，脑子总爱把陈年旧事翻出来。大概是过时的警报又响了。而我想成为的，是一个知道生活怎么回事之后，仍然愿意相信一点什么的人。</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="理想主义" scheme="https://hwnote.space/tags/%E7%90%86%E6%83%B3%E4%B8%BB%E4%B9%89/"/>
+    
+    <category term="爱情" scheme="https://hwnote.space/tags/%E7%88%B1%E6%83%85/"/>
+    
+    <category term="考研" scheme="https://hwnote.space/tags/%E8%80%83%E7%A0%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>畜生学习法</title>
+    <link href="https://hwnote.space/posts/2026/07/09/beast-learning-method/"/>
+    <id>https://hwnote.space/posts/2026/07/09/beast-learning-method/</id>
+    <published>2026-07-09T15:30:00.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">最近发现，把自己当成一个需要训练的笨东西，反而比把自己当成一个需要审判的人要轻松一点。不会就是不会，笨就多练，吐了就换脑区，哲学先闭嘴。</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="学习方法" scheme="https://hwnote.space/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+    
+    <category term="反思" scheme="https://hwnote.space/tags/%E5%8F%8D%E6%80%9D/"/>
+    
+    <category term="考研" scheme="https://hwnote.space/tags/%E8%80%83%E7%A0%94/"/>
+    
+    <category term="考研日记" scheme="https://hwnote.space/tags/%E8%80%83%E7%A0%94%E6%97%A5%E8%AE%B0/"/>
+    
+    <category term="数学" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一章：函数、极限与连续——从认识论看高等数学的第一块基石</title>
+    <link href="https://hwnote.space/posts/2026/07/09/function-compressing-the-world/"/>
+    <id>https://hwnote.space/posts/2026/07/09/function-compressing-the-world/</id>
+    <published>2026-07-09T14:00:00.000Z</published>
+    <updated>2026-08-29T17:47:15.906Z</updated>
+    
+    
+    <summary type="html">从王阳明的“看花”谈起，把高等数学第一章理解为一种认识世界的模型建构：函数是关系的模型，极限是趋势的模型，超实数是无穷小的直观模型，洛必达是变化率比较的模型，泰勒是局部逼近的模型，连续则是稳定性的模型。</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学工具" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="学习方法" scheme="https://hwnote.space/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+    
+    <category term="认知论" scheme="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5%E8%AE%BA/"/>
+    
+    <category term="高等数学" scheme="https://hwnote.space/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="考研数学" scheme="https://hwnote.space/tags/%E8%80%83%E7%A0%94%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="函数" scheme="https://hwnote.space/tags/%E5%87%BD%E6%95%B0/"/>
+    
+    <category term="极限" scheme="https://hwnote.space/tags/%E6%9E%81%E9%99%90/"/>
+    
+    <category term="连续" scheme="https://hwnote.space/tags/%E8%BF%9E%E7%BB%AD/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>健身调研报告</title>
+    <link href="https://hwnote.space/posts/2026/07/07/fitness-research-report/"/>
+    <id>https://hwnote.space/posts/2026/07/07/fitness-research-report/</id>
+    <published>2026-07-07T15:30:00.000Z</published>
+    <updated>2026-07-07T15:36:20.510Z</updated>
+    
+    
+    <summary type="html">从生理到审美·从评估到训练·从营养到生活——一份关于自然健身的全方位调研报告。覆盖运动生理学、薄肌审美的底层逻辑、体质评估、分部位审美标准、训练体系、营养策略与生活整合。</summary>
+    
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
+    
+    <category term="健身" scheme="https://hwnote.space/tags/%E5%81%A5%E8%BA%AB/"/>
+    
+    <category term="形象管理" scheme="https://hwnote.space/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="审美" scheme="https://hwnote.space/tags/%E5%AE%A1%E7%BE%8E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面部美学速成</title>
+    <link href="https://hwnote.space/posts/2026/07/07/facial-aesthetics-crash-course/"/>
+    <id>https://hwnote.space/posts/2026/07/07/facial-aesthetics-crash-course/</id>
+    <published>2026-07-07T15:00:00.000Z</published>
+    <updated>2026-07-07T15:10:57.537Z</updated>
+    
+    
+    <summary type="html">从审美原理到后天改造的科学指南。拆解大脑的&quot;面部检测算法&quot;：对称与平均、性二态特征、比例与线条、注意力分配与峰移，以及从体脂率到发型、穿搭、社交气场的完整实操路径。</summary>
+    
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
+    
+    <category term="形象管理" scheme="https://hwnote.space/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="审美" scheme="https://hwnote.space/tags/%E5%AE%A1%E7%BE%8E/"/>
+    
+    <category term="面部美学" scheme="https://hwnote.space/tags/%E9%9D%A2%E9%83%A8%E7%BE%8E%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>男性护肤调研报告</title>
+    <link href="https://hwnote.space/posts/2026/07/07/mens-skincare-research-report/"/>
+    <id>https://hwnote.space/posts/2026/07/07/mens-skincare-research-report/</id>
+    <published>2026-07-07T14:00:00.000Z</published>
+    <updated>2026-07-07T15:11:04.604Z</updated>
+    
+    
+    <summary type="html">从科学到审美·从肤质到流程·从挑选到坚持——一份关于男性护肤的全方位调研报告。覆盖皮肤生理学差异、肤质判断、护肤流程体系、产品挑选方法论、生活方式影响、问题处理SOP。</summary>
+    
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
+    
+    <category term="形象管理" scheme="https://hwnote.space/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="护肤" scheme="https://hwnote.space/tags/%E6%8A%A4%E8%82%A4/"/>
+    
+    <category term="男性护肤" scheme="https://hwnote.space/tags/%E7%94%B7%E6%80%A7%E6%8A%A4%E8%82%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>发型调研报告</title>
+    <link href="https://hwnote.space/posts/2026/07/07/hairstyle-research-report/"/>
+    <id>https://hwnote.space/posts/2026/07/07/hairstyle-research-report/</id>
+    <published>2026-07-07T13:00:00.000Z</published>
+    <updated>2026-07-07T15:11:14.959Z</updated>
+    
+    
+    <summary type="html">从历史起源到科学基础、从审美原理到实践操作的全景梳理。覆盖发型发展史、头发生理学与发质判断、七大脸型分析、审美原理深度解构、眼镜搭配、理发流程、居家打理与护发产品科学选择。</summary>
+    
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
+    
+    <category term="形象管理" scheme="https://hwnote.space/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="审美" scheme="https://hwnote.space/tags/%E5%AE%A1%E7%BE%8E/"/>
+    
+    <category term="发型" scheme="https://hwnote.space/tags/%E5%8F%91%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>眼镜调研报告</title>
+    <link href="https://hwnote.space/posts/2026/07/07/eyewear-research-report/"/>
+    <id>https://hwnote.space/posts/2026/07/07/eyewear-research-report/</id>
+    <published>2026-07-07T10:00:00.000Z</published>
+    <updated>2026-07-07T14:01:47.038Z</updated>
+    
+    
+    <summary type="html">从历史到审美·从镜片到镜架·从验光到保养——一份关于眼镜的全方位调研报告。覆盖镜片参数与品牌矩阵、镜架材质与脸型搭配、审美底层逻辑、社会心理学效应、实地挑选全流程与保养方法。</summary>
+    
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
+    
+    <category term="调研报告" scheme="https://hwnote.space/tags/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/"/>
+    
+    <category term="眼镜" scheme="https://hwnote.space/tags/%E7%9C%BC%E9%95%9C/"/>
+    
+    <category term="配镜" scheme="https://hwnote.space/tags/%E9%85%8D%E9%95%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>智能信息安全与对抗：学习知识库</title>
+    <link href="https://hwnote.space/posts/2026/07/06/info-security-knowledge-base/"/>
+    <id>https://hwnote.space/posts/2026/07/06/info-security-knowledge-base/</id>
+    <published>2026-07-06T12:40:00.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">智能信息安全与对抗实验配套学习知识库，覆盖密码学、DES、RSA、混合加密、网络传输、C/S 架构、GUI、扩散模型、Stable Diffusion、FastAPI 与 React 前端。</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="速成教程" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
+    
+    <category term="AIGC" scheme="https://hwnote.space/tags/AIGC/"/>
+    
+    <category term="速成教程" scheme="https://hwnote.space/tags/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="信息安全" scheme="https://hwnote.space/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/"/>
+    
+    <category term="密码学" scheme="https://hwnote.space/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>信号与系统：第一性原理小册子</title>
+    <link href="https://hwnote.space/posts/2026/07/06/signals-systems-first-principles/"/>
+    <id>https://hwnote.space/posts/2026/07/06/signals-systems-first-principles/</id>
+    <published>2026-07-06T12:30:00.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">用第一性原理重新理解信号与系统的小册子，重点不是刷公式，而是从信号、分解、变换、离散世界与统一视角建立直觉。</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="速成教程" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="第一性原理" scheme="https://hwnote.space/tags/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86/"/>
+    
+    <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
+    
+    <category term="信号与系统" scheme="https://hwnote.space/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="速成教程" scheme="https://hwnote.space/tags/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>信号与系统：学习笔记</title>
+    <link href="https://hwnote.space/posts/2026/07/06/signals-systems-notes/"/>
+    <id>https://hwnote.space/posts/2026/07/06/signals-systems-notes/</id>
+    <published>2026-07-06T12:20:00.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">信号与系统课程的完整学习笔记，覆盖信号与系统基础、连续时间系统、傅里叶变换、拉普拉斯变换、离散时间系统、Z 变换与状态变量等内容。</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="速成教程" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
+    
+    <category term="信号与系统" scheme="https://hwnote.space/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="学习笔记" scheme="https://hwnote.space/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="速成教程" scheme="https://hwnote.space/tags/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>雷达信号处理：从零开始学习指南</title>
+    <link href="https://hwnote.space/posts/2026/07/06/radar-signal-processing-guide/"/>
+    <id>https://hwnote.space/posts/2026/07/06/radar-signal-processing-guide/</id>
+    <published>2026-07-06T12:10:00.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">面向零基础读者的雷达信号处理快速入门教程，从雷达系统导论、信号理论、数据采集到脉冲压缩、多普勒处理、检测跟踪与系统设计。</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="速成教程" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
+    
+    <category term="学习笔记" scheme="https://hwnote.space/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="速成教程" scheme="https://hwnote.space/tags/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="雷达信号处理" scheme="https://hwnote.space/tags/%E9%9B%B7%E8%BE%BE%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2026-07-05-悼词、情书与马克思</title>
+    <link href="https://hwnote.space/posts/2026/07/05/elegy-love-letter-marx/"/>
+    <id>https://hwnote.space/posts/2026/07/05/elegy-love-letter-marx/</id>
+    <published>2026-07-04T18:59:00.000Z</published>
+    <updated>2026-08-23T16:19:58.762Z</updated>
+    
+    
+    <summary type="html">哲学家只是用不同方式解释世界，而问题在于改变世界</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="实践" scheme="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/"/>
+    
+    <category term="价值论" scheme="https://hwnote.space/tags/%E4%BB%B7%E5%80%BC%E8%AE%BA/"/>
+    
+    <category term="利他" scheme="https://hwnote.space/tags/%E5%88%A9%E4%BB%96/"/>
+    
+    <category term="马克思主义" scheme="https://hwnote.space/tags/%E9%A9%AC%E5%85%8B%E6%80%9D%E4%B8%BB%E4%B9%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2026-07-04-村</title>
+    <link href="https://hwnote.space/posts/2026/07/04/village/"/>
+    <id>https://hwnote.space/posts/2026/07/04/village/</id>
+    <published>2026-07-04T02:03:00.000Z</published>
+    <updated>2026-08-23T16:19:58.762Z</updated>
+    
+    
+    <summary type="html">终于离开良乡了</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="成长" scheme="https://hwnote.space/tags/%E6%88%90%E9%95%BF/"/>
+    
+    <category term="记忆" scheme="https://hwnote.space/tags/%E8%AE%B0%E5%BF%86/"/>
+    
+    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    <category term="认知" scheme="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2026-07-03-我即宇宙</title>
+    <link href="https://hwnote.space/posts/2026/07/03/i-am-universe/"/>
+    <id>https://hwnote.space/posts/2026/07/03/i-am-universe/</id>
+    <published>2026-07-02T20:31:00.000Z</published>
+    <updated>2026-08-23T16:19:58.761Z</updated>
+    
+    
+    <summary type="html">凌晨1:47:32到4:31:25的一段对话记录</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="对话" scheme="https://hwnote.space/tags/%E5%AF%B9%E8%AF%9D/"/>
+    
+    <category term="意识" scheme="https://hwnote.space/tags/%E6%84%8F%E8%AF%86/"/>
+    
+    <category term="自由意志" scheme="https://hwnote.space/tags/%E8%87%AA%E7%94%B1%E6%84%8F%E5%BF%97/"/>
+    
+    <category term="涌现" scheme="https://hwnote.space/tags/%E6%B6%8C%E7%8E%B0/"/>
+    
+    <category term="哲学" scheme="https://hwnote.space/tags/%E5%93%B2%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2026-06-30-UFO大战西西弗</title>
+    <link href="https://hwnote.space/posts/2026/06/30/ufo-sisyphus/"/>
+    <id>https://hwnote.space/posts/2026/06/30/ufo-sisyphus/</id>
+    <published>2026-06-30T15:14:11.000Z</published>
+    <updated>2026-08-23T16:19:58.761Z</updated>
+    
+    
+    <summary type="html">从&quot;我缺什么&quot;翻到&quot;什么在召唤我&quot;——一次价值观地基的重构</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="存在主义" scheme="https://hwnote.space/tags/%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89/"/>
+    
+    <category term="理想主义" scheme="https://hwnote.space/tags/%E7%90%86%E6%83%B3%E4%B8%BB%E4%B9%89/"/>
+    
+    <category term="实践" scheme="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/"/>
+    
+    <category term="价值论" scheme="https://hwnote.space/tags/%E4%BB%B7%E5%80%BC%E8%AE%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2026-06-30-ZHW思考体系v1</title>
+    <link href="https://hwnote.space/posts/2026/06/30/zhw-thinking-system-v1/"/>
+    <id>https://hwnote.space/posts/2026/06/30/zhw-thinking-system-v1/</id>
+    <published>2026-06-29T18:00:00.000Z</published>
+    <updated>2026-08-23T16:19:58.760Z</updated>
+    
+    
+    <summary type="html">对近一年来的思考进行一次体系化的梳理</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="关系" scheme="https://hwnote.space/tags/%E5%85%B3%E7%B3%BB/"/>
+    
+    <category term="实践" scheme="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/"/>
+    
+    <category term="认知论" scheme="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5%E8%AE%BA/"/>
+    
+    <category term="反思" scheme="https://hwnote.space/tags/%E5%8F%8D%E6%80%9D/"/>
+    
+    <category term="哲学" scheme="https://hwnote.space/tags/%E5%93%B2%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2026-06-28-知到行的最后三公里</title>
+    <link href="https://hwnote.space/posts/2026/06/28/knowledge-to-action/"/>
+    <id>https://hwnote.space/posts/2026/06/28/knowledge-to-action/</id>
+    <published>2026-06-28T11:00:00.000Z</published>
+    <updated>2026-08-23T16:19:58.760Z</updated>
+    
+    
+    <summary type="html">关于为什么我能写出完美的SOP然后完美地不执行它</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="学习方法" scheme="https://hwnote.space/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+    
+    <category term="行动" scheme="https://hwnote.space/tags/%E8%A1%8C%E5%8A%A8/"/>
+    
+    <category term="实践" scheme="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/"/>
+    
+    <category term="反思" scheme="https://hwnote.space/tags/%E5%8F%8D%E6%80%9D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2026-06-27-人际交往系统审计报告</title>
+    <link href="https://hwnote.space/posts/2026/06/27/interpersonal-system-audit/"/>
+    <id>https://hwnote.space/posts/2026/06/27/interpersonal-system-audit/</id>
+    <published>2026-06-26T19:00:00.000Z</published>
+    <updated>2026-08-23T16:19:58.759Z</updated>
+    
+    
+    <summary type="html">一份关于审计报告，从未装操作系统的baremetal Alpha 时代到 v1.0 交易系统</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="关系" scheme="https://hwnote.space/tags/%E5%85%B3%E7%B3%BB/"/>
+    
+    <category term="认知" scheme="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5/"/>
+    
+    <category term="主体性" scheme="https://hwnote.space/tags/%E4%B8%BB%E4%BD%93%E6%80%A7/"/>
+    
+    <category term="反思" scheme="https://hwnote.space/tags/%E5%8F%8D%E6%80%9D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2026-06-26-十年</title>
+    <link href="https://hwnote.space/posts/2026/06/26/ten-years/"/>
+    <id>https://hwnote.space/posts/2026/06/26/ten-years/</id>
+    <published>2026-06-26T09:00:00.000Z</published>
+    <updated>2026-08-23T16:19:58.759Z</updated>
+    
+    
+    <summary type="html">写给你的一封信</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="成长" scheme="https://hwnote.space/tags/%E6%88%90%E9%95%BF/"/>
+    
+    <category term="记忆" scheme="https://hwnote.space/tags/%E8%AE%B0%E5%BF%86/"/>
+    
+    <category term="理想主义" scheme="https://hwnote.space/tags/%E7%90%86%E6%83%B3%E4%B8%BB%E4%B9%89/"/>
+    
+    <category term="写作" scheme="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2026-06-25-今天你上班了没有喵</title>
+    <link href="https://hwnote.space/posts/2026/06/25/cat-at-work/"/>
+    <id>https://hwnote.space/posts/2026/06/25/cat-at-work/</id>
+    <published>2026-06-24T19:59:12.000Z</published>
+    <updated>2026-08-23T16:19:58.758Z</updated>
+    
+    
+    <summary type="html">一些关于异化的发散思考</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="实践" scheme="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/"/>
+    
+    <category term="异化" scheme="https://hwnote.space/tags/%E5%BC%82%E5%8C%96/"/>
+    
+    <category term="技术" scheme="https://hwnote.space/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="劳动" scheme="https://hwnote.space/tags/%E5%8A%B3%E5%8A%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2026-06-24-雷达方程与爱情</title>
+    <link href="https://hwnote.space/posts/2026/06/24/radar-equation-love/"/>
+    <id>https://hwnote.space/posts/2026/06/24/radar-equation-love/</id>
+    <published>2026-06-23T16:59:11.000Z</published>
+    <updated>2026-08-23T16:19:58.757Z</updated>
+    
+    
+    <summary type="html">学雷达方程引发的一次认知梳理</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="爱情" scheme="https://hwnote.space/tags/%E7%88%B1%E6%83%85/"/>
+    
+    <category term="认知论" scheme="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5%E8%AE%BA/"/>
+    
+    <category term="工具主义" scheme="https://hwnote.space/tags/%E5%B7%A5%E5%85%B7%E4%B8%BB%E4%B9%89/"/>
+    
+    <category term="模型" scheme="https://hwnote.space/tags/%E6%A8%A1%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2026-06-15-台助</title>
+    <link href="https://hwnote.space/posts/2026/06/15/tai-zhu/"/>
+    <id>https://hwnote.space/posts/2026/06/15/tai-zhu/</id>
+    <published>2026-06-15T06:14:11.000Z</published>
+    <updated>2026-08-23T16:19:58.757Z</updated>
+    
+    
+    <summary type="html">好想她</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="记忆" scheme="https://hwnote.space/tags/%E8%AE%B0%E5%BF%86/"/>
+    
+    <category term="爱情" scheme="https://hwnote.space/tags/%E7%88%B1%E6%83%85/"/>
+    
+    <category term="实践" scheme="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一些vibe coding</title>
+    <link href="https://hwnote.space/posts/2026/06/02/vibe-coding/"/>
+    <id>https://hwnote.space/posts/2026/06/02/vibe-coding/</id>
+    <published>2026-06-02T12:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">一些vibe coding</summary>
+    
+    
+    
+    <category term="折腾杂项" scheme="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="心理学、哲学" scheme="https://hwnote.space/tags/%E5%BF%83%E7%90%86%E5%AD%A6%E3%80%81%E5%93%B2%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>1-心理学史简介</title>
+    <link href="https://hwnote.space/posts/2026/05/21/psychology-history-intro/"/>
+    <id>https://hwnote.space/posts/2026/05/21/psychology-history-intro/</id>
+    <published>2026-05-21T15:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">心理学史简介</summary>
+    
+    
+    
+    <category term="折腾杂项" scheme="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2026-05-21-半年</title>
+    <link href="https://hwnote.space/posts/2026/05/21/half-year/"/>
+    <id>https://hwnote.space/posts/2026/05/21/half-year/</id>
+    <published>2026-05-21T11:14:11.000Z</published>
+    <updated>2026-08-23T16:19:58.757Z</updated>
+    
+    
+    <summary type="html">这半年经历了很多很多很多</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="关系" scheme="https://hwnote.space/tags/%E5%85%B3%E7%B3%BB/"/>
+    
+    <category term="成长" scheme="https://hwnote.space/tags/%E6%88%90%E9%95%BF/"/>
+    
+    <category term="爱情" scheme="https://hwnote.space/tags/%E7%88%B1%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2025-11-03-略</title>
+    <link href="https://hwnote.space/posts/2025/11/03/brief/"/>
+    <id>https://hwnote.space/posts/2025/11/03/brief/</id>
+    <published>2025-11-03T14:24:25.000Z</published>
+    <updated>2026-08-23T16:19:58.756Z</updated>
+    
+    
+    <summary type="html">没什么好说的</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="行动" scheme="https://hwnote.space/tags/%E8%A1%8C%E5%8A%A8/"/>
+    
+    <category term="关系" scheme="https://hwnote.space/tags/%E5%85%B3%E7%B3%BB/"/>
+    
+    <category term="爱情" scheme="https://hwnote.space/tags/%E7%88%B1%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第六章 有噪信道编码定理</title>
+    <link href="https://hwnote.space/posts/2025/10/29/noisy-channel-coding/"/>
+    <id>https://hwnote.space/posts/2025/10/29/noisy-channel-coding/</id>
+    <published>2025-10-29T11:09:11.000Z</published>
+    <updated>2026-08-16T14:58:39.516Z</updated>
+    
+    
+    <summary type="html">本章的核心是香农第二定理（有噪信道编码定理），它阐述了在存在噪声和干扰的信道中，实现无差错传输所能达到的最大信息传输率（即信道容量）。同时讨论了错误概率、译码规则以及编码方法对通信可靠性的影响。</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="信息论" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/"/>
+    
+    
+    <category term="笔记" scheme="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第五章 无失真信源编码定理</title>
+    <link href="https://hwnote.space/posts/2025/10/29/lossless-source-coding/"/>
+    <id>https://hwnote.space/posts/2025/10/29/lossless-source-coding/</id>
+    <published>2025-10-29T10:09:11.000Z</published>
+    <updated>2026-07-06T10:15:41.539Z</updated>
+    
+    
+    <summary type="html">本章主要研究离散信源的编码方法，包括等长码和变长码，并阐述香农第一定理（无失真信源编码定理），给出实现无失真编码的极限条件。</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="信息论" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/"/>
+    
+    
+    <category term="笔记" scheme="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第四章 波形信源与波形信道</title>
+    <link href="https://hwnote.space/posts/2025/10/29/waveform-source-channel/"/>
+    <id>https://hwnote.space/posts/2025/10/29/waveform-source-channel/</id>
+    <published>2025-10-29T09:09:11.000Z</published>
+    <updated>2026-07-06T10:15:41.540Z</updated>
+    
+    
+    <summary type="html">本章是信息论中从离散到连续的过渡，核心在于“连续信源与信道的信息度量”。主要介绍波形信源的统计特性、连续信源的熵定义与性质、最大差熵定理，以及连续与波形信道的信息传输率和信道容量。</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="信息论" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/"/>
+    
+    
+    <category term="笔记" scheme="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第三章 离散信道及其信道容量</title>
+    <link href="https://hwnote.space/posts/2025/10/29/discrete-channel-capacity/"/>
+    <id>https://hwnote.space/posts/2025/10/29/discrete-channel-capacity/</id>
+    <published>2025-10-29T07:27:08.000Z</published>
+    <updated>2026-07-07T10:00:17.667Z</updated>
+    
+    
+    <summary type="html">如何在有干扰的条件下，最大效率、最可靠的传输信息？这里来讲一下离散信道的数学模型、平均互信息量、信道容量</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="信息论" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/"/>
+    
+    
+    <category term="笔记" scheme="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第二章 离散信源及其信息测度</title>
+    <link href="https://hwnote.space/posts/2025/10/23/discrete-source-entropy/"/>
+    <id>https://hwnote.space/posts/2025/10/23/discrete-source-entropy/</id>
+    <published>2025-10-23T08:00:00.000Z</published>
+    <updated>2026-07-09T14:40:32.538Z</updated>
+    
+    
+    <summary type="html">讲了一下信息量的衡量方式、信源的量化模型和典型模型</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="信息论" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E4%BF%A1%E6%81%AF%E8%AE%BA/"/>
+    
+    
+    <category term="笔记" scheme="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第三章 随机过程-谱分析</title>
+    <link href="https://hwnote.space/posts/2025/10/22/spectral-analysis/"/>
+    <id>https://hwnote.space/posts/2025/10/22/spectral-analysis/</id>
+    <published>2025-10-22T08:33:58.000Z</published>
+    <updated>2026-07-06T10:15:41.548Z</updated>
+    
+    
+    <summary type="html">本章研究随机信号在频域中的统计特性，重点讨论功率谱密度的定义、性质、与自相关函数的关系、互谱密度以及白噪声特性。</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="随机信号分析" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%9A%8F%E6%9C%BA%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90/"/>
+    
+    
+    <category term="笔记" scheme="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第二章 随机过程-时域分析</title>
+    <link href="https://hwnote.space/posts/2025/10/21/time-domain-analysis/"/>
+    <id>https://hwnote.space/posts/2025/10/21/time-domain-analysis/</id>
+    <published>2025-10-21T15:55:11.000Z</published>
+    <updated>2026-07-06T10:15:41.549Z</updated>
+    
+    
+    <summary type="html">将随时间变化的随机现象（如噪声、干扰）用随机过程（一个时间函数族）来描述，并通过统计平均（如均值、相关函数、概率分布）而非确定函数来刻画其特性。</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="随机信号分析" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%9A%8F%E6%9C%BA%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90/"/>
+    
+    
+    <category term="笔记" scheme="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一章 概率论基础</title>
+    <link href="https://hwnote.space/posts/2025/10/21/probability-theory/"/>
+    <id>https://hwnote.space/posts/2025/10/21/probability-theory/</id>
+    <published>2025-10-21T06:14:11.000Z</published>
+    <updated>2026-07-06T10:15:41.547Z</updated>
+    
+    
+    <summary type="html">随机信号分析是建立在概率论+信号与系统上的，因此本章主要回顾概率论的一维、多维随机变量基础，为后续随机过程分析铺垫。</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="随机信号分析" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%9A%8F%E6%9C%BA%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90/"/>
+    
+    
+    <category term="笔记" scheme="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第五章 模拟调制系统</title>
+    <link href="https://hwnote.space/posts/2025/10/20/analog-modulation/"/>
+    <id>https://hwnote.space/posts/2025/10/20/analog-modulation/</id>
+    <published>2025-10-20T15:04:12.000Z</published>
+    <updated>2026-07-06T10:15:41.544Z</updated>
+    
+    
+    <summary type="html">讲了一下调制，主要是线性调制，角度调制非线性的就是提了一嘴，感觉我们这课讲的不是很深</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="通信原理" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/"/>
+    
+    
+    <category term="笔记" scheme="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第四章 信道</title>
+    <link href="https://hwnote.space/posts/2025/10/19/communication-channel/"/>
+    <id>https://hwnote.space/posts/2025/10/19/communication-channel/</id>
+    <published>2025-10-19T13:54:12.000Z</published>
+    <updated>2026-07-06T10:15:41.546Z</updated>
+    
+    
+    <summary type="html">这一部分有点偏文字，等于就是给个最基本的信道的定义，给点背景知识。首先就是介绍信道是啥，如何用数学描述，还有就是各种指标；接着介绍几个恒参信道几个随参信道就没了。</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="通信原理" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/"/>
+    
+    
+    <category term="笔记" scheme="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第三章 随机信号分析</title>
+    <link href="https://hwnote.space/posts/2025/10/19/random-signal-analysis/"/>
+    <id>https://hwnote.space/posts/2025/10/19/random-signal-analysis/</id>
+    <published>2025-10-19T12:04:12.000Z</published>
+    <updated>2026-07-06T10:15:41.544Z</updated>
+    
+    
+    <summary type="html">介绍了随机过程的分布及其数字特征等基本概念，然后给了几个随机过程的例子，以及随机过程过线性系统之后的情况。</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="通信原理" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/"/>
+    
+    
+    <category term="笔记" scheme="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2025-10-12-1+1</title>
+    <link href="https://hwnote.space/posts/2025/10/14/one-plus-one/"/>
+    <id>https://hwnote.space/posts/2025/10/14/one-plus-one/</id>
+    <published>2025-10-13T17:14:11.000Z</published>
+    <updated>2026-08-23T16:19:58.756Z</updated>
+    
+    
+    <summary type="html">一篇长文和一篇短文</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="孤独" scheme="https://hwnote.space/tags/%E5%AD%A4%E7%8B%AC/"/>
+    
+    <category term="关系" scheme="https://hwnote.space/tags/%E5%85%B3%E7%B3%BB/"/>
+    
+    <category term="爱情" scheme="https://hwnote.space/tags/%E7%88%B1%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一章 绪论</title>
+    <link href="https://hwnote.space/posts/2025/10/09/communication-intro/"/>
+    <id>https://hwnote.space/posts/2025/10/09/communication-intro/</id>
+    <published>2025-10-09T15:00:00.000Z</published>
+    <updated>2026-07-06T10:15:41.543Z</updated>
+    
+    
+    <summary type="html">通信原理第一章，没啥东西，就是明确研究对象和评判标准</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="通信原理" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/"/>
+    
+    
+    <category term="笔记" scheme="https://hwnote.space/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>未知</title>
+    <link href="https://hwnote.space/posts/2025/09/24/unknown/"/>
+    <id>https://hwnote.space/posts/2025/09/24/unknown/</id>
+    <published>2025-09-24T14:48:11.000Z</published>
+    <updated>2026-08-23T16:19:58.755Z</updated>
+    
+    
+    <summary type="html">25年秋开学月余一次莫名的记载</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="存在主义" scheme="https://hwnote.space/tags/%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89/"/>
+    
+    <category term="理想主义" scheme="https://hwnote.space/tags/%E7%90%86%E6%83%B3%E4%B8%BB%E4%B9%89/"/>
+    
+    <category term="写作" scheme="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数学建模综述</title>
+    <link href="https://hwnote.space/posts/2025/08/25/mathematical-modeling-review/"/>
+    <id>https://hwnote.space/posts/2025/08/25/mathematical-modeling-review/</id>
+    <published>2025-08-25T15:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">作为我数学建模这部分博客的开头，基于25年国赛前的一些学习的内容</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="综述概要" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%BB%BC%E8%BF%B0%E6%A6%82%E8%A6%81/"/>
+    
+    
+    <category term="数学建模" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据拟合与插值综述</title>
+    <link href="https://hwnote.space/posts/2025/08/25/data-fitting-interpolation-review/"/>
+    <id>https://hwnote.space/posts/2025/08/25/data-fitting-interpolation-review/</id>
+    <published>2025-08-25T12:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">做一下数据拟合与插值方法部分的综述</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="综述概要" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%BB%BC%E8%BF%B0%E6%A6%82%E8%A6%81/"/>
+    
+    
+    <category term="数学建模" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微分方程与差分方程方法综述</title>
+    <link href="https://hwnote.space/posts/2025/08/25/differential-equations-review/"/>
+    <id>https://hwnote.space/posts/2025/08/25/differential-equations-review/</id>
+    <published>2025-08-25T11:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">为微分方程、差分方程方法做一个综述，虽然大概率不会用上。</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="综述概要" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%BB%BC%E8%BF%B0%E6%A6%82%E8%A6%81/"/>
+    
+    
+    <category term="数学建模" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>统计与数据挖掘综述</title>
+    <link href="https://hwnote.space/posts/2025/08/25/statistics-data-mining-review/"/>
+    <id>https://hwnote.space/posts/2025/08/25/statistics-data-mining-review/</id>
+    <published>2025-08-25T09:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">梳理了统计学与数据挖掘的基本概念、方法论及其在数据分析中的应用</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="综述概要" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%BB%BC%E8%BF%B0%E6%A6%82%E8%A6%81/"/>
+    
+    
+    <category term="数学建模" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>最优化方法综述</title>
+    <link href="https://hwnote.space/posts/2025/08/21/optimization-review/"/>
+    <id>https://hwnote.space/posts/2025/08/21/optimization-review/</id>
+    <published>2025-08-21T15:55:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">也称数学规划，是运筹学的分支，数学建模考的比较的多</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="综述概要" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%BB%BC%E8%BF%B0%E6%A6%82%E8%A6%81/"/>
+    
+    
+    <category term="数学建模" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>江协STM32笔记（二）</title>
+    <link href="https://hwnote.space/posts/2025/08/12/stm32-notes-2/"/>
+    <id>https://hwnote.space/posts/2025/08/12/stm32-notes-2/</id>
+    <published>2025-08-12T15:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">学江协stm32课程时做的自用笔记，OLED与中断部分</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="嵌入式" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    <category term="江协STM32入门" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E6%B1%9F%E5%8D%8FSTM32%E5%85%A5%E9%97%A8/"/>
+    
+    
+    <category term="江协STM32入门" scheme="https://hwnote.space/tags/%E6%B1%9F%E5%8D%8FSTM32%E5%85%A5%E9%97%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>江协STM32笔记（一）</title>
+    <link href="https://hwnote.space/posts/2025/08/11/stm32-notes-1/"/>
+    <id>https://hwnote.space/posts/2025/08/11/stm32-notes-1/</id>
+    <published>2025-08-11T15:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">学江协stm32课程时做的自用笔记，序言与GPIO部分</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="嵌入式" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E5%B5%8C%E5%85%A5%E5%BC%8F/"/>
+    
+    <category term="江协STM32入门" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E5%B5%8C%E5%85%A5%E5%BC%8F/%E6%B1%9F%E5%8D%8FSTM32%E5%85%A5%E9%97%A8/"/>
+    
+    
+    <category term="江协STM32入门" scheme="https://hwnote.space/tags/%E6%B1%9F%E5%8D%8FSTM32%E5%85%A5%E9%97%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>专利写作·初</title>
+    <link href="https://hwnote.space/posts/2025/08/03/patent-writing-basics/"/>
+    <id>https://hwnote.space/posts/2025/08/03/patent-writing-basics/</id>
+    <published>2025-08-03T08:46:10.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">这个星期在老师的指导下手搓了一份专利，总结一下具体的写作流程作为存档</summary>
+    
+    
+    
+    <category term="折腾杂项" scheme="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="写作" scheme="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>visio绘图</title>
+    <link href="https://hwnote.space/posts/2025/07/30/visio-drawing/"/>
+    <id>https://hwnote.space/posts/2025/07/30/visio-drawing/</id>
+    <published>2025-07-30T10:14:11.000Z</published>
+    <updated>2026-07-06T10:15:41.559Z</updated>
+    
+    
+    <summary type="html">讲一下visio的一些东西，等于啥都没写</summary>
+    
+    
+    
+    <category term="折腾杂项" scheme="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="折腾的小杂项" scheme="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2025-07-26-青岛</title>
+    <link href="https://hwnote.space/posts/2025/07/26/qingdao/"/>
+    <id>https://hwnote.space/posts/2025/07/26/qingdao/</id>
+    <published>2025-07-26T15:23:11.000Z</published>
+    <updated>2026-08-23T16:19:58.754Z</updated>
+    
+    
+    <summary type="html">对最近的几天做一个总结</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="友情" scheme="https://hwnote.space/tags/%E5%8F%8B%E6%83%85/"/>
+    
+    <category term="旅行" scheme="https://hwnote.space/tags/%E6%97%85%E8%A1%8C/"/>
+    
+    <category term="记忆" scheme="https://hwnote.space/tags/%E8%AE%B0%E5%BF%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2025-07-12-月记</title>
+    <link href="https://hwnote.space/posts/2025/07/12/monthly-review/"/>
+    <id>https://hwnote.space/posts/2025/07/12/monthly-review/</id>
+    <published>2025-07-12T15:14:11.000Z</published>
+    <updated>2026-08-23T16:19:58.754Z</updated>
+    
+    
+    <summary type="html">对最近的几十天做一个总结</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="成长" scheme="https://hwnote.space/tags/%E6%88%90%E9%95%BF/"/>
+    
+    <category term="学习" scheme="https://hwnote.space/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="友情" scheme="https://hwnote.space/tags/%E5%8F%8B%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>06-09-思考与构建</title>
+    <link href="https://hwnote.space/posts/2025/06/09/thinking-and-building/"/>
+    <id>https://hwnote.space/posts/2025/06/09/thinking-and-building/</id>
+    <published>2025-06-08T18:14:11.000Z</published>
+    <updated>2026-08-23T16:19:58.753Z</updated>
+    
+    
+    <summary type="html">有多久没有正儿八经的思考交流过了呢</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="关系" scheme="https://hwnote.space/tags/%E5%85%B3%E7%B3%BB/"/>
+    
+    <category term="语言" scheme="https://hwnote.space/tags/%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="对话" scheme="https://hwnote.space/tags/%E5%AF%B9%E8%AF%9D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git介绍及用法</title>
+    <link href="https://hwnote.space/posts/2025/06/03/git-intro/"/>
+    <id>https://hwnote.space/posts/2025/06/03/git-intro/</id>
+    <published>2025-06-03T15:14:11.000Z</published>
+    <updated>2026-07-06T10:15:41.558Z</updated>
+    
+    
+    <summary type="html">Git的历史、安装、配置与帮助</summary>
+    
+    
+    
+    <category term="折腾杂项" scheme="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="折腾的小杂项" scheme="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CMake与动态静态库</title>
+    <link href="https://hwnote.space/posts/2025/05/29/cmake-libraries/"/>
+    <id>https://hwnote.space/posts/2025/05/29/cmake-libraries/</id>
+    <published>2025-05-28T18:14:11.000Z</published>
+    <updated>2026-07-06T10:15:41.557Z</updated>
+    
+    
+    <summary type="html">补一下C语言编程必不可少的工具链部分,这部分老师不讲,倒是用的挺多</summary>
+    
+    
+    
+    <category term="折腾杂项" scheme="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="折腾的小杂项" scheme="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>星际穿越</title>
+    <link href="https://hwnote.space/posts/2025/05/29/interstellar/"/>
+    <id>https://hwnote.space/posts/2025/05/29/interstellar/</id>
+    <published>2025-05-28T18:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">在北理之声做的第二期节目，同时也感谢我的搭档的支持</summary>
+    
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    <category term="番剧鉴赏" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/%E7%95%AA%E5%89%A7%E9%89%B4%E8%B5%8F/"/>
+    
+    <category term="电影" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/%E7%95%AA%E5%89%A7%E9%89%B4%E8%B5%8F/%E7%94%B5%E5%BD%B1/"/>
+    
+    
+    <category term="番剧鉴赏" scheme="https://hwnote.space/tags/%E7%95%AA%E5%89%A7%E9%89%B4%E8%B5%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>05-28-廿</title>
+    <link href="https://hwnote.space/posts/2025/05/28/nian/"/>
+    <id>https://hwnote.space/posts/2025/05/28/nian/</id>
+    <published>2025-05-28T15:14:11.000Z</published>
+    <updated>2026-08-23T16:19:58.753Z</updated>
+    
+    
+    <summary type="html">随便写写</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="存在主义" scheme="https://hwnote.space/tags/%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89/"/>
+    
+    <category term="成长" scheme="https://hwnote.space/tags/%E6%88%90%E9%95%BF/"/>
+    
+    <category term="青春" scheme="https://hwnote.space/tags/%E9%9D%92%E6%98%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>当幸福来敲门</title>
+    <link href="https://hwnote.space/posts/2025/05/22/pursuit-of-happyness/"/>
+    <id>https://hwnote.space/posts/2025/05/22/pursuit-of-happyness/</id>
+    <published>2025-05-21T19:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">在北理之声做的最后一期节目，这个是最开始的一版稿件，不太像是影评了，直接放在这里算了</summary>
+    
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    <category term="番剧鉴赏" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/%E7%95%AA%E5%89%A7%E9%89%B4%E8%B5%8F/"/>
+    
+    <category term="电影" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/%E7%95%AA%E5%89%A7%E9%89%B4%E8%B5%8F/%E7%94%B5%E5%BD%B1/"/>
+    
+    
+    <category term="番剧鉴赏" scheme="https://hwnote.space/tags/%E7%95%AA%E5%89%A7%E9%89%B4%E8%B5%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>05-07-深夜随便写写</title>
+    <link href="https://hwnote.space/posts/2025/05/07/late-night-thoughts/"/>
+    <id>https://hwnote.space/posts/2025/05/07/late-night-thoughts/</id>
+    <published>2025-05-06T17:14:11.000Z</published>
+    <updated>2026-08-23T16:19:58.752Z</updated>
+    
+    
+    <summary type="html">我也不知道为什么会打开这个东西，我也不知道为什么想写些什么东西</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="孤独" scheme="https://hwnote.space/tags/%E5%AD%A4%E7%8B%AC/"/>
+    
+    <category term="关系" scheme="https://hwnote.space/tags/%E5%85%B3%E7%B3%BB/"/>
+    
+    <category term="存在主义" scheme="https://hwnote.space/tags/%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>05-04-巴普洛夫的二八狗</title>
+    <link href="https://hwnote.space/posts/2025/05/04/pavlovs-dog/"/>
+    <id>https://hwnote.space/posts/2025/05/04/pavlovs-dog/</id>
+    <published>2025-05-04T15:14:11.000Z</published>
+    <updated>2026-08-23T16:19:58.752Z</updated>
+    
+    
+    <summary type="html">一些自驱力的思考，最近老是干活没劲</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="学习方法" scheme="https://hwnote.space/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/"/>
+    
+    <category term="行动" scheme="https://hwnote.space/tags/%E8%A1%8C%E5%8A%A8/"/>
+    
+    <category term="完美主义" scheme="https://hwnote.space/tags/%E5%AE%8C%E7%BE%8E%E4%B8%BB%E4%B9%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>岭回归与Lasso回归-ridge&amp;lasso</title>
+    <link href="https://hwnote.space/posts/2025/05/02/ridge-lasso-regression/"/>
+    <id>https://hwnote.space/posts/2025/05/02/ridge-lasso-regression/</id>
+    <published>2025-05-02T14:00:00.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">从多重共线性到变量选择，一文掌握正则化回归的核心技术</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="预测类模型" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/"/>
+    
+    
+    <category term="数学建模" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>多元线性回归分析</title>
+    <link href="https://hwnote.space/posts/2025/05/02/multiple-linear-regression/"/>
+    <id>https://hwnote.space/posts/2025/05/02/multiple-linear-regression/</id>
+    <published>2025-05-02T10:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">一种通过建立线性模型探究变量间关系并实现预测的统计方法</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="预测类模型" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/"/>
+    
+    
+    <category term="数学建模" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>灰色预测模型-GM(n,m)</title>
+    <link href="https://hwnote.space/posts/2025/05/02/grey-prediction-model/"/>
+    <id>https://hwnote.space/posts/2025/05/02/grey-prediction-model/</id>
+    <published>2025-05-02T09:00:00.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">一种小样本或缺失数据的预测方案</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="预测类模型" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/"/>
+    
+    
+    <category term="数学建模" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>拟合算法</title>
+    <link href="https://hwnote.space/posts/2025/05/02/fitting-algorithms/"/>
+    <id>https://hwnote.space/posts/2025/05/02/fitting-algorithms/</id>
+    <published>2025-05-02T03:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">一种通过最小化误差平方和寻找最佳函数匹配的数据建模方法</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="预测类模型" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E9%A2%84%E6%B5%8B%E7%B1%BB%E6%A8%A1%E5%9E%8B/"/>
+    
+    
+    <category term="数学建模" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>异常值检验</title>
+    <link href="https://hwnote.space/posts/2025/05/01/outlier-detection/"/>
+    <id>https://hwnote.space/posts/2025/05/01/outlier-detection/</id>
+    <published>2025-05-01T15:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">3σ法则，IQR方法，基于分位数，马氏距离，K临近等异常值处理的方法</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="数据处理" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+    
+    
+    <category term="数学建模" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网协建模分享会</title>
+    <link href="https://hwnote.space/posts/2025/04/21/network-modeling-sharing/"/>
+    <id>https://hwnote.space/posts/2025/04/21/network-modeling-sharing/</id>
+    <published>2025-04-21T15:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">作为我数学建模这部分博客的开头，基于一次网协的经验分享会</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="综述概要" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E7%BB%BC%E8%BF%B0%E6%A6%82%E8%A6%81/"/>
+    
+    
+    <category term="数学建模" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>相机基础知识解读</title>
+    <link href="https://hwnote.space/posts/2025/04/13/camera-basics/"/>
+    <id>https://hwnote.space/posts/2025/04/13/camera-basics/</id>
+    <published>2025-04-13T12:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">手里的nikon-d7100吃灰好久了今天拿出来耍了耍，顺手写一篇博客介绍一下我所知道的基础知识。文章内容力图做到全面、细致，从相机构造、曝光原理、镜头知识，到手动调控及拍摄技巧，多角度解析摄影入门必备的基础概念。</summary>
+    
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    <category term="摄影" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/%E6%91%84%E5%BD%B1/"/>
+    
+    
+    <category term="摄影基础" scheme="https://hwnote.space/tags/%E6%91%84%E5%BD%B1%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>四月是你的谎言</title>
+    <link href="https://hwnote.space/posts/2025/04/11/your-lie-in-april/"/>
+    <id>https://hwnote.space/posts/2025/04/11/your-lie-in-april/</id>
+    <published>2025-04-11T15:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">在北理之声做的第一期节目，同时也感谢我的搭档的支持</summary>
+    
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    <category term="番剧鉴赏" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/%E7%95%AA%E5%89%A7%E9%89%B4%E8%B5%8F/"/>
+    
+    <category term="番剧" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/%E7%95%AA%E5%89%A7%E9%89%B4%E8%B5%8F/%E7%95%AA%E5%89%A7/"/>
+    
+    
+    <category term="番剧鉴赏" scheme="https://hwnote.space/tags/%E7%95%AA%E5%89%A7%E9%89%B4%E8%B5%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo+Fluid+Obsidian博客搭建及优化</title>
+    <link href="https://hwnote.space/posts/2025/04/07/building-this-blog/"/>
+    <id>https://hwnote.space/posts/2025/04/07/building-this-blog/</id>
+    <published>2025-04-07T15:14:11.000Z</published>
+    <updated>2026-07-06T10:15:41.556Z</updated>
+    
+    
+    <summary type="html">记录本博客搭建过程和相关博文的写作工作流</summary>
+    
+    
+    
+    <category term="折腾杂项" scheme="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="折腾的小杂项" scheme="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>批处理文件（.bat）入门</title>
+    <link href="https://hwnote.space/posts/2025/04/07/batch-file/"/>
+    <id>https://hwnote.space/posts/2025/04/07/batch-file/</id>
+    <published>2025-04-07T15:14:11.000Z</published>
+    <updated>2026-07-06T10:15:41.555Z</updated>
+    
+    
+    <summary type="html">最近才知道.bat文件是什么，以前win的命令行真没咋玩过，就先写个入门的简介吧</summary>
+    
+    
+    
+    <category term="折腾杂项" scheme="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="折腾的小杂项" scheme="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>显示器参数及相关知识解读</title>
+    <link href="https://hwnote.space/posts/2025/04/06/monitor-parameters-guide/"/>
+    <id>https://hwnote.space/posts/2025/04/06/monitor-parameters-guide/</id>
+    <published>2025-04-05T17:14:11.000Z</published>
+    <updated>2026-09-02T05:53:13.783Z</updated>
+    
+    
+    <summary type="html">最近在挑显示器当副屏，写个文档来解释一下相关的参数</summary>
+    
+    
+    
+    <category term="折腾杂项" scheme="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="硬件" scheme="https://hwnote.space/tags/%E7%A1%AC%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于人体关键点识别的摔倒检测算法</title>
+    <link href="https://hwnote.space/posts/2025/04/05/fall-detection-keypoint/"/>
+    <id>https://hwnote.space/posts/2025/04/05/fall-detection-keypoint/</id>
+    <published>2025-04-04T17:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">一直以来的目标检测算法在检测摔倒等组间任务时存在难以辨别摔倒与坐下等动作的区别，即在类间分类任务上存在难度。本文期待以人体关键点识别的路径实现这一任务</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="机器学习" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="项目实践" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B5/"/>
+    
+    
+    <category term="机器学习" scheme="https://hwnote.space/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>标准分数-Z-Score</title>
+    <link href="https://hwnote.space/posts/2025/04/04/z-score/"/>
+    <id>https://hwnote.space/posts/2025/04/04/z-score/</id>
+    <published>2025-04-04T07:28:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">一种衡量数据点相对于总体均值的位置的分数</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="小工具" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%B0%8F%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="数学建模" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>优劣解距离法-TOPSIS</title>
+    <link href="https://hwnote.space/posts/2025/04/01/topsis/"/>
+    <id>https://hwnote.space/posts/2025/04/01/topsis/</id>
+    <published>2025-04-01T10:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">一种基于模糊数学理论的多因素综合评价方法</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="评价类模型" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/"/>
+    
+    
+    <category term="数学建模" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>模糊综合评价法-FCE</title>
+    <link href="https://hwnote.space/posts/2025/04/01/fuzzy-comprehensive-evaluation/"/>
+    <id>https://hwnote.space/posts/2025/04/01/fuzzy-comprehensive-evaluation/</id>
+    <published>2025-04-01T10:14:11.000Z</published>
+    <updated>2026-09-02T05:53:13.783Z</updated>
+    
+    
+    <summary type="html">一种基于模糊数学理论的多因素综合评价方法</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="评价类模型" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/"/>
+    
+    
+    <category term="数学建模" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>主成分分析-PCA</title>
+    <link href="https://hwnote.space/posts/2025/04/01/principal-component-analysis/"/>
+    <id>https://hwnote.space/posts/2025/04/01/principal-component-analysis/</id>
+    <published>2025-03-31T16:28:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">一种判定指标是否具有代表性的方法，可降低判定维度，但在解释主成分的时候比较模糊</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="评价类模型" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/"/>
+    
+    
+    <category term="数学建模" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>皮尔逊相关系数-PEARSON</title>
+    <link href="https://hwnote.space/posts/2025/03/31/pearson-correlation/"/>
+    <id>https://hwnote.space/posts/2025/03/31/pearson-correlation/</id>
+    <published>2025-03-31T15:58:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">一种判定两种指标是否线性相关，即判断其独立性的方法</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="小工具" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E5%B0%8F%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="数学建模" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>熵权法-EWM</title>
+    <link href="https://hwnote.space/posts/2025/03/31/entropy-weight-method/"/>
+    <id>https://hwnote.space/posts/2025/03/31/entropy-weight-method/</id>
+    <published>2025-03-31T15:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">一种客观分配权重的方法</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="评价类模型" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/"/>
+    
+    
+    <category term="数学建模" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>XGBoost公式文档</title>
+    <link href="https://hwnote.space/posts/2025/03/31/xgboost-docs/"/>
+    <id>https://hwnote.space/posts/2025/03/31/xgboost-docs/</id>
+    <published>2025-03-31T10:14:11.000Z</published>
+    <updated>2026-08-09T10:26:37.992Z</updated>
+    
+    
+    <summary type="html">写了点推导XGBoost数学模型所用得到的数学公式，当做本博客的第一篇帖子</summary>
+    
+    
+    
+    <category term="学习资源" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+    <category term="数学建模" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    <category term="机器学习" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="公式推导" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/"/>
+    
+    
+    <category term="机器学习" scheme="https://hwnote.space/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+</feed>

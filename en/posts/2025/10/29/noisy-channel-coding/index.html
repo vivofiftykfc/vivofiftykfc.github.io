@@ -1,0 +1,906 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="The chapter centres on Shannon&#39;s second theorem, which establishes the maximum information rate at which reliable transmission is possible through a noisy channel.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Information Theory, Chapter 6: The Noisy-Channel Coding Theorem">
+<meta property="og:url" content="https://hwnote.space/en/posts/2025/10/29/noisy-channel-coding/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="The chapter centres on Shannon&#39;s second theorem, which establishes the maximum information rate at which reliable transmission is possible through a noisy channel.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/250712.jpg">
+<meta property="article:published_time" content="2025-10-29T11:09:11.000Z">
+<meta property="article:modified_time" content="2026-08-20T17:01:59.137Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Study Notes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/250712.jpg">
+  
+  
+  
+  <title>Information Theory, Chapter 6: The Noisy-Channel Coding Theorem - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css?v=20260821-global-language.css">
+<link rel="stylesheet" href="/css/tag-cloud.css?v=20260824-bilingual-cloud.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/250712.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Information Theory, Chapter 6: The Noisy-Channel Coding Theorem"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-29 19:09" pubdate>
+          October 29, 2025 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          350 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          5 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Information Theory, Chapter 6: The Noisy-Channel Coding Theorem</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="1-Error-Probability-and-Decoding-Rules"><a href="#1-Error-Probability-and-Decoding-Rules" class="headerlink" title="1. Error Probability and Decoding Rules"></a>1. Error Probability and Decoding Rules</h2><h3 id="1-1-Factors-affecting-error-probability"><a href="#1-1-Factors-affecting-error-probability" class="headerlink" title="1.1 Factors affecting error probability"></a>1.1 Factors affecting error probability</h3><ul>
+<li>The error probability ($P_E$) depends both on the <strong>statistical properties</strong> of the channel and on the chosen <strong>decoding rule</strong>.</li>
+</ul>
+<h3 id="1-2-Definition-of-a-decoding-rule"><a href="#1-2-Definition-of-a-decoding-rule" class="headerlink" title="1.2 Definition of a decoding rule"></a>1.2 Definition of a decoding rule</h3><ul>
+<li><p>For a discrete single-symbol channel, let the input alphabet be $A&#x3D;{a_i}$ and the output alphabet be $B&#x3D;{b_j}$.</p>
+</li>
+<li><p>A <strong>decoding rule</strong> is a function $F(b_j) &#x3D; a_i$ that, for every received output symbol $b_j$, assigns one unique input symbol $a_i$.</p>
+</li>
+</ul>
+<h3 id="1-3-Average-probability-of-error"><a href="#1-3-Average-probability-of-error" class="headerlink" title="1.3 Average probability of error"></a>1.3 Average probability of error</h3><ul>
+<li><p>Once the decoding rule $F(b_j)&#x3D;a_i$ has been fixed, the average error probability $P_E$ is the mean of the conditional error probability $P(e|b_j)$ over the output space $Y$:</p>
+<p>  $$<br>  P_{E} &#x3D; \sum_{j&#x3D;1}^{s} P(b_j) P(e|b_j) &#x3D; \sum_{j&#x3D;1}^{s} P(b_j) (1 - P(a_i|b_j))<br>  $$</p>
+<p>  Here, $P(e|b_j) &#x3D; 1 - P(a_i|b_j)$ is the conditional error probability.</p>
+</li>
+</ul>
+<h3 id="1-4-Minimum-error-decoding-or-MAP"><a href="#1-4-Minimum-error-decoding-or-MAP" class="headerlink" title="1.4 Minimum-error decoding, or MAP"></a>1.4 Minimum-error decoding, or MAP</h3><ul>
+<li><p><strong>Criterion:</strong> select a decoding function $F(b_j) &#x3D; a_i^*$ that minimizes the average error probability $P_E$.</p>
+</li>
+<li><p><strong>Implementation:</strong> for each received symbol $b_j$, find the greatest posterior probability $P(a_i|b_j)$ and decode the observation as the corresponding input symbol $a_i^*$.</p>
+<p>  $$<br>  F(b_j) &#x3D; a_i^* \quad \text{要求} \quad P(a_i^<em>|b_j) \ge P(a_k|b_j) \quad \text{对所有 } a_k \ne a_i^</em><br>  $$</p>
+</li>
+</ul>
+<h3 id="1-5-Maximum-likelihood-decoding-or-ML"><a href="#1-5-Maximum-likelihood-decoding-or-ML" class="headerlink" title="1.5 Maximum-likelihood decoding, or ML"></a>1.5 Maximum-likelihood decoding, or ML</h3><ul>
+<li><p>When the prior probabilities $P(a_i)$ of the input symbols are <strong>all equal</strong>, the minimum-error criterion is equivalent to maximum-likelihood decoding.</p>
+</li>
+<li><p><strong>Criterion:</strong> for every received symbol $b_j$, maximize the <strong>transition probability</strong> $P(b_j|a_i)$ and decode the observation as the corresponding input symbol $a_i^*$.</p>
+<p>  $$<br>  F(b_j) &#x3D; a_i^* \quad \text{要求} \quad P(b_j|a_i^<em>) \ge P(b_j|a_k) \quad \text{对所有 } a_k \ne a_i^</em><br>  $$</p>
+</li>
+<li><p><strong>Note:</strong> the ML criterion itself does not depend on prior probabilities, but it is guaranteed to minimize $P_E$ only when the inputs are equiprobable.</p>
+</li>
+</ul>
+<h2 id="2-Error-Probability-and-Coding-Methods"><a href="#2-Error-Probability-and-Coding-Methods" class="headerlink" title="2. Error Probability and Coding Methods"></a>2. Error Probability and Coding Methods</h2><h3 id="2-1-Purpose-of-coding"><a href="#2-1-Purpose-of-coding" class="headerlink" title="2.1 Purpose of coding"></a>2.1 Purpose of coding</h3><ul>
+<li>Choosing a decoding rule cannot eliminate errors. <strong>Channel coding</strong> is introduced to reduce their probability and improve reliability.</li>
+</ul>
+<h3 id="2-2-The-conflict-between-coding-and-information-rate"><a href="#2-2-The-conflict-between-coding-and-information-rate" class="headerlink" title="2.2 The conflict between coding and information rate"></a>2.2 The conflict between coding and information rate</h3><ul>
+<li><p>A common method of <strong>channel coding</strong> is repetition, as in an $n$-fold extension of the channel.</p>
+</li>
+<li><p>The <strong>information transmission rate $R$</strong> is:</p>
+<p>  $$<br>  R &#x3D; \frac{\log_2 M}{n} \quad \text{(bit&#x2F;码符号)}<br>  $$</p>
+<p>  Here, $M$ is the number of messages and $n$ is the code length.</p>
+</li>
+<li><p><strong>The conflict:</strong> increasing the code length $n$ can reduce the error probability $P_E$, but it also lowers the information rate $R$.</p>
+</li>
+</ul>
+<h3 id="2-3-Hamming-distance-and-minimum-distance-decoding"><a href="#2-3-Hamming-distance-and-minimum-distance-decoding" class="headerlink" title="2.3 Hamming distance and minimum-distance decoding"></a>2.3 Hamming distance and minimum-distance decoding</h3><ul>
+<li><p>The <strong>Hamming distance $D(\alpha_i, \beta_j)$</strong> is the number of positions at which two equal-length sequences $\alpha_i$ and $\beta_j$ contain different symbols.</p>
+</li>
+<li><p>The <strong>minimum distance $d_{\min}$</strong> is the smallest Hamming distance between any two distinct codewords in the code:</p>
+<p>  $$<br>  d_{\min} &#x3D; \min_{i \ne j} {D(\alpha_i, \alpha_j)}<br>  $$</p>
+</li>
+<li><p><strong>Conclusion:</strong> the larger $d_{\min}$ is, the stronger the code’s <strong>error-correcting ability</strong>, and the smaller the average error probability $P_E$ becomes.</p>
+</li>
+<li><p><strong>Minimum-distance decoding:</strong> in a <strong>binary symmetric channel (BSC)</strong>, maximum-likelihood decoding is equivalent to minimum-distance decoding:</p>
+<blockquote>
+<p>Upon receiving the sequence $\beta_j$, decode it as the codeword $\alpha^*$ with the smallest Hamming distance from it.</p>
+</blockquote>
+</li>
+<li><p><strong>Selecting a code:</strong> when $M$ and $n$ remain fixed, and hence $R$ is fixed, choose the coding method that makes $d_{\min}$ as large as possible and thereby minimizes $P_E$.</p>
+</li>
+</ul>
+<h2 id="3-The-Noisy-Channel-Coding-Theorem-Shannon’s-Second-Theorem"><a href="#3-The-Noisy-Channel-Coding-Theorem-Shannon’s-Second-Theorem" class="headerlink" title="3. The Noisy-Channel Coding Theorem: Shannon’s Second Theorem"></a>3. The Noisy-Channel Coding Theorem: Shannon’s Second Theorem</h2><h3 id="3-1-Statement"><a href="#3-1-Statement" class="headerlink" title="3.1 Statement"></a>3.1 Statement</h3><p>Consider a discrete memoryless channel with capacity $C$.</p>
+<ol>
+<li><p><strong>Achievability, or the coding theorem:</strong></p>
+<blockquote>
+<p>When the information rate $R \le C$, a sufficiently large code length $n$ always makes it possible to find a set of codewords ($M&#x3D;2^{nR}$) and a corresponding decoding rule whose average error probability $P_E$ is <strong>arbitrarily small</strong>, so that $P_E \approx 0$.</p>
+</blockquote>
+</li>
+<li><p><strong>The converse:</strong></p>
+<blockquote>
+<p>When $R &gt; C$, no code—however large $n$ becomes—can make the decoding error probability $P_E$ at the channel output arbitrarily small.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="3-2-Meaning"><a href="#3-2-Meaning" class="headerlink" title="3.2 Meaning"></a>3.2 Meaning</h3><ul>
+<li><p>The <strong>channel capacity $C$</strong> is the <strong>maximum information rate</strong> at which effectively error-free transmission can be achieved through a noisy channel.</p>
+</li>
+<li><p>The theorem provides the theoretical foundation of <strong>channel coding</strong>. As long as the transmission rate does not exceed capacity, some coding method can in principle satisfy the desired reliability.</p>
+</li>
+</ul>
+<h2 id="4-The-Joint-Source–Channel-Coding-Theorem"><a href="#4-The-Joint-Source–Channel-Coding-Theorem" class="headerlink" title="4. The Joint Source–Channel Coding Theorem"></a>4. The Joint Source–Channel Coding Theorem</h2><h3 id="4-1-The-joint-theorem"><a href="#4-1-The-joint-theorem" class="headerlink" title="4.1 The joint theorem"></a>4.1 The joint theorem</h3><ul>
+<li><p>Efficient and reliable transmission can be achieved through two independently designed stages: <strong>source coding</strong> and <strong>channel coding</strong>.</p>
+</li>
+<li><p><strong>Source coding:</strong> remove redundancy so that the average information rate $R_s$ approaches the source entropy $H(S)$ and <strong>efficiency</strong> improves.</p>
+</li>
+<li><p><strong>Channel coding:</strong> add redundancy so that the coded information rate $R$ does not exceed the channel capacity $C$, thereby improving <strong>reliability</strong>.</p>
+</li>
+</ul>
+<h3 id="4-2-Shannon’s-separation-theorem-Theorem-6-7"><a href="#4-2-Shannon’s-separation-theorem-Theorem-6-7" class="headerlink" title="4.2 Shannon’s separation theorem, Theorem 6.7"></a>4.2 Shannon’s separation theorem, Theorem 6.7</h3><ul>
+<li><p>For a source $S$, if its limiting entropy $H_\infty &lt; C$, then source and channel codes exist for which the average error probability $P_E$ approaches zero.</p>
+</li>
+<li><p><strong>Conclusion:</strong> provided that the <strong>source entropy $H(S)$ is below the channel capacity $C$</strong>, or $H(S) &lt; C$, reliable communication can be achieved through two separate stages—source coding followed by channel coding.</p>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Study-Notes/" class="print-no-link">#Study Notes</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Information Theory, Chapter 6: The Noisy-Channel Coding Theorem</div>
+      <div>https://hwnote.space/en/posts/2025/10/29/noisy-channel-coding/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>October 29, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js?v=20260821-global-language.js"></script>
+<script src="/js/bilingual-switch.js?v=20260821-global-language.js"></script>
+<script src="/js/tag-cloud.js?v=20260824-bilingual-cloud.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

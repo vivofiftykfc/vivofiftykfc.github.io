@@ -1,0 +1,1369 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/customer_fluid.png">
+  <link rel="icon" href="/img/customer_fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="ZHW">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Starting from a discrete-time LTI system, we derive the shared trunk of convolution sums, complex-exponential eigenfunctions, the DTFT, and the Z-transform. We then attach difference equations, respon">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Evolution of Signals and Systems (Part II) — From Discrete Convolution to the Z-Transform">
+<meta property="og:url" content="https://hwnote.space/en/posts/2026/08/30/discrete-z-transform-knowledge-tree/">
+<meta property="og:site_name" content="HWのBLOGS">
+<meta property="og:description" content="Starting from a discrete-time LTI system, we derive the shared trunk of convolution sums, complex-exponential eigenfunctions, the DTFT, and the Z-transform. We then attach difference equations, respon">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://hwnote.space/img/blogs/git1.jpg">
+<meta property="article:published_time" content="2026-08-29T20:10:00.000Z">
+<meta property="article:modified_time" content="2026-08-29T20:17:50.661Z">
+<meta property="article:author" content="ZHW">
+<meta property="article:tag" content="Signals and Systems">
+<meta property="article:tag" content="LTI Systems">
+<meta property="article:tag" content="Discrete-Time Systems">
+<meta property="article:tag" content="DTFT">
+<meta property="article:tag" content="Z-Transform">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hwnote.space/img/blogs/git1.jpg">
+  
+  
+  
+  <title>The Evolution of Signals and Systems (Part II) — From Discrete Convolution to the Z-Transform - HWのBLOGS</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/blog-dashboard.css">
+<link rel="stylesheet" href="/css/bilingual-switch.css?v=20260821-global-language.css">
+<link rel="stylesheet" href="/css/tag-cloud.css?v=20260824-bilingual-cloud.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"hwnote.space","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"HWzRml8hi2o6Hlgj8gSUyhOw-MdYXbMMI","app_key":"MLwKjXwGIjqYL5XxqjYnBZe5","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-03-30T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="HWのBLOGS" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="HWのBLOGS" type="application/rss+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>HWのBLOGS</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/blogs/git1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="The Evolution of Signals and Systems (Part II) — From Discrete Convolution to the Z-Transform"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-08-30 04:10" pubdate>
+          August 30, 2026 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.5k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          31 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> views
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">The Evolution of Signals and Systems (Part II) — From Discrete Convolution to the Z-Transform</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><a href="/en/posts/2026/08/30/fourier-laplace-knowledge-tree/">Part I</a> compressed the continuous-time half into one trunk: an LTI system is described by convolution, complex exponentials are its eigenfunctions, and the Fourier and Laplace transforms turn convolution into multiplication.</p>
+<p>The discrete-time half appears to replace every symbol. The variable $t$ becomes $n$, integration becomes summation, differential equations become difference equations, and the $s$-plane becomes the $z$-plane. Yet the logic does not restart. It still answers the same question:</p>
+<blockquote>
+<p>Can we switch a discrete sequence to a new coordinate system in which shifts, convolution, and difference equations become algebraic operations?</p>
+</blockquote>
+<p>This article checks the five lecture decks from Lecture 17 through Lecture 21 page by page. The first part derives a minimal closed model for the discrete-time half. The second attaches sequence operations, difference equations, DTFT properties, Z-domain response calculation, signal-flow graphs, the $s$-$z$ mapping, all-pass systems, and the Jury criterion back to that model, while identifying the problem types built from each branch.</p>
+<p>One boundary should be stated first. The scope is the discrete-time LTI material covered by those five lectures. The DFS, DFT, FFT, digital-filter design, and state-space models all connect to this trunk, but they are not the main subject here.</p>
+<h1 id="0-Historical-Thread"><a href="#0-Historical-Thread" class="headerlink" title="0. Historical Thread"></a>0. Historical Thread</h1><p>Discrete-time theory is not merely a simplified continuous-time theory invented after computers. Difference equations had long described quantities updated by generation, period, or step. Sampling and digital computation later made this language routine in communications, control, and signal processing.</p>
+<p>Continuous-time systems involve differentiation and integration; discrete-time systems involve shifts and summation. Once a continuous signal is sampled every $T$ seconds, time becomes the integer index $n$, but the system can still have memory, feedback, and internal natural modes. The central maneuver of the continuous-time half therefore returns: decompose a sequence into unit impulses, find the eigenfunctions of the shift operator, and then move difference and convolution operations into a transform domain.</p>
+<p>The DTFT observes frequency on the unit circle. The Z-transform extends the observation point radially to annular regions of the complex plane. The later DFT and FFT do not replace the DTFT; they answer how spectra can be represented and computed using finitely many samples. The historical direction is still the same: <strong>when operations are entangled in one representation, change representations until the structure becomes visible.</strong></p>
+<h1 id="I-The-Main-Trunk"><a href="#I-The-Main-Trunk" class="headerlink" title="I. The Main Trunk"></a>I. The Main Trunk</h1><p>We first restrict the discussion to:</p>
+<ul>
+<li><p>discrete-time sequences;</p>
+</li>
+<li><p>single-input, single-output linear time-invariant systems;</p>
+</li>
+<li><p>zero-state response before initial stored energy is introduced;</p>
+</li>
+<li><p>a bilateral Z-transform with a nonempty region of convergence, and a unit circle inside that ROC whenever a frequency response is required.</p>
+</li>
+</ul>
+<p>Within this scope, the entire trunk is</p>
+<p>$$<br>\boxed{<br>\text{discrete-time LTI}<br>\Rightarrow y[n]&#x3D;x[n]*h[n]<br>\Rightarrow z^n\text{ is an eigenfunction}<br>\Rightarrow Y(z)&#x3D;H(z)X(z)<br>\Rightarrow<br>\begin{cases}<br>z&#x3D;e^{j\omega} &amp; \text{DTFT} \<br>z&#x3D;re^{j\omega} &amp; \text{ZT}.<br>\end{cases}}<br>$$</p>
+<h2 id="1-The-Question-Discrete-Time-Does-Not-Remove-Structure"><a href="#1-The-Question-Discrete-Time-Does-Not-Remove-Structure" class="headerlink" title="1. The Question: Discrete Time Does Not Remove Structure"></a>1. The Question: Discrete Time Does Not Remove Structure</h2><p>A discrete-time system maps an input sequence to an output sequence:</p>
+<p>$$<br>T:x[n]\longmapsto y[n].<br>$$</p>
+<p>Although time is now integer-valued, different values of $n$ remain coupled. For example,</p>
+<p>$$<br>y[n]-ay[n-1]&#x3D;x[n]<br>$$</p>
+<p>makes the current output depend on the current input and the previous output. Direct iteration works for a few samples, but higher order, complicated inputs, and stability questions quickly hide the global structure.</p>
+<p>We therefore seek coordinate functions $\phi[n]$ whose shape is preserved by the system:</p>
+<p>$$<br>T{\phi[n]}&#x3D;H\phi[n].<br>$$</p>
+<p>If a general sequence can be decomposed along such coordinates, the system need only modify each coordinate coefficient independently.</p>
+<h2 id="2-Why-a-Discrete-Time-LTI-System-Is-Described-by-a-Convolution-Sum"><a href="#2-Why-a-Discrete-Time-LTI-System-Is-Described-by-a-Convolution-Sum" class="headerlink" title="2. Why a Discrete-Time LTI System Is Described by a Convolution Sum"></a>2. Why a Discrete-Time LTI System Is Described by a Convolution Sum</h2><p>Every sequence can be decomposed into shifted unit impulses:</p>
+<p>$$<br>x[n]&#x3D;\sum_{k&#x3D;-\infty}^{\infty}x[k]\delta[n-k].<br>$$</p>
+<p>Define the zero-state response to the unit impulse as</p>
+<p>$$<br>h[n]&#x3D;T{\delta[n]}.<br>$$</p>
+<p>Time invariance gives</p>
+<p>$$<br>T{\delta[n-k]}&#x3D;h[n-k],<br>$$</p>
+<p>and linearity then gives</p>
+<p>$$<br>\begin{aligned}<br>y[n]<br>&amp;&#x3D;T{x[n]} \<br>&amp;&#x3D;\sum_{k&#x3D;-\infty}^{\infty}x[k]h[n-k] \<br>&amp;&#x3D;x[n]*h[n].<br>\end{aligned}<br>$$</p>
+<p>Thus all zero-state input-output behavior of a discrete-time LTI system is compressed into $h[n]$:</p>
+<p>$$<br>\boxed{\text{discrete-time LTI system}\Longleftrightarrow h[n]\Longleftrightarrow y&#x3D;x*h.}<br>$$</p>
+<p>The continuous-time convolution integral has become a convolution sum. The measure changes; the logic of decomposing an input into elementary impulses and superposing their responses does not.</p>
+<h2 id="3-Why-z-n-Is-the-Coordinate-Axis-of-a-Discrete-Time-System"><a href="#3-Why-z-n-Is-the-Coordinate-Axis-of-a-Discrete-Time-System" class="headerlink" title="3. Why $z^n$ Is the Coordinate Axis of a Discrete-Time System"></a>3. Why $z^n$ Is the Coordinate Axis of a Discrete-Time System</h2><p>Apply a convolution system to $z^n$:</p>
+<p>$$<br>\begin{aligned}<br>T{z^n}<br>&amp;&#x3D;\sum_{k&#x3D;-\infty}^{\infty}h[k]z^{n-k} \<br>&amp;&#x3D;\left[\sum_{k&#x3D;-\infty}^{\infty}h[k]z^{-k}\right]z^n.<br>\end{aligned}<br>$$</p>
+<p>Define</p>
+<p>$$<br>H(z)&#x3D;\sum_{k&#x3D;-\infty}^{\infty}h[k]z^{-k}.<br>$$</p>
+<p>Then</p>
+<p>$$<br>\boxed{T{z^n}&#x3D;H(z)z^n.}<br>$$</p>
+<p>Therefore $z^n$ is an eigenfunction of every discrete-time LTI system, and $H(z)$ is the eigenvalue on that coordinate axis.</p>
+<p>Writing</p>
+<p>$$<br>z&#x3D;re^{j\omega}<br>$$</p>
+<p>gives</p>
+<p>$$<br>z^n&#x3D;r^ne^{j\omega n}.<br>$$</p>
+<p>The radius $r$ controls exponential growth or decay across samples, while $\omega$ controls phase advance. The continuous-time function $e^{st}$ combines growth and oscillation; the discrete-time function $z^n$ does the same job.</p>
+<h2 id="4-The-Z-Transform-Turns-Convolution-into-Multiplication"><a href="#4-The-Z-Transform-Turns-Convolution-into-Multiplication" class="headerlink" title="4. The Z-Transform Turns Convolution into Multiplication"></a>4. The Z-Transform Turns Convolution into Multiplication</h2><p>The bilateral Z-transform is</p>
+<p>$$<br>X(z)&#x3D;\sum_{n&#x3D;-\infty}^{\infty}x[n]z^{-n}.<br>$$</p>
+<p>Here $z^{-n}$ is the analysis kernel, while $z^n$ is the synthesis function and the system eigenfunction. Their opposite signs again express the inverse actions of extracting and reconstructing coordinates.</p>
+<p>The Z-transform of a convolution sum is</p>
+<p>$$<br>\mathcal{Z}{x[n]*h[n]}&#x3D;X(z)H(z),<br>$$</p>
+<p>so</p>
+<p>$$<br>\boxed{Y(z)&#x3D;H(z)X(z).}<br>$$</p>
+<p>Unit delay also becomes algebraic. Under zero initial conditions,</p>
+<p>$$<br>\mathcal{Z}{x[n-k]}&#x3D;z^{-k}X(z).<br>$$</p>
+<p>Thus $z^{-1}$ literally represents one sample of delay. A discrete system built from adders, multipliers, and delay elements becomes a rational function of $z^{-1}$.</p>
+<h2 id="5-The-Unity-and-Difference-Between-the-DTFT-and-the-Z-Transform"><a href="#5-The-Unity-and-Difference-Between-the-DTFT-and-the-Z-Transform" class="headerlink" title="5. The Unity and Difference Between the DTFT and the Z-Transform"></a>5. The Unity and Difference Between the DTFT and the Z-Transform</h2><p>Let $z&#x3D;re^{j\omega}$. Then</p>
+<p>$$<br>X(re^{j\omega})<br>&#x3D;\sum_{n&#x3D;-\infty}^{\infty}x[n]r^{-n}e^{-j\omega n}.<br>$$</p>
+<p>For a fixed $r$, this is the DTFT of the weighted sequence $x[n]r^{-n}$.</p>
+<h3 id="5-1-The-Unit-Circle-DTFT"><a href="#5-1-The-Unit-Circle-DTFT" class="headerlink" title="5.1 The Unit Circle: DTFT"></a>5.1 The Unit Circle: DTFT</h3><p>Setting $r&#x3D;1$ gives</p>
+<p>$$<br>X(e^{j\omega})<br>&#x3D;\sum_{n&#x3D;-\infty}^{\infty}x[n]e^{-j\omega n}.<br>$$</p>
+<p>Because</p>
+<p>$$<br>e^{j(\omega+2\pi k)n}&#x3D;e^{j\omega n},<br>$$</p>
+<p>discrete frequency is periodic modulo $2\pi$ and</p>
+<p>$$<br>X(e^{j(\omega+2\pi)})&#x3D;X(e^{j\omega}).<br>$$</p>
+<p>If the unit circle lies inside the ROC of $H(z)$, the frequency response is</p>
+<p>$$<br>H(e^{j\omega})&#x3D;H(z)\big|_{z&#x3D;e^{j\omega}},<br>$$</p>
+<p>and</p>
+<p>$$<br>Y(e^{j\omega})&#x3D;H(e^{j\omega})X(e^{j\omega}).<br>$$</p>
+<h3 id="5-2-Radial-Weighting-Z-Transform"><a href="#5-2-Radial-Weighting-Z-Transform" class="headerlink" title="5.2 Radial Weighting: Z-Transform"></a>5.2 Radial Weighting: Z-Transform</h3><p>Some sequences have no convergent DTFT but converge after multiplication by $r^{-n}$. The Z-transform therefore searches for every radius for which the series converges.</p>
+<p>For a rational Z-transform, the ROC is generally the inside of a circle, the outside of a circle, or an annulus, and it cannot contain poles. The algebraic expression and its ROC must be kept together:</p>
+<p>$$<br>\boxed{\text{Z-transform}&#x3D;\text{algebraic expression}+\text{ROC}.}<br>$$</p>
+<p>The same expression with different ROCs may represent right-sided, left-sided, or two-sided sequences. The ordinary DTFT and frequency response exist only when the unit circle lies in the ROC.</p>
+<p>The minimal discrete-time model is now closed:</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202608300413366.png" srcset="/img/loading.gif" lazyload></p>
+<p>Its relationship to the continuous-time half is parallel rather than accidental:</p>
+<table>
+<thead>
+<tr>
+<th>Continuous time</th>
+<th>Discrete time</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Differential equation</td>
+<td>Difference equation</td>
+</tr>
+<tr>
+<td>Convolution integral</td>
+<td>Convolution sum</td>
+</tr>
+<tr>
+<td>$e^{st}$</td>
+<td>$z^n$</td>
+</tr>
+<tr>
+<td>Multiplication in the $s$-domain</td>
+<td>Multiplication in the $z$-domain</td>
+</tr>
+<tr>
+<td>FT on the imaginary axis</td>
+<td>DTFT on the unit circle</td>
+</tr>
+<tr>
+<td>Left-half-plane stability boundary</td>
+<td>Unit-circle stability boundary</td>
+</tr>
+</tbody></table>
+<p>Everything that follows answers a question omitted by this minimal model.</p>
+<h1 id="II-Branches-and-Problem-Types"><a href="#II-Branches-and-Problem-Types" class="headerlink" title="II. Branches and Problem Types"></a>II. Branches and Problem Types</h1><p>Each branch answers four questions: what the trunk omitted, where the branch attaches, which conclusions are essential, and how examinations turn it into a problem.</p>
+<p>The five lecture decks map onto this tree as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Lecture</th>
+<th>Main content</th>
+<th>Position in this tree</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Lecture 17</td>
+<td>Sequences, system properties, difference equations, response classes, convolution sums</td>
+<td>Branches 1-3</td>
+</tr>
+<tr>
+<td>Lecture 18</td>
+<td>DTFT motivation, transform pairs, properties, frequency-domain system analysis</td>
+<td>Branches 4-6</td>
+</tr>
+<tr>
+<td>Lecture 19</td>
+<td>Z-transform, ROC, pairs, properties, inverse transform</td>
+<td>Branch 7</td>
+</tr>
+<tr>
+<td>Lecture 20</td>
+<td>Z-domain response, system function, eigenfunction inputs, causality, stability, pole-zero analysis</td>
+<td>Branches 8-9</td>
+</tr>
+<tr>
+<td>Lecture 21</td>
+<td>Flow graphs and Mason, $s$-$z$ mapping, all-pass systems, Jury criterion</td>
+<td>Branches 10-11</td>
+</tr>
+</tbody></table>
+<h2 id="1-Before-the-System-Operator-The-Syntax-of-Sequences-and-Discrete-Systems"><a href="#1-Before-the-System-Operator-The-Syntax-of-Sequences-and-Discrete-Systems" class="headerlink" title="1. Before the System Operator: The Syntax of Sequences and Discrete Systems"></a>1. Before the System Operator: The Syntax of Sequences and Discrete Systems</h2><h3 id="The-Missing-Question"><a href="#The-Missing-Question" class="headerlink" title="The Missing Question"></a>The Missing Question</h3><p>Before writing $T:x[n]\mapsto y[n]$, we must know how a sequence is represented, when two discrete frequencies are equivalent, what a shift or reversal does, and whether the stated system is actually linear, time invariant, causal, and stable.</p>
+<h3 id="1-1-Elementary-Sequences-and-Decomposition"><a href="#1-1-Elementary-Sequences-and-Decomposition" class="headerlink" title="1.1 Elementary Sequences and Decomposition"></a>1.1 Elementary Sequences and Decomposition</h3><p>The unit impulse and unit step are</p>
+<p>$$<br>\delta[n]&#x3D;<br>\begin{cases}<br>1,&amp;n&#x3D;0,\<br>0,&amp;n\neq0,<br>\end{cases}<br>\qquad<br>u[n]&#x3D;<br>\begin{cases}<br>1,&amp;n\ge0,\<br>0,&amp;n&lt;0.<br>\end{cases}<br>$$</p>
+<p>They satisfy</p>
+<p>$$<br>\delta[n]&#x3D;u[n]-u[n-1],<br>$$</p>
+<p>$$<br>u[n]&#x3D;\sum_{k&#x3D;-\infty}^{n}\delta[k].<br>$$</p>
+<p>A length-$N$ rectangle is</p>
+<p>$$<br>R_N[n]&#x3D;u[n]-u[n-N].<br>$$</p>
+<p>The sampling property is</p>
+<p>$$<br>x[n]\delta[n-n_0]&#x3D;x[n_0]\delta[n-n_0],<br>$$</p>
+<p>and the complete impulse decomposition</p>
+<p>$$<br>x[n]&#x3D;\sum_{k&#x3D;-\infty}^{\infty}x[k]\delta[n-k]<br>$$</p>
+<p>is the starting point of the convolution-sum derivation.</p>
+<h3 id="1-2-Sequence-Operations-and-Periodicity"><a href="#1-2-Sequence-Operations-and-Periodicity" class="headerlink" title="1.2 Sequence Operations and Periodicity"></a>1.2 Sequence Operations and Periodicity</h3><p>Discrete time admits only integer indices. The sequence $x[n-n_0]$ is shifted right by $n_0$, and $x[-n]$ is reversed. For $x[an+b]$, one must check which integers remain valid indices; arbitrary continuous-time scaling cannot be copied unchanged into discrete time.</p>
+<p>The complex exponential $e^{j\omega_0n}$ is periodic if and only if positive integer $N$ and integer $m$ exist such that</p>
+<p>$$<br>\omega_0N&#x3D;2\pi m.<br>$$</p>
+<p>Equivalently, $\omega_0&#x2F;(2\pi)$ must be rational. The fundamental period is the smallest positive $N$ satisfying this relation.</p>
+<h3 id="1-3-Energy-Power-and-System-Properties"><a href="#1-3-Energy-Power-and-System-Properties" class="headerlink" title="1.3 Energy, Power, and System Properties"></a>1.3 Energy, Power, and System Properties</h3><p>The energy and average power of a sequence are</p>
+<p>$$<br>E&#x3D;\sum_{n&#x3D;-\infty}^{\infty}|x[n]|^2,<br>$$</p>
+<p>$$<br>P&#x3D;\lim_{N\to\infty}\frac{1}{2N+1}<br>\sum_{n&#x3D;-N}^{N}|x[n]|^2.<br>$$</p>
+<p>System properties still include linearity, time invariance, causality, stability, and memory:</p>
+<ul>
+<li><p>linearity requires both additivity and homogeneity;</p>
+</li>
+<li><p>time invariance compares $T{x[n-n_0]}$ with $y[n-n_0]$;</p>
+</li>
+<li><p>causality forbids $y[n_0]$ from depending on input samples with $n&gt;n_0$;</p>
+</li>
+<li><p>BIBO stability requires every bounded input to produce a bounded output.</p>
+</li>
+</ul>
+<h3 id="Problem-Types"><a href="#Problem-Types" class="headerlink" title="Problem Types"></a>Problem Types</h3><ol>
+<li><p><strong>Sequence sketching and composite transformations:</strong> locate valid integer samples of an expression such as $x[-2n+3]$, and mark $n&#x3D;0$ explicitly.</p>
+</li>
+<li><p><strong>Periodicity:</strong> determine whether exponential or sinusoidal sequences are periodic and find their fundamental periods.</p>
+</li>
+<li><p><strong>Energy and power:</strong> use energy for finite or decaying sequences and one-period averages for periodic sequences.</p>
+</li>
+<li><p><strong>Impulse decomposition:</strong> write a plotted sequence as shifted impulses or step differences.</p>
+</li>
+<li><p><strong>System properties:</strong> test each property from its definition and provide a counterexample when the property fails.</p>
+</li>
+</ol>
+<h2 id="2-After-the-Zero-State-Assumption-Difference-Equations-and-Complete-Response"><a href="#2-After-the-Zero-State-Assumption-Difference-Equations-and-Complete-Response" class="headerlink" title="2. After the Zero-State Assumption: Difference Equations and Complete Response"></a>2. After the Zero-State Assumption: Difference Equations and Complete Response</h2><h3 id="The-Missing-Question-1"><a href="#The-Missing-Question-1" class="headerlink" title="The Missing Question"></a>The Missing Question</h3><p>Convolution directly gives zero-state response, whereas difference-equation problems may include stored initial energy. The method of solving the equation must be separated from the meaning of each component of the solution.</p>
+<h3 id="2-1-Linear-Constant-Coefficient-Difference-Equations"><a href="#2-1-Linear-Constant-Coefficient-Difference-Equations" class="headerlink" title="2.1 Linear Constant-Coefficient Difference Equations"></a>2.1 Linear Constant-Coefficient Difference Equations</h3><p>The general form is</p>
+<p>$$<br>\sum_{k&#x3D;0}^{N}a_k y[n-k]<br>&#x3D;\sum_{k&#x3D;0}^{M}b_k x[n-k].<br>$$</p>
+<p>Common solution methods are:</p>
+<ul>
+<li><p>direct iteration for a finite number of samples;</p>
+</li>
+<li><p>the classical homogeneous-plus-particular method;</p>
+</li>
+<li><p>the Z-transform, which converts shifts into algebra.</p>
+</li>
+</ul>
+<p>The characteristic polynomial of the homogeneous equation is</p>
+<p>$$<br>\sum_{k&#x3D;0}^{N}a_k\lambda^{N-k}&#x3D;0.<br>$$</p>
+<p>Distinct roots produce a linear combination of $\lambda_i^n$. An $r$-fold root $\lambda$ contributes</p>
+<p>$$<br>(C_0+C_1n+\cdots+C_{r-1}n^{r-1})\lambda^n.<br>$$</p>
+<p>Complex-conjugate roots combine into real damped sine and cosine modes.</p>
+<h3 id="2-2-Particular-Solutions-and-Input-Modes"><a href="#2-2-Particular-Solutions-and-Input-Modes" class="headerlink" title="2.2 Particular Solutions and Input Modes"></a>2.2 Particular Solutions and Input Modes</h3><p>The trial form follows the input. For $a^nu[n]$, one normally tries $Ca^n$. If $a$ is a characteristic root, the trial must be multiplied by $n$; higher multiplicity requires higher powers of $n$.</p>
+<p>This is the time-domain version of a repeated pole: when the input mode coincides with a natural system mode, the response acquires a polynomial factor in $n$.</p>
+<h3 id="2-3-Response-Classifications"><a href="#2-3-Response-Classifications" class="headerlink" title="2.3 Response Classifications"></a>2.3 Response Classifications</h3><p>Two classifications must be kept separate:</p>
+<p>$$<br>y[n]&#x3D;y_{zi}[n]+y_{zs}[n],<br>$$</p>
+<p>$$<br>y[n]&#x3D;y_n[n]+y_f[n].<br>$$</p>
+<ul>
+<li><p>$y_{zi}$ is the zero-input response caused by initial state;</p>
+</li>
+<li><p>$y_{zs}$ is the zero-state response caused by external input;</p>
+</li>
+<li><p>$y_n$ consists of modes associated with system poles;</p>
+</li>
+<li><p>$y_f$ follows input modes.</p>
+</li>
+</ul>
+<p>Zero-input is not identical to natural, and zero-state is not identical to forced. A zero-state response can contain natural modes.</p>
+<h3 id="Problem-Types-1"><a href="#Problem-Types-1" class="headerlink" title="Problem Types"></a>Problem Types</h3><ol>
+<li><p><strong>Iteration:</strong> compute $y[0],y[1],\ldots$ from a difference equation, input, and initial values.</p>
+</li>
+<li><p><strong>Classical complete response:</strong> form the characteristic equation, choose a particular solution, and fit constants to initial conditions.</p>
+</li>
+<li><p><strong>Repeated roots and resonant trial forms:</strong> identify repeated or complex roots and multiply the trial form by the required power of $n$.</p>
+</li>
+<li><p><strong>Response classification:</strong> separately find zero-input and zero-state parts, or identify natural and forced modes.</p>
+</li>
+<li><p><strong>Equation-mode conversion:</strong> infer characteristic roots from a natural response, or infer response shape from the characteristic polynomial.</p>
+</li>
+</ol>
+<h2 id="3-After-the-Convolution-Sum-Impulse-Response-Computation-Causality-and-Stability"><a href="#3-After-the-Convolution-Sum-Impulse-Response-Computation-Causality-and-Stability" class="headerlink" title="3. After the Convolution Sum: Impulse Response, Computation, Causality, and Stability"></a>3. After the Convolution Sum: Impulse Response, Computation, Causality, and Stability</h2><h3 id="The-Missing-Question-2"><a href="#The-Missing-Question-2" class="headerlink" title="The Missing Question"></a>The Missing Question</h3><p>The trunk proves $y&#x3D;x*h$, but problems still require computing $h[n]$, evaluating convolution sums, and reading system properties directly from $h[n]$.</p>
+<h3 id="3-1-Impulse-and-Step-Responses"><a href="#3-1-Impulse-and-Step-Responses" class="headerlink" title="3.1 Impulse and Step Responses"></a>3.1 Impulse and Step Responses</h3><p>The zero-state impulse and step responses are</p>
+<p>$$<br>h[n]&#x3D;T{\delta[n]},<br>\qquad<br>g[n]&#x3D;T{u[n]}.<br>$$</p>
+<p>Since $\delta[n]&#x3D;u[n]-u[n-1]$,</p>
+<p>$$<br>h[n]&#x3D;g[n]-g[n-1],<br>$$</p>
+<p>$$<br>g[n]&#x3D;\sum_{k&#x3D;-\infty}^{n}h[k].<br>$$</p>
+<h3 id="3-2-Computing-a-Convolution-Sum"><a href="#3-2-Computing-a-Convolution-Sum" class="headerlink" title="3.2 Computing a Convolution Sum"></a>3.2 Computing a Convolution Sum</h3><p>The definition is</p>
+<p>$$<br>y[n]&#x3D;\sum_{k&#x3D;-\infty}^{\infty}x[k]h[n-k].<br>$$</p>
+<p>Graphically, reverse, shift, multiply, and sum. If two sequences have contiguous finite supports of lengths $N$ and $M$, the result has length</p>
+<p>$$<br>N+M-1.<br>$$</p>
+<p>Convolution is commutative, associative, and distributive.</p>
+<h3 id="3-3-h-n-as-a-Time-Domain-System-Specification"><a href="#3-3-h-n-as-a-Time-Domain-System-Specification" class="headerlink" title="3.3 $h[n]$ as a Time-Domain System Specification"></a>3.3 $h[n]$ as a Time-Domain System Specification</h3><p>For a discrete-time LTI system:</p>
+<ul>
+<li><p>causality is equivalent to $h[n]&#x3D;0$ for $n&lt;0$;</p>
+</li>
+<li><p>BIBO stability is equivalent to</p>
+</li>
+</ul>
+<p>$$<br>\sum_{n&#x3D;-\infty}^{\infty}|h[n]|&lt;\infty;<br>$$</p>
+<ul>
+<li>a memoryless system has $h[n]&#x3D;K\delta[n]$.</li>
+</ul>
+<h3 id="Problem-Types-2"><a href="#Problem-Types-2" class="headerlink" title="Problem Types"></a>Problem Types</h3><ol>
+<li><p><strong>Graphical convolution:</strong> split the answer according to overlap intervals and write the correct summation limits.</p>
+</li>
+<li><p><strong>Impulse-train convolution:</strong> use $x[n]*\delta[n-n_0]&#x3D;x[n-n_0]$ before doing any long sum.</p>
+</li>
+<li><p><strong>Finding $h[n]$ from a difference equation:</strong> set $x[n]&#x3D;\delta[n]$ and impose zero initial state.</p>
+</li>
+<li><p><strong>Converting step and impulse responses:</strong> difference $g[n]$ or accumulate $h[n]$.</p>
+</li>
+<li><p><strong>Causality and stability:</strong> inspect support and absolute summability, including both sides of a two-sided response.</p>
+</li>
+</ol>
+<h2 id="4-After-the-Unit-Circle-DTFT-Pairs-and-Properties"><a href="#4-After-the-Unit-Circle-DTFT-Pairs-and-Properties" class="headerlink" title="4. After the Unit Circle: DTFT Pairs and Properties"></a>4. After the Unit Circle: DTFT Pairs and Properties</h2><h3 id="The-Missing-Question-3"><a href="#The-Missing-Question-3" class="headerlink" title="The Missing Question"></a>The Missing Question</h3><p>The definition explains the DTFT but not how to compute it efficiently. Lecture 18 transfers the useful parts of continuous Fourier-transform technique while emphasizing periodicity and summation.</p>
+<h3 id="4-1-Core-Transform-Pairs"><a href="#4-1-Core-Transform-Pairs" class="headerlink" title="4.1 Core Transform Pairs"></a>4.1 Core Transform Pairs</h3><p>Important pairs include</p>
+<p>$$<br>\delta[n]\longleftrightarrow 1,<br>$$</p>
+<p>$$<br>1\longleftrightarrow 2\pi\sum_{k&#x3D;-\infty}^{\infty}\delta(\omega-2\pi k),<br>$$</p>
+<p>$$<br>a^nu[n]\longleftrightarrow\frac{1}{1-ae^{-j\omega}},<br>\qquad |a|&lt;1,<br>$$</p>
+<p>and the length-$N$ rectangular sequence</p>
+<p>$$<br>R_N(e^{j\omega})<br>&#x3D;e^{-j\omega(N-1)&#x2F;2}<br>\frac{\sin(N\omega&#x2F;2)}{\sin(\omega&#x2F;2)}.<br>$$</p>
+<p>Its magnitude is a periodic Dirichlet kernel and its linear phase records the support center $(N-1)&#x2F;2$.</p>
+<h3 id="4-2-Properties-That-Must-Form-a-Closed-Toolkit"><a href="#4-2-Properties-That-Must-Form-a-Closed-Toolkit" class="headerlink" title="4.2 Properties That Must Form a Closed Toolkit"></a>4.2 Properties That Must Form a Closed Toolkit</h3><p>If $x[n]\leftrightarrow X(e^{j\omega})$, then</p>
+<p>$$<br>x[n-n_0]\leftrightarrow e^{-j\omega n_0}X(e^{j\omega}),<br>$$</p>
+<p>$$<br>e^{j\omega_0n}x[n]\leftrightarrow X(e^{j(\omega-\omega_0)}),<br>$$</p>
+<p>$$<br>x[-n]\leftrightarrow X(e^{-j\omega}),<br>$$</p>
+<p>$$<br>nx[n]\leftrightarrow j\frac{dX(e^{j\omega})}{d\omega},<br>$$</p>
+<p>$$<br>x[n]-x[n-1]\leftrightarrow(1-e^{-j\omega})X(e^{j\omega}),<br>$$</p>
+<p>$$<br>x[n]*h[n]\leftrightarrow X(e^{j\omega})H(e^{j\omega}),<br>$$</p>
+<p>$$<br>x[n]h[n]\leftrightarrow<br>\frac{1}{2\pi}\int_{-\pi}^{\pi}<br>X(e^{j\theta})H(e^{j(\omega-\theta)})d\theta,<br>$$</p>
+<p>and Parseval gives</p>
+<p>$$<br>\sum_{n&#x3D;-\infty}^{\infty}|x[n]|^2<br>&#x3D;\frac{1}{2\pi}\int_{-\pi}^{\pi}|X(e^{j\omega})|^2d\omega.<br>$$</p>
+<h3 id="4-3-Conjugate-Symmetry-and-Periodicity"><a href="#4-3-Conjugate-Symmetry-and-Periodicity" class="headerlink" title="4.3 Conjugate Symmetry and Periodicity"></a>4.3 Conjugate Symmetry and Periodicity</h3><p>For real $x[n]$,</p>
+<p>$$<br>X(e^{-j\omega})&#x3D;X^*(e^{j\omega}).<br>$$</p>
+<p>The real part and magnitude are even; the imaginary part is odd, and the unwrapped phase is odd where defined. Together with $2\pi$ periodicity, these symmetries often halve the required work.</p>
+<h3 id="Problem-Types-3"><a href="#Problem-Types-3" class="headerlink" title="Problem Types"></a>Problem Types</h3><ol>
+<li><p><strong>Combining transform pairs and properties:</strong> identify a basic sequence, then apply reversal, shifting, modulation, and multiplication by $n$ in a controlled order.</p>
+</li>
+<li><p><strong>Rectangular-sequence spectrum:</strong> reduce a finite geometric sum to a sine ratio and retain the linear-phase factor.</p>
+</li>
+<li><p><strong>Recovering a sequence from a spectrum:</strong> use inverse DTFT, symmetry, or known pairs over one $2\pi$ interval.</p>
+</li>
+<li><p><strong>Difference and accumulation:</strong> multiplication by $(1-e^{-j\omega})$ represents first difference; accumulation requires care at $\omega&#x3D;0$.</p>
+</li>
+<li><p><strong>Energy:</strong> choose the shorter side of Parseval between a time-domain sum and a frequency-domain integral.</p>
+</li>
+</ol>
+<h2 id="5-After-Discrete-Frequency-Periodic-Sequences-and-Impulse-Line-Spectra"><a href="#5-After-Discrete-Frequency-Periodic-Sequences-and-Impulse-Line-Spectra" class="headerlink" title="5. After Discrete Frequency: Periodic Sequences and Impulse-Line Spectra"></a>5. After Discrete Frequency: Periodic Sequences and Impulse-Line Spectra</h2><h3 id="The-Missing-Question-4"><a href="#The-Missing-Question-4" class="headerlink" title="The Missing Question"></a>The Missing Question</h3><p>A discrete-time sequence may be periodic, but its DTFT is then an impulse-line spectrum rather than an ordinary curve. Time discreteness, frequency periodicity, and periodic-sequence line spectra must not be conflated.</p>
+<p>For period $N$,</p>
+<p>$$<br>x_p[n]&#x3D;\sum_{k&#x3D;0}^{N-1}a_k e^{j2\pi kn&#x2F;N},<br>$$</p>
+<p>$$<br>a_k&#x3D;\frac{1}{N}\sum_{n&#x3D;0}^{N-1}x_p[n]e^{-j2\pi kn&#x2F;N}.<br>$$</p>
+<p>Its DTFT is</p>
+<p>$$<br>X_p(e^{j\omega})<br>&#x3D;2\pi\sum_{k&#x3D;0}^{N-1}a_k<br>\sum_{m&#x3D;-\infty}^{\infty}<br>\delta\left(\omega-\frac{2\pi k}{N}-2\pi m\right).<br>$$</p>
+<p>The spectrum repeats every $2\pi$, with only $N$ distinct harmonic locations in a fundamental interval.</p>
+<h3 id="Problem-Types-4"><a href="#Problem-Types-4" class="headerlink" title="Problem Types"></a>Problem Types</h3><ol>
+<li><p><strong>Finding the period and DFS coefficients:</strong> determine the smallest integer period before summing over one complete period.</p>
+</li>
+<li><p><strong>Periodic extension and line spectrum:</strong> periodically extend a finite segment, then find line locations and weights.</p>
+</li>
+<li><p><strong>Exponential and cosine inputs:</strong> decompose a cosine into two exponentials and reduce frequencies modulo $2\pi$.</p>
+</li>
+<li><p><strong>Impulse-line plots:</strong> extend one fundamental interval to the full frequency axis or infer time-domain periodicity from repeated lines.</p>
+</li>
+</ol>
+<h2 id="6-After-Y-HX-Frequency-Response-and-Eigenfunction-Inputs"><a href="#6-After-Y-HX-Frequency-Response-and-Eigenfunction-Inputs" class="headerlink" title="6. After $Y&#x3D;HX$: Frequency Response and Eigenfunction Inputs"></a>6. After $Y&#x3D;HX$: Frequency Response and Eigenfunction Inputs</h2><h3 id="The-Missing-Question-5"><a href="#The-Missing-Question-5" class="headerlink" title="The Missing Question"></a>The Missing Question</h3><p>Frequency-domain multiplication is only useful if $H(z)$ or a pole-zero plot can be translated into amplitude and phase at a particular frequency.</p>
+<p>When the unit circle lies in the ROC,</p>
+<p>$$<br>x[n]&#x3D;e^{j\omega_0n}<br>$$</p>
+<p>produces</p>
+<p>$$<br>y_{zs}[n]&#x3D;H(e^{j\omega_0})e^{j\omega_0n}.<br>$$</p>
+<p>For</p>
+<p>$$<br>x[n]&#x3D;A\cos(\omega_0n+\phi),<br>$$</p>
+<p>the sinusoidal steady-state response is</p>
+<p>$$<br>y_{ss}[n]<br>&#x3D;A|H(e^{j\omega_0})|<br>\cos\bigl(\omega_0n+\phi+\arg H(e^{j\omega_0})\bigr).<br>$$</p>
+<p>If</p>
+<p>$$<br>H(z)&#x3D;K\frac{\prod_i(z-z_i)}{\prod_k(z-p_k)},<br>$$</p>
+<p>then at $z&#x3D;e^{j\omega}$ the magnitude is the product of distances from zeros divided by the product of distances from poles, while the phase is the corresponding sum of zero angles minus pole angles.</p>
+<p>Hence a pole near the unit circle creates a nearby peak, a nearby zero creates attenuation, and a zero on the unit circle creates a notch.</p>
+<h3 id="Problem-Types-5"><a href="#Problem-Types-5" class="headerlink" title="Problem Types"></a>Problem Types</h3><ol>
+<li><p><strong>Sinusoidal steady state:</strong> evaluate $H(e^{j\omega_0})$ for gain and phase shift.</p>
+</li>
+<li><p><strong>Frequency response from a difference equation:</strong> derive $H(z)$ under zero initial conditions and set $z&#x3D;e^{j\omega}$.</p>
+</li>
+<li><p><strong>Pole-zero geometry:</strong> draw vectors from poles and zeros to a point on the unit circle.</p>
+</li>
+<li><p><strong>Filter behavior:</strong> infer low-pass, high-pass, band-pass, or notch behavior from unit-circle geometry.</p>
+</li>
+<li><p><strong>Existence:</strong> do not call a formal substitution a stable-system frequency response when the unit circle is outside the ROC.</p>
+</li>
+</ol>
+<h2 id="7-After-the-Z-Transform-Definition-ROC-Properties-and-Inversion"><a href="#7-After-the-Z-Transform-Definition-ROC-Properties-and-Inversion" class="headerlink" title="7. After the Z-Transform Definition: ROC, Properties, and Inversion"></a>7. After the Z-Transform Definition: ROC, Properties, and Inversion</h2><h3 id="The-Missing-Question-6"><a href="#The-Missing-Question-6" class="headerlink" title="The Missing Question"></a>The Missing Question</h3><p>The essential addition of the Z-transform is not a longer transform table but the ROC. Without it, time support, causality, and stability may remain undetermined.</p>
+<h3 id="7-1-ROC-and-Sequence-Support"><a href="#7-1-ROC-and-Sequence-Support" class="headerlink" title="7.1 ROC and Sequence Support"></a>7.1 ROC and Sequence Support</h3><p>For example,</p>
+<p>$$<br>a^nu[n]\longleftrightarrow\frac{1}{1-az^{-1}},<br>\qquad |z|&gt;|a|,<br>$$</p>
+<p>whereas</p>
+<p>$$<br>-a^nu[-n-1]\longleftrightarrow\frac{1}{1-az^{-1}},<br>\qquad |z|&lt;|a|.<br>$$</p>
+<p>The same rational expression represents different sequences because the ROCs differ.</p>
+<p>For rational transforms:</p>
+<ul>
+<li><p>a right-sided sequence has an ROC outside the outermost pole;</p>
+</li>
+<li><p>a left-sided sequence has an ROC inside the innermost pole;</p>
+</li>
+<li><p>a two-sided sequence has an annular ROC between poles;</p>
+</li>
+<li><p>a finite sequence generally has the entire plane as ROC, possibly excluding $0$ or $\infty$;</p>
+</li>
+<li><p>an ROC contains no poles.</p>
+</li>
+</ul>
+<h3 id="7-2-Z-Transform-Properties"><a href="#7-2-Z-Transform-Properties" class="headerlink" title="7.2 Z-Transform Properties"></a>7.2 Z-Transform Properties</h3><p>If</p>
+<p>$$<br>x[n]\longleftrightarrow X(z),<br>$$</p>
+<p>then exponential weighting gives</p>
+<p>$$<br>a^nx[n]\longleftrightarrow X\left(\frac{z}{a}\right).<br>$$</p>
+<p>The ROC radii scale by $|a|$. Every property must update the ROC as well as the expression. Addition retains at least the intersection of the original ROCs, although pole-zero cancellation may enlarge it.</p>
+<h3 id="7-3-Inverse-Z-Transform"><a href="#7-3-Inverse-Z-Transform" class="headerlink" title="7.3 Inverse Z-Transform"></a>7.3 Inverse Z-Transform</h3><p>The lectures emphasize:</p>
+<ul>
+<li><p>partial-fraction expansion for rational functions;</p>
+</li>
+<li><p>power-series expansion or long division when the ROC fixes the expansion direction;</p>
+</li>
+<li><p>tables combined with shifting, scaling, and multiplication by $n$.</p>
+</li>
+</ul>
+<p>Contour integration defines the inverse theoretically but is not the main computational method required here. After partial fractions, the ROC still determines whether each term is left-sided or right-sided.</p>
+<h3 id="Problem-Types-6"><a href="#Problem-Types-6" class="headerlink" title="Problem Types"></a>Problem Types</h3><ol>
+<li><p><strong>Sequence to transform and ROC:</strong> find each term’s ROC, intersect them, and check whether the intersection is empty.</p>
+</li>
+<li><p><strong>Expression plus ROC to sequence:</strong> locate poles and assign each term to a left- or right-sided pair according to the ROC.</p>
+</li>
+<li><p><strong>All possible ROCs:</strong> order pole magnitudes and enumerate the innermost disk, intermediate annuli, and outer region.</p>
+</li>
+<li><p><strong>Long division:</strong> expand in $z^{-1}$ for an outside ROC and in $z$ for an inside ROC.</p>
+</li>
+<li><p><strong>Combined properties:</strong> update both the algebraic expression and the ROC under shifting, reversal, weighting, multiplication by $n$, and convolution.</p>
+</li>
+</ol>
+<h2 id="8-After-Zero-State-Bilateral-and-Unilateral-Z-Transforms-for-System-Response"><a href="#8-After-Zero-State-Bilateral-and-Unilateral-Z-Transforms-for-System-Response" class="headerlink" title="8. After Zero State: Bilateral and Unilateral Z-Transforms for System Response"></a>8. After Zero State: Bilateral and Unilateral Z-Transforms for System Response</h2><h3 id="The-Missing-Question-7"><a href="#The-Missing-Question-7" class="headerlink" title="The Missing Question"></a>The Missing Question</h3><p>The bilateral transform naturally handles zero-state convolution. The unilateral transform carries initial conditions through its shift formulas. They should be selected according to the question rather than mixed mechanically.</p>
+<h3 id="8-1-Zero-State-Response"><a href="#8-1-Zero-State-Response" class="headerlink" title="8.1 Zero-State Response"></a>8.1 Zero-State Response</h3><p>Under zero initial conditions,</p>
+<p>$$<br>H(z)&#x3D;\frac{Y_{zs}(z)}{X(z)},<br>$$</p>
+<p>and</p>
+<p>$$<br>Y_{zs}(z)&#x3D;H(z)X(z).<br>$$</p>
+<p>The ROC of $H(z)$ follows from causality or stability, while the ROC of the product also depends on support and cancellation.</p>
+<h3 id="8-2-Complete-Response-and-the-Unilateral-Transform"><a href="#8-2-Complete-Response-and-the-Unilateral-Transform" class="headerlink" title="8.2 Complete Response and the Unilateral Transform"></a>8.2 Complete Response and the Unilateral Transform</h3><p>Define</p>
+<p>$$<br>X^+(z)&#x3D;\sum_{n&#x3D;0}^{\infty}x[n]z^{-n}.<br>$$</p>
+<p>Its shift properties expose initial values, for example</p>
+<p>$$<br>\mathcal{Z}_+{y[n-1]}<br>&#x3D;z^{-1}Y^+(z)+y[-1],<br>$$</p>
+<p>$$<br>\mathcal{Z}_+{y[n+1]}<br>&#x3D;zY^+(z)-zy[0].<br>$$</p>
+<p>Thus a difference equation, input, and pre-$n&#x3D;0$ initial conditions can be solved directly for the complete response.</p>
+<h3 id="8-3-Initial-and-Final-Values"><a href="#8-3-Initial-and-Final-Values" class="headerlink" title="8.3 Initial and Final Values"></a>8.3 Initial and Final Values</h3><p>For a right-sided sequence, under the appropriate conditions,</p>
+<p>$$<br>x[0]&#x3D;\lim_{z\to\infty}X(z),<br>$$</p>
+<p>$$<br>\lim_{n\to\infty}x[n]<br>&#x3D;\lim_{z\to1}(1-z^{-1})X(z).<br>$$</p>
+<p>Except for a possible simple pole at $z&#x3D;1$, all poles of $(1-z^{-1})X(z)$ must lie strictly inside the unit circle for the final-value theorem to apply.</p>
+<h3 id="Problem-Types-7"><a href="#Problem-Types-7" class="headerlink" title="Problem Types"></a>Problem Types</h3><ol>
+<li><p><strong>Bilateral transform for zero-state response:</strong> determine $H(z)$ and $X(z)$, multiply, infer the ROC, and invert.</p>
+</li>
+<li><p><strong>Unilateral transform for complete response:</strong> include every initial-value term in every shift formula.</p>
+</li>
+<li><p><strong>Separating zero-input and zero-state responses:</strong> set input and initial state to zero in separate calculations and verify their sum.</p>
+</li>
+<li><p><strong>Initial- and final-value theorems:</strong> check support and pole conditions before taking limits.</p>
+</li>
+<li><p><strong>Method selection:</strong> use iteration for a few samples, the classical or unilateral method for a closed-form complete response, and the bilateral method for zero-state and system-property questions.</p>
+</li>
+</ol>
+<h2 id="9-After-H-z-System-Function-Poles-and-Zeros-Causality-and-Stability"><a href="#9-After-H-z-System-Function-Poles-and-Zeros-Causality-and-Stability" class="headerlink" title="9. After $H(z)$: System Function, Poles and Zeros, Causality, and Stability"></a>9. After $H(z)$: System Function, Poles and Zeros, Causality, and Stability</h2><h3 id="The-Missing-Question-8"><a href="#The-Missing-Question-8" class="headerlink" title="The Missing Question"></a>The Missing Question</h3><p>The system function connects the difference equation, impulse response, frequency response, and pole-zero plot, but every conversion retains its zero-initial-condition and ROC assumptions.</p>
+<h3 id="9-1-Difference-Equation-and-System-Function"><a href="#9-1-Difference-Equation-and-System-Function" class="headerlink" title="9.1 Difference Equation and System Function"></a>9.1 Difference Equation and System Function</h3><p>Under zero initial conditions,</p>
+<p>$$<br>H(z)<br>&#x3D;\frac{\sum_{k&#x3D;0}^{M}b_kz^{-k}}<br>{\sum_{k&#x3D;0}^{N}a_kz^{-k}}.<br>$$</p>
+<p>Conversely, cross-multiplying $H(z)&#x3D;Y(z)&#x2F;X(z)$ and interpreting $z^{-k}$ as a $k$-sample delay recovers the difference equation.</p>
+<h3 id="9-2-Causality-and-Stability-Must-Be-Combined-with-the-ROC"><a href="#9-2-Causality-and-Stability-Must-Be-Combined-with-the-ROC" class="headerlink" title="9.2 Causality and Stability Must Be Combined with the ROC"></a>9.2 Causality and Stability Must Be Combined with the ROC</h3><p>For a discrete-time LTI system:</p>
+<ul>
+<li><p>causality means a right-sided $h[n]$ and, for a rational system, an ROC outside the outermost pole;</p>
+</li>
+<li><p>stability means absolute summability of $h[n]$, equivalently an ROC containing the unit circle;</p>
+</li>
+<li><p>a causal and stable rational system therefore has all poles strictly inside the unit circle.</p>
+</li>
+</ul>
+<p>The final statement cannot be detached from the causal rational-system assumption. An anticausal choice of ROC can make the same pole set stable under different circumstances.</p>
+<h3 id="9-3-Poles-Determine-Natural-Modes"><a href="#9-3-Poles-Determine-Natural-Modes" class="headerlink" title="9.3 Poles Determine Natural Modes"></a>9.3 Poles Determine Natural Modes</h3><p>A pole $p&#x3D;re^{j\omega_0}$ corresponds to $r^ne^{j\omega_0n}$. Thus $r&lt;1$ decays, $r&gt;1$ grows, a negative real pole alternates sign, conjugate poles oscillate, and repeated poles add powers of $n$.</p>
+<h3 id="9-4-All-Pass-Minimum-Phase-and-Inverse-Systems"><a href="#9-4-All-Pass-Minimum-Phase-and-Inverse-Systems" class="headerlink" title="9.4 All-Pass, Minimum Phase, and Inverse Systems"></a>9.4 All-Pass, Minimum Phase, and Inverse Systems</h3><p>Zeros and poles of a discrete all-pass factor are conjugate-reciprocal images across the unit circle. For $|a|&lt;1$,</p>
+<p>$$<br>H_{\mathrm{ap}}(z)<br>&#x3D;\frac{z^{-1}-a^*}{1-az^{-1}},<br>$$</p>
+<p>and</p>
+<p>$$<br>|H_{\mathrm{ap}}(e^{j\omega})|&#x3D;1.<br>$$</p>
+<p>It changes phase without changing magnitude. A causal stable minimum-phase system also has all zeros inside the unit circle, so its inverse can remain causal and stable. Zeros outside the unit circle can be reflected inward, with the difference assigned to an all-pass factor.</p>
+<h3 id="Problem-Types-8"><a href="#Problem-Types-8" class="headerlink" title="Problem Types"></a>Problem Types</h3><ol>
+<li><p><strong>Converting among a difference equation, $h[n]$, and $H(z)$:</strong> state zero initial conditions and determine the ROC from causality or stability.</p>
+</li>
+<li><p><strong>Pole-zero plots:</strong> normalize polynomial form and account for apparent origin zeros or poles introduced by $z^{-1}$ notation.</p>
+</li>
+<li><p><strong>Causality and stability from ROC:</strong> causality points outward; stability requires the unit circle.</p>
+</li>
+<li><p><strong>Natural-mode shape:</strong> infer decay, growth, alternation, oscillation, and polynomial factors from poles.</p>
+</li>
+<li><p><strong>All-pass&#x2F;minimum-phase factorization:</strong> reflect an exterior zero to $1&#x2F;z_i^*$ and preserve the original magnitude response.</p>
+</li>
+<li><p><strong>Inverse-system realizability:</strong> poles of $1&#x2F;H(z)$ come from zeros of $H(z)$; exterior zeros prevent a causal stable inverse.</p>
+</li>
+</ol>
+<h2 id="10-After-the-Continuous-Discrete-Parallel-Sampling-and-the-s-z-Mapping"><a href="#10-After-the-Continuous-Discrete-Parallel-Sampling-and-the-s-z-Mapping" class="headerlink" title="10. After the Continuous-Discrete Parallel: Sampling and the $s$-$z$ Mapping"></a>10. After the Continuous-Discrete Parallel: Sampling and the $s$-$z$ Mapping</h2><h3 id="The-Missing-Question-9"><a href="#The-Missing-Question-9" class="headerlink" title="The Missing Question"></a>The Missing Question</h3><p>The two domains are structurally parallel, but sampling period $T$ provides a precise bridge and explains why the unit circle is the discrete stability boundary.</p>
+<p>Sampling a continuous exponential at $t&#x3D;nT$ gives</p>
+<p>$$<br>e^{st}\big|_{t&#x3D;nT}&#x3D;e^{snT}&#x3D;(e^{sT})^n,<br>$$</p>
+<p>so</p>
+<p>$$<br>\boxed{z&#x3D;e^{sT}.}<br>$$</p>
+<p>For $s&#x3D;\sigma+j\Omega$,</p>
+<p>$$<br>|z|&#x3D;e^{\sigma T},<br>\qquad<br>\arg z&#x3D;\Omega T\pmod{2\pi}.<br>$$</p>
+<p>Therefore:</p>
+<ul>
+<li><p>the left half of the $s$-plane maps inside the unit circle;</p>
+</li>
+<li><p>the imaginary axis maps onto the unit circle;</p>
+</li>
+<li><p>the right half-plane maps outside the unit circle;</p>
+</li>
+<li><p>continuous frequencies separated by integer multiples of $2\pi&#x2F;T$ map to the same point.</p>
+</li>
+</ul>
+<p>The final property is aliasing expressed as complex-plane geometry. The mapping is not one-to-one along the imaginary direction, so a discrete pole does not uniquely determine its original continuous frequency.</p>
+<p>Impulse-invariance discretization samples the continuous impulse response,</p>
+<p>$$<br>h_d[n]&#x3D;Th_c(nT),<br>$$</p>
+<p>or omits the scale factor under another normalization convention. It preserves the sampled time-domain shape but periodically overlaps the spectrum, so aliasing remains its principal limitation.</p>
+<h3 id="Problem-Types-9"><a href="#Problem-Types-9" class="headerlink" title="Problem Types"></a>Problem Types</h3><ol>
+<li><p><strong>Mapping poles from $s$ to $z$:</strong> use $z_k&#x3D;e^{s_kT}$ and assess discrete stability.</p>
+</li>
+<li><p><strong>Recovering continuous modes from discrete poles:</strong> include the multivalued complex logarithm and frequency ambiguity modulo $2\pi&#x2F;T$.</p>
+</li>
+<li><p><strong>Sampling and aliasing:</strong> use $\omega&#x3D;\Omega T$ to identify continuous frequencies that become identical in discrete time.</p>
+</li>
+<li><p><strong>Impulse invariance:</strong> find $h_c(t)$, sample it to obtain $h_d[n]$, and then calculate $H(z)$.</p>
+</li>
+<li><p><strong>Stability-region correspondence:</strong> explain left-half-plane stability in continuous time and unit-circle stability in discrete time.</p>
+</li>
+</ol>
+<h2 id="11-After-a-Single-System-Function-Realizations-Mason-and-Jury"><a href="#11-After-a-Single-System-Function-Realizations-Mason-and-Jury" class="headerlink" title="11. After a Single System Function: Realizations, Mason, and Jury"></a>11. After a Single System Function: Realizations, Mason, and Jury</h2><h3 id="The-Missing-Question-10"><a href="#The-Missing-Question-10" class="headerlink" title="The Missing Question"></a>The Missing Question</h3><p>Once a system has been compressed into $H(z)$, the remaining questions are how to implement it using adders, multipliers, and delays; how to recover a transfer function from a complicated flow graph; and how to test unit-circle stability without explicitly finding all roots.</p>
+<h3 id="11-1-Discrete-Time-Realizations-and-Signal-Flow-Graphs"><a href="#11-1-Discrete-Time-Realizations-and-Signal-Flow-Graphs" class="headerlink" title="11.1 Discrete-Time Realizations and Signal-Flow Graphs"></a>11.1 Discrete-Time Realizations and Signal-Flow Graphs</h3><p>For</p>
+<p>$$<br>H(z)&#x3D;\frac{b_0+b_1z^{-1}+\cdots+b_Mz^{-M}}<br>{1+a_1z^{-1}+\cdots+a_Nz^{-N}},<br>$$</p>
+<p>one may construct direct form I, direct form II, cascade, or parallel realizations. Direct form II shares its delay chain and usually uses fewer delay elements. Cascade and parallel forms expose low-order pole-zero sections.</p>
+<p>In a flow graph, branches multiply, nodes denote signals, and a $z^{-1}$ branch delays by one sample. To draw a graph from a difference equation, first isolate $y[n]$, then create each feedforward and feedback path.</p>
+<h3 id="11-2-Mason’s-Gain-Formula"><a href="#11-2-Mason’s-Gain-Formula" class="headerlink" title="11.2 Mason’s Gain Formula"></a>11.2 Mason’s Gain Formula</h3><p>Let $P_k$ be forward-path gains and $L_i$ loop gains. Then</p>
+<p>$$<br>\Delta<br>&#x3D;1-\sum_iL_i<br>+\sum_{i&lt;j}L_iL_j<br>-\sum_{i&lt;j&lt;r}L_iL_jL_r+\cdots,<br>$$</p>
+<p>where products include only mutually non-touching loops. The overall transfer function is</p>
+<p>$$<br>H(z)&#x3D;\frac{\sum_kP_k\Delta_k}{\Delta}.<br>$$</p>
+<p>$\Delta_k$ excludes loops touching the $k$th forward path. “Non-touching” means no shared node, not merely no crossing lines in the drawing.</p>
+<h3 id="11-3-Jury-Stability-Criterion"><a href="#11-3-Jury-Stability-Criterion" class="headerlink" title="11.3 Jury Stability Criterion"></a>11.3 Jury Stability Criterion</h3><p>Routh tests whether continuous-time roots lie in the left half-plane; Jury tests whether discrete-time roots lie inside the unit circle.</p>
+<p>For</p>
+<p>$$<br>A(z)&#x3D;a_0z^N+a_1z^{N-1}+\cdots+a_N,<br>\qquad a_0&gt;0,<br>$$</p>
+<p>necessary conditions include</p>
+<p>$$<br>A(1)&gt;0,<br>$$</p>
+<p>$$<br>(-1)^N A(-1)&gt;0,<br>$$</p>
+<p>$$<br>|a_N|&lt;a_0.<br>$$</p>
+<p>Higher-order cases require a Jury table that repeatedly compares endpoint coefficients and reduces the order. Passing the quick necessary conditions does not prove stability; all required inequalities must hold. For a second-order polynomial, the criterion reduces to three simple inequalities and frequently appears as a parameter-range problem.</p>
+<h3 id="Problem-Types-10"><a href="#Problem-Types-10" class="headerlink" title="Problem Types"></a>Problem Types</h3><ol>
+<li><p><strong>Drawing a realization from a difference equation:</strong> place feedforward, feedback, and every $z^{-1}$ delay explicitly; compare storage requirements of direct forms I and II.</p>
+</li>
+<li><p><strong>Recovering a difference equation or $H(z)$ from a structure:</strong> write equations for internal nodes and eliminate them.</p>
+</li>
+<li><p><strong>Mason problems:</strong> enumerate forward paths, individual loops, non-touching loop products, and every $\Delta_k$.</p>
+</li>
+<li><p><strong>Jury stability:</strong> test $A(1)$, $A(-1)$, and endpoint coefficients first, then complete the Jury table.</p>
+</li>
+<li><p><strong>Parameter ranges:</strong> convert every Jury condition into an inequality and intersect the resulting ranges, excluding roots on the unit circle.</p>
+</li>
+<li><p><strong>Continuous-discrete comparison:</strong> state that Routh checks the left half-plane and Jury checks the unit disk; a bilinear transform can convert the latter boundary into the former.</p>
+</li>
+</ol>
+<h1 id="III-Summary"><a href="#III-Summary" class="headerlink" title="III. Summary"></a>III. Summary</h1><p>The trunk and branches of the discrete-time half can now be compressed into one map:</p>
+<p><img src="https://raw.githubusercontent.com/vivofiftykfc/picturebd/main/img/202608300413367.png" srcset="/img/loading.gif" lazyload></p>
+<p>The first part answered: <strong>why discrete convolution, the DTFT, and the Z-transform grow naturally out of a discrete-time LTI system.</strong></p>
+<p>A sequence decomposes into shifted impulses, so an LTI system is described by a convolution sum. Since $z^n$ is an eigenfunction, the Z-transform converts convolution and difference equations into multiplication and algebra. The DTFT is the Z-transform on the unit circle, and the requirement that the ROC contain that circle connects frequency response with stability.</p>
+<p>The second part answered: <strong>when the minimal model encounters initial state, periodic sequences, convergence, continuous-discrete mapping, and realizations, which tool should be attached at which node.</strong></p>
+<p>The boundaries worth checking repeatedly are:</p>
+<ul>
+<li><p>an algebraic expression cannot be separated from its ROC;</p>
+</li>
+<li><p>$H(z)$ cannot be separated from zero-initial-condition and realization assumptions;</p>
+</li>
+<li><p>“all poles inside the unit circle” cannot be separated from the causal rational-system assumption;</p>
+</li>
+<li><p>formal substitution on the unit circle does not guarantee that a frequency response exists;</p>
+</li>
+<li><p>zero-state&#x2F;zero-input and natural&#x2F;forced are different classifications;</p>
+</li>
+<li><p>the exponential map from $s$ to $z$ is not one-to-one, and aliasing is the trace left by that multivalued frequency mapping.</p>
+</li>
+</ul>
+<p>The discrete-time half did not invent a separate world. Continuous time reads frequency on the imaginary axis; discrete time reads it on the unit circle. Continuous time expands with $e^{st}$; discrete time expands with $z^n$. The coordinates changed, but the action of finding eigenfunctions and diagonalizing the system did not.</p>
+<h2 id="References-and-Notes"><a href="#References-and-Notes" class="headerlink" title="References and Notes"></a>References and Notes</h2><ul>
+<li><p>Lecture 17, “Time-Domain Analysis in the Discrete Domain.”</p>
+</li>
+<li><p>Lecture 18, “Discrete-Time Fourier Transform (DTFT).”</p>
+</li>
+<li><p>Lecture 19, “Introducing the Z-Transform and Deriving Transform Pairs.”</p>
+</li>
+<li><p>Lecture 20, “The Z-Transform and System-Response Calculation.”</p>
+</li>
+<li><p>Lecture 21, “Mason, All-Pass Characteristics, and the Jury Criterion.”</p>
+</li>
+<li><p><a href="/en/posts/2026/08/30/fourier-laplace-knowledge-tree/">“The Evolution of Signals and Systems (Part I): The Generative Logic Behind the Fourier and Laplace Transforms”</a>, for the continuous&#x2F;discrete parallel used in the main trunk.</p>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/English/" class="category-chain-item">English</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Signals-and-Systems/" class="print-no-link">#Signals and Systems</a>
+      
+        <a href="/tags/LTI-Systems/" class="print-no-link">#LTI Systems</a>
+      
+        <a href="/tags/Discrete-Time-Systems/" class="print-no-link">#Discrete-Time Systems</a>
+      
+        <a href="/tags/DTFT/" class="print-no-link">#DTFT</a>
+      
+        <a href="/tags/Z-Transform/" class="print-no-link">#Z-Transform</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>The Evolution of Signals and Systems (Part II) — From Discrete Convolution to the Z-Transform</div>
+      <div>https://hwnote.space/en/posts/2026/08/30/discrete-z-transform-knowledge-tree/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>ZHW</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>August 30, 2026</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'vivofiftykfc/blogQA');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      在看什么呢雑魚~
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/blog-dashboard.js?v=20260821-global-language.js"></script>
+<script src="/js/bilingual-switch.js?v=20260821-global-language.js"></script>
+<script src="/js/tag-cloud.js?v=20260824-bilingual-cloud.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
