@@ -9,8 +9,33 @@
     <atom:link href="https://hwnote.space/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一个工科生的个人博客，记录技术学习、工程实践与对生活和认知的思考。</description>
-    <pubDate>Sat, 29 Aug 2026 20:14:07 GMT</pubDate>
+    <pubDate>Thu, 10 Sep 2026 19:02:30 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>又醒酒</title>
+      <link>https://hwnote.space/posts/2026/09/11/sober-again/</link>
+      <guid>https://hwnote.space/posts/2026/09/11/sober-again/</guid>
+      <pubDate>Thu, 10 Sep 2026 18:50:57 GMT</pubDate>
+      
+      <description>从京A乘醉而返，在短暂的畅快中与过去、未来的自己举杯，又在酒醒时重新面对来日。</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      <category domain="https://hwnote.space/tags/%E9%A5%AE%E9%85%92/">饮酒</category>
+      
+      
+      <comments>https://hwnote.space/posts/2026/09/11/sober-again/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>信号与系统发展脉络（下）从离散卷积到Z变换的生成逻辑</title>
@@ -142,9 +167,9 @@
       <category domain="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/">折腾杂项</category>
       
       
-      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
-      
       <category domain="https://hwnote.space/tags/PDF/">PDF</category>
+      
+      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       <category domain="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/">折腾的小杂项</category>
       
@@ -356,13 +381,13 @@
       <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
+      <category domain="https://hwnote.space/tags/AI/">AI</category>
+      
       <category domain="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/">写作</category>
       
       <category domain="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/">实践</category>
       
       <category domain="https://hwnote.space/tags/%E5%8F%8D%E6%80%9D/">反思</category>
-      
-      <category domain="https://hwnote.space/tags/AI/">AI</category>
       
       
       <comments>https://hwnote.space/posts/2026/07/28/mirror-and-stone/#disqus_thread</comments>
@@ -383,9 +408,9 @@
       <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       
-      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
-      
       <category domain="https://hwnote.space/tags/PDF/">PDF</category>
+      
+      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       <category domain="https://hwnote.space/tags/%E6%8A%95%E8%B5%84/">投资</category>
       
@@ -412,15 +437,15 @@
       <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       
+      <category domain="https://hwnote.space/tags/PDF/">PDF</category>
+      
       <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
-      <category domain="https://hwnote.space/tags/PDF/">PDF</category>
+      <category domain="https://hwnote.space/tags/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/">调研报告</category>
       
       <category domain="https://hwnote.space/tags/%E7%83%B9%E9%A5%AA/">烹饪</category>
       
       <category domain="https://hwnote.space/tags/%E7%BE%8E%E9%A3%9F/">美食</category>
-      
-      <category domain="https://hwnote.space/tags/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/">调研报告</category>
       
       
       <comments>https://hwnote.space/posts/2026/07/22/cooking-research-report/#disqus_thread</comments>
@@ -588,9 +613,9 @@
       
       <category domain="https://hwnote.space/tags/%E5%8F%8D%E6%80%9D/">反思</category>
       
-      <category domain="https://hwnote.space/tags/%E8%80%83%E7%A0%94/">考研</category>
-      
       <category domain="https://hwnote.space/tags/%E8%80%83%E7%A0%94%E6%97%A5%E8%AE%B0/">考研日记</category>
+      
+      <category domain="https://hwnote.space/tags/%E8%80%83%E7%A0%94/">考研</category>
       
       <category domain="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6/">数学</category>
       
@@ -650,8 +675,6 @@
       <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       
-      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
-      
       <category domain="https://hwnote.space/tags/PDF/">PDF</category>
       
       <category domain="https://hwnote.space/tags/%E5%81%A5%E8%BA%AB/">健身</category>
@@ -659,6 +682,8 @@
       <category domain="https://hwnote.space/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/">形象管理</category>
       
       <category domain="https://hwnote.space/tags/%E5%AE%A1%E7%BE%8E/">审美</category>
+      
+      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       
       <comments>https://hwnote.space/posts/2026/07/07/fitness-research-report/#disqus_thread</comments>
@@ -679,13 +704,13 @@
       <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       
-      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
-      
       <category domain="https://hwnote.space/tags/PDF/">PDF</category>
       
       <category domain="https://hwnote.space/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/">形象管理</category>
       
       <category domain="https://hwnote.space/tags/%E5%AE%A1%E7%BE%8E/">审美</category>
+      
+      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       <category domain="https://hwnote.space/tags/%E9%9D%A2%E9%83%A8%E7%BE%8E%E5%AD%A6/">面部美学</category>
       
@@ -708,11 +733,11 @@
       <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       
-      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
-      
       <category domain="https://hwnote.space/tags/PDF/">PDF</category>
       
       <category domain="https://hwnote.space/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/">形象管理</category>
+      
+      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       <category domain="https://hwnote.space/tags/%E6%8A%A4%E8%82%A4/">护肤</category>
       
@@ -737,13 +762,13 @@
       <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       
-      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
-      
       <category domain="https://hwnote.space/tags/PDF/">PDF</category>
       
       <category domain="https://hwnote.space/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/">形象管理</category>
       
       <category domain="https://hwnote.space/tags/%E5%AE%A1%E7%BE%8E/">审美</category>
+      
+      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       <category domain="https://hwnote.space/tags/%E5%8F%91%E5%9E%8B/">发型</category>
       
@@ -766,15 +791,15 @@
       <category domain="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       
-      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
-      
       <category domain="https://hwnote.space/tags/PDF/">PDF</category>
       
-      <category domain="https://hwnote.space/tags/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/">调研报告</category>
+      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       <category domain="https://hwnote.space/tags/%E7%9C%BC%E9%95%9C/">眼镜</category>
       
       <category domain="https://hwnote.space/tags/%E9%85%8D%E9%95%9C/">配镜</category>
+      
+      <category domain="https://hwnote.space/tags/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/">调研报告</category>
       
       
       <comments>https://hwnote.space/posts/2026/07/07/eyewear-research-report/#disqus_thread</comments>
@@ -828,9 +853,9 @@
       <category domain="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
       
       
-      <category domain="https://hwnote.space/tags/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86/">第一性原理</category>
-      
       <category domain="https://hwnote.space/tags/PDF/">PDF</category>
+      
+      <category domain="https://hwnote.space/tags/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86/">第一性原理</category>
       
       <category domain="https://hwnote.space/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">信号与系统</category>
       
@@ -942,13 +967,13 @@
       <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
       
       
+      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      
       <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
       <category domain="https://hwnote.space/tags/%E6%88%90%E9%95%BF/">成长</category>
       
       <category domain="https://hwnote.space/tags/%E8%AE%B0%E5%BF%86/">记忆</category>
-      
-      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       <category domain="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5/">认知</category>
       
@@ -975,13 +1000,13 @@
       
       <category domain="https://hwnote.space/tags/%E5%AF%B9%E8%AF%9D/">对话</category>
       
+      <category domain="https://hwnote.space/tags/%E5%93%B2%E5%AD%A6/">哲学</category>
+      
       <category domain="https://hwnote.space/tags/%E6%84%8F%E8%AF%86/">意识</category>
       
       <category domain="https://hwnote.space/tags/%E8%87%AA%E7%94%B1%E6%84%8F%E5%BF%97/">自由意志</category>
       
       <category domain="https://hwnote.space/tags/%E6%B6%8C%E7%8E%B0/">涌现</category>
-      
-      <category domain="https://hwnote.space/tags/%E5%93%B2%E5%AD%A6/">哲学</category>
       
       
       <comments>https://hwnote.space/posts/2026/07/03/i-am-universe/#disqus_thread</comments>
@@ -1095,11 +1120,11 @@
       
       <category domain="https://hwnote.space/tags/%E5%85%B3%E7%B3%BB/">关系</category>
       
-      <category domain="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5/">认知</category>
-      
       <category domain="https://hwnote.space/tags/%E4%B8%BB%E4%BD%93%E6%80%A7/">主体性</category>
       
       <category domain="https://hwnote.space/tags/%E5%8F%8D%E6%80%9D/">反思</category>
+      
+      <category domain="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5/">认知</category>
       
       
       <comments>https://hwnote.space/posts/2026/06/27/interpersonal-system-audit/#disqus_thread</comments>
@@ -1122,13 +1147,13 @@
       
       <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
+      <category domain="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/">写作</category>
+      
       <category domain="https://hwnote.space/tags/%E6%88%90%E9%95%BF/">成长</category>
       
       <category domain="https://hwnote.space/tags/%E8%AE%B0%E5%BF%86/">记忆</category>
       
       <category domain="https://hwnote.space/tags/%E7%90%86%E6%83%B3%E4%B8%BB%E4%B9%89/">理想主义</category>
-      
-      <category domain="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/">写作</category>
       
       
       <comments>https://hwnote.space/posts/2026/06/26/ten-years/#disqus_thread</comments>
@@ -1635,11 +1660,11 @@
       
       <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
+      <category domain="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/">写作</category>
+      
       <category domain="https://hwnote.space/tags/%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89/">存在主义</category>
       
       <category domain="https://hwnote.space/tags/%E7%90%86%E6%83%B3%E4%B8%BB%E4%B9%89/">理想主义</category>
-      
-      <category domain="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/">写作</category>
       
       
       <comments>https://hwnote.space/posts/2025/09/24/unknown/#disqus_thread</comments>
@@ -2316,27 +2341,6 @@
     </item>
     
     <item>
-      <title>Hexo+Fluid+Obsidian博客搭建及优化</title>
-      <link>https://hwnote.space/posts/2025/04/07/building-this-blog/</link>
-      <guid>https://hwnote.space/posts/2025/04/07/building-this-blog/</guid>
-      <pubDate>Mon, 07 Apr 2025 15:14:11 GMT</pubDate>
-      
-      <description>记录本博客搭建过程和相关博文的写作工作流</description>
-      
-      
-      
-      
-      <category domain="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/">折腾杂项</category>
-      
-      
-      <category domain="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/">折腾的小杂项</category>
-      
-      
-      <comments>https://hwnote.space/posts/2025/04/07/building-this-blog/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>批处理文件（.bat）入门</title>
       <link>https://hwnote.space/posts/2025/04/07/batch-file/</link>
       <guid>https://hwnote.space/posts/2025/04/07/batch-file/</guid>
@@ -2354,6 +2358,27 @@
       
       
       <comments>https://hwnote.space/posts/2025/04/07/batch-file/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Hexo+Fluid+Obsidian博客搭建及优化</title>
+      <link>https://hwnote.space/posts/2025/04/07/building-this-blog/</link>
+      <guid>https://hwnote.space/posts/2025/04/07/building-this-blog/</guid>
+      <pubDate>Mon, 07 Apr 2025 15:14:11 GMT</pubDate>
+      
+      <description>记录本博客搭建过程和相关博文的写作工作流</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/">折腾杂项</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/">折腾的小杂项</category>
+      
+      
+      <comments>https://hwnote.space/posts/2025/04/07/building-this-blog/#disqus_thread</comments>
       
     </item>
     

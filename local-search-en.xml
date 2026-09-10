@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Sober Again</title>
+    <url>/en/posts/2026/09/11/sober-again/</url>
+    <content type="html"><![CDATA[<p>Went to Jing-A again this evening. Came back drunk.</p>
+<p>Drink is the spirit of grain. There is truth in that. Once the drinking got going, my body had begun to stop doing as it was told, but a few taut strings in my head had loosened too. Saying whatever came to mind, floating as though I might ascend to heaven. How good it felt! I suppose I had drunk just enough!</p>
+<blockquote>
+<p>Before me, I see none of the ancients; after me, none of those yet to come. Thinking of heaven and earth stretching on forever, alone, overwhelmed, I shed tears.</p>
+</blockquote>
+<p>Only, only, only—however much I drink, the freedom lasts a moment. Once the cup is empty, night is still night, the river is still the river, and beyond the railing the Yangtze flows on, heedless.</p>
+<p>Why drink, then?</p>
+<p>All I know is that when everything grows hazy, I am very happy. I seem to have returned to some long-ago time, with no need to weigh gains against losses, no need to worry about the days ahead. My past self and my future self raise their cups with the self I am right now, toasting one another. With my shadow for company, we make three; somehow, I am no longer lonely.</p>
+<p>By this point, even the days ahead no longer seem so frightening. Now and then I think that the road may not lead where I hope, that I may turn out to be no more than an ordinary person after all, and somehow there is little sadness in it. Instead, it feels freeing. If this is all my life is to be, then let it be so!</p>
+<p>There is wine today, there is wine today, and today there shall be no tears!</p>
+<p>But I am sobering up again.</p>
+<p>Little by little, the drunkenness recedes. My conscious mind takes charge of my hands and feet once more. The moon is cool; my body is cold. What of tomorrow? What of the days beyond? Where is there to return to?</p>
+<p>Better to grow a little drunker, to be an immortal of wine, a ghost of poetry, and with you drink away the sorrows of all the ages!</p>
+<blockquote>
+<p>The red lotus fragrance fades; autumn chills the jade-smooth bamboo mat. I loosen my silk robe and step alone into an orchid boat. Who sends a silken letter through the clouds? As the wild geese return, moonlight fills the western chamber.</p>
+<p>Flowers drift away of their own accord; water flows on of its own accord. One longing, the sorrow of separation in two places. There is no way to banish this feeling: scarcely has it left my brow when it rises in my heart again.</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
     <title>The Evolution of Signals and Systems (Part II) — From Discrete Convolution to the Z-Transform</title>
     <url>/en/posts/2026/08/30/discrete-z-transform-knowledge-tree/</url>
     <content type="html"><![CDATA[<p><a href="/en/posts/2026/08/30/fourier-laplace-knowledge-tree/">Part I</a> compressed the continuous-time half into one trunk: an LTI system is described by convolution, complex exponentials are its eigenfunctions, and the Fourier and Laplace transforms turn convolution into multiplication.</p>
@@ -33575,69 +33597,6 @@ flowchart LR
 ]]></content>
   </entry>
   <entry>
-    <title>TOPSIS: The Technique for Order Preference by Similarity to an Ideal Solution</title>
-    <url>/en/posts/2025/04/01/topsis/</url>
-    <content type="html"><![CDATA[<h1 id="TOPSIS-Distance-from-Ideal-and-Worst-Solutions"><a href="#TOPSIS-Distance-from-Ideal-and-Worst-Solutions" class="headerlink" title="TOPSIS: Distance from Ideal and Worst Solutions"></a>TOPSIS: Distance from Ideal and Worst Solutions</h1><h2 id="I-Modeling"><a href="#I-Modeling" class="headerlink" title="I. Modeling"></a>I. Modeling</h2><p>A TOPSIS model can be constructed in roughly three stages:</p>
-<ol>
-<li>Convert the original matrix into a benefit-oriented matrix.</li>
-<li>Standardize the converted matrix.</li>
-<li>Calculate the scores and normalize them.</li>
-</ol>
-<p>To my mind, this procedure has much in common with the entropy weight method. The two should, in fact, be capable of being used together.</p>
-<h3 id="Converting-the-matrix-into-benefit-type-indicators"><a href="#Converting-the-matrix-into-benefit-type-indicators" class="headerlink" title="Converting the matrix into benefit-type indicators"></a>Converting the matrix into benefit-type indicators</h3><p>Four kinds of indicators frequently occur in practice:</p>
-<table>
-<thead>
-<tr>
-<th>Type of indicator</th>
-<th>Principal feature</th>
-<th>Examples</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Benefit-type</td>
-<td>The larger the value, the better</td>
-<td>Examination scores, GDP growth, corporate profit</td>
-</tr>
-<tr>
-<td>Cost-type</td>
-<td>The smaller the value, the better</td>
-<td>Expense, defect rate, pollution</td>
-</tr>
-<tr>
-<td>Intermediate-type</td>
-<td>The nearer the value is to a specified point, the better</td>
-<td>pH in water-quality assessment</td>
-</tr>
-<tr>
-<td>Interval-type</td>
-<td>A value within a specified interval is best</td>
-<td>Body temperature, plant nutrients in water</td>
-</tr>
-</tbody></table>
-<p>TOPSIS requires all indicators to point in the same favourable direction. In other words, every indicator must be converted into a benefit-type indicator. Cost-type, intermediate-type, and interval-type indicators must therefore be transformed.</p>
-<p><strong>Converting a cost-type indicator into a benefit-type indicator:</strong><br>$$<br>x_{new}&#x3D; \frac{\max - x_i}{\max - \min}<br>$$<br>If all elements are positive, the following expression may also be used:</p>
-<p>$$<br>x_{new}&#x3D;\frac{1}{x_i}<br>$$</p>
-<p><strong>Converting an intermediate-type indicator:</strong> Such a value should be neither too large nor too small; a particular value is best, as with pH in water-quality assessment. Suppose that ${x_i}$ is a sequence of intermediate-type indicators and that the optimal value is $x_{best}$. The transformation is:<br>$$<br>M &#x3D; \max{|x_i - x_{best}|}<br>$$<br>$$<br>\bar{x}<em>i &#x3D; 1 - \frac{|x_i - x</em>{best}|}{M}<br>$$<br><strong>Converting an interval-type indicator:</strong> A value within a particular interval is best. Human body temperature, for instance, is generally preferable when it lies between 36°C and 37°C. Suppose that ${x_i}$ is a sequence of interval-type indicators and that the optimal interval is $[a,b]$. The transformation is:<br>$$<br>M &#x3D; \max{a - \min{x_i}, \max{x_i} - b},\ \tilde{x}_i &#x3D;<br>\begin{cases}<br>1 - \frac{a - x_i}{M}, &amp; x_i &lt; a \<br>1, &amp; a \leq x_i \leq b \<br>1 - \frac{x_i - b}{M}, &amp; x_i &gt; b<br>\end{cases}<br>$$<br>This is essentially the same transformation described for the entropy weight method. For details, see <a href="%E7%86%B5%E6%9D%83%E6%B3%95(EWM).md">the entropy weight method</a>.</p>
-<h3 id="Standardizing-the-matrix"><a href="#Standardizing-the-matrix" class="headerlink" title="Standardizing the matrix"></a>Standardizing the matrix</h3><p>Standardization removes the influence of different units and dimensions.</p>
-<p>Suppose n objects are to be evaluated through m indicators. After all indicators have been converted, the matrix is:</p>
-<p>$$<br>X &#x3D;<br>\begin{bmatrix}<br>x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1m} \<br>x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2m} \<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{nm}<br>\end{bmatrix}<br>$$<br>Let the standardized matrix be Z. Each of its elements is:</p>
-<p>$$<br>z_{ij} &#x3D; \frac{x_{ij}}{\sqrt{\sum_{i&#x3D;1}^{n}x_{ij}^2}}<br>$$<br>Thus:</p>
-<p>$$<br>Z &#x3D;<br>\begin{bmatrix}<br>z_{11} &amp; z_{12} &amp; \cdots &amp; z_{1m} \<br>z_{21} &amp; z_{22} &amp; \cdots &amp; z_{2m} \<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>z_{n1} &amp; z_{n2} &amp; \cdots &amp; z_{nm}<br>\end{bmatrix}<br>$$<br>There is more than one method of standardization, but every method seeks to remove dimensional effects. The chapter on entropy weighting, for example, gives the following expression for data containing negative values:</p>
-<p>$$<br>z_{ij} &#x3D; \frac{x_{ij} - \min{x_{1j}, x_{2j}, \ldots, x_{nj}}}{\max{x_{1j}, x_{2j}, \ldots, x_{nj}} - \min{x_{1j}, x_{2j}, \ldots, x_{nj}}}<br>$$</p>
-<h3 id="Calculating-and-normalizing-the-score"><a href="#Calculating-and-normalizing-the-score" class="headerlink" title="Calculating and normalizing the score"></a>Calculating and normalizing the score</h3><p>The ideal solution is:</p>
-<p>$$<br>Z^+ &#x3D; (\max{z_{11},z_{21},\cdots,z_{n1}}, \max{z_{12},z_{22},\cdots,z_{n2}}, \cdots, \max{z_{1m},z_{2m},\cdots,z_{nm}})<br>$$<br>The worst solution is:<br>$$<br>Z^- &#x3D; (\min{z_{11},z_{21},\cdots,z_{n1}}, \min{z_{12},z_{22},\cdots,z_{n2}}, \cdots, \min{z_{1m},z_{2m},\cdots,z_{nm}})<br>$$<br>Define the distance between the $i(i &#x3D; 1,2,…,n)$th object and the ideal solution as:<br>$$<br>D_i^+ &#x3D; \sqrt{\sum_{j&#x3D;1}^{m}(Z_j^+ - z_{ij})^2}<br>$$<br>Define the distance between the $i(i &#x3D; 1,2,…,n)$th object and the worst solution as:</p>
-<p>$$<br>D_i^- &#x3D; \sqrt{\sum_{j&#x3D;1}^{m}(Z_j^- - z_{ij})^2}<br>$$<br>The unnormalized score of the $i(i &#x3D; 1,2,…,n)$th object is then:</p>
-<p>$$<br>S_i &#x3D; \frac{D_i^-}{D_i^+ + D_i^-}<br>$$<br>Clearly, $0 \leq S_i \leq 1$. As $S_i$ increases, $D_i^+$ decreases; the object is therefore closer to the ideal solution.</p>
-<h2 id="II-Extensions"><a href="#II-Extensions" class="headerlink" title="II. Extensions"></a>II. Extensions</h2><h4 id="Combining-TOPSIS-with-weights"><a href="#Combining-TOPSIS-with-weights" class="headerlink" title="Combining TOPSIS with weights"></a>Combining TOPSIS with weights</h4><p>The procedure above assumes that all indicators have equal weights. In an actual evaluation, however, different indicators generally carry different weights. The distance formulas should therefore be revised, with ω representing a weight:<br>$$<br>D_i^+ &#x3D; \sqrt{\sum_{j&#x3D;1}^{m}\omega_j(Z_j^+ - z_{ij})^2},\ D_i^- &#x3D; \sqrt{\sum_{j&#x3D;1}^{m}\omega_j(Z_j^- - z_{ij})^2}<br>$$<br>The entropy weight method can be used directly here. Of course, having experts assign scores—more or less by informed guesswork—is also an option.</p>
-<h4 id="Where-the-formula-comes-from"><a href="#Where-the-formula-comes-from" class="headerlink" title="Where the formula comes from"></a>Where the formula comes from</h4><p>The formula</p>
-<p>$$<br>S_i &#x3D; \frac{D_i^-}{D_i^+ + D_i^-}<br>$$<br>is essentially:</p>
-<p>$$<br>\frac{x - \min}{\max - \min} \rightarrow \frac{x - \min}{(\max - x) + (x - \min)} \rightarrow \frac{x与最小值的距离}{x与最大值的距离 + x与最小值的距离}<br>$$<br>$D_i^+$ and $D_i^-$ are, in fact, <strong>Euclidean distances</strong>. The underlying idea has a great deal in common with that of the entropy weight method.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p><a href="https://blog.csdn.net/weixin_43819566/article/details/112342602">Qingfeng’s Mathematical Modeling Notes: TOPSIS—CSDN</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/564302492">An Introduction to Common Evaluation Models in Mathematical Modeling—Zhihu</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/266689519">TOPSIS: Principles and Code Implementation—Zhihu</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Fuzzy Comprehensive Evaluation (FCE)</title>
     <url>/en/posts/2025/04/01/fuzzy-comprehensive-evaluation/</url>
     <content type="html"><![CDATA[<h1 id="Fuzzy-Comprehensive-Evaluation"><a href="#Fuzzy-Comprehensive-Evaluation" class="headerlink" title="Fuzzy Comprehensive Evaluation"></a>Fuzzy Comprehensive Evaluation</h1><p>Quantities may be divided into two broad classes: <strong>certainty</strong> and <strong>uncertainty</strong>.</p>
@@ -33699,6 +33658,69 @@ flowchart LR
 <li>Benefit-type and cost-type indicators are different concepts from the three kinds of fuzzy sets—left-shoulder, intermediate, and right-shoulder—and should not be confused.</li>
 <li>The factor indicators in a single fuzzy comprehensive evaluation should not be strongly correlated. Strongly related items require a multi-level evaluation, which usually contains no more than three levels.</li>
 </ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>TOPSIS: The Technique for Order Preference by Similarity to an Ideal Solution</title>
+    <url>/en/posts/2025/04/01/topsis/</url>
+    <content type="html"><![CDATA[<h1 id="TOPSIS-Distance-from-Ideal-and-Worst-Solutions"><a href="#TOPSIS-Distance-from-Ideal-and-Worst-Solutions" class="headerlink" title="TOPSIS: Distance from Ideal and Worst Solutions"></a>TOPSIS: Distance from Ideal and Worst Solutions</h1><h2 id="I-Modeling"><a href="#I-Modeling" class="headerlink" title="I. Modeling"></a>I. Modeling</h2><p>A TOPSIS model can be constructed in roughly three stages:</p>
+<ol>
+<li>Convert the original matrix into a benefit-oriented matrix.</li>
+<li>Standardize the converted matrix.</li>
+<li>Calculate the scores and normalize them.</li>
+</ol>
+<p>To my mind, this procedure has much in common with the entropy weight method. The two should, in fact, be capable of being used together.</p>
+<h3 id="Converting-the-matrix-into-benefit-type-indicators"><a href="#Converting-the-matrix-into-benefit-type-indicators" class="headerlink" title="Converting the matrix into benefit-type indicators"></a>Converting the matrix into benefit-type indicators</h3><p>Four kinds of indicators frequently occur in practice:</p>
+<table>
+<thead>
+<tr>
+<th>Type of indicator</th>
+<th>Principal feature</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Benefit-type</td>
+<td>The larger the value, the better</td>
+<td>Examination scores, GDP growth, corporate profit</td>
+</tr>
+<tr>
+<td>Cost-type</td>
+<td>The smaller the value, the better</td>
+<td>Expense, defect rate, pollution</td>
+</tr>
+<tr>
+<td>Intermediate-type</td>
+<td>The nearer the value is to a specified point, the better</td>
+<td>pH in water-quality assessment</td>
+</tr>
+<tr>
+<td>Interval-type</td>
+<td>A value within a specified interval is best</td>
+<td>Body temperature, plant nutrients in water</td>
+</tr>
+</tbody></table>
+<p>TOPSIS requires all indicators to point in the same favourable direction. In other words, every indicator must be converted into a benefit-type indicator. Cost-type, intermediate-type, and interval-type indicators must therefore be transformed.</p>
+<p><strong>Converting a cost-type indicator into a benefit-type indicator:</strong><br>$$<br>x_{new}&#x3D; \frac{\max - x_i}{\max - \min}<br>$$<br>If all elements are positive, the following expression may also be used:</p>
+<p>$$<br>x_{new}&#x3D;\frac{1}{x_i}<br>$$</p>
+<p><strong>Converting an intermediate-type indicator:</strong> Such a value should be neither too large nor too small; a particular value is best, as with pH in water-quality assessment. Suppose that ${x_i}$ is a sequence of intermediate-type indicators and that the optimal value is $x_{best}$. The transformation is:<br>$$<br>M &#x3D; \max{|x_i - x_{best}|}<br>$$<br>$$<br>\bar{x}<em>i &#x3D; 1 - \frac{|x_i - x</em>{best}|}{M}<br>$$<br><strong>Converting an interval-type indicator:</strong> A value within a particular interval is best. Human body temperature, for instance, is generally preferable when it lies between 36°C and 37°C. Suppose that ${x_i}$ is a sequence of interval-type indicators and that the optimal interval is $[a,b]$. The transformation is:<br>$$<br>M &#x3D; \max{a - \min{x_i}, \max{x_i} - b},\ \tilde{x}_i &#x3D;<br>\begin{cases}<br>1 - \frac{a - x_i}{M}, &amp; x_i &lt; a \<br>1, &amp; a \leq x_i \leq b \<br>1 - \frac{x_i - b}{M}, &amp; x_i &gt; b<br>\end{cases}<br>$$<br>This is essentially the same transformation described for the entropy weight method. For details, see <a href="%E7%86%B5%E6%9D%83%E6%B3%95(EWM).md">the entropy weight method</a>.</p>
+<h3 id="Standardizing-the-matrix"><a href="#Standardizing-the-matrix" class="headerlink" title="Standardizing the matrix"></a>Standardizing the matrix</h3><p>Standardization removes the influence of different units and dimensions.</p>
+<p>Suppose n objects are to be evaluated through m indicators. After all indicators have been converted, the matrix is:</p>
+<p>$$<br>X &#x3D;<br>\begin{bmatrix}<br>x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1m} \<br>x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2m} \<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{nm}<br>\end{bmatrix}<br>$$<br>Let the standardized matrix be Z. Each of its elements is:</p>
+<p>$$<br>z_{ij} &#x3D; \frac{x_{ij}}{\sqrt{\sum_{i&#x3D;1}^{n}x_{ij}^2}}<br>$$<br>Thus:</p>
+<p>$$<br>Z &#x3D;<br>\begin{bmatrix}<br>z_{11} &amp; z_{12} &amp; \cdots &amp; z_{1m} \<br>z_{21} &amp; z_{22} &amp; \cdots &amp; z_{2m} \<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \<br>z_{n1} &amp; z_{n2} &amp; \cdots &amp; z_{nm}<br>\end{bmatrix}<br>$$<br>There is more than one method of standardization, but every method seeks to remove dimensional effects. The chapter on entropy weighting, for example, gives the following expression for data containing negative values:</p>
+<p>$$<br>z_{ij} &#x3D; \frac{x_{ij} - \min{x_{1j}, x_{2j}, \ldots, x_{nj}}}{\max{x_{1j}, x_{2j}, \ldots, x_{nj}} - \min{x_{1j}, x_{2j}, \ldots, x_{nj}}}<br>$$</p>
+<h3 id="Calculating-and-normalizing-the-score"><a href="#Calculating-and-normalizing-the-score" class="headerlink" title="Calculating and normalizing the score"></a>Calculating and normalizing the score</h3><p>The ideal solution is:</p>
+<p>$$<br>Z^+ &#x3D; (\max{z_{11},z_{21},\cdots,z_{n1}}, \max{z_{12},z_{22},\cdots,z_{n2}}, \cdots, \max{z_{1m},z_{2m},\cdots,z_{nm}})<br>$$<br>The worst solution is:<br>$$<br>Z^- &#x3D; (\min{z_{11},z_{21},\cdots,z_{n1}}, \min{z_{12},z_{22},\cdots,z_{n2}}, \cdots, \min{z_{1m},z_{2m},\cdots,z_{nm}})<br>$$<br>Define the distance between the $i(i &#x3D; 1,2,…,n)$th object and the ideal solution as:<br>$$<br>D_i^+ &#x3D; \sqrt{\sum_{j&#x3D;1}^{m}(Z_j^+ - z_{ij})^2}<br>$$<br>Define the distance between the $i(i &#x3D; 1,2,…,n)$th object and the worst solution as:</p>
+<p>$$<br>D_i^- &#x3D; \sqrt{\sum_{j&#x3D;1}^{m}(Z_j^- - z_{ij})^2}<br>$$<br>The unnormalized score of the $i(i &#x3D; 1,2,…,n)$th object is then:</p>
+<p>$$<br>S_i &#x3D; \frac{D_i^-}{D_i^+ + D_i^-}<br>$$<br>Clearly, $0 \leq S_i \leq 1$. As $S_i$ increases, $D_i^+$ decreases; the object is therefore closer to the ideal solution.</p>
+<h2 id="II-Extensions"><a href="#II-Extensions" class="headerlink" title="II. Extensions"></a>II. Extensions</h2><h4 id="Combining-TOPSIS-with-weights"><a href="#Combining-TOPSIS-with-weights" class="headerlink" title="Combining TOPSIS with weights"></a>Combining TOPSIS with weights</h4><p>The procedure above assumes that all indicators have equal weights. In an actual evaluation, however, different indicators generally carry different weights. The distance formulas should therefore be revised, with ω representing a weight:<br>$$<br>D_i^+ &#x3D; \sqrt{\sum_{j&#x3D;1}^{m}\omega_j(Z_j^+ - z_{ij})^2},\ D_i^- &#x3D; \sqrt{\sum_{j&#x3D;1}^{m}\omega_j(Z_j^- - z_{ij})^2}<br>$$<br>The entropy weight method can be used directly here. Of course, having experts assign scores—more or less by informed guesswork—is also an option.</p>
+<h4 id="Where-the-formula-comes-from"><a href="#Where-the-formula-comes-from" class="headerlink" title="Where the formula comes from"></a>Where the formula comes from</h4><p>The formula</p>
+<p>$$<br>S_i &#x3D; \frac{D_i^-}{D_i^+ + D_i^-}<br>$$<br>is essentially:</p>
+<p>$$<br>\frac{x - \min}{\max - \min} \rightarrow \frac{x - \min}{(\max - x) + (x - \min)} \rightarrow \frac{x与最小值的距离}{x与最大值的距离 + x与最小值的距离}<br>$$<br>$D_i^+$ and $D_i^-$ are, in fact, <strong>Euclidean distances</strong>. The underlying idea has a great deal in common with that of the entropy weight method.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p><a href="https://blog.csdn.net/weixin_43819566/article/details/112342602">Qingfeng’s Mathematical Modeling Notes: TOPSIS—CSDN</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/564302492">An Introduction to Common Evaluation Models in Mathematical Modeling—Zhihu</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/266689519">TOPSIS: Principles and Code Implementation—Zhihu</a></p>
 ]]></content>
   </entry>
   <entry>

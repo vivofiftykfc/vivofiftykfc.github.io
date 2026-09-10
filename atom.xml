@@ -6,7 +6,7 @@
   <link href="https://hwnote.space/atom.xml" rel="self"/>
   
   <link href="https://hwnote.space/"/>
-  <updated>2026-08-29T20:14:07.214Z</updated>
+  <updated>2026-09-10T19:02:30.960Z</updated>
   <id>https://hwnote.space/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>又醒酒</title>
+    <link href="https://hwnote.space/posts/2026/09/11/sober-again/"/>
+    <id>https://hwnote.space/posts/2026/09/11/sober-again/</id>
+    <published>2026-09-10T18:50:57.000Z</published>
+    <updated>2026-09-10T19:02:30.960Z</updated>
+    
+    
+    <summary type="html">从京A乘醉而返，在短暂的畅快中与过去、未来的自己举杯，又在酒醒时重新面对来日。</summary>
+    
+    
+    
+    <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
+    <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    
+    <category term="饮酒" scheme="https://hwnote.space/tags/%E9%A5%AE%E9%85%92/"/>
+    
+  </entry>
   
   <entry>
     <title>信号与系统发展脉络（下）从离散卷积到Z变换的生成逻辑</title>
@@ -139,9 +162,9 @@
     <category term="折腾杂项" scheme="https://hwnote.space/categories/%E6%8A%98%E8%85%BE%E6%9D%82%E9%A1%B9/"/>
     
     
-    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
-    
     <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
+    
+    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
     
     <category term="折腾的小杂项" scheme="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/"/>
     
@@ -327,7 +350,7 @@
     <link href="https://hwnote.space/posts/2026/07/28/mirror-and-stone/"/>
     <id>https://hwnote.space/posts/2026/07/28/mirror-and-stone/</id>
     <published>2026-07-28T11:54:11.000Z</published>
-    <updated>2026-08-23T16:19:58.763Z</updated>
+    <updated>2026-09-10T19:02:26.050Z</updated>
     
     
     <summary type="html">是时候停笔了。</summary>
@@ -337,13 +360,13 @@
     <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
     
     
+    <category term="AI" scheme="https://hwnote.space/tags/AI/"/>
+    
     <category term="写作" scheme="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/"/>
     
     <category term="实践" scheme="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/"/>
     
     <category term="反思" scheme="https://hwnote.space/tags/%E5%8F%8D%E6%80%9D/"/>
-    
-    <category term="AI" scheme="https://hwnote.space/tags/AI/"/>
     
   </entry>
   
@@ -362,9 +385,9 @@
     <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
     
     
-    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
-    
     <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
+    
+    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
     
     <category term="投资" scheme="https://hwnote.space/tags/%E6%8A%95%E8%B5%84/"/>
     
@@ -389,15 +412,15 @@
     <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
     
     
+    <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
+    
     <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
     
-    <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
+    <category term="调研报告" scheme="https://hwnote.space/tags/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/"/>
     
     <category term="烹饪" scheme="https://hwnote.space/tags/%E7%83%B9%E9%A5%AA/"/>
     
     <category term="美食" scheme="https://hwnote.space/tags/%E7%BE%8E%E9%A3%9F/"/>
-    
-    <category term="调研报告" scheme="https://hwnote.space/tags/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/"/>
     
   </entry>
   
@@ -553,9 +576,9 @@
     
     <category term="反思" scheme="https://hwnote.space/tags/%E5%8F%8D%E6%80%9D/"/>
     
-    <category term="考研" scheme="https://hwnote.space/tags/%E8%80%83%E7%A0%94/"/>
-    
     <category term="考研日记" scheme="https://hwnote.space/tags/%E8%80%83%E7%A0%94%E6%97%A5%E8%AE%B0/"/>
+    
+    <category term="考研" scheme="https://hwnote.space/tags/%E8%80%83%E7%A0%94/"/>
     
     <category term="数学" scheme="https://hwnote.space/tags/%E6%95%B0%E5%AD%A6/"/>
     
@@ -611,8 +634,6 @@
     <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
     
     
-    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
-    
     <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
     
     <category term="健身" scheme="https://hwnote.space/tags/%E5%81%A5%E8%BA%AB/"/>
@@ -620,6 +641,8 @@
     <category term="形象管理" scheme="https://hwnote.space/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/"/>
     
     <category term="审美" scheme="https://hwnote.space/tags/%E5%AE%A1%E7%BE%8E/"/>
+    
+    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
     
   </entry>
   
@@ -638,13 +661,13 @@
     <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
     
     
-    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
-    
     <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
     
     <category term="形象管理" scheme="https://hwnote.space/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/"/>
     
     <category term="审美" scheme="https://hwnote.space/tags/%E5%AE%A1%E7%BE%8E/"/>
+    
+    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
     
     <category term="面部美学" scheme="https://hwnote.space/tags/%E9%9D%A2%E9%83%A8%E7%BE%8E%E5%AD%A6/"/>
     
@@ -665,11 +688,11 @@
     <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
     
     
-    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
-    
     <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
     
     <category term="形象管理" scheme="https://hwnote.space/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
     
     <category term="护肤" scheme="https://hwnote.space/tags/%E6%8A%A4%E8%82%A4/"/>
     
@@ -692,13 +715,13 @@
     <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
     
     
-    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
-    
     <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
     
     <category term="形象管理" scheme="https://hwnote.space/tags/%E5%BD%A2%E8%B1%A1%E7%AE%A1%E7%90%86/"/>
     
     <category term="审美" scheme="https://hwnote.space/tags/%E5%AE%A1%E7%BE%8E/"/>
+    
+    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
     
     <category term="发型" scheme="https://hwnote.space/tags/%E5%8F%91%E5%9E%8B/"/>
     
@@ -719,15 +742,15 @@
     <category term="生活美学" scheme="https://hwnote.space/categories/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
     
     
-    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
-    
     <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
     
-    <category term="调研报告" scheme="https://hwnote.space/tags/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/"/>
+    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
     
     <category term="眼镜" scheme="https://hwnote.space/tags/%E7%9C%BC%E9%95%9C/"/>
     
     <category term="配镜" scheme="https://hwnote.space/tags/%E9%85%8D%E9%95%9C/"/>
+    
+    <category term="调研报告" scheme="https://hwnote.space/tags/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/"/>
     
   </entry>
   
@@ -777,9 +800,9 @@
     <category term="速成教程" scheme="https://hwnote.space/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="第一性原理" scheme="https://hwnote.space/tags/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86/"/>
-    
     <category term="PDF" scheme="https://hwnote.space/tags/PDF/"/>
+    
+    <category term="第一性原理" scheme="https://hwnote.space/tags/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86/"/>
     
     <category term="信号与系统" scheme="https://hwnote.space/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"/>
     
@@ -883,13 +906,13 @@
     <category term="想法思考" scheme="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/"/>
     
     
+    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
+    
     <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
     
     <category term="成长" scheme="https://hwnote.space/tags/%E6%88%90%E9%95%BF/"/>
     
     <category term="记忆" scheme="https://hwnote.space/tags/%E8%AE%B0%E5%BF%86/"/>
-    
-    <category term="生活美学" scheme="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/"/>
     
     <category term="认知" scheme="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5/"/>
     
@@ -914,13 +937,13 @@
     
     <category term="对话" scheme="https://hwnote.space/tags/%E5%AF%B9%E8%AF%9D/"/>
     
+    <category term="哲学" scheme="https://hwnote.space/tags/%E5%93%B2%E5%AD%A6/"/>
+    
     <category term="意识" scheme="https://hwnote.space/tags/%E6%84%8F%E8%AF%86/"/>
     
     <category term="自由意志" scheme="https://hwnote.space/tags/%E8%87%AA%E7%94%B1%E6%84%8F%E5%BF%97/"/>
     
     <category term="涌现" scheme="https://hwnote.space/tags/%E6%B6%8C%E7%8E%B0/"/>
-    
-    <category term="哲学" scheme="https://hwnote.space/tags/%E5%93%B2%E5%AD%A6/"/>
     
   </entry>
   
@@ -1026,11 +1049,11 @@
     
     <category term="关系" scheme="https://hwnote.space/tags/%E5%85%B3%E7%B3%BB/"/>
     
-    <category term="认知" scheme="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5/"/>
-    
     <category term="主体性" scheme="https://hwnote.space/tags/%E4%B8%BB%E4%BD%93%E6%80%A7/"/>
     
     <category term="反思" scheme="https://hwnote.space/tags/%E5%8F%8D%E6%80%9D/"/>
+    
+    <category term="认知" scheme="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5/"/>
     
   </entry>
   
@@ -1051,13 +1074,13 @@
     
     <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
     
+    <category term="写作" scheme="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/"/>
+    
     <category term="成长" scheme="https://hwnote.space/tags/%E6%88%90%E9%95%BF/"/>
     
     <category term="记忆" scheme="https://hwnote.space/tags/%E8%AE%B0%E5%BF%86/"/>
     
     <category term="理想主义" scheme="https://hwnote.space/tags/%E7%90%86%E6%83%B3%E4%B8%BB%E4%B9%89/"/>
-    
-    <category term="写作" scheme="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/"/>
     
   </entry>
   
@@ -1522,11 +1545,11 @@
     
     <category term="一些思考" scheme="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
     
+    <category term="写作" scheme="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/"/>
+    
     <category term="存在主义" scheme="https://hwnote.space/tags/%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89/"/>
     
     <category term="理想主义" scheme="https://hwnote.space/tags/%E7%90%86%E6%83%B3%E4%B8%BB%E4%B9%89/"/>
-    
-    <category term="写作" scheme="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/"/>
     
   </entry>
   
@@ -2146,14 +2169,14 @@
   </entry>
   
   <entry>
-    <title>Hexo+Fluid+Obsidian博客搭建及优化</title>
-    <link href="https://hwnote.space/posts/2025/04/07/building-this-blog/"/>
-    <id>https://hwnote.space/posts/2025/04/07/building-this-blog/</id>
+    <title>批处理文件（.bat）入门</title>
+    <link href="https://hwnote.space/posts/2025/04/07/batch-file/"/>
+    <id>https://hwnote.space/posts/2025/04/07/batch-file/</id>
     <published>2025-04-07T15:14:11.000Z</published>
-    <updated>2026-07-06T10:15:41.556Z</updated>
+    <updated>2026-07-06T10:15:41.555Z</updated>
     
     
-    <summary type="html">记录本博客搭建过程和相关博文的写作工作流</summary>
+    <summary type="html">最近才知道.bat文件是什么，以前win的命令行真没咋玩过，就先写个入门的简介吧</summary>
     
     
     
@@ -2165,14 +2188,14 @@
   </entry>
   
   <entry>
-    <title>批处理文件（.bat）入门</title>
-    <link href="https://hwnote.space/posts/2025/04/07/batch-file/"/>
-    <id>https://hwnote.space/posts/2025/04/07/batch-file/</id>
+    <title>Hexo+Fluid+Obsidian博客搭建及优化</title>
+    <link href="https://hwnote.space/posts/2025/04/07/building-this-blog/"/>
+    <id>https://hwnote.space/posts/2025/04/07/building-this-blog/</id>
     <published>2025-04-07T15:14:11.000Z</published>
-    <updated>2026-07-06T10:15:41.555Z</updated>
+    <updated>2026-07-06T10:15:41.556Z</updated>
     
     
-    <summary type="html">最近才知道.bat文件是什么，以前win的命令行真没咋玩过，就先写个入门的简介吧</summary>
+    <summary type="html">记录本博客搭建过程和相关博文的写作工作流</summary>
     
     
     
