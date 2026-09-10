@@ -427,34 +427,7 @@
   
   
     <article id="comments" lazyload>
-      
-  <script type="text/javascript">
-    Fluid.utils.loadComments('#comments', function() {
-      var light = 'github-light';
-      var dark = 'github-dark';
-      var schema = document.documentElement.getAttribute('data-user-color-scheme');
-      if (schema === 'dark') {
-        schema = dark;
-      } else {
-        schema = light;
-      }
-      window.UtterancesThemeLight = light;
-      window.UtterancesThemeDark = dark;
-      var s = document.createElement('script');
-      s.setAttribute('src', 'https://utteranc.es/client.js');
-      s.setAttribute('repo', 'vivofiftykfc/blogQA');
-      s.setAttribute('issue-term', 'pathname');
-      
-      s.setAttribute('label', 'utterances');
-      
-      s.setAttribute('theme', schema);
-      s.setAttribute('crossorigin', 'anonymous');
-      document.getElementById('comments').appendChild(s);
-    })
-  </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
-
-
+      <link rel="stylesheet" href="/css/hwnote-comments.css"><section id="hwnote-comments" aria-label="Comments"><h2>Comments</h2><p class="hw-status" role="status">Saved comments · Updating…</p><div class="hw-list"></div><div class="hw-controls"></div><div class="hw-editor"></div><script type="application/json" id="hwnote-comment-config">{"server":"https://comments.hwnote.space","page":"/posts/2026/05/21/psychology-history-intro/","en":true,"snapshotAt":"2026-09-08T11:23:10.075Z","comments":[],"avatars":{"github:152625025":"/images/comment-avatars/github-152625025.jpg","github:89621268":"/images/comment-avatars/github-89621268.jpg","github:144673125":"/images/comment-avatars/github-144673125.jpg","github:155375282":"/images/comment-avatars/github-155375282.png"}}</script></section><script defer src="/js/hwnote-comments.js"></script>
     </article>
   
 
