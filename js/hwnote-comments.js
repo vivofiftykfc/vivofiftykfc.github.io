@@ -105,7 +105,8 @@
   async function loadControls(){
     const results=await Promise.allSettled([api('/api/config'),api('/api/me')]);controls.replaceChildren();
     if(results[0].status==='fulfilled')options=results[0].value;
-    if(results[1].status==='fulfilled')user=results[1].value.user;
+    user=results[1].status==='fulfilled'?results[1].value.user:null;
+    document.dispatchEvent(new CustomEvent('hwnote:session-changed'));
     if(user){controls.append(element('span',t('已登录：','Signed in: ')+user.name),button(t('退出','Sign out'),async()=>{await api('/api/logout',{method:'POST'});token='';try{sessionStorage.removeItem(storageKey);}catch{}user=null;root.querySelector('.hw-admin')?.remove();await loadControls();}));}
     else for(const p of options.providers)controls.append(button(p.label+t(' 登录',' login'),()=>{
       popup=window.open(`${config.server}/auth/${p.id}/start?origin=${encodeURIComponent(location.origin)}`,'hwnote-login','width=620,height=720');
@@ -113,8 +114,9 @@
     }));
     controls.append(button(t('刷新评论','Refresh comments'),refresh));
     if(results.some(x=>x.status==='rejected'))controls.append(button(t('重试登录服务','Retry login service'),loadControls));
-    if(!user?.admin)root.querySelector('.hw-notification-status')?.remove();
+    if(!user?.admin){root.querySelector('.hw-notification-status')?.remove();root.querySelector('.hw-admin')?.remove();}
     if(user?.admin){
+      const trafficLink=element('a',t('私人访问统计','Private traffic'));trafficLink.href='/traffic/';controls.append(trafficLink);
       controls.append(button(t('邮件提醒','Email notifications'),async()=>{
         const data=await api('/api/admin/notifications');root.querySelector('.hw-notification-status')?.remove();
         const panel=element('section',undefined,'hw-admin hw-notification-status');panel.append(element('h3',t('邮件提醒','Email notifications')),element('p',data.configured?t('提醒已配置：其他人的新评论及待审核留言会通知站长。','Enabled: new comments and pending reviews notify the owner.'):t('邮件提醒尚未配置。','Email notifications are not configured.')));

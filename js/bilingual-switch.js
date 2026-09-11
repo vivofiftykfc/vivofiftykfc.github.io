@@ -11,6 +11,7 @@
     '分类': 'Categories',
     '标签': 'Tags',
     '友链': 'Links',
+    '访问来源': 'Traffic sources',
     '友情链接': 'Links',
     '关于': 'About',
     '搜索': 'Search',
