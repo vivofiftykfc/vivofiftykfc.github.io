@@ -18,7 +18,8 @@
     // Analytics opt-out only: this cookie never grants access to private APIs.
     if(user){
       document.cookie='hwnote_owner_analytics=1; Path=/; Max-Age=3600; SameSite=Lax; Secure';
-      document.cookie='hwnote_analytics_optout=1; Path=/; Max-Age=3600; SameSite=Lax; Secure';
+      let lifetime=3600;try{if(localStorage.getItem('hwnote-analytics-optout')==='1')lifetime=31536000;}catch{}
+      document.cookie='hwnote_analytics_optout=1; Path=/; Max-Age='+lifetime+'; SameSite=Lax; Secure';
     }else if(current){
       document.cookie='hwnote_owner_analytics=; Path=/; Max-Age=0; SameSite=Lax; Secure';
       let explicit=false;try{explicit=localStorage.getItem('hwnote-analytics-optout')==='1';}catch{explicit=true;}
