@@ -15,6 +15,9 @@
     return res.json();
   }
   function update(user, notify = true) {
+    // Analytics opt-out only: this cookie never grants access to private APIs.
+    if(user)document.cookie='hwnote_owner_analytics=1; Path=/; Max-Age=3600; SameSite=Lax; Secure';
+    else if(current)document.cookie='hwnote_owner_analytics=; Path=/; Max-Age=0; SameSite=Lax; Secure';
     current = user;
     document.getElementById('hwnote-owner-nav')?.remove();
     if (user) {
