@@ -4,7 +4,7 @@
  let stopped=false,page=null,tick=performance.now(),busy=false;
  const optout=()=>{try{return localStorage.getItem('hwnote-analytics-optout')==='1'||/(?:^|;\s*)hwnote_owner_analytics=1(?:;|$)/.test(document.cookie);}catch{return false;}};
  const session=()=>{try{const saved=JSON.parse(sessionStorage.getItem('hwnote-reading-session')||'null');const row=saved&&Date.now()-saved.at<1800000?saved:{id:crypto.randomUUID()};row.at=Date.now();sessionStorage.setItem('hwnote-reading-session',JSON.stringify(row));return row.id;}catch{return crypto.randomUUID();}};
- async function send(payload,keepalive=false){const r=await fetch('/__analytics/event',{method:'POST',headers:{'Content-Type':'application/json'},credentials:'same-origin',body:JSON.stringify(payload),keepalive});if(!r.ok)throw Error('telemetry unavailable');return r.json();}
+ async function send(payload,keepalive=false){const r=await fetch('/__analytics/event',{method:'POST',headers:{'Content-Type':'application/json'},credentials:payload.type==='exclude'?'omit':'same-origin',body:JSON.stringify(payload),keepalive});if(!r.ok)throw Error('telemetry unavailable');return r.json();}
  async function forget(item){if(item?.token){try{await send({type:'exclude',id:item.id,token:item.token},true);}catch{}}}
  async function start(){
   if(stopped||optout()||document.visibilityState!=='visible')return;
