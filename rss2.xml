@@ -9,8 +9,33 @@
     <atom:link href="https://hwnote.space/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一个工科生的个人博客，记录技术学习、工程实践与对生活和认知的思考。</description>
-    <pubDate>Sun, 27 Sep 2026 21:58:47 GMT</pubDate>
+    <pubDate>Sun, 04 Oct 2026 17:49:29 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>北京</title>
+      <link>https://hwnote.space/posts/2026/10/05/beijing/</link>
+      <guid>https://hwnote.space/posts/2026/10/05/beijing/</guid>
+      <pubDate>Sun, 04 Oct 2026 16:00:00 GMT</pubDate>
+      
+      <description>两则北京秋夜的日记，写年少时对北方的向往、旧楼里的风声，以及重新想起的家乡。</description>
+      
+      
+      
+      
+      <category domain="https://hwnote.space/categories/%E6%83%B3%E6%B3%95%E6%80%9D%E8%80%83/">想法思考</category>
+      
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
+      
+      <category domain="https://hwnote.space/tags/%E5%8C%97%E4%BA%AC/">北京</category>
+      
+      <category domain="https://hwnote.space/tags/%E6%95%85%E4%B9%A1/">故乡</category>
+      
+      
+      <comments>https://hwnote.space/posts/2026/10/05/beijing/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>选择空间-ZHW思考体系v4</title>
@@ -196,9 +221,9 @@
       
       <category domain="https://hwnote.space/tags/PDF/">PDF</category>
       
-      <category domain="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/">折腾的小杂项</category>
-      
       <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
+      
+      <category domain="https://hwnote.space/tags/%E6%8A%98%E8%85%BE%E7%9A%84%E5%B0%8F%E6%9D%82%E9%A1%B9/">折腾的小杂项</category>
       
       
       <comments>https://hwnote.space/posts/2026/08/14/hwt/#disqus_thread</comments>
@@ -410,9 +435,9 @@
       
       <category domain="https://hwnote.space/tags/AI/">AI</category>
       
-      <category domain="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/">写作</category>
-      
       <category domain="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/">实践</category>
+      
+      <category domain="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/">写作</category>
       
       <category domain="https://hwnote.space/tags/%E5%8F%8D%E6%80%9D/">反思</category>
       
@@ -609,9 +634,9 @@
       
       <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
-      <category domain="https://hwnote.space/tags/%E7%90%86%E6%83%B3%E4%B8%BB%E4%B9%89/">理想主义</category>
-      
       <category domain="https://hwnote.space/tags/%E7%88%B1%E6%83%85/">爱情</category>
+      
+      <category domain="https://hwnote.space/tags/%E7%90%86%E6%83%B3%E4%B8%BB%E4%B9%89/">理想主义</category>
       
       <category domain="https://hwnote.space/tags/%E8%80%83%E7%A0%94/">考研</category>
       
@@ -913,9 +938,9 @@
       
       <category domain="https://hwnote.space/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/">信号与系统</category>
       
-      <category domain="https://hwnote.space/tags/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
-      
       <category domain="https://hwnote.space/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</category>
+      
+      <category domain="https://hwnote.space/tags/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
       
       
       <comments>https://hwnote.space/posts/2026/07/06/signals-systems-notes/#disqus_thread</comments>
@@ -940,9 +965,9 @@
       
       <category domain="https://hwnote.space/tags/PDF/">PDF</category>
       
-      <category domain="https://hwnote.space/tags/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
-      
       <category domain="https://hwnote.space/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</category>
+      
+      <category domain="https://hwnote.space/tags/%E9%80%9F%E6%88%90%E6%95%99%E7%A8%8B/">速成教程</category>
       
       <category domain="https://hwnote.space/tags/%E9%9B%B7%E8%BE%BE%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/">雷达信号处理</category>
       
@@ -996,13 +1021,13 @@
       
       <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
-      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
-      
       <category domain="https://hwnote.space/tags/%E6%88%90%E9%95%BF/">成长</category>
       
       <category domain="https://hwnote.space/tags/%E8%AE%B0%E5%BF%86/">记忆</category>
       
       <category domain="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5/">认知</category>
+      
+      <category domain="https://hwnote.space/tags/%E7%94%9F%E6%B4%BB%E7%BE%8E%E5%AD%A6/">生活美学</category>
       
       
       <comments>https://hwnote.space/posts/2026/07/04/village/#disqus_thread</comments>
@@ -1058,9 +1083,9 @@
       
       <category domain="https://hwnote.space/tags/%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89/">存在主义</category>
       
-      <category domain="https://hwnote.space/tags/%E7%90%86%E6%83%B3%E4%B8%BB%E4%B9%89/">理想主义</category>
-      
       <category domain="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/">实践</category>
+      
+      <category domain="https://hwnote.space/tags/%E7%90%86%E6%83%B3%E4%B8%BB%E4%B9%89/">理想主义</category>
       
       <category domain="https://hwnote.space/tags/%E4%BB%B7%E5%80%BC%E8%AE%BA/">价值论</category>
       
@@ -1147,9 +1172,9 @@
       
       <category domain="https://hwnote.space/tags/%E5%85%B3%E7%B3%BB/">关系</category>
       
-      <category domain="https://hwnote.space/tags/%E4%B8%BB%E4%BD%93%E6%80%A7/">主体性</category>
-      
       <category domain="https://hwnote.space/tags/%E5%8F%8D%E6%80%9D/">反思</category>
+      
+      <category domain="https://hwnote.space/tags/%E4%B8%BB%E4%BD%93%E6%80%A7/">主体性</category>
       
       <category domain="https://hwnote.space/tags/%E8%AE%A4%E7%9F%A5/">认知</category>
       
@@ -1174,13 +1199,13 @@
       
       <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
-      <category domain="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/">写作</category>
-      
       <category domain="https://hwnote.space/tags/%E6%88%90%E9%95%BF/">成长</category>
       
       <category domain="https://hwnote.space/tags/%E8%AE%B0%E5%BF%86/">记忆</category>
       
       <category domain="https://hwnote.space/tags/%E7%90%86%E6%83%B3%E4%B8%BB%E4%B9%89/">理想主义</category>
+      
+      <category domain="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/">写作</category>
       
       
       <comments>https://hwnote.space/posts/2026/06/26/ten-years/#disqus_thread</comments>
@@ -1261,9 +1286,9 @@
       
       <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
-      <category domain="https://hwnote.space/tags/%E8%AE%B0%E5%BF%86/">记忆</category>
-      
       <category domain="https://hwnote.space/tags/%E7%88%B1%E6%83%85/">爱情</category>
+      
+      <category domain="https://hwnote.space/tags/%E8%AE%B0%E5%BF%86/">记忆</category>
       
       <category domain="https://hwnote.space/tags/%E5%AE%9E%E8%B7%B5/">实践</category>
       
@@ -1330,9 +1355,9 @@
       
       <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
-      <category domain="https://hwnote.space/tags/%E6%88%90%E9%95%BF/">成长</category>
-      
       <category domain="https://hwnote.space/tags/%E5%85%B3%E7%B3%BB/">关系</category>
+      
+      <category domain="https://hwnote.space/tags/%E6%88%90%E9%95%BF/">成长</category>
       
       <category domain="https://hwnote.space/tags/%E7%88%B1%E6%83%85/">爱情</category>
       
@@ -1687,11 +1712,11 @@
       
       <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
-      <category domain="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/">写作</category>
-      
       <category domain="https://hwnote.space/tags/%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89/">存在主义</category>
       
       <category domain="https://hwnote.space/tags/%E7%90%86%E6%83%B3%E4%B8%BB%E4%B9%89/">理想主义</category>
+      
+      <category domain="https://hwnote.space/tags/%E5%86%99%E4%BD%9C/">写作</category>
       
       
       <comments>https://hwnote.space/posts/2025/09/24/unknown/#disqus_thread</comments>
@@ -2079,11 +2104,11 @@
       
       <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
+      <category domain="https://hwnote.space/tags/%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89/">存在主义</category>
+      
       <category domain="https://hwnote.space/tags/%E6%88%90%E9%95%BF/">成长</category>
       
       <category domain="https://hwnote.space/tags/%E9%9D%92%E6%98%A5/">青春</category>
-      
-      <category domain="https://hwnote.space/tags/%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89/">存在主义</category>
       
       
       <comments>https://hwnote.space/posts/2025/05/28/nian/#disqus_thread</comments>
@@ -2131,11 +2156,11 @@
       
       <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
-      <category domain="https://hwnote.space/tags/%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89/">存在主义</category>
-      
       <category domain="https://hwnote.space/tags/%E5%AD%A4%E7%8B%AC/">孤独</category>
       
       <category domain="https://hwnote.space/tags/%E5%85%B3%E7%B3%BB/">关系</category>
+      
+      <category domain="https://hwnote.space/tags/%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89/">存在主义</category>
       
       
       <comments>https://hwnote.space/posts/2025/05/07/late-night-thoughts/#disqus_thread</comments>
