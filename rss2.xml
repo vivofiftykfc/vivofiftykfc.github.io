@@ -9,7 +9,7 @@
     <atom:link href="https://hwnote.space/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>一个工科生的个人博客，记录技术学习、工程实践与对生活和认知的思考。</description>
-    <pubDate>Sun, 04 Oct 2026 17:49:29 GMT</pubDate>
+    <pubDate>Sun, 04 Oct 2026 17:54:12 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -18,7 +18,7 @@
       <guid>https://hwnote.space/posts/2026/10/05/beijing/</guid>
       <pubDate>Sun, 04 Oct 2026 16:00:00 GMT</pubDate>
       
-      <description>两则北京秋夜的日记，写年少时对北方的向往、旧楼里的风声，以及重新想起的家乡。</description>
+      <description>两则北京秋夜的日记</description>
       
       
       
@@ -29,8 +29,6 @@
       <category domain="https://hwnote.space/tags/%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/">一些思考</category>
       
       <category domain="https://hwnote.space/tags/%E5%8C%97%E4%BA%AC/">北京</category>
-      
-      <category domain="https://hwnote.space/tags/%E6%95%85%E4%B9%A1/">故乡</category>
       
       
       <comments>https://hwnote.space/posts/2026/10/05/beijing/#disqus_thread</comments>
