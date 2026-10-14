@@ -6,9 +6,9 @@
   const t=(zh,en)=>config.en?en:zh;
   const list=root.querySelector('.hw-list'),status=root.querySelector('.hw-status');
   const controls=root.querySelector('.hw-controls'),editor=root.querySelector('.hw-editor');
-  const storageKey=`hwnote-session:${config.server}`;
+  const session=window.HWCommentSession;
   let token='',user=null,rows=config.comments,reply=null,popup=null,nextOffset=null,live=false;
-  try{token=sessionStorage.getItem(storageKey)||'';}catch{}
+  token=session.get(config.server);
   const element=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;};
   const button=(label,action)=>{const b=element('button',label);b.type='button';b.addEventListener('click',()=>Promise.resolve(action()).catch(e=>status.textContent=e.message));return b;};
   const safeLink=url=>{try{const u=new URL(url);return ['http:','https:'].includes(u.protocol)?u.href:'';}catch{return '';}};
@@ -102,12 +102,17 @@
     for(const c of data.comments){const row=element('article');row.append(element('strong',c.author_name),element('p',c.page_key),body(c.content));for(const [label,state] of [[t('通过','Approve'),'approved'],[t('移除','Remove'),'deleted']])row.append(button(label,async()=>{await api('/api/admin/moderate',{method:'POST',body:JSON.stringify({id:c.id,status:state})});await moderation();await refresh();}));panel.append(row);}
     if(!data.comments.length)panel.append(element('p',t('没有待审核评论。','Nothing pending.')));root.append(panel);
   }
+  let controlsRevision=0,started=false;
   async function loadControls(){
-    const results=await Promise.allSettled([api('/api/config'),api('/api/me')]);controls.replaceChildren();
+    const attempt=++controlsRevision,checkedToken=token;
+    const results=await Promise.allSettled([api('/api/config'),api('/api/me')]);
+    if(attempt!==controlsRevision||checkedToken!==token)return;
+    controls.replaceChildren();
     if(results[0].status==='fulfilled')options=results[0].value;
     user=results[1].status==='fulfilled'?results[1].value.user:null;
+    if(results[1].status==='fulfilled'&&!user&&checkedToken){token='';session.clear(config.server,checkedToken);token=session.get(config.server);}
     document.dispatchEvent(new CustomEvent('hwnote:session-changed'));
-    if(user){controls.append(element('span',t('已登录：','Signed in: ')+user.name),button(t('退出','Sign out'),async()=>{await api('/api/logout',{method:'POST'});token='';try{sessionStorage.removeItem(storageKey);}catch{}user=null;root.querySelector('.hw-admin')?.remove();await loadControls();}));}
+    if(user){controls.append(element('span',t('已登录：','Signed in: ')+user.name),button(t('退出','Sign out'),async()=>{const previous=token;await api('/api/logout',{method:'POST'});token='';session.clear(config.server,previous);token=session.get(config.server);user=null;root.querySelector('.hw-admin')?.remove();await loadControls();}));}
     else for(const p of options.providers)controls.append(button(p.label+t(' 登录',' login'),()=>{
       popup=window.open(`${config.server}/auth/${p.id}/start?origin=${encodeURIComponent(location.origin)}`,'hwnote-login','width=620,height=720');
       if(!popup)throw Error(t('请允许登录弹窗。','Please allow the login popup.'));
@@ -135,11 +140,15 @@
     if(event.origin!==new URL(config.server).origin || event.source!==popup || event.data?.type!=='hwnote-auth')return;
     if(event.data.error){status.textContent=event.data.error;return;}
     if(!/^[a-f0-9]{64}$/.test(event.data.token))return;
-    token=event.data.token;try{sessionStorage.setItem(storageKey,token);}catch{}
+    token=event.data.token;session.set(config.server,token);
     await loadControls();
   });
   render();
   // Static comments already exist in HTML. Network work starts ahead of the viewport.
-  const start=()=>{refresh();loadControls();};
+  const syncSession=()=>{const shared=session.get(config.server);if(shared!==token){token=shared;user=null;root.querySelector('.hw-admin')?.remove();render();renderEditor();if(started)loadControls();}};
+  document.addEventListener('hwnote:session-changed',syncSession);
+  window.addEventListener('pageshow',()=>{syncSession();if(started)loadControls();});
+  window.addEventListener('focus',()=>{syncSession();if(started)loadControls();});
+  const start=()=>{started=true;syncSession();refresh();loadControls();};
   if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){observer.disconnect();start();}},{rootMargin:'900px'});observer.observe(root);}else start();
 })();

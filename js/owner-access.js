@@ -8,7 +8,7 @@
     const cfg = await config();
     const server = String(cfg.commentsServer || '').replace(/\/$/, '');
     if (!server) throw Error('评论服务尚未配置');
-    let token = ''; try { token = sessionStorage.getItem('hwnote-session:' + server) || ''; } catch {}
+    const token = window.HWCommentSession.get(server);
     if (!token) throw Object.assign(Error('请先在评论区使用站长 GitHub 账号登录'), {status:401});
     const res = await fetch(server + path, {cache:'no-store', signal:AbortSignal.timeout(8000), headers:{Authorization:'Bearer ' + token}});
     if (!res.ok) throw Object.assign(Error(res.status === 401 || res.status === 403 ? '没有站长访问权限' : '统计服务尚未就绪，请稍后重试'), {status:res.status});
